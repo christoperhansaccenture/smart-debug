@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="setCashInOut" type="tns:setCashInOut"/>
+
+<xs:element name="setCashInOutResponse" type="tns:setCashInOutResponse"/>
+
+<xs:complexType name="setCashInOut">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="cashInOutInData" type="tns:cashInOutInDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionData" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cashInOutInDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="otherTSN" type="xs:int"/>
+<xs:element name="otherVenue" type="xs:string" minOccurs="0"/>
+<xs:element name="otherLocationNum" type="xs:short"/>
+<xs:element name="otherTermNum" type="xs:short"/>
+<xs:element name="transferAmt" type="tns:money" minOccurs="0"/>
+<xs:element name="thisTSN" type="xs:int"/>
+<xs:element name="localVenue" type="xs:string" minOccurs="0"/>
+<xs:element name="localLocationNum" type="xs:short"/>
+<xs:element name="localTermNum" type="xs:short"/>
+<xs:element name="cashInOutIndicator" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="money" final="extension restriction">
+<xs:sequence>
+<xs:element name="dollars" type="xs:int"/>
+<xs:element name="cents" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setCashInOutResponse">
+<xs:sequence>
+<xs:element name="cashInOutOutData" type="tns:cashInOutOutDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cashInOutOutDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="otherVenue" type="xs:string" minOccurs="0"/>
+<xs:element name="otherLocationNum" type="xs:short"/>
+<xs:element name="otherTermNum" type="xs:short"/>
+<xs:element name="transferAmt" type="tns:money" minOccurs="0"/>
+<xs:element name="localVenue" type="xs:string" minOccurs="0"/>
+<xs:element name="localLocationNum" type="xs:short"/>
+<xs:element name="localTermNum" type="xs:short"/>
+<xs:element name="cashInOutIndicator" type="xs:short"/>
+<xs:element name="totalTransferAmt" type="tns:money" minOccurs="0"/>
+<xs:element name="ticketNum" type="xs:string" minOccurs="0"/>
+<xs:element name="cashBalance" type="tns:money" minOccurs="0"/>
+<xs:element name="termCashCode" type="xs:string" minOccurs="0"/>
+<xs:element name="thisEmployeeID" type="xs:string" minOccurs="0"/>
+<xs:element name="otherEmployeeID" type="xs:string" minOccurs="0"/>
+<xs:element name="numCashInTrans" type="xs:short"/>
+<xs:element name="numCashOutTrans" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

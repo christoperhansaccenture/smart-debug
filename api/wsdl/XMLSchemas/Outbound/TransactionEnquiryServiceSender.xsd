@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="recallLast" type="tns:recallLast"/>
+
+<xs:element name="recallLastResponse" type="tns:recallLastResponse"/>
+
+<xs:element name="acTxnDisp" type="tns:acTxnDisp"/>
+
+<xs:element name="acTxnDispResponse" type="tns:acTxnDispResponse"/>
+
+
+<xs:complexType name="recallLast">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="termSeqNo" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionData" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recallLastResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:recallDetails" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recallDetails" final="extension restriction">
+<xs:sequence>
+<xs:element name="recTime" type="tns:time" minOccurs="0"/>
+<xs:element name="recLine" type="xs:int"/>
+<xs:element name="recTerm" type="xs:int"/>
+<xs:element name="issueDate" type="tns:date" minOccurs="0"/>
+<xs:element name="tktID" type="xs:string" minOccurs="0"/>
+<xs:element name="function" type="xs:short"/>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="loc" type="xs:short"/>
+<xs:element name="terminal" type="xs:int"/>
+<xs:element name="tktSt1" type="xs:byte"/>
+<xs:element name="tktSt2" type="xs:byte"/>
+<xs:element name="tktTime" type="tns:time" minOccurs="0"/>
+<xs:element name="prevTkt" type="xs:string" minOccurs="0"/>
+<xs:element name="updTkt" type="xs:string" minOccurs="0"/>
+<xs:element name="txnAmt" type="xs:int"/>
+<xs:element name="batchNum" type="xs:int"/>
+<xs:element name="txnType" type="tns:recallTxnType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="time" final="extension restriction">
+<xs:sequence>
+<xs:element name="hour" type="xs:short"/>
+<xs:element name="minute" type="xs:short"/>
+<xs:element name="second" type="xs:short"/>
+<xs:element name="milliSecond" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="date" final="extension restriction">
+<xs:sequence>
+<xs:element name="year" type="xs:short"/>
+<xs:element name="month" type="xs:short"/>
+<xs:element name="day" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recallTxnType" final="extension restriction">
+<xs:sequence/>
+</xs:complexType>
+
+
+<xs:complexType name="acTxnDisp">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="termSeqNo" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="acTxnDispResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:recallDetails" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

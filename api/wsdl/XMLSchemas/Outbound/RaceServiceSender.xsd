@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+ Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. 
+-->
+<xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+  <xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+  <xs:element name="getRollBetInfo" type="tns:getRollBetInfo"/>
+  <xs:element name="getRollBetInfoResponse" type="tns:getRollBetInfoResponse"/>
+  <xs:complexType name="getRollBetInfo">
+    <xs:sequence>
+      <xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+      <xs:element name="fixtureDate" type="tns:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sessionData" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+      <xs:element name="functionID" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sessionInfo" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dateTime" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="date" type="tns:date" minOccurs="0"/>
+      <xs:element name="time" type="tns:time" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="year" type="xs:short"/>
+      <xs:element name="month" type="xs:short"/>
+      <xs:element name="day" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="time" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="hour" type="xs:short"/>
+      <xs:element name="minute" type="xs:short"/>
+      <xs:element name="second" type="xs:short"/>
+      <xs:element name="milliSecond" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRollBetInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:rollBetInfo" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rollBetInfo" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+      <xs:element name="betType" type="xs:string" minOccurs="0"/>
+      <xs:element name="rollBetIndicator" type="xs:short"/>
+      <xs:element name="maxNoOfRollBetLegs" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomBMCSConnectorException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="getMinutesToRace" type="tns:getMinutesToRace"/>
+  <xs:element name="getMinutesToRaceResponse" type="tns:getMinutesToRaceResponse"/>
+  <xs:complexType name="getMinutesToRace">
+    <xs:sequence>
+      <xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+      <xs:element name="findInfo" type="tns:findInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+    <xs:complexType name="findInfo">
+    <xs:sequence>
+      <xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+      <xs:element name="fixtureDate" type="tns:dateTime" minOccurs="0"/>
+      <xs:element name="fixtureID" type="xs:string" minOccurs="0"/>
+      <xs:element name="raceNo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+    <xs:complexType name="getMinutesToRaceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" minOccurs="0" maxOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="getTrackCondition" type="tns:getTrackCondition"/>
+  <xs:element name="getTrackConditionResponse" type="tns:getTrackConditionResponse"/>  
+  
+   <xs:complexType name="getTrackCondition">
+    <xs:sequence>
+      <xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+      <xs:element name="findInfo" type="tns:findInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTrackConditionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" minOccurs="0" maxOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

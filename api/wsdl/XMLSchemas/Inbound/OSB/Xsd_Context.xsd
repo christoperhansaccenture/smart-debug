@@ -1,0 +1,24 @@
+<xsd:schema targetNamespace="http://www.telecommunicationsmediatechnology.com" xmlns:con="http://www.bea.com/wli/sb/context" xmlns:tns="http://www.telecommunicationsmediatechnology.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xsd:element name="ContextData" type="tns:ContextData"/>
+	<xsd:complexType name="ContextData">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="1" name="Handler" type="xsd:anyType"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="XmlRootTag" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="IntMsgId" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="EsbMsgId" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="ExtMsgId" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditDtm" type="xsd:dateTime"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="EventName" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditType" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="From" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="To" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditPrm1" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditPrm2" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditPrm3" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditPrmName1" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditPrmName2" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="AuditPrmName3" type="xsd:string"/>
+			<xsd:element minOccurs="0" maxOccurs="1" name="Payload" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>			
+</xsd:schema>

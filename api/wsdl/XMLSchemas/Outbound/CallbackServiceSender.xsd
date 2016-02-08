@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/customapiconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/customapiconnector">
+
+<xs:element name="sendCallback" type="tns:sendCallback"/>
+
+<xs:element name="sendCallbackResponse" type="tns:sendCallbackResponse"/>
+
+<xs:element name="sendVRSCallback" type="tns:sendVRSCallback"/>
+
+<xs:element name="sendVRSCallbackResponse" type="tns:sendVRSCallbackResponse"/>
+
+<xs:complexType name="sendCallback">
+<xs:sequence>
+<xs:element name="request" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendCallbackResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendVRSCallback">
+<xs:sequence>
+<xs:element name="request" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendVRSCallbackResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="getDataRequestData" type="tns:getDataRequestData"/>
+
+<xs:element name="getDataRequestDataResponse" type="tns:getDataRequestDataResponse"/>
+
+<xs:element name="getFirstJ49Info" type="tns:getFirstJ49Info"/>
+
+<xs:element name="getFirstJ49InfoResponse" type="tns:getFirstJ49InfoResponse"/>
+
+<xs:element name="getSignOnData" type="tns:getSignOnData"/>
+
+<xs:element name="getSignOnDataResponse" type="tns:getSignOnDataResponse"/>
+
+<xs:element name="getTermEventDefData" type="tns:getTermEventDefData"/>
+
+<xs:element name="getTermEventDefDataResponse" type="tns:getTermEventDefDataResponse"/>
+
+<xs:element name="getTermFixTypeData" type="tns:getTermFixTypeData"/>
+
+<xs:element name="getTermFixTypeDataResponse" type="tns:getTermFixTypeDataResponse"/>
+
+<xs:element name="getTermInitData" type="tns:getTermInitData"/>
+
+<xs:element name="getTermInitDataResponse" type="tns:getTermInitDataResponse"/>
+
+<xs:element name="setShutdownFrontEnd" type="tns:setShutdownFrontEnd"/>
+
+<xs:element name="setShutdownFrontEndResponse" type="tns:setShutdownFrontEndResponse"/>
+
+<xs:complexType name="getTermFixTypeData">
+<xs:sequence>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+<xs:element name="inTermFixData" type="tns:termFixInDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="termFixInDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="locNum" type="xs:short"/>
+<xs:element name="termNum" type="xs:short"/>
+<xs:element name="meetTransNum" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTermFixTypeDataResponse">
+<xs:sequence>
+<xs:element name="termFixture" type="tns:termFixtureType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="termFixtureType" final="extension restriction">
+<xs:sequence>
+<xs:element name="fixDate" type="tns:date" minOccurs="0"/>
+<xs:element name="day" type="xs:string" minOccurs="0"/>
+<xs:element name="meetingNum" type="xs:short"/>
+<xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+<xs:element name="raceCourseAbrev" type="xs:string" minOccurs="0"/>
+<xs:element name="discrepancyIndicator" type="xs:short"/>
+<xs:element name="fixtureID" type="xs:short" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="date" final="extension restriction">
+<xs:sequence>
+<xs:element name="year" type="xs:short"/>
+<xs:element name="month" type="xs:short"/>
+<xs:element name="day" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSignOnData">
+<xs:sequence>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+<xs:element name="inSignOnData" type="tns:signOnInDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="signOnInDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="logonID" type="xs:string" minOccurs="0"/>
+<xs:element name="pswd" type="xs:string" minOccurs="0"/>
+<xs:element name="newPswd" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSignOnDataResponse">
+<xs:sequence>
+<xs:element name="outLoginInfo" type="tns:outLoginInfo" minOccurs="0"/>
+<xs:element name="termsignOnOut" type="tns:signOn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="outLoginInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="sMatrixes" type="tns:secMatrix" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="lastLogin" type="xs:string" minOccurs="0"/>
+<xs:element name="hasPasswordExpired" type="xs:short"/>
+<xs:element name="daysBeforeExpired" type="xs:short"/>
+<xs:element name="shiftNum" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secMatrix" final="extension restriction">
+<xs:sequence>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="signOn" final="extension restriction">
+<xs:sequence>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="locationNum" type="xs:short"/>
+<xs:element name="termNum" type="xs:short"/>
+<xs:element name="systemDate" type="tns:date" minOccurs="0"/>
+<xs:element name="signedOnTime" type="tns:time" minOccurs="0"/>
+<xs:element name="shiftNum" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="time" final="extension restriction">
+<xs:sequence>
+<xs:element name="hour" type="xs:short"/>
+<xs:element name="minute" type="xs:short"/>
+<xs:element name="second" type="xs:short"/>
+<xs:element name="milliSecond" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getDataRequestData">
+<xs:sequence>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+<xs:element name="inDataRequestData" type="tns:dataRequestInDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataRequestInDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="fixDate" type="tns:date" minOccurs="0"/>
+<xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+<xs:element name="fixID" type="xs:short"/>
+<xs:element name="requestType" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getDataRequestDataResponse">
+<xs:sequence>
+<xs:element name="termRequestOut" type="tns:dataRequest" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataRequest" final="extension restriction">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setShutdownFrontEnd">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="frontEndSessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+<xs:element name="shutdownInData" type="tns:shutdownInDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionData" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="shutdownInDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="enteredBalance" type="tns:money" minOccurs="0"/>
+<xs:element name="shutdownVenue" type="xs:string" minOccurs="0"/>
+<xs:element name="shutdownLocNum" type="xs:short"/>
+<xs:element name="shutdownPosition" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="money" final="extension restriction">
+<xs:sequence>
+<xs:element name="dollars" type="xs:int"/>
+<xs:element name="cents" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setShutdownFrontEndResponse">
+<xs:sequence>
+<xs:element name="shutdownOutData" type="tns:shutdownOutDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="shutdownOutDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="shutdownVenue" type="xs:string" minOccurs="0"/>
+<xs:element name="shutdownLocNum" type="xs:short"/>
+<xs:element name="shutdownPosition" type="xs:short"/>
+<xs:element name="systemDate" type="tns:date" minOccurs="0"/>
+<xs:element name="shutdownTime" type="tns:time" minOccurs="0"/>
+<xs:element name="shiftNum" type="xs:short"/>
+<xs:element name="numBet" type="xs:short"/>
+<xs:element name="cashTransfer" type="tns:money" minOccurs="0"/>
+<xs:element name="sales" type="tns:money" minOccurs="0"/>
+<xs:element name="sundryReceipt" type="tns:money" minOccurs="0"/>
+<xs:element name="sundryPayment" type="tns:money" minOccurs="0"/>
+<xs:element name="cancellation" type="tns:money" minOccurs="0"/>
+<xs:element name="payOut" type="tns:money" minOccurs="0"/>
+<xs:element name="balance" type="tns:money" minOccurs="0"/>
+<xs:element name="enteredBalance" type="tns:money" minOccurs="0"/>
+<xs:element name="discrepancy" type="tns:money" minOccurs="0"/>
+<xs:element name="chequePayout" type="tns:money" minOccurs="0"/>
+<xs:element name="shutDownCshOutAmt" type="tns:money" minOccurs="0"/>
+<xs:element name="fourDBigInvest" type="tns:money" minOccurs="0"/>
+<xs:element name="fourDSmallInvest" type="tns:money" minOccurs="0"/>
+<xs:element name="fourDBigCancel" type="tns:money" minOccurs="0"/>
+<xs:element name="fourDSmallCancel" type="tns:money" minOccurs="0"/>
+<xs:element name="fourDBigPayOut" type="tns:money" minOccurs="0"/>
+<xs:element name="fourDSmallPayOut" type="tns:money" minOccurs="0"/>
+<xs:element name="totalRebateGiven" type="tns:money" minOccurs="0"/>
+<xs:element name="totalRebateReclaimed" type="tns:money" minOccurs="0"/>
+<xs:element name="numCashInTransaction" type="xs:short"/>
+<xs:element name="numCashOutTransaction" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFirstJ49Info">
+<xs:sequence>
+<xs:element name="macAdress" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFirstJ49InfoResponse">
+<xs:sequence>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+<xs:element name="retryTimeOut" type="xs:short" minOccurs="0"/>
+<xs:element name="responseTimeOut" type="xs:short" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTermInitData">
+<xs:sequence>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTermInitDataResponse">
+<xs:sequence>
+<xs:element name="termInitDetails" type="tns:termInitDetailsType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="termInitDetailsType" final="extension restriction">
+<xs:sequence>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="locationNum" type="xs:short"/>
+<xs:element name="termNum" type="xs:short"/>
+<xs:element name="systemDate" type="tns:date" minOccurs="0"/>
+<xs:element name="timeoutLimit" type="xs:string" minOccurs="0"/>
+<xs:element name="termseqNum" type="xs:int"/>
+<xs:element name="retryTimeOut" type="xs:string" minOccurs="0"/>
+<xs:element name="toteCheqPayLimit" type="tns:money" minOccurs="0"/>
+<xs:element name="cheqPay4DLimit" type="tns:money" minOccurs="0"/>
+<xs:element name="bigPayoutToteLimit" type="tns:money" minOccurs="0"/>
+<xs:element name="bigPayout4DLimit" type="tns:money" minOccurs="0"/>
+<xs:element name="sellWarnToteLimit" type="tns:money" minOccurs="0"/>
+<xs:element name="sellWarn4DLimit" type="tns:money" minOccurs="0"/>
+<xs:element name="termStatus" type="tns:termStatusType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="termStatusType" final="extension restriction">
+<xs:sequence>
+<xs:element name="cheqPayPermit" type="xs:short"/>
+<xs:element name="lkyDrwPayPermit" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTermEventDefData">
+<xs:sequence>
+<xs:element name="tSN" type="xs:int" minOccurs="0"/>
+<xs:element name="inEventData" type="tns:termEventInDataType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="termEventInDataType" final="extension restriction">
+<xs:sequence>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="locNum" type="xs:short"/>
+<xs:element name="termNum" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTermEventDefDataResponse">
+<xs:sequence>
+<xs:element name="distinctBetType" type="tns:distinctBetType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="specificBetType" type="tns:specificBetType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="distinctBetType" final="extension restriction">
+<xs:sequence>
+<xs:element name="fixtype" type="xs:string" minOccurs="0"/>
+<xs:element name="betType" type="xs:string" minOccurs="0"/>
+<xs:element name="betAbrev" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="specificBetType" final="extension restriction">
+<xs:sequence>
+<xs:element name="fixtype" type="xs:string" minOccurs="0"/>
+<xs:element name="clubMeet" type="xs:string" minOccurs="0"/>
+<xs:element name="betInfo" type="tns:betDetailType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="betDetailType" final="extension restriction">
+<xs:sequence>
+<xs:element name="betType" type="xs:string" minOccurs="0"/>
+<xs:element name="unitValue" type="tns:money" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

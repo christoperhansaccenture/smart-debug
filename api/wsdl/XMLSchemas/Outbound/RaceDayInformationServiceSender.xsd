@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/rdi" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/rdi">
+
+<xs:element name="signon" type="tns:signon"/>
+
+<xs:element name="signonResp" type="tns:signonResp"/>
+
+<xs:element name="getHorseWeightList" type="tns:getHorseWeightList"/>
+
+<xs:element name="getHorseWeightListResp" type="tns:getHorseWeightListResp"/>
+
+<xs:complexType name="signon">
+<xs:sequence>
+<xs:element name="memberId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="signonResp">
+<xs:sequence>
+<xs:element name="sessionId" type="xs:string" minOccurs="0"/>
+<xs:element name="distributorId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHorseWeightList">
+<xs:sequence>
+<xs:element name="sessionId" type="xs:string" minOccurs="0"/>
+<xs:element name="memberId" type="xs:string" minOccurs="0"/>
+<xs:element name="raceNo" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHorseWeightListResp">
+<xs:sequence>
+<xs:element name="hwList" type="tns:horseWeightList" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="horseWeightList">
+<xs:sequence>
+<xs:element name="horseWeight" type="tns:horseWeight" minOccurs="0"/>
+<xs:element name="numOfHW" type="xs:int" minOccurs="0"/>
+<xs:element name="timeStamp" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="horseWeight">
+<xs:sequence>
+<xs:element name="horseNo" type="xs:int" minOccurs="0"/>
+<xs:element name="changeOfJockey" type="xs:string" minOccurs="0"/>
+<xs:element name="claimOverWeight" type="xs:string" minOccurs="0"/>
+<xs:element name="horseWeight" type="xs:string" minOccurs="0"/>
+<xs:element name="diffInWeight" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+</xs:schema>

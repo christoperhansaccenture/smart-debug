@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="isCashier" type="tns:isCashier"/>
+
+<xs:element name="isCashierResponse" type="tns:isCashierResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="pingSL" type="tns:pingSL"/>
+
+<xs:element name="pingSLResponse" type="tns:pingSLResponse"/>
+
+<xs:element name="validatePassword" type="tns:validatePassword"/>
+
+<xs:element name="validatePasswordResponse" type="tns:validatePasswordResponse"/>
+
+<xs:complexType name="validatePassword">
+<xs:sequence>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validatePasswordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isCashier">
+<xs:sequence>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isCashierResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="pingSL">
+<xs:sequence>
+<xs:element name="n" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pingSLResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="lInfo" type="tns:loginInfo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+<xs:element name="userPassword" type="xs:string" minOccurs="0"/>
+<xs:element name="tsn" type="xs:int"/>
+<xs:element name="equipmentNo" type="xs:int"/>
+<xs:element name="versionNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="oLoginInfo" type="tns:outLoginInfo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="outLoginInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="sMatrixes" type="tns:secMatrix" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="lastLogin" type="xs:string" minOccurs="0"/>
+<xs:element name="hasPasswordExpired" type="xs:short"/>
+<xs:element name="daysBeforeExpired" type="xs:short"/>
+<xs:element name="shiftNum" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secMatrix" final="extension restriction">
+<xs:sequence>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

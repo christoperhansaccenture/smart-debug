@@ -1,0 +1,351 @@
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector/terminalenquiryservice" xmlns:tns="http://stc.com/ssbk/custombmcsconnector/terminalenquiryservice" xmlns:ns1="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="getCurrentRaceDetails" type="tns:getCurrentRaceDetails"/>
+
+<xs:element name="getCurrentRaceDetailsResponse" type="tns:getCurrentRaceDetailsResponse"/>
+
+<xs:element name="getFDList" type="tns:getFDList"/>
+
+<xs:element name="getFDListResponse" type="tns:getFDListResponse"/>
+
+<xs:element name="getHorseListForRace" type="tns:getHorseListForRace"/>
+
+<xs:element name="getHorseListForRaceResponse" type="tns:getHorseListForRaceResponse"/>
+
+<xs:element name="getMeetingInformation" type="tns:getMeetingInformation"/>
+
+<xs:element name="getMeetingInformationResponse" type="tns:getMeetingInformationResponse"/>
+
+<xs:element name="getRaceInformation" type="tns:getRaceInformation"/>
+
+<xs:element name="getRaceInformationResponse" type="tns:getRaceInformationResponse"/>
+
+<xs:element name="getResults" type="tns:getResults"/>
+
+<xs:element name="getResultsResponse" type="tns:getResultsResponse"/>
+
+<xs:element name="getADList" type="tns:getADList"/>
+
+<xs:element name="getADListResponse" type="tns:getADListResponse"/>
+
+
+
+<xs:complexType name="getADList">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="raceID" type="xs:int" minOccurs="0"/>
+<xs:element name="betType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getADListResponse">
+<xs:sequence>
+<xs:element name="betTypeOut" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="tns:adList" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adList" final="extension restriction">
+<xs:sequence>
+<xs:element name="poolDetail" type="tns:poolDetail" minOccurs="0"/>
+<xs:element name="adlist" type="tns:aDividend" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="favourite" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFDList">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="raceID" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionData" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFDListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:fdList" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fdList" final="extension restriction">
+<xs:sequence>
+<xs:element name="poolDetail" type="tns:poolDetail" minOccurs="0"/>
+<xs:element name="fdlist" type="tns:fDividend" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="poolDetail" final="extension restriction">
+<xs:sequence>
+<xs:element name="betType" type="tns:poolType" minOccurs="0"/>
+<xs:element name="betTypeAbbr" type="xs:string" minOccurs="0"/>
+<xs:element name="poolID" type="xs:int"/>
+<xs:element name="poolStatus" type="tns:poolStatus" minOccurs="0"/>
+<xs:element name="bettingType" type="tns:poolBettingType" minOccurs="0"/>
+<xs:element name="poolValues" type="tns:poolValues" minOccurs="0"/>
+<xs:element name="masterRaceNo" type="xs:short"/>
+<xs:element name="masterRaceID" type="xs:int"/>
+<xs:element name="slaveRaceNo" type="xs:short"/>
+<xs:element name="slaveRaceID" type="xs:int"/>
+<xs:element name="slaveRaceDataList" type="tns:slaveRaceData" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="mgnpAmount" type="xs:double"/>
+<xs:element name="mgnpIndicator" type="xs:boolean"/>
+<xs:element name="comminglingStatus" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="aDividend" final="extension restriction">
+<xs:sequence>
+<xs:element name="legs" type="xs:short" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="approximateDividend" type="xs:double"/>
+<xs:element name="indicator" type="tns:dividendIndicator" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="poolType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="poolStatus">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="poolBettingType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="poolValues" final="extension restriction">
+<xs:sequence>
+<xs:element name="grossTotal" type="xs:double"/>
+<xs:element name="jackPot" type="xs:double"/>
+<xs:element name="carryForwardRaceID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="slaveRaceData" final="extension restriction">
+<xs:sequence>
+<xs:element name="slaveRaceNo" type="xs:short"/>
+<xs:element name="slaveRaceID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fDividend" final="extension restriction">
+<xs:sequence>
+<xs:element name="legs" type="xs:short" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="finalDividend" type="xs:double"/>
+<xs:element name="indicator" type="tns:dividendIndicator" minOccurs="0"/>
+<xs:element name="indicatorAbbr" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dividendIndicator">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentRaceDetails">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="date" type="tns:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="date" final="extension restriction">
+<xs:sequence>
+<xs:element name="year" type="xs:short"/>
+<xs:element name="month" type="xs:short"/>
+<xs:element name="day" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentRaceDetailsResponse">
+<xs:sequence>
+<xs:element name="raceDetailsSeq" type="tns:raceDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="raceDetails" final="extension restriction">
+<xs:sequence>
+<xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+<xs:element name="clubMeetingDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="fixtureID" type="xs:short"/>
+<xs:element name="raceNo" type="xs:short"/>
+<xs:element name="raceID" type="xs:int"/>
+<xs:element name="raceStatus" type="tns:raceStatus" minOccurs="0"/>
+<xs:element name="minutesToRace" type="xs:int"/>
+<xs:element name="numberOfStarters" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="raceStatus">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHorseListForRace">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="raceID" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHorseListForRaceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:horseListForRace" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="horseListForRace" final="extension restriction">
+<xs:sequence>
+<xs:element name="saddleClothNo" type="xs:short"/>
+<xs:element name="horseStatus" type="tns:horseStatus" minOccurs="0"/>
+<xs:element name="jockey" type="xs:string" minOccurs="0"/>
+<xs:element name="emergencyAcceptorIndicator" type="xs:boolean"/>
+<xs:element name="horseWeight" type="xs:double"/>
+<xs:element name="overweightClaim" type="xs:double"/>
+<xs:element name="totalWeightCarried" type="xs:double"/>
+<xs:element name="horseName" type="xs:string" minOccurs="0"/>
+<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+<xs:element name="barrier" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="horseStatus">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getResults">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="raceID" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getResultsResponse">
+<xs:sequence>
+<xs:element name="raceResult" type="tns:raceResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="raceResult" final="extension restriction">
+<xs:sequence>
+<xs:element name="placingList" type="tns:placing" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="raceStatus" type="tns:raceStatus" minOccurs="0"/>
+<xs:element name="raceStatusAbbr" type="xs:string" minOccurs="0"/>
+<xs:element name="raceid" type="xs:int"/>
+<xs:element name="favs" type="tns:venueFavs" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="placing" final="extension restriction">
+<xs:sequence>
+<xs:element name="horseNo" type="xs:short"/>
+<xs:element name="placing" type="xs:short"/>
+<xs:element name="horseName" type="xs:string" minOccurs="0"/>
+<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="venueFavs" final="extension restriction">
+<xs:sequence>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="favorite1" type="xs:short"/>
+<xs:element name="favorite2" type="xs:short"/>
+<xs:element name="favorite3" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMeetingInformation">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="date" type="tns:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMeetingInformationResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:meetingInformation" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="meetingInformation" final="extension restriction">
+<xs:sequence>
+<xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+<xs:element name="fixtureID" type="xs:short"/>
+<xs:element name="cctvSponsorMessageForFixture" type="xs:string" minOccurs="0"/>
+<xs:element name="raceList" type="tns:raceListForMeeting" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="raceListForMeeting" final="extension restriction">
+<xs:sequence>
+<xs:element name="distance" type="xs:short"/>
+<xs:element name="trackCondition" type="xs:string" minOccurs="0"/>
+<xs:element name="trackFormNo" type="xs:short"/>
+<xs:element name="weatherState" type="xs:string" minOccurs="0"/>
+<xs:element name="raceNo" type="xs:short"/>
+<xs:element name="raceName" type="xs:string" minOccurs="0"/>
+<xs:element name="raceClass" type="xs:string" minOccurs="0"/>
+<xs:element name="division" type="xs:string" minOccurs="0"/>
+<xs:element name="cctvSponsorMessageForRace" type="xs:string" minOccurs="0"/>
+<xs:element name="ast" type="tns:dateTime" minOccurs="0"/>
+<xs:element name="raceStatus" type="tns:raceStatus" minOccurs="0"/>
+<xs:element name="horseList" type="tns:horseListForRace" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="course" type="xs:string" minOccurs="0"/>
+<xs:element name="trackType" type="xs:string" minOccurs="0"/>
+<xs:element name="stakes" type="xs:double"/>
+<xs:element name="raceID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dateTime" final="extension restriction">
+<xs:sequence>
+<xs:element name="date" type="tns:date" minOccurs="0"/>
+<xs:element name="time" type="tns:time" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="time" final="extension restriction">
+<xs:sequence>
+<xs:element name="hour" type="xs:short"/>
+<xs:element name="minute" type="xs:short"/>
+<xs:element name="second" type="xs:short"/>
+<xs:element name="milliSecond" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRaceInformation">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="raceID" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRaceInformationResponse">
+<xs:sequence>
+<xs:element name="raceListForMeeting" type="tns:raceListForMeeting" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

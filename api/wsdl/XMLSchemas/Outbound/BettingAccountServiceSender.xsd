@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="accStatementReq" type="tns:accStatementReq"/>
+
+<xs:element name="accStatementReqResponse" type="tns:accStatementReqResponse"/>
+
+<xs:element name="accountHeader" type="tns:accountHeader"/>
+
+<xs:element name="accountHeaderResponse" type="tns:accountHeaderResponse"/>
+
+<xs:element name="accountTrailer" type="tns:accountTrailer"/>
+
+<xs:element name="accountTrailerResponse" type="tns:accountTrailerResponse"/>
+
+<xs:element name="changePIN" type="tns:changePIN"/>
+
+<xs:element name="changePINResponse" type="tns:changePINResponse"/>
+
+<xs:element name="deposit" type="tns:deposit"/>
+
+<xs:element name="depositResponse" type="tns:depositResponse"/>
+
+<xs:element name="getAcctDetails" type="tns:getAcctDetails"/>
+
+<xs:element name="getAcctDetailsResponse" type="tns:getAcctDetailsResponse"/>
+
+<xs:element name="withdrawal" type="tns:withdrawal"/>
+
+<xs:element name="withdrawalResponse" type="tns:withdrawalResponse"/>
+
+<xs:element name="getAllTransactions" type="tns:getAllTransactions"/>
+
+<xs:element name="getAllTransactionsResponse" type="tns:getAllTransactionsResponse"/>
+
+<xs:element name="getAllBetsTransactions" type="tns:getAllBetsTransactions"/>
+
+<xs:element name="getAllBetsTransactionsResponse" type="tns:getAllBetsTransactionsResponse"/>
+
+<xs:element name="getAccountDetails" type="tns:getAccountDetails"/>
+
+<xs:element name="getAccountDetailsResponse" type="tns:getAccountDetailsResponse"/>
+
+<xs:element name="giroDeposit" type="tns:giroDeposit"/>
+
+<xs:element name="giroDepositResponse" type="tns:giroDepositResponse"/>
+
+<xs:element name="giroWithdraw" type="tns:giroWithdraw"/>
+
+<xs:element name="giroWithdrawResponse" type="tns:giroWithdrawResponse"/>
+
+<xs:complexType name="giroWithdraw">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="giroWithdrawIn" type="tns:giroWithdrawIn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroWithdrawIn">
+<xs:sequence>
+<xs:element name="termSqNo" type="xs:int"/>
+<xs:element name="withdrawAmt" type="tns:money"/>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="xs:short"/>
+<xs:element name="position" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroWithdrawResponse">
+<xs:sequence>
+<xs:element name="giroWithdrawOut" type="tns:giroWithdrawOut" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroWithdrawOut">
+<xs:sequence>
+<xs:element name="currentBal" type="tns:money"/>
+<xs:element name="suspendedPayout" type="tns:money"/>
+<xs:element name="withdrawalAmt" type="tns:money"/>
+<xs:element name="date" type="tns:date"/>
+<xs:element name="accountName" type="xs:string"/>
+<xs:element name="accountNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroDeposit">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="giroDepositIn" type="tns:giroDepositIn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroDepositIn">
+<xs:sequence>
+<xs:element name="termSqNo" type="xs:int"/>
+<xs:element name="depositAmt" type="tns:money"/>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="xs:short"/>
+<xs:element name="position" type="xs:short"/>
+<xs:element name="accountNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroDepositResponse">
+<xs:sequence>
+<xs:element name="giroDepositOut" type="tns:giroDepositOut" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="giroDepositOut">
+<xs:sequence>
+<xs:element name="currentBal" type="tns:money"/>
+<xs:element name="suspendedPayout" type="tns:money"/>
+<xs:element name="depositAmt" type="tns:money"/>
+<xs:element name="accountName" type="xs:string"/>
+<xs:element name="accountNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAccountDetails">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="acctNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAccountDetailsResponse">
+<xs:sequence>
+<xs:element name="acctLimits" type="tns:acctLimits" minOccurs="0"/>
+<xs:element name="queuePriority" type="xs:short" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="acctLimits" final="extension restriction">
+<xs:sequence>
+<xs:element name="acctNo" type="xs:int" minOccurs="0"/>
+<xs:element name="maxDepositAmtPerDay" type="tns:money" minOccurs="0"/>
+<xs:element name="cumDepositAmtPerDay" type="tns:money" minOccurs="0"/>
+<xs:element name="maxExpenditurePerDay" type="tns:money" minOccurs="0"/>
+<xs:element name="cumExpenditurePerDay" type="tns:money" minOccurs="0"/>
+<xs:element name="cumTotalWinning" type="tns:money" minOccurs="0"/>
+<xs:element name="cumTotalLosses" type="tns:money" minOccurs="0"/>
+<xs:element name="limitWarningPercent" type="xs:short" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="accountType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="getAllTransactions">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+<xs:element name="accountNumber" type="xs:int"/>
+<xs:element name="fromDate" type="tns:date" minOccurs="0"/>
+<xs:element name="toDate" type="tns:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="acctDetails" final="extension restriction">
+<xs:sequence>
+<xs:element name="accountNo" type="xs:int"/>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+<xs:element name="startDate" type="tns:date" minOccurs="0"/>
+<xs:element name="endDate" type="tns:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllTransactionsResponse">
+<xs:sequence>
+<xs:element name="details" type="tns:details" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="details" final="extension restriction">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="accountNo" type="xs:int" minOccurs="0"/>
+<xs:element name="type" type="tns:trxType" minOccurs="0"/>
+<xs:element name="status" type="tns:trxStatus" minOccurs="0"/>
+<xs:element name="amount" type="tns:money" minOccurs="0"/>
+<xs:element name="timestamp" type="tns:timestamp" minOccurs="0"/>
+<xs:element name="termSeqNo" type="xs:int" minOccurs="0"/>
+<xs:element name="STCReferenceNo" type="xs:string" minOccurs="0"/>
+<xs:element name="clubAccountNo" type="xs:string" minOccurs="0"/>
+<xs:element name="paymentMode" type="tns:paymentMode" minOccurs="0"/>
+<xs:element name="currencyCode" type="xs:string" minOccurs="0"/>
+<xs:element name="indicator" type="tns:indicator" minOccurs="0"/>
+<xs:element name="documentNo" type="xs:string" minOccurs="0"/>
+<xs:element name="bankCode" type="xs:string" minOccurs="0"/>
+<xs:element name="branchCode" type="xs:string" minOccurs="0"/>
+<xs:element name="clearanceStatus" type="tns:clearanceStatus" minOccurs="0"/>
+<xs:element name="clearanceTimestamp" type="tns:timestamp" minOccurs="0"/>
+<xs:element name="remarks" type="xs:string" minOccurs="0"/>
+<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+<xs:element name="vlp" type="xs:string" minOccurs="0"/>
+<xs:element name="remoteVlp" type="xs:string" minOccurs="0"/>
+<xs:element name="clearDishonourUserID" type="xs:string" minOccurs="0"/>
+<xs:element name="clearDishonourVlp" type="xs:string" minOccurs="0"/>
+<xs:element name="adminCharge" type="tns:money" minOccurs="0"/>
+<xs:element name="bankCharge" type="tns:money" minOccurs="0"/>
+<xs:element name="clearanceRemarks" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clearanceStatus">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="trxType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="trxStatus">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="indicator">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="timestamp" final="extension restriction">
+<xs:sequence>
+<xs:element name="date" type="tns:date" minOccurs="0"/>
+<xs:element name="time" type="tns:time" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBetsTransactions">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+<xs:element name="accountNumber" type="xs:int"/>
+<xs:element name="fromDate" type="tns:date" minOccurs="0"/>
+<xs:element name="toDate" type="tns:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllBetsTransactionsResponse">
+<xs:sequence>
+<xs:element name="betsDetails" type="tns:betsDetails" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="betsDetails" final="extension restriction">
+<xs:sequence>
+<xs:element name="ticketID" type="xs:string" minOccurs="0"/>
+<xs:element name="betTrxType" type="tns:betTrxType" minOccurs="0"/>
+<xs:element name="amount" type="tns:money" minOccurs="0"/>
+<xs:element name="timestamp" type="tns:timestamp" minOccurs="0"/>
+<xs:element name="betType" type="tns:betType" minOccurs="0"/>
+<xs:element name="gameType" type="tns:gameType" minOccurs="0"/>
+<xs:element name="investorSelection" type="xs:int" minOccurs="0"/>
+<xs:element name="vlp" type="xs:string" minOccurs="0"/>
+<xs:element name="terminalTypeDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="clubMeeting" type="xs:string" minOccurs="0"/>
+<xs:element name="fixtureDate" type="tns:date" minOccurs="0"/>
+<xs:element name="fixtureNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="numberOfUnits" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="betTrxType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="betType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="gameType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="withdrawal">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="cashDetails" type="tns:cashDetails" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionData" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cashDetails" final="extension restriction">
+<xs:sequence>
+<xs:element name="accountNo" type="xs:int"/>
+<xs:element name="termSeqNo" type="xs:int"/>
+<xs:element name="remoteTSN" type="xs:int"/>
+<xs:element name="amount" type="tns:money" minOccurs="0"/>
+<xs:element name="venueID" type="xs:string" minOccurs="0"/>
+<xs:element name="locationID" type="xs:short"/>
+<xs:element name="positionID" type="xs:short"/>
+<xs:element name="clubAccountNo" type="xs:string" minOccurs="0"/>
+<xs:element name="userID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="money" final="extension restriction">
+<xs:sequence>
+<xs:element name="dollars" type="xs:int"/>
+<xs:element name="cents" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="withdrawalResponse">
+<xs:sequence>
+<xs:element name="transactionNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="referenceNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deposit">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="cashDetails" type="tns:cashDetails" minOccurs="0"/>
+<xs:element name="paymentMode" type="tns:paymentMode" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paymentMode">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="depositResponse">
+<xs:sequence>
+<xs:element name="transactionNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="referenceNo" type="xs:string" minOccurs="0"/>
+<xs:element name="warning" type="tns:warning" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="warning" final="extension restriction">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountTrailer">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="acctTrailerIn" type="tns:accountTrailerIn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountTrailerIn" final="extension restriction">
+<xs:sequence>
+<xs:element name="termSqNo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountTrailerResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="changePIN">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="changePINIn" type="tns:changePINIn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePINIn" final="extension restriction">
+<xs:sequence>
+<xs:element name="termSqNo" type="xs:int"/>
+<xs:element name="accountNo" type="xs:int"/>
+<xs:element name="CITnumber" type="xs:int"/>
+<xs:element name="newAccountPIN" type="xs:unsignedShort" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="nricNo" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="tns:pinOperationType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pinOperationType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePINResponse">
+<xs:sequence>
+<xs:element name="changePINOut" type="tns:changePINOut" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePINOut" final="extension restriction">
+<xs:sequence>
+<xs:element name="trxID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAcctDetails">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="accountNo" type="xs:int" minOccurs="0"/>
+<xs:element name="termSeqNo" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAcctDetailsResponse">
+<xs:sequence>
+<xs:element name="accountDetails" type="tns:accountDetails" minOccurs="0"/>
+<xs:element name="paymentMode" type="tns:paymentModeInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="cashWithdrawalAllowed" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountDetails" final="extension restriction">
+<xs:sequence>
+<xs:element name="accountNo" type="xs:int"/>
+<xs:element name="holderName" type="xs:string" minOccurs="0"/>
+<xs:element name="holderReferenceID" type="xs:string" minOccurs="0"/>
+<xs:element name="accountType" type="tns:acctType" minOccurs="0"/>
+<xs:element name="accountStatus" type="tns:accountStatus" minOccurs="0"/>
+<xs:element name="available" type="tns:money" minOccurs="0"/>
+<xs:element name="suspendedPayout" type="tns:money" minOccurs="0"/>
+<xs:element name="cashHolding" type="tns:money" minOccurs="0"/>
+<xs:element name="holding" type="tns:money" minOccurs="0"/>
+<xs:element name="EFTWithdrawalHolding" type="tns:money" minOccurs="0"/>
+<xs:element name="withdrawalHolding" type="tns:money" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="acctType">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountStatus">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paymentModeInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="paymentMode" type="tns:paymentMode" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accStatementReq">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="accStatementReqIn" type="tns:accStatementReqIn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accStatementReqIn" final="extension restriction">
+<xs:sequence>
+<xs:element name="termSqNo" type="xs:int"/>
+<xs:element name="disposition" type="tns:disposition" minOccurs="0"/>
+<xs:element name="startDate" type="tns:date" minOccurs="0"/>
+<xs:element name="endDate" type="tns:date" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="disposition">
+<xs:sequence>
+<xs:element name="__value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="date" final="extension restriction">
+<xs:sequence>
+<xs:element name="year" type="xs:short"/>
+<xs:element name="month" type="xs:short"/>
+<xs:element name="day" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="time" final="extension restriction">
+<xs:sequence>
+<xs:element name="hour" type="xs:short"/>
+<xs:element name="minute" type="xs:short"/>
+<xs:element name="second" type="xs:short"/>
+<xs:element name="milliSecond" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accStatementReqResponse">
+<xs:sequence>
+<xs:element name="transactionNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="accStatementReqOut" type="tns:accStatementReqOut" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accStatementReqOut" final="extension restriction">
+<xs:sequence>
+<xs:element name="currentBal" type="tns:money" minOccurs="0"/>
+<xs:element name="suspendedPayout" type="tns:money" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountHeader">
+<xs:sequence>
+<xs:element name="sd" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="acctHeaderIn" type="tns:accountHeaderIn" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountHeaderIn" final="extension restriction">
+<xs:sequence>
+<xs:element name="termSqNo" type="xs:int"/>
+<xs:element name="accountNo" type="xs:int"/>
+<xs:element name="accountPIN" type="xs:unsignedShort" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="CITnumber" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountHeaderResponse">
+<xs:sequence>
+<xs:element name="outLoginInfo" type="tns:outLoginInfo" minOccurs="0"/>
+<xs:element name="acctHeaderOut" type="tns:accountHeaderOut" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="outLoginInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="sMatrixes" type="tns:secMatrix" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="lastLogin" type="xs:string" minOccurs="0"/>
+<xs:element name="hasPasswordExpired" type="xs:short"/>
+<xs:element name="daysBeforeExpired" type="xs:short"/>
+<xs:element name="shiftNum" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secMatrix" final="extension restriction">
+<xs:sequence>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountHeaderOut" final="extension restriction">
+<xs:sequence>
+<xs:element name="openingBal" type="tns:money" minOccurs="0"/>
+<xs:element name="currentBal" type="tns:money" minOccurs="0"/>
+<xs:element name="suspendedPayout" type="tns:money" minOccurs="0"/>
+<xs:element name="accountStatus" type="tns:accountStatus" minOccurs="0"/>
+<xs:element name="accountName" type="xs:string" minOccurs="0"/>
+<xs:element name="reason" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

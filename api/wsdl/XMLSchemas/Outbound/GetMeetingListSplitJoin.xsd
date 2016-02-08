@@ -1,0 +1,26 @@
+<schema targetNamespace="http://stc.com/ssbk/GetMeetingListSplitJoin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://stc.com/ssbk/GetMeetingListSplitJoin" xmlns:tel="http://www.telecommunicationsmediatechnology.com" xmlns:Q1="http://stc.com/ssbk/custombmcsconnector" xmlns:Q2="http://stc.com/ssbk/custombmcsconnector/terminalenquiryservice">
+
+	<import schemaLocation="../Inbound/OSB/Xsd_Context.xsd" namespace="http://www.telecommunicationsmediatechnology.com"/>
+    <import schemaLocation="TerminalEnquiryServiceSender.xsd" namespace="http://stc.com/ssbk/custombmcsconnector/terminalenquiryservice"/>
+    <import schemaLocation="TerminalInitServiceSender.xsd" namespace="http://stc.com/ssbk/custombmcsconnector"/>
+    
+    <element name="GetMeetingListData" type="tns:GetMeetingListData"/>
+    <element name="GetMeetingListResponse" type="tns:GetMeetingListResponse"/>
+    
+    <complexType name="GetMeetingListData">
+    	<sequence>
+    		<element ref="tel:ContextData"/>
+    		<element name="getTermFixTypeData" type="Q1:getTermFixTypeData"/>
+    		<element name="getMeetingInformation" type="Q2:getMeetingInformation"/>
+    		<element name="getCurrentRaceDetails" type="Q2:getCurrentRaceDetails"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="GetMeetingListResponse">
+    	<sequence>
+    		<element name="getTermFixTypeDataResponse" type="Q1:getTermFixTypeDataResponse"/>
+    		<element name="getMeetingInformationResponse" type="Q2:getMeetingInformationResponse"/>
+    		<element name="getCurrentRaceDetailsResponse" type="Q2:getCurrentRaceDetailsResponse"/>
+    	</sequence>
+    </complexType>
+</schema>

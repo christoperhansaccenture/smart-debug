@@ -1,0 +1,44 @@
+<xsd:schema targetNamespace="http://www.stc.com.sg/ssbk/Common_SSBKMessageSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:com="http://www.stc.com.sg/ssbk/Common_SSBKMessageSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <!--Common Request Header (Without Session)-->
+   <xsd:complexType name="RequestHeaderType">
+      <xsd:sequence>
+         <xsd:element name="SourceSystem" type="xsd:string"/>
+         <xsd:element name="SourceSystemTransactionId" type="xsd:string"/>
+         <xsd:element name="BusinessEvent" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <!--Common Request Header (With Session)-->
+   <xsd:complexType name="RequestHeaderWithSessionType">
+      <xsd:complexContent>
+         <xsd:extension base="com:RequestHeaderType">
+            <xsd:sequence>
+               <xsd:element name="Session" type="com:Session"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <!--Common Response Header (With Session)-->
+   <xsd:complexType name="ResponseHeaderWithSessionType">
+      <xsd:complexContent>
+         <xsd:extension base="com:ResponseHeaderType">
+            <xsd:sequence>
+               <xsd:element name="Session" type="com:Session"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <!--Common Response Header (Without Session)-->
+   <xsd:complexType name="ResponseHeaderType">
+      <xsd:sequence>
+         <xsd:element name="MessageStatus" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <!--Common Session Data-->
+   <xsd:complexType name="Session">
+      <xsd:sequence>
+         <xsd:element name="SessionId" type="xsd:string"/>
+         <xsd:element name="SessionPassword" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

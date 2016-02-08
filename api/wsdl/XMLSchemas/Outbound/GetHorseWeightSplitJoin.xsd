@@ -1,0 +1,23 @@
+<schema targetNamespace="http://stc.com/ssbk/RaceDayInformationServiceSender" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://stc.com/ssbk/RaceDayInformationServiceSender" xmlns:tel="http://www.telecommunicationsmediatechnology.com" xmlns:Q1="http://stc.com/ssbk/rdi">
+
+	<import schemaLocation="../Inbound/OSB/Xsd_Context.xsd" namespace="http://www.telecommunicationsmediatechnology.com"/>
+    <import schemaLocation="RaceDayInformationServiceSender.xsd" namespace="http://stc.com/ssbk/rdi"/>
+     
+    <element name="GetHorseWeightListData" type="tns:GetHorseWeightListData"/>
+    <element name="GetHorseWeightListDataResponse" type="tns:GetHorseWeightListDataResponse"/>
+    
+    <complexType name="GetHorseWeightListData">
+    	<sequence>
+    		<element ref="tel:ContextData"/>
+    		<element name="signon" type="Q1:signon"/>
+    		<element name="getHorseWeightList" type="Q1:getHorseWeightList"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="GetHorseWeightListDataResponse">
+    	<sequence>
+    		<element name="signonResp" type="Q1:signonResp"/>
+    		<element name="getHorseWeightListResp" type="Q1:getHorseWeightListResp"/>
+    	</sequence>
+    </complexType>
+</schema>

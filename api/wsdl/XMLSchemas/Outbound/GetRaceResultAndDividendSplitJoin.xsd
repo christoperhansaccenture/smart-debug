@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stc.com/ssbk/GetRaceResultAndDividendSplitJoin" xmlns:tns="http://stc.com/ssbk/GetRaceResultAndDividendSplitJoin" elementFormDefault="qualified" xmlns:tel="http://www.telecommunicationsmediatechnology.com" xmlns:com="http://stc.com/ssbk/custombmcsconnector/terminalenquiryservice">
+
+	<import schemaLocation="../Inbound/OSB/Xsd_Context.xsd" namespace="http://www.telecommunicationsmediatechnology.com"/>
+    <import schemaLocation="TerminalEnquiryServiceSender.xsd" namespace="http://stc.com/ssbk/custombmcsconnector/terminalenquiryservice"/>   
+	
+    <element name="GetRaceResultAndDividendSplitJoinRequest" type="tns:GetRaceResultAndDividendSplitJoinRequest"/>    
+    <element name="GetRaceResultAndDividendSplitJoinResponse" type="tns:GetRaceResultAndDividendSplitJoinResponse"/>  
+    
+    <complexType name="GetRaceResultAndDividendSplitJoinRequest">
+    	<sequence>
+    		<element ref="tel:ContextData"/>
+   			<element name="getFDList" type="com:getFDList"/>    		
+			<element name="getResults" type="com:getResults"/>    		
+    	</sequence>
+    </complexType>
+    
+    <complexType name="GetRaceResultAndDividendSplitJoinResponse">
+    	<sequence>
+    		<element name="getFDListResponse" type="com:getFDListResponse"/>    		
+			<element name="getResultsResponse" type="com:getResultsResponse"/>    		
+    	</sequence>
+    </complexType>
+</schema>

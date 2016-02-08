@@ -1,0 +1,23 @@
+<schema targetNamespace="http://stc.com/ssbk/CallBackServiceSplitJoin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://stc.com/ssbk/CallBackServiceSplitJoin" xmlns:tel="http://www.telecommunicationsmediatechnology.com" xmlns:Q1="http://stc.com/ssbk/customapiconnector">
+
+	<import schemaLocation="../Inbound/OSB/Xsd_Context.xsd" namespace="http://www.telecommunicationsmediatechnology.com"/>
+    <import schemaLocation="CallbackServiceSender.xsd" namespace="http://stc.com/ssbk/customapiconnector"/>
+    
+    <element name="CallBackService" type="tns:CallBackService"/>
+    <element name="CallBackServiceResponse" type="tns:CallBackServiceResponse"/>
+    
+    <complexType name="CallBackService">
+    	<sequence>
+    		<element ref="tel:ContextData"/>
+    		<element name="sendCallback" type="Q1:sendCallback"/>
+    		<element name="sendCallback" type="Q1:sendCallback"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="CallBackServiceResponse">
+    	<sequence>
+    		<element name="sendCallbackResponse" type="Q1:sendCallbackResponse"/>
+    		<element name="sendCallbackResponse" type="Q1:sendCallbackResponse"/>
+    	</sequence>
+    </complexType>
+</schema>

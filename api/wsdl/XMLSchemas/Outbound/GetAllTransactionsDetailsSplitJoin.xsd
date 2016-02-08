@@ -1,0 +1,23 @@
+<schema targetNamespace="http://stc.com/ssbk/GetAllTransactionsDetailsSplitJoin" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://stc.com/ssbk/GetAllTransactionsDetailsSplitJoin" xmlns:tel="http://www.telecommunicationsmediatechnology.com" xmlns:Q1="http://stc.com/ssbk/custombmcsconnector">
+
+	<import schemaLocation="../Inbound/OSB/Xsd_Context.xsd" namespace="http://www.telecommunicationsmediatechnology.com"/>
+    <import schemaLocation="BettingAccountServiceSender.xsd" namespace="http://stc.com/ssbk/custombmcsconnector"/>
+     
+    <element name="GetAllTransactionsListData" type="tns:GetAllTransactionsListData"/>
+    <element name="GetAllTransactionsListDataResponse" type="tns:GetAllTransactionsListDataResponse"/>
+    
+    <complexType name="GetAllTransactionsListData">
+    	<sequence>
+    		<element ref="tel:ContextData"/>
+    		<element name="getAllTransactions" type="Q1:getAllTransactions"/>
+    		<element name="getAllBetsTransactions" type="Q1:getAllBetsTransactions"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="GetAllTransactionsListDataResponse">
+    	<sequence>
+    		<element name="getAllTransactionsResponse" type="Q1:getAllTransactionsResponse"/>
+    		<element name="getAllBetsTransactionsResponse" type="Q1:getAllBetsTransactionsResponse"/>
+    	</sequence>
+    </complexType>
+</schema>

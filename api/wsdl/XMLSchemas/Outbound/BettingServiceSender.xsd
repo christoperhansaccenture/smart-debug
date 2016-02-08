@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="forecast" type="tns:forecast"/>
+
+<xs:element name="forecastResponse" type="tns:forecastResponse"/>
+
+<xs:element name="placeForecast" type="tns:placeForecast"/>
+
+<xs:element name="placeForecastResponse" type="tns:placeForecastResponse"/>
+
+<xs:element name="quadro" type="tns:quadro"/>
+
+<xs:element name="quadroResponse" type="tns:quadroResponse"/>
+
+<xs:element name="quartet" type="tns:quartet"/>
+
+<xs:element name="quartetResponse" type="tns:quartetResponse"/>
+
+<xs:element name="rollWinBet" type="tns:rollWinBet"/>
+
+<xs:element name="rollWinBetResponse" type="tns:rollWinBetResponse"/>
+
+<xs:element name="tierce" type="tns:tierce"/>
+
+<xs:element name="tierceResponse" type="tns:tierceResponse"/>
+
+<xs:element name="trio" type="tns:trio"/>
+
+<xs:element name="trioResponse" type="tns:trioResponse"/>
+
+<xs:element name="winPlace" type="tns:winPlace"/>
+
+<xs:element name="winPlaceResponse" type="tns:winPlaceResponse"/>
+
+<xs:complexType name="trio">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="trioin" type="tns:tierceBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionData" final="extension restriction">
+<xs:sequence>
+<xs:element name="sInfo" type="tns:sessionInfo" minOccurs="0"/>
+<xs:element name="functionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sessionInfo" final="extension restriction">
+<xs:sequence>
+<xs:element name="sessionID" type="xs:string" minOccurs="0"/>
+<xs:element name="sessionPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoIN" final="extension restriction">
+<xs:sequence>
+<xs:element name="terminalSeqNo" type="xs:int"/>
+<xs:element name="ticketStatus" type="xs:byte"/>
+<xs:element name="meeting" type="xs:string" minOccurs="0"/>
+<xs:element name="fixtureDate" type="tns:date" minOccurs="0"/>
+<xs:element name="fixtureID" type="xs:byte"/>
+<xs:element name="raceNo" type="xs:byte"/>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="date" final="extension restriction">
+<xs:sequence>
+<xs:element name="year" type="xs:short"/>
+<xs:element name="month" type="xs:short"/>
+<xs:element name="day" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tierceBetIN" final="extension restriction">
+<xs:sequence>
+<xs:element name="leg1" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg2" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg3" type="tns:selection" minOccurs="0"/>
+<xs:element name="easyPickIndicator" type="xs:byte"/>
+<xs:element name="units" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="selection" final="extension restriction">
+<xs:sequence>
+<xs:element name="startPos" type="xs:byte"/>
+<xs:element name="endPos" type="xs:byte"/>
+<xs:element name="betSelection" type="xs:base64Binary" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="trioResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="dataout" type="tns:tierceBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoOUT" final="extension restriction">
+<xs:sequence>
+<xs:element name="ticketNo" type="xs:string" minOccurs="0"/>
+<xs:element name="cents" type="xs:int"/>
+<xs:element name="transTime" type="tns:time" minOccurs="0"/>
+<xs:element name="ticketStatus" type="xs:byte"/>
+<xs:element name="meeting" type="xs:string" minOccurs="0"/>
+<xs:element name="fixtureID" type="xs:byte"/>
+<xs:element name="raceNo" type="xs:byte"/>
+<xs:element name="venue" type="xs:string" minOccurs="0"/>
+<xs:element name="errorcode" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="time" final="extension restriction">
+<xs:sequence>
+<xs:element name="hour" type="xs:short"/>
+<xs:element name="minute" type="xs:short"/>
+<xs:element name="second" type="xs:short"/>
+<xs:element name="milliSecond" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tierce">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="tiercein" type="tns:tierceBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tierceResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="dataout" type="tns:tierceBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quartet">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="quartetin" type="tns:quartetBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quartetBetIN" final="extension restriction">
+<xs:sequence>
+<xs:element name="leg1" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg2" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg3" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg4" type="tns:selection" minOccurs="0"/>
+<xs:element name="easyPickIndicator" type="xs:byte"/>
+<xs:element name="units" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quartetResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="dataout" type="tns:quartetBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quadro">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="quartetin" type="tns:quartetBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quadroResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="dataout" type="tns:quartetBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="forecast">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="forecastin" type="tns:forecastBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="forecastBetIN" final="extension restriction">
+<xs:sequence>
+<xs:element name="leg1" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg2" type="tns:selection" minOccurs="0"/>
+<xs:element name="units" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="forecastResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="forecasttype" type="xs:unsignedShort" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="winPlace">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="winplacein" type="tns:winPlaceBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="winPlaceBetIN" final="extension restriction">
+<xs:sequence>
+<xs:element name="leg1" type="tns:selection" minOccurs="0"/>
+<xs:element name="unitsForWin" type="xs:double"/>
+<xs:element name="unitsForPlace" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="winPlaceResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="winplaceout" type="tns:winPlaceBetOUT" minOccurs="0"/>
+<xs:element name="rebateGiven" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="winPlaceBetOUT" final="extension restriction">
+<xs:sequence>
+<xs:element name="winSelection" type="tns:selection" minOccurs="0"/>
+<xs:element name="placeSelection" type="tns:selection" minOccurs="0"/>
+<xs:element name="acceptedSelection" type="tns:selection" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="placeForecast">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="placeforecastin" type="tns:forecastBetIN" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="placeForecastResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rollWinBet">
+<xs:sequence>
+<xs:element name="session" type="tns:sessionData" minOccurs="0"/>
+<xs:element name="infoin" type="tns:infoIN" minOccurs="0"/>
+<xs:element name="winplacein" type="tns:winPlaceRollBetIN" minOccurs="0"/>
+<xs:element name="nooflegs" type="xs:short"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="winPlaceRollBetIN" final="extension restriction">
+<xs:sequence>
+<xs:element name="leg1" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg1RaceNo" type="xs:byte"/>
+<xs:element name="leg2" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg2RaceNo" type="xs:byte"/>
+<xs:element name="leg3" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg3RaceNo" type="xs:byte"/>
+<xs:element name="leg4" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg4RaceNo" type="xs:byte"/>
+<xs:element name="leg5" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg5RaceNo" type="xs:byte"/>
+<xs:element name="leg6" type="tns:selection" minOccurs="0"/>
+<xs:element name="leg6RaceNo" type="xs:byte"/>
+<xs:element name="unitsForWin" type="xs:double"/>
+<xs:element name="unitsForPlace" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rollWinBetResponse">
+<xs:sequence>
+<xs:element name="infoout" type="tns:infoOUT" minOccurs="0"/>
+<xs:element name="winplaceout" type="tns:winPlaceRollBetIN" minOccurs="0"/>
+<xs:element name="rebateGiven" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

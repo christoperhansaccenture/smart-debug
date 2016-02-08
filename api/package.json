@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "description": "Smart API",
+  "main": "src/rest/hello.js",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "soap": "^0.12.0"
+  },
+  "devDependencies": {
+    "grunt-typescript": "^0.8.0"
+  },
+  "scripts": {
+    "test": "ping"
+  },
+  "author": "Erik van de Ven",
+  "license": "ISC"
+}

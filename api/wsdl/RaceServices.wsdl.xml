@@ -1,0 +1,235 @@
+
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" name="RaceServiceReceiverWSDL" targetNamespace="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/">
+	<WL5G3N0:types>
+		<xsd:schema xmlns:com="http://www.stc.com.sg/ssbk/Common_SSBKMessageSchema" xmlns:osb="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/">
+			<xsd:import namespace="http://www.stc.com.sg/ssbk/Common_SSBKMessageSchema" schemaLocation="Common_SSBKMessageSchema.xsd"/>
+			<!--  GetRollBetTypeDetailBMCS Request  -->
+			<xsd:element name="GetRollBetTypeDetailBMCSRequest" type="osb:GetRollBetTypeDetailBMCSRequest"/>
+			<xsd:complexType name="GetRollBetTypeDetailBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="FixtureDate" type="xsd:date"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!--  GetRollBetTypeDetailBMCS Response  -->
+			<xsd:element name="GetRollBetTypeDetailBMCSResponse" type="osb:GetRollBetTypeDetailBMCSResponse"/>
+			<xsd:complexType name="GetRollBetTypeDetailBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="0" name="ListOfRollBetType">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="unbounded" minOccurs="0" name="RollBetType">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="MeetingCode" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="BetTypeCode" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="BetAbbrev" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="RollBetIndicator" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="MaxNumberOfRollBetLeg" type="xsd:integer"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!--  GetMinutesToRaceBMCS Request  -->
+			<xsd:element name="GetMinutesToRaceBMCSRequest" type="osb:GetMinutesToRaceBMCSRequest"/>
+			<xsd:complexType name="GetMinutesToRaceBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfFixture">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Fixture">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="FixtureID" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="FixtureDate" type="xsd:date"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="1" minOccurs="1" name="MeetingCode" type="xsd:string"/>
+														<xsd:element maxOccurs="1" minOccurs="1" name="ListOfRace">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="Race">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="1" minOccurs="1" name="RaceNo" type="xsd:int"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!--  GetMinutesToRaceBMCS Response  -->
+			<xsd:element name="GetMinutesToRaceBMCSResponse" type="osb:GetMinutesToRaceBMCSResponse"/>
+			<xsd:complexType name="GetMinutesToRaceBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="MinutesToRace" type="xsd:int"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!--  GetStateOfTrackBMCS Request  -->
+			<xsd:element name="GetStateOfTrackBMCSRequest" type="osb:GetStateOfTrackBMCSRequest"/>
+			<xsd:complexType name="GetStateOfTrackBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfFixture">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Fixture">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="FixtureID" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="FixtureDate" type="xsd:date"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="1" minOccurs="1" name="MeetingCode" type="xsd:string"/>
+														<xsd:element maxOccurs="1" minOccurs="1" name="ListOfRace">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="Race">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="1" minOccurs="1" name="RaceNo" type="xsd:int"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!--  GetStateOfTrackBMCS Response  -->
+			<xsd:element name="GetStateOfTrackBMCSResponse" type="osb:GetStateOfTrackBMCSResponse"/>
+			<xsd:complexType name="GetStateOfTrackBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfFixture">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Fixture">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="1" minOccurs="1" name="ListOfRace">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="Race">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="1" minOccurs="1" name="TrackCondition" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</WL5G3N0:types>
+	<WL5G3N0:message name="GetRollBetTypeDetailBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:GetRollBetTypeDetailBMCSRequest" name="GetRollBetTypeDetailBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="GetRollBetTypeDetailBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:GetRollBetTypeDetailBMCSResponse" name="GetRollBetTypeDetailBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="GetMinutesToRaceBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:GetMinutesToRaceBMCSRequest" name="GetMinutesToRaceBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="GetMinutesToRaceBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:GetMinutesToRaceBMCSResponse" name="GetMinutesToRaceBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="GetStateOfTrackBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:GetStateOfTrackBMCSRequest" name="GetStateOfTrackBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="GetStateOfTrackBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:GetStateOfTrackBMCSResponse" name="GetStateOfTrackBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:portType name="RaceServiceReceiverWSDL_Port">
+		<WL5G3N0:operation name="GetRollBetTypeDetailBMCS">
+			<WL5G3N0:input message="WL5G3N1:GetRollBetTypeDetailBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:GetRollBetTypeDetailBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="GetMinutesToRaceBMCS">
+			<WL5G3N0:input message="WL5G3N1:GetMinutesToRaceBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:GetMinutesToRaceBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="GetStateOfTrackBMCS">
+			<WL5G3N0:input message="WL5G3N1:GetStateOfTrackBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:GetStateOfTrackBMCSResponse"/>
+		</WL5G3N0:operation>
+	</WL5G3N0:portType>
+	<WL5G3N0:binding name="RaceServiceReceiverWSDLBinding" type="WL5G3N1:RaceServiceReceiverWSDL_Port">
+		<WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<WL5G3N0:operation name="GetRollBetTypeDetailBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/GetRollBetTypeDetailBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="GetMinutesToRaceBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/GetRollBetTypeDetailBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="GetStateOfTrackBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/RaceServiceReceiverWSDL/GetRollBetTypeDetailBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+	</WL5G3N0:binding>
+	<WL5G3N0:service name="RaceServiceReceiverWSDL_Service">
+		<WL5G3N0:port binding="WL5G3N1:RaceServiceReceiverWSDLBinding" name="RaceServiceReceiverWSDL_Port">
+			<WL5G3N2:address location=""/>
+		</WL5G3N0:port>
+	</WL5G3N0:service>
+</WL5G3N0:definitions>

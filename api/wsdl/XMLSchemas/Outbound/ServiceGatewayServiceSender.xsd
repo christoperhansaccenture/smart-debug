@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://stc.com/ssbk/custombmcsconnector" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://stc.com/ssbk/custombmcsconnector">
+
+<xs:element name="CustomBMCSConnectorException" type="tns:CustomBMCSConnectorException"/>
+
+<xs:element name="getPositionByHostnameTTY" type="tns:getPositionByHostnameTTY"/>
+
+<xs:element name="getPositionByHostnameTTYResponse" type="tns:getPositionByHostnameTTYResponse"/>
+
+<xs:complexType name="getPositionByHostnameTTY">
+<xs:sequence>
+<xs:element name="hostname" type="xs:string" minOccurs="0"/>
+<xs:element name="tty" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPositionByHostnameTTYResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:position" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="position" final="extension restriction">
+<xs:sequence>
+<xs:element name="positionID" type="xs:short"/>
+<xs:element name="locationID" type="xs:short"/>
+<xs:element name="venueID" type="xs:string" minOccurs="0"/>
+<xs:element name="terminalSeqNo" type="xs:int"/>
+<xs:element name="addressID" type="xs:string" minOccurs="0"/>
+<xs:element name="hostname" type="xs:string" minOccurs="0"/>
+<xs:element name="tty" type="xs:string" minOccurs="0"/>
+<xs:element name="terminalID" type="xs:int"/>
+<xs:element name="pos_float" type="xs:double"/>
+<xs:element name="operationalIndicator" type="xs:string" minOccurs="0"/>
+<xs:element name="assignedDate" type="xs:string" minOccurs="0"/>
+<xs:element name="expiryDate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CustomBMCSConnectorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

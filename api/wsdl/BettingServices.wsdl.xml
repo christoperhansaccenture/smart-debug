@@ -1,0 +1,1255 @@
+
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" name="BettingServiceReceiverWSDL" targetNamespace="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/">
+	<WL5G3N0:types>
+		<xsd:schema xmlns:com="http://www.stc.com.sg/ssbk/Common_SSBKMessageSchema" xmlns:osb="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/">
+			<xsd:import namespace="http://www.stc.com.sg/ssbk/Common_SSBKMessageSchema" schemaLocation="Common_SSBKMessageSchema.xsd"/>
+			<!-- Common Betting Request Ticket Status -->
+			<xsd:complexType name="TicketStatusRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="TotalTicketCount" type="xsd:integer"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="TicketCount" type="xsd:integer"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="TotalLineCount" type="xsd:integer"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- Common Betting Ticket Status -->
+			<xsd:complexType name="TicketStatusResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="TotalTicketCount" type="xsd:integer"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="TicketCount" type="xsd:integer"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="TotalLineCount" type="xsd:integer"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateWinBetBMCS Request -->
+			<xsd:element name="CreateWinBetBMCSRequest" type="osb:CreateWinBetBMCSRequest"/>
+			<xsd:complexType name="CreateWinBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="1" minOccurs="1" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="1" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateWinBetBMCS Response -->
+			<xsd:element name="CreateWinBetBMCSResponse" type="osb:CreateWinBetBMCSResponse"/>
+			<xsd:complexType name="CreateWinBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Rebate" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreatePlaceBetBMCS Request -->
+			<xsd:element name="CreatePlaceBetBMCSRequest" type="osb:CreatePlaceBetBMCSRequest"/>
+			<xsd:complexType name="CreatePlaceBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="1" minOccurs="1" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="1" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreatePlaceBetBMCS Response -->
+			<xsd:element name="CreatePlaceBetBMCSResponse" type="osb:CreatePlaceBetBMCSResponse"/>
+			<xsd:complexType name="CreatePlaceBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Rebate" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateWinPlaceBetBMCS Request -->
+			<xsd:element name="CreateWinPlaceBetBMCSRequest" type="osb:CreateWinPlaceBetBMCSRequest"/>
+			<xsd:complexType name="CreateWinPlaceBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="UnitsForWin" type="xsd:double"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="UnitsForPlace" type="xsd:double"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="1" minOccurs="1" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="1" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateWinPlaceBetBMCS Response -->
+			<xsd:element name="CreateWinPlaceBetBMCSResponse" type="osb:CreateWinPlaceBetBMCSResponse"/>
+			<xsd:complexType name="CreateWinPlaceBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Rebate" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateForecastBetBMCS Request -->
+			<xsd:element name="CreateForecastBetBMCSRequest" type="osb:CreateForecastBetBMCSRequest"/>
+			<xsd:complexType name="CreateForecastBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="2" minOccurs="2" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateForecastBetBMCS Response -->
+			<xsd:element name="CreateForecastBetBMCSResponse" type="osb:CreateForecastBetBMCSResponse"/>
+			<xsd:complexType name="CreateForecastBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreatePlaceForecastBetBMCS Request -->
+			<xsd:element name="CreatePlaceForecastBetBMCSRequest" type="osb:CreatePlaceForecastBetBMCSRequest"/>
+			<xsd:complexType name="CreatePlaceForecastBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="2" minOccurs="2" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreatePlaceForecastBetBMCS Response -->
+			<xsd:element name="CreatePlaceForecastBetBMCSResponse" type="osb:CreatePlaceForecastBetBMCSResponse"/>
+			<xsd:complexType name="CreatePlaceForecastBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Rebate" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateTierceBetBMCS Request -->
+			<xsd:element name="CreateTierceBetBMCSRequest" type="osb:CreateTierceBetBMCSRequest"/>
+			<xsd:complexType name="CreateTierceBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="3" minOccurs="3" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateTierceBetBMCS Response -->
+			<xsd:element name="CreateTierceBetBMCSResponse" type="osb:CreateTierceBetBMCSResponse"/>
+			<xsd:complexType name="CreateTierceBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="unbounded" minOccurs="0" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="0" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateTrioBetBMCS Request -->
+			<xsd:element name="CreateTrioBetBMCSRequest" type="osb:CreateTrioBetBMCSRequest"/>
+			<xsd:complexType name="CreateTrioBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="3" minOccurs="3" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateTrioBetBMCS Response -->
+			<xsd:element name="CreateTrioBetBMCSResponse" type="osb:CreateTrioBetBMCSResponse"/>
+			<xsd:complexType name="CreateTrioBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="unbounded" minOccurs="0" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="0" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateQuartetBetBMCS Request -->
+			<xsd:element name="CreateQuartetBetBMCSRequest" type="osb:CreateQuartetBetBMCSRequest"/>
+			<xsd:complexType name="CreateQuartetBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="4" minOccurs="4" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateQuartetBetBMCS Response -->
+			<xsd:element name="CreateQuartetBetBMCSResponse" type="osb:CreateQuartetBetBMCSResponse"/>
+			<xsd:complexType name="CreateQuartetBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="unbounded" minOccurs="0" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="0" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateQuadroBetBMCS Request  -->
+			<xsd:element name="CreateQuadroBetBMCSRequest" type="osb:CreateQuadroBetBMCSRequest"/>
+			<xsd:complexType name="CreateQuadroBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="4" minOccurs="4" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateQuadroBetBMCS Response  -->
+			<xsd:element name="CreateQuadroBetBMCSResponse" type="osb:CreateQuadroBetBMCSResponse"/>
+			<xsd:complexType name="CreateQuadroBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="0" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="unbounded" minOccurs="0" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="0" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+											<xsd:element maxOccurs="1" minOccurs="0" name="EasyPickIndicator" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Units" type="xsd:double"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateRollWinBetBMCS Request -->
+			<xsd:element name="CreateRollWinBetBMCSRequest" type="osb:CreateRollWinBetBMCSRequest"/>
+			<xsd:complexType name="CreateRollWinBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusRequestType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="LineCount" type="xsd:integer"/>
+											<!--  Ticket Line Count  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+											<!--  Meeting Code  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="RaceDate" type="xsd:date"/>
+											<!--  Fixture Date  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Race" type="xsd:short"/>
+											<!--  Race Number  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="Venue" type="xsd:string"/>
+											<!--  Terminal Venue  -->
+											<xsd:element maxOccurs="1" minOccurs="1" name="UnitsForWin" type="xsd:double"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="UnitsForPlace" type="xsd:double"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="NoOfLegs" type="xsd:short"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="ListOfLeg">
+												<xsd:complexType>
+													<xsd:sequence>
+														<xsd:element maxOccurs="unbounded" minOccurs="2" name="Leg">
+															<xsd:complexType>
+																<xsd:sequence>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="RaceNo" type="xsd:short"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="LegNo" type="xsd:string"/>
+																	<xsd:element maxOccurs="1" minOccurs="1" name="ListOfSelection">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element maxOccurs="unbounded" minOccurs="0" name="Selection" type="xsd:string"/>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+																</xsd:sequence>
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CreateRollWinBetBMCS  Response -->
+			<xsd:element name="CreateRollWinBetBMCSResponse" type="osb:CreateRollWinBetBMCSResponse"/>
+			<xsd:complexType name="CreateRollWinBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Rebate" type="xsd:integer"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Meeting" type="xsd:string"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Operation">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="Cents" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CancelBetBMCS Request -->
+			<xsd:element name="CancelBetBMCSRequest" type="osb:CancelBetBMCSRequest"/>
+			<xsd:complexType name="CancelBetBMCSRequest">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:RequestHeaderWithSessionType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Terminal">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TerminalSequenceNo" type="xsd:integer"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketId" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<!-- CancelBetBMCS  Response -->
+			<xsd:element name="CancelBetBMCSResponse" type="osb:CancelBetBMCSResponse"/>
+			<xsd:complexType name="CancelBetBMCSResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="Header" type="com:ResponseHeaderType"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ListOfBetTransactions">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element maxOccurs="1" minOccurs="1" name="TicketStatus" type="osb:TicketStatusResponseType"/>
+								<xsd:element maxOccurs="unbounded" minOccurs="1" name="BetTransaction">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element maxOccurs="1" minOccurs="1" name="TransactionDateTime" type="xsd:string"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Amount" type="xsd:double"/>
+											<xsd:element maxOccurs="1" minOccurs="1" name="Rebate" type="xsd:integer"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</WL5G3N0:types>
+	<WL5G3N0:message name="CreateWinBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateWinBetBMCSRequest" name="CreateWinBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateWinBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateWinBetBMCSResponse" name="CreateWinBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreatePlaceBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreatePlaceBetBMCSRequest" name="CreatePlaceBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreatePlaceBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreatePlaceBetBMCSResponse" name="CreatePlaceBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateWinPlaceBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateWinPlaceBetBMCSRequest" name="CreateWinPlaceBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateWinPlaceBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateWinPlaceBetBMCSResponse" name="CreateWinPlaceBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateForecastBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateForecastBetBMCSRequest" name="CreateForecastBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateForecastBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateForecastBetBMCSResponse" name="CreateForecastBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreatePlaceForecastBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreatePlaceForecastBetBMCSRequest" name="CreatePlaceForecastBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreatePlaceForecastBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreatePlaceForecastBetBMCSResponse" name="CreatePlaceForecastBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateTierceBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateTierceBetBMCSRequest" name="CreateTierceBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateTierceBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateTierceBetBMCSResponse" name="CreateTierceBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateTrioBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateTrioBetBMCSRequest" name="CreateTrioBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateTrioBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateTrioBetBMCSResponse" name="CreateTrioBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateQuartetBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateQuartetBetBMCSRequest" name="CreateQuartetBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateQuartetBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateQuartetBetBMCSResponse" name="CreateQuartetBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateQuadroBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateQuadroBetBMCSRequest" name="CreateQuadroBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateQuadroBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateQuadroBetBMCSResponse" name="CreateQuadroBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateRollWinBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CreateRollWinBetBMCSRequest" name="CreateRollWinBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CreateRollWinBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CreateRollWinBetBMCSResponse" name="CreateRollWinBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CancelBetBMCSRequest">
+		<WL5G3N0:part element="WL5G3N1:CancelBetBMCSRequest" name="CancelBetBMCSRequest"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="CancelBetBMCSResponse">
+		<WL5G3N0:part element="WL5G3N1:CancelBetBMCSResponse" name="CancelBetBMCSResponse"/>
+	</WL5G3N0:message>
+	<WL5G3N0:portType name="BettingServiceReceiverWSDL_Port">
+		<WL5G3N0:operation name="CreateWinBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateWinBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateWinBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreatePlaceBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreatePlaceBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreatePlaceBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateWinPlaceBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateWinPlaceBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateWinPlaceBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateForecastBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateForecastBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateForecastBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreatePlaceForecastBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreatePlaceForecastBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreatePlaceForecastBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateTierceBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateTierceBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateTierceBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateTrioBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateTrioBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateTrioBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateQuartetBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateQuartetBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateQuartetBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateQuadroBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateQuadroBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateQuadroBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateRollWinBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CreateRollWinBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CreateRollWinBetBMCSResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CancelBetBMCS">
+			<WL5G3N0:input message="WL5G3N1:CancelBetBMCSRequest"/>
+			<WL5G3N0:output message="WL5G3N1:CancelBetBMCSResponse"/>
+		</WL5G3N0:operation>
+	</WL5G3N0:portType>
+	<WL5G3N0:binding name="BettingServiceReceiverWSDLBinding" type="WL5G3N1:BettingServiceReceiverWSDL_Port">
+		<WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<WL5G3N0:operation name="CreateWinBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateWinBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreatePlaceBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreatePlaceBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateWinPlaceBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateWinPlaceBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateForecastBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateForecastBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreatePlaceForecastBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreatePlaceForecastBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateTierceBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateTierceBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateTrioBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateTrioBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateQuartetBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateQuartetBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateQuadroBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateQuadroBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CreateRollWinBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CreateRollWinBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="CancelBetBMCS">
+			<WL5G3N2:operation soapAction="http://www.stc.com.sg/ssbk/BettingServiceReceiverWSDL/CancelBetBMCS"/>
+			<WL5G3N0:input>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N2:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+	</WL5G3N0:binding>
+	<WL5G3N0:service name="BettingServiceReceiverWSDL_Service">
+		<WL5G3N0:port binding="WL5G3N1:BettingServiceReceiverWSDLBinding" name="BettingServiceReceiverWSDL_Port">
+			<WL5G3N2:address location="http://172.18.16.61:8011/SSBK_OSB_Impl/BettingServiceReceiver"/>
+		</WL5G3N0:port>
+	</WL5G3N0:service>
+</WL5G3N0:definitions>
