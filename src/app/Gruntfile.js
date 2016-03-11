@@ -62,7 +62,7 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: ['app/**/*.js'],
-                dest: '../debug/js/app.js',
+                dest: '../../debug/js/app.js',
             },
         },
 
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc',
                 reporter: require('jshint-stylish'),
             },            
-            files: ['.../debug/js/**.js'
+            files: ['.../../debug/js/**.js'
                     // 'dev/js/*.js'
                     ],
         },
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         sass: {
             debug: {
                 files: {
-                    '../debug/css/app.css': 'scss/app.scss',
+                    '../../debug/css/app.css': 'scss/app.scss',
                 },
             },
         },
@@ -98,8 +98,8 @@ module.exports = function(grunt) {
 
         uglify: {
             js: {
-                src: ['../debug/js/app.js'],
-                dest: '../debug/js/app.min.js',
+                src: ['../../debug/js/app.js'],
+                dest: '../../debug/js/app.min.js',
             },
             options: {
                 mangle: false
@@ -108,8 +108,8 @@ module.exports = function(grunt) {
 
         cssmin: {
             css: {
-                src: ['../debug/css/app.css'],
-                dest: '../debug/css/app.min.css',
+                src: ['../../debug/css/app.css'],
+                dest: '../../debug/css/app.min.css',
             },
         },        
 
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
                             'node_modules/angular2/bundles/http.dev.js',
                             'node_modules/requirejs/require.js',
                         ],
-                        dest:'../debug/scripts',
+                        dest:'../../debug/scripts',
                         expand: true, 
                         flatten: true,
                     }
@@ -161,7 +161,7 @@ module.exports = function(grunt) {
                 files: [              
                     {
                         src:['img/**/*.*'],
-                        dest:'../debug/',
+                        dest:'../../debug/',
                         expand: true,
                     },
                 ]
@@ -171,24 +171,24 @@ module.exports = function(grunt) {
                 files: [
                     {
                         src:['services/**/*.json'],
-                        dest:'../debug/',
+                        dest:'../../debug/',
                         expand: true,
                     },
                     {
                         src:['init.js', 'tsconfig.json'],
-                        dest:'../debug/',
+                        dest:'../../debug/',
                         expand: true,
                     },
                     {
                         cwd:'js',
                         src:['**/*.js', '**/*.js.map', '.baseDir.js' , '.baseDir.js.map'],
-                        dest:'../debug/app/',
+                        dest:'../../debug/app/',
                         expand: true,
                     },
                     {
                         cwd:'app',
                         src:['**/*.ts'],
-                        dest:'../debug/app/',
+                        dest:'../../debug/app/',
                         expand: true,
                     }
                 ]
@@ -198,7 +198,7 @@ module.exports = function(grunt) {
                 files: [              
                     {
                         src:['app/**/*.html', 'index.html'],
-                        dest:'../debug/',
+                        dest:'../../debug/',
                         expand: true,
                     },
                 ] } 
@@ -211,7 +211,7 @@ module.exports = function(grunt) {
 // ---------------------  
         clean:{
             options: { force: true },
-            debug: ["../debug/", "!../debug/node_modules/"],
+            debug: ["../../debug/", "!../../debug/node_modules/"],
             sasscache: [".sass-cache/"]  
         },
 
@@ -233,7 +233,7 @@ module.exports = function(grunt) {
                 tasks: ['sass'],
             },
             cssmin: {
-                files: '../debug/css/app.css',
+                files: '../../debug/css/app.css',
                 tasks: ['cssmin'],
             },
             html: {
