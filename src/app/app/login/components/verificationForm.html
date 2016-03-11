@@ -1,0 +1,15 @@
+<div>
+	<div class="containerVerificationFormSmall">
+		<div class="col-right">
+			<div class="outer-box">
+				<div class="header">Please enter your verification code</div>
+				<div class="inner-box">
+					<input #verificationCode placeholder="xxxx" type="password" />
+                    <div class="errorAlert" *ngIf="checkErrorStatus">{{getErrorMessageText()}}</div>
+					<p><a href="#">Smart Bro user?</a><a>|</a><a href="#">Resend code?</a></p>
+					<div class="button"><a (click)="gotoNextStep(verificationCode.value)">Continue</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

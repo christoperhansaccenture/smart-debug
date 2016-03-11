@@ -1,0 +1,13 @@
+<div class="containerLoginSmall">
+	<div class="outer-box">
+		<div class="header">Enter your My Smart details to continue</div>
+		<div class="inner-box">
+			<input class="smartnumber" placeholder="Smart number or email address" [(ngModel)]="userId" value="9186859935" />
+			<input placeholder="Password" type="password" [(ngModel)]="password" value="P@SSw0rd1234" />
+			<div class="button"><a (click)="login($event)">Log In</a></div>
+            <div class="errorAlert" *ngIf="checkErrorStatus">{{getErrorMessageText()}}</div>
+			<p><a (click)="gotoForgotPassword()">Forgot your password?</a></p>
+			<p><a (click)="gotoRegister()">I don't have a My Smart Account yet</a></p>
+		</div>
+	</div>
+</div>

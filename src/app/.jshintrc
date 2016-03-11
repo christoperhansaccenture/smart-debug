@@ -1,0 +1,13 @@
+{
+  "boss":      true,
+  "node":      true,
+  "eqeqeq":    false,
+  "strict":    true,
+  "newcap":    false,
+  "undef":     true,
+  "unused":    true,
+  "onecase":   true,
+  "lastsemic": true,
+  "maxerr" : 300,
+  "predef": ["angular"]
+}

@@ -1,0 +1,88 @@
+$col-height: 360px;
+
+.myPointContainer {
+
+    min-width: 145px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #FFF;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-left: 5px;
+        
+    .box{
+        //height: $col-height - 50px;
+        padding-left: 10px;
+        width: 145px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 50px;
+        margin-bottom: 5px;
+        overflow: hidden;
+        position: relative;
+        
+        h2 {
+            padding-left: 10px;
+            color: $smartblue;
+            margin-bottom: 10px;
+        }
+        
+        .pointText{
+            display: inline-block;
+            width: 70px;
+            font-size: 20px;
+            margin-top: 10px;
+            color: $smartred;
+            text-align: right;
+            margin-right: 10px;
+            .miniText{
+                font-size: 15px;
+            }
+            
+        }
+        
+        .pointIcon {
+            
+            display: inline-block;
+            height: 100%;
+            width: 50px;
+            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCg0KIDxnPg0KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+DQogIDxyZWN0IGZpbGw9Im5vbmUiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSIyNTgiIHdpZHRoPSIyNTgiIHk9Ii0xIiB4PSItMSIvPg0KIDwvZz4NCiA8Zz4NCiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPg0KICA8ZyBpZD0ic3ZnXzEiPg0KICAgPHBhdGggZD0ibTkuMTQyODU3LDEyLjEwOTc4OWMzLjUyNywyLjYxNzAwNCA5LjI1NDk5Nyw0LjI2Mzk3NyAxNiw0LjI2Mzk3N2M2Ljc0NDk5NSwwIDEyLjQ3MzAwNywtMS42NDY5NzMgMTYsLTQuMjYzOTc3bDAsMy44NjQ5OWMtMi4yNDQwMDMsMy4wNzI5OTggLTguNTUwOTk1LDUuMjg5MDAyIC0xNiw1LjI4OTAwMmMtNy40NDc5OTgsMCAtMTMuNzU1OTk3LC0yLjIxNjAwNCAtMTYsLTUuMjg5MDAybDAsLTMuODY0OTl6bTAsLTguMzYzMDA4YzMuNjc2MDAzLDIuODk0OTg5IDkuODQ3LDQuMzk4OTg2IDE2LDQuMzk4OTg2YzYuMTUzLDAgMTIuMzI0MDA1LC0xLjUwMzk5NyAxNiwtNC4zOTg5ODZsMCw0LjQ3OTAwM2MtMi4yNDQwMDMsMy4wNzAwMSAtOC41NTA5OTUsNS4yODkwMDQgLTE2LDUuMjg5MDA0Yy03LjQ0Nzk5OCwwIC0xMy43NTU5OTcsLTIuMjE4OTk0IC0xNiwtNS4yODkwMDRsMCwtNC40NzkwMDN6bTE2LC0xMy45NjQ5OThjNy40NDkwMDUsMCAxMy43NTU5OTcsMi4yMTg5OTQgMTYsNS4yOTA5ODVsMCw0LjkyMTk5OGMtMi4yNDQwMDMsMy4wNzI5OTggLTguNTUwOTk1LDUuMjkwMDA5IC0xNiw1LjI5MDAwOWMtNy40NDc5OTgsMCAtMTMuNzU1OTk3LC0yLjIxNzAxMSAtMTYsLTUuMjkwMDA5bDAsLTQuOTIxOTk4YzIuMjQ0MDAzLC0zLjA3MTk5MSA4LjU1MjAwMiwtNS4yOTA5ODUgMTYsLTUuMjkwOTg1eiIgZmlsbD0iIzAwOUNERSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTgsNTkuMTMzMTI5MTE5ODczMDUpIHNjYWxlKDQuMzc1KSAiIGlkPSJwYXRoMSIvPg0KICA8L2c+DQogIDxnIHN0cm9rZT0ibnVsbCIgaWQ9InN2Z18zIj4NCiAgIDxwYXRoIHN0cm9rZT0ibnVsbCIgZD0ibS01LjE1Mzk1OSwyNi4xOTA1OTRjMi44NzE5ODYsMi4yNTU5OTUgNy41MzYyMTIsMy42NzU3NzMgMTMuMDI4NTcyLDMuNjc1NzczYzUuNDkyMzUzLDAgMTAuMTU2NTkyLC0xLjQxOTc3NyAxMy4wMjg1NzIsLTMuNjc1NzczbDAsMy4zMzE4MjVjLTEuODI3MjYsMi42NDkwODYgLTYuOTYyOTUzLDQuNTU5Mzk4IC0xMy4wMjg1NzIsNC41NTkzOThjLTYuMDY0Nzk4LDAgLTExLjIwMTMxMiwtMS45MTAzMTIgLTEzLjAyODU3MiwtNC41NTkzOThsMCwtMy4zMzE4MjV6bTAsLTcuMjA5MzUzYzIuOTkzMzE3LDIuNDk1NjMzIDguMDE4MjcyLDMuNzkyMTU4IDEzLjAyODU3MiwzLjc5MjE1OGM1LjAxMDMsMCAxMC4wMzUyNjEsLTEuMjk2NTI1IDEzLjAyODU3MiwtMy43OTIxNThsMCwzLjg2MTEzNmMtMS44MjcyNiwyLjY0NjUxIC02Ljk2Mjk1Myw0LjU1OTQgLTEzLjAyODU3Miw0LjU1OTRjLTYuMDY0Nzk4LDAgLTExLjIwMTMxMiwtMS45MTI4OSAtMTMuMDI4NTcyLC00LjU1OTRsMCwtMy44NjExMzZ6bTEzLjAyODU3MiwtMTIuMDM4NTY0YzYuMDY1NjE4LDAgMTEuMjAxMzEyLDEuOTEyODkgMTMuMDI4NTcyLDQuNTYxMTA4bDAsNC4yNDMwMjFjLTEuODI3MjYsMi42NDkwODYgLTYuOTYyOTUzLDQuNTYwMjY2IC0xMy4wMjg1NzIsNC41NjAyNjZjLTYuMDY0Nzk4LDAgLTExLjIwMTMxMiwtMS45MTExOCAtMTMuMDI4NTcyLC00LjU2MDI2NmwwLC00LjI0MzAyMWMxLjgyNzI2LC0yLjY0ODIxOCA2Ljk2Mzc3MywtNC41NjExMDggMTMuMDI4NTcyLC00LjU2MTEwOHoiIGZpbGw9IiMwMDlDREUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU4LDU5LjEzMzEyOTExOTg3MzA1KSBzY2FsZSg0LjM3NSkgIiBpZD0ic3ZnXzIiLz4NCiAgPC9nPg0KIDwvZz4NCjwvc3ZnPg==") no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: 50px;
+
+        }
+        
+        .expText{
+            font-size: 15px;
+            color: #000000;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+    }
+    
+    .buttonRow {
+        text-align: center;
+        width: 100%;
+
+        .button {
+            width: 100px;
+            line-height: 1.5rem;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .red {
+            background-color: $smartred;
+        }
+        
+    }   
+}

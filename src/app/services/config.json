@@ -1,0 +1,359 @@
+{
+	"menuHeader": [
+		{
+			"name": "Shop",
+			"link": "",
+			"active": false,
+			"subheader": [
+				{
+					"name": "Phones",
+					"items": [
+						{
+							"name": "Phones",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Devices",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Accessories",
+							"link": "",
+							"active": false
+						}
+					]
+				},
+				{
+					"name": "Plans",
+					"items": [
+						{
+							"name": "Postpaid",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Mobile Broadband",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Renewal",
+							"link": "",
+							"active": false
+						}
+					]
+				},
+				{
+					"name": "Prepaid",
+					"items": [
+						{
+							"name": "SIM",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Load",
+							"link": "",
+							"active": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Explore",
+			"link": "",
+			"active": false,
+			"subheader": [
+				{
+					"name": "Plans",
+					"items": [
+						{
+							"name": "Postpaid",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Mobile Broadband",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Renewal",
+							"link": "",
+							"active": false
+						}
+					]
+				},
+				{
+					"name": "Prepaid",
+					"items": [
+						{
+							"name": "SIM",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Load",
+							"link": "",
+							"active": false
+						}
+					]
+				}
+			]        	
+		},
+		{
+			"name": "Support",
+			"link": "",
+			"active": false,
+			"subheader": [
+				{
+					"name": "Help",
+					"items": [
+						{
+							"name": "Contact Us",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "About Smart",
+							"link": "",
+							"active": false
+						},
+						{
+							"name": "Send Feedback",
+							"link": "",
+							"active": false
+						}
+					]
+				}
+			]  
+		}
+	],
+	"menuHeaderPortal": [
+		{
+			"name": "Overview",
+			"link": "MySmart",
+			"active": false,
+			"subheader": []
+		},
+		{
+			"name": "My Plan",
+			"link": "MyPlan",
+			"active": false,
+			"subheader": []        	
+		},
+		{
+			"name": "My Usage",
+			"link": "MyUsage",
+			"active": false,
+			"subheader": []  
+		},
+		{
+			"name": "My Bills",
+			"link": "MyBills",
+			"active": false,
+			"subheader": []  
+		},
+		{
+			"name": "My Account",
+			"link": "MyAccount",
+			"active": false,
+			"subheader": []  
+		},
+		{
+			"name": "Support",
+			"link": "MySupport",
+			"active": false,
+			"subheader": []  
+		}
+	],
+	"menuSidebar": [
+		{
+			"name": "Shop",
+			"link": "",
+			"active": false,
+			"expand": false,
+			"subheader": [
+				{
+					"name": "Phones",
+					"expand": false,
+					"items": [
+						{
+							"name": "Phones",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Devices",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Accessories",
+							"link": "home",
+							"active": false
+						}
+					]
+				},
+				{
+					"name": "Plans",
+					"expand": false,
+					"items": [
+						{
+							"name": "Postpaid",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Mobile Broadband",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Renewal",
+							"link": "home",
+							"active": false
+						}
+					]
+				},
+				{
+					"name": "Prepaid",
+					"expand": false,
+					"items": [
+						{
+							"name": "SIM",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Load",
+							"link": "home",
+							"active": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Explore",
+			"link": "home",
+			"active": false,
+			"expand": false,
+			"subheader": [
+				{
+					"name": "Plans",
+					"expand": false,
+					"items": [
+						{
+							"name": "Postpaid",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Mobile Broadband",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Renewal",
+							"link": "home",
+							"active": false
+						}
+					]
+				},
+				{
+					"name": "Prepaid",
+					"expand": false,
+					"items": [
+						{
+							"name": "SIM",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Load",
+							"link": "home",
+							"active": false
+						}
+					]
+				}
+			]        	
+		},
+		{
+			"name": "Support",
+			"link": "home",
+			"active": false,
+			"expand": false,
+			"subheader": [
+				{
+					"name": "Help",
+					"expand": false,
+					"items": [
+						{
+							"name": "Contact Us",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "About Smart",
+							"link": "home",
+							"active": false
+						},
+						{
+							"name": "Send Feedback",
+							"link": "home",
+							"active": false
+						}
+					]
+				}
+			]  
+		}
+	],
+	"menuSidebarPortal": [
+		{
+			"name": "Overview",
+			"link": "MySmart",
+			"active": false,
+			"expand": false,
+			"subheader": []
+		},
+		{
+			"name": "My Plan",
+			"link": "MyPlan",
+			"active": false,
+			"expand": false,
+			"subheader": []        	
+		},
+		{
+			"name": "My Usage",
+			"link": "MyUsage",
+			"active": false,
+			"expand": false,
+			"subheader": []  
+		},
+		{
+			"name": "My Bills",
+			"link": "MyBalance",
+			"active": false,
+			"expand": false,
+			"subheader": []  
+		},
+		{
+			"name": "My Account",
+			"link": "MyAccount",
+			"active": false,
+			"expand": false,
+			"subheader": []  
+		},
+		{
+			"name": "Support",
+			"link": "MySupport",
+			"active": false,
+			"expand": false,
+			"subheader": []  
+		}
+	]
+}

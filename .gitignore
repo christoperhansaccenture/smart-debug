@@ -1,4 +1,6 @@
 
-api/node_modules/
-api/js/
-api/typings/
+src/api/node_modules/
+src/api/js/
+src/api/typings/
+src/app/node_modules/
+src/app/js/

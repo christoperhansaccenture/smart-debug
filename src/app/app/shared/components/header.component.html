@@ -1,0 +1,64 @@
+<div class="headerSmall" *ngIf="getLayout().appHeader && !getResize().largeUp">
+	<div class="headerContainer">
+        <div class="refresh"></div>
+        <div class="logo"></div>
+    </div>
+    <div class="picAndBarContainer" [ngClass]="{ headerFixed : getCurrentPage(), headerFixedMedium : getCurrentPageMedium()}">
+        <div class="header-picture" [ngClass]="{ medium : getResize().mediumUp}"></div>
+        <div id="hdrMenu" class="bar">
+            <div class="dropDownWrapper" (click)="openNumberSelection()">
+                <div class="dropDownIcon"></div>
+                <div class="numberDropDown">{{selectedPhoneNumber().number}}</div>
+            </div>
+        </div>
+    </div>
+    <div id="hdrProfPic" class="profilePicture" [ngClass]="{medium : getResize().mediumUp, profPicFixed : (getCurrentPage() || getCurrentPageMedium())}"></div>
+</div>
+<div class="headerContainer" *ngIf="getLayout().loginHeader">
+	<div class="headerLogin">
+		<div class="backArrow" (click)="goToPreviousPage()"></div>
+	</div>
+</div>
+
+<div class="headerLarge"  *ngIf="getLayout().appHeader && getResize().largeUp">
+    <div class="headerTop">
+        <div class="smartLogo"></div>
+        <div class="menu">
+            <div class="menuItem">Products</div>
+            <div class="menuItem">Service</div>
+            <div class="menuItem">Buy Online</div>
+            <div class="menuItem">Help &amp; Support</div>
+        </div>
+    </div>
+    <div id="hdrProfPicLarge" class="profilePicture"></div>
+    <div class="picAndBarContainerLarge">
+        <div class="header-picture"></div>
+        <div id="hdrMenuLarge" class="bar">
+            <div class="body">
+                <div class="menuItem" (click)="gotoHome()">
+                    <div class="home"></div>
+                    <div class="menuText"><span>Home</span></div>
+                </div>
+                <div class="menuItem" (click)="gotoPlan()">
+                    <div class="plan"></div>
+                    <div class="menuText"><span>Plan</span></div>
+                </div>
+                <div class="menuItem">
+                    <div class="addon"></div>
+                    <div class="menuText"><span>Add Ons</span></div>
+                </div>
+                <div class="menuItem" (click)="gotoBalance()">
+                    <div class="balance"></div>
+                    <div class="menuText"><span>Balance</span></div>
+                </div>
+                <div class="menuItem">
+                    <div class="more"></div>
+                    <div class="menuText"><span>More</span></div>
+                </div>
+                <div class="menuItem">
+                    <div class="refresh"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "name": "stc_app",
+  "description": "stc_app package",
+  "main": "init.js",
+  "authors": [
+    "zaro <zaro.megagenta@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Erikvdv/pltn",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "fastclick": ">=0.6.11",
+    "hammerjs": ">=2.0.0"
+  }
+}

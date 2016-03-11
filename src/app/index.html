@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+	<meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+ 
+    <meta name="description" content="Welcome to Smart">
+	<title>Smart</title>
+	<link rel="stylesheet" href="css/app.min.css" />
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="scripts/es6-shim.min.js"></script>
+    <script src="scripts/system-polyfills.js"></script>
+
+    <script src="scripts/angular2-polyfills.js"></script>
+    <script src="scripts/system.src.js"></script>
+    <script src="scripts/Rx.js"></script>
+    <script src="scripts/angular2.dev.js"></script>
+    <script src="scripts/router.dev.js"></script>
+    <script src="scripts/http.dev.js"></script>
+    <script src="scripts/fastclick.js"></script>    
+
+    <script>
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+
+    <pltn-app>Loading...</pltn-app>
+		
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        }
+    </script>
+	
+	<!-- start scripts -->
+	<script src="scripts/hammer.js"></script>	
+	<script src="init.js"></script>
+	<!-- end scripts -->
+
+</body>
+</html>

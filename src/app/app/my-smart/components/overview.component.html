@@ -1,0 +1,57 @@
+
+<div>
+	<div id="homeBodyLarge" class="mySmartContainerLarge" *ngIf="getResize().largeUp">
+        <div class="containerBody">
+            <div class="numberSelector">
+                <div class="topHalf">
+                    <my-number></my-number>
+                </div>
+                <div class="bottomHalf"></div>
+            </div>
+            <div class="middleComponent">
+                <my-bundle></my-bundle>
+            </div>
+            <div class="rightComponent">
+                <div class="topComponent">
+                    <my-balance></my-balance>
+                </div>
+                <div class="bottomComponent">
+                    <div class="leftComponent">
+                        <my-plan></my-plan>
+                    </div>
+                    <div class="rightComponent">
+                        <my-point></my-point>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+
+	<div id="homeBody" class="mySmartContainerSmall" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+        <div class="containerBody">
+            <div id="hdrDropDown" class="myNumberContainer">
+                <my-number *ngIf="numberSelectionState()"></my-number>
+            </div>
+            <div class="itemRow">
+                <my-bundle></my-bundle>
+            </div>
+
+            <div class="itemRow">
+                <my-balance></my-balance>
+            </div>
+            
+            <div class="itemRow end">
+                <div class="subItem">
+                    <div class="myPlan">
+                        <my-plan></my-plan>
+                    </div>
+                    <div class="myPoint">
+                        <my-point></my-point>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- <div class="banner"></div> -->
