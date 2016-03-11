@@ -1,6 +1,3 @@
-
-src/api/node_modules/
-src/api/js/
-src/api/typings/
-src/app/node_modules/
-src/app/js/
+debug
+prd
+cordova
