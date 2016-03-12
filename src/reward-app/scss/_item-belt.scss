@@ -1,0 +1,64 @@
+$col-3-height: 340px;
+
+.beltContainer {
+    
+    //display: inline-block;
+    //overflow-y: hidden;
+    //overflow-x: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    //white-space: nowrap;
+    
+    .itemContainer{
+        display: inline-block;
+        width: 32.4%;
+        //margin-right: 10px;
+        //padding-bottom: 10px;
+        
+        // &:first-child{
+        //     margin-left: 10px;
+        // }
+        
+        .itemPic{
+            display: inline-block;
+            height: 105px;
+            width: 100%;
+            border: 1px solid black;
+            background-color: #FFF;
+            //border-radius: 20px;
+        }
+        .itemText{
+            
+            border: 1px solid black;
+            background-color: $gray2;
+            text-align: center;
+            padding: 5px;
+            width:calc(100% - 10px);
+            
+            .itemDesc{
+                font-size: 13px;
+                text-align: center;
+                white-space: normal;
+                margin-left: 1px;
+                margin-right: 1px;
+            }
+            .itemPoint{
+                //display: inline-block;
+                width: 90px;
+                font-size: 13px;
+                color: $smartred;
+                text-align: center;
+                white-space: normal;
+                margin-left: auto;
+                margin-right: auto;
+                span{
+                    color: black;
+                }
+            }    
+        }
+    }    
+    
+}

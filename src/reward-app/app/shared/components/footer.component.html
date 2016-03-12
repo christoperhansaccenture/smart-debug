@@ -1,0 +1,57 @@
+<div class="footerAddMenuWrapper">
+    <div class="footerOther" [ngClass]="{ active : additionalMenuStatus()}" (click)="toggleAdditionalMenu()"></div>
+    <div class="footerAddMenu" [ngClass]="{ active : additionalMenuStatus()}" *ngIf="!getResize().largeUp">
+        <div class="menuItem">
+            <div class="account"></div>
+            <div class="text">Account Service</div>
+        </div>
+        <div class="menuItem">
+            <div class="profile"></div>
+            <div class="text">Profile Management</div>
+        </div>
+        <div class="menuItem">
+            <div class="number"></div>
+            <div class="text">Number Management</div>
+        </div>
+        <div class="menuItem">
+            <div class="reward"></div>
+            <div class="text">Reward & Freebies</div>
+        </div>
+        <div class="menuItem">
+            <div class="transaction"></div>
+            <div class="text">Transaction History</div>
+        </div>
+        <div class="menuItem">
+            <div class="help"></div>
+            <div class="text">Help & feedback</div>
+        </div>
+        <div class="menuItem" (click)="logOut()">
+            <div class="logout"></div>
+            <div class="text">Log Out</div>
+        </div>
+    </div>
+</div>
+<div class="footerMenu" *ngIf="getLayout().appFooter && !getResize().largeUp">
+    <div class="column" (click)="gotoHome()">
+        <div class="home" [ngClass]="{ active : getFooterState().home}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().home}">Home</div>
+    </div>
+    <div class="column" (click)="gotoPerks()">
+        <div class="perks" [ngClass]="{ active : getFooterState().perks}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().perks}">Perks</div>
+    </div>
+    <div class="column" (click)="gotoCatalog()">
+        <div class="catalog" [ngClass]="{ active : getFooterState().catalog}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().catalog}">Catalog</div>
+    </div>
+    <div class="column" (click)="gotoTransfer()">
+        <div class="transfer" [ngClass]="{ active : getFooterState().transfer}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().transfer}">Perks</div>
+    </div>
+    <div class="column" (click)="toggleAdditionalMenu()">
+    <a>
+        <div class="more"></div>
+        <div class="text">More</div>
+    </a>
+    </div>
+</div>

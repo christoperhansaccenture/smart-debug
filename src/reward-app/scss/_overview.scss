@@ -1,0 +1,108 @@
+$col-3-height: 340px;
+
+.overviewContainerSmall {
+    
+    margin-bottom: 45px;
+    z-index: 1;
+    
+    .containerBody{
+        
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        
+        .header{
+            color: $smartgreen;
+            font-size: 20px;
+            display: inline-block;
+            width: calc(100% - 20px);
+            margin-left: 10px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        
+        .subInfoContainer{
+            display: inline-block;
+            width: calc(100% - 20px);
+            margin: 10px;
+            
+            .leftSide{
+                float: left;
+                height: 30px;
+                
+                .balance{
+                    color: black;
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+                .expire{
+                    color: $gray;
+                    font-size: 13px;
+                }    
+            }
+            .rightSide{
+                float: right;
+                height: 30px;
+                line-height: 30px;
+                
+                .text{
+                    float: right;
+                    font-size: 25px;
+                    color: $smartred;
+                    span{
+                        font-size: 15px;
+                    }
+                }
+                
+                .next{
+                    height: 30px;
+                    width: 30px;
+                    float: right;
+                    cursor: pointer;
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU4LjU4NzMxNzA4NTUwMDMsMS40MjEwODU0NzE1MjAyRS0xNCkgc2NhbGUoOC4wMDEwMDAwNTI1MTgyNiw4LjAwMTAwMDA1MjUxODI2KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40MjAwNDgyLDBMMTcuMzUxMDAxLDE2LjA0Njk5NiAxLjQ5ODA1MTMsMzEuOTk2MDAxIDAuMDc4OTc5NjMxLDMwLjU4NTk5NyAxNC41MzEwNDYsMTYuMDQ2MDE5IDAsMS40MDg5OTY0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                    background-position-x: center;
+                    background-position-y: center;
+                    background-size: 30px;    
+                }
+                
+            }
+        }
+        
+        .subHeader{
+            display: inline-block;
+            font-size: 20px;
+            color: $smartgreen;
+            margin: 10px;
+            width: calc(100% - 20px);
+            line-height: 30px;
+            
+            .leftHeader{
+                font-size: 20px;
+                color: $smartgreen;
+                float: left;
+            }
+            
+            .subOption{
+                font-size: 15px;
+                color: black;
+                cursor: pointer;
+                float: right;
+                line-height: 15px;
+                margin-top: 15px;
+                cursor: pointer;
+            }
+            
+        }
+        
+        .itemBelt{
+            display: inline-block;
+            width: 100%;
+            background-color: $smartgreen;
+            
+            .darkgray{
+                background-color: $dark-gray;
+            }
+        } 
+    }
+    
+}

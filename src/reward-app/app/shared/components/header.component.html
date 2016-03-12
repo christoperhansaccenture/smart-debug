@@ -1,0 +1,35 @@
+<div class="headerSmall" [ngClass]="{openSearch : searchFunction}" *ngIf="getLayout().appHeader && !getResize().largeUp">
+	<div class="headerContainer" *ngIf="!searchFunction">
+        <div class="back" *ngIf="isDetailPage()" (click)="goToPreviousPage()"></div>
+        <div class="magnifier" *ngIf="isCatalogPage() || isDetailPage()" (click)="toggleSearchFunction()"></div>
+        <div class="cart"></div>
+        <div class="logo" *ngIf="!isCatalogPage() && !isDetailPage()"></div>
+        <div class="points" *ngIf="isCatalogPage() || isDetailPage()">1010 <span>pts</span></div>
+    </div>
+    <div class="headerContainer2" *ngIf="searchFunction">
+        <div class="upperHeader">
+            <div class="back" (click)="toggleSearchFunction()"></div>
+            <select class="categoryFilter">
+                <option value="all">All</option>
+                <option value="food">Food</option>
+                <option value="beauty">Beauty</option>
+                <option value="plan">Plan</option>
+            </select>
+            <select class="pointsFilter">
+                <option value="0">1 - 200</option>
+                <option value="100">201 - 500</option>
+                <option value="200">501 - 1000</option>
+                <option value="500">1001 - 2000</option>
+                <option value="1000">> 2000</option>
+            </select>
+        </div>
+        <div class="bottomHeader">
+            <input class="search" placeholder="Rewards" [(ngModel)]="searchString" />
+        </div>
+    </div>
+</div>
+<div class="headerContainer" *ngIf="getLayout().loginHeader">
+	<div class="headerLogin">
+		<div class="backArrow" (click)="goToPreviousPage()"></div>
+	</div>
+</div>

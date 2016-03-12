@@ -1,0 +1,31 @@
+<div id="homeBody" class="overviewContainerSmall" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">Account Overview</div>
+        <div class="subInfoContainer">
+            <div class="leftSide">
+                <div class="balance">Point Balance</div>
+                <div class="expire">First points expire on 31-12</div>
+            </div>
+            <div class="rightSide">
+                <div class="next"></div>
+                <div class="text">1010 <span>pts</span></div>
+            </div>    
+        </div>
+        <div class="subHeader">
+            <div class="leftHeader">Most Popular</div>
+            <div class="subOption" (click)="openDetailPage('Most Popular')">See All</div>
+        </div>
+        <div class="itemBelt">
+            <item-belt></item-belt>
+        </div>
+        <div class="subHeader">
+            <div class="leftHeader">You can almost buy...</div>
+            <div class="subOption" (click)="openDetailPage('Most Popular')">See All</div>
+        </div>
+        <div class="itemBelt">
+            <item-belt></item-belt>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="banner"></div> -->
