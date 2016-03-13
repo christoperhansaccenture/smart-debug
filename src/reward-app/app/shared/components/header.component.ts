@@ -7,7 +7,7 @@ import {PageNavigationService} from '../../shared/services/page-navigation.servi
 import {AccountService} from '../../shared/services/account.service';
 
 @Component({
-    selector: 'pltn-header',
+    selector: 'smart-header',
     templateUrl: 'app/shared/components/header.component.html',
     directives: []
 })
@@ -16,7 +16,7 @@ export class HeaderComponent {
     menu;
     subMenu;
     hideSubMenu: boolean = true;
-    searchFunction = false;
+    filterFunction = false;
 
     constructor (
 		private _layoutService : LayoutService,
@@ -25,8 +25,8 @@ export class HeaderComponent {
 		private _pageNavigationService: PageNavigationService,
         private _accountService: AccountService) {}
     
-    toggleSearchFunction(){
-        this.searchFunction = ! this.searchFunction;
+    toggleFilterFunction(){
+        this.filterFunction = ! this.filterFunction;
     }
     
     selectedPhoneNumber(){

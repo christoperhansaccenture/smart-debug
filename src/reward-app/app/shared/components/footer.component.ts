@@ -7,7 +7,7 @@ import {PageNavigationService} from '../../shared/services/page-navigation.servi
 import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
-    selector: 'pltn-footer',
+    selector: 'smart-footer',
     templateUrl: 'app/shared/components/footer.component.html'
 })
 export class FooterComponent {

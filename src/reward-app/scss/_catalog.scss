@@ -1,50 +1,34 @@
 $col-3-height: 340px;
-
-.catalogContainerSmall {
+   
+.catalogContainer{
     
-    margin-bottom: 45px;
-    z-index: 1;
+    background-color: #FFF;
     
-    .containerBody{
-        
-        width: 100%;
-        height: 100%;
-        background-color: #FFF;
-        
-        .subHeader{
-            display: inline-block;
-            font-size: 20px;
+    .subHeader{
+        display: inline-block;
+        margin: 25px 10px 0px 10px;
+        width: calc(100% - 20px);
+   
+        .leftHeader{
+            display: table-cell;
+            height: 21px;
+            font-size: 21px;
             color: $smartgreen;
-            margin: 10px;
-            width: calc(100% - 20px);
-            line-height: 30px;
-            
-            .leftHeader{
-                font-size: 20px;
-                color: $smartgreen;
-                float: left;
-            }
-            
-            .subOption{
-                font-size: 15px;
-                color: black;
-                cursor: pointer;
-                float: right;
-                line-height: 15px;
-                margin-top: 15px;
-            }
-            
+            float: left;
+            vertical-align: bottom;
         }
         
-        .itemBelt{
-            display: inline-block;
-            width: 100%;
-            background-color: $smartgreen;
-            
-            .darkgray{
-                background-color: $dark-gray;
-            }
-        } 
+        .subOption{
+            display: table-cell;
+            font-size: 15px;
+            height: 21px;  
+            color: black;
+            cursor: pointer;
+            float: right;
+            vertical-align: bottom;
+        }
+        
     }
     
 }
+

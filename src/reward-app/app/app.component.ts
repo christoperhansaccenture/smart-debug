@@ -22,14 +22,12 @@ import {ModalComponent} from './shared/components/modal.component';
 declare var FastClick: FastClickStatic;
 
 @Component({
-    selector: 'pltn-app',
+    selector: 'smart-app',
     template: `
-        <pltn-header></pltn-header>
+        <smart-header></smart-header>
         <my-modal></my-modal>
-        <router-outlet id="maincontainer"
-        (window:resize)="OnResize()"
-        (window:scroll)="OnScroll()"></router-outlet>
-        <pltn-footer></pltn-footer>
+        <div id="content"><router-outlet></router-outlet></div>
+        <smart-footer></smart-footer>
     `,
     directives: [
         HeaderComponent,
@@ -53,7 +51,7 @@ declare var FastClick: FastClickStatic;
 
 @RouteConfig([
     {
-        path: '/main/...',
+        path: '/...',
         name: 'Starter',
         component: MainLoginComponent,
 		useAsDefault: true

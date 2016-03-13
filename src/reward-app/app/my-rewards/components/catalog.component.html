@@ -1,34 +1,26 @@
-<div class="catalogContainerSmall" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
-    <div class="containerBody">
-        <div class="subHeader">
-            <div class="leftHeader">Most Popular</div>
-            <div class="subOption" (click)="openDetailPage('Most Popular')">See All</div>
-        </div>
-        <div class="itemBelt">
-            <item-belt></item-belt>
-        </div>
-        <div class="subHeader">
-            <div class="leftHeader">All Categories</div>
-            <div class="subOption" (click)="openDetailPage('All Categories')">See All</div>
-        </div>
-        <div class="itemBelt">
-            <item-belt></item-belt>
-        </div>
-        <div class="subHeader">
-            <div class="leftHeader">Lifestyle</div>
-            <div class="subOption" (click)="openDetailPage('Lifestyle')">See All</div>
-        </div>
-        <div class="itemBelt">
-            <item-belt></item-belt>
-        </div>
-        <div class="subHeader">
-            <div class="leftHeader">Mobile</div>
-            <div class="subOption" (click)="openDetailPage('Mobile')">See All</div>
-        </div>
-        <div class="itemBelt">
-            <item-belt></item-belt>
-        </div>
+
+<div class="catalogContainer">
+    <div class="subHeader">
+        <div class="leftHeader">Most Popular</div>
+        <div class="subOption" (click)="openDetailPage('Most Popular')">See All</div>
     </div>
+    <item-belt></item-belt>
+    <div class="subHeader">
+        <div class="leftHeader">All Categories</div>
+        <div class="subOption" (click)="openDetailPage('All Categories')">See All</div>
+    </div>
+    <item-belt></item-belt>
+    <div class="subHeader">
+        <div class="leftHeader">Lifestyle</div>
+        <div class="subOption" (click)="openDetailPage('Lifestyle')">See All</div>
+    </div>
+    <item-belt></item-belt>
+    <div class="subHeader">
+        <div class="leftHeader">Mobile</div>
+        <div class="subOption" (click)="openDetailPage('Mobile')">See All</div>
+    </div>
+    <item-belt></item-belt>
 </div>
+
 
 <!-- <div class="banner"></div> -->

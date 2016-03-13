@@ -1,14 +1,52 @@
-<div class="headerSmall" [ngClass]="{openSearch : searchFunction}" *ngIf="getLayout().appHeader && !getResize().largeUp">
-	<div class="headerContainer" *ngIf="!searchFunction">
-        <div class="back" *ngIf="isDetailPage()" (click)="goToPreviousPage()"></div>
-        <div class="magnifier" *ngIf="isCatalogPage() || isDetailPage()" (click)="toggleSearchFunction()"></div>
-        <div class="cart"></div>
-        <div class="logo" *ngIf="!isCatalogPage() && !isDetailPage()"></div>
-        <div class="points" *ngIf="isCatalogPage() || isDetailPage()">1010 <span>pts</span></div>
+<div class="headerSmall" [ngClass]="{openSearch : filterFunction}">
+	<div class="mainBox">
+        <div class="defaultBox">
+            <div class="back" *ngIf="isDetailPage()" (click)="goToPreviousPage()"></div>
+            <div class="cart"></div>
+            <div class="magnifier" *ngIf="isCatalogPage() || isDetailPage()" (click)="toggleFilterFunction()"></div>
+            
+            <div class="logo" *ngIf="!isCatalogPage() && !isDetailPage()"></div>
+            <div class="points" *ngIf="isCatalogPage() || isDetailPage()">1010 <span>pts</span></div>
+        </div>
+        <div class="filterBox" *ngIf="filterFunction">
+            <div class="sliderBox">
+                <span class="description">points</span>
+                <span class="pointSlider">
+                    <div class="bar">
+                        <div class="bar selected" style="left: 30px; width: 200px"></div>
+                        <div class="pointer" style="left: 30px;"></div>
+                        <div class="label" style="left: 25px;">30</div>
+                        <div class="pointer" style="left: 230px;"></div>
+                        <div class="label2" style="left: 225px;">230</div>
+                    </div>   
+                </span>
+            </div>
+            <div class="categoryBox">
+                <div class="title">Categories</div>
+                <div class="options">
+                    <ul>
+                        <li><span class="check"></span><span class="">My Favorites</span></li>
+                        <li><span class="check active"></span><span class="">Perks</span></li>
+                        <li><span class="check"></span><span class="">Lifestyle</span></li>
+                        <li><span class="check"></span><span class="">Mobile</span>
+                            <ul>
+                                <li><span class="check"></span><span class="">Prepaid</span></li>
+                                <li><span class="check"></span><span class="">Postpaid</span></li>
+                                <li><span class="check"></span><span class="">Bro Prepaid</span></li>
+                                <li><span class="check"></span><span class="">Bro Postpaid</span></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="headerContainer2" *ngIf="searchFunction">
+<!--     <div class="headerContainer2" *ngIf="filterFunction">
         <div class="upperHeader">
-            <div class="back" (click)="toggleSearchFunction()"></div>
+            <div class="back" (click)="toggleFilterFunction()"></div>
             <select class="categoryFilter">
                 <option value="all">All</option>
                 <option value="food">Food</option>
@@ -26,7 +64,7 @@
         <div class="bottomHeader">
             <input class="search" placeholder="Rewards" [(ngModel)]="searchString" />
         </div>
-    </div>
+    </div> -->
 </div>
 <div class="headerContainer" *ngIf="getLayout().loginHeader">
 	<div class="headerLogin">
