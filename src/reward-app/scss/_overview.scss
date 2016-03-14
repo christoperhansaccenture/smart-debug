@@ -1,0 +1,99 @@
+$col-3-height: 340px;
+
+.overviewContainer {
+    background-color: #FFF;
+    padding-top: 5px;
+
+    .subHeader{
+        display: inline-block;
+        margin: 25px 10px 0px 10px;
+        width: calc(100% - 20px);
+   
+        .leftHeader{
+            display: table-cell;
+            height: 21px;
+            font-size: 21px;
+            color: $smartgreen;
+            float: left;
+            vertical-align: bottom;
+        }
+        
+        .subOption{
+            display: table-cell;
+            font-size: 15px;
+            height: 21px;  
+            color: black;
+            cursor: pointer;
+            float: right;
+            vertical-align: bottom;
+        }
+        
+    }
+    
+    .subInfoContainer{
+        display: inline-block;
+        width: calc(100% - 20px);
+        height: 50px;
+        padding: 5px 10px 5px 10px;
+        // background-color: #EEE;
+        border: 1px 0 1px 0;
+        margin-top: 5px;
+        border-style: solid;
+        border-color: #EEE;
+        
+        .leftSide{
+            float: left;
+            height: 50px;
+            
+            .balance{
+                height: 25px;
+                margin-top: 5px;
+                color: black;
+                font-weight: bold;
+                font-size: 15px;
+            }
+            .expire{
+                color: $gray;
+                font-size: 13px;
+            }    
+        }
+        .rightSide{
+            float: right;
+
+            line-height: 30px;
+            
+            .text{
+                float: right;
+                display: flex;
+                align-items: center; // align vertical 
+                justify-content: center; // align horizontal
+                height: 50px;
+                font-size: 25px;
+                font-weight: bold;
+                color: $smartred;
+                span{
+                    margin-top: 5px;
+                    margin-left: 2px;
+                    font-size: 15px;
+                    font-weight: normal;
+                }
+            }
+            
+            .next{
+                height: 50px;
+                width: 30px;
+                float: right;
+                cursor: pointer;
+                background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU4LjU4NzMxNzA4NTUwMDMsMS40MjEwODU0NzE1MjAyRS0xNCkgc2NhbGUoOC4wMDEwMDAwNTI1MTgyNiw4LjAwMTAwMDA1MjUxODI2KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40MjAwNDgyLDBMMTcuMzUxMDAxLDE2LjA0Njk5NiAxLjQ5ODA1MTMsMzEuOTk2MDAxIDAuMDc4OTc5NjMxLDMwLjU4NTk5NyAxNC41MzEwNDYsMTYuMDQ2MDE5IDAsMS40MDg5OTY0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                background-position-x: right;
+                background-position-y: center;
+                background-size: 20px;    
+            }
+            
+        }
+    }
+    
+
+    
+    
+}

@@ -1,0 +1,219 @@
+$col-height: 360px;
+$plan-desc-text : 10px;
+
+.changePlanContainer {
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+
+	.mediumDown {
+		margin-top: 50px;
+		.col1 {
+			margin-bottom: 20px;
+			width: 100%;
+
+			.content {
+			
+				.header{
+					height: 35px;
+					width: 100%;
+					margin-top: 60px;
+					border-bottom: 1px solid $gray;
+					padding-bottom: 10px;
+					
+					.left{
+						float: left;
+						height: 46px;
+						width: 46px;
+						margin-left: 10px;
+						
+						&.postpaid{
+							background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCg0KIDxnPg0KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+DQogIDxyZWN0IGZpbGw9Im5vbmUiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSI0MDIiIHdpZHRoPSI1ODIiIHk9Ii0xIiB4PSItMSIvPg0KIDwvZz4NCiA8Zz4NCiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPg0KICA8ZyBpZD0ic3ZnXzEiPg0KICAgPHBhdGggZD0ibTE2LDBjOC44LDAgMTYsNy4yIDE2LDE2YzAsOC44IC03LjIsMTYgLTE2LDE2Yy04LjgsMCAtMTYsLTcuMiAtMTYsLTE2YzAsLTguOCA3LjIsLTE2IDE2LC0xNnoiIGZpbGw9IiMwMDlDREUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuNjAwMDAwMDIzODQxODU4LDEuNjAwMDAwMDIzODQxODU4KSBzY2FsZSg3LjkwMDAwMDA5NTM2NzQzMikgIiBpZD0icGF0aDEiLz4NCiAgPC9nPg0KICA8dGV4dCBzdHJva2U9IiMwMDAiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTg5NTE5NzYyOTkyODU4OSwwLDAsMSwtMjkuMzQ4OTEyMDQ3MjIyMjU3LDApICIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiBmb250LWZhbWlseT0iSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgaWQ9InN2Z18yIiB5PSIxMjAuNSIgeD0iMzMuNSIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjMDAwMDAwIi8+DQogIDx0ZXh0IHN0cm9rZT0iIzAwMCIgdHJhbnNmb3JtPSJtYXRyaXgoMS4wNTE0NDgxNzQ2NDQyOTI1LDAsMCwxLjAyNTY1MTU2NjcwNjE3Myw0LjU2MTQ0ODIzNzY5NzU0MSwyLjc5NjEyNDY1MTk5MjU5MDQpICIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiBmb250LWZhbWlseT0iSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0NSIgaWQ9InN2Z18zIiB5PSIxMzcuNjIyMTUyIiB4PSIzLjYzMjIyNyIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iI2ZmZmZmZiI+UE9TVFBBSUQ8L3RleHQ+DQogPC9nPg0KPC9zdmc+") no-repeat;
+							background-size: 40px;
+							background-position: 0 0px;
+						}
+						
+						&.prepaid{
+							background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8Zz4NCiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPg0KICA8cmVjdCB4PSItMSIgeT0iLTEiIHdpZHRoPSIxOTguOTIzNDMiIGhlaWdodD0iMTk4LjkyMzQzIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGZpbGw9Im5vbmUiLz4NCiA8L2c+DQoNCiA8Zz4NCiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPg0KICA8ZyBpZD0ic3ZnXzEiIGZpbGw9Im5vbmUiPg0KICAgPHBhdGggaWQ9InBhdGgxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjYwMDAwMDAyMzg0MTg1OCwxLjYwMDAwMDAyMzg0MTg1OCkgc2NhbGUoNy45MDAwMDAwOTUzNjc0MzIpICIgZmlsbD0iIzAwQjA1MCIgZD0ibTE2LDAuMDUwNjMzYzguOCwwIDE2LDcuMiAxNiwxNmMwLDguOCAtNy4yLDE2IC0xNiwxNmMtOC44LDAgLTE2LC03LjIgLTE2LC0xNmMwLC04LjggNy4yLC0xNiAxNiwtMTZ6IiBzdHJva2Utd2lkdGg9IjAiLz4NCiAgPC9nPg0KICA8dGV4dCBmaWxsPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjAiIHg9IjMzLjUiIHk9IjEyMC41IiBpZD0ic3ZnXzIiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EsIEFyaWFsLCBzYW5zLXNlcmlmIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIHhtbDpzcGFjZT0icHJlc2VydmUiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTg5NTE5NzYyOTkyODU4OSwwLDAsMSwtMjkuMzQ4OTEyMDQ3MjIyMjU3LDApICIgc3Ryb2tlPSIjMDAwIi8+DQogIDx0ZXh0IGZpbGw9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMCIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHg9IjE4LjYzNTE3OCIgeT0iMTM3LjYyNDM2MSIgaWQ9InN2Z18zIiBmb250LXNpemU9IjQ1IiBmb250LWZhbWlseT0iSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZiIgdGV4dC1hbmNob3I9InN0YXJ0IiB4bWw6c3BhY2U9InByZXNlcnZlIiB0cmFuc2Zvcm09Im1hdHJpeCgxLjA1MTQ0ODE3NDY0NDI5MjUsMCwwLDEuMDI1NjUxNTY2NzA2MTczLDQuNTYxNDQ4MjM3Njk3NTQxLDIuNzk2MTI0NjUxOTkyNTkwNCkgIiBzdHJva2U9IiMwMDAiPlBSRVBBSUQ8L3RleHQ+DQogIDxwYXRoIGZpbGw9IiMwQzM3MkMiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwIiBzdHJva2Utb3BhY2l0eT0ibnVsbCIgb3BhY2l0eT0iMC41IiBkPSJtLTIxMS42MTU5NzcsMjAuNjkyMTE3IiBpZD0ic3ZnXzQiLz4NCiA8L2c+DQo8L3N2Zz4=") no-repeat;
+							background-size: 40px;
+							background-position: 0 0px;
+						}
+						
+						&.broadband{
+							background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8Zz4NCiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPg0KICA8cmVjdCBmaWxsPSJub25lIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGhlaWdodD0iMjU4IiB3aWR0aD0iMjU4IiB5PSItMSIgeD0iLTEiLz4NCiA8L2c+DQoNCiA8Zz4NCiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPg0KICA8ZyBmaWxsPSJub25lIiBpZD0ic3ZnXzEiPg0KICAgPHBhdGggc3Ryb2tlLXdpZHRoPSIwIiBkPSJtMTYsMC4wNTA2MzNjOC44LDAgMTYsNy4yIDE2LDE2YzAsOC44IC03LjIsMTYgLTE2LDE2Yy04LjgsMCAtMTYsLTcuMiAtMTYsLTE2YzAsLTguOCA3LjIsLTE2IDE2LC0xNnoiIGZpbGw9IiNGRjI4NUUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuNjAwMDAwMDIzODQxODU4LDEuNjAwMDAwMDIzODQxODU4KSBzY2FsZSg3LjkwMDAwMDA5NTM2NzQzMikgIiBpZD0icGF0aDEiLz4NCiAgPC9nPg0KICA8dGV4dCBzdHJva2U9IiMwMDAiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTg5NTE5NzYyOTkyODU4OSwwLDAsMSwtMjkuMzQ4OTEyMDQ3MjIyMjU3LDApICIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiBmb250LWZhbWlseT0iSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgaWQ9InN2Z18yIiB5PSIxMjAuNSIgeD0iMzMuNSIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjMDAwMDAwIi8+DQogIDx0ZXh0IHN0cm9rZT0iIzAwMCIgdHJhbnNmb3JtPSJtYXRyaXgoMS4xMjUyNTkwNDkxNTM1NjUsMCwwLDEuMTUwODQ3MzA1MTQ0NzY5NCwtNy42MDI2ODE1NDYyMzIyOCwtMTEuMDAzMTg2MDk0NjI4Mjk4KSAiIHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgZm9udC1mYW1pbHk9IkhlbHZldGljYSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDUiIGlkPSJzdmdfMyIgeT0iMTIxLjk4MzcxMSIgeD0iMzkuMDc0OTE2IiBzdHJva2Utb3BhY2l0eT0ibnVsbCIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjZmZmZmZmIj5CUk9BRDwvdGV4dD4NCiAgPHBhdGggaWQ9InN2Z180IiBkPSJtLTIxMS42MTU5NzcsMjAuNjkyMTE3IiBvcGFjaXR5PSIwLjUiIHN0cm9rZS1vcGFjaXR5PSJudWxsIiBzdHJva2Utd2lkdGg9IjAiIHN0cm9rZT0iIzAwMCIgZmlsbD0iIzBDMzcyQyIvPg0KICA8dGV4dCBzdHJva2U9IiMwMDAiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTI1MjU5MDQ5MTUzNTY1LDAsMCwxLjE1MDg0NzMwNTE0NDc2OTQsLTcuNjAyNjgxNTQ2MjMyMjgsLTExLjAwMzE4NjA5NDYyODI5OCkgIiB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EsIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBpZD0ic3ZnXzUiIHk9IjE2NC41NjEwMzYiIHg9IjU0LjE4MjU0OCIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iI2ZmZmZmZiI+QkFORDwvdGV4dD4NCiA8L2c+DQo8L3N2Zz4=") no-repeat;
+							background-size: 40px;
+							background-position: 0 0px;
+						}
+					}
+					
+					.middle{
+					
+						padding-left: 20px;
+					
+						a{
+							padding-left: 5px;
+							color: $smartblue;
+							font-size: 15px;
+						}
+						
+						select{
+							border: none;
+							color: $smartblue;
+						}
+					}
+					
+					.right{
+					}
+					
+				}
+				
+				.subheader{
+					
+					margin-bottom: 10px;
+					
+					h2 {
+						padding-left: 10px;
+						color: $smartblue;
+						margin-bottom: 10px;
+					}
+					
+					a {
+						padding-left: 10px;
+						font-size: 12px;
+						color: #808080;
+					}
+				}
+
+				.itemDropable{
+					
+					background-color: $smartblue;
+					border-bottom: 2px solid #FFF;
+					padding-top: 5px;
+					padding-bottom: 5px;
+					cursor:	pointer;
+					float: left;
+					width: 100%;
+					
+					a {
+						padding-left: 10px;
+						font-size: 15px;
+						color: #FFF;
+					}
+					
+					.cursor{
+						float: right;
+						height: 20px;
+						width: 20px;
+						margin-right: 10px;
+						background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDIzLDU3LjY1MzIwMDM1ODQ1OTYpIHNjYWxlKDYuNTYyNTA0Mjk1MzczNjcsNi41NjI1MDQyOTUzNzM2NykgICIgZmlsbD0iI0ZGRkZGRiIgZD0iTTAuODc0OTkwNDYsMEwzMS4xMjQ5OSwwQzMxLjkyMzk5LDAsMzIuMjIyOTksMC40OTg5OTQzNSwzMS44MjM5OSwwLjk5Nzk4ODdMMTYuNjQ4OTkxLDIxLjA2NDc2NEMxNi4yNDk5OSwyMS41NjM3NTksMTUuNjUwOTksMjEuNTYzNzU5LDE1LjI1MDk5MSwyMS4wNjQ3NjRMMC4xNzU5OTAxLDAuOTk3OTg4N0MtMC4yMjMwMDkxMSwwLjQ5ODk5NDM1LDAuMDc1OTkwNjc3LDAsMC44NzQ5OTA0NiwweiIgLz4NCiAgPC9nPg0KPC9zdmc+DQo=") no-repeat;
+						background-size: 20px;
+						background-position: 0 0px;
+						
+						&.up{
+						
+							background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDIzLDU3Ljc4MTI1MTI1MTY5NzUpIHNjYWxlKDYuNTYyNSw2LjU2MjUpICAiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xNi4wMDAwMTYsMEwyNC4wMDAwMDgsMTAuNyAzMiwyMS4zOTk5OTkgMTYuMDAwMDE2LDIxLjM5OTk5OSAwLDIxLjM5OTk5OSA3Ljk5OTk5MjgsMTAuN3oiIC8+DQogIDwvZz4NCjwvc3ZnPg0KDQo=") no-repeat;
+							background-size: 20px;
+							background-position: 0 0px;
+						
+						}
+					
+					}
+					
+				}
+				
+				.itemOfDrop{
+					
+					.outer-box{
+						float: left;
+						width: calc(100% - 20px);
+						
+						.inner-box{
+							padding: 0;
+							float: left;
+							width: 100%;
+							padding-top: 5px;
+							padding-bottom: 5px;
+
+							.float-left {
+								padding-left: 10px;
+								float: left;
+								max-width: 55%;
+								
+								h4 {
+									margin-top: 5px;
+									margin-bottom: 0px;
+								}
+
+								p {
+									font-size: $plan-desc-text;
+									margin-bottom: 5px;
+									margin-top: 0;
+									color: $text-light-gray;
+									
+								}
+							}
+
+							.float-right {
+								padding-right: 10px;
+								float: right;
+								max-width: 35%;
+
+								.button-row {
+									text-align: center;
+
+									.button {
+										width: 75%;
+										line-height: 0.5rem;
+										margin-top: 5px;
+										display: inline-block;
+										color: #FFF;
+										cursor: pointer;
+										
+									}
+									
+									.green {
+										background-color: $smartgreen;
+									}
+									
+									.red {
+										background-color: $smartred;
+									}
+									
+								}
+							}
+						}
+						
+					}
+					
+				}
+				
+			}
+		}
+	}
+}
+
+
+.myPlanBanner {
+
+
+	.largeUp{
+		height: 300px;
+		width: 1180px;
+		margin: 0 auto;
+		background: url(../img/mysmart-airbnb.jpg) no-repeat;
+		background-position: center top;
+		margin-bottom: 20px;
+	}
+
+	.mediumDown{
+		
+		height: 100px;
+		width: 100%;
+		background: url(../img/mysmart-airbnb.jpg) no-repeat;
+		background-position: center top;
+		margin-bottom: 20px;
+		background-size: auto 100%;
+	}
+}

@@ -1,0 +1,101 @@
+.modalRenewPlanContent{
+    background-color: #FFF;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 300px;
+    padding: 5px;
+    border: 1px solid $lightgray;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4);
+    
+    .modalHeader{
+        
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: $smartblue;
+        
+    }
+    
+    .modalBody{
+    
+        display: inline-block;
+        width: 100%;
+    
+        .itemRow{
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            
+            .itemHeader{
+                font-weight:bold;
+                font-size:13px;
+                color:black;
+                margin-bottom: 5px;
+            }
+            
+            .itemPlanName{
+                
+                color: $smartblue;
+                font-size: 20px;
+                margin-bottom: 5px;
+                margin-left: 20px;
+            }
+            
+            .itemDetail{
+                
+                color: $text-dark-gray;
+                font-size: 15px;
+                margin-left: 30px;
+                margin-bottom: 5px;
+            }
+            
+            .itemAmount{
+                color: $smartblue;
+                font-size: 20px;
+                text-align: right;
+            }
+            
+            .itemAmountDetail{
+                color: $text-dark-gray;
+                font-size: 15px;
+                text-align: right;
+            }
+            
+            
+        }
+    
+    }
+    
+    .modalFooter{
+        
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        
+        .button {
+            width: 35%;
+            line-height: 1.5rem;
+            margin-top: 5px;
+            display: inline-block;
+            color: #FFF;
+            cursor: pointer;
+            
+        }
+        
+        .blue {
+            background-color: $smartblue;
+            margin-right: 10px;
+        }
+        
+        .red {
+            background-color: $smartred;
+            margin-left: 10px;
+        }
+        
+    }
+    
+}   

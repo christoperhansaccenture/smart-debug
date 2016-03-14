@@ -1,0 +1,90 @@
+.modalUpdateCreditContent{
+    background-color: #FFF;
+    background-color: #FFF;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 300px;
+    padding: 5px;
+    border: 1px solid $lightgray;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4);
+    
+    .modalHeader{
+        
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: $smartblue;
+        
+    }
+    
+    .modalBody{
+    
+        display: inline-block;
+        width: 100%;
+    
+        .itemRow{
+            margin-bottom: 10px;
+            float: left;
+            width: 100%;
+            
+            .itemDetail{
+                float: left;
+                font-weight:bold;
+                font-size:13px;
+                color:black;
+                margin-left: 10px;
+            }
+            
+            .itemValue{
+                
+                float: right;
+                font-size:20px;
+                color: $smartblue;
+                margin-top: 0;
+                margin-bottom:0;
+                text-align: right;
+                padding-right: 10px;
+                
+                .inputLimit{
+                    width: 120px;
+                }
+                
+            }
+            
+        }
+    
+    }
+    
+    .modalFooter{
+        
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        
+        .button {
+            width: 35%;
+            line-height: 1.5rem;
+            margin-top: 5px;
+            display: inline-block;
+            color: #FFF;
+            cursor: pointer;
+            
+        }
+        
+        .blue {
+            background-color: $smartblue;
+            margin-right: 10px;
+        }
+        
+        .red {
+            background-color: $smartred;
+            margin-left: 10px;
+        }
+        
+    }
+    
+}   

@@ -40,7 +40,7 @@ export class AccountService {
     constructor (private _smartIntegrationService: SmartIntegrationService) {}
     
     getPlanName(){
-        return JSON.parse(sessionStorage.getItem('loginData')).result.planName;
+        return 'usual plan';//JSON.parse(sessionStorage.getItem('loginData')).result.planName;
     }
 
     

@@ -1,0 +1,19 @@
+<div class="modalUpdateCreditContent">
+    <div class="modalHeader">Update your Credit Limit</div>
+    <div class="modalBody">
+        <div class="itemRow">
+            <div class="itemDetail">Current Credit Limit</div>
+            <div class="itemValue">P35,000.00</div>
+        </div>
+        <div class="itemRow">
+            <div class="itemDetail">New Credit Limit</div>
+            <div class="itemValue">
+                <input #limit class="inputLimit"/>
+            </div>
+        </div>			
+    </div>
+    <div class="modalFooter">
+        <div class="button blue" (click)="cancelCreditLimit()">Cancel</div>	
+        <div class="button red" (click)="updateCredit()">Update</div>			
+    </div>
+</div>

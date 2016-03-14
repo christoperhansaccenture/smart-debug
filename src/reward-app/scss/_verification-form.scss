@@ -1,0 +1,92 @@
+$containerLogin-height: 400px;
+
+
+.containerVerificationFormSmall {
+	z-index: 50;
+	position: fixed;
+    left: 0;
+    right: 0;
+    
+    ::-webkit-input-placeholder {
+		color:    #FFF;
+	}
+	:-moz-placeholder {
+		color:    #FFF;
+	}
+	::-moz-placeholder {
+		color:    #FFF;
+	}
+	:-ms-input-placeholder {
+		color:    #FFF;
+	}
+
+	.outer-box {
+		
+		background-color: rgba(0, 0, 0, 0);
+		max-width : 300px;
+		margin: 100px auto 0px;
+		
+		.header {
+			color: #FFF;
+			font-size: 28px;
+			line-height: 40px;
+			padding-right: 20px;
+			margin-bottom: 10px;
+		}
+		
+		.inner-box {
+			
+			background-color: rgba(0, 0, 0, 0);
+			border: 0;
+			text-align: center;
+			padding: 0;
+
+			.button {
+				width: 100%;
+				margin: 20px auto 18px;
+				cursor: pointer;
+				background-color: transparent;
+				border: 1px solid #FFF;
+				padding-right: 0;
+				padding-left: 0;
+			}
+
+			input {
+				width: 100%;
+				margin: 2px auto;
+				display: block;
+				height: $mainheigt - 22px;
+				border: none;
+				line-height: $mainheigt - 20px;
+				font-size: medium;
+				margin-bottom: 5px;
+				background-color: rgba(0, 0, 0, 0);
+				outline: 0;
+				color : #FFF;
+				border-bottom: 1px solid #FFF;
+				
+				&.smartnumber{
+					border-bottom: 1px solid #FFF;
+				}
+				
+			}
+            
+            .errorAlert{
+                margin-top: 20px;
+                color:red;
+                font-size:14px;
+            }
+			
+			p {
+				margin-top: 20px;
+				margin-bottom: 30px;
+				
+				a {
+					color: #FFF;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+}
