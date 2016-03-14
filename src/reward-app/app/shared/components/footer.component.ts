@@ -37,10 +37,7 @@ export class FooterComponent {
         
     }
     
-    getResize(){
-
-        return this._matchMediaService.getmm();       
-    }
+    getResize(){return this._matchMediaService.getmm();}
     
     additionalMenuStatus(){
         
