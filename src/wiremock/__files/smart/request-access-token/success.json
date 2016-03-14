@@ -1,0 +1,10 @@
+{
+    "status": "200",
+    "message": "Success",
+    "result": {
+        "AccessToken": "ae161c89a601454da44cce4367983dbbcc2cc244bad64b11b8554dc2d3e78684",
+        "RefreshToken": "d8491c47315345769d4ff1d0d55a10e406da9822e08241f4a8b6c8a2b55ecc76",
+        "ExpiresOn": "3/15/2016 12:14:51 AM",
+        "MSAID": "1177736"
+    }
+}

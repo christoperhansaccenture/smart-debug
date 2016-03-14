@@ -66,13 +66,15 @@ a {
 }
 
 .button {
-	background-color: $smartblue;
+	background-color: $smartred;
 	text-align: center;
 	padding: 8px;
 	clear: both;
 	bottom: 0px;
 	width: 200px;
 	border-radius: 3px;
+    border: none;
+    cursor: pointer;
 
 	a {
 		color: white;

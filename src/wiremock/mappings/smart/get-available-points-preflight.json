@@ -1,0 +1,9 @@
+{
+    "request": {
+        "method": "OPTIONS",
+        "urlPattern": "/postpaidws/accountManagement/accounts/[0-9]+/details"
+    },
+    "response": {
+        "status": 200
+    }
+}

@@ -54,6 +54,17 @@ $smallheight: 48px;
                 margin-right: 10px;
             }
             
+            .up-arrow{
+                float: right;
+                width:48px;
+                height:48px;
+                background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsNTguNTg1MTUyMjg0NDYwNikgc2NhbGUoOC4wMDEyNTA0NjI0NTUzMSw4LjAwMTI1MDQ2MjQ1NTMxKSAgIiBmaWxsPSIjRkZGRkZGIiBkPSJNMTYuMDQ2OTk5LDBMMzEuOTk0OTk4LDE1Ljg1Mzk5MSAzMC41ODUwODYsMTcuMjcyOTk3IDE2LjA0NjAyMiwyLjgyMDAwNTEgMS40MDkwNTc2LDE3LjM1MSAwLDE1LjkzMTk5NHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                background-size: 30px;
+                background-position: center center;
+                cursor: pointer;
+                
+            }
+            
             .cart{
                 width:48px;
                 height:48px;
@@ -78,6 +89,7 @@ $smallheight: 48px;
                 line-height: 48px;
                 margin-left: 20px;
                 width: 110px;
+                text-align: center;
                 
                 span{
                     font-size: 15px;
@@ -203,18 +215,41 @@ $smallheight: 48px;
                             content: " ";
                         }
                     }
-
+                    
                     .check{
-                        width: 20px;
-                        height: 20px;
+                        width: 0;
+                        height: 0;
                         display: block;
-                        border-radius: 5px;
-                        border: 1px solid #FFF;
-                        margin: 5px;
+                        margin: 5px 27px 5px 5px;
                         float: left;
+
+                        &:before {
+                            display: block;
+                            border-radius: 5px;
+                            border: 1px solid #FFF;
+                            float: left;
+
+                            content:"";
+                            display:inline-block;
+                            width: 20px;
+                            height: 20px;
+                            background-size: 12px;
+                            background-color: $smartgreen;
+                            border-radius: 5px;
+                        }
+
+                        &:checked {
+                            &:before {
+                                background-color: $smartred;
+                            }
+                        }
 
                         &.active{
                             background-color: $smartred;
+                        }
+
+                        &:focus {
+                            outline: none
                         }
                     }
 
