@@ -1,12 +1,12 @@
-<div class="headerSmall" [ngClass]="{openSearch : filterFunction}">
+<div class="headerSmall" [ngClass]="{openSearch : filterFunction}" *ngIf="getLayout().appHeader">
 	<div class="mainBox">
         <div class="defaultBox">
-            <div class="back" *ngIf="isDetailPage()" (click)="goToPreviousPage()"></div>
+            <div class="back" *ngIf="showBackButton()" (click)="goToPreviousPage()"></div>
             <div class="cart"></div>
-            <div class="magnifier" *ngIf="isCatalogPage() || isDetailPage()" (click)="toggleFilterFunction()"></div>
+            <div class="magnifier" *ngIf="showFilter()" (click)="toggleFilterFunction()"></div>
             
-            <div class="logo" *ngIf="!isCatalogPage() && !isDetailPage()"></div>
-            <div class="points" *ngIf="isCatalogPage() || isDetailPage()">1010 <span>pts</span></div>
+            <div class="logo" *ngIf="showLogo()"></div>
+            <div class="points" *ngIf="showPoints()">1010 <span>pts</span></div>
         </div>
         <div class="filterBox" *ngIf="filterFunction">
             <div class="sliderBox">

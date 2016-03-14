@@ -49,16 +49,44 @@ export class HeaderComponent {
         }
     }
     
-    isCatalogPage(){
-        if(this._layoutService.getCurrentPage() === 'Catalog'){
+    showBackButton(){
+        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
+        this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'PayBill'){
             return true;
         }else{
             return false;
         }
     }
     
-    isDetailPage(){
-        if(this._layoutService.getCurrentPage() === 'RewardDetail' || this._layoutService.getCurrentPage() === 'MobileReward'){
+    showLogo(){
+        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
+        this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'PayBill' ||
+        this._layoutService.getCurrentPage() === 'Catalog' ||
+        this._layoutService.getCurrentPage() === 'Transfer'){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    showPoints(){
+        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
+        this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'PayBill' ||
+        this._layoutService.getCurrentPage() === 'Catalog' ||
+        this._layoutService.getCurrentPage() === 'Transfer'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    showFilter(){
+        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
+        this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'Catalog'){
             return true;
         }else{
             return false;

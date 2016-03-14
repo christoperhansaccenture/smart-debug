@@ -1,0 +1,152 @@
+$col-3-height: 340px;
+
+.payBillContainer {
+    
+    padding-bottom: 45px;
+    z-index: 1;
+    
+    .containerBody{
+        
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        
+        .header{
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid $text-dark-gray;
+            background-color: black;
+            height: 140px;
+            
+            .void{
+                display: inline-block;
+                 width: 100%;
+                 height: 80px;
+            }
+            .text{
+                display: inline-block;
+                background-color: rgba(255,255,255,0.5);
+                width: calc(100% - 20px);
+                padding: 10px;
+                height: 37px;
+                
+                .headerText{
+                    color: #FFF;
+                    font-size: 20px;
+                }
+                
+                .headerSubText{
+                    color: #FFF;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+            
+        }
+        
+        .itemContainer{
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #bcbac1;
+            
+            .itemIdentifier{
+                float: left;
+                width: 50%;
+                color: $smartgreen;
+                font-size: 15px;
+                line-height: 30px;
+            }
+            
+            .inputValue{
+                width: calc(50% - 15px);
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+                font-size: 15px;
+                line-height: 1.5rem;
+                border: 1px solid $gray;
+                
+                &.select{
+                    width: calc(53% - 15px);
+                    height: 30px;
+                }
+            }
+            
+            .phoneCountryValue{
+                display: inline-block;
+                width: 8%;
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+                font-size: 15px;
+                line-height: 1.5rem;
+                border: 1px solid $gray;
+            }
+            
+            .phoneValue{
+                float: right;
+                width: 31%;
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+                font-size: 15px;
+                line-height: 1.5rem;
+                border: 1px solid $gray;
+            }
+        }
+        
+        .itemFooterContainer{
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+            
+            .point{
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 20px;
+                
+                .pointText{
+                    display: inline-block;
+                    width: calc(50% - 10px);
+                    color: black;
+                    font-weight: bold;
+                    font-size: 15px;
+                    margin-left: 10px;
+                }
+                
+                .pointValue{
+                    display: inline-block;
+                    width: calc(50% - 15px);
+                    font-size: 30px;
+                    text-align: right;
+                    color: $smartred;
+                    font-weight: bold;
+                    margin-right: 10px;
+                    
+                    span{
+                        font-size: 15px;
+                    }
+                }
+            }
+            
+            .button {
+                width: 100px;
+                line-height: 1.5rem;
+                margin-left: 10px;
+                margin-right: 10px;
+                float: right;
+                background-color: $smartred;
+                color: #FFF;
+                
+            }
+            
+        }
+        
+        
+    }
+    
+}

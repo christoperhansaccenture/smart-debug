@@ -67,7 +67,7 @@ export class FooterComponent {
     }
     
     gotoTransfer(){
-        //this._router.navigate(['Balance']);
+        this._router.navigate(['Transfer']);
         this.addMenu = false;
     }
     

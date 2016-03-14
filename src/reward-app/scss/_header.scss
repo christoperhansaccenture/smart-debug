@@ -71,14 +71,13 @@ $smallheight: 48px;
             }
             
             .points{
+                float: left;
                 font-size: 30px;
                 color: #FFF;
                 height: 48px;
                 line-height: 48px;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-                width: 100px;
+                margin-left: 20px;
+                width: 110px;
                 
                 span{
                     font-size: 15px;

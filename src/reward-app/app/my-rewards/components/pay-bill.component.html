@@ -1,0 +1,38 @@
+<div class="payBillContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Pay Bill</div>
+                <div class="headerSubText">Use your reward points to pay bills</div>
+            </div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Paying for</div>
+            <select class="inputValue select">
+                <option value="smart1">Smart</option>
+                <option value="smart2">Smart 2</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Mobile Number</div>
+            <input class="phoneCountryValue" value="+63"/>
+            <input class="phoneValue" />
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Peso Amount</div>
+            <input class="inputValue" />
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Payment PIN</div>
+            <input class="inputValue" type="password" />
+        </div>
+        <div class="itemFooterContainer">
+            <div class="point">
+                <div class="pointText">Points Needed</div>
+                <div class="pointValue">990 <span>pts</span></div>
+            </div>
+            <div class="button red">Add to Cart</div>
+        </div>
+    </div>
+</div>

@@ -102,6 +102,28 @@ export class LayoutService {
                 appFooter: true
 			};
         }
+        else if(current == 'Transfer'){
+           
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.transfer = true;
+            
+        }
+        else if(current == 'PayBill'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true
+			};
+        }
         else{
 			
 			this.layoutState = {

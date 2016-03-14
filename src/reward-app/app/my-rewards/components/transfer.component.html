@@ -1,0 +1,27 @@
+<div class="transferContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Transfer Point</div>
+                <div class="headerSubText">Send reward points to your friend</div>
+            </div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Transfer to</div>
+            <input class="phoneCountryValue" value="+63"/>
+            <input class="phoneValue" />
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Number of points</div>
+            <input class="inputValue" [(ngModel)]="transferred"/>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="point">
+                <div class="pointText">Remaining points after transferred</div>
+                <div class="pointValue">{{(starting - transferred)}} <span>pts</span></div>
+            </div>
+            <div class="button red">Proceed</div>
+        </div>
+    </div>
+</div>
