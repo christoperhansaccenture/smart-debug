@@ -1,0 +1,9 @@
+{
+    "request": {
+        "method": "OPTIONS",
+        "url": "/apimysmartws/ssoApi/Login/requestAccessToken"
+    },
+    "response": {
+        "status": 200
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/apimysmartws/ssoapi/login/requestValidateUserCredentials"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "smart/login/success.json"
+    }
+}

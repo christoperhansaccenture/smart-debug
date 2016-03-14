@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/apimysmartws/ssoApi/Login/requestAccessToken"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "smart/request-access-token/success.json"
+    }
+}

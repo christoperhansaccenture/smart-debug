@@ -1,0 +1,10 @@
+{
+    "status": "200",
+    "message": "Success",
+    "result": {
+        "AuthenticationCode": "2344249751df40e086f384a761c5759bdbc21ac929994684baa061cfa7ddd665",
+        "ControlKey": "f51808b2eb",
+        "ClientID": "220092",
+        "ClientApplicationURI": ""
+    }
+}
