@@ -201,10 +201,13 @@ $smallheight: 48px;
                                 padding: 0;
                                 
                                 li{
-                                    display: inline-block;
+                                    color: #FFF;
                                     height: 30px;
-                                    display: flex;
+                                    display: inline-block;
                                     align-items: center;
+                                    line-height: 30px;
+                                    // align-items: center; // align vertical 
+                                    width: 100%;
 
                                 }
                             }
