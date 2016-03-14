@@ -1,19 +1,8 @@
 <div class="modalInformationContent">
-    <div class="modalBody" *ngIf="getInfoModalStatus().updateCredit">
+    <div class="modalBody" *ngIf="getInfoModalStatus().transfer">
         <div class="itemRow">
-            <div class="itemDetail">Your credit Limit update request has been submitted with <span>SR# 1-234556</span> and will be reflected within 24 hours</div>
-        </div>
-        <div class="itemRow">
-            <div class="itemDetail">You can track your request status on transaction history</div>
-        </div>			
-    </div>
-    <div class="modalBody" *ngIf="getInfoModalStatus().renewPlan">
-        <div class="itemRow">
-            <div class="itemDetail">Your plan renewal order has been submitted <span>Order # 1-239823</span></div>
-        </div>
-        <div class="itemRow">
-            <div class="itemDetail">You can track your request status on transaction history</div>
-        </div>			
+            <div class="itemDetail"><span> points</span> has been transfered to <span>SR# 1-234556</span></div>
+        </div>		
     </div>
     <div class="modalFooter">
         <div class="button red" (click)="close()">OK</div>			

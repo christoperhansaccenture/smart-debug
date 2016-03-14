@@ -17,20 +17,8 @@ export class ModalService {
         balance: false,
 	}
     
-    balanceModalState={
-        updateCredit: false,
-        PrevBillDesc: false,
-        CurrBillDesc: false,
-        AmountDueDesc: false,
-        PaymentDueDesc: false,
-        MinDueDesc: false,
-        UnbilledUsageDesc: false,
-        LoadBalDesc: false,
-        CurBillChargeDesc: false
-    }
-    
     infoModalState = {
-        renewPlan : false,
+        transfer : false,
         updateCredit : false
     }
 	
@@ -48,79 +36,75 @@ export class ModalService {
         return this.infoModalState;
     }
     
-    getBalanceModalState(){
-        return this.balanceModalState;
-    }
-    
     openCloseRenewPlan(){
         this.mainModalState = !this.mainModalState;
         this.modalState.renewPlan = !this.modalState.renewPlan;
     }
     
-    openCloseRenewPlanConf(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.info = !this.modalState.info;
-        this.infoModalState.renewPlan = !this.infoModalState.renewPlan;
-    }
+//     openCloseRenewPlanConf(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.info = !this.modalState.info;
+//         this.infoModalState.renewPlan = !this.infoModalState.renewPlan;
+//     }
     
-    openCloseUpdateCredit(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.updateCredit = !this.modalState.updateCredit;
-    }
+//     openCloseUpdateCredit(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.updateCredit = !this.modalState.updateCredit;
+//     }
     
-    openCloseUpdateCreditConf(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.info = !this.modalState.info;
-        this.infoModalState.updateCredit = !this.infoModalState.updateCredit;       
-    }
+//     openCloseUpdateCreditConf(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.info = !this.modalState.info;
+//         this.infoModalState.updateCredit = !this.infoModalState.updateCredit;       
+//     }
  
-  //Balance Pop Up 
-    openClosePrevBillDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.PrevBillDesc = !this.balanceModalState.PrevBillDesc;
-    }
+//   //Balance Pop Up 
+//     openClosePrevBillDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.PrevBillDesc = !this.balanceModalState.PrevBillDesc;
+//     }
   
-    openCloseCurrBillDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.CurrBillDesc = !this.balanceModalState.CurrBillDesc;
-    }
+//     openCloseCurrBillDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.CurrBillDesc = !this.balanceModalState.CurrBillDesc;
+//     }
     
-    openCloseAmountDueDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.AmountDueDesc = !this.balanceModalState.AmountDueDesc;
-    }
+//     openCloseAmountDueDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.AmountDueDesc = !this.balanceModalState.AmountDueDesc;
+//     }
     
-    openClosePaymentDueDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.PaymentDueDesc = !this.balanceModalState.PaymentDueDesc;
-    }
+//     openClosePaymentDueDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.PaymentDueDesc = !this.balanceModalState.PaymentDueDesc;
+//     }
     
-    openCloseMinDueDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.MinDueDesc = !this.balanceModalState.MinDueDesc;
-    }
+//     openCloseMinDueDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.MinDueDesc = !this.balanceModalState.MinDueDesc;
+//     }
     
-    openCloseUnbilledUsageDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.UnbilledUsageDesc = !this.balanceModalState.UnbilledUsageDesc;
-    }
+//     openCloseUnbilledUsageDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.UnbilledUsageDesc = !this.balanceModalState.UnbilledUsageDesc;
+//     }
     
-    openCloseLoadBalDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.LoadBalDesc = !this.balanceModalState.LoadBalDesc;
-    }
+//     openCloseLoadBalDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.LoadBalDesc = !this.balanceModalState.LoadBalDesc;
+//     }
     
-    openCloseCurBillChargeDesc(){
-        this.mainModalState = !this.mainModalState;
-        this.modalState.balance = !this.modalState.balance;
-        this.balanceModalState.CurBillChargeDesc = !this.balanceModalState.CurBillChargeDesc;
-    }
+//     openCloseCurBillChargeDesc(){
+//         this.mainModalState = !this.mainModalState;
+//         this.modalState.balance = !this.modalState.balance;
+//         this.balanceModalState.CurBillChargeDesc = !this.balanceModalState.CurBillChargeDesc;
+//     }
     
 }

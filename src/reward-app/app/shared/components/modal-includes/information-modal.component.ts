@@ -17,12 +17,12 @@ export class InformationModalComponent {
     
     close(){
         
-        if(this._modalService.getInfoModalState().renewPlan){
-            this._modalService.openCloseRenewPlanConf();
-        }
-        else{
-            this._modalService.openCloseUpdateCreditConf();
-        }
+        // if(this._modalService.getInfoModalState().renewPlan){
+        //     this._modalService.openCloseRenewPlanConf();
+        // }
+        // else{
+        //     this._modalService.openCloseUpdateCreditConf();
+        // }
     }
     
 }
