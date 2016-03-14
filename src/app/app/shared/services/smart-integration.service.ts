@@ -5,6 +5,7 @@ import {Headers} from "angular2/http";
 import {Http} from 'angular2/http';
 import {Connection} from 'angular2/http';
 import {RequestOptions} from 'angular2/http';
+import {PhoneNumber} from '../models/phone-number';
 
 @Injectable()
 export class SmartIntegrationService {
@@ -13,10 +14,18 @@ export class SmartIntegrationService {
     
     constructor (private _http: Http) {}
     
-    getBalance(phoneNumber:string){
+    getBalance(phoneNumber:PhoneNumber){
         
-        var url = this.serviceBase + 'postpaidws/accountManagement/accounts/' + phoneNumber + '/billingDetails';
+        if (phoneNumber.type === 'prepaid') {
+            var url = this.serviceBase + 'postpaidws/accountManagement/accounts/' + phoneNumber + '/billingDetails';
+            return this._http.get(url);
+        }
+        else {
+            var url = this.serviceBase + 'apimysmartws/ssoApi/mysmart/GetPostpaidBalance';
+            return this._http.post(url);
+        }
         
+        /*
         return this._http.get(url, 
          <RequestOptionsArgs> {headers: new Headers(
              {'Content-Type': 'application/json',
@@ -24,18 +33,22 @@ export class SmartIntegrationService {
              'X-session': sessionStorage.getItem('authorizationData')
             })}
             );
+            */
     }
     
     getAvalaiblePoints(phoneNumber:string){
         
         var url = this.serviceBase + 'postpaidws/accountManagement/accounts/' + phoneNumber + '/details';
         
+        return this._http.get(url);
+        /*
         return this._http.get(url, 
          <RequestOptionsArgs> {headers: new Headers(
              {'Content-Type': 'application/json',
              'Authorization': 'Basic cG9zdHBhaWR3czp3c0BQMCR0cEAhRDEyMyE=',
              'X-session': sessionStorage.getItem('authorizationData')
             })});
+           */
         
     }
     

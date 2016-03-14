@@ -98,8 +98,7 @@ export class AccountService {
         
         if(refresh === true || balanceInStorage === null || balanceInStorage === undefined){
         
-            //TODO should be change base on the phone number selected
-            var phoneNumber = localStorage.getItem('phoneNumber');
+            var phoneNumber = this.selectedPhoneNumber;
             var promise = this._smartIntegrationService.getBalance(phoneNumber);
             
             promise.subscribe(

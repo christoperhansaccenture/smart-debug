@@ -32,10 +32,8 @@ export class AuthService {
             nonce: "C681A2BFF8E94B53BE79D83B1AE9314F"
         };
         
-        this._http.post(url, JSON.stringify(data), 
-            <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json'})
-            }).subscribe(
+        this._http.post(url, JSON.stringify(data))
+        .subscribe(
         response => {
             
             //sessionStorage.setItem('authorizationData', response.json().result.sessionId);

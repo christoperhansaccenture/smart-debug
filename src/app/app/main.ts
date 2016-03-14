@@ -4,13 +4,6 @@ import {AppComponent} from './app.component';
 import {provide} from 'angular2/core';
 import {HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
 import {Headers} from "angular2/http";
+import {SmartRequestOptions} from './shared/smart-request-options';
 
-class MyOptions extends BaseRequestOptions {
-    
-  headers = new Headers(
-             {'Content-Type': 'application/json'
-            });
-
-} 
-
-bootstrap(AppComponent, [HTTP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})]);
+bootstrap(AppComponent, [HTTP_PROVIDERS, provide(RequestOptions, {useClass: SmartRequestOptions})]);

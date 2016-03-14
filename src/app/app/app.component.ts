@@ -1,6 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {HTTP_PROVIDERS} from 'angular2/http';
 import {MainLoginComponent} from './login/components/main-login.component';
 import {OverviewComponent} from './my-smart/components/overview.component';
 import {PlanComponent} from './my-smart/components/plan.component';
