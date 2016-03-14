@@ -33,5 +33,9 @@ export class CatalogComponent  {
     openDetailPage(type:string){
         this._rewardTypeService.setSelectedType(type);
     }
+    
+    goToPayBill(){
+        this._router.navigate(['PayBill']);
+    }
 	
 }
