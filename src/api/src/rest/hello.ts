@@ -1,28 +1,30 @@
-/// <reference path="../../typings/requirejs/require.d.ts" />
+/// <reference path="../../typings/main.d.ts" />
+
 'use strict';
 var cluster = require('cluster');
-import DAO = require('./test-dao');
+import { getMinutesToRaceDaoImpl } from "./test-dao";
 
-if (cluster.isMaster) {
-	var numWorkers = require('os').cpus().length;
-	console.log('Master cluster setting up ' + numWorkers + ' workers...');
 
-    for(var i = 0; i < numWorkers; i++) {
-        cluster.fork();
-    }
+// if (cluster.isMaster) {
+// 	var numWorkers = require('os').cpus().length;
+// 	console.log('Master cluster setting up ' + numWorkers + ' workers...');
 
-    cluster.on('online', function(worker) {
-        console.log('Worker ' + worker.process.pid + ' is online');
-    });
+//     for(var i = 0; i < numWorkers; i++) {
+//         cluster.fork();
+//     }
 
-    cluster.on('exit', function(worker, code, signal) {
-        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
-        console.log('Starting a new worker');
-        cluster.fork();
-    });
+//     cluster.on('online', function(worker) {
+//         console.log('Worker ' + worker.process.pid + ' is online');
+//     });
 
-// Code to run if we're in a worker process
-} else {
+//     cluster.on('exit', function(worker, code, signal) {
+//         console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
+//         console.log('Starting a new worker');
+//         cluster.fork();
+//     });
+
+// // Code to run if we're in a worker process
+// } else {
 
 
 	var express = require('express');
@@ -45,21 +47,22 @@ if (cluster.isMaster) {
 
 	const port:number = process.env.PORT || 8080;
 	const router = express.Router();
-    const minutesDAO:DAO.getMinutesToRaceDaoImpl = new DAO.getMinutesToRaceDaoImpl();
+    const minutesDAO:getMinutesToRaceDaoImpl = new getMinutesToRaceDaoImpl();
 
 	// test route
 
 	router.get('/', async function (req, res) {
         // var minutes = minutesDAO.getMinutesToRace();
-        try {
-            var minutes =  await minutesDAO.getMinutesToRace();
-        }
-        catch (err) {
-            console.log(err);
-        }
+        res.json({message: 'welcome'});
+        // try {
+        //     var minutes =  await minutesDAO.getMinutesToRace();
+        // }
+        // catch (err) {
+        //     console.log(err);
+        // }
 
 
-	    res.json({MinutesToRace: minutes});
+	    // res.json({MinutesToRace: minutes});
 
 
 	});
@@ -73,7 +76,7 @@ if (cluster.isMaster) {
 	console.log('http://127.0.0.1:' + port + '/api');
 
 
-}
+// }
 
 
 

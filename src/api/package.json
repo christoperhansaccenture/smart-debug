@@ -9,10 +9,8 @@
     "soap": "^0.12.0"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
     "grunt-typescript": "^0.8.0"
-  },
-  "scripts": {
-    "test": "ping"
   },
   "author": "Erik van de Ven",
   "license": "ISC"

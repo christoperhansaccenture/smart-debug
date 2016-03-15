@@ -1,5 +1,5 @@
 /// <reference path="dao.ts" />
-/// <reference path="../../typings/requirejs/require.d.ts" />
+
 
 'use strict';
 export class getMinutesToRaceDaoImpl implements DAO.DAO {

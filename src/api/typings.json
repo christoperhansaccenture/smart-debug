@@ -1,0 +1,7 @@
+{
+  "name": "api",
+  "version": false,
+  "ambientDependencies": {
+    "require": "github:DefinitelyTyped/DefinitelyTyped/requirejs/require.d.ts#0423c27df4caeffc6f05f04d26e694646e854c3d"
+  }
+}
