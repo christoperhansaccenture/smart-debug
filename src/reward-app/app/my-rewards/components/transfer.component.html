@@ -10,7 +10,7 @@
         <div class="itemContainer">
             <div class="itemIdentifier">Transfer to</div>
             <input class="phoneCountryValue" value="+63"/>
-            <input class="phoneValue" />
+            <input class="phoneValue" [(ngModel)]="phone"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier">Number of points</div>
@@ -21,7 +21,7 @@
                 <div class="pointText">Remaining points after transferred</div>
                 <div class="pointValue">{{(starting - transferred)}} <span>pts</span></div>
             </div>
-            <div class="button red">Proceed</div>
+            <div class="button red" (click)="doTransfer()">Proceed</div>
         </div>
     </div>
 </div>

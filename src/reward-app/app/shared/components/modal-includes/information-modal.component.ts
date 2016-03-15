@@ -7,8 +7,12 @@ import {ModalService} from '../../services/modal.service';
 })
 export class InformationModalComponent {
     
+    points;
+    phone;
+    
     constructor(private _modalService: ModalService){
-        
+        this.points = _modalService.getTransferData().point;
+        this.phone = _modalService.getTransferData().phone;
     }
     
     getInfoModalStatus(){
@@ -16,13 +20,7 @@ export class InformationModalComponent {
     }
     
     close(){
-        
-        // if(this._modalService.getInfoModalState().renewPlan){
-        //     this._modalService.openCloseRenewPlanConf();
-        // }
-        // else{
-        //     this._modalService.openCloseUpdateCreditConf();
-        // }
+        this._modalService.toggleTransferModal();
     }
     
 }

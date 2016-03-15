@@ -18,8 +18,12 @@ export class ModalService {
 	}
     
     infoModalState = {
-        transfer : false,
-        updateCredit : false
+        transfer : false
+    }
+    
+    transferData: any = {
+        point: '',
+        phone: ''
     }
 	
 	constructor (private _layoutService: LayoutService) {}
@@ -36,75 +40,19 @@ export class ModalService {
         return this.infoModalState;
     }
     
-    openCloseRenewPlan(){
+    toggleTransferModal(){
         this.mainModalState = !this.mainModalState;
-        this.modalState.renewPlan = !this.modalState.renewPlan;
+        this.modalState.info = !this.modalState.info;
+        this.infoModalState.transfer = !this.infoModalState.transfer; 
     }
     
-//     openCloseRenewPlanConf(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.info = !this.modalState.info;
-//         this.infoModalState.renewPlan = !this.infoModalState.renewPlan;
-//     }
+    setTransferData(point,phone){
+        this.transferData.point = point;
+        this.transferData.phone = phone;
+    }
     
-//     openCloseUpdateCredit(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.updateCredit = !this.modalState.updateCredit;
-//     }
-    
-//     openCloseUpdateCreditConf(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.info = !this.modalState.info;
-//         this.infoModalState.updateCredit = !this.infoModalState.updateCredit;       
-//     }
- 
-//   //Balance Pop Up 
-//     openClosePrevBillDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.PrevBillDesc = !this.balanceModalState.PrevBillDesc;
-//     }
-  
-//     openCloseCurrBillDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.CurrBillDesc = !this.balanceModalState.CurrBillDesc;
-//     }
-    
-//     openCloseAmountDueDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.AmountDueDesc = !this.balanceModalState.AmountDueDesc;
-//     }
-    
-//     openClosePaymentDueDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.PaymentDueDesc = !this.balanceModalState.PaymentDueDesc;
-//     }
-    
-//     openCloseMinDueDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.MinDueDesc = !this.balanceModalState.MinDueDesc;
-//     }
-    
-//     openCloseUnbilledUsageDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.UnbilledUsageDesc = !this.balanceModalState.UnbilledUsageDesc;
-//     }
-    
-//     openCloseLoadBalDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.LoadBalDesc = !this.balanceModalState.LoadBalDesc;
-//     }
-    
-//     openCloseCurBillChargeDesc(){
-//         this.mainModalState = !this.mainModalState;
-//         this.modalState.balance = !this.modalState.balance;
-//         this.balanceModalState.CurBillChargeDesc = !this.balanceModalState.CurBillChargeDesc;
-//     }
+    getTransferData(){
+        return this.transferData;
+    }
     
 }
