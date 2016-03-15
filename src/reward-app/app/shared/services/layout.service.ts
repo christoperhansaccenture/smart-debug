@@ -92,7 +92,8 @@ export class LayoutService {
 			
 		}
         else if(current == 'RewardDetail' ||
-        current == 'MobileReward'){
+                current == 'MobileReward' ||
+               current == 'CatalogList'){
             
             this._pageNavigationService.setRewardDetailNavigation(current);
             
@@ -101,6 +102,11 @@ export class LayoutService {
 				loginHeader: false,
                 appFooter: true
 			};
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = true;
+            this.footerState.transfer = false;
         }
         else if(current == 'Transfer'){
            

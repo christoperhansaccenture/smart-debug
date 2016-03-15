@@ -1,0 +1,10 @@
+
+<div class="all-categories-item-belt beltContainer">
+    <div *ngFor="#category of getCategories()" class="itemContainer">
+        <div class="itemPic"></div>
+        <div class="itemText">
+            <div class="itemDesc">{{ category.name }}</div>
+            <div class="itemPoint">{{ category.points }} <span>points</span></div>
+        </div>
+    </div>
+</div>

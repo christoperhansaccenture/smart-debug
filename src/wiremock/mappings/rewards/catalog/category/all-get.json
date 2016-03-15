@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/catalog/category/all"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "rewards/catalog/category/all/success.json"
+    }
+}

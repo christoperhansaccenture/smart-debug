@@ -1,0 +1,9 @@
+{
+    "request": {
+        "method": "OPTIONS",
+        "url": "/catalog/category/mostPopular"
+    },
+    "response": {
+        "status": 200
+    }
+}

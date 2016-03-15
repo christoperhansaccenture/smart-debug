@@ -5,11 +5,13 @@ import { Layout } from '../models/layout';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {PageNavigationService} from '../../shared/services/page-navigation.service';
 import {AccountService} from '../../shared/services/account.service';
+import {CatalogService} from '../../my-rewards/services/catalog.service';
+import {MultiSliderComponent} from '../../shared/components/multi-slider.component';
 
 @Component({
     selector: 'smart-header',
     templateUrl: 'app/shared/components/header.component.html',
-    directives: []
+    directives: [MultiSliderComponent]
 })
 export class HeaderComponent {
     scrollY = 0;
@@ -23,7 +25,8 @@ export class HeaderComponent {
         private _router: Router,
 		private _matchMediaService: MatchMediaService,
 		private _pageNavigationService: PageNavigationService,
-        private _accountService: AccountService) {}
+        private _accountService: AccountService,
+        private _catalogService: CatalogService) {}
     
     toggleFilterFunction(){
         this.filterFunction = ! this.filterFunction;
@@ -52,6 +55,7 @@ export class HeaderComponent {
     showBackButton(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'CatalogList' ||
         this._layoutService.getCurrentPage() === 'PayBill'){
             return true;
         }else{
@@ -62,6 +66,7 @@ export class HeaderComponent {
     showLogo(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'CatalogList' ||
         this._layoutService.getCurrentPage() === 'PayBill' ||
         this._layoutService.getCurrentPage() === 'Catalog' ||
         this._layoutService.getCurrentPage() === 'Transfer'){
@@ -74,6 +79,7 @@ export class HeaderComponent {
     showPoints(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'CatalogList' ||
         this._layoutService.getCurrentPage() === 'PayBill' ||
         this._layoutService.getCurrentPage() === 'Catalog' ||
         this._layoutService.getCurrentPage() === 'Transfer'){
@@ -86,11 +92,16 @@ export class HeaderComponent {
     showFilter(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
+        this._layoutService.getCurrentPage() === 'CatalogList' ||
         this._layoutService.getCurrentPage() === 'Catalog'){
             return true;
         }else{
             return false;
         }
+    }
+
+    getFilter() {
+        return this._catalogService.filter;
     }
 	
 	getLayout(){
@@ -152,6 +163,12 @@ export class HeaderComponent {
     toggleSubMenu() {
         this.hideSubMenu = !this.hideSubMenu;
     }
-    
+
+    leftLastX = 30;
+
+    pointerLeftMove(event) {
+        console.log('dragging');
+        console.log('event: ' + event);
+    }
     
 }

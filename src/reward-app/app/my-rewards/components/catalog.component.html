@@ -1,10 +1,8 @@
 
 <div class="catalogContainer">
-    <div class="banner">
-        <div class="banner-text">
-            <h2>
-                Pay Smart or PLDT bill with your points here
-            </h2>
+    <div class="header">
+        <div class="text">
+            <div class="headerSubText">Pay Smart or PLDT bill with your points here</div>
             <a (click)="goToPayBill()" class="button">
                 Pay Bill with Points
             </a>
@@ -12,14 +10,14 @@
     </div>
     <div class="subHeader">
         <div class="leftHeader">Most Popular</div>
-        <div class="subOption" (click)="openDetailPage('Most Popular')">See All</div>
+        <div class="subOption" (click)="goToCatalogList('Most Popular')">See All</div>
     </div>
-    <item-belt></item-belt>
+    <most-popular-item-belt></most-popular-item-belt>
     <div class="subHeader">
         <div class="leftHeader">All Categories</div>
-        <div class="subOption" (click)="openDetailPage('All Categories')">See All</div>
+        <div class="subOption" (click)="goToCatalogList('All Categories')">See All</div>
     </div>
-    <item-belt></item-belt>
+    <all-category-item-belt></all-category-item-belt>
     <div class="subHeader">
         <div class="leftHeader">Lifestyle</div>
         <div class="subOption" (click)="openDetailPage('Lifestyle')">See All</div>

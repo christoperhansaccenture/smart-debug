@@ -38,5 +38,12 @@ export class SmartIntegrationService {
             })});
         
     }
+
+    getCatalogs() {
+        //var url = this.serviceBase + 'products';
+        var url = 'http://localhost:8080/catalog';
+
+        return this._http.get(url);
+    }
     
 }

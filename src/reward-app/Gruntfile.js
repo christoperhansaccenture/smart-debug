@@ -108,7 +108,7 @@ module.exports = function(grunt) {
 
         cssmin: {
             css: {
-                src: ['../../debug/css/app.css'],
+                src: ['../../debug/css/app.css', '../../debug/css/nouislider.css'],
                 dest: '../../debug/css/app.min.css',
             },
         },        
@@ -149,6 +149,7 @@ module.exports = function(grunt) {
                             'node_modules/angular2/bundles/router.dev.js',
                             'node_modules/angular2/bundles/http.dev.js',
                             'node_modules/requirejs/require.js',
+                            'node_modules/nouislider/distribute/nouislider.js'
                         ],
                         dest:'../../debug/scripts',
                         expand: true, 
@@ -193,6 +194,16 @@ module.exports = function(grunt) {
                     }
                 ]
             },
+
+            css: {
+                files: [              
+                    {
+                        src:['node_modules/nouislider/src/nouislider.css'],
+                        dest:'../../debug/css/nouislider.css',
+                        expand: false,
+                        flatten: true,
+                    },
+                ] } ,
 
             html: {
                 files: [              
@@ -266,6 +277,7 @@ module.exports = function(grunt) {
         'copy:dependencies',
         'copy:resources',
         'copy:html',
+        'copy:css',
         'ts',
         'copy:js',
         //'concat',

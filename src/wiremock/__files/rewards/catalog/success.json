@@ -1,0 +1,100 @@
+{
+    "catalogs": [
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 500,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 2000,
+            "categories": [
+                "Most Popular", "Perks"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 1000,
+            "categories": [
+                "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 1500,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 430,
+            "categories": [
+                "My Favorites", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "My Favorites"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 240,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 540,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        },
+        {
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ]
+        }
+    ]
+}

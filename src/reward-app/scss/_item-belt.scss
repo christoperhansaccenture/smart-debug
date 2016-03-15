@@ -28,12 +28,15 @@ $col-3-height: 340px;
         width: 110px;
         height: 165px;
 
-        //margin-right: 10px;
+        margin-left: 3px;
         //padding-bottom: 10px;
         
-        // &:first-child{
-        //     margin-left: 10px;
-        // }
+        &:first-child{
+             margin-left: 0px;
+        }
+        &:last-child{
+             margin-right: 3px;
+        }
         
         .itemPic{
             height: 110px;

@@ -6,6 +6,7 @@ import {OverviewComponent} from './my-rewards/components/overview.component';
 import {RewardDetailComponent} from './my-rewards/components/reward-detail.component';
 import {MobileRewardComponent} from './my-rewards/components/mobile-reward.component';
 import {CatalogComponent} from './my-rewards/components/catalog.component';
+import {CatalogListComponent} from './my-rewards/components/catalog-list.component';
 import {PayBillComponent} from './my-rewards/components/pay-bill.component';
 import {TransferComponent} from './my-rewards/components/transfer.component';
 import {HeaderComponent} from './shared/components/header.component';
@@ -20,6 +21,7 @@ import {FastClickStatic} from './shared/fastclick/fastclick.d';
 import {HeaderService} from './shared/services/header.service';
 import {ModalService} from './shared/services/modal.service';
 import {RewardTypeService} from './my-rewards/services/reward-type.service';
+import {CatalogService} from './my-rewards/services/catalog.service';
 import {ModalComponent} from './shared/components/modal.component';
 declare var FastClick: FastClickStatic;
 
@@ -47,7 +49,8 @@ declare var FastClick: FastClickStatic;
         HeaderService,
         ModalService,
         SmartIntegrationService,
-        RewardTypeService
+        RewardTypeService,
+        CatalogService
     ]
 })
 
@@ -77,6 +80,11 @@ declare var FastClick: FastClickStatic;
         path: '/catalog',
         name: 'Catalog',
         component: CatalogComponent
+    },
+    {
+        path: '/catalogList',
+        name: 'CatalogList',
+        component: CatalogListComponent
     },
     {
         path: '/payBill',
