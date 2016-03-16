@@ -1,0 +1,156 @@
+$menuwidth: 240px;
+
+//.leftmenuContainer {
+    //background-color: rgba(0, 0, 0, 0.8);
+    //width:100%;
+    //height: 100%;
+    //position: fixed;
+    //z-index: 150;
+    //top: 0;
+    
+    .leftmenuOther{
+        height: 100%;
+        width: 100%;
+        //left: ($menuwidth+10px);
+        position: fixed;
+        z-index: 120;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .leftmenuContainer{
+        width:$menuwidth;
+        z-index: 150;
+        background-color: #FFF;
+        position: fixed;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        top: 0;
+        left: -($menuwidth+10px);
+        -webkit-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transition: .3s ease all;
+        -ms-transition: .3s ease all;
+        transition: .3s ease all;
+        
+        &.active{
+            -webkit-transform: translate3d($menuwidth+10px,0,0);
+            -ms-transform: translate3d($menuwidth+10px,0,0);
+            transform: translate3d($menuwidth+10px,0,0);
+            -webkit-transition: .3s ease all;
+            -ms-transition: .3s ease all;
+            transition: .3s ease all;
+        }
+        
+        .menuHeader{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #FFF;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: $menuwidth - 20px;
+            background-color: $smartgreen;
+            
+            .menuPic{
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                background-color: $smartred;
+                border: 1px solid #FFF;
+                border-radius: 35px;
+            }
+            .menuHeaderText{
+                
+                float: right;
+                text-align: right;  
+                color: #FFF;
+                width: 130px;
+                margin-right: 10px;
+                padding-bottom: 10px;
+                
+                .smartPic{
+                    display: inline-block;
+                    width: 100px;
+                    height: 30px;
+                    background: url(../img/smartblacklogo.png) no-repeat;
+                    background-position: center center;
+                    background-size: 70px;
+                }
+                .smartPoint{
+                    display: inline-block;
+                    font-size: 25px;
+                    span{
+                        font-size: 10px;
+                    }
+                }
+                .expiry{
+                    display: inline-block;
+                    font-size: 10px;
+                }
+            }
+            
+            .phoneNumber{
+                display: inline-block;
+                width: $menuwidth - 20px;
+                background-color: black;
+                color: #FFF;
+                border: 1px solid #FFF;
+                line-height: 30px;
+                height: 30px;
+            }
+        }
+        
+        .menuItemBox{
+            
+            display: inline-block;
+            width: $menuwidth;
+            
+            .itemCategory{
+                float: left;
+                width: calc(100% - 10px);
+                color: $smartgreen;
+                line-height: 30px;
+                background-color: #EEE;
+                padding-left: 10px;
+                
+                &.click{
+                    cursor:pointer;
+                }
+                
+            }
+            .itemMenu{
+                float: left;
+                width: calc(100% - 20px);
+                padding-left: 10px;
+                padding-right: 10px;
+                cursor: pointer;
+                
+                .text{
+                    float: left;
+                    color: black;
+                    line-height: 30px;    
+                }
+                
+                .arrow{
+                    float: right;
+                    height: 30px;
+                    width: 30px;
+                    float: right;
+                    cursor: pointer;
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU4LjU4NzMxNzA4NTUwMDMsMS40MjEwODU0NzE1MjAyRS0xNCkgc2NhbGUoOC4wMDEwMDAwNTI1MTgyNiw4LjAwMTAwMDA1MjUxODI2KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40MjAwNDgyLDBMMTcuMzUxMDAxLDE2LjA0Njk5NiAxLjQ5ODA1MTMsMzEuOTk2MDAxIDAuMDc4OTc5NjMxLDMwLjU4NTk5NyAxNC41MzEwNDYsMTYuMDQ2MDE5IDAsMS40MDg5OTY0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                    background-position-x: right;
+                    background-position-y: center;
+                    background-size: 10px; 
+                }
+                
+                &:hover{
+                    background-color: #EEE;
+                }
+            }
+        }
+    }
+    
+//}

@@ -30,8 +30,13 @@ export class HeaderComponent {
         private _catalogService: CatalogService,
         private _cartService: CartService) {}
     
+    toggleLeftMenu(){
+        this._layoutService.toggleLeftMenu();
+    }
+    
     toggleFilterFunction(){
-        this.filterFunction = ! this.filterFunction;
+        this.filterFunction = !this.filterFunction;
+        console.log(this.filterFunction);
     }
     
     selectedPhoneNumber(){
@@ -54,10 +59,23 @@ export class HeaderComponent {
         }
     }
     
+    showHamburger(){
+        if(this._layoutService.getCurrentPage() === 'MyRewards' || 
+        this._layoutService.getCurrentPage() === 'Perks' ||
+        this._layoutService.getCurrentPage() === 'Catalog' ||
+        this._layoutService.getCurrentPage() === 'PayBill' ||
+        this._layoutService.getCurrentPage() === 'Transfer'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     showBackButton(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList'){
+        this._layoutService.getCurrentPage() === 'CatalogList' ||
+        this._layoutService.getCurrentPage() === 'AccountOverview'){
             return true;
         }else{
             return false;
@@ -70,7 +88,8 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'CatalogList' ||
         this._layoutService.getCurrentPage() === 'PayBill' ||
         this._layoutService.getCurrentPage() === 'Catalog' ||
-        this._layoutService.getCurrentPage() === 'Transfer'){
+        this._layoutService.getCurrentPage() === 'Transfer' ||
+        this._layoutService.getCurrentPage() === 'Perks'){
             return false;
         }else{
             return true;
@@ -83,7 +102,8 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'CatalogList' ||
         this._layoutService.getCurrentPage() === 'PayBill' ||
         this._layoutService.getCurrentPage() === 'Catalog' ||
-        this._layoutService.getCurrentPage() === 'Transfer'){
+        this._layoutService.getCurrentPage() === 'Transfer' ||
+        this._layoutService.getCurrentPage() === 'Perks'){
             return true;
         }else{
             return false;
@@ -94,7 +114,8 @@ export class HeaderComponent {
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
         this._layoutService.getCurrentPage() === 'CatalogList' ||
-        this._layoutService.getCurrentPage() === 'Catalog'){
+        this._layoutService.getCurrentPage() === 'Catalog' ||
+        this._layoutService.getCurrentPage() === 'Perks'){
             return true;
         }else{
             return false;

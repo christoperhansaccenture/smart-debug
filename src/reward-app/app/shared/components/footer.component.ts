@@ -60,6 +60,7 @@ export class FooterComponent {
     }
     
     gotoPerks(){
+        this._router.navigate(['Perks']);
         this.addMenu = false;
     }
     

@@ -1,0 +1,54 @@
+<!-- <div class="leftmenuContainer" *ngIf="getLeftMenuState()"> ng-class="{'active': vmLeftMenu.showMenu}">-->
+    <div class="leftmenuContainer" [ngClass]="{active : getLeftMenuState()}">
+        <div class="menuHeader">
+            <div class="menuPic"></div>
+            <div class="menuHeaderText">
+                <div class="smartPic"></div>
+                <div class="smartPoint">1010 <span>pts</span></div>
+                <div class="expiry">200 pts expire on 31-03</div>
+            </div>
+            <select class="phoneNumber">
+                <option>09298874801</option>
+            </select>
+        </div>
+        <div class="menuItemBox">
+            <div class="itemCategory">Rewards Overview</div>
+            <div class="itemMenu">
+                <div class="text">Account Overview</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemMenu">
+                <div class="text">My Reward Overview</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemCategory">Rewards Account Setting</div>
+            <div class="itemMenu">
+                <div class="text">My Reward Profile</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemMenu">
+                <div class="text"> Manage My Numbers</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemCategory">Links</div>
+            <div class="itemMenu">
+                <div class="text">Go to MySmart</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemMenu">
+                <div class="text">Go to Smart Life</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemMenu">
+                <div class="text">About Rewards</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemMenu">
+                <div class="text">Help & FAQ</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="itemCategory click">Logout</div>
+        </div>
+    </div>
+    <div class="leftmenuOther" *ngIf="getLeftMenuState()" (click)="toggleLeftMenu()"></div>
+<!--</div>-->

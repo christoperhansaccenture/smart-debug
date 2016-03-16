@@ -14,8 +14,8 @@ export class PageNavigationService {
 	setLoginNavigation(current : string){
 	
 		this.childNode = '';
-	
-		if(current == 'Login'){
+        
+        if(current == 'Login'){
 			
 			this.previousPage = 'GetStarted';
 			this.childNode = 'login';
@@ -51,6 +51,11 @@ export class PageNavigationService {
         this.childNode = '';
         this.previousPage = this.currentPage;
         this.currentPage = current;
+    }
+    
+    setAccountOverviewNavigation(){
+        this.childNode = '';
+        this.previousPage = 'MyRewards';
     }
     
     getPreviousPage(){
