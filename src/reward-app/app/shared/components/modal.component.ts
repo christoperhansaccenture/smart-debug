@@ -1,12 +1,14 @@
 import {Component} from 'angular2/core';
 import {InformationModalComponent} from './modal-includes/information-modal.component';
+import {CatalogDisplayModalComponent} from './modal-includes/catalog-display-modal.component';
 import {ModalService} from '../services/modal.service';
 
 @Component({
     selector: 'my-modal',
     templateUrl: 'app/shared/components/modal.component.html',
     directives: [
-        InformationModalComponent
+        InformationModalComponent,
+        CatalogDisplayModalComponent
     ]
 })
 export class ModalComponent {

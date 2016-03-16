@@ -169,5 +169,45 @@ export class HeaderComponent {
         console.log('dragging');
         console.log('event: ' + event);
     }
+
+    toggleMyFavorites() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.myFavorites = !this.getFilter().categories.myFavorites;
+    }
+
+    togglePerks() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.perks = !this.getFilter().categories.perks;
+    }
+
+    toggleLifestyle() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.lifestyle = !this.getFilter().categories.lifestyle;
+    }
+
+    toggleMobile() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.mobile = !this.getFilter().categories.mobile;
+    }
+
+    togglePrepaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.prepaid = !this.getFilter().categories.prepaid;
+    }
+
+    togglePostpaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.postpaid = !this.getFilter().categories.postpaid;
+    }
+
+    toggleBroPrepaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.broPrepaid = !this.getFilter().categories.broPrepaid;
+    }
+
+    toggleBroPostpaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.broPostpaid = !this.getFilter().categories.broPostpaid;
+    }
     
 }

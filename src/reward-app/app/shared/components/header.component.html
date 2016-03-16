@@ -49,35 +49,37 @@
                             </ul>
                         </li>
                         -->
-                        <li>
+                        <li (click)="toggleMyFavorites()">
                             <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.myFavorites"/>
                             <span class="">My Favorites</span>
                         </li>
-                        <li>
+                        <li (click)="togglePerks()">
                             <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.perks"/>
                             <span class="">Perks</span>
                         </li>
-                        <li>
+                        <li (click)="toggleLifestyle()">
                             <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.lifestyle"/>
                             <span class="">Lifestyle</span>
                         </li>
                         <li>
-                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.mobile"/>
-                            <span class="">Mobile</span>
+                            <div (click)="toggleMobile()">
+                                <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.mobile"/>
+                                <span class="">Mobile</span>
+                            </div>
                             <ul>
-                                <li>
+                                <li (click)="togglePrepaid()">
                                     <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.prepaid"/>
                                     <span class="">Prepaid</span>
                                 </li>
-                                <li>
+                                <li (click)="togglePostpaid()">
                                     <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.postpaid"/>
                                     <span class="">Postpaid</span>
                                 </li>
-                                <li>
+                                <li (click)="toggleBroPrepaid()">
                                     <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPrepaid"/>
                                     <span class="">Bro Prepaid</span>
                                 </li>
-                                <li>
+                                <li (click)="toggleBroPostpaid()">
                                     <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPostpaid"/>
                                     <span class="">Bro Postpaid</span>
                                 </li>

@@ -1,0 +1,76 @@
+.modalCatalogDisplayContent{
+    background-color: #FFF;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 85%;
+    padding: 5px;
+    border: 1px solid $lightgray;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4);
+    border-radius: 15px;
+
+    .close {
+        position: relative;
+        left: 97%;
+    }
+    
+    .modalBody{
+    
+        display: inline-block;
+        padding: 15px;
+
+        .header{
+            margin-bottom: 20px;
+
+            .headerText{
+                color: $smartgreen;
+                font-size: 20px;
+            }
+            
+        }
+    
+        .content{   
+            .row {
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                &:after {
+                    content: '';
+                    clear: both;
+                    display: block;
+                }
+                .col-left {
+                    float: left;
+                    width: 45%;
+
+                    .favorite-container {
+                        color: $smartred;
+                    }
+                }
+                .col-right {
+                    float: right;
+                    width: 53%;
+
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .gift {
+                        color: $smartgreen;
+                    }
+
+                    .button-container {
+                        text-align: center;
+
+                        .button {
+                            width: initial;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
+        
+}   
