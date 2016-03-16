@@ -1,0 +1,130 @@
+$menuwidth: 240px;
+
+//.leftmenuContainer {
+    //background-color: rgba(0, 0, 0, 0.8);
+    //width:100%;
+    //height: 100%;
+    //position: fixed;
+    //z-index: 150;
+    //top: 0;
+    
+    .leftmenuOther{
+        height: 100%;
+        width: 100%;
+        //left: ($menuwidth+10px);
+        position: fixed;
+        z-index: 120;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .leftmenuContainer{
+        width:$menuwidth;
+        z-index: 150;
+        background-color: #FFF;
+        position: fixed;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        top: 0;
+        left: -($menuwidth+10px);
+        -webkit-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transition: .3s ease all;
+        -ms-transition: .3s ease all;
+        transition: .3s ease all;
+        
+        &.active{
+            -webkit-transform: translate3d($menuwidth+10px,0,0);
+            -ms-transform: translate3d($menuwidth+10px,0,0);
+            transform: translate3d($menuwidth+10px,0,0);
+            -webkit-transition: .3s ease all;
+            -ms-transition: .3s ease all;
+            transition: .3s ease all;
+        }
+        
+        .menuHeader{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #FFF;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: $menuwidth - 20px;
+            background-color: $smartgreen;
+            
+            .menuPic{
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                background-color: $smartred;
+                border: 1px solid #FFF;
+                border-radius: 35px;
+            }
+            .menuHeaderText{
+                
+                float: right;
+                text-align: right;  
+                color: #FFF;
+                width: 130px;
+                margin-right: 10px;
+                padding-bottom: 10px;
+                
+                .smartPic{
+                    display: inline-block;
+                    width: 100px;
+                    height: 30px;
+                    background: url(../img/smartblacklogo.png) no-repeat;
+                    background-position: center center;
+                    background-size: 70px;
+                }
+                .smartPoint{
+                    display: inline-block;
+                    font-size: 25px;
+                    span{
+                        font-size: 10px;
+                    }
+                }
+                .expiry{
+                    display: inline-block;
+                    font-size: 10px;
+                }
+            }
+            
+            .phoneNumber{
+                display: inline-block;
+                width: $menuwidth - 20px;
+                background-color: black;
+                color: #FFF;
+                border: 1px solid #FFF;
+                line-height: 30px;
+                height: 30px;
+            }
+        }
+        
+        .menuItemBox{
+            
+            display: inline-block;
+            width: $menuwidth;
+            
+            .itemCategory{
+                display: inline-block;
+                width: calc(100% - 10px);
+                color: $smartgreen;
+                line-height: 30px;
+                background-color: #EEE;
+                padding-left: 10px;
+            }
+            .itemMenu{
+                display: inline-block;
+                width: calc(100% - 10px);
+                padding-left: 10px;
+                width:100%;
+                color: black;
+                line-height: 30px;
+            }
+        }
+    }
+    
+//}

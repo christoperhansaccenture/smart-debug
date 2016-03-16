@@ -41,7 +41,8 @@ export class SmartIntegrationService {
 
     getCatalogs() {
         //var url = this.serviceBase + 'products';
-        var url = 'http://localhost:8080/catalog';
+        //var url = 'http://localhost:8080/catalog';
+        var url = 'services/success.json';
 
         return this._http.get(url);
     }

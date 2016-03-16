@@ -9,9 +9,11 @@ import {CatalogComponent} from './my-rewards/components/catalog.component';
 import {CatalogListComponent} from './my-rewards/components/catalog-list.component';
 import {PayBillComponent} from './my-rewards/components/pay-bill.component';
 import {TransferComponent} from './my-rewards/components/transfer.component';
+import {PerksComponent} from './my-rewards/components/perks.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {HeaderComponent} from './shared/components/header.component';
 import {FooterComponent} from './shared/components/footer.component';
+import {LeftMenuComponent} from './shared/components/left-menu.component';
 import {SmartIntegrationService} from './shared/services/smart-integration.service';
 import {MatchMediaService} from './shared/services/match-media.service';
 import {LayoutService} from './shared/services/layout.service';
@@ -31,6 +33,7 @@ declare var FastClick: FastClickStatic;
     template: `
         <smart-header></smart-header>
         <my-modal></my-modal>
+        <left-menu></left-menu>
         <div id="content"><router-outlet></router-outlet></div>
         <smart-footer></smart-footer>
     `,
@@ -38,6 +41,7 @@ declare var FastClick: FastClickStatic;
         HeaderComponent,
         ModalComponent,
         FooterComponent,
+        LeftMenuComponent,
         ROUTER_DIRECTIVES
     ],
     providers: [
@@ -96,6 +100,11 @@ declare var FastClick: FastClickStatic;
         path: '/transfer',
         name: 'Transfer',
         component: TransferComponent
+    },
+    {
+        path: '/perks',
+        name: 'Perks',
+        component: PerksComponent
     },
     {
         path: '/accountOverview',

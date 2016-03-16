@@ -11,7 +11,8 @@ export class LayoutService {
 	layoutState : Layout = {
 		appHeader: true,
 		loginHeader: false,
-        appFooter: true
+        appFooter: true,
+        leftMenu: false
 	};
     
     footerState = {
@@ -43,7 +44,8 @@ export class LayoutService {
 			this.layoutState = {
 				appHeader: false,
 				loginHeader: false,
-                appFooter: false
+                appFooter: false,
+                leftMenu: false
 			};
 		}
 		
@@ -56,7 +58,8 @@ export class LayoutService {
 			this.layoutState = {
 				appHeader: false,
 				loginHeader: true,
-                appFooter: false
+                appFooter: false,
+                leftMenu: false
 			};
 			
 		}
@@ -67,11 +70,30 @@ export class LayoutService {
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
             
             this.footerState.home = true;
             this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+			
+		}
+        else if(current == 'Perks'){
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
+
+			this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = true;
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
@@ -84,7 +106,8 @@ export class LayoutService {
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
             
             this.footerState.home = false;
@@ -103,7 +126,8 @@ export class LayoutService {
             this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
 
             this.footerState.home = false;
@@ -117,7 +141,8 @@ export class LayoutService {
             this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
             
             this.footerState.home = false;
@@ -132,7 +157,8 @@ export class LayoutService {
             this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
             
             this.footerState.home = false;
@@ -142,17 +168,38 @@ export class LayoutService {
             this.footerState.transfer = false;
             
         }
+        else if(current == 'AccountOverview'){
+            
+            this._pageNavigationService.setAccountOverviewNavigation();
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+        }
         else{
 			
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: false
+                appFooter: false,
+                leftMenu: false
 			};
 
 		}
 	
 	}
+    
+    toggleLeftMenu(){
+        this.layoutState.leftMenu = !this.layoutState.leftMenu;
+    }
+    
+    getLeftMenuState(){
+        return this.layoutState.leftMenu;
+    }
 	
 	getLayout(){
 		return this.layoutState;
