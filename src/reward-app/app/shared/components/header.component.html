@@ -2,7 +2,11 @@
 	<div class="mainBox">
         <div class="defaultBox">
             <div class="back" *ngIf="showBackButton()" (click)="goToPreviousPage()"></div>
-            <div class="cart"></div>
+            <div class="cart" (click)="goToCart()">
+                <div class="amount" *ngIf="getTotalItems()">
+                    {{ getTotalItems() }}
+                </div>
+            </div>
             <div class="magnifier" *ngIf="showFilter() && !filterFunction" (click)="toggleFilterFunction()"></div>
             <div class="up-arrow" *ngIf="showFilter() && filterFunction" (click)="toggleFilterFunction()"></div>
             
@@ -10,13 +14,19 @@
             <div class="points" *ngIf="showPoints()">1010 <span>pts</span></div>
         </div>
         <div class="filterBox" *ngIf="filterFunction">
+            <div class="search-container">
+                <input class="search" type="search" 
+                    [(ngModel)]="getFilter().name"
+                    placeholder="Search catalog for keywords" />
+                <span class="search-icon"></span>
+            </div>
             <div class="sliderBox">
                 <span class="description">Points</span>
                 <multi-slider
                     [start]="getFilter().points"
                     [range]="{min:0, max:10000}"
-                    (slide)="getFilter().points = $event"
-                    ></multi-slider>
+                    (slide)="getFilter().points = $event" >
+                </multi-slider>
                 <!--
                 <span class="pointSlider">
                     <div class="bar">

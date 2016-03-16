@@ -5,6 +5,7 @@ import { Layout } from '../models/layout';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {PageNavigationService} from '../../shared/services/page-navigation.service';
 import {AccountService} from '../../shared/services/account.service';
+import {CartService} from '../../shared/services/cart.service';
 import {CatalogService} from '../../my-rewards/services/catalog.service';
 import {MultiSliderComponent} from '../../shared/components/multi-slider.component';
 
@@ -26,7 +27,8 @@ export class HeaderComponent {
 		private _matchMediaService: MatchMediaService,
 		private _pageNavigationService: PageNavigationService,
         private _accountService: AccountService,
-        private _catalogService: CatalogService) {}
+        private _catalogService: CatalogService,
+        private _cartService: CartService) {}
     
     toggleFilterFunction(){
         this.filterFunction = ! this.filterFunction;
@@ -208,6 +210,14 @@ export class HeaderComponent {
     toggleBroPostpaid() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.broPostpaid = !this.getFilter().categories.broPostpaid;
+    }
+
+    getTotalItems() {
+        return this._cartService.getTotalItems();
+    }
+
+    goToCart() {
+        this._router.navigate(['ShoppingCart']);
     }
     
 }

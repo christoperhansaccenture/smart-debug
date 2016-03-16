@@ -5,6 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {ItemBeltComponent} from './item-belt.component';
 import {CatalogService} from '../services/catalog.service';
 import {ModalService} from '../../shared/services/modal.service';
+import {Catalog} from '../../shared/models/catalog';
 
 @Component({
     selector: 'catalog-list',
@@ -32,9 +33,9 @@ export class CatalogListComponent {
         if (categories.length == 1)
             return categories[0];
         else if (this.getCatalogs())
-            return this.getCatalogs().length + " results";
+            return "We found " + this.getCatalogs().length + " item(s)";
         else
-            return "0 results";
+            return "We found 0 item(s)";
     }
 
     getCatalogs() {
@@ -54,6 +55,9 @@ export class CatalogListComponent {
                             }
                         }
                     }
+                    if (result) {
+                        result = e.name.toLowerCase().indexOf(filter.name.toLowerCase()) > -1;
+                    }
                     return result;
                 });
         }
@@ -64,6 +68,21 @@ export class CatalogListComponent {
     openCatalogDisplay(catalog) {
         this._catalogService.selectedCatalog = catalog;
         this._modalService.toggleCatalogDisplayModal();
+    }
+
+    getOverlayText(catalog: Catalog) {
+        if (catalog.isPrepaid()) {
+            return 'Prepaid';
+        }
+        else if (catalog.isPostpaid()) {
+            return 'Postpaid';
+        }
+        else if (catalog.isBroPrepaid()) {
+            return 'Bro Prepaid';
+        }
+        else if (catalog.isBroPostpaid()) {
+            return 'Bro Postpaid';
+        }
     }
 
 }
