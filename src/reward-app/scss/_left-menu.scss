@@ -109,20 +109,46 @@ $menuwidth: 240px;
             width: $menuwidth;
             
             .itemCategory{
-                display: inline-block;
+                float: left;
                 width: calc(100% - 10px);
                 color: $smartgreen;
                 line-height: 30px;
                 background-color: #EEE;
                 padding-left: 10px;
+                
+                &.click{
+                    cursor:pointer;
+                }
+                
             }
             .itemMenu{
-                display: inline-block;
-                width: calc(100% - 10px);
+                float: left;
+                width: calc(100% - 20px);
                 padding-left: 10px;
-                width:100%;
-                color: black;
-                line-height: 30px;
+                padding-right: 10px;
+                cursor: pointer;
+                
+                .text{
+                    float: left;
+                    color: black;
+                    line-height: 30px;    
+                }
+                
+                .arrow{
+                    float: right;
+                    height: 30px;
+                    width: 30px;
+                    float: right;
+                    cursor: pointer;
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU4LjU4NzMxNzA4NTUwMDMsMS40MjEwODU0NzE1MjAyRS0xNCkgc2NhbGUoOC4wMDEwMDAwNTI1MTgyNiw4LjAwMTAwMDA1MjUxODI2KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40MjAwNDgyLDBMMTcuMzUxMDAxLDE2LjA0Njk5NiAxLjQ5ODA1MTMsMzEuOTk2MDAxIDAuMDc4OTc5NjMxLDMwLjU4NTk5NyAxNC41MzEwNDYsMTYuMDQ2MDE5IDAsMS40MDg5OTY0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                    background-position-x: right;
+                    background-position-y: center;
+                    background-size: 10px; 
+                }
+                
+                &:hover{
+                    background-color: #EEE;
+                }
             }
         }
     }
