@@ -8,18 +8,19 @@
             </div>
         </div>
         <div class="itemContainer">
-            <div class="itemIdentifier">Transfer to</div>
-            <input class="phoneCountryValue" value="+63"/>
-            <input class="phoneValue" [(ngModel)]="phone"/>
+            <div class="itemIdentifier mobile"></div>
+            <div class="phoneCountryValue">+63</div>
+            <input class="inputValue phone" [(ngModel)]="phone" placeholder="Your friends phone number"/>
         </div>
         <div class="itemContainer">
-            <div class="itemIdentifier">Number of points</div>
-            <input class="inputValue" [(ngModel)]="transferred"/>
+            <div class="itemIdentifier point"></div>
+            <input class="inputValue" [(ngModel)]="transferred" placeholder="Number of points"/>
         </div>
         <div class="itemFooterContainer">
             <div class="point">
+                <div class="pointPic"></div>
                 <div class="pointText">Remaining points after transferred</div>
-                <div class="pointValue">{{(starting - transferred)}} <span>pts</span></div>
+                <div class="pointValue">{{(getRemainingPoints())}} <span>pts</span></div>
             </div>
             <div class="button red" (click)="doTransfer()">Proceed</div>
         </div>

@@ -45,15 +45,19 @@
         <div class="catalog" [ngClass]="{ active : getFooterState().catalog}"></div>
         <div class="text" [ngClass]="{ active : getFooterState().catalog}">Catalog</div>
     </div>
+    <div class="column" (click)="gotoPayBill()">
+        <div class="paybill" [ngClass]="{ active : getFooterState().paybill}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().paybill}">Pay w/point</div>
+    </div>
     <div class="column" (click)="gotoTransfer()">
         <div class="transfer" [ngClass]="{ active : getFooterState().transfer}"></div>
         <div class="text" [ngClass]="{ active : getFooterState().transfer}">Transfer</div>
     </div>
-    <div class="column" (click)="toggleAdditionalMenu()">
+    <!--<div class="column" (click)="toggleAdditionalMenu()">
     <a>
         <div class="more"></div>
         <div class="text">More</div>
     </a>
-    </div>
+    </div>-->
 </div>
 

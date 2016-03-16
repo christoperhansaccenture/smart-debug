@@ -38,5 +38,9 @@ export class OverviewComponent  {
     openDetailPage(type:string){
         this._rewardTypeService.setSelectedType(type);
     }
+    
+    gotoAccountOverview(){
+        this._router.navigate(['AccountOverview']);
+    }
 	
 }

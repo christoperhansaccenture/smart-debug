@@ -9,7 +9,7 @@ export class LayoutService {
     numberSelection = false;
 
 	layoutState : Layout = {
-		appHeader: false,
+		appHeader: true,
 		loginHeader: false,
         appFooter: true
 	};
@@ -18,6 +18,7 @@ export class LayoutService {
         home: false,
         perks: false,
         catalog: false,
+        paybill: false,
         transfer: false
     };
 	
@@ -72,6 +73,7 @@ export class LayoutService {
             this.footerState.home = true;
             this.footerState.perks = false;
             this.footerState.catalog = false;
+            this.footerState.paybill = false;
             this.footerState.transfer = false;
 			
 		}
@@ -88,6 +90,7 @@ export class LayoutService {
             this.footerState.home = false;
             this.footerState.perks = false;
             this.footerState.catalog = true;
+            this.footerState.paybill = false;
             this.footerState.transfer = false;
 			
 		}
@@ -106,6 +109,7 @@ export class LayoutService {
             this.footerState.home = false;
             this.footerState.perks = false;
             this.footerState.catalog = true;
+            this.footerState.paybill = false;
             this.footerState.transfer = false;
         }
         else if(current == 'Transfer'){
@@ -119,6 +123,7 @@ export class LayoutService {
             this.footerState.home = false;
             this.footerState.perks = false;
             this.footerState.catalog = false;
+            this.footerState.paybill = false;
             this.footerState.transfer = true;
             
         }
@@ -129,6 +134,13 @@ export class LayoutService {
 				loginHeader: false,
                 appFooter: true
 			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = true;
+            this.footerState.transfer = false;
+            
         }
         else{
 			

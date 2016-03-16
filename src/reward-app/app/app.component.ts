@@ -9,6 +9,7 @@ import {CatalogComponent} from './my-rewards/components/catalog.component';
 import {CatalogListComponent} from './my-rewards/components/catalog-list.component';
 import {PayBillComponent} from './my-rewards/components/pay-bill.component';
 import {TransferComponent} from './my-rewards/components/transfer.component';
+import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {HeaderComponent} from './shared/components/header.component';
 import {FooterComponent} from './shared/components/footer.component';
 import {SmartIntegrationService} from './shared/services/smart-integration.service';
@@ -95,6 +96,11 @@ declare var FastClick: FastClickStatic;
         path: '/transfer',
         name: 'Transfer',
         component: TransferComponent
+    },
+    {
+        path: '/accountOverview',
+        name: 'AccountOverview',
+        component: AccountOverviewComponent
     }
     
 	

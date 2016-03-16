@@ -68,6 +68,11 @@ export class FooterComponent {
         this.addMenu = false;
     }
     
+    gotoPayBill(){
+        this._router.navigate(['PayBill']);
+        this.addMenu = false;
+    }
+    
     logOut(){
         this._authService.logOut();
         this.addMenu = false;

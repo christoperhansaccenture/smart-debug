@@ -11,7 +11,7 @@ import {ModalService} from '../../shared/services/modal.service';
 export class TransferComponent  {
     
     starting = 1010;
-    transferred = 0;
+    transferred;
     phone = '';
     
 	constructor (private _router: Router,
@@ -22,6 +22,14 @@ export class TransferComponent  {
 		this._layoutService.setCurrentPage('Transfer');
 		
 	}
+    
+    getRemainingPoints(){
+        if(this.transferred === "" || this.transferred === null || this.transferred === undefined){
+            return this.starting;
+        }else{
+            return (this.starting - this.transferred);
+        }
+    }
 	
 	getResize(){
         return this._matchMediaService.getmm();  

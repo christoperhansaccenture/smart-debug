@@ -55,8 +55,7 @@ export class HeaderComponent {
     showBackButton(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList' ||
-        this._layoutService.getCurrentPage() === 'PayBill'){
+        this._layoutService.getCurrentPage() === 'CatalogList'){
             return true;
         }else{
             return false;
