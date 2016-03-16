@@ -15,6 +15,7 @@ export class ModalService {
         info: false,
         updateCredit: false,
         balance: false,
+        catalogDisplay: false
 	}
     
     infoModalState = {
@@ -38,6 +39,11 @@ export class ModalService {
     
     getInfoModalState(){
         return this.infoModalState;
+    }
+
+    toggleCatalogDisplayModal() {
+        this.mainModalState = !this.mainModalState;
+        this.modalState.catalogDisplay = !this.modalState.catalogDisplay;
     }
     
     toggleTransferModal(){

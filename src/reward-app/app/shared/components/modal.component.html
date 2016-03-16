@@ -1,5 +1,6 @@
 <div class="ModalOuterBox" *ngIf='getMainModalStatus()'>
 	<div class="ModalInternal">
         <info-modal *ngIf='getModalStatus().info'></info-modal>
+        <catalog-display-modal *ngIf='getModalStatus().catalogDisplay'></catalog-display-modal>
 	</div>
 </div>

@@ -4,9 +4,10 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {ItemBeltComponent} from './item-belt.component';
 import {CatalogService} from '../services/catalog.service';
+import {ModalService} from '../../shared/services/modal.service';
 
 @Component({
-    selector: 'overview',
+    selector: 'catalog-list',
     templateUrl: 'app/my-rewards/components/catalog-list.component.html'
 })
 export class CatalogListComponent {
@@ -14,7 +15,8 @@ export class CatalogListComponent {
     constructor(private _router: Router,
         private _matchMediaService: MatchMediaService,
         private _layoutService: LayoutService,
-        private _catalogService: CatalogService) {
+        private _catalogService: CatalogService,
+        private _modalService: ModalService) {
 
         this._catalogService.loadAllCatalogs();
         this._layoutService.setCurrentPage('CatalogList');
@@ -57,6 +59,11 @@ export class CatalogListComponent {
         }
         else
             return null;
+    }
+
+    openCatalogDisplay(catalog) {
+        this._catalogService.selectedCatalog = catalog;
+        this._modalService.toggleCatalogDisplayModal();
     }
 
 }

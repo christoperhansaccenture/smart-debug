@@ -5,6 +5,7 @@ import {SmartIntegrationService} from '../../shared/services/smart-integration.s
 @Injectable()
 export class CatalogService {
 
+    selectedCatalog;
     catalogs;
     filter = {
         categories: {
@@ -30,6 +31,9 @@ export class CatalogService {
             this.categories.broPostpaid = false;
             this.categories.mostPopular = false;
             this.points = [0, 5000];
+        },
+        clearNonFilter() {
+            this.categories.mostPopular = false;
         },
         all() {
             this.categories.myFavorites = true;

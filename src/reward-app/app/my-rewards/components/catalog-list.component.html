@@ -4,7 +4,9 @@
             <div class="headerText">{{getCatalogListTitle()}}</div>
         </div>
         <div class="itemListContainer">
-            <div *ngFor="#catalog of getCatalogs()" class="itemDetailContainer">
+            <div *ngFor="#catalog of getCatalogs()"
+                (click)="openCatalogDisplay(catalog)"
+                class="itemDetailContainer">
                 <div class="itemPic"></div>
                 <div class="itemText">
                     <div class="itemSubHeader">{{ catalog.name }}</div>
