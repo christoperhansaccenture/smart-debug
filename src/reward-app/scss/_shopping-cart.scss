@@ -44,6 +44,10 @@ $col-3-height: 340px;
                     width: 10%;
                     border-top: 1px solid black;
                     height: 4px;
+
+                    &.green {
+                        border-top: 1px solid $smartgreen;  
+                    }
                 }
 
                 .circle { 
