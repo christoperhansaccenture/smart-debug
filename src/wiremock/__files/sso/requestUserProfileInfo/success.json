@@ -1,0 +1,12 @@
+{
+    "status": "200",
+    "message": "Success",
+    "result": {
+        "BirthDate": "01/01/2001",
+        "Email": "sacth@sample.com",
+        "GenderId": "1",
+        "LastName": "van de ven"
+    }
+}
+
+

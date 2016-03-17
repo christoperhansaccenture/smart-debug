@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/apimysmartws/ssoapi/login/requestUserProfileInfo"
+    },
+    "response": {
+    	"headers": {
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache"
+        },
+        "status": 200,
+        "bodyFileName": "sso/requestUserProfileInfo/success.json"
+    }
+}
