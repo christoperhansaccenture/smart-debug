@@ -232,11 +232,12 @@ $col-3-height: 340px;
                                 margin-right: 6px;
                             }
 
-                            .sub-total {
-                                font-size: 10px;
-                            }
                         }
-                        
+
+                        .sub-total {
+                            font-size: 10px;
+                        }
+                    
                         .itemPoint{
                             display: inline-block;
                             width: calc(50% - 74px);
@@ -252,6 +253,10 @@ $col-3-height: 340px;
                             }
                         }
 
+                    }
+
+                    .number-selection-container {
+                        margin-top: 0;
                     }
 
                 }

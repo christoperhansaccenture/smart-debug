@@ -13,7 +13,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": true,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 2,
@@ -28,7 +29,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": true
+            "giftable": true,
+            "expiry": "18-03"
         },
         {
             "id": 3,
@@ -43,7 +45,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": true,
-            "giftable": true
+            "giftable": true,
+            "expiry": "18-03"
         },
         {
             "id": 4,
@@ -58,7 +61,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 5,
@@ -73,7 +77,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 6,
@@ -88,7 +93,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 7,
@@ -103,7 +109,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 8,
@@ -118,7 +125,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 9,
@@ -133,7 +141,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 10,
@@ -148,7 +157,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 11,
@@ -163,7 +173,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         },
         {
             "id": 12,
@@ -178,7 +189,8 @@
                 "Double upsize for coffee purchase"
             ],
             "favorite": false,
-            "giftable": false
+            "giftable": false,
+            "expiry": "18-03"
         }
     ]
 }

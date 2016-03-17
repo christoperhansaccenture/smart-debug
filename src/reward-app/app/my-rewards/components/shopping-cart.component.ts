@@ -29,7 +29,7 @@ export class ShoppingCartComponent  {
         private _catalogService: CatalogService,
         private _cartService: CartService) {
 		
-		this._layoutService.setCurrentPage('Catalog');
+		this._layoutService.setCurrentPage('ShoppingCart');
 	}
 	
 	getResize(){
@@ -77,17 +77,8 @@ export class ShoppingCartComponent  {
         }
     }
 
-    goToCatalogList(category: string) {
-        // set filter in service
-        this._catalogService.filter.reset();
-        if (category === 'Most Popular') {
-            this._catalogService.filter.categories.mostPopular = true;
-        }
-        else if (category === 'All Categories') {
-            this._catalogService.filter.all();
-        }
-        // go to page
-        this._router.navigate(['CatalogList']);
+    getNumberSelection() {
+        return this._cartService.numberSelection;
     }
 	
 }

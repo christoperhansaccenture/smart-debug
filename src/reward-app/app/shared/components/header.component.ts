@@ -66,10 +66,20 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'PayBill' ||
         this._layoutService.getCurrentPage() === 'Transfer' ||
         this._layoutService.getCurrentPage() === 'Profile' ||
+        this._layoutService.getCurrentPage() === 'ShoppingCart' ||
         this._layoutService.getCurrentPage() === 'AccountOverview'){
             return true;
         }else{
             return false;
+        }
+    }
+
+    showCart() {
+        if (this._layoutService.getCurrentPage() === 'ShoppingCart') {
+            return false;
+        }
+        else {
+            return true;
         }
     }
     
@@ -91,6 +101,7 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'Catalog' ||
         this._layoutService.getCurrentPage() === 'Transfer' ||
         this._layoutService.getCurrentPage() === 'Perks' ||
+        this._layoutService.getCurrentPage() === 'ShoppingCart' ||
         this._layoutService.getCurrentPage() === 'Profile'){
             return false;
         }else{
@@ -106,6 +117,7 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'Catalog' ||
         this._layoutService.getCurrentPage() === 'Transfer' ||
         this._layoutService.getCurrentPage() === 'Perks' ||
+        this._layoutService.getCurrentPage() === 'ShoppingCart' ||
         this._layoutService.getCurrentPage() === 'Profile'){
             return true;
         }else{

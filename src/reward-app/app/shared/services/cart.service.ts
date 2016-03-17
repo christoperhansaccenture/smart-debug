@@ -7,6 +7,23 @@ import {SmartIntegrationService} from './smart-integration.service';
 @Injectable()
 export class CartService {
 
+    numberSelection = {
+        oneNumber: false,
+        myNumber: {
+            checked: false,
+            number: ""
+        },
+        gift: {
+            checked: false,
+            number: ""
+        },
+        clear() {
+            this.myNumber.checked = false;
+            this.myNumber.number = "";
+            this.gift.checked = false;
+            this.gift.number = "";
+        }
+    };
     items: { [id: number] : CartItem; } = {};
 
     addItemToCart(catalog: Catalog) {

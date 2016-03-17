@@ -102,6 +102,7 @@ export class CatalogService {
                         c.details = e.details;
                         c.favorite = e.favorite;
                         c.giftable = e.giftable;
+                        c.expiry = e.expiry;
                         return c;
                     });
                     console.log(this.catalogs);

@@ -3,7 +3,7 @@
         <div class="defaultBox">
             <div class="hamburger" *ngIf="showHamburger()" (click)="toggleLeftMenu()"></div>
             <div class="back" *ngIf="showBackButton()" (click)="goToPreviousPage()"></div>
-            <div class="cart" (click)="goToCart()">
+            <div class="cart" *ngIf="showCart()" (click)="goToCart()">
                 <div class="amount" *ngIf="getTotalItems()">
                     {{ getTotalItems() }}
                 </div>
