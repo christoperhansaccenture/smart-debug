@@ -3,26 +3,31 @@
         <div class="menuHeader">
             <div class="menuPic"></div>
             <div class="menuHeaderText">
-                <div class="smartPic"></div>
+                <div class="smartPic">
+                    <div class="picture"></div>
+                    <div class="text">Rewards</div>
+                </div>
                 <div class="smartPoint">1010 <span>pts</span></div>
                 <div class="expiry">200 pts expire on 31-03</div>
             </div>
             <select class="phoneNumber">
                 <option>09298874801</option>
+                <option>09298874821</option>
+                <option>09298874823</option>
             </select>
         </div>
         <div class="menuItemBox">
             <div class="itemCategory">Rewards Overview</div>
-            <div class="itemMenu">
+            <div class="itemMenu" (click)="gotoAccountOverview()">
                 <div class="text">Account Overview</div>
                 <div class="arrow"></div>
             </div>
             <div class="itemMenu">
-                <div class="text">My Reward Overview</div>
+                <div class="text">Activity History</div>
                 <div class="arrow"></div>
             </div>
             <div class="itemCategory">Rewards Account Setting</div>
-            <div class="itemMenu">
+            <div class="itemMenu" (click)="gotoProfile()">
                 <div class="text">My Reward Profile</div>
                 <div class="arrow"></div>
             </div>
@@ -47,7 +52,10 @@
                 <div class="text">Help & FAQ</div>
                 <div class="arrow"></div>
             </div>
-            <div class="itemCategory click">Logout</div>
+            <div class="itemCategory click">
+                Logout
+                <div class="arrow"></div>
+            </div>
         </div>
     </div>
     <div class="leftmenuOther" *ngIf="getLeftMenuState()" (click)="toggleLeftMenu()"></div>

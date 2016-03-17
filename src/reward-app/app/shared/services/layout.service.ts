@@ -37,6 +37,9 @@ export class LayoutService {
 	
 		this.currentPage = current;
 		this._pageNavigationService.setLoginNavigation(current);
+        
+        //scroll to top page
+        window.scrollTo(0,0);
 		
 		if(current == 'GetStarted' ||
         current == 'Verification'){
@@ -178,6 +181,28 @@ export class LayoutService {
                 appFooter: true,
                 leftMenu: false
 			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+        }
+        else if(current == 'Profile'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
             
         }
         else{

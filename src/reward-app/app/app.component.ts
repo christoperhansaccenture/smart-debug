@@ -12,6 +12,7 @@ import {PayBillComponent} from './my-rewards/components/pay-bill.component';
 import {TransferComponent} from './my-rewards/components/transfer.component';
 import {PerksComponent} from './my-rewards/components/perks.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
+import {ProfileComponent} from './account/components/profile.component';
 import {HeaderComponent} from './shared/components/header.component';
 import {FooterComponent} from './shared/components/footer.component';
 import {LeftMenuComponent} from './shared/components/left-menu.component';
@@ -118,6 +119,11 @@ declare var FastClick: FastClickStatic;
         path: '/accountOverview',
         name: 'AccountOverview',
         component: AccountOverviewComponent
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: ProfileComponent
     }
     
 	

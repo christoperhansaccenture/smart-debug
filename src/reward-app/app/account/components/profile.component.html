@@ -1,0 +1,72 @@
+<div class="profileContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">My Rewards Profile</div>
+                <div class="headerSubText">Edit your rewards profile</div>
+            </div>
+        </div>
+        <div class="itemCategory">Rewards Overview</div>
+        <div class="itemContainer">
+            <div class="itemIdentifier name"></div>
+            <input class="inputValue" placeholder="First Name*"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier name"></div>
+            <input class="inputValue" placeholder="Middle Name"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier name"></div>
+            <input class="inputValue" placeholder="Last Name"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier birthdate"></div>
+            <input class="inputValue" placeholder="Birthdate"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier marital"></div>
+            <select class="inputValue select" aria-placeholder="Marital Status">
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier gender"></div>
+            <select class="inputValue select" aria-placeholder="Gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier statusPic"></div>
+            <div class="status">Status</div>
+            <div class="statusValue">Active</div>
+        </div>
+        <div class="itemCategory">Contact Details</div>
+        <!--<div class="itemContainer">
+            <div class="itemIdentifier mobile"></div>
+            <div class="phoneCountryValue">+63</div>
+            <input class="inputValue phone" placeholder="Contact Number"/>
+        </div>-->
+        <div class="itemContainer">
+            <div class="itemIdentifier email"></div>
+            <input class="inputValue" placeholder="Email address"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier home"></div>
+            <input class="inputValue" placeholder="Home address"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier city"></div>
+            <input class="inputValue" placeholder="Province"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier city"></div>
+            <input class="inputValue" placeholder="City/Municipality"/>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="button" (click)="doTransfer()">Update Profile</div>
+        </div>
+    </div>
+</div>
