@@ -85,4 +85,9 @@ export class CatalogListComponent {
         }
     }
 
+    toggleFavorite(catalog: Catalog, event) {
+        catalog.favorite = !catalog.favorite;
+        event.stopPropagation();
+    }
+
 }

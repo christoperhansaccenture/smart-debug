@@ -14,10 +14,9 @@ export class CartService {
             this.items[catalog.id].amount = this.items[catalog.id].amount + 1;
         }
         else {
-            let item: CartItem = {
-                catalog: catalog,
-                amount: 1
-            }; 
+            let item: CartItem = new CartItem();
+            item.catalog = catalog;
+            item.amount = 1;
             this.items[catalog.id] = item;
         }
     }

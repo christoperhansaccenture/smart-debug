@@ -36,11 +36,116 @@ $col-3-height: 340px;
         .number-selection-container {
             display: inline-block;
             margin-top: 75px;
+
+            .my-number-select {
+                margin-left: 34px;                
+                font-family: inherit;
+                background-color: transparent;
+                padding: 4px 0;
+                //color: $gray;
+                border: none;
+
+                option {
+                    //color: $gray;
+                }
+
+                &:focus {
+                    outline: none
+                }
+            }
+
+            ul{
+                list-style-type: none;
+                margin:10px 10px 20px;
+                padding: 0;
+
+                li{
+                    color: #gray;
+                    height: 30px;
+                    display: inline-block;
+                    align-items: center;
+                    line-height: 30px;
+                    // align-items: center; // align vertical 
+                    width: 100%;
+
+
+                    ul{
+                        display: block;
+                        list-style-type: none;
+                        width: 100%;
+                        // margin-left:30px;
+                            margin: 0 0 10px 15px;
+                        padding-left: 15px;
+                        border-left: 1px #fff solid;
+                        
+                        li{
+                            color: #gray;
+                            height: 30px;
+                            display: inline-block;
+                            align-items: center;
+                            line-height: 30px;
+                            // align-items: center; // align vertical 
+                            width: 100%;
+
+                        }
+                    }
+                }
+
+                &::after{
+                    clear: both;
+                    content: " ";
+                }
+            }
+            
+            .check{
+                width: 0;
+                height: 0;
+                display: block;
+                margin: 5px 27px 5px 5px;
+                float: left;
+
+                &:before {
+                    display: block;
+                    border-radius: 5px;
+                    border: 1px solid $smartred;
+                    float: left;
+
+                    content:"";
+                    display:inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-size: 12px;
+                    background-color: #fff;
+                    border-radius: 5px;
+                }
+
+                &:checked {
+                    &:before {
+                        background-color: $smartred;
+                        content: '✓';
+                        color: white;
+                        text-align: center;
+                        font-size: 22px;
+                        line-height: 21px;
+                    }
+                }
+
+                &.active{
+                    background-color: $smartred;
+                }
+
+                &:focus {
+                    outline: none
+                }
+            }
+
+            .txt{
+                width: calc(100% - 30px);
+            }
         }
         
         .itemListContainer{
-            //display: inline-block;
-        
+
             .itemDetailContainer{
                 display: inline-block;
                 width: calc(100% - 20px);
@@ -58,7 +163,7 @@ $col-3-height: 340px;
                     .itemPic{
                         width: 80px;
                         height: 80px;
-                        background-color: $smartred;
+                        background-color: $lightgray;
                     }
 
                     .remove-container {
@@ -106,7 +211,7 @@ $col-3-height: 340px;
 
                         .counter{
                             padding-left: 10px;
-                            width: 32%;
+                            width: 28%;
                             display: inline-block;
 
                             .sign {
@@ -114,10 +219,10 @@ $col-3-height: 340px;
                                 background-color: $smartgreen;
                                 color: #fff;
                                 text-align: center;
-                                width: 30px;
+                                width: 25px;
                                 text-align: center;
-                                height: 30px;
-                                line-height: 30px;
+                                height: 25px;
+                                line-height: 25px;
                                 border-radius: 5px;
                             }
 
@@ -126,11 +231,15 @@ $col-3-height: 340px;
                                 margin-left: 6px;
                                 margin-right: 6px;
                             }
+
+                            .sub-total {
+                                font-size: 10px;
+                            }
                         }
                         
                         .itemPoint{
                             display: inline-block;
-                            width: calc(50% - 100px);
+                            width: calc(50% - 74px);
                             font-size: 30px;
                             text-align: right;
                             min-height: 60px;
@@ -147,6 +256,50 @@ $col-3-height: 340px;
 
                 }
             }
+        }
+
+        .summary{
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding: 25px 10px 10px;
+            min-height: 60px;
+
+            .itemText{
+                float: left;
+                width: 40%;
+                min-height: 60px;
+                padding-left: 10px;
+                
+                .itemSubHeader{
+                    font-size: 14px;
+                }
+                
+            }
+            
+            .itemPoint{
+                display: inline-block;
+                width: calc(50%);
+                font-size: 34px;
+                text-align: right;
+
+                min-height: 60px;
+                font-weight: bold;
+                float: right;
+                color: $smartred;
+                
+                span{
+                    font-size: 10px;
+                }
+            }
+
+            .button-container {
+                text-align: right;
+
+                .button {
+                    width: 100px;
+                }
+            }
+
         }
         
         
