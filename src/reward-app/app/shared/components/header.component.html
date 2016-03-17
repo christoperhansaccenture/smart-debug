@@ -15,7 +15,7 @@
                 <span class="description">Points</span>
                 <multi-slider
                     [start]="getFilter().points"
-                    [range]="{min:0, max:10000}"
+                    [range]="{min:0, max:1000}"
                     (slide)="getFilter().points = $event"
                     ></multi-slider>
                 <!--

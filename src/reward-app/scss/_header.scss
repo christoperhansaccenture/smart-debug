@@ -51,16 +51,15 @@ $smallheight: 48px;
             }
             
             .magnifier{
-                width:48px;
+                width:40px;
                 height:48px;
                 float:right;
                 z-index: 1000;
                 background: url(../img/Filter-WF.png) no-repeat;
                 // background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAuMDA0NDE3MjgwOTQyODE3NTcsMCkgc2NhbGUoNy45OTk3NDkxOTE1MTgxNCw3Ljk5OTc0OTE5MTUxODE0KSAgIiBmaWxsPSIjRkZGRkZGIiBkPSJNMTEuMTcwOTg4LDIuMDAwMDAyNkM2LjExMzk5NjIsMi4wMDAwMDI2IDEuOTk5OTk0NCw2LjExMjAwNzUgMS45OTk5OTQ0LDExLjE2NjAzIDEuOTk5OTk0NCwxNi4yMTk5OTEgNi4xMTM5OTYyLDIwLjMzMTk5NiAxMS4xNzA5ODgsMjAuMzMxOTk2IDE2LjIyNzk4MSwyMC4zMzE5OTYgMjAuMzQxMDA2LDE2LjIxOTk5MSAyMC4zNDEwMDYsMTEuMTY2MDMgMjAuMzQxMDA2LDYuMTEyMDA3NSAxNi4yMjc5ODEsMi4wMDAwMDI2IDExLjE3MDk4OCwyLjAwMDAwMjZ6IE0xMS4xNzA5ODgsMEMxNy4zMzAwMywwIDIyLjM0MTAwMSw1LjAwODk3ODcgMjIuMzQxMDAxLDExLjE2NjAzIDIyLjM0MTAwMSwxMy43NjM1MSAyMS40NDkxNTUsMTYuMTU2NjY5IDE5Ljk1NTUxLDE4LjA1NTYwOEwxOS45NDI1MjcsMTguMDcxNzE0IDMxLjk5OTg5OCwzMC42MTUwMDEgMzAuNTU4OSwzMi4wMDEwMDMgMTguNTY3MDI5LDE5LjUyNTg1NCAxOC40NzY4NzEsMTkuNjA1ODQ2QzE2LjUxNjg5NSwyMS4zMDM1NDQgMTMuOTYxODA0LDIyLjMzMiAxMS4xNzA5ODgsMjIuMzMyIDUuMDExOTQ4NywyMi4zMzIgMS42MTY4NjMzRS0wNywxNy4zMjMwMiAwLDExLjE2NjAzIDEuNjE2ODYzM0UtMDcsNS4wMDg5Nzg3IDUuMDExOTQ4NywwIDExLjE3MDk4OCwweiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
                 // background-size: 30px;
-                // background-position: center center;
+                background-position: center center;
                 cursor: pointer;
-                margin-right: 10px;
             }
             
             .up-arrow{
@@ -91,13 +90,13 @@ $smallheight: 48px;
             }
             
             .points{
-                float: left;
+                //float: left;
                 font-size: 30px;
                 color: #FFF;
                 height: 48px;
                 line-height: 48px;
-                margin-left: 10px;
-                width: 110px;
+                //margin-left: 10px;
+                //width: 110px;
                 text-align: center;
                 
                 span{

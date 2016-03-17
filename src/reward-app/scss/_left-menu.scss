@@ -1,4 +1,3 @@
-$menuwidth: 240px;
 
 //.leftmenuContainer {
     //background-color: rgba(0, 0, 0, 0.8);
@@ -19,7 +18,7 @@ $menuwidth: 240px;
     }
     
     .leftmenuContainer{
-        width:$menuwidth;
+        width: 70%;
         z-index: 150;
         background-color: #FFF;
         position: fixed;
@@ -27,7 +26,7 @@ $menuwidth: 240px;
         overflow-y: auto;
         overflow-x: hidden;
         top: 0;
-        left: -($menuwidth+10px);
+        left: -70%;
         -webkit-transform: translate3d(0,0,0);
         -ms-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
@@ -36,9 +35,9 @@ $menuwidth: 240px;
         transition: .3s ease all;
         
         &.active{
-            -webkit-transform: translate3d($menuwidth+10px,0,0);
-            -ms-transform: translate3d($menuwidth+10px,0,0);
-            transform: translate3d($menuwidth+10px,0,0);
+            -webkit-transform: translate3d( 100% ,0,0);
+            -ms-transform: translate3d( 100% ,0,0);
+            transform: translate3d( 100% ,0,0);
             -webkit-transition: .3s ease all;
             -ms-transition: .3s ease all;
             transition: .3s ease all;
@@ -51,16 +50,20 @@ $menuwidth: 240px;
             display: inline-block;
             padding-left: 10px;
             padding-right: 10px;
-            width: $menuwidth - 20px;
+            width: calc( 100% - 20px );
             background-color: $smartgreen;
             
             .menuPic{
                 display: inline-block;
                 width: 70px;
                 height: 70px;
-                background-color: $smartred;
+                //background-color: $smartred;
+                background: url(../img/profpic.jpg) no-repeat;
+                background-size: 80px;
+                background-position: center center;
                 border: 1px solid #FFF;
                 border-radius: 35px;
+                
             }
             .menuHeaderText{
                 
@@ -73,40 +76,54 @@ $menuwidth: 240px;
                 
                 .smartPic{
                     display: inline-block;
-                    width: 100px;
-                    height: 30px;
-                    background: url(../img/smartblacklogo.png) no-repeat;
-                    background-position: center center;
-                    background-size: 70px;
+                    width: 150px;
+                    
+                    .picture{
+                        width: 70px;
+                        height: 30px;
+                        background: url(../img/smartblacklogo.png) no-repeat;
+                        background-position: center center;
+                        background-size: 70px;
+                        float: left;
+                    }
+                    
+                    .text{
+                        color: #FFF;
+                        font-size: 15px;
+                        float: left;
+                        margin-top: 11px;
+                    }
+                    
                 }
                 .smartPoint{
                     display: inline-block;
                     font-size: 25px;
                     span{
-                        font-size: 10px;
+                        font-size: 12px;
                     }
                 }
                 .expiry{
                     display: inline-block;
-                    font-size: 10px;
+                    font-size: 11px;
                 }
             }
             
             .phoneNumber{
                 display: inline-block;
-                width: $menuwidth - 20px;
+                width: 100%;
                 background-color: black;
                 color: #FFF;
                 border: 1px solid #FFF;
                 line-height: 30px;
                 height: 30px;
+                padding-left: 10px;
             }
         }
         
         .menuItemBox{
             
             display: inline-block;
-            width: $menuwidth;
+            width: 100%;
             
             .itemCategory{
                 float: left;
@@ -118,6 +135,19 @@ $menuwidth: 240px;
                 
                 &.click{
                     cursor:pointer;
+                }
+                
+                .arrow{
+                    float: right;
+                    height: 30px;
+                    width: 30px;
+                    float: right;
+                    cursor: pointer;
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU4LjU4NzMxNzA4NTUwMDMsMS40MjEwODU0NzE1MjAyRS0xNCkgc2NhbGUoOC4wMDEwMDAwNTI1MTgyNiw4LjAwMTAwMDA1MjUxODI2KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMS40MjAwNDgyLDBMMTcuMzUxMDAxLDE2LjA0Njk5NiAxLjQ5ODA1MTMsMzEuOTk2MDAxIDAuMDc4OTc5NjMxLDMwLjU4NTk5NyAxNC41MzEwNDYsMTYuMDQ2MDE5IDAsMS40MDg5OTY0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                    background-position-x: right;
+                    background-position-y: center;
+                    background-size: 10px;
+                    margin-right: 10px; 
                 }
                 
             }

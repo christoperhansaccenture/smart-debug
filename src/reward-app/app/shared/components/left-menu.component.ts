@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import { Router } from 'angular2/router';
 import {LayoutService} from '../services/layout.service';
 
 @Component({
@@ -7,7 +8,8 @@ import {LayoutService} from '../services/layout.service';
 })
 export class LeftMenuComponent {
     
-    constructor(private _layoutService : LayoutService){
+    constructor(private _layoutService : LayoutService,
+    private _router: Router){
         
     }
     
@@ -17,6 +19,14 @@ export class LeftMenuComponent {
     
     getLeftMenuState(){
         return this._layoutService.getLeftMenuState();
+    }
+    
+    gotoProfile(){
+        this._router.navigate(['Profile']);
+    }
+    
+    gotoAccountOverview(){
+        this._router.navigate(['AccountOverview']);
     }
     
     closeLeftMenu(){

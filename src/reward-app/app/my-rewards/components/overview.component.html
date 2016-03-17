@@ -4,13 +4,14 @@
             <div class="headerSubText">Get deals from our shopping partners!</div>
         </div>
     </div>
-    <div class="subHeader">
+    <div class="subHeader" (click)="gotoAccountOverview()">
         <div class="leftHeader">Account Overview</div>
-        
+        <div class="next"></div>
     </div>
     <div class="name">Tiffany</div>
     <div class="phoneDetail">
         <div class="phoneNo">092898874081</div>
+        <div class="phoneType">PRIMARY</div>
         <div class="numberType">Postpaid</div>
     </div>
     <div class="subInfoContainer">
@@ -18,19 +19,18 @@
             <div class="balance">Point Balance</div>
             <div class="expire">First points expire on 31-12</div>
         </div>
-        <div class="rightSide" (click)="gotoAccountOverview()">
-            <div class="next"></div>
+        <div class="rightSide">
             <div class="text">1010 <span>pts</span></div>
         </div>    
     </div>
-    <div class="subHeader">
+    <div class="subHeader belt">
         <div class="leftHeader">Most Popular</div>
         <div class="subOption" (click)="openDetailPage('Most Popular')">See all</div>
     </div>
     <div class="itemBelt">
         <item-belt></item-belt>
     </div>
-    <div class="subHeader">
+    <div class="subHeader belt">
         <div class="leftHeader">You can almost get...</div>
         <div class="subOption" (click)="openDetailPage('Most Popular')">See all</div>
     </div>
