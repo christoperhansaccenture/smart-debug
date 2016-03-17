@@ -7,12 +7,23 @@
             <div *ngFor="#catalog of getCatalogs()"
                 (click)="openCatalogDisplay(catalog)"
                 class="itemDetailContainer">
-                <div class="itemPic"></div>
+                <div class="itemPic">
+                    <div class="overlay"
+                        [class.postpaid]="catalog.isPostpaid()"
+                        [class.prepaid]="catalog.isPrepaid()"
+                        [class.bro]="catalog.isBroPrepaid() || catalog.isBroPostpaid()">
+                        {{ getOverlayText(catalog) }}
+                    </div>
+                </div>
                 <div class="itemText">
                     <div class="itemSubHeader">{{ catalog.name }}</div>
                     <div class="itemDesc">{{ catalog.description }}</div>    
                 </div>
                 <div class="itemPoint">{{ catalog.points }} <span>pts</span></div>
+                <div class="item-favorite"
+                    [class.red]="catalog.favorite">
+                    {{ (catalog.favorite) ? '&#9733;' : '&#9734;' }}
+                </div>
             </div>
             <!--
             <div class="itemDetailContainer">

@@ -1,6 +1,7 @@
 {
     "catalogs": [
         {
+            "id": 1,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 500,
@@ -15,7 +16,8 @@
             "giftable": false
         },
         {
-            "name": "Krispy Kreme P50 Treat",
+            "id": 2,
+            "name": "Free Seoul Rice Upgrade",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 2000,
             "categories": [
@@ -29,11 +31,12 @@
             "giftable": true
         },
         {
+            "id": 3,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 1000,
             "categories": [
-                "Lifestyle"
+                "Lifestyle", "Bro Prepaid"
             ],
             "details": [
                 "Krispy Kreme P50 Voucher",
@@ -43,11 +46,12 @@
             "giftable": true
         },
         {
+            "id": 4,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 1500,
             "categories": [
-                "Most Popular", "Lifestyle"
+                "Most Popular", "Lifestyle", "Bro Postpaid"
             ],
             "details": [
                 "Krispy Kreme P50 Voucher",
@@ -57,11 +61,12 @@
             "giftable": false
         },
         {
+            "id": 5,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 430,
             "categories": [
-                "My Favorites", "Lifestyle"
+                "My Favorites", "Lifestyle", "Postpaid"
             ],
             "details": [
                 "Krispy Kreme P50 Voucher",
@@ -71,11 +76,12 @@
             "giftable": false
         },
         {
+            "id": 6,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 50,
             "categories": [
-                "My Favorites"
+                "My Favorites", "Prepaid"
             ],
             "details": [
                 "Krispy Kreme P50 Voucher",
@@ -85,6 +91,7 @@
             "giftable": false
         },
         {
+            "id": 7,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 240,
@@ -99,6 +106,7 @@
             "giftable": false
         },
         {
+            "id": 8,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 50,
@@ -113,6 +121,7 @@
             "giftable": false
         },
         {
+            "id": 9,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 50,
@@ -127,6 +136,7 @@
             "giftable": false
         },
         {
+            "id": 10,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 540,
@@ -141,6 +151,7 @@
             "giftable": false
         },
         {
+            "id": 11,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 50,
@@ -155,6 +166,7 @@
             "giftable": false
         },
         {
+            "id": 12,
             "name": "Krispy Kreme P50 Treat",
             "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
             "points": 50,

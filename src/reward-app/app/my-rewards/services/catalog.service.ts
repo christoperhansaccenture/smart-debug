@@ -1,13 +1,15 @@
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {SmartIntegrationService} from '../../shared/services/smart-integration.service';
+import {Catalog} from '../../shared/models/catalog';
 
 @Injectable()
 export class CatalogService {
 
-    selectedCatalog;
-    catalogs;
+    selectedCatalog: Catalog;
+    catalogs: Catalog[];
     filter = {
+        name: "",
         categories: {
             myFavorites: false,
             perks: false,
@@ -21,6 +23,7 @@ export class CatalogService {
         },
         points: [0,5000],
         reset() {
+            this.name = "";
             this.categories.myFavorites = false;
             this.categories.perks = false;
             this.categories.lifestyle = false;
@@ -36,6 +39,7 @@ export class CatalogService {
             this.categories.mostPopular = false;
         },
         all() {
+            this.name = "";
             this.categories.myFavorites = true;
             this.categories.perks = true;
             this.categories.lifestyle = true;
@@ -87,7 +91,19 @@ export class CatalogService {
             .getCatalogs()
             .subscribe(
                 response => {
-                    this.catalogs = response.json().catalogs;
+                    //this.catalogs = response.json().catalogs;
+                    this.catalogs = response.json().catalogs.map(e => {
+                        let c = new Catalog();
+                        c.id = e.id;
+                        c.name = e.name;
+                        c.description = e.description;
+                        c.points = e.points;
+                        c.categories = e.categories;
+                        c.details = e.details;
+                        c.favorite = e.favorite;
+                        c.giftable = e.giftable;
+                        return c;
+                    });
                     console.log(this.catalogs);
                 },
                 error =>{

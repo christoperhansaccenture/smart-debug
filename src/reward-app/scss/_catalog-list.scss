@@ -17,10 +17,10 @@ $col-3-height: 340px;
             padding: 10px;
             border-bottom: 1px solid $lightgray;
             position: fixed;
-            background-color: #FFF;
+            background-color: $smartgreen; 
             
             .headerText{
-                color: $smartgreen;
+                color: #fff;
                 font-size: 20px;
                 float: left;
             }
@@ -49,8 +49,28 @@ $col-3-height: 340px;
                     float: left;
                     width: 80px;
                     height: 80px;
-                    background-color: $smartred;
+                    background-color: $lightgray;
                     
+                    .overlay {
+                        text-align: center;
+                        top: 75%;
+                        position: relative;
+                        border-radius: 3px;
+                        color: #fff;
+                        font-size: 12px;
+
+                        &.postpaid {
+                            background-color: $smartblue;
+                        }
+
+                        &.prepaid {
+                            background-color: $smartgreen;
+                        }
+
+                        &.bro {
+                            background-color: $smartred;
+                        }
+                    }
                 }
                 
                 .itemText{
@@ -76,12 +96,24 @@ $col-3-height: 340px;
                     width: calc(50% - 100px);
                     font-size: 20px;
                     text-align: right;
-                    min-height: 60px;
+                    min-height: 50px;
                     color: $smartred;
                     font-weight: bold;
                     
                     span{
                         font-size: 10px;
+                    }
+                }
+
+                .item-favorite {
+                    text-align: right;
+                    text-align: right;
+                    padding-right: 5px;
+                    font-size: 35px;
+                    color: $gray;
+
+                    &.red {
+                        color: $smartred;
                     }
                 }
             }
