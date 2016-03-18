@@ -39,26 +39,25 @@ var config = require('./config/config');
 const app = express();
 var bodyParser = require('body-parser');
 console.log(config.baseurl);
-app.use(function (req, res, next) {
-    // Verify authentication
-    // exclude /api/login
-    if (req.path === '/api/login') {
-        // Do nothing
-        next();
-    }
-    else {
-        var token = req.get("Authorization").replace('Bearer ', '');
-        var signingKey = 'a8f35732-f700-48de-a05a-dccb7a2e517a'; //get from config file
-        var nJwt = require('nJwt');
-        try {
-            var verifiedJwt = nJwt.verify(token, signingKey);
-            next();
-        }
-        catch (e) {
-            res.sendStatus(403);
-        }
-    }
-});
+// app.use(function(req, res, next) {
+//     // Verify authentication
+//     // exclude /api/login
+//     // if(req.path === '/api/login') {
+//     //     // Do nothing
+//     //     next();
+//     // }
+//     // else{
+//     //     var token:string = req.get("Authorization").replace('Bearer ','');
+//     //     var signingKey = 'a8f35732-f700-48de-a05a-dccb7a2e517a'; //get from config file
+//     //     var nJwt = require('nJwt');  
+//     //     try{
+//     //         var verifiedJwt = nJwt.verify(token,signingKey);
+//     //         next();
+//     //     }catch(e){
+//     //         res.sendStatus(403);
+//     //     }
+//     // }
+// });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const port = process.env.PORT || 8080;

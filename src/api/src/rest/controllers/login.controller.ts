@@ -3,6 +3,8 @@
 
 'use strict';
 import { SSO } from '../services/sso.service';
+var request = require('request'); 
+var config = require('../config/config');
 
 
     export interface loginInterface {
@@ -18,24 +20,35 @@ import { SSO } from '../services/sso.service';
             
             async postLogin(req: string,res: string) : Promise<string> {
                     const ssoService:SSO.sso = new SSO.sso();
+                    var username = req.body.username;
+                    var password = req.body.password;
 
                     try {
-                        var result:string =  await ssoService.requestValidateUserCredentials();
-                        var resultJSON = JSON.parse(result)
-                        var result2 =  await ssoService.requestAccessToken();
-                        var resJson = JSON.parse(result2);       
+                        console.log(username);
+                        console.log(password);
+                        var result:string =  await ssoService.requestValidateUserCredentials(username, password);
+                        console.log(result);
+                        var resultJson = JSON.parse(result);
+                        console.log(resultJson);
+                        var result2 =  await ssoService.requestAccessToken(resultJson.result.AuthenticationCode, resultJson.result.ClientID);
+                        var result2Json = JSON.parse(result2);   
+                        console.log(result2Json);    
                         var nJwt = require('nJwt');  
-                        var signingKey = 'a8f35732-f700-48de-a05a-dccb7a2e517a'; //get from config file
+                        var signingKey = config.signingKey; //get from config file
 
                         var claims = {
-                           accessToken: resJson.result.AccessToken,
-                           msaid: resJson.result.MSAID
+                           accessToken: result2Json.result.AccessToken,
+                           clientId: resultJson.result.ClientID,
+                           msaid: result2Json.result.MSAID
                         }
 
                         var jwt = nJwt.create(claims,signingKey)
                         console.log(jwt);
                         var token = jwt.compact();
-                        res.json({token: token});
+                        res.json({
+                            token: token,
+                            refreshToken: result2Json.result.RefreshToken
+                        });
                     }
                     catch (err) {
                         console.log(err);
@@ -44,30 +57,33 @@ import { SSO } from '../services/sso.service';
             
             
             async getAccount(req:string,res:string) : Promise<string> {
-                    // var token:string = req.get("Authorization");
-                    // token = token.replace('Bearer ','');
-                    // var signingKey = 'a8f35732-f700-48de-a05a-dccb7a2e517a'; //get from config file
-                    // var nJwt = require('nJwt');  
-                    // try{
-                    //     var verifiedJwt = nJwt.verify(token,signingKey);
-                    // }catch(e){
-                    //     res.sendStatus(403);
-                    // }
-                    // console.log(token);
-                    // console.log(verifiedJwt);
-                    const ssoService:SSO.sso = new SSO.sso();
-                    
-           
-                    try {
-                        
-                        var result =  await ssoService.getAccount();
-                        var resJson = JSON.parse(result);       
+                
+                var token:string = req.get("Authorization");
+                token = token.replace('Bearer ','');
+             
+                console.log(config.signingKey);
+                
+                var nJwt = require('nJwt');  
+                try{
+                    var jwt = nJwt.verify(token,config.signingKey);
+                }catch(e){
+                    res.sendStatus(403);
+                }
 
-                        res.json(resJson.result);
-                    }
-                    catch (err) {
-                        console.log(err);
-                    }
+                console.log(token);
+                console.log(jwt);
+                const ssoService:SSO.sso = new SSO.sso();
+
+                try {  
+                    var result =  await ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
+                    console.log(result);
+                    // var resJson = JSON.parse(result);       
+                    
+                    res.json(JSON.parse(result));
+                }
+                catch (err) {
+                    console.log(err);
+                }
             }
             
         }
