@@ -26,6 +26,7 @@ export class LeftMenuComponent {
     }
     
     gotoAccountOverview(){
+        this._layoutService.accountFromHome = false;
         this._router.navigate(['AccountOverview']);
     }
     
@@ -34,6 +35,7 @@ export class LeftMenuComponent {
     }
     
     gotoActivityHistory(){
+        this._layoutService.historyFromAccount = false;
         this._router.navigate(['ActivityHistory']);
     }
     

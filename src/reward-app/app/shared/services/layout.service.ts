@@ -22,6 +22,18 @@ export class LayoutService {
         paybill: false,
         transfer: false
     };
+    
+    headerItem = {
+        hamburger: false,
+        back: false,
+        logo: false,
+        point: false,
+        filter: false,
+        cart: true
+    }
+    
+    accountFromHome = false;
+    historyFromAccount = false;
 	
 	constructor (private _pageNavigationService: PageNavigationService) {}
 	
@@ -31,6 +43,10 @@ export class LayoutService {
     
     getfooterState(){
         return this.footerState;
+    }
+    
+    getHeaderLayout(){
+        return this.headerItem;
     }
 	
 	setCurrentPage(current : string){
@@ -82,6 +98,12 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = true;
+            this.headerItem.point = false;
 			
 		}
         else if(current == 'Perks'){
@@ -100,6 +122,12 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
 			
 		}
         else if(current == 'Catalog'){
@@ -118,6 +146,12 @@ export class LayoutService {
             this.footerState.catalog = true;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
 			
 		}
         else if(current == 'RewardDetail' ||
@@ -135,9 +169,16 @@ export class LayoutService {
 
             this.footerState.home = false;
             this.footerState.perks = false;
-            this.footerState.catalog = true;
+            this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
         }
         else if(current == 'ShoppingCart') {
             
@@ -155,6 +196,13 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
         }
         else if(current == 'Transfer'){
            
@@ -171,6 +219,12 @@ export class LayoutService {
             this.footerState.paybill = false;
             this.footerState.transfer = true;
             
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
         }
         else if(current == 'PayBill'){
             
@@ -186,6 +240,13 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = true;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
             
         }
         else if(current == 'AccountOverview'){
@@ -205,6 +266,19 @@ export class LayoutService {
             this.footerState.paybill = false;
             this.footerState.transfer = false;
             
+            if(this.accountFromHome){
+                this.headerItem.back = true;
+                this.headerItem.hamburger = false;
+            }else{
+                this.headerItem.back = false;
+                this.headerItem.hamburger = true;
+            }
+            
+            this.headerItem.filter = false;
+            this.headerItem.logo = true;
+            this.headerItem.point = false;
+            
+            
         }
         else if(current == 'Profile'){
             
@@ -220,6 +294,44 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+            
+        }
+        else if(current == 'ActivityHistory'){
+            
+            this._pageNavigationService.setActivityHistoryNavigation();
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            if(this.historyFromAccount){
+                this.headerItem.back = true;
+                this.headerItem.hamburger = false;
+            }else{
+                this.headerItem.back = false;
+                this.headerItem.hamburger = true;
+            }
+            
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
             
         }
         else if(current == 'AddNumber' ||
@@ -250,6 +362,12 @@ export class LayoutService {
             this.footerState.paybill = false;
             this.footerState.transfer = false;
             
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
         }
         else{
 			
@@ -265,6 +383,13 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
 
 		}
 	

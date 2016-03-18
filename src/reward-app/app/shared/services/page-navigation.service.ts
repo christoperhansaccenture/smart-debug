@@ -58,6 +58,11 @@ export class PageNavigationService {
         this.previousPage = 'MyRewards';
     }
     
+    setActivityHistoryNavigation(){
+        this.childNode = '';
+        this.previousPage = 'AccountOverview';
+    }
+    
     getPreviousPage(){
         return this.previousPage;
     }

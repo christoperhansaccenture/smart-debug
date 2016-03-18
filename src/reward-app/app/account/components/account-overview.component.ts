@@ -22,8 +22,9 @@ export class AccountOverviewComponent  {
         return this._matchMediaService.getmm();  
     }
     
-    numberSelectionState(){
-        return this._layoutService.getNumberSelectionState();
+    gotoActivityHistory(){
+        this._layoutService.historyFromAccount = true;
+        this._router.navigate(['ActivityHistory']);
     }
 	
 }

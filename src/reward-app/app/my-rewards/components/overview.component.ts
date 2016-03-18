@@ -40,6 +40,7 @@ export class OverviewComponent  {
     }
     
     gotoAccountOverview(){
+        this._layoutService.accountFromHome = true;
         this._router.navigate(['AccountOverview']);
     }
 	

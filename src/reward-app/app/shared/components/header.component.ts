@@ -29,6 +29,10 @@ export class HeaderComponent {
         private _accountService: AccountService,
         private _catalogService: CatalogService,
         private _cartService: CartService) {}
+        
+    getHeaderLayout(){
+        return this._layoutService.getHeaderLayout();
+    }
     
     toggleLeftMenu(){
         this._layoutService.toggleLeftMenu();
@@ -53,99 +57,6 @@ export class HeaderComponent {
     
     getCurrentPageMedium(){
         if(this._layoutService.getCurrentPage() !== 'MySmart' && this._matchMediaService.getmm().mediumUp){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    showHamburger(){
-        if(this._layoutService.getCurrentPage() === 'MyRewards' || 
-        this._layoutService.getCurrentPage() === 'Perks' ||
-        this._layoutService.getCurrentPage() === 'Catalog' ||
-        this._layoutService.getCurrentPage() === 'PayBill' ||
-        this._layoutService.getCurrentPage() === 'Transfer' ||
-        this._layoutService.getCurrentPage() === 'Profile' ||
-        this._layoutService.getCurrentPage() === 'ManageNumber' ||
-        this._layoutService.getCurrentPage() === 'ActivityHistory' ||
-        this._layoutService.getCurrentPage() === 'ShoppingCart' ||
-        this._layoutService.getCurrentPage() === 'AccountOverview'){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    showCart() {
-        if (this._layoutService.getCurrentPage() === 'ShoppingCart') {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-    
-    showBackButton(){
-        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
-        this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList' ||
-        this._layoutService.getCurrentPage() === 'AddNumber' ||
-        this._layoutService.getCurrentPage() === 'AddNumberConfirm' ||
-        this._layoutService.getCurrentPage() === 'EditNumber'){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    showLogo(){
-        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
-        this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList' ||
-        this._layoutService.getCurrentPage() === 'PayBill' ||
-        this._layoutService.getCurrentPage() === 'Catalog' ||
-        this._layoutService.getCurrentPage() === 'Transfer' ||
-        this._layoutService.getCurrentPage() === 'Perks' ||
-        this._layoutService.getCurrentPage() === 'ManageNumber' ||
-        this._layoutService.getCurrentPage() === 'AddNumber' ||
-        this._layoutService.getCurrentPage() === 'AddNumberConfirm' ||
-        this._layoutService.getCurrentPage() === 'EditNumber' ||
-        this._layoutService.getCurrentPage() === 'ActivityHistory' ||
-        this._layoutService.getCurrentPage() === 'ShoppingCart' ||
-        this._layoutService.getCurrentPage() === 'Profile'){
-            return false;
-        }else{
-            return true;
-        }
-    }
-    
-    showPoints(){
-        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
-        this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList' ||
-        this._layoutService.getCurrentPage() === 'PayBill' ||
-        this._layoutService.getCurrentPage() === 'Catalog' ||
-        this._layoutService.getCurrentPage() === 'Transfer' ||
-        this._layoutService.getCurrentPage() === 'Perks' ||
-        this._layoutService.getCurrentPage() === 'Profile' ||
-        this._layoutService.getCurrentPage() === 'ManageNumber' ||
-        this._layoutService.getCurrentPage() === 'AddNumber' ||
-        this._layoutService.getCurrentPage() === 'AddNumberConfirm' ||
-        this._layoutService.getCurrentPage() === 'EditNumber' ||
-        this._layoutService.getCurrentPage() === 'ActivityHistory'||
-        this._layoutService.getCurrentPage() === 'ShoppingCart'){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    showFilter(){
-        if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
-        this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList' ||
-        this._layoutService.getCurrentPage() === 'Catalog' ||
-        this._layoutService.getCurrentPage() === 'Perks'){
             return true;
         }else{
             return false;
@@ -184,39 +95,39 @@ export class HeaderComponent {
 	
 /* only used if web app is present*/
 	
-	getResize(){
-        return this._matchMediaService.getmm();
+	// getResize(){
+    //     return this._matchMediaService.getmm();
         
-    }
+    // }
     
-    gotoLogin() {
-        let link = ['Login'];
-        this._router.navigate(link);
-    }
+    // gotoLogin() {
+    //     let link = ['Login'];
+    //     this._router.navigate(link);
+    // }
     
-    gotoHomepage() {
-        let link = ['Home'];
-        this._router.navigate(link);
-    }
+    // gotoHomepage() {
+    //     let link = ['Home'];
+    //     this._router.navigate(link);
+    // }
 
-    isScrollOver() {
-        return this.scrollY > 45;
-    }
+    // isScrollOver() {
+    //     return this.scrollY > 45;
+    // }
 
-    onScroll(event) {
-        this.scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    }
+    // onScroll(event) {
+    //     this.scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    // }
 
-    openSubMenu(index) {
-        this.subMenu = this.menu[index].subheader;
-        this.toggleSubMenu();
-    }
+    // openSubMenu(index) {
+    //     this.subMenu = this.menu[index].subheader;
+    //     this.toggleSubMenu();
+    // }
 
-    toggleSubMenu() {
-        this.hideSubMenu = !this.hideSubMenu;
-    }
+    // toggleSubMenu() {
+    //     this.hideSubMenu = !this.hideSubMenu;
+    // }
 
-    leftLastX = 30;
+    // leftLastX = 30;
 
     pointerLeftMove(event) {
         console.log('dragging');

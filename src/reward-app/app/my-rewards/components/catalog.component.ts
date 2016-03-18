@@ -35,10 +35,6 @@ export class CatalogComponent  {
     openDetailPage(type:string){
         this._rewardTypeService.setSelectedType(type);
     }
-    
-    goToPayBill(){
-        this._router.navigate(['PayBill']);
-    }
 
     goToCatalogList(category: string) {
         // set filter in service
