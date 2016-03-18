@@ -139,6 +139,23 @@ export class LayoutService {
             this.footerState.paybill = false;
             this.footerState.transfer = false;
         }
+        else if(current == 'ShoppingCart') {
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+        }
         else if(current == 'Transfer'){
            
             this.layoutState = {

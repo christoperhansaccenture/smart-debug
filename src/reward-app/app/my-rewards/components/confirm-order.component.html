@@ -7,37 +7,12 @@
                     <span class="circle number green">1</span>
                     Review your item(s)
                 </div>
-                <div class="step-separator"></div>
+                <div class="step-separator green"></div>
                 <div class="step">
-                    <span class="circle number">2</span>
+                    <span class="circle number green">2</span>
                     Confirm Order
                 </div>
             </div>
-        </div>
-        <div class="number-selection-container">
-            <ul>
-                <li (click)="toggleParentOneNumber()">
-                    <input class="check" type="checkbox" [(ngModel)]="getNumberSelection().oneNumber" />
-                    <span class="">Send all to one number</span>
-                </li>
-                <ul *ngIf="getNumberSelection().oneNumber">
-                    <li (click)="toggleParentMyNumber()">
-                        <input class="check" type="checkbox" 
-                            [(ngModel)]="getNumberSelection().myNumber.checked" />
-                        <div>My Number</div>
-                        <select class="my-number-select">
-                            <option>092898874081</option>
-                            <option>092898874082</option>
-                            <option>092898874083</option>
-                        </select>
-                    </li>
-                    <li (click)="toggleParentGift()">
-                        <input class="check" type="checkbox" 
-                            [(ngModel)]="getNumberSelection().gift.checked" />
-                        <span class="">Gift</span>
-                    </li>
-                </ul>
-            </ul>
         </div>
         <div class="itemListContainer">
             <div *ngFor="#item of getItems()" class="itemDetailContainer">

@@ -1,6 +1,8 @@
 
 <div class="most-popular-item-belt beltContainer">
-    <div *ngFor="#category of getCategories()" class="itemContainer">
+    <div *ngFor="#category of getCategories()" 
+    	class="itemContainer"
+        (click)="openCatalogDisplay(category)">
         <div class="itemPic"></div>
         <div class="itemText">
             <div class="itemDesc">{{ category.name }}</div>

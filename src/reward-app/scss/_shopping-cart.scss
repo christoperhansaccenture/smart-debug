@@ -30,6 +30,47 @@ $col-3-height: 340px;
                 line-height: 20px;
                 float: right;
             }
+
+            .steps {
+                margin-top: 10px;
+                text-align: center;
+
+                .step {
+                    display: inline-block;
+                }
+
+                .step-separator {
+                    display: inline-block;
+                    width: 10%;
+                    border-top: 1px solid black;
+                    height: 4px;
+
+                    &.green {
+                        border-top: 1px solid $smartgreen;  
+                    }
+                }
+
+                .circle { 
+                    background: $gray;  
+                    width: 20px; 
+                    height: 20px; 
+                    line-height: 20px; 
+                    border-radius: 16px; 
+                    position: relative; 
+                    color: white; 
+                    text-align: center; 
+                    display: inline-block;
+
+                    &.green {
+                        background: $smartgreen;  
+                    }
+
+                    .edit-icon {
+                        padding-top: 5px;
+                        width: 65%;
+                    }
+                }
+            }
             
         }
 
@@ -232,11 +273,12 @@ $col-3-height: 340px;
                                 margin-right: 6px;
                             }
 
-                            .sub-total {
-                                font-size: 10px;
-                            }
                         }
-                        
+
+                        .sub-total {
+                            font-size: 10px;
+                        }
+                    
                         .itemPoint{
                             display: inline-block;
                             width: calc(50% - 74px);
@@ -252,6 +294,10 @@ $col-3-height: 340px;
                             }
                         }
 
+                    }
+
+                    .number-selection-container {
+                        margin-top: 0;
                     }
 
                 }

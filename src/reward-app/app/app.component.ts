@@ -11,6 +11,7 @@ import {ShoppingCartComponent} from './my-rewards/components/shopping-cart.compo
 import {PayBillComponent} from './my-rewards/components/pay-bill.component';
 import {TransferComponent} from './my-rewards/components/transfer.component';
 import {PerksComponent} from './my-rewards/components/perks.component';
+import {ConfirmOrderComponent} from './my-rewards/components/confirm-order.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {ManageNumberComponent} from './account/components/manage-number.component';
@@ -106,6 +107,11 @@ declare var FastClick: FastClickStatic;
         path: '/cart',
         name: 'ShoppingCart',
         component: ShoppingCartComponent
+    },
+    {
+        path: '/confirmOrder',
+        name: 'ConfirmOrder',
+        component: ConfirmOrderComponent
     },
     {
         path: '/payBill',

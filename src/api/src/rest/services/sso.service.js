@@ -20,42 +20,58 @@ var SSO;
         constructor() {
             var vm = this;
         }
-        requestValidateUserCredentials() {
+        requestValidateUserCredentials(username, password) {
             return __awaiter(this, void 0, Promise, function* () {
-                var vm = this;
-                // var request = require('request');  
-                //  var config = require('../config/config');
-                // var baseurl:string = 'http://localhost:8000';
                 var path = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';
+                var uuid = require('uuid');
                 return new Promise(function (resolve, reject) {
-                    request.post({ url: config.baseurl + path }, function (err, httpResponse, body) {
+                    request.post({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientKey': config.clientKey,
+                            'nonce': uuid.v4()
+                        },
+                        form: {
+                            EndUserId: username,
+                            EndUserPassword: password
+                        }
+                    }, function (err, httpResponse, body) {
                         resolve(body);
                     });
                 });
             });
         }
-        requestAccessToken() {
+        requestAccessToken(authenticationCode, clientId) {
             return __awaiter(this, void 0, Promise, function* () {
-                var vm = this;
-                // var request = require('request'); 
-                //  var config = require('../config/config'); 
-                // var baseurl:string = 'http://localhost:8000';
                 var path = '/apimysmartws/ssoapi/login/requestAccessToken';
                 return new Promise(function (resolve, reject) {
-                    request.post({ url: config.baseurl + path }, function (err, httpResponse, body) {
+                    request.get({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientID': clientId,
+                            'authenticationCode': authenticationCode
+                        }
+                    }, function (err, httpResponse, body) {
                         resolve(body);
                     });
                 });
             });
         }
-        getAccount() {
+        getAccount(accessToken, clientId, msaId) {
             return __awaiter(this, void 0, Promise, function* () {
-                var vm = this;
-                var request = require('request');
-                var baseurl = 'http://localhost:8000';
-                var path1 = '/apimysmartws/ssoapi/login/requestUserProfileInfo';
+                var path = '/apimysmartws/ssoapi/account/requestUserProfileInfo';
                 return new Promise(function (resolve, reject) {
-                    request.post({ url: baseurl + path1 }, function (err, httpResponse, body) {
+                    request.get({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientID': clientId,
+                            'msaID': msaId,
+                            'accessToken': accessToken
+                        }
+                    }, function (err, httpResponse, body) {
                         resolve(body);
                     });
                 });

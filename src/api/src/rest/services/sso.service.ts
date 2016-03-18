@@ -5,9 +5,9 @@ export module SSO {
     var request = require('request'); 
     
     export interface ssoInterface {
-        requestValidateUserCredentials():Promise<string>;
-        requestAccessToken():Promise<string>;
-        getAccount():Promise<string>;
+        requestValidateUserCredentials(username:string, password: string):Promise<string>;
+        requestAccessToken(authenticationCode:string, clientId:string):Promise<string>;
+        getAccount(accessToken:string, clientId:string, msaId:string):Promise<string>;
     }
     
     export class sso implements ssoInterface {
@@ -16,48 +16,69 @@ export module SSO {
             var vm = this;       
         }
         
-        async requestValidateUserCredentials() : Promise<string> {
-            var vm = this;
-            // var request = require('request');  
-            //  var config = require('../config/config');
-            // var baseurl:string = 'http://localhost:8000';
-            var path:string = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';
+        async requestValidateUserCredentials(username:string, password: string) : Promise<string> {
+
+            var path:string = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';          
+            var uuid = require('uuid');
             
-            return new Promise<string> (
-                function(resolve, reject) {
-                    request.post({url: config.baseurl + path}, function(err,httpResponse,body){     
-                        resolve(body);
+            
+            return new Promise<string> (function(resolve, reject) {
+                request.post({
+                    url:    config.baseurl + path, 
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'clientKey': config.clientKey,
+                        'nonce': uuid.v4()
+                    },
+                    form:   {
+                        EndUserId: username,
+                        EndUserPassword: password
+                    }
+                },
+                function(err,httpResponse,body){     
+                    resolve(body);
                 })    
             });
         }
         
-        async requestAccessToken() : Promise<string> {
-            var vm = this;
-            // var request = require('request'); 
-            //  var config = require('../config/config'); 
-            // var baseurl:string = 'http://localhost:8000';
-            var path:string = '/apimysmartws/ssoapi/login/requestAccessToken';
+        async requestAccessToken(authenticationCode:string, clientId:string) : Promise<string> {
             
+            var path:string = '/apimysmartws/ssoapi/login/requestAccessToken';
             return new Promise<string> (
                 function(resolve, reject) { 
-                        request.post({url: config.baseurl + path}, function(err,httpResponse,body){  
+                        request.get({
+                            url: config.baseurl + path,
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'clientID': clientId,
+                                'authenticationCode': authenticationCode
+                            }
+                        
+                        }, 
+                        function(err,httpResponse,body){  
                             resolve(body);
-                })
-                  
+                }) 
             });
         }
         
-        async getAccount() : Promise<string> {
-            var vm = this;
-            var request = require('request');  
-            var baseurl:string = 'http://localhost:8000';
-            var path1:string = '/apimysmartws/ssoapi/login/requestUserProfileInfo';
+        async getAccount(accessToken:string, clientId:string, msaId:string) : Promise<string> {
+
+            var path:string = '/apimysmartws/ssoapi/account/requestUserProfileInfo';
 
             return new Promise<string> (
-                function(resolve, reject) {
-                    request.post({url: baseurl + path1}, function(err,httpResponse,body){              
-                        resolve(body);                        
-                })    
+                function(resolve, reject) { 
+                    request.get({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientID': clientId,
+                            'msaID': msaId,
+                            'accessToken': accessToken
+                        }
+                    }, 
+                    function(err,httpResponse,body){  
+                        resolve(body);
+                })   
             });
         }
     }

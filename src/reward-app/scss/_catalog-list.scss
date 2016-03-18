@@ -53,11 +53,12 @@ $col-3-height: 340px;
                     
                     .overlay {
                         text-align: center;
-                        top: 75%;
-                        position: relative;
+                        margin-top: 75%;
                         border-radius: 3px;
                         color: #fff;
                         font-size: 12px;
+                        display: inline-block;
+                        width: 100%;
 
                         &.postpaid {
                             background-color: $smartblue;
@@ -112,8 +113,22 @@ $col-3-height: 340px;
                     font-size: 35px;
                     color: $gray;
 
+                    &::after{
+                        clear: both;
+                        content: " ";
+                    }
+
                     &.red {
                         color: $smartred;
+                    }
+                }
+
+                .valid-until {
+                    display: inline-block;
+                    margin-top: 10px;
+
+                    .label {
+                        font-weight: bold;
                     }
                 }
             }

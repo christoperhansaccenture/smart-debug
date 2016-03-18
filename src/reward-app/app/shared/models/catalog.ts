@@ -7,6 +7,7 @@ export class Catalog {
     details: string[];
     favorite: boolean;
     giftable: boolean;
+    expiry: string;
 
     isPostpaid() {
         return this.categories.indexOf('Postpaid') > -1;

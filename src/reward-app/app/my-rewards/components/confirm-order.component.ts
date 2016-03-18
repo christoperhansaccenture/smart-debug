@@ -12,15 +12,15 @@ import {Catalog} from '../../shared/models/catalog';
 import {CartItem} from '../../shared/models/cart-item';
 
 @Component({
-    selector: 'shopping-cart',
-    templateUrl: 'app/my-rewards/components/shopping-cart.component.html',
+    selector: 'confirm-order',
+    templateUrl: 'app/my-rewards/components/confirm-order.component.html',
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,
         AllCategoryItemBeltComponent
     ]
 })
-export class ShoppingCartComponent  {
+export class ConfirmOrderComponent  {
     
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
@@ -29,15 +29,11 @@ export class ShoppingCartComponent  {
         private _catalogService: CatalogService,
         private _cartService: CartService) {
 		
-		this._layoutService.setCurrentPage('ShoppingCart');
+		this._layoutService.setCurrentPage('ConfirmOrder');
 	}
 	
 	getResize(){
         return this._matchMediaService.getmm();  
-    }
-    
-    goToPayBill(){
-        this._router.navigate(['PayBill']);
     }
 
     getCurrentPoints() {
@@ -109,30 +105,6 @@ export class ShoppingCartComponent  {
     }
 
     goToNext() {
-        // if one number
-        if (this.getNumberSelection().oneNumber) {
-            if (this.getNumberSelection().myNumber.checked) {
-                this.getItems().forEach(e => { 
-                    e.clearNumberSelection();
-                    e.numberSelection.myNumber = {
-                        checked: true,
-                        number: this.getNumberSelection().myNumber.number
-                    };
-                });
-            }
-            else if (this.getNumberSelection().gift.checked) {
-                this.getItems().forEach(e => { 
-                    e.clearNumberSelection();
-                    e.numberSelection.gift = {
-                        checked: true,
-                        number: this.getNumberSelection().gift.number
-                    };
-                });
-            }
-            else
-                return;
-        }
-
         this._router.navigate(['ConfirmOrder']);
     }
 	
