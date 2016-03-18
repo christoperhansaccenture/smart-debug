@@ -66,7 +66,9 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'PayBill' ||
         this._layoutService.getCurrentPage() === 'Transfer' ||
         this._layoutService.getCurrentPage() === 'Profile' ||
-        this._layoutService.getCurrentPage() === 'AccountOverview'){
+        this._layoutService.getCurrentPage() === 'AccountOverview' ||
+        this._layoutService.getCurrentPage() === 'ManageNumber' ||
+        this._layoutService.getCurrentPage() === 'ActivityHistory'){
             return true;
         }else{
             return false;
@@ -76,7 +78,10 @@ export class HeaderComponent {
     showBackButton(){
         if(this._layoutService.getCurrentPage() === 'RewardDetail' || 
         this._layoutService.getCurrentPage() === 'MobileReward' ||
-        this._layoutService.getCurrentPage() === 'CatalogList'){
+        this._layoutService.getCurrentPage() === 'CatalogList' ||
+        this._layoutService.getCurrentPage() === 'AddNumber' ||
+        this._layoutService.getCurrentPage() === 'AddNumberConfirm' ||
+        this._layoutService.getCurrentPage() === 'EditNumber'){
             return true;
         }else{
             return false;
@@ -91,7 +96,12 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'Catalog' ||
         this._layoutService.getCurrentPage() === 'Transfer' ||
         this._layoutService.getCurrentPage() === 'Perks' ||
-        this._layoutService.getCurrentPage() === 'Profile'){
+        this._layoutService.getCurrentPage() === 'Profile' ||
+        this._layoutService.getCurrentPage() === 'ManageNumber' ||
+        this._layoutService.getCurrentPage() === 'AddNumber' ||
+        this._layoutService.getCurrentPage() === 'AddNumberConfirm' ||
+        this._layoutService.getCurrentPage() === 'EditNumber' ||
+        this._layoutService.getCurrentPage() === 'ActivityHistory'){
             return false;
         }else{
             return true;
@@ -106,7 +116,12 @@ export class HeaderComponent {
         this._layoutService.getCurrentPage() === 'Catalog' ||
         this._layoutService.getCurrentPage() === 'Transfer' ||
         this._layoutService.getCurrentPage() === 'Perks' ||
-        this._layoutService.getCurrentPage() === 'Profile'){
+        this._layoutService.getCurrentPage() === 'Profile' ||
+        this._layoutService.getCurrentPage() === 'ManageNumber' ||
+        this._layoutService.getCurrentPage() === 'AddNumber' ||
+        this._layoutService.getCurrentPage() === 'AddNumberConfirm' ||
+        this._layoutService.getCurrentPage() === 'EditNumber' ||
+        this._layoutService.getCurrentPage() === 'ActivityHistory'){
             return true;
         }else{
             return false;

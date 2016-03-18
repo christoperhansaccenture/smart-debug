@@ -9,7 +9,16 @@ export class AccountService {
         type: '', isBroadband:false, name: '', number: ''
     };
     
-    allPhoneNumber = [];
+    allPhoneNumber: any = [];
+    
+    userPhoneNumber: any = [
+        {number:'092898874081',name:'Tiffany',primary:true,type:'Postpaid'},
+        {number:'092898874081',name:'Tamara',primary:false,type:'Prepaid'},
+        {number:'092898874081',name:'Jessica',primary:false,type:'Bro Postpaid'},
+        {number:'092898874081',name:'',primary:false,type:'Bro prepaid'}
+    ];
+    
+    selectedUserPhone = {};
     
     balance: any = {
         accountNumber: '',
@@ -38,6 +47,19 @@ export class AccountService {
     // };
     
     constructor (private _smartIntegrationService: SmartIntegrationService) {}
+    
+    getUserPhoneNumber(){
+        return this.userPhoneNumber;
+    }
+    
+    setSelectedUserPhone(userPhone){
+        this.selectedUserPhone = userPhone;
+        console.log(userPhone);
+    }
+    
+    getSelectedUserPhone(){
+        return this.selectedUserPhone
+    }
     
     getPlanName(){
         return 'usual plan';//JSON.parse(sessionStorage.getItem('loginData')).result.planName;

@@ -1,0 +1,59 @@
+<div class="activityHistoryContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="text">
+                <div class="filter" [ngClass]="{open : historyFilter}"  (click)="toggleFilter()"></div>
+                <div class="headerText">Activity History</div>
+                <div class="headerSubText">View your reward history</div>
+            </div>
+        </div>
+        <div class="filterBox" *ngIf="historyFilter">
+            <div class="categoryBox">
+                <div class="options">
+                    <ul>
+                        <li (click)="toggleAllTransaction()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.allTransaction"/>
+                            <span class="">All Transactions</span>
+                        </li>
+                        <li (click)="toggleEarning()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.earning"/>
+                            <span class="">Earning</span>
+                        </li>
+                        <li (click)="toggleRedemption()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.redemption"/>
+                            <span class="">Redemption</span>
+                        </li>
+                        <li (click)="toggleTransfer()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.transfer"/>
+                            <span class="">Transfer Points</span>
+                        </li>
+                        <li (click)="toggleRegistration()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.registration"/>
+                            <span class="">Registration</span>
+                        </li>
+                        <li (click)="toggleInquiry()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.inquiry"/>
+                            <span class="">Points Inquiry</span>
+                        </li>
+                        <li (click)="toggleLinking()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.linking"/>
+                            <span class="">Account Linking / Unliking</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="itemBox" *ngFor="#activity of getActivity()">
+            <div class="itemHeader">{{activity.type}}</div>
+            <div class="itemInfoLine">
+                <div class="itemInfoIdentifier">{{activity.name}}</div>
+                <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
+            </div>
+            <div class="itemAddInfo">{{activity.desc}}</div>
+            <div class="itemDateInfo">
+                <div class="itemDate">On {{activity.date}}</div>
+                <div class="itemBuyVia">via {{activity.media}}</div>
+            </div>
+        </div>
+     </div>
+</div>

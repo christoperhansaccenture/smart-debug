@@ -29,6 +29,14 @@ export class LeftMenuComponent {
         this._router.navigate(['AccountOverview']);
     }
     
+    gotoManageNumber(){
+        this._router.navigate(['ManageNumber']);
+    }
+    
+    gotoActivityHistory(){
+        this._router.navigate(['ActivityHistory']);
+    }
+    
     closeLeftMenu(){
         
     }

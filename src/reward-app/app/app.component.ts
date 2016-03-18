@@ -13,6 +13,11 @@ import {TransferComponent} from './my-rewards/components/transfer.component';
 import {PerksComponent} from './my-rewards/components/perks.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
+import {ManageNumberComponent} from './account/components/manage-number.component';
+import {AddNumberComponent} from './account/components/add-number.component';
+import {AddNumberConfirmComponent} from './account/components/add-number-confirm.component';
+import {EditNumberComponent} from './account/components/edit-number.component';
+import {ActivityHistoryComponent} from './account/components/activity-history.component';
 import {HeaderComponent} from './shared/components/header.component';
 import {FooterComponent} from './shared/components/footer.component';
 import {LeftMenuComponent} from './shared/components/left-menu.component';
@@ -28,6 +33,7 @@ import {ModalService} from './shared/services/modal.service';
 import {CartService} from './shared/services/cart.service';
 import {RewardTypeService} from './my-rewards/services/reward-type.service';
 import {CatalogService} from './my-rewards/services/catalog.service';
+import {ActivityHistoryService} from './account/services/activity-history.service';
 import {ModalComponent} from './shared/components/modal.component';
 declare var FastClick: FastClickStatic;
 
@@ -58,7 +64,8 @@ declare var FastClick: FastClickStatic;
         ModalService,
         SmartIntegrationService,
         RewardTypeService,
-        CatalogService,
+        CatalogService,,
+        ActivityHistoryService,
         CartService
     ]
 })
@@ -124,6 +131,31 @@ declare var FastClick: FastClickStatic;
         path: '/profile',
         name: 'Profile',
         component: ProfileComponent
+    },
+    {
+        path: '/manageNumber',
+        name: 'ManageNumber',
+        component: ManageNumberComponent
+    },
+    {
+        path: '/manageNumber/addNumber',
+        name: 'AddNumber',
+        component: AddNumberComponent
+    },
+    {
+        path: '/manageNumber/addNumberConfirm',
+        name: 'AddNumberConfirm',
+        component: AddNumberConfirmComponent
+    },
+    {
+        path: '/manageNumber/editNumber',
+        name: 'EditNumber',
+        component: EditNumberComponent
+    },
+    {
+        path: '/activityHistory',
+        name: 'ActivityHistory',
+        component: ActivityHistoryComponent
     }
     
 	

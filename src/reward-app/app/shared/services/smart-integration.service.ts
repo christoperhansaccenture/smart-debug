@@ -47,4 +47,12 @@ export class SmartIntegrationService {
         return this._http.get(url);
     }
     
+    getActivityHistory() {
+        //var url = this.serviceBase + 'products';
+        //var url = 'http://localhost:8080/catalog';
+        var url = 'services/activity.json';
+
+        return this._http.get(url);
+    }
+    
 }

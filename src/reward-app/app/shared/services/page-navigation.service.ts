@@ -61,6 +61,10 @@ export class PageNavigationService {
     getPreviousPage(){
         return this.previousPage;
     }
+    
+    setManageNumberNavigation(previous){
+        this.previousPage = previous;
+    }
 	
 	gotoPreviousPage(){
 		

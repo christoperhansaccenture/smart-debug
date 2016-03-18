@@ -205,14 +205,49 @@ export class LayoutService {
             this.footerState.transfer = false;
             
         }
+        else if(current == 'AddNumber' ||
+                current == 'AddNumberConfirm' ||
+                current == 'EditNumber'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            if(current == 'AddNumber'){
+                this._pageNavigationService.setManageNumberNavigation('ManageNumber');
+            }
+            else if(current == 'EditNumber'){
+                this._pageNavigationService.setManageNumberNavigation('ManageNumber');
+            }
+            else{
+                this._pageNavigationService.setManageNumberNavigation('AddNumber');
+            }
+            
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+        }
         else{
 			
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: false,
+                appFooter: true,
                 leftMenu: false
 			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
 
 		}
 	

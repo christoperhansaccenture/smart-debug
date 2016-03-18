@@ -1,0 +1,26 @@
+<div class="manageNumberContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="itemCategory">
+            <div class="text">Add new number</div>
+            <div class="option">
+                <div class="first"><div class="circle green">1</div>fill in number detail</div>
+                <div class="line"></div>
+                <div class="second"><div class="circle">2</div>verificationCode</div>
+           </div>
+        </div>
+        <div>
+            <div class="itemContainer">
+                <div class="itemIdentifier phone"></div>
+                <div class="phoneCountryValue">+63</div>
+                <input class="inputValue phone" placeholder="New number" [(ngModel)]="mobileNumber"/>
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier namePic"></div>
+                <input class="inputValue" placeholder="Nick name"/>
+            </div>
+            <div class="itemFooterContainer">
+                <div class="button" (click)="goTonextPageOfAddNumber()">Next</div>
+            </div>
+        </div>
+    </div>
+</div>

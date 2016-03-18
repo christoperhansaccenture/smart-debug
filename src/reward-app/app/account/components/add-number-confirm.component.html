@@ -1,0 +1,40 @@
+<div class="manageNumberContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="itemCategory">
+            <div class="text">Add new number</div>
+            <div class="option">
+                <div class="first"><div class="circle green">1</div>fill in number detail</div>
+                <div class="line green"></div>
+                <div class="second"><div class="circle green">2</div>verificationCode</div>
+           </div>
+        </div>
+        <div>
+            <div class="itemContainer">
+                <div class="infoText">We sent a verification code to your Smart mobile number {{mobileNumber}}.
+                 This code will be valid for 24 hours.
+                 </div>
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier namePic"></div>
+                <input class="inputValue" placeholder="Verification code"/>
+            </div>
+            <div class="itemFooterContainer">
+                <div class="button" (click)="AddNumber()">Next</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ModalOuterBox" *ngIf="modalSuccess">
+	<div class="ModalInternal">
+        <div class="modalInformationContent">
+            <div class="modalBody">
+                <div class="itemRow">
+                    <div class="itemDetail"><span>{{mobileNumber}} </span>has been added to your account</div>
+                </div>	
+            </div>
+            <div class="modalFooter">
+                <div class="button red" (click)="close()">OK</div>			
+            </div>
+        </div>
+	</div>
+</div>
