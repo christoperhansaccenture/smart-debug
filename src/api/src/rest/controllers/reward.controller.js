@@ -16,130 +16,19 @@ var sso_service_1 = require('../services/sso.service');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
-class AccountController {
+class RewardController {
     constructor() {
     }
-    getAccount(req, res) {
+    redeemAnItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            console.log(config.signingKey);
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
-    getRewardBalance(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            console.log(req.query);
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
-    getLatestRewardExpiry(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            console.log(req.query);
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.getLatestRewardExpiry(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
-    getActivityHistory(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            console.log(req.query);
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.getActivityHistory(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
-    register(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
             var jsonBody = {
-                firstName: req.body.firstName,
-                middleName: req.body.middleName,
-                lastName: req.body.lastName,
-                address: req.body.address,
-                city: req.body.city,
-                province: req.body.province,
                 min: req.body.min,
-                channel: req.body.channel
+                productCode: req.body.productCode,
+                quantity: req.body.quantity,
+                channel: req.body.channel,
+                destLoyaltyId: req.body.destLoyaltyId
             };
             var nJwt = require('nJwt');
             try {
@@ -152,7 +41,7 @@ class AccountController {
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.register(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
+                var result = yield ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
                 res.json(JSON.parse(result));
@@ -162,12 +51,10 @@ class AccountController {
             }
         });
     }
-    getCustomerInformation(req, res) {
+    getListOfRedeemableItems(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
-            console.log(req.query);
             var nJwt = require('nJwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
@@ -175,11 +62,11 @@ class AccountController {
             catch (e) {
                 res.sendStatus(403);
             }
-            console.log(token);
-            console.log(jwt);
+            //console.log(token);
+            //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.getCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
+                var result = yield ssoService.getListOfRedeemableItems(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
                 res.json(JSON.parse(result));
@@ -189,12 +76,10 @@ class AccountController {
             }
         });
     }
-    getListOfLinkedAccounts(req, res) {
+    getFavorites(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
-            console.log(req.query);
             var nJwt = require('nJwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
@@ -202,11 +87,11 @@ class AccountController {
             catch (e) {
                 res.sendStatus(403);
             }
-            console.log(token);
-            console.log(jwt);
+            //console.log(token);
+            //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
+                var result = yield ssoService.getFavorites(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
                 res.json(JSON.parse(result));
@@ -216,81 +101,16 @@ class AccountController {
             }
         });
     }
-    linkAccount(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            var jsonBody = {
-                min: req.body.min,
-                primaryLoyaltyId: req.body.primaryLoyaltyId,
-                childLoyaltyId: req.body.childLoyaltyId,
-                lrqSource: req.body.lrqSource,
-                lrqInitiator: req.body.lrqInitiator,
-                channel: req.body.channel
-            };
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.linkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
-    unlinkAccount(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            var jsonBody = {
-                min: req.body.min,
-                primaryLoyaltyId: req.body.primaryLoyaltyId,
-                childLoyaltyId: req.body.childLoyaltyId,
-                lrqSource: req.body.lrqSource,
-                lrqInitiator: req.body.lrqInitiator,
-                channel: req.body.channel
-            };
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.unlinkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
-    rewardsAlertNotification(req, res) {
+    transferpoints(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.min,
-                status: req.body.status
+                destLoyaltyId: req.body.destLoyaltyId,
+                srcCurrencyId: req.body.srcCurrencyId,
+                destCurrencyId: req.body.estCurrencyId,
+                rwdQty: req.body.lrqInitiator
             };
             var nJwt = require('nJwt');
             try {
@@ -303,7 +123,7 @@ class AccountController {
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.rewardsAlertNotification(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
+                var result = yield ssoService.transferpoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
                 res.json(JSON.parse(result));
@@ -313,12 +133,15 @@ class AccountController {
             }
         });
     }
-    requestMobileNoList(req, res) {
+    favouriteItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
-            console.log(req.query);
+            var jsonBody = {
+                min: req.body.min,
+                cafProductNo: req.body.cafProductNo,
+                cafFavoriteFlag: req.body.cafFavoriteFlag
+            };
             var nJwt = require('nJwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
@@ -326,11 +149,99 @@ class AccountController {
             catch (e) {
                 res.sendStatus(403);
             }
-            console.log(token);
-            console.log(jwt);
+            //console.log(token);
+            //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
+                var result = yield ssoService.favouriteItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
+                console.log(result);
+                // var resJson = JSON.parse(result);       
+                res.json(JSON.parse(result));
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
+    removeFavouriteItem(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var token = req.get("Authorization");
+            token = token.replace('Bearer ', '');
+            var jsonBody = {
+                min: req.body.min,
+                cafProductNo: req.body.cafProductNo,
+                cafFavoriteFlag: req.body.cafFavoriteFlag
+            };
+            var nJwt = require('nJwt');
+            try {
+                var jwt = nJwt.verify(token, config.signingKey);
+            }
+            catch (e) {
+                res.sendStatus(403);
+            }
+            //console.log(token);
+            //console.log(jwt);
+            const ssoService = new sso_service_1.SSO.sso();
+            try {
+                var result = yield ssoService.removeFavouriteItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
+                console.log(result);
+                // var resJson = JSON.parse(result);       
+                res.json(JSON.parse(result));
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
+    getCatalogDisplayPreferences(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var token = req.get("Authorization");
+            token = token.replace('Bearer ', '');
+            var nJwt = require('nJwt');
+            try {
+                var jwt = nJwt.verify(token, config.signingKey);
+            }
+            catch (e) {
+                res.sendStatus(403);
+            }
+            //console.log(token);
+            //console.log(jwt);
+            const ssoService = new sso_service_1.SSO.sso();
+            try {
+                var result = yield ssoService.getCatalogDisplayPreferences(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
+                console.log(result);
+                // var resJson = JSON.parse(result);       
+                res.json(JSON.parse(result));
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
+    payBillWithPoints(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var token = req.get("Authorization");
+            token = token.replace('Bearer ', '');
+            var jsonBody = {
+                min: req.body.min,
+                merchantIdentifier: req.body.merchantIdentifier,
+                amount: req.body.amount,
+                pin: req.body.pin,
+                channel: req.body.channel,
+                ref: req.body.ref
+            };
+            var nJwt = require('nJwt');
+            try {
+                var jwt = nJwt.verify(token, config.signingKey);
+            }
+            catch (e) {
+                res.sendStatus(403);
+            }
+            //console.log(token);
+            //console.log(jwt);
+            const ssoService = new sso_service_1.SSO.sso();
+            try {
+                var result = yield ssoService.payBillWithPoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
                 res.json(JSON.parse(result));
@@ -341,6 +252,6 @@ class AccountController {
         });
     }
 }
-exports.AccountController = AccountController;
+exports.RewardController = RewardController;
 // } 
-//# sourceMappingURL=account.controller.js.map
+//# sourceMappingURL=reward.controller.js.map

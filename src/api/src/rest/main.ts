@@ -7,6 +7,8 @@ var request = require('request');
 
 // import { SSO } from "./services/sso.service";
 import {loginController} from './controllers/login.controller';
+import {AccountController} from './controllers/account.controller';
+import {RewardController} from './controllers/reward.controller';
 
 
 // if (cluster.isMaster) {
@@ -71,12 +73,37 @@ import {loginController} from './controllers/login.controller';
 	const router = express.Router();
     // const ssoint:SSO.sso = new SSO.sso();
     const loginCtrl:loginController = new loginController();
+    const accountCtrl:AccountController = new AccountController();
+    const rewardCtrl:RewardController = new RewardController();
     // const minutesDAO:getMinutesToRaceDaoImpl = new getMinutesToRaceDaoImpl();
     // const SSO:SSO = new sso();
 
-	// test route
+	// login related services
     router.post('/login', loginCtrl.postLogin);
-    router.get('/account', loginCtrl.getAccount);
+    
+    //account related services
+    router.get('/account', accountCtrl.getAccount);
+    router.get('/rewardBalance', accountCtrl.getRewardBalance);
+    router.get('/rewardExpiry', accountCtrl.getLatestRewardExpiry);
+    router.get('/activityHistory', accountCtrl.getActivityHistory);
+    router.post('/register', accountCtrl.register);
+    router.get('/customerInformation', accountCtrl.getCustomerInformation);
+    router.get('/LinkedAccounts', accountCtrl.getListOfLinkedAccounts);
+    router.post('/linkAccount', accountCtrl.linkAccount);
+    router.post('/unlinkAccount', accountCtrl.unlinkAccount);
+    router.post('/rewardsNotification', accountCtrl.rewardsAlertNotification);
+    router.get('/mobileList', accountCtrl.requestMobileNoList);
+    
+    //reward and redeem related services
+    router.post('/redeem',rewardCtrl.redeemAnItem);
+    router.get('/catalog',rewardCtrl.getListOfRedeemableItems);
+    router.get('/favourites',rewardCtrl.getFavorites);
+    router.post('/transfer',rewardCtrl.transferpoints);
+    router.post('/markAsFavourite',rewardCtrl.favouriteItem);
+    router.post('/unmarkAsFavourite',rewardCtrl.removeFavouriteItem);
+    router.get('/catalogDisplay',rewardCtrl.getCatalogDisplayPreferences);
+    router.put('/payBill',rewardCtrl.payBillWithPoints);
+    
 	// router.get('/', async function (req, res) {
     //     // var minutes = minutesDAO.getMinutesToRace();
     //     // res.json({message: 'welcome'});

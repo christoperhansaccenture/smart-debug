@@ -55,32 +55,6 @@ class loginController {
             }
         });
     }
-    getAccount(req, res) {
-        return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            console.log(config.signingKey);
-            var nJwt = require('nJwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
-            console.log(jwt);
-            const ssoService = new sso_service_1.SSO.sso();
-            try {
-                var result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-        });
-    }
 }
 exports.loginController = loginController;
 // } 

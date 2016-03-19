@@ -9,7 +9,6 @@ var config = require('../config/config');
 
     export interface loginInterface {
         postLogin():Promise<string>;
-        getAccount():Promise<string>;
     }
 // export module Login {
     export class loginController implements loginInterface{
@@ -53,37 +52,6 @@ var config = require('../config/config');
                     catch (err) {
                         console.log(err);
                     }
-            }
-            
-            
-            async getAccount(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-             
-                console.log(config.signingKey);
-                
-                var nJwt = require('nJwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
-                console.log(jwt);
-                const ssoService:SSO.sso = new SSO.sso();
-
-                try {  
-                    var result =  await ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                    console.log(result);
-                    // var resJson = JSON.parse(result);       
-                    
-                    res.json(JSON.parse(result));
-                }
-                catch (err) {
-                    console.log(err);
-                }
             }
             
         }
