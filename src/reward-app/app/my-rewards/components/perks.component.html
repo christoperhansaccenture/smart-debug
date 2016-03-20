@@ -6,6 +6,34 @@
     </div>
     <div class="containerBody">
         <div class="itemListContainer">
+            <div *ngFor="#catalog of getCatalogs()"
+                (click)="openCatalogDisplay(catalog)"
+                class="itemDetailContainer">
+                <div class="itemPic">
+                    <img [src]="catalog.imageUrl" />
+                    <!--<div class="overlay"
+                        [class.postpaid]="catalog.isOnlyPostpaid()"
+                        [class.prepaid]="catalog.isOnlyPrepaid()"
+                        [class.bro]="catalog.isOnlyBroPrepaid() || catalog.isOnlyBroPostpaid()">
+                        {{ getOverlayText(catalog) }}
+                    </div>-->
+                </div>
+                <div class="itemText">
+                    <div class="itemSubHeader">{{ catalog.name }}</div> 
+                    <div class="itemDesc">{{ catalog.description }}</div>    
+                </div>
+                <div class="itemPoint">{{ catalog.points }} <span>pts</span></div>
+                <div class="item-favorite"
+                    [class.red]="catalog.favorite"
+                    (click)="toggleFavorite(catalog, $event)">
+                    {{ (catalog.favorite) ? '&#9733;' : '&#9734;' }}
+                </div>
+                <div class="valid-until">
+                    <span class="label">Valid until: </span> {{ catalog.getExpiryString() }}
+                </div>
+            </div>
+        </div>
+        <!--<div class="itemListContainer">
             <div class="itemDetailContainer">
                 <div class="itemPic"></div>
                 <div class="itemText">
@@ -61,7 +89,7 @@
                     <span class="label">Valid until: </span> 25-12
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 

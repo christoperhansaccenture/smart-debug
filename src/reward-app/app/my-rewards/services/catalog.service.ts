@@ -60,7 +60,7 @@ export class CatalogService {
         getCategoryArray() {
             let result = [];
             if (this.categories.perks)
-                result.push('Perks');
+                result.push('Deals');
             if (this.categories.lifestyle)
                 result.push('Lifestyle');
             if (this.categories.mobile)
@@ -83,32 +83,59 @@ export class CatalogService {
                private _smartIntegrationService: SmartIntegrationService) {}
 
     loadAllCatalogs(refresh: boolean = false) {
-        if (refresh || !this.catalogs) {
-            this._smartIntegrationService
-            .getCatalogs()
-            .subscribe(
-                response => {
-                    this.catalogs = response.json().data.map(e => {
-                        let c = new Catalog();
-                        c.id = e.id;
-                        c.code = e.code;
-                        c.name = e.name;
-                        c.description = e.description;
-                        c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
-                        c.categories = e.categories;
-                        c.points = e.points;
-                        c.stock = e.stock;
-                        c.favorite = e.favorite;
-                        c.giftable = e.giftable;
-                        c.expiry = new Date(e.expiry);
-                        return c;
-                    });
-                },
-                error =>{
-                    console.log('not authorized?');
-                }
-            );
-        }
+        
+        var catalogInStorage = sessionStorage.getItem('catalog');
+        
+        if(catalogInStorage === null || catalogInStorage === undefined){
+            if (refresh || !this.catalogs) {
+                this._smartIntegrationService
+                .getCatalogs()
+                .subscribe(
+                    response => {
+                        this.catalogs = response.json().data.map(e => {
+                            let c = new Catalog();
+                            c.id = e.id;
+                            c.code = e.code;
+                            c.name = e.name;
+                            c.description = e.description;
+                            c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
+                            c.categories = e.categories;
+                            c.points = e.points;
+                            c.stock = e.stock;
+                            c.favorite = e.favorite;
+                            c.giftable = e.giftable;
+                            c.expiry = new Date(e.expiry);
+                            return c;
+                        });
+                        
+                        sessionStorage.setItem('catalog',JSON.stringify(response.json().data));
+                        
+                    },
+                    error =>{
+                        console.log('not authorized?');
+                    }
+                );
+                
+            }    
+        }else{
+            
+            this.catalogs = JSON.parse(sessionStorage.getItem('catalog')).map(e => {
+                            let c = new Catalog();
+                            c.id = e.id;
+                            c.code = e.code;
+                            c.name = e.name;
+                            c.description = e.description;
+                            c.imageUrl = e.imageUrl;
+                            c.categories = e.categories;
+                            c.points = e.points;
+                            c.stock = e.stock;
+                            c.favorite = e.favorite;
+                            c.giftable = e.giftable;
+                            c.expiry = new Date(e.expiry);
+                            return c;
+                        });
+         }
+        
     }
 
     updateFavorite(catalog: Catalog) {

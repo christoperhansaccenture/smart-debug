@@ -40,6 +40,7 @@ $col-3-height: 340px;
         background-color: #FFF;
         
         .itemListContainer{
+            //margin-top: 41px;
             display: inline-block;
         
             .itemDetailContainer{
@@ -47,18 +48,43 @@ $col-3-height: 340px;
                 width: calc(100% - 20px);
                 padding: 10px;
                 min-height: 60px;
-                border-bottom: 1px solid #EEE;
-                
-                &:last-child{
-                    border : none;
-                }
+                border-bottom: 1px solid $lightgray;
                 
                 .itemPic{
                     float: left;
                     width: 80px;
                     height: 80px;
-                    background-color: $smartred;
-                    
+                    position: relative;
+                    z-index: 1;
+            
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+
+                    .overlay {
+                        text-align: center;
+                        //margin-top: 75%;
+                        border-radius: 3px;
+                        color: #fff;
+                        font-size: 12px;
+                        display: inline-block;
+                        width: 100%;
+                        position: absolute;
+                        top: 75%;
+
+                        &.postpaid {
+                            background-color: $smartblue;
+                        }
+
+                        &.prepaid {
+                            background-color: $smartgreen;
+                        }
+
+                        &.bro {
+                            background-color: $smartred;
+                        }
+                    }
                 }
                 
                 .itemText{
@@ -66,7 +92,6 @@ $col-3-height: 340px;
                     width: 50%;
                     min-height: 60px;
                     padding-left: 10px;
-                    margin-right: 10px;
                     
                     .itemSubHeader{
                         color: $smartgreen;
@@ -85,7 +110,7 @@ $col-3-height: 340px;
                     width: calc(50% - 100px);
                     font-size: 20px;
                     text-align: right;
-                    min-height: 60px;
+                    min-height: 50px;
                     color: $smartred;
                     font-weight: bold;
                     
@@ -93,7 +118,24 @@ $col-3-height: 340px;
                         font-size: 10px;
                     }
                 }
-                
+
+                .item-favorite {
+                    text-align: right;
+                    text-align: right;
+                    padding-right: 5px;
+                    font-size: 35px;
+                    color: $gray;
+
+                    &::after{
+                        clear: both;
+                        content: " ";
+                    }
+
+                    &.red {
+                        color: $smartred;
+                    }
+                }
+
                 .valid-until {
                     display: inline-block;
                     margin-top: 10px;
@@ -103,9 +145,76 @@ $col-3-height: 340px;
                         font-weight: bold;
                     }
                 }
-                
             }
         }
+        
+        // .itemListContainer{
+        //     display: inline-block;
+        
+        //     .itemDetailContainer{
+        //         display: inline-block;
+        //         width: calc(100% - 20px);
+        //         padding: 10px;
+        //         min-height: 60px;
+        //         border-bottom: 1px solid #EEE;
+                
+        //         &:last-child{
+        //             border : none;
+        //         }
+                
+        //         .itemPic{
+        //             float: left;
+        //             width: 80px;
+        //             height: 80px;
+        //             background-color: $smartred;
+                    
+        //         }
+                
+        //         .itemText{
+        //             float: left;
+        //             width: 50%;
+        //             min-height: 60px;
+        //             padding-left: 10px;
+        //             margin-right: 10px;
+                    
+        //             .itemSubHeader{
+        //                 color: $smartgreen;
+        //                 font-size: 15px;
+        //             }
+                    
+        //             .itemDesc{
+        //                 color: $text-dark-gray;
+        //                 font-size: 13px;
+        //             }
+                    
+        //         }
+                
+        //         .itemPoint{
+        //             display: inline-block;
+        //             width: calc(50% - 100px);
+        //             font-size: 20px;
+        //             text-align: right;
+        //             min-height: 60px;
+        //             color: $smartred;
+        //             font-weight: bold;
+                    
+        //             span{
+        //                 font-size: 10px;
+        //             }
+        //         }
+                
+        //         .valid-until {
+        //             display: inline-block;
+        //             margin-top: 10px;
+        //             width: 100%;
+
+        //             .label {
+        //                 font-weight: bold;
+        //             }
+        //         }
+                
+        //     }
+        // }
         
         
     }
