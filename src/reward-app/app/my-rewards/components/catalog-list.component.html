@@ -8,10 +8,11 @@
                 (click)="openCatalogDisplay(catalog)"
                 class="itemDetailContainer">
                 <div class="itemPic">
+                    <img [src]="catalog.imageUrl" />
                     <div class="overlay"
-                        [class.postpaid]="catalog.isPostpaid()"
-                        [class.prepaid]="catalog.isPrepaid()"
-                        [class.bro]="catalog.isBroPrepaid() || catalog.isBroPostpaid()">
+                        [class.postpaid]="catalog.isOnlyPostpaid()"
+                        [class.prepaid]="catalog.isOnlyPrepaid()"
+                        [class.bro]="catalog.isOnlyBroPrepaid() || catalog.isOnlyBroPostpaid()">
                         {{ getOverlayText(catalog) }}
                     </div>
                 </div>
@@ -26,59 +27,9 @@
                     {{ (catalog.favorite) ? '&#9733;' : '&#9734;' }}
                 </div>
                 <div class="valid-until">
-                    <span class="label">Valid until: </span> {{ catalog.expiry }}
+                    <span class="label">Valid until: </span> {{ catalog.getExpiryString() }}
                 </div>
             </div>
-            <!--
-            <div class="itemDetailContainer">
-                <div class="itemPic"></div>
-                <div class="itemText">
-                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
-                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
-                </div>
-                <div class="itemPoint">50 <span>pts</span></div>
-            </div>
-            <div class="itemDetailContainer">
-                <div class="itemPic"></div>
-                <div class="itemText">
-                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
-                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
-                </div>
-                <div class="itemPoint">50 <span>pts</span></div>
-            </div>
-            <div class="itemDetailContainer">
-                <div class="itemPic"></div>
-                <div class="itemText">
-                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
-                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
-                </div>
-                <div class="itemPoint">50 <span>pts</span></div>
-            </div>
-            <div class="itemDetailContainer">
-                <div class="itemPic"></div>
-                <div class="itemText">
-                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
-                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
-                </div>
-                <div class="itemPoint">50 <span>pts</span></div>
-            </div>
-            <div class="itemDetailContainer">
-                <div class="itemPic"></div>
-                <div class="itemText">
-                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
-                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
-                </div>
-                <div class="itemPoint">50 <span>pts</span></div>
-            </div>
-            <div class="itemDetailContainer">
-                <div class="itemPic"></div>
-                <div class="itemText">
-                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
-                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
-                </div>
-                <div class="itemPoint">50 <span>pts</span></div>
-            </div>
-            -->
         </div>
     </div>
 </div>

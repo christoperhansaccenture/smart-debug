@@ -15,7 +15,8 @@ export class CartItem {
     };
 
     getTotalPoints(): number {
-        return this.catalog.points * this.amount;
+        //return this.catalog.points * this.amount;
+        return 0;
     }
 
     clearNumberSelection() {

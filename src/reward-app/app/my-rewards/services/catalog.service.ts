@@ -91,18 +91,19 @@ export class CatalogService {
             .getCatalogs()
             .subscribe(
                 response => {
-                    //this.catalogs = response.json().catalogs;
-                    this.catalogs = response.json().catalogs.map(e => {
+                    this.catalogs = response.json().data.map(e => {
                         let c = new Catalog();
                         c.id = e.id;
+                        c.code = e.code;
                         c.name = e.name;
                         c.description = e.description;
-                        c.points = e.points;
+                        c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
                         c.categories = e.categories;
-                        c.details = e.details;
+                        c.points = e.points;
+                        c.stock = e.stock;
                         c.favorite = e.favorite;
                         c.giftable = e.giftable;
-                        c.expiry = e.expiry;
+                        c.expiry = new Date(e.expiry);
                         return c;
                     });
                     console.log(this.catalogs);

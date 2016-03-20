@@ -3,7 +3,9 @@
     <div *ngFor="#category of getCategories()" 
     	class="itemContainer"
         (click)="openCatalogDisplay(category)">
-        <div class="itemPic"></div>
+        <div class="itemPic">
+            <img [src]="category.imageUrl" />
+        </div>
         <div class="itemText">
             <div class="itemDesc">{{ category.name }}</div>
             <div class="itemPoint">{{ category.points }} <span>points</span></div>

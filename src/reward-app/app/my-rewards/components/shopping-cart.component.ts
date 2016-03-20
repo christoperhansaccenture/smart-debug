@@ -67,7 +67,7 @@ export class ShoppingCartComponent  {
     }
 
     removeItem(item: CartItem) {
-        console.log('remove item');
+        this._cartService.removeItem(item.catalog);
     }
 
     plusItem(item: CartItem) {

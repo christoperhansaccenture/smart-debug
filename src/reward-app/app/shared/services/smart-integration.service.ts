@@ -9,9 +9,20 @@ import {RequestOptions} from 'angular2/http';
 @Injectable()
 export class SmartIntegrationService {
     
-    serviceBase = 'https://powerful-beyond-41122.herokuapp.com/';
+    //serviceBase = 'https://powerful-beyond-41122.herokuapp.com/';
+    serviceBase: string;
+    imageUrlBase: string;
     
-    constructor (private _http: Http) {}
+    constructor (private _http: Http) {
+        // get service base from config file
+        var url = 'services/api.json';
+        this._http.get(url)
+            .subscribe(file => {
+                let config = file.json().config;
+                this.serviceBase = config.baseUrl;
+                this.imageUrlBase = config.baseImageUrl;
+            });
+    }
     
     getBalance(phoneNumber:string){
         
@@ -40,9 +51,10 @@ export class SmartIntegrationService {
     }
 
     getCatalogs() {
-        //var url = this.serviceBase + 'products';
+        let min = localStorage.getItem('phoneNumber');
+        let url = this.serviceBase + '/customer/' + min + '/catalog';
         //var url = 'http://localhost:8080/catalog';
-        var url = 'services/success.json';
+        //var url = 'services/success.json';
 
         return this._http.get(url);
     }

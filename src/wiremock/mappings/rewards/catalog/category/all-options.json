@@ -1,9 +1,0 @@
-{
-    "request": {
-        "method": "OPTIONS",
-        "url": "/catalog/category/all"
-    },
-    "response": {
-        "status": 200
-    }
-}

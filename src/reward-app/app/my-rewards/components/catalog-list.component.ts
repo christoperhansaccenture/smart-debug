@@ -71,16 +71,16 @@ export class CatalogListComponent {
     }
 
     getOverlayText(catalog: Catalog) {
-        if (catalog.isPrepaid()) {
+        if (catalog.isOnlyPrepaid()) {
             return 'Prepaid';
         }
-        else if (catalog.isPostpaid()) {
+        else if (catalog.isOnlyPostpaid()) {
             return 'Postpaid';
         }
-        else if (catalog.isBroPrepaid()) {
+        else if (catalog.isOnlyBroPrepaid()) {
             return 'Bro Prepaid';
         }
-        else if (catalog.isBroPostpaid()) {
+        else if (catalog.isOnlyBroPostpaid()) {
             return 'Bro Postpaid';
         }
     }
