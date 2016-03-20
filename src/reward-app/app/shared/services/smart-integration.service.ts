@@ -5,6 +5,8 @@ import {Headers} from "angular2/http";
 import {Http} from 'angular2/http';
 import {Connection} from 'angular2/http';
 import {RequestOptions} from 'angular2/http';
+import {Catalog} from '../models/catalog';
+import {CartItem} from '../models/cart-item';
 
 @Injectable()
 export class SmartIntegrationService {
@@ -67,6 +69,55 @@ export class SmartIntegrationService {
         var data = "?min=" + localStorage.getItem('phoneNumber') + "&actvityType=0&fromDate=2015-05-01&endDate=2016-03-16&pagesize=1000&pagepage=1";
 
         return this._http.get(url + data);
+    }
+
+    confirmOrder(items: CartItem[]) {
+        let min = localStorage.getItem('phoneNumber');
+        var url = this.serviceBase + '/customer/' + min + '/redeem';
+
+        let data = items.map(item => {
+            let catalog;
+            let bill;
+            if (item.type === 'catalog') {
+                catalog = {
+                    code: item.catalog.code,
+                    quantity: item.amount,
+                    dest: item.getSendTo()
+                };
+            }
+            else {
+                bill = {
+                    merchantIdentifier: "0",
+                    amount: 0,
+                    pin: "0",
+                    ref: "0"
+                };
+            }
+            let result = {
+                type: item.type,
+                channel: 2,
+                catalog: catalog,
+                bill: bill
+            };
+            return result;
+        });
+
+        console.log('confirm order: ');
+        console.log(JSON.stringify(data));
+        return this._http.post(url, JSON.stringify(data));
+    }
+
+    updateFavorite(catalog: Catalog) {
+        let min = localStorage.getItem('phoneNumber');
+        var url = this.serviceBase + '/customer/' + min + '/catalog/' + catalog.id + '/favorite';
+        if (catalog.favorite) {
+            console.log('mark as favorite: ' + url);
+            return this._http.put(url, null);
+        }
+        else {
+            console.log('delete favorite: ' + url);
+            return this._http.delete(url);
+        }
     }
     
 }

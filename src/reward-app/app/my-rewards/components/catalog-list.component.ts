@@ -30,9 +30,11 @@ export class CatalogListComponent {
 
     getCatalogListTitle() {
         let categories = this._catalogService.filter.getCategoryArray();
+        /*
         if (categories.length == 1)
             return categories[0];
-        else if (this.getCatalogs())
+        */
+        if (this.getCatalogs())
             return "We found " + this.getCatalogs().length + " item(s)";
         else
             return "We found 0 item(s)";
@@ -47,7 +49,9 @@ export class CatalogListComponent {
                     let categoryArray = filter.getCategoryArray();
                     // filter category
                     for (let i = 0 ; i < e.categories.length ; i++) {
-                        if (filter.isAll() || categoryArray.indexOf(e.categories[i]) > -1) {
+                        if (filter.isAll() 
+                            || (filter.categories.myFavorites && e.favorite) 
+                            || categoryArray.indexOf(e.categories[i]) > -1) {
                             // filter points 
                             if (e.points >= filter.points[0] && e.points <= filter.points[1]) {
                                 result = true;
@@ -55,6 +59,7 @@ export class CatalogListComponent {
                             }
                         }
                     }
+                    // filter name
                     if (result) {
                         result = e.name.toLowerCase().indexOf(filter.name.toLowerCase()) > -1;
                     }
@@ -87,6 +92,7 @@ export class CatalogListComponent {
 
     toggleFavorite(catalog: Catalog, event) {
         catalog.favorite = !catalog.favorite;
+        this._catalogService.updateFavorite(catalog);
         event.stopPropagation();
     }
 

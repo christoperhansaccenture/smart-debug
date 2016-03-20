@@ -1,6 +1,6 @@
 $col-3-height: 340px;
 
-.shoppingCartContainer {
+.confirmOrderContainer {
     
     padding-bottom: 45px;
     z-index: 1;
@@ -74,117 +74,6 @@ $col-3-height: 340px;
             }
             
         }
-
-        .number-selection-container {
-            display: inline-block;
-            margin-top: 75px;
-
-            .my-number-select {
-                margin-left: 34px;                
-                font-family: inherit;
-                background-color: transparent;
-                padding: 4px 0;
-                //color: $gray;
-                border: none;
-
-                option {
-                    //color: $gray;
-                }
-
-                &:focus {
-                    outline: none
-                }
-            }
-
-            ul{
-                list-style-type: none;
-                margin:10px 10px 20px;
-                padding: 0;
-
-                li{
-                    color: #gray;
-                    height: 30px;
-                    display: inline-block;
-                    align-items: center;
-                    line-height: 30px;
-                    // align-items: center; // align vertical 
-                    width: 100%;
-
-
-                    ul{
-                        display: block;
-                        list-style-type: none;
-                        width: 100%;
-                        // margin-left:30px;
-                            margin: 0 0 10px 15px;
-                        padding-left: 15px;
-                        border-left: 1px #fff solid;
-                        
-                        li{
-                            color: #gray;
-                            height: 30px;
-                            display: inline-block;
-                            align-items: center;
-                            line-height: 30px;
-                            // align-items: center; // align vertical 
-                            width: 100%;
-
-                        }
-                    }
-                }
-
-                &::after{
-                    clear: both;
-                    content: " ";
-                }
-            }
-            
-            .check{
-                width: 0;
-                height: 0;
-                display: block;
-                margin: 5px 27px 5px 5px;
-                float: left;
-
-                &:before {
-                    display: block;
-                    border-radius: 5px;
-                    border: 1px solid $smartred;
-                    float: left;
-
-                    content:"";
-                    display:inline-block;
-                    width: 20px;
-                    height: 20px;
-                    background-size: 12px;
-                    background-color: #fff;
-                    border-radius: 5px;
-                }
-
-                &:checked {
-                    &:before {
-                        background-color: $smartred;
-                        content: '✓';
-                        color: white;
-                        text-align: center;
-                        font-size: 22px;
-                        line-height: 21px;
-                    }
-                }
-
-                &.active{
-                    background-color: $smartred;
-                }
-
-                &:focus {
-                    outline: none
-                }
-            }
-
-            .txt{
-                width: calc(100% - 30px);
-            }
-        }
         
         .itemListContainer{
 
@@ -194,6 +83,7 @@ $col-3-height: 340px;
                 padding: 25px 10px 10px;
                 min-height: 60px;
                 border-bottom: 1px solid $lightgray;
+                margin-top: 67px;
 
                 &:first-child {
                     border-top: 1px solid $lightgray;
@@ -329,7 +219,8 @@ $col-3-height: 340px;
                     }
 
                     .number-selection-container {
-                        margin-top: 0;
+                        margin-top: 20px;
+                        margin-left: 93px;
                     }
 
                 }

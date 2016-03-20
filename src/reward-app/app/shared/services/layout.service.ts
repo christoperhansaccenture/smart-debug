@@ -56,6 +56,8 @@ export class LayoutService {
         
         //scroll to top page
         window.scrollTo(0,0);
+
+        this.headerItem.cart = true;
 		
 		if(current == 'GetStarted' ||
         current == 'Verification'){
@@ -197,11 +199,37 @@ export class LayoutService {
             this.footerState.paybill = false;
             this.footerState.transfer = false;
             
-            this.headerItem.hamburger = false;
-            this.headerItem.back = true;
-            this.headerItem.filter = true;
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = false;
+            
+        }
+        else if(current == 'ConfirmOrder') {
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            this.headerItem.cart = false;
             
         }
         else if(current == 'Transfer'){

@@ -1,4 +1,4 @@
-<div class="shoppingCartContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+<div class="confirmOrderContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
     <div class="containerBody">
         <div class="header">
             <div class="headerText">Shopping Cart</div>
@@ -17,9 +17,14 @@
         <div class="itemListContainer">
             <div *ngFor="#item of getItems()" class="itemDetailContainer">
                 <div class="col-left">
-                    <div class="itemPic"></div>
-                    <div class="remove-container" (click)="removeItem(item)">
-                        <span>Remove</span>
+                    <div class="itemPic">
+                        <img [src]="item.catalog.imageUrl" />
+                        <div class="overlay"
+                            [class.postpaid]="item.catalog.isOnlyPostpaid()"
+                            [class.prepaid]="item.catalog.isOnlyPrepaid()"
+                            [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
+                            {{ getOverlayText(item.catalog) }}
+                        </div>
                     </div>
                 </div>
                 <div class="col-right">
@@ -31,32 +36,13 @@
                     </div>
                     <div class="row item-amount">
                         <span class="counter">
-                            <span class="minus sign" (click)="minusItem(item)">-</span>
-                            <span class="amount">{{ item.amount }}</span>
-                            <span class="plus sign" (click)="plusItem(item)">+</span>
+                            <span class="amount">{{ item.amount }} item(s)</span>
                         </span>
                         <span class="sub-total">Sub Total:</span>
                         <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
                     </div>
-                    <div class="row number-selection-container"
-                        *ngIf="!getNumberSelection().oneNumber">
-                        <ul>
-                            <li (click)="toggleMyNumber(item)">
-                                <input class="check" type="checkbox" 
-                                    [(ngModel)]="item.numberSelection.myNumber.checked" />
-                                <div>My Number</div>
-                                <select class="my-number-select">
-                                    <option>092898874081</option>
-                                    <option>092898874082</option>
-                                    <option>092898874083</option>
-                                </select>
-                            </li>
-                            <li (click)="toggleGift(item)">
-                                <input class="check" type="checkbox"
-                                    [(ngModel)]="item.numberSelection.gift.checked" />
-                                <span class="">Gift</span>
-                            </li>
-                        </ul>
+                    <div class="row number-selection-container">
+                        <span class="label">Send to: </span> {{ item.getSendTo() }}
                     </div>
                 </div>
             </div>
@@ -75,7 +61,7 @@
                 <div class="itemPoint">{{ getPointsRemaining() }} <span>pts</span></div>
             </div>
             <div class="row button-container">
-                <button class="button" (click)="goToNext()">Next</button>
+                <button class="button" (click)="confirm()">Confirm</button>
             </div>
         </div>
     </div>

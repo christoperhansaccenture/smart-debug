@@ -11,20 +11,25 @@
     </div>
     <most-popular-item-belt></most-popular-item-belt>
     <div class="subHeader">
+        <div class="leftHeader">My Favorite</div>
+        <div class="subOption" (click)="goToCatalogList('My Favorite')">See All</div>
+    </div>
+    <favorite-item-belt></favorite-item-belt>
+    <div class="subHeader">
         <div class="leftHeader">All Categories</div>
         <div class="subOption" (click)="goToCatalogList('All Categories')">See All</div>
     </div>
     <all-category-item-belt></all-category-item-belt>
     <div class="subHeader">
         <div class="leftHeader">Lifestyle</div>
-        <div class="subOption" (click)="openDetailPage('Lifestyle')">See All</div>
+        <div class="subOption" (click)="goToCatalogList('Lifestyle')">See All</div>
     </div>
-    <item-belt></item-belt>
+    <lifestyle-item-belt></lifestyle-item-belt>
     <div class="subHeader">
         <div class="leftHeader">Mobile</div>
-        <div class="subOption" (click)="openDetailPage('Mobile')">See All</div>
+        <div class="subOption" (click)="goToCatalogList('Mobile')">See All</div>
     </div>
-    <item-belt></item-belt>
+    <mobile-item-belt></mobile-item-belt>
 </div>
 
 

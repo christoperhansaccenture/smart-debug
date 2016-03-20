@@ -59,8 +59,6 @@ export class CatalogService {
         },
         getCategoryArray() {
             let result = [];
-            if (this.categories.myFavorites)
-                result.push('My Favorites');
             if (this.categories.perks)
                 result.push('Perks');
             if (this.categories.lifestyle)
@@ -85,7 +83,6 @@ export class CatalogService {
                private _smartIntegrationService: SmartIntegrationService) {}
 
     loadAllCatalogs(refresh: boolean = false) {
-        console.log('catalogs: ' + this.catalogs);
         if (refresh || !this.catalogs) {
             this._smartIntegrationService
             .getCatalogs()
@@ -106,13 +103,16 @@ export class CatalogService {
                         c.expiry = new Date(e.expiry);
                         return c;
                     });
-                    console.log(this.catalogs);
                 },
                 error =>{
                     console.log('not authorized?');
                 }
             );
         }
+    }
+
+    updateFavorite(catalog: Catalog) {
+        this._smartIntegrationService.updateFavorite(catalog);
     }
     
 }

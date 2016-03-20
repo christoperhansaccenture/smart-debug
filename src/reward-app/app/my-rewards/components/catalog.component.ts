@@ -5,6 +5,9 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {ItemBeltComponent} from './item-belt.component';
 import {MostPopularItemBeltComponent} from './most-popular-item-belt.component';
 import {AllCategoryItemBeltComponent} from './all-category-item-belt.component';
+import {LifestyleItemBeltComponent} from './lifestyle-item-belt.component';
+import {MobileItemBeltComponent} from './mobile-item-belt.component';
+import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
 import {RewardTypeService} from '../services/reward-type.service';
 import {CatalogService} from '../services/catalog.service';
 
@@ -14,7 +17,10 @@ import {CatalogService} from '../services/catalog.service';
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,
-        AllCategoryItemBeltComponent
+        AllCategoryItemBeltComponent,
+        LifestyleItemBeltComponent,
+        MobileItemBeltComponent,
+        FavoriteItemBeltComponent
     ]
 })
 export class CatalogComponent  {
@@ -42,8 +48,17 @@ export class CatalogComponent  {
         if (category === 'Most Popular') {
             this._catalogService.filter.categories.mostPopular = true;
         }
+        else if (category === 'My Favorite') {
+            this._catalogService.filter.categories.myFavorites = true;
+        }
         else if (category === 'All Categories') {
             this._catalogService.filter.all();
+        }
+        else if (category === 'Lifestyle') {
+            this._catalogService.filter.categories.lifestyle = true;
+        }
+        else if (category === 'Mobile') {
+            this._catalogService.filter.categories.mobile = true;
         }
         // go to page
         this._router.navigate(['CatalogList']);

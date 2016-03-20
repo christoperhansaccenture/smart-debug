@@ -13,10 +13,19 @@ export class CartItem {
             number: ""
         }
     };
+    type: string = "catalog";
 
     getTotalPoints(): number {
-        //return this.catalog.points * this.amount;
-        return 0;
+        return this.catalog.points * this.amount;
+    }
+
+    getSendTo() {
+        if (this.numberSelection.myNumber.checked) {
+            return this.numberSelection.myNumber.number;
+        }
+        else if (this.numberSelection.gift.checked) {
+            return this.numberSelection.gift.number;
+        }
     }
 
     clearNumberSelection() {

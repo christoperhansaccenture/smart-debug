@@ -49,6 +49,7 @@ export class CartService {
     }
 
     saveToStorage() {
+        sessionStorage.setItem('cartSelection', JSON.stringify(this.numberSelection));
         sessionStorage.setItem('cart', JSON.stringify(this.items));
     }
 
@@ -63,13 +64,12 @@ export class CartService {
                 item.amount = tempItem.amount;
                 item.numberSelection = tempItem.numberSelection;
 
-                console.log(JSON.stringify(temp));
                 let c = new Catalog();
                 c.id = tempItem.catalog.id;
                 c.code = tempItem.catalog.code;
                 c.name = tempItem.catalog.name;
                 c.description = tempItem.catalog.description;
-                c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + tempItem.catalog.imageUrl;
+                c.imageUrl = tempItem.catalog.imageUrl;
                 c.categories = tempItem.catalog.categories;
                 c.points = tempItem.catalog.points;
                 c.stock = tempItem.catalog.stock;
@@ -79,6 +79,17 @@ export class CartService {
                 item.catalog = c;
                 this.items[c.id] = item;
             }
+
+            if (sessionStorage.getItem('cartSelection')) {
+                let sel = JSON.parse(sessionStorage.getItem('cartSelection'));
+                this.numberSelection = sel;
+                this.numberSelection.clear = function() {
+                    this.myNumber.checked = false;
+                    this.myNumber.number = "";
+                    this.gift.checked = false;
+                    this.gift.number = "";
+                };
+            }
         }
     }
 
@@ -87,6 +98,13 @@ export class CartService {
         for (let key in this.items) 
             result += this.items[key].amount;
         return result;
+    }
+
+    confirm() {
+        let arr: CartItem[] = [];
+        for (let key in this.items)
+            arr.push(this.items[key]);
+        this._smartIntegrationService.confirmOrder(arr);
     }
     
 }

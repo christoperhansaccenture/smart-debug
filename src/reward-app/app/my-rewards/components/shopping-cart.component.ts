@@ -8,6 +8,7 @@ import {AllCategoryItemBeltComponent} from './all-category-item-belt.component';
 import {RewardTypeService} from '../services/reward-type.service';
 import {CatalogService} from '../services/catalog.service';
 import {CartService} from '../../shared/services/cart.service';
+import {AccountService} from '../../shared/services/account.service';
 import {Catalog} from '../../shared/models/catalog';
 import {CartItem} from '../../shared/models/cart-item';
 
@@ -27,7 +28,8 @@ export class ShoppingCartComponent  {
 		private _layoutService: LayoutService,
         private _rewardTypeService: RewardTypeService,
         private _catalogService: CatalogService,
-        private _cartService: CartService) {
+        private _cartService: CartService,
+        private _accountService: AccountService) {
 		
 		this._layoutService.setCurrentPage('ShoppingCart');
 	}
@@ -42,6 +44,7 @@ export class ShoppingCartComponent  {
 
     getCurrentPoints() {
         return 1010;
+        //return this._accountService.getBalance();
     }
 
     getPointsRequired() {
@@ -86,26 +89,31 @@ export class ShoppingCartComponent  {
 
     toggleParentOneNumber() {
         this.getNumberSelection().oneNumber = !this.getNumberSelection().oneNumber;
+        this._cartService.saveToStorage();
     }
 
     toggleParentMyNumber() {
         this.getNumberSelection().gift.checked = false;
         this.getNumberSelection().myNumber.checked = !this.getNumberSelection().myNumber.checked;
+        this._cartService.saveToStorage();
     }
 
     toggleParentGift() {
         this.getNumberSelection().myNumber.checked = false;
         this.getNumberSelection().gift.checked = !this.getNumberSelection().gift.checked;
+        this._cartService.saveToStorage();
     }
 
     toggleMyNumber(item: CartItem) {
         item.numberSelection.gift.checked = false;
-        item.numberSelection.myNumber.checked = !this.getNumberSelection().myNumber.checked;
+        item.numberSelection.myNumber.checked = item.numberSelection.myNumber.checked;
+        this._cartService.saveToStorage();
     }
 
     toggleGift(item: CartItem) {
         item.numberSelection.myNumber.checked = false;
         item.numberSelection.gift.checked = !item.numberSelection.gift.checked;
+        this._cartService.saveToStorage();
     }
 
     goToNext() {
@@ -133,7 +141,23 @@ export class ShoppingCartComponent  {
                 return;
         }
 
+        this._cartService.saveToStorage();
         this._router.navigate(['ConfirmOrder']);
+    }
+
+    getOverlayText(catalog: Catalog) {
+        if (catalog.isOnlyPrepaid()) {
+            return 'Prepaid';
+        }
+        else if (catalog.isOnlyPostpaid()) {
+            return 'Postpaid';
+        }
+        else if (catalog.isOnlyBroPrepaid()) {
+            return 'Bro Prepaid';
+        }
+        else if (catalog.isOnlyBroPostpaid()) {
+            return 'Bro Postpaid';
+        }
     }
 	
 }

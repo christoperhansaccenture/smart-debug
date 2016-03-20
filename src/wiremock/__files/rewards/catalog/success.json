@@ -292,7 +292,7 @@
             "description": "FREE Dip or Drink Upgrade for every purchase of Pretzel Treats",
             "imageUrl": "imagedata/merchants/catalogue/2016/03/10/standard/9084.jpg",
             "categories": [
-                "Most Popular", "Deals", "Prepaid", "Postpaid"
+                "Most Popular", "Deals", "Prepaid", "Postpaid", "Mobile"
             ],
             "points": 0,
             "stock": 999992,
@@ -322,7 +322,7 @@
             "description": "FREE 30-minute Beauty Break Facial",
             "imageUrl": "imagedata/merchants/catalogue/2016/03/10/standard/9082.jpg",
             "categories": [
-                "Deals", "Prepaid", "Postpaid", "Bro Prepaid", "Bro Postpaid"
+                "Deals", "Prepaid", "Postpaid", "Bro Prepaid", "Bro Postpaid", "Mobile"
             ],
             "points": 0,
             "stock": 99984,
