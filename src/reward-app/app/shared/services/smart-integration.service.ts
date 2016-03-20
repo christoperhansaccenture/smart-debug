@@ -54,11 +54,15 @@ export class SmartIntegrationService {
 
     getCatalogs() {
         let min = localStorage.getItem('phoneNumber');
-        let url = this.serviceBase + '/customer/' + min + '/catalog';
+        let url = 'https://salty-fjord-81743.herokuapp.com' + '/customer/' + min + '/catalog';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/success.json';
 
-        return this._http.get(url);
+        return this._http.get(url,
+        <RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
     }
     
     getActivityHistory() {
@@ -68,7 +72,11 @@ export class SmartIntegrationService {
         
         var data = "?min=" + localStorage.getItem('phoneNumber') + "&actvityType=0&fromDate=2015-05-01&endDate=2016-03-16&pagesize=1000&pagepage=1";
 
-        return this._http.get(url + data);
+        return this._http.get(url + data,
+        <RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
     }
 
     confirmOrder(items: CartItem[]) {
@@ -112,11 +120,17 @@ export class SmartIntegrationService {
         var url = this.serviceBase + '/customer/' + min + '/catalog/' + catalog.id + '/favorite';
         if (catalog.favorite) {
             console.log('mark as favorite: ' + url);
-            return this._http.put(url, null);
+            return this._http.put(url, null,<RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
         }
         else {
             console.log('delete favorite: ' + url);
-            return this._http.delete(url);
+            return this._http.delete(url,<RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
         }
     }
     
@@ -125,7 +139,11 @@ export class SmartIntegrationService {
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
 
-        return this._http.get(url + localStorage.getItem('phoneNumber'));
+        return this._http.get(url + localStorage.getItem('phoneNumber'),
+        <RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
 
     }
     
