@@ -11,7 +11,7 @@ import {SmartIntegrationService} from './smart-integration.service';
 @Injectable()
 export class AuthService {
     
-    serviceBase = 'http://localhost:8080/';
+    serviceBase = 'https://salty-fjord-81743.herokuapp.com/';
     
     errorMessageFlag = false;
     errorMessageText = '';

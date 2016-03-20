@@ -26,9 +26,13 @@ export class OverviewComponent  {
 		
 		this._layoutService.setCurrentPage('MyRewards');
         this._catalogService.loadAllCatalogs();
-        this._accountService.getMobileNumberlistFromBackEnd(false);
+        this._accountService.getMobileNumberlistFromBackEnd(true);
 		
 	}
+    
+    getUserData(){
+        return this._accountService.selectedUserPhone;
+    }
 	
 	getResize(){
         return this._matchMediaService.getmm();  

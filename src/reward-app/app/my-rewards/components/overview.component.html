@@ -8,9 +8,9 @@
         <div class="leftHeader">Account Overview</div>
         <div class="next"></div>
     </div>
-    <div class="name">Tiffany</div>
+    <div class="name">{{ getUserData().name }}</div>
     <div class="phoneDetail">
-        <div class="phoneNo">092898874081</div>
+        <div class="phoneNo">{{ getUserData().phoneNo }}</div>
         <div class="phoneType">PRIMARY</div>
         <div class="numberType">Postpaid</div>
     </div>
@@ -20,7 +20,7 @@
             <div class="expire">First points expire on 31-12</div>
         </div>
         <div class="rightSide">
-            <div class="text">1010 <span>pts</span></div>
+            <div class="text">{{ getUserData().rewards }} <span>pts</span></div>
         </div>    
     </div>
     <div class="subHeader belt">

@@ -12,7 +12,7 @@
             <div class="up-arrow" *ngIf="getHeaderLayout().filter && filterFunction" (click)="toggleFilterFunction()"></div>
             
             <div class="logo" *ngIf="getHeaderLayout().logo"></div>
-            <div class="points" *ngIf="getHeaderLayout().point">1010 <span>pts</span></div>
+            <div class="points" *ngIf="getHeaderLayout().point">{{ getPointValue() }} <span>pts</span></div>
         </div>
         <div class="filterBox" *ngIf="filterFunction">
             <div class="sliderBox">
