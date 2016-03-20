@@ -690,5 +690,41 @@ export module SSO {
             });
         }
         
+        async getCatalogById(accessToken:string, clientId:string, msaId:string, query:string, id:string) : Promise<string> {
+			
+			
+			console.log("sso");
+            var path:string = '/apimysmartws/ssoapi/rewards/GetListOfRedeemableItems';
+            
+            var uuidString = uuid.v4();
+            var arrUuid = uuidString.split('-');
+            uuidString = '';
+            for(var i = 0; i < arrUuid.length; i++){
+                uuidString = uuidString + arrUuid[i];    
+            }
+            
+            var json = JSON.parse(query);
+			json.min = id;
+
+            return new Promise<string> (
+                function(resolve, reject) { 
+					console.log(config.baseurl);
+                    request.get({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientID': clientId,
+                            'msaID': msaId,
+                            'accessToken': accessToken,
+                            'nonce': uuidString
+                        },
+                        qs: json
+                    }, 
+                    function(err,httpResponse,body){  
+                        resolve(body);
+                })   
+            });
+        }
+        
     }
 }

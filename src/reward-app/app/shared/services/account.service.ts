@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {PhoneNumber} from '../models/phone-number';
 import {SmartIntegrationService} from './smart-integration.service';
+import { Router } from 'angular2/router';
 
 @Injectable()
 export class AccountService {
@@ -52,7 +53,7 @@ export class AccountService {
 
     // };
     
-    constructor (private _smartIntegrationService: SmartIntegrationService) {}
+    constructor (private _smartIntegrationService: SmartIntegrationService,private _router:Router) {}
     
     getUserPhoneNumber(){
         return this.userPhoneNumber;
@@ -220,6 +221,11 @@ export class AccountService {
                     
                 },
                 error =>{
+                    
+                    if(error.status === 401 || error.status){
+                        this._router.navigate(['Starter','Login']);
+                    }
+                    
                     console.log('not authorize?');
                 }
             );
