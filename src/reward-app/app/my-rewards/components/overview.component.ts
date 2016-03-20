@@ -6,13 +6,23 @@ import {AccountService} from '../../shared/services/account.service';
 import {RewardTypeService} from '../services/reward-type.service';
 import {CatalogService} from '../services/catalog.service';
 import {ItemBeltComponent} from './item-belt.component';
+import {MostPopularItemBeltComponent} from './most-popular-item-belt.component';
+import {AllCategoryItemBeltComponent} from './all-category-item-belt.component';
+import {LifestyleItemBeltComponent} from './lifestyle-item-belt.component';
+import {MobileItemBeltComponent} from './mobile-item-belt.component';
+import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
 //import { Layout } from '../../model/layout';
 
 @Component({
     selector: 'overview',
     templateUrl: 'app/my-rewards/components/overview.component.html',
     directives: [
-        ItemBeltComponent
+        ItemBeltComponent,
+        MostPopularItemBeltComponent,
+        AllCategoryItemBeltComponent,
+        LifestyleItemBeltComponent,
+        MobileItemBeltComponent,
+        FavoriteItemBeltComponent
     ]
 })
 export class OverviewComponent  {
