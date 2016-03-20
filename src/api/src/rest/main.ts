@@ -68,6 +68,14 @@ import {RewardController} from './controllers/reward.controller';
 
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(bodyParser.json());
+    
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", 
+        "Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept,Authorization,Proxy-Authorization,X-session");
+        
+        next();
+    });
 
 	const port:number = process.env.PORT || 8080;
 	const router = express.Router();

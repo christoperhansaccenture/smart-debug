@@ -62,6 +62,11 @@ console.log(config.baseurl);
 // });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept,Authorization,Proxy-Authorization,X-session");
+    next();
+});
 const port = process.env.PORT || 8080;
 const router = express.Router();
 // const ssoint:SSO.sso = new SSO.sso();

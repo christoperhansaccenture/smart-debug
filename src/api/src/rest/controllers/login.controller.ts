@@ -28,11 +28,11 @@ var config = require('../config/config');
                         var result:string =  await ssoService.requestValidateUserCredentials(username, password);
                         console.log(result);
                         var resultJson = JSON.parse(result);
-                        console.log(resultJson);
+                        //console.log(resultJson);
                         var result2 =  await ssoService.requestAccessToken(resultJson.result.AuthenticationCode, resultJson.result.ClientID);
                         var result2Json = JSON.parse(result2);   
-                        console.log(result2Json);    
-                        var nJwt = require('nJwt');  
+                        //console.log(result2Json);    
+                        var nJwt = require('njwt');  
                         var signingKey = config.signingKey; //get from config file
 
                         var claims = {
@@ -50,6 +50,7 @@ var config = require('../config/config');
                         });
                     }
                     catch (err) {
+						res.sendStatus(401);
                         console.log(err);
                     }
             }

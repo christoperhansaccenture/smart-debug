@@ -48,11 +48,13 @@ export class SmartIntegrationService {
     }
     
     getActivityHistory() {
-        //var url = this.serviceBase + 'products';
+        var url = 'http://localhost:8080/' + 'api/activityHistory';
         //var url = 'http://localhost:8080/catalog';
-        var url = 'services/activity.json';
+        //var url = 'services/activity.json';        
+        
+        var data = "?min=" + localStorage.getItem('phoneNumber') + "&actvityType=0&fromDate=2015-05-01&endDate=2016-03-16&pagesize=1000&pagepage=1";
 
-        return this._http.get(url);
+        return this._http.get(url + data);
     }
     
 }

@@ -34,7 +34,7 @@ var config = require('../config/config');
                     destLoyaltyId: req.body.destLoyaltyId
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -63,7 +63,7 @@ var config = require('../config/config');
                 token = token.replace('Bearer ','');
                 
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -92,7 +92,7 @@ var config = require('../config/config');
                 token = token.replace('Bearer ','');
                 
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -120,15 +120,15 @@ var config = require('../config/config');
                 var token:string = req.get("Authorization");
                 token = token.replace('Bearer ','');
                 
-                var jsonBody ={
+                var jsonBody = {
                     min: req.body.min,
                     destLoyaltyId: req.body.destLoyaltyId,
                     srcCurrencyId: req.body.srcCurrencyId,
-                    destCurrencyId: req.body.estCurrencyId,
-                    rwdQty: req.body.lrqInitiator
+                    destCurrencyId: req.body.destCurrencyId,
+                    rwdQty: req.body.rwdQty
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -162,7 +162,7 @@ var config = require('../config/config');
                     cafFavoriteFlag: req.body.cafFavoriteFlag
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -196,7 +196,7 @@ var config = require('../config/config');
                     cafFavoriteFlag: req.body.cafFavoriteFlag
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -224,7 +224,7 @@ var config = require('../config/config');
                 var token:string = req.get("Authorization");
                 token = token.replace('Bearer ','');
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -261,7 +261,7 @@ var config = require('../config/config');
                     ref: req.body.ref
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){

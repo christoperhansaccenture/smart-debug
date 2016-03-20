@@ -30,7 +30,7 @@ class RewardController {
                 channel: req.body.channel,
                 destLoyaltyId: req.body.destLoyaltyId
             };
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -55,7 +55,7 @@ class RewardController {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -80,7 +80,7 @@ class RewardController {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -109,10 +109,10 @@ class RewardController {
                 min: req.body.min,
                 destLoyaltyId: req.body.destLoyaltyId,
                 srcCurrencyId: req.body.srcCurrencyId,
-                destCurrencyId: req.body.estCurrencyId,
-                rwdQty: req.body.lrqInitiator
+                destCurrencyId: req.body.destCurrencyId,
+                rwdQty: req.body.rwdQty
             };
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -142,7 +142,7 @@ class RewardController {
                 cafProductNo: req.body.cafProductNo,
                 cafFavoriteFlag: req.body.cafFavoriteFlag
             };
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -172,7 +172,7 @@ class RewardController {
                 cafProductNo: req.body.cafProductNo,
                 cafFavoriteFlag: req.body.cafFavoriteFlag
             };
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -197,7 +197,7 @@ class RewardController {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }
@@ -230,7 +230,7 @@ class RewardController {
                 channel: req.body.channel,
                 ref: req.body.ref
             };
-            var nJwt = require('nJwt');
+            var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
             }

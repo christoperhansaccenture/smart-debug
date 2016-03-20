@@ -8,7 +8,8 @@ import {Headers} from "angular2/http";
 class MyOptions extends BaseRequestOptions {
     
   headers = new Headers(
-             {'Content-Type': 'application/json'
+             {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
             });
 
 } 

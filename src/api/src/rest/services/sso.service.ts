@@ -415,6 +415,8 @@ export module SSO {
             }
             
             var json = JSON.parse(body);
+            
+            console.log(body);
 
             return new Promise<string> (
                 function(resolve, reject) { 

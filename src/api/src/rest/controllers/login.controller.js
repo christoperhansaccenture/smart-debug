@@ -31,11 +31,11 @@ class loginController {
                 var result = yield ssoService.requestValidateUserCredentials(username, password);
                 console.log(result);
                 var resultJson = JSON.parse(result);
-                console.log(resultJson);
+                //console.log(resultJson);
                 var result2 = yield ssoService.requestAccessToken(resultJson.result.AuthenticationCode, resultJson.result.ClientID);
                 var result2Json = JSON.parse(result2);
-                console.log(result2Json);
-                var nJwt = require('nJwt');
+                //console.log(result2Json);    
+                var nJwt = require('njwt');
                 var signingKey = config.signingKey; //get from config file
                 var claims = {
                     accessToken: result2Json.result.AccessToken,
@@ -51,6 +51,7 @@ class loginController {
                 });
             }
             catch (err) {
+                res.sendStatus(401);
                 console.log(err);
             }
         });

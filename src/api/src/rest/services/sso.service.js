@@ -363,6 +363,7 @@ var SSO;
                     uuidString = uuidString + arrUuid[i];
                 }
                 var json = JSON.parse(body);
+                console.log(body);
                 return new Promise(function (resolve, reject) {
                     request.post({
                         url: config.baseurl + path,

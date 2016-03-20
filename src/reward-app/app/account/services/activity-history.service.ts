@@ -75,6 +75,7 @@ export class ActivityHistoryService {
 
     loadAllActivity(refresh: boolean = false) {
         if (refresh || !this.activities) {
+            
             this._smartIntegrationService
             .getActivityHistory()
             .subscribe(

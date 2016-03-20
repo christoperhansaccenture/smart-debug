@@ -32,7 +32,7 @@ var config = require('../config/config');
              
                 console.log(config.signingKey);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -63,7 +63,7 @@ var config = require('../config/config');
              
                 console.log(req.query);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -94,7 +94,7 @@ var config = require('../config/config');
              
                 console.log(req.query);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -125,7 +125,7 @@ var config = require('../config/config');
              
                 console.log(req.query);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -138,10 +138,235 @@ var config = require('../config/config');
 
                 try {  
                     var result =  await ssoService.getActivityHistory(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
-                    console.log(result);
+                    
+                    var resultJson = JSON.parse(result).data;
+                    var finalResult = [];
+                    
+                    for(var i = 0; i < resultJson.length; i++){
+                        
+                        if( (resultJson[i].cuaRemarks.indexOf('Waiting for approval') > -1) ||
+                            (resultJson[i].cuaRemarks.indexOf('confirmation') > -1) ||
+                            (resultJson[i].cuaRemarks.indexOf('Not') > -1) ||
+                            (resultJson[i].cuaRemarks.indexOf('retry') > -1) ||
+                            (resultJson[i].cuaRemarks.indexOf('Insufficient') > -1) ){
+                            continue;
+                        }
+                        
+                        if(resultJson[i].cuaActivityType === "1"){ //activation
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": 'registration',
+                                "name": 'Number Activation',
+                                "desc": 'Activate ' + parameter[0],
+                                "date": resultJson[i].cuaDate,
+                                "media" : 'Smart Reward App',
+                                "point" : '0'
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "2"){ //earning
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": 'earning',
+                                "name": 'Earned Points',
+                                "desc": 'Earned Points',
+                                "date": resultJson[i].cuaDate,
+                                "media" : 'Smart Reward App',
+                                "point" : parameter[5]
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "3"){ //redemption
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            if(parameter.length === 4){
+                                if(parameter[3] === '0'){
+                                    parameter[3] = 1;
+                                }
+                                
+                                var item:any ={
+                                    "type": "redemption",
+                                    "name": parameter[0],
+                                    "desc": parameter[3] + ' item(s)',
+                                    "date": "November 25, 2016",
+                                    "media": "Smart Reward App",
+                                    "point": '-' + parameter[1]
+                                };
+                                
+                            }else{
+                                
+                                var name = '';
+                                
+                                if(req.query.min === parameter[3]){
+                                    var item:any ={
+                                        "type": "redemption",
+                                        "name": "Pasa Reward",
+                                        "desc": parameter[4] + ' item(s)',
+                                        "date": "November 25, 2016",
+                                        "media": "Smart Reward App",
+                                        "point": parameter[1]
+                                    };
+                                }else{
+                                    var item:any ={
+                                        "type": "redemption",
+                                        "name": parameter[0],
+                                        "desc": parameter[4] + ' item(s) to ' + parameter[3],
+                                        "date": "November 25, 2016",
+                                        "media": "Smart Reward App",
+                                        "point": parameter[1]
+                                    };
+                                }
+                                
+                            }
+                            
+                            finalResult.push(item);
+                            
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "4"){ //transfer point
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": "transfer",
+                                "name": "Transfer Points",
+                                "desc": "Transfer Points to " + parameter[0],
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": parameter[1]
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "6"){ //point inquiry
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": "Points Inquiry",
+                                "name": "Points Inquiry",
+                                "desc": "Points Inquiry to " + parameter[0],
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": parameter[1]
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "8"){ // event register
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": "Event Registration",
+                                "name": "Event Registration",
+                                "desc": "Event Registration for " + parameter[0],
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": '0'
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "10"){ //Account Linking/Unlinking
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            var linkNo = '';
+                            var name = '';
+                            var desc = '';
+                            
+                            if(req.query.min === parameter[0]){
+                                linkNo = parameter[1];
+                            }else{
+                                linkNo = parameter[0];
+                            }
+                            
+                            if(resultJson[i].cuaRemarks === 'linked'){
+                                name = 'Link Account';
+                                desc = 'Link with ';
+                            }else{
+                                name = 'unlink Account';
+                                desc = 'Unlink with ';
+                            }
+                            
+                            var item:any ={
+                                "type": "linking",
+                                "name": name,
+                                "desc": desc + linkNo,
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": parameter[2]
+                            };
+                            
+                            finalResult.push(item);  
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "12"){ //account transfer
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": "Account Transfer",
+                                "name": "Change Mobile Number",
+                                "desc": "mobile number changed to " + parameter[0],
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": parameter[1]
+                            };
+                            
+                            finalResult.push(item); 
+                        }
+                        else if(resultJson[i].cuaActivityType === "13"){ //reward expiry
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": "Reward Expiry",
+                                "name": "Points Expiry",
+                                "desc": "expired points from " + parameter[0],
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": parameter[1]
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                        else if(resultJson[i].cuaActivityType === "16"){ //bills payment
+                            
+                            var parameter = resultJson[i].cuaParams.split('#');
+                            
+                            var item:any ={
+                                "type": "Bills Payment",
+                                "name": "Bills Payment",
+                                "desc": "bills payment for " + parameter[0],
+                                "date": "November 25, 2016",
+                                "media": "Smart Reward App",
+                                "point": parameter[1]
+                            };
+                            
+                            finalResult.push(item);
+                            
+                        }
+                    }
+                    
+                    //console.log(result);
                     // var resJson = JSON.parse(result);       
                     
-                    res.json(JSON.parse(result));
+                    res.json(finalResult);
+                    //res.json(JSON.parse(result));
                 }
                 catch (err) {
                     console.log(err);
@@ -165,7 +390,7 @@ var config = require('../config/config');
                     channel: req.body.channel
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -196,7 +421,7 @@ var config = require('../config/config');
              
                 console.log(req.query);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -227,7 +452,7 @@ var config = require('../config/config');
              
                 console.log(req.query);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -265,7 +490,7 @@ var config = require('../config/config');
                     channel: req.body.channel
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -303,7 +528,7 @@ var config = require('../config/config');
                     channel: req.body.channel
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -336,7 +561,7 @@ var config = require('../config/config');
                     status: req.body.status
                 };
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
@@ -367,7 +592,7 @@ var config = require('../config/config');
              
                 console.log(req.query);
                 
-                var nJwt = require('nJwt');  
+                var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
