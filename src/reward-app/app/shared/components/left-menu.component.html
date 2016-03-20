@@ -7,14 +7,11 @@
                     <div class="picture"></div>
                     <div class="text">Rewards</div>
                 </div>
-                <div class="smartPoint">1010 <span>pts</span></div>
-                <div class="expiry">200 pts expire on 31-03</div>
+                <div class="smartPoint">{{ getUserData().rewards }} <span>pts</span></div>
+                <div class="expiry">First points expire on 31-12</div>
             </div>
-            <select class="phoneNumber">
-                <option>09298874801</option>
-                <option>092898874999</option>
-                <option>092898874082</option>
-                <option>092898874088</option>
+            <select class="phoneNumber" *ngFor="#phone of getListOfPhone()">
+                <option >{{ phone.phoneNo }}</option>
             </select>
         </div>
         <div class="menuItemBox">
@@ -53,7 +50,7 @@
                 <div class="text">Help & FAQ</div>
                 <div class="arrow"></div>
             </div>
-            <div class="itemCategory click">
+            <div class="itemCategory click" (click)="logout()">
                 Logout
                 <div class="arrow"></div>
             </div>

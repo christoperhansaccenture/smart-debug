@@ -157,9 +157,9 @@ var config = require('../config/config');
                 token = token.replace('Bearer ','');
                 
                 var jsonBody ={
-                    min: req.body.min,
-                    cafProductNo: req.body.cafProductNo,
-                    cafFavoriteFlag: req.body.cafFavoriteFlag
+                    min: req.params.min,
+                    cafProductNo: req.params.catalogId,
+                    cafFavoriteFlag: 1
                 };
                 
                 var nJwt = require('njwt');  
@@ -191,9 +191,9 @@ var config = require('../config/config');
                 token = token.replace('Bearer ','');
                 
                 var jsonBody ={
-                    min: req.body.min,
-                    cafProductNo: req.body.cafProductNo,
-                    cafFavoriteFlag: req.body.cafFavoriteFlag
+                    min: req.params.min,
+                    cafProductNo: req.params.catalogId,
+                    cafFavoriteFlag: 0
                 };
                 
                 var nJwt = require('njwt');  
@@ -278,6 +278,156 @@ var config = require('../config/config');
                     // var resJson = JSON.parse(result);       
                     
                     res.json(JSON.parse(result));
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            }
+            
+            async redeemItems(req:string,res:string) : Promise<string> {
+                
+                var token:string = req.get("Authorization");
+                //var min:string =  req.query.min;
+                token = token.replace('Bearer ','');
+             
+               // var data  = {
+                   //min: req.params.min
+                //}
+                
+                var nJwt = require('njwt');  
+                try{
+                    var jwt = nJwt.verify(token,config.signingKey);
+                }catch(e){
+                    res.sendStatus(403);
+                }
+
+                const ssoService:SSO.sso = new SSO.sso();
+
+                try {  
+                    
+                      console.log(req.body);
+                      
+                      var data = JSON.parse(req.body);
+                      
+                      for(var i = 0; i < data.length; i++){
+                          
+                          if(data[0].type === 'catalog'){
+                              
+                              var jsonBody ={
+                                    min: req.params.min,
+                                    productCode: data[0].catalog.code,
+                                    quantity: data[0].catalog.quantity,
+                                    channel: '2',
+                                    destLoyaltyId: data[0].catalog.dest
+                                };
+                              
+                              var result =  await ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                              
+                          }else if(data[0].type === 'bill'){
+                              
+                              var jsonBody ={
+                                    min: req.params.min,
+                                    merchantIdentifier: data[0].bill.merchantIdentifier,
+                                    amount: data[0].bill.amount,
+                                    pin: data[0].bill.pin,
+                                    channel: '2',
+                                    ref: data[0].bill.ref
+                                };
+                                
+                                var result =  await ssoService.payBillWithPoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                              
+                          }
+                          
+                      }
+                    
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            }
+            
+            async getCatalogById(req:string,res:string) : Promise<string> {
+                
+                var token:string = req.get("Authorization");
+                token = token.replace('Bearer ','');
+				
+				var id:string = req.params.min;
+				
+				console.log(id);
+                
+                var nJwt = require('njwt');  
+                try{
+                    var jwt = nJwt.verify(token,config.signingKey);
+                }catch(e){
+                    res.sendStatus(403);
+                }
+
+                //console.log(token);
+                //console.log(jwt);
+                const ssoService:SSO.sso = new SSO.sso();
+				
+
+                try {  
+                    var result =  await ssoService.getCatalogById(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query), id);
+                    //console.log(result);
+                    var resultJson = JSON.parse(result).data;
+                    console.log(result);
+					var finalResult = {
+						"data" :[]
+					};
+					
+					 for(var i = 0; i < resultJson.length; i++){
+						var item:any ={
+							"id": resultJson[i].catProductNo,
+							"code": resultJson[i].catProductCode,
+							"name": resultJson[i].catDescription,
+							"description": resultJson[i].catLongDescription,
+							"categories" : [],
+							"points" : resultJson[i].catNumPoints,
+							"stock" : resultJson[i].catAvailableStock,
+							"favorite": resultJson[i].GetFavorites,
+							"giftable": resultJson[i].catPasaRewardsEnabled,
+							"expiry": resultJson[i].catEndDate,
+                            "imageUrl": resultJson[i].catProductImagePath
+                        };
+						if(resultJson[i].catCategory === "15" ){
+							item.categories.push("Most Popular");
+						}
+						else if(resultJson[i].catCategory === "19" ){
+							item.categories.push("Deals");
+						}
+						else if(resultJson[i].catCategory === "20" ){
+							item.categories.push("Lifestyle");
+						}
+						else if(resultJson[i].catCategory === "21" ){
+							item.categories.push("Mobile");
+						}
+						
+						var rules:string = 'Most Popular,Deals,Lifestyle,Mobile,Prepaid,Postpaid,Bro Prepaid,Bro Postpaid'
+						
+						var catProductValues = 	resultJson[i].catProductValues.split(',');
+						for(var j = 0; j < catProductValues.length; j++){
+							if(catProductValues[j].indexOf('Sun') > -1 || catProductValues[j].indexOf('SUN') > -1){
+								continue;
+							}
+							
+							var temp:any = catProductValues[j];
+							
+							if(catProductValues[j].startsWith('GSM ')){
+								temp = catProductValues[j].replace('GSM ','');
+							}
+							
+							if(rules.indexOf(temp) > -1){
+								item.categories.push(temp);
+							}
+						}					
+						finalResult.data.push(item);
+					 }
+					
+					
+                    res.json(finalResult);
+					
+					
                 }
                 catch (err) {
                     console.log(err);

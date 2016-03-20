@@ -95,10 +95,14 @@ router.post('/redeem', rewardCtrl.redeemAnItem);
 router.get('/catalog', rewardCtrl.getListOfRedeemableItems);
 router.get('/favourites', rewardCtrl.getFavorites);
 router.post('/transfer', rewardCtrl.transferpoints);
-router.post('/markAsFavourite', rewardCtrl.favouriteItem);
-router.post('/unmarkAsFavourite', rewardCtrl.removeFavouriteItem);
+//router.post('/markAsFavourite',rewardCtrl.favouriteItem);
+//router.post('/unmarkAsFavourite',rewardCtrl.removeFavouriteItem);
 router.get('/catalogDisplay', rewardCtrl.getCatalogDisplayPreferences);
 router.put('/payBill', rewardCtrl.payBillWithPoints);
+router.get('/customer/:min/redeem', rewardCtrl.redeemItems);
+router.get('/customer/:min/catalog', rewardCtrl.getCatalogById);
+router.put('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.favouriteItem);
+router.delete('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.removeFavouriteItem);
 // router.get('/', async function (req, res) {
 //     // var minutes = minutesDAO.getMinutesToRace();
 //     // res.json({message: 'welcome'});
