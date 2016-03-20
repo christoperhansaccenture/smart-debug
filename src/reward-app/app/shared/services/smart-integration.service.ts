@@ -62,7 +62,7 @@ export class SmartIntegrationService {
     }
     
     getActivityHistory() {
-        var url = 'http://localhost:8080/' + 'api/activityHistory';
+        var url = 'https://salty-fjord-81743.herokuapp.com/' + 'api/activityHistory';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
         
@@ -118,6 +118,15 @@ export class SmartIntegrationService {
             console.log('delete favorite: ' + url);
             return this._http.delete(url);
         }
+    }
+    
+    getMobileListNumber(){
+        var url = 'https://salty-fjord-81743.herokuapp.com/' + '/mobileNoList/';
+        //var url = 'http://localhost:8080/catalog';
+        //var url = 'services/activity.json';        
+
+        return this._http.get(url + localStorage.getItem('phoneNumber'));
+
     }
     
 }

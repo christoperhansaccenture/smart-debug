@@ -32,6 +32,8 @@ export class AccountService {
     
     avalaiblePoints:string = '-';
     
+    mobileNoList = [];
+    
     // accountOverView: any = {
     //     accountNumber
     //     Ada
@@ -151,6 +153,46 @@ export class AccountService {
         }
         
         return this.avalaiblePoints;
+        
+    }
+    
+    getMobileNumberlist(){
+        
+        var mobileInStorage = sessionStorage.getItem('mobileNo');
+        
+        if(mobileInStorage === null || mobileInStorage === undefined ){
+        }else{
+            this.mobileNoList = JSON.parse(mobileInStorage).availablePoints;
+            this.selectedUserPhone = this.avalaiblePoints[0];
+        }
+        
+        return this.mobileNoList;
+        
+    }
+    
+    getMobileNumberlistFromBackEnd(refresh:boolean){
+        
+        var mobileInStorage = sessionStorage.getItem('mobileNo');
+        
+        if(refresh === true || mobileInStorage === null || mobileInStorage === undefined){
+        
+            //TODO should be change base on the phone number selected
+            var promise = this._smartIntegrationService.getMobileListNumber();
+            
+            promise.subscribe(
+                response => {
+                    
+                    //save my balance data
+                    this.mobileNoList = response.json();
+                    sessionStorage.setItem('mobileNo',JSON.stringify(response.json()));
+                    this.selectedUserPhone = this.avalaiblePoints[0];
+                    
+                },
+                error =>{
+                    console.log('not authorize?');
+                }
+            );
+        }
         
     }
     

@@ -89,6 +89,7 @@ router.post('/linkAccount', accountCtrl.linkAccount);
 router.post('/unlinkAccount', accountCtrl.unlinkAccount);
 router.post('/rewardsNotification', accountCtrl.rewardsAlertNotification);
 router.get('/mobileList', accountCtrl.requestMobileNoList);
+router.get('/mobileNoList/:min', accountCtrl.getListOfMobileNumber);
 //reward and redeem related services
 router.post('/redeem', rewardCtrl.redeemAnItem);
 router.get('/catalog', rewardCtrl.getListOfRedeemableItems);

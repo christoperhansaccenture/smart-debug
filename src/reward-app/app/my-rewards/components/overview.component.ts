@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import { Router } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
+import {AccountService} from '../../shared/services/account.service';
 import {RewardTypeService} from '../services/reward-type.service';
 import {CatalogService} from '../services/catalog.service';
 import {ItemBeltComponent} from './item-belt.component';
@@ -20,10 +21,12 @@ export class OverviewComponent  {
 		private _matchMediaService: MatchMediaService,
 		private _layoutService: LayoutService,
         private _rewardTypeService: RewardTypeService,
-        private _catalogService: CatalogService) {
+        private _catalogService: CatalogService,
+        private _accountService: AccountService) {
 		
 		this._layoutService.setCurrentPage('MyRewards');
         this._catalogService.loadAllCatalogs();
+        this._accountService.getMobileNumberlistFromBackEnd(false);
 		
 	}
 	
