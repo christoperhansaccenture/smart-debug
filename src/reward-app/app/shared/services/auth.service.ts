@@ -114,6 +114,7 @@ export class AuthService {
             },
             error =>{
                 
+                //console.log(error.status);
                 console.log('wrong combination of phone no/email and password');
                 this.errorMessageFlag = true;
                 this.errorMessageText = 'wrong combination of phone no/email and password';
@@ -126,9 +127,7 @@ export class AuthService {
     
     logOut(){
         
-        sessionStorage.removeItem('authorizationData');
-        sessionStorage.removeItem('loginData');
-        
+        sessionStorage.removeItem('accessToken');
         this._router.navigate(['Starter','Login']);
         
     }
