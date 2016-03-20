@@ -18,7 +18,7 @@ export class AccountService {
         {number:'092898874081',name:'',primary:false,type:'Bro prepaid'}
     ];
     
-    selectedUserPhone = {};
+    selectedUserPhone:any = {};
     
     balance: any = {
         accountNumber: '',

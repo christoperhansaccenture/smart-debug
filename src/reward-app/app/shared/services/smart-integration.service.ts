@@ -54,7 +54,8 @@ export class SmartIntegrationService {
 
     getCatalogs() {
         let min = localStorage.getItem('phoneNumber');
-        let url = this.serviceBase + '/customer/' + min + '/catalog';
+        let url = this.serviceBase + '/customer/' + min + '/catalog?pagesize=200&pagepage=1';
+        //let url = this.serviceBase + '/customer/' + min + '/catalog';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/success.json';
 
@@ -121,11 +122,13 @@ export class SmartIntegrationService {
     }
     
     getMobileListNumber(){
-        var url = 'https://salty-fjord-81743.herokuapp.com/' + '/mobileNoList/';
+        let min = localStorage.getItem('phoneNumber');
+        let url = this.serviceBase + '/mobileNoList/' + min;
+        //var url = 'https://salty-fjord-81743.herokuapp.com/' + '/mobileNoList/';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
 
-        return this._http.get(url + localStorage.getItem('phoneNumber'));
+        return this._http.get(url);
 
     }
     

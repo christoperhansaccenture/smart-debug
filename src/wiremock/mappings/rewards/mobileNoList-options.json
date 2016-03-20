@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "OPTIONS",
-        "url": "/api/login"
+        "urlPattern": "/mobileNoList/[0-9]+"
     },
     "response": {
         "status": 200
