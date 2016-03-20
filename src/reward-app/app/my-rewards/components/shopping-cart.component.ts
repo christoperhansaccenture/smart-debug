@@ -43,8 +43,7 @@ export class ShoppingCartComponent  {
     }
 
     getCurrentPoints() {
-        return 1010;
-        //return this._accountService.getBalance();
+        return this._accountService.selectedUserPhone.rewards;
     }
 
     getPointsRequired() {
@@ -158,6 +157,10 @@ export class ShoppingCartComponent  {
         else if (catalog.isOnlyBroPostpaid()) {
             return 'Bro Postpaid';
         }
+    }
+
+    getMobileNumbers() {
+        return this._accountService.mobileNoList.map(e => e.phoneNo);
     }
 	
 }

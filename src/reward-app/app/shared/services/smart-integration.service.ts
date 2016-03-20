@@ -54,7 +54,9 @@ export class SmartIntegrationService {
 
     getCatalogs() {
         let min = localStorage.getItem('phoneNumber');
-        let url = 'https://salty-fjord-81743.herokuapp.com' + '/customer/' + min + '/catalog';
+
+        let url = this.serviceBase + '/customer/' + min + '/catalog?pagesize=200&pagepage=1';
+        //let url = this.serviceBase + '/customer/' + min + '/catalog';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/success.json';
 
@@ -66,7 +68,7 @@ export class SmartIntegrationService {
     }
     
     getActivityHistory() {
-        var url = 'https://salty-fjord-81743.herokuapp.com/' + 'api/activityHistory';
+        var url = this.serviceBase + '/activityHistory';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
         
@@ -135,7 +137,9 @@ export class SmartIntegrationService {
     }
     
     getMobileListNumber(){
-        var url = 'https://salty-fjord-81743.herokuapp.com/' + 'api/mobileNoList/';
+        let min = localStorage.getItem('phoneNumber');
+        let url = this.serviceBase + '/mobileNoList/' + min;
+        //var url = 'https://salty-fjord-81743.herokuapp.com/' + 'api/mobileNoList/';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
 

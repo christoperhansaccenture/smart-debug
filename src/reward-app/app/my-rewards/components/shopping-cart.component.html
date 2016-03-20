@@ -26,9 +26,11 @@
                             [(ngModel)]="getNumberSelection().myNumber.checked" />
                         <div>My Number</div>
                         <select class="my-number-select" [(ngModel)]="getNumberSelection().myNumber.number">
-                            <option selected>092898874081</option>
-                            <option>092898874082</option>
-                            <option>092898874083</option>
+                            <option 
+                                *ngFor="#mobile of getMobileNumbers(); #i = index"
+                                [selected]="i == 0">
+                                {{ mobile }}
+                            </option>
                         </select>
                     </li>
                     <li (click)="toggleParentGift()">
@@ -83,9 +85,11 @@
                                     [(ngModel)]="item.numberSelection.myNumber.checked" />
                                 <div>My Number</div>
                                 <select class="my-number-select" [(ngModel)]="item.numberSelection.myNumber.number">
-                                    <option selected>092898874081</option>
-                                    <option>092898874082</option>
-                                    <option>092898874083</option>
+                                    <option 
+                                        *ngFor="#mobile of getMobileNumbers(); #i = index"
+                                        [selected]="i == 0">
+                                        {{ mobile }}
+                                    </option>
                                 </select>
                             </li>
                             <li (click)="toggleGift(item)">

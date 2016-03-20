@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "POST",
-        "url": "/apimysmartws/ssoapi/login/requestValidateUserCredentials"
+        "url": "/api/login"
     },
     "response": {
     	"headers": {

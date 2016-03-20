@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/mobileNoList/[0-9]+"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "rewards/mobileNoList/success.json"
+    }
+}

@@ -11,14 +11,23 @@ import {SmartIntegrationService} from './smart-integration.service';
 @Injectable()
 export class AuthService {
     
-    serviceBase = 'https://salty-fjord-81743.herokuapp.com/';
+    //serviceBase = 'http://localhost:8080/';
+    serviceBase;
     
     errorMessageFlag = false;
     errorMessageText = '';
     
     constructor (private _http: Http,
     private _router:Router,
-    private _smartIntegrationService: SmartIntegrationService) {}
+    private _smartIntegrationService: SmartIntegrationService) {
+        // get service base from config file
+        var url = 'services/api.json';
+        this._http.get(url)
+            .subscribe(file => {
+                let config = file.json().config;
+                this.serviceBase = config.baseUrl;
+            });
+    }
     
     getErrorMessageFlag(){
         return this.errorMessageFlag;
@@ -78,7 +87,7 @@ export class AuthService {
     }
     
     doLogin(userId, password){
-        var url = this.serviceBase + 'api/login';
+        var url = this.serviceBase + '/login';
         
         // var data: any = {
         //     endUserId: userId,

@@ -43,8 +43,7 @@ export class ConfirmOrderComponent  {
     }
 
     getCurrentPoints() {
-        return 1010;
-        //return this._accountService.getBalance();
+        return this._accountService.selectedUserPhone.rewards;
     }
 
     getPointsRequired() {

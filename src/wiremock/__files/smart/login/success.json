@@ -1,10 +1,4 @@
 {
-    "status": "200",
-    "message": "Success",
-    "result": {
-        "AuthenticationCode": "2344249751df40e086f384a761c5759bdbc21ac929994684baa061cfa7ddd665",
-        "ControlKey": "f51808b2eb",
-        "ClientID": "220092",
-        "ClientApplicationURI": ""
-    }
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3NUb2tlbiI6InEwU1NTU1NTU1NUMFMwUzAwUzAwU1NTU1NTUzAwUzBTMFNTUzBTU1MwUzBUU1NTU1NTU1MtVUptMzNoaHFyU2Yzc2tVc3Jmc21uaDNoM3FVc2pzcVVobmt0bW1qZm9mU2hta2poampvIiwiY2xpZW50SWQiOiIyMjAwOTIiLCJtc2FpZCI6IjE0MzU3MjAiLCJqdGkiOiI1MDFjODA4Yi02NTJhLTRmNzctOGQwYS04NzBjN2Q4NTRiNDIiLCJpYXQiOjE0NTg0OTMyMTAsImV4cCI6MTQ1ODQ5NjgxMH0.KuDj7colLz7TOK5HrMdwoIi8AjZQEgi_-zAxRcHBeL0",
+    "refreshToken": "50SSSSSSSST0S0S00S00SSSSSSS00S0S0SSS0SSS0S0TSSSSSSSS-UJm33hhq3Sf3skUsrfsmnh3h3qUsjsqUhnktmmjfofSjkmjkmo3"
 }
