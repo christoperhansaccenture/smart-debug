@@ -18,7 +18,11 @@ export class AccountService {
         {number:'092898874081',name:'',primary:false,type:'Bro prepaid'}
     ];
     
-    selectedUserPhone:any = {};
+    selectedUserPhone:any = {
+        phoneNo: "",
+        name: "",
+        rewards: ""
+    };
     
     balance: any = {
         accountNumber: '',
@@ -185,7 +189,8 @@ export class AccountService {
                     //save my balance data
                     this.mobileNoList = response.json();
                     sessionStorage.setItem('mobileNo',JSON.stringify(response.json()));
-                    this.selectedUserPhone = this.avalaiblePoints[0];
+                    this.selectedUserPhone = this.mobileNoList[0];
+                    console.log(this.selectedUserPhone);
                     
                 },
                 error =>{

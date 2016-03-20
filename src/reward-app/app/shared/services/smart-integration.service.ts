@@ -124,7 +124,7 @@ export class SmartIntegrationService {
     getMobileListNumber(){
         let min = localStorage.getItem('phoneNumber');
         let url = this.serviceBase + '/mobileNoList/' + min;
-        //var url = 'https://salty-fjord-81743.herokuapp.com/' + '/mobileNoList/';
+        //var url = 'https://salty-fjord-81743.herokuapp.com/' + 'api/mobileNoList/';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
 

@@ -29,6 +29,10 @@ export class HeaderComponent {
         private _accountService: AccountService,
         private _catalogService: CatalogService,
         private _cartService: CartService) {}
+    
+    getPointValue(){
+        return this._accountService.selectedUserPhone.rewards;
+    }
         
     getHeaderLayout(){
         return this._layoutService.getHeaderLayout();
