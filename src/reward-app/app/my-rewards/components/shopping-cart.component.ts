@@ -49,7 +49,7 @@ export class ShoppingCartComponent  {
     getPointsRequired() {
         if (this.getItems() && this.getItems().length > 0) {
             return this.getItems()
-            .map(e => e.amount * e.catalog.points)
+            .map(e => e.getTotalPoints())
             .reduce((prev, curr) => {
                 return prev + curr;
             });
@@ -105,7 +105,7 @@ export class ShoppingCartComponent  {
 
     toggleMyNumber(item: CartItem) {
         item.numberSelection.gift.checked = false;
-        item.numberSelection.myNumber.checked = item.numberSelection.myNumber.checked;
+        item.numberSelection.myNumber.checked = !item.numberSelection.myNumber.checked;
         this._cartService.saveToStorage();
     }
 
@@ -161,6 +161,10 @@ export class ShoppingCartComponent  {
 
     getMobileNumbers() {
         return this._accountService.mobileNoList.map(e => e.phoneNo);
+    }
+
+    stopPropagation(event) {
+        event.stopPropagation();
     }
 	
 }

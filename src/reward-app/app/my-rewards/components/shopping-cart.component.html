@@ -17,7 +17,7 @@
         <div class="number-selection-container">
             <ul>
                 <li (click)="toggleParentOneNumber()">
-                    <input class="check" type="checkbox" [(ngModel)]="getNumberSelection().oneNumber" />
+                    <input class="check" type="checkbox" [(ngModel)]="getNumberSelection().oneNumber"/>
                     <span class="">Send all to one number</span>
                 </li>
                 <ul *ngIf="getNumberSelection().oneNumber">
@@ -25,8 +25,10 @@
                         <input class="check" type="checkbox" 
                             [(ngModel)]="getNumberSelection().myNumber.checked" />
                         <div>My Number</div>
-                        <select class="my-number-select" [(ngModel)]="getNumberSelection().myNumber.number"
-                        *ngIf="getNumberSelection().myNumber.checked">
+                        <select class="my-number-select" 
+                            [(ngModel)]="getNumberSelection().myNumber.number"
+                            *ngIf="getNumberSelection().myNumber.checked"
+                            (click)="stopPropagation($event)">
                             <option 
                                 *ngFor="#mobile of getMobileNumbers(); #i = index"
                                 [selected]="i == 0">
@@ -39,7 +41,8 @@
                             [(ngModel)]="getNumberSelection().gift.checked" />
                         <span class="">Gift</span>
                         <div class="input-gift-container"
-                        *ngIf="getNumberSelection().gift.checked">
+                            *ngIf="getNumberSelection().gift.checked"
+                            (click)="stopPropagation($event)">
                             <span>+63</span>
                             <input type="text" placeholder="Enter phone number" [(ngModel)]="getNumberSelection().gift.number" />
                         </div>
@@ -49,63 +52,91 @@
         </div>
         <div class="itemListContainer">
             <div *ngFor="#item of getItems()" class="itemDetailContainer">
-                <div class="col-left">
-                    <div class="itemPic">
-                        <img [src]="item.catalog.imageUrl" />
-                        <div class="overlay"
-                            [class.postpaid]="item.catalog.isOnlyPostpaid()"
-                            [class.prepaid]="item.catalog.isOnlyPrepaid()"
-                            [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
-                            {{ getOverlayText(item.catalog) }}
+                <div class="catalog" *ngIf="!item.isBill()">
+                    <div class="col-left">
+                        <div class="itemPic">
+                            <img [src]="item.catalog.imageUrl" />
+                            <div class="overlay"
+                                [class.postpaid]="item.catalog.isOnlyPostpaid()"
+                                [class.prepaid]="item.catalog.isOnlyPrepaid()"
+                                [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
+                                {{ getOverlayText(item.catalog) }}
+                            </div>
+                        </div>
+                        <div class="remove-container" (click)="removeItem(item)">
+                            <span>Remove</span>
                         </div>
                     </div>
-                    <div class="remove-container" (click)="removeItem(item)">
-                        <span>Remove</span>
+                    <div class="col-right">
+                        <div class="row item-header">
+                            <div class="itemText">
+                                <div class="itemSubHeader">{{ item.catalog.name }}</div>
+                            </div>
+                            <div class="itemPoint">{{ item.catalog.points }} <span>pts</span></div>
+                        </div>
+                        <div class="row item-amount">
+                            <span class="counter">
+                                <span class="minus sign" (click)="minusItem(item)">-</span>
+                                <span class="amount">{{ item.amount }}</span>
+                                <span class="plus sign" (click)="plusItem(item)">+</span>
+                            </span>
+                            <span class="sub-total">Sub Total:</span>
+                            <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
+                        </div>
+                        <div class="row number-selection-container"
+                            *ngIf="!getNumberSelection().oneNumber">
+                            <ul>
+                                <li (click)="toggleMyNumber(item)">
+                                    <input class="check" type="checkbox" 
+                                        [(ngModel)]="item.numberSelection.myNumber.checked" />
+                                    <div>My Number</div>
+                                    <select class="my-number-select" 
+                                        [(ngModel)]="item.numberSelection.myNumber.number"
+                                        *ngIf="item.numberSelection.myNumber.checked"
+                                        (click)="stopPropagation($event)">
+                                        <option 
+                                            *ngFor="#mobile of getMobileNumbers(); #i = index"
+                                            [selected]="i == 0">
+                                            {{ mobile }}
+                                        </option>
+                                    </select>
+                                </li>
+                                <li (click)="toggleGift(item)">
+                                    <input class="check" type="checkbox"
+                                        [(ngModel)]="item.numberSelection.gift.checked" />
+                                    <span class="">Gift</span>
+                                    <div class="input-gift-container"
+                                    *ngIf="item.numberSelection.gift.checked">
+                                        <span>+63</span>
+                                        <input type="text" placeholder="Enter phone number" [(ngModel)]="item.numberSelection.gift.number" (click)="stopPropagation($event)" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-right">
-                    <div class="row item-header">
-                        <div class="itemText">
-                            <div class="itemSubHeader">{{ item.catalog.name }}</div>
+                <div class="bill" *ngIf="item.isBill()">
+                    <div class="col-left">
+                        <div class="billPic">
                         </div>
-                        <div class="itemPoint">{{ item.catalog.points }} <span>pts</span></div>
+                        <div class="remove-container" (click)="removeItem(item)">
+                            <span>Remove</span>
+                        </div>
                     </div>
-                    <div class="row item-amount">
-                        <span class="counter">
-                            <span class="minus sign" (click)="minusItem(item)">-</span>
-                            <span class="amount">{{ item.amount }}</span>
-                            <span class="plus sign" (click)="plusItem(item)">+</span>
-                        </span>
-                        <span class="sub-total">Sub Total:</span>
-                        <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
-                    </div>
-                    <div class="row number-selection-container"
-                        *ngIf="!getNumberSelection().oneNumber">
-                        <ul>
-                            <li (click)="toggleMyNumber(item)">
-                                <input class="check" type="checkbox" 
-                                    [(ngModel)]="item.numberSelection.myNumber.checked" />
-                                <div>My Number</div>
-                                <select class="my-number-select" [(ngModel)]="item.numberSelection.myNumber.number"
-                                *ngIf="item.numberSelection.myNumber.checked">
-                                    <option 
-                                        *ngFor="#mobile of getMobileNumbers(); #i = index"
-                                        [selected]="i == 0">
-                                        {{ mobile }}
-                                    </option>
-                                </select>
-                            </li>
-                            <li (click)="toggleGift(item)">
-                                <input class="check" type="checkbox"
-                                    [(ngModel)]="item.numberSelection.gift.checked" />
-                                <span class="">Gift</span>
-                                <div class="input-gift-container"
-                                *ngIf="item.numberSelection.gift.checked">
-                                    <span>+63</span>
-                                    <input type="text" placeholder="Enter phone number" [(ngModel)]="item.numberSelection.gift.number" />
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="col-right">
+                        <div class="row item-header">
+                            <div class="itemText">
+                                <div class="itemSubHeader">Pay Bill with Points</div>
+                            </div>
+                        </div>
+                        <div class="row item-amount">
+                            <span class="peso-amount-label">Peso Amount:</span>
+                            <div class="peso-amount">{{ item.getTotalPoints() }}</div>
+                        </div>
+                        <div class="row item-amount">
+                            <span class="sub-total">Sub Total:</span>
+                            <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
+                        </div>
                     </div>
                 </div>
             </div>

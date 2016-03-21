@@ -31,7 +31,7 @@ export class HeaderComponent {
         private _cartService: CartService) {}
     
     getPointValue(){
-        return this._accountService.selectedUserPhone.rewards;
+        return (this._accountService.selectedUserPhone.rewards) ? this._accountService.selectedUserPhone.rewards : 0;
     }
         
     getHeaderLayout(){

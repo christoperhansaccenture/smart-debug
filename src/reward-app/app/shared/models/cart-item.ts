@@ -15,8 +15,20 @@ export class CartItem {
     };
     type: string = "catalog";
 
+    // only for pay bill
+    merchantIdentifier;
+    pin;
+    ref;
+
+    isBill() {
+        return this.type === 'bill';
+    }
+
     getTotalPoints(): number {
-        return this.catalog.points * this.amount;
+        if (!this.isBill())
+            return this.catalog.points * this.amount;
+        else   
+            return this.amount;
     }
 
     getSendTo() {

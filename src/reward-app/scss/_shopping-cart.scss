@@ -203,6 +203,15 @@ $col-3-height: 340px;
                 .col-left {
                     float: left;
 
+                    .billPic {
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDI5Ljg2Nzk4MDkyNzIyODksMCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNNS40MjY4NjE5LDI4LjYwNjAwM0wxNi4wODcwNzUsMjguNjA2MDAzIDE2LjA4NzA3NSwzMiA1LjQyNjg2MTksMzJ6IE0xNi45MTQ2NzgsMTQuNzQ2NzFDMTcuNTM1NzUyLDE0Ljc2Nzk0OCwxOC4xMjI5MzQsMTUuMTI3OTk3LDE4LjQwNTEyNCwxNS43Mjc5OTdMMjAuNjM1MTcxLDIwLjQ3Mzk5OUMyMC45NjExNzUsMjEuMTY3MDA3LDIwLjc4MDE3MiwyMS45NzAwMDEsMjAuMjQyMTY2LDIyLjQ2MDk5OUwyMC4xNDMxNTcsMjIuNTQyOTk5IDE2LjI1NDA3OSwyNi42MzQ5OTUgMTYuMjMyMDgyLDI2LjY4MjAwN0MxNi4wMDEwNzUsMjcuMTYyOTk0LDE1LjUwOTA2OCwyNy40OTQ5OTUsMTQuOTQwMDU2LDI3LjQ5NDk5NUw2Ljc2NTg4OTgsMjcuNDk0OTk1QzUuOTczODY5OSwyNy40OTQ5OTUsNS4zMzE4NTg4LDI2Ljg1Mjk5Nyw1LjMzMTg1ODgsMjYuMDYxMDA1TDUuMzMxODU4OCwyMS4wMzMwMDUgOS4yMjA5Mzc5LDI0LjkyMzAwNEM5LjcwOTk0NTgsMjUuNDEwOTk1IDEwLjM1Nzk2MiwyNS42NzkwMDEgMTEuMDQ3OTc1LDI1LjY3OTAwMSAxMS43Mzc5ODgsMjUuNjc5MDAxIDEyLjM4NzAwMywyNS40MTA5OTUgMTIuODc1MDEyLDI0LjkyMzAwNEwxNi4zNzQwODQsMjEuNDIzOTk2IDE2LjM3NDA4NCwyMi4zOTM5OTcgMTcuMjk4MTA2LDIxLjU0NDk5OCAxNS4yNjAwNjIsMTcuMjA3MDAxQzE0Ljg1NzA1NCwxNi4zNTIwMDUsMTUuMjI1MDU4LDE1LjMzNTAwNywxNi4wODAwNzksMTQuOTMyOTk5TDE2LjEzMTA4MiwxNC45MDgwMDVDMTYuMzQ0MDg1LDE0LjgwNzk5OSAxNi41NjgwODgsMTQuNzU1OTk3IDE2Ljc5MDA5MiwxNC43NDcwMDkgMTYuODMxNzE4LDE0Ljc0NTM4NCAxNi44NzMyNzMsMTQuNzQ1Mjk1IDE2LjkxNDY3OCwxNC43NDY3MXogTTEyLjAwNTk5NCwxMy4wNjMwMDRMMTAuNDE5OTY0LDE0LjY0OTAwMkMxMS4wNDI5NzQsMTUuMDc0MDA1IDExLjU0Nzk4NSwxNS4wOTMwMDIgMTEuOTM0OTk0LDE0LjcwNjAwOSAxMi4yNTg5OTgsMTQuMzgyMDA0IDEyLjI4MywxMy44MzUwMDcgMTIuMDA1OTk0LDEzLjA2MzAwNHogTTEzLjQwNzAyNCw5LjQyMzk5NkMxMy4xMzcwMTgsOS40MjE5OTcxIDEyLjkwNjAxNSw5LjUxODAwNTQgMTIuNzEzMDEsOS43MTAwMDY3IDEyLjUxMDAwNiw5LjkxNDAwMTUgMTIuNDAwMDA0LDEwLjEzNDk5NSAxMi4zODIwMDIsMTAuMzc1IDEyLjM2MywxMC42MTUwMDUgMTIuNDI5MDA0LDEwLjk0MjAwMSAxMi41NzgwMDUsMTEuMzU0MDA0TDE0LjIyMTA0LDkuNzEwMDA2N0MxMy45NDkwMzUsOS41MjAwMDQzLDEzLjY3NzAzLDkuNDI1MDAzMSwxMy40MDcwMjQsOS40MjM5OTZ6IE0xNS43MjUwNjgsOC4yMDcwMDA3TDE2LjI5MzA4LDguNzc2MDAxIDE1LjU2ODA2OCw5LjVDMTYuMTk5MDc3LDEwLjE2NTAwOSwxNi41NzAwODcsMTAuNjg4OTk1LDE2LjY3OTA5LDExLjA3Mjk5OEwxNS43OTcwNjksMTEuOTUzOTk1QzE1LjY4MTA2OSwxMS4zOTc5OTUsMTUuMzUyMDU5LDEwLjgzMzAwOCwxNC44MTEwNDgsMTAuMjU5MDAzTDEyLjkxMjAxNSwxMi4xNTgwMDVDMTMuMzEwMDIyLDEzLjExNTAwNSAxMy41MDIwMjMsMTMuODUwOTk4IDEzLjQ4ODAyMywxNC4zNjUwMDUgMTMuNDc0MDIzLDE0Ljg3ODAwNiAxMy4zMDEwMjMsMTUuMzAwOTk1IDEyLjk2OTAxNSwxNS42MzI5OTYgMTIuNTY1MDA3LDE2LjAzNzAwMyAxMi4wNzE5OTgsMTYuMjE5MDA5IDExLjQ4ODk4NSwxNi4xNzkwMDEgMTAuOTA0OTc0LDE2LjEzOTAwOCAxMC4yOTg5NTksMTUuODgwMDA1IDkuNjcwOTQ4MiwxNS4zOTkwMDJMOC43NzU5Mjg2LDE2LjI5MjAwNyA4LjIwNzkxNjQsMTUuNzIzOTk5IDkuMDY3OTM1MSwxNC44NjMwMDdDOC4zODQ5MjIyLDE0LjE3OTAwMSw3Ljk0NTkxMDEsMTMuNTAzOTk4LDcuNzUyOTA5MywxMi44MzkwMDVMOC42NzE5MjY2LDExLjkyMTAwNUM4LjcxMzkyNzQsMTIuMjU1MDA1IDguODQ2OTI5NywxMi42MzIwMDQgOS4wNzA5MzM1LDEzLjA1MzAwOSA5LjI5Mzk0MTYsMTMuNDczOTk5IDkuNTQ1OTQ1MywxMy44MjQ5OTcgOS44MjU5NDk4LDE0LjEwNDk5NkwxMS42NTg5ODcsMTIuMjcyMDAzQzExLjIzMDk3NywxMS4yNDQ5OTUgMTEuMDM1OTc0LDEwLjQ5OTAwOCAxMS4wNzQ5NzYsMTAuMDMxOTk4IDExLjExMjk3NCw5LjU2NTAwMjQgMTEuMzA0OTc5LDkuMTU4OTk2NiAxMS42NTA5ODgsOC44MTMwMDM1IDEyLjA1OTk5Nyw4LjQwMjk5OTkgMTIuNTc3MDA2LDguMjEzMDA1MSAxMy4yMDIwMTgsOC4yNDIwMDQ0IDEzLjgyNjAzMSw4LjI3MTAwMzcgMTQuNDIwMDQxLDguNTA2MDA0MyAxNC45ODMwNTYsOC45NDc5OTh6IE0xMy40ODUwMjUsMEMxMy44NTIwMzMsMCwxNC4yMjAwNCwwLjEzOTk5OTM5LDE0LjUwMTA0NCwwLjQyMTAwNTI1TDI0LjExMjI0MSwxMC4wMzE5OThDMjQuNjczMjU3LDEwLjU5MzAwMiwyNC42NzMyNTcsMTEuNTAxOTk5LDI0LjExMjI0MSwxMi4wNjMwMDRMMTkuNTk3MTQ4LDE2LjU3ODAwMyAxOS4wNTQxMzksMTUuNDIzOTk2QzE4LjkzMDEzNSwxNS4xNTg5OTcsMTguNzYwMTMzLDE0LjkyMzk5NiwxOC41NTcxMjYsMTQuNzI1MDA2TDE4LjQ3NzEyMiwxNC42NTIwMDggMjIuMDgxMjAxLDExLjA0ODAwNCAxMy40ODUwMjUsMi40NTEwMDQgMi40NTE3OTksMTMuNDg0MDA5IDExLjA0Nzk3NSwyMi4wODEwMDkgMTQuOTMyMDUzLDE4LjE5NzAwNiAxNS45MDYwNzIsMjAuMjY4OTk3IDEyLjA2Mjk5NSwyNC4xMTEwMDhDMTEuNTAyOTg2LDI0LjY3MTk5NywxMC41OTM5NjcsMjQuNjcxOTk3LDEwLjAzMjk1NCwyNC4xMTEwMDhMMC40MjA3NTkyNywxNC41Qy0wLjE0MDI1MzA5LDEzLjkzODk5NSwtMC4xNDAyNTMwOSwxMy4wMjk5OTksMC40MjA3NTkyNywxMi40NjkwMDlMMTIuNDcwMDA0LDAuNDIxMDA1MjVDMTIuNzUwMDA5LDAuMTM5OTk5MzksMTMuMTE4MDE2LDAsMTMuNDg1MDI1LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                        background-position-x: center;
+                        background-position-y: center;
+                        background-size: 80px;
+                        width: 80px;
+                        height: 80px;
+                    }
+
                     .itemPic{
                         width: 80px;
                         height: 80px;
@@ -250,89 +259,183 @@ $col-3-height: 340px;
 
                 }
                 
-                .col-right {
+                .catalog {
+                    .col-right {
 
-                    .item-header {
-                        .itemText{
-                            float: left;
-                            width: 50%;
-                            min-height: 60px;
-                            padding-left: 10px;
-                            
-                            .itemSubHeader{
-                                color: $smartgreen;
-                                font-size: 18px;
+                        .item-header {
+                            .itemText{
+                                float: left;
+                                width: 50%;
+                                min-height: 60px;
+                                padding-left: 10px;
+                                
+                                .itemSubHeader{
+                                    color: $smartgreen;
+                                    font-size: 18px;
+                                }
+                                
                             }
                             
-                        }
-                        
-                        .itemPoint{
-                            display: inline-block;
-                            width: calc(50% - 100px);
-                            font-size: 20px;
-                            text-align: right;
-                            min-height: 60px;
-                            font-weight: bold;
-                            float: right;
-                            
-                            span{
-                                font-size: 10px;
-                            }
-                        }
-                    }
-
-                    .item-amount{
-
-                        .counter{
-                            padding-left: 10px;
-                            width: 28%;
-                            display: inline-block;
-
-                            .sign {
+                            .itemPoint{
                                 display: inline-block;
-                                background-color: $smartgreen;
-                                color: #fff;
-                                text-align: center;
-                                width: 25px;
-                                text-align: center;
-                                height: 25px;
-                                line-height: 25px;
-                                border-radius: 5px;
+                                width: calc(50% - 100px);
+                                font-size: 20px;
+                                text-align: right;
+                                min-height: 60px;
+                                font-weight: bold;
+                                float: right;
+                                
+                                span{
+                                    font-size: 10px;
+                                }
                             }
-
-                            .amount {
-                                text-align: center;
-                                margin-left: 6px;
-                                margin-right: 6px;
-                            }
-
                         }
 
-                        .sub-total {
-                            font-size: 10px;
-                        }
-                    
-                        .itemPoint{
-                            display: inline-block;
-                            width: calc(50% - 74px);
-                            font-size: 30px;
-                            text-align: right;
-                            min-height: 60px;
-                            font-weight: bold;
-                            color: $smartred;
-                            float: right;
-                            
-                            span{
+                        .item-amount{
+
+                            .counter{
+                                padding-left: 10px;
+                                width: 28%;
+                                display: inline-block;
+
+                                .sign {
+                                    display: inline-block;
+                                    background-color: $smartgreen;
+                                    color: #fff;
+                                    text-align: center;
+                                    width: 25px;
+                                    text-align: center;
+                                    height: 25px;
+                                    line-height: 25px;
+                                    border-radius: 5px;
+                                }
+
+                                .amount {
+                                    text-align: center;
+                                    margin-left: 6px;
+                                    margin-right: 6px;
+                                }
+
+                            }
+
+                            .sub-total {
                                 font-size: 10px;
                             }
+                        
+                            .itemPoint{
+                                display: inline-block;
+                                width: calc(50% - 74px);
+                                font-size: 30px;
+                                text-align: right;
+                                min-height: 60px;
+                                font-weight: bold;
+                                color: $smartred;
+                                float: right;
+                                
+                                span{
+                                    font-size: 10px;
+                                }
+                            }
+
+                        }
+
+                        .number-selection-container {
+                            margin-top: 0;
                         }
 
                     }
+                }
+                
+                .bill {
+                    .col-right {
 
-                    .number-selection-container {
-                        margin-top: 0;
+                        .item-header {
+                            .itemText{
+                                float: none;
+                                width: 80%;
+                                min-height: 60px;
+                                padding-left: 10px;
+                                
+                                .itemSubHeader{
+                                    color: $smartgreen;
+                                    font-size: 18px;
+                                }
+                                
+                            }
+                            
+                            .itemPoint{
+                                display: inline-block;
+                                width: calc(50% - 100px);
+                                font-size: 20px;
+                                text-align: right;
+                                min-height: 60px;
+                                font-weight: bold;
+                                float: right;
+                                
+                                span{
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+
+                        .item-amount{
+                            text-align: right;
+                            margin-bottom: 35px;   
+
+                            .counter{
+                                padding-left: 10px;
+                                width: 28%;
+                                display: inline-block;
+
+                                .amount {
+                                    text-align: center;
+                                    margin-left: 6px;
+                                    margin-right: 6px;
+                                }
+
+                            }
+
+                            .sub-total {
+                                font-size: 10px;
+                            }
+                        
+                            .itemPoint{
+                                display: inline-block;
+                                width: calc(50% - 74px);
+                                font-size: 30px;
+                                text-align: right;
+                                min-height: 35px;
+                                font-weight: bold;
+                                color: $smartred;
+                                float: right;
+                                
+                                span{
+                                    font-size: 10px;
+                                }
+                            }
+
+                            .peso-amount-label {
+                                font-size: 10px;
+                            }
+                        
+                            .peso-amount{
+                                display: inline-block;
+                                width: calc(50% - 74px);
+                                font-size: 20px;
+                                text-align: right;
+                                min-height: 35px;
+                                font-weight: bold;
+                                float: right;
+                            }
+
+
+                        }
+
+                        .number-selection-container {
+                            margin-top: 0;
+                        }
+
                     }
-
                 }
             }
         }
