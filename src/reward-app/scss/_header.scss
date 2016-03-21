@@ -125,6 +125,13 @@ $smallheight: 48px;
 
         .filterBox{
 
+            .filter-background {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                z-index: -1;
+            }
+
             .search-container {
                 text-align: center;
                 margin-top: 20px;

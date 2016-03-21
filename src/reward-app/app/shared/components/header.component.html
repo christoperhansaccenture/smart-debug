@@ -15,6 +15,8 @@
             <div class="points" *ngIf="getHeaderLayout().point">{{ getPointValue() }} <span>pts</span></div>
         </div>
         <div class="filterBox" *ngIf="filterFunction">
+            <div class="filter-background" (click)="closeFilter()">
+            </div>
             <div class="sliderBox">
                 <span class="description">Points</span>
                 <multi-slider

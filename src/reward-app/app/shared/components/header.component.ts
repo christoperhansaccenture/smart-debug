@@ -61,6 +61,10 @@ export class HeaderComponent {
         }
         
     }
+
+    closeFilter() {
+        this.filterFunction = false;
+    }
     
     selectedPhoneNumber(){
         return this._accountService.getSelectedPhoneNumber();
@@ -91,7 +95,8 @@ export class HeaderComponent {
 	}
 	
 	goToPreviousPage(){
-		
+
+        this.filterFunction = false;
 		this._pageNavigationService.gotoPreviousPage();
         
 	}
