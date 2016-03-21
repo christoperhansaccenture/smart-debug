@@ -544,7 +544,7 @@ class AccountController {
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                console.log(result);
+                console.log("get link list " + result);
                 var jsonObject = JSON.parse(result);
                 var finalResult = {
                     phoneNo: '',

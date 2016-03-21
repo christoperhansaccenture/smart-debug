@@ -18,7 +18,7 @@
     }
     
     .leftmenuContainer{
-        width: 70%;
+        width: 75%;
         z-index: 150;
         background-color: #FFF;
         position: fixed;
@@ -26,7 +26,7 @@
         overflow-y: auto;
         overflow-x: hidden;
         top: 0;
-        left: -70%;
+        left: -75%;
         -webkit-transform: translate3d(0,0,0);
         -ms-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
@@ -70,8 +70,8 @@
                 float: right;
                 text-align: right;  
                 color: #FFF;
-                width: 130px;
-                margin-right: 10px;
+                width: 140px;
+                //margin-right: 10px;
                 padding-bottom: 10px;
                 
                 .smartPic{

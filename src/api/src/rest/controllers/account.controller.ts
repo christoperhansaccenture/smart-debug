@@ -650,7 +650,7 @@ var config = require('../config/config');
 
                 try {  
                     var result =  await ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(data));
-                    console.log(result);
+                    console.log("get link list " + result);
                     
                     var jsonObject = JSON.parse(result);
                     
