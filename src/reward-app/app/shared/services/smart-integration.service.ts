@@ -143,7 +143,7 @@ export class SmartIntegrationService {
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
 
-        return this._http.get(url + localStorage.getItem('phoneNumber'),
+        return this._http.get(url,
         <RequestOptionsArgs> {headers: new Headers(
                 {'Content-Type': 'application/json',
              'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))

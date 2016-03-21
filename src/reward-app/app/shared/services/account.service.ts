@@ -168,7 +168,7 @@ export class AccountService {
         if(mobileInStorage === null || mobileInStorage === undefined ){
         }else{
             this.mobileNoList = JSON.parse(mobileInStorage).availablePoints;
-            this.selectedUserPhone = this.avalaiblePoints[0];
+            this.selectedUserPhone = this.mobileNoList[0];
         }
         
         return this.mobileNoList;
@@ -189,9 +189,9 @@ export class AccountService {
                     
                     //save my balance data
                     this.mobileNoList = response.json();
+                    console.log(this.mobileNoList);
                     sessionStorage.setItem('mobileNo',JSON.stringify(response.json()));
                     this.selectedUserPhone = this.mobileNoList[0];
-                    console.log(this.selectedUserPhone);
                     
                 },
                 error =>{
