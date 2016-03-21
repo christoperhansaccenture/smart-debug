@@ -8,7 +8,7 @@ $col-3-height: 340px;
         width: 100%;
         border-bottom: 1px solid $text-dark-gray;
         background: url(../img/shopping.jpg) no-repeat;
-        background-size: 500px;
+        background-size: cover;
         background-position: center center;
         height: 140px;
         
@@ -19,7 +19,7 @@ $col-3-height: 340px;
         .text{
             float: right;
             background-color: rgba(0,0,0,0.5);
-            width: calc(45% - 20px);
+            width: calc(50% - 20px);
             padding: 10px;
             height: 37px;
             text-align: right;

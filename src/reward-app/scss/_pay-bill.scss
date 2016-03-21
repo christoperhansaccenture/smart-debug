@@ -14,9 +14,12 @@ $col-3-height: 340px;
         .header{
             display: inline-block;
             width: 100%;
-            border-bottom: 1px solid $text-dark-gray;
-            background-color: black;
+            //border-bottom: 1px solid $text-dark-gray;
+            //background-color: black;
             height: 140px;
+            background: url(../img/pay-bill-banner.jpg) no-repeat;
+            background-size: 500px;
+            background-position: center center;
             
             .void{
                 display: inline-block;

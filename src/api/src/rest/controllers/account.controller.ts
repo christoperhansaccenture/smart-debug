@@ -650,7 +650,7 @@ var config = require('../config/config');
 
                 try {  
                     var result =  await ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(data));
-                    console.log(result);
+                    console.log("get link list " + result);
                     
                     var jsonObject = JSON.parse(result);
                     
@@ -665,6 +665,7 @@ var config = require('../config/config');
                     if(jsonObject.data.length === 0){
                         
                         //return only 1 mobile number
+                        console.log(req.params.min);
                         finalResult.phoneNo = req.params.min;
                         
                         result =  await ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
@@ -744,7 +745,7 @@ var config = require('../config/config');
                     }
                     
                     // var resJson = JSON.parse(result);       
-                    
+                    console.log(listOfMobile);
                     res.json(listOfMobile);
                 }
                 catch (err) {

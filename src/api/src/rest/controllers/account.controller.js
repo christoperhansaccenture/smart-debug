@@ -544,7 +544,7 @@ class AccountController {
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                console.log(result);
+                console.log("get link list " + result);
                 var jsonObject = JSON.parse(result);
                 var finalResult = {
                     phoneNo: '',
@@ -554,6 +554,7 @@ class AccountController {
                 var listOfMobile = [];
                 if (jsonObject.data.length === 0) {
                     //return only 1 mobile number
+                    console.log(req.params.min);
                     finalResult.phoneNo = req.params.min;
                     result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
                     finalResult.name = JSON.parse(result).FirstName;
@@ -610,6 +611,7 @@ class AccountController {
                     }
                 }
                 // var resJson = JSON.parse(result);       
+                console.log(listOfMobile);
                 res.json(listOfMobile);
             }
             catch (err) {
