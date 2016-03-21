@@ -25,7 +25,8 @@
                         <input class="check" type="checkbox" 
                             [(ngModel)]="getNumberSelection().myNumber.checked" />
                         <div>My Number</div>
-                        <select class="my-number-select" [(ngModel)]="getNumberSelection().myNumber.number">
+                        <select class="my-number-select" [(ngModel)]="getNumberSelection().myNumber.number"
+                        *ngIf="getNumberSelection().myNumber.checked">
                             <option 
                                 *ngFor="#mobile of getMobileNumbers(); #i = index"
                                 [selected]="i == 0">
@@ -37,7 +38,8 @@
                         <input class="check" type="checkbox" 
                             [(ngModel)]="getNumberSelection().gift.checked" />
                         <span class="">Gift</span>
-                        <div class="input-gift-container">
+                        <div class="input-gift-container"
+                        *ngIf="getNumberSelection().gift.checked">
                             <span>+63</span>
                             <input type="text" placeholder="Enter phone number" [(ngModel)]="getNumberSelection().gift.number" />
                         </div>
@@ -84,7 +86,8 @@
                                 <input class="check" type="checkbox" 
                                     [(ngModel)]="item.numberSelection.myNumber.checked" />
                                 <div>My Number</div>
-                                <select class="my-number-select" [(ngModel)]="item.numberSelection.myNumber.number">
+                                <select class="my-number-select" [(ngModel)]="item.numberSelection.myNumber.number"
+                                *ngIf="item.numberSelection.myNumber.checked">
                                     <option 
                                         *ngFor="#mobile of getMobileNumbers(); #i = index"
                                         [selected]="i == 0">
@@ -96,7 +99,8 @@
                                 <input class="check" type="checkbox"
                                     [(ngModel)]="item.numberSelection.gift.checked" />
                                 <span class="">Gift</span>
-                                <div class="input-gift-container">
+                                <div class="input-gift-container"
+                                *ngIf="item.numberSelection.gift.checked">
                                     <span>+63</span>
                                     <input type="text" placeholder="Enter phone number" [(ngModel)]="item.numberSelection.gift.number" />
                                 </div>

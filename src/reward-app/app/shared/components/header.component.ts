@@ -39,12 +39,27 @@ export class HeaderComponent {
     }
     
     toggleLeftMenu(){
+        this.filterFunction = false;
         this._layoutService.toggleLeftMenu();
     }
     
     toggleFilterFunction(){
         this.filterFunction = !this.filterFunction;
         console.log(this.filterFunction);
+        this._catalogService.filter.all();
+        
+        if (this._layoutService.getCurrentPage() === 'Perks') {
+            this._catalogService.filter.reset();
+            this._catalogService.filter.categories.perks = true;
+        }
+        else if (this._layoutService.getCurrentPage() === 'Catalog') {
+            this._catalogService.filter.all();
+        }
+        
+        if(this.filterFunction){
+            this._router.navigate(['CatalogList']);    
+        }
+        
     }
     
     selectedPhoneNumber(){
@@ -184,6 +199,7 @@ export class HeaderComponent {
 
     goToCart() {
         this._router.navigate(['ShoppingCart']);
+        this.filterFunction = false;
     }
     
 }

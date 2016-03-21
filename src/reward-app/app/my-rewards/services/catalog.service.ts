@@ -125,7 +125,7 @@ export class CatalogService {
                             c.code = e.code;
                             c.name = e.name;
                             c.description = e.description;
-                            c.imageUrl = e.imageUrl;
+                            c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
                             c.categories = e.categories;
                             c.points = e.points;
                             c.stock = e.stock;
