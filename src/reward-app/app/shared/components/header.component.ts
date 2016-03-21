@@ -45,8 +45,6 @@ export class HeaderComponent {
     
     toggleFilterFunction(){
         this.filterFunction = !this.filterFunction;
-        console.log(this.filterFunction);
-        this._catalogService.filter.all();
         
         if (this._layoutService.getCurrentPage() === 'Perks') {
             this._catalogService.filter.reset();
@@ -176,6 +174,10 @@ export class HeaderComponent {
     toggleMobile() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.mobile = !this.getFilter().categories.mobile;
+        this.getFilter().categories.prepaid = this.getFilter().categories.mobile;
+        this.getFilter().categories.postpaid = this.getFilter().categories.mobile;
+        this.getFilter().categories.broPrepaid = this.getFilter().categories.mobile;
+        this.getFilter().categories.broPostpaid = this.getFilter().categories.mobile;
     }
 
     togglePrepaid() {
