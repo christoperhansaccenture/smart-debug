@@ -22,6 +22,8 @@ import {CartItem} from '../../shared/models/cart-item';
     ]
 })
 export class ShoppingCartComponent  {
+
+    editBill:boolean = false;
     
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
@@ -31,6 +33,7 @@ export class ShoppingCartComponent  {
         private _cartService: CartService,
         private _accountService: AccountService) {
 		
+            this._accountService.getMobileNumberlist();
 		this._layoutService.setCurrentPage('ShoppingCart');
 	}
 	
@@ -49,7 +52,9 @@ export class ShoppingCartComponent  {
     getPointsRequired() {
         if (this.getItems() && this.getItems().length > 0) {
             return this.getItems()
-            .map(e => e.getTotalPoints())
+            .map(e => {
+                return +e.getTotalPoints();
+            })
             .reduce((prev, curr) => {
                 return prev + curr;
             });
@@ -61,15 +66,15 @@ export class ShoppingCartComponent  {
         return this.getCurrentPoints() - this.getPointsRequired();
     }
 
-    getItems() {
-        let items = [];
+    getItems(): CartItem[] {
+        let items: CartItem[] = [];
         for (let key in this._cartService.items) 
             items.push(this._cartService.items[key]);
         return items;
     }
 
     removeItem(item: CartItem) {
-        this._cartService.removeItem(item.catalog);
+        this._cartService.removeItem(item);
     }
 
     plusItem(item: CartItem) {
@@ -86,38 +91,73 @@ export class ShoppingCartComponent  {
         return this._cartService.numberSelection;
     }
 
-    toggleParentOneNumber() {
-        this.getNumberSelection().oneNumber = !this.getNumberSelection().oneNumber;
+    toggleParentCurrentNumber() {
+        this.getNumberSelection().currentNumber = !this.getNumberSelection().currentNumber;
         this._cartService.saveToStorage();
     }
 
     toggleParentMyNumber() {
         this.getNumberSelection().gift.checked = false;
+        this.getNumberSelection().decidePerItem = false;
         this.getNumberSelection().myNumber.checked = !this.getNumberSelection().myNumber.checked;
         this._cartService.saveToStorage();
     }
 
     toggleParentGift() {
         this.getNumberSelection().myNumber.checked = false;
+        this.getNumberSelection().decidePerItem = false;
         this.getNumberSelection().gift.checked = !this.getNumberSelection().gift.checked;
+        this._cartService.saveToStorage();
+    }
+
+    toggleDecidePerItem() {
+        this.getNumberSelection().gift.checked = false;
+        this.getNumberSelection().myNumber.checked = false;
+        this.getNumberSelection().decidePerItem = !this.getNumberSelection().decidePerItem;
+        this._cartService.saveToStorage();
+    }
+
+    toggleCurrentNumber(item: CartItem) {
+        item.numberSelection.gift.checked = false;
+        item.numberSelection.myNumber.checked = false;
+        item.numberSelection.currentNumber.checked = !item.numberSelection.currentNumber.checked;
         this._cartService.saveToStorage();
     }
 
     toggleMyNumber(item: CartItem) {
         item.numberSelection.gift.checked = false;
+        item.numberSelection.currentNumber.checked = false;
         item.numberSelection.myNumber.checked = !item.numberSelection.myNumber.checked;
         this._cartService.saveToStorage();
     }
 
     toggleGift(item: CartItem) {
         item.numberSelection.myNumber.checked = false;
+        item.numberSelection.currentNumber.checked = false;
         item.numberSelection.gift.checked = !item.numberSelection.gift.checked;
         this._cartService.saveToStorage();
     }
 
+    getBill() {
+        return this.getItems().filter(e => e.isBill());
+    }
+
     goToNext() {
+        if (this.getItems().length < 1 || this.getPointsRemaining() < 0
+            || (this.getBill().length == 1 && this.getBill()[0]))
+            return;
+
         // if one number
-        if (this.getNumberSelection().oneNumber) {
+        if (this.getNumberSelection().currentNumber) {
+            this.getItems().forEach(e => { 
+                e.clearNumberSelection();
+                e.numberSelection.currentNumber = {
+                    checked: true,
+                    number: this.getCurrentNumber()
+                };
+            });
+        }
+        else if (this.getNumberSelection().oneNumber) {
             if (this.getNumberSelection().myNumber.checked) {
                 this.getItems().forEach(e => { 
                     e.clearNumberSelection();
@@ -160,11 +200,21 @@ export class ShoppingCartComponent  {
     }
 
     getMobileNumbers() {
-        return this._accountService.mobileNoList.map(e => e.phoneNo);
+        return this._accountService.mobileNoList
+            .map(e => e.phoneNo)
+            .filter(e => e !== this.getCurrentNumber());
+    }
+
+    getCurrentNumber() {
+        return this._accountService.selectedUserPhone.phoneNo;
     }
 
     stopPropagation(event) {
         event.stopPropagation();
+    }
+
+    toggleEditBill() {
+        this.editBill = !this.editBill;
     }
 	
 }

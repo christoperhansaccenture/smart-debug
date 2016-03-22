@@ -8,7 +8,9 @@ import {SmartIntegrationService} from './smart-integration.service';
 export class CartService {
 
     numberSelection = {
+        currentNumber: true,
         oneNumber: false,
+        decidePerItem: false,
         myNumber: {
             checked: false,
             number: ""
@@ -44,8 +46,11 @@ export class CartService {
         this.saveToStorage();
     }
 
-    removeItem(catalog: Catalog) {
-        delete this.items[catalog.id];
+    removeItem(item: CartItem) {
+        if (item.isBill())
+            delete this.items[-1];
+        else
+            delete this.items[item.catalog.id];
         this.saveToStorage();
     }
 

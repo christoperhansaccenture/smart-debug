@@ -15,39 +15,50 @@
             </div>
         </div>
         <div class="number-selection-container">
-            <ul>
-                <li (click)="toggleParentOneNumber()">
-                    <input class="check" type="checkbox" [(ngModel)]="getNumberSelection().oneNumber"/>
-                    <span class="">Send all to one number</span>
+            <ul *ngIf="getNumberSelection().currentNumber">
+                <li>
+                    <div class="default-number">
+                        Send all to {{ getCurrentNumber() }}
+                        <span class="edit-number" (click)="toggleParentCurrentNumber()"></span>
+                    </div>
                 </li>
-                <ul *ngIf="getNumberSelection().oneNumber">
-                    <li (click)="toggleParentMyNumber()">
-                        <input class="check" type="checkbox" 
-                            [(ngModel)]="getNumberSelection().myNumber.checked" />
-                        <div>My Number</div>
-                        <select class="my-number-select" 
-                            [(ngModel)]="getNumberSelection().myNumber.number"
-                            *ngIf="getNumberSelection().myNumber.checked"
-                            (click)="stopPropagation($event)">
-                            <option 
-                                *ngFor="#mobile of getMobileNumbers(); #i = index"
-                                [selected]="i == 0">
-                                {{ mobile }}
-                            </option>
-                        </select>
-                    </li>
-                    <li (click)="toggleParentGift()">
-                        <input class="check" type="checkbox" 
-                            [(ngModel)]="getNumberSelection().gift.checked" />
-                        <span class="">Gift</span>
-                        <div class="input-gift-container"
-                            *ngIf="getNumberSelection().gift.checked"
-                            (click)="stopPropagation($event)">
-                            <span>+63</span>
-                            <input type="text" placeholder="Enter phone number" [(ngModel)]="getNumberSelection().gift.number" />
-                        </div>
-                    </li>
-                </ul>
+            </ul>
+            <ul *ngIf="!getNumberSelection().currentNumber">
+                <li (click)="toggleParentCurrentNumber()">
+                    <input class="check" type="checkbox" [(ngModel)]="getNumberSelection().currentNumber"/>
+                    <span class="">Send all to {{ getCurrentNumber() }}</span>
+                </li>
+                <li (click)="toggleParentMyNumber()"
+                    *ngIf="getMobileNumbers().length > 0">
+                    <input class="check" type="checkbox" 
+                        [(ngModel)]="getNumberSelection().myNumber.checked" />
+                    <span>Send all to </span>
+                    <select class="my-number-select" 
+                        [(ngModel)]="getNumberSelection().myNumber.number"
+                        (click)="stopPropagation($event)">
+                        <option 
+                            *ngFor="#mobile of getMobileNumbers()"
+                            [value]="mobile">
+                            {{ mobile }}
+                        </option>
+                    </select>
+                </li>
+                <li (click)="toggleParentGift()">
+                    <input class="check" type="checkbox" 
+                        [(ngModel)]="getNumberSelection().gift.checked" />
+                    <span class="">Send all as a gift</span>
+                    <div class="input-gift-container"
+                        *ngIf="getNumberSelection().gift.checked"
+                        (click)="stopPropagation($event)">
+                        <span>+63</span>
+                        <input type="text" placeholder="Enter phone number" [(ngModel)]="getNumberSelection().gift.number" />
+                    </div>
+                </li>
+                <li (click)="toggleDecidePerItem()">
+                    <input class="check" type="checkbox" 
+                        [(ngModel)]="getNumberSelection().decidePerItem" />
+                    <span class="">Recipient defined per item</span>
+                </li>
             </ul>
         </div>
         <div class="itemListContainer">
@@ -84,7 +95,48 @@
                             <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
                         </div>
                         <div class="row number-selection-container"
-                            *ngIf="!getNumberSelection().oneNumber">
+                            *ngIf="!getNumberSelection().currentNumber && getNumberSelection().decidePerItem">
+                            <ul *ngIf="item.numberSelection.currentNumber.checked">
+                                <li>
+                                    <div class="default-number">
+                                        Send all to {{ getCurrentNumber() }}
+                                        <span class="edit-number" (click)="toggleCurrentNumber(item)"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul *ngIf="!item.numberSelection.currentNumber.checked">
+                                <li (click)="toggleCurrentNumber(item)">
+                                    <input class="check" type="checkbox" [checked]="false"/>
+                                    <span class="">Send all to {{ getCurrentNumber() }}</span>
+                                </li>
+                                <li (click)="toggleMyNumber(item)"
+                                    *ngIf="getMobileNumbers().length > 0">
+                                    <input class="check" type="checkbox" 
+                                        [(ngModel)]="item.numberSelection.myNumber.checked" />
+                                    <span>Send all to </span>
+                                    <select class="my-number-select" 
+                                        [(ngModel)]="item.numberSelection.myNumber.number"
+                                        (click)="stopPropagation($event)">
+                                        <option 
+                                            *ngFor="#mobile of getMobileNumbers()"
+                                            [value]="mobile">
+                                            {{ mobile }}
+                                        </option>
+                                    </select>
+                                </li>
+                                <li (click)="toggleGift(item)">
+                                    <input class="check" type="checkbox" 
+                                        [(ngModel)]="item.numberSelection.gift.checked" />
+                                    <span class="">Send all as a gift</span>
+                                    <div class="input-gift-container"
+                                        *ngIf="item.numberSelection.gift.checked"
+                                        (click)="stopPropagation($event)">
+                                        <span>+63</span>
+                                        <input type="text" placeholder="Enter phone number" [(ngModel)]="item.numberSelection.gift.number" />
+                                    </div>
+                                </li>
+                            </ul>
+                            <!--
                             <ul>
                                 <li (click)="toggleMyNumber(item)">
                                     <input class="check" type="checkbox" 
@@ -112,6 +164,7 @@
                                     </div>
                                 </li>
                             </ul>
+                            -->
                         </div>
                     </div>
                 </div>
@@ -131,7 +184,8 @@
                         </div>
                         <div class="row item-amount">
                             <span class="peso-amount-label">Peso Amount:</span>
-                            <div class="peso-amount">{{ item.getTotalPoints() }}</div>
+                            <input class="peso-amount" type="text" placeholder="Amount" [class.edit]="editBill" [(ngModel)]="item.amount" [disabled]="!editBill" />
+                            <span class="edit-bill" (click)="toggleEditBill()"></span>
                         </div>
                         <div class="row item-amount">
                             <span class="sub-total">Sub Total:</span>
