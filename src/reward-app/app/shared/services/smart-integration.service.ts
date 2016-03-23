@@ -25,32 +25,7 @@ export class SmartIntegrationService {
                 this.imageUrlBase = config.baseImageUrl;
             });
     }
-    
-    getBalance(phoneNumber:string){
-        
-        var url = this.serviceBase + 'postpaidws/accountManagement/accounts/' + phoneNumber + '/billingDetails';
-        
-        return this._http.get(url, 
-         <RequestOptionsArgs> {headers: new Headers(
-             {'Content-Type': 'application/json',
-             'Authorization': 'Basic cG9zdHBhaWR3czp3c0BQMCR0cEAhRDEyMyE=',
-             'X-session': sessionStorage.getItem('authorizationData')
-            })}
-            );
-    }
-    
-    getAvalaiblePoints(phoneNumber:string){
-        
-        var url = this.serviceBase + 'postpaidws/accountManagement/accounts/' + phoneNumber + '/details';
-        
-        return this._http.get(url, 
-         <RequestOptionsArgs> {headers: new Headers(
-             {'Content-Type': 'application/json',
-             'Authorization': 'Basic cG9zdHBhaWR3czp3c0BQMCR0cEAhRDEyMyE=',
-             'X-session': sessionStorage.getItem('authorizationData')
-            })});
-        
-    }
+
 
     getCatalogs() {
         let min = localStorage.getItem('phoneNumber');
@@ -138,12 +113,33 @@ export class SmartIntegrationService {
     
     getMobileListNumber(){
         let min = localStorage.getItem('phoneNumber');
-        let url = this.serviceBase + '/mobileNoList/' + min;
-        //var url = 'https://salty-fjord-81743.herokuapp.com/' + 'api/mobileNoList/';
-        //var url = 'http://localhost:8080/catalog';
-        //var url = 'services/activity.json';        
+        let url = this.serviceBase + '/mobileNoList/' + min;      
 
         return this._http.get(url,
+        <RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
+
+    }
+    
+    getProfileInformation(){
+        let min = localStorage.getItem('phoneNumber');
+        let url = this.serviceBase + '/customerInformation/' + min;      
+
+        return this._http.get(url,
+        <RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
+
+    }
+    
+    updateProfileInformation(userProfile:string){
+        let min = localStorage.getItem('phoneNumber');
+        let url = this.serviceBase + '/customerInformation/' + min;      
+
+        return this._http.put(url,userProfile,
         <RequestOptionsArgs> {headers: new Headers(
                 {'Content-Type': 'application/json',
              'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))

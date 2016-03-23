@@ -369,8 +369,10 @@ var config = require('../config/config');
 
                 try {  
                     var result =  await ssoService.getCatalogById(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query), id);
+                    var resultFavorite =  await ssoService.getFavorites(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify({min:id}));
                     //console.log(result);
                     var resultJson = JSON.parse(result).data;
+                    var resultFavoriteJson = JSON.parse(resultFavorite).data;
                     console.log(result);
 					var finalResult = {
 						"data" :[]
@@ -385,11 +387,21 @@ var config = require('../config/config');
 							"categories" : [],
 							"points" : resultJson[i].catNumPoints,
 							"stock" : resultJson[i].catAvailableStock,
-							"favorite": resultJson[i].GetFavorites,
+							"favorite": false,
 							"giftable": resultJson[i].catPasaRewardsEnabled,
 							"expiry": resultJson[i].catEndDate,
                             "imageUrl": resultJson[i].catProductImagePath
                         };
+                        
+                        for(var j = 0; j < resultFavoriteJson.length; j++){
+                            
+                            if(resultJson[i].catProductNo === resultFavoriteJson[j].catProductNo){
+                                item.favorite = true;
+                                break;
+                            }
+                            
+                        }
+                        
 						if(resultJson[i].catCategory === "15" ){
 							item.categories.push("Most Popular");
 						}

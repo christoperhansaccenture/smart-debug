@@ -10,32 +10,34 @@
         <div class="itemCategory">Rewards Overview</div>
         <div class="itemContainer">
             <div class="itemIdentifier name"></div>
-            <input class="inputValue" placeholder="First Name*"/>
+            <input class="inputValue" placeholder="First Name*" [(ngModel)]="getUserProfile().firstName"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier name"></div>
-            <input class="inputValue" placeholder="Middle Name"/>
+            <input class="inputValue" placeholder="Middle Name" [(ngModel)]="getUserProfile().middleName"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier name"></div>
-            <input class="inputValue" placeholder="Last Name"/>
+            <input class="inputValue" placeholder="Last Name" [(ngModel)]="getUserProfile().lastName"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier birthdate"></div>
-            <input class="inputValue" placeholder="Birthdate"/>
+            <input class="inputValue" placeholder="Birthdate" [(ngModel)]="getUserProfile().birthdate"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier marital"></div>
-            <select class="inputValue select" aria-placeholder="Marital Status">
-                <option value="single">Single</option>
-                <option value="married">Married</option>
+            <select class="inputValue select" aria-placeholder="Marital Status"
+            [(ngModel)]="getUserProfile().cspFamilyStatus">
+                <option value="1">Single</option>
+                <option value="2">Married</option>
             </select>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier gender"></div>
-            <select class="inputValue select" aria-placeholder="Gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+            <select class="inputValue select" aria-placeholder="Gender"
+            [(ngModel)]="getUserProfile().cspGender">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
             </select>
         </div>
         <div class="itemContainer">
@@ -44,29 +46,24 @@
             <div class="statusValue">Active</div>
         </div>
         <div class="itemCategory">Contact Details</div>
-        <!--<div class="itemContainer">
-            <div class="itemIdentifier mobile"></div>
-            <div class="phoneCountryValue">+63</div>
-            <input class="inputValue phone" placeholder="Contact Number"/>
-        </div>-->
         <div class="itemContainer">
             <div class="itemIdentifier email"></div>
-            <input class="inputValue" placeholder="Email address"/>
+            <input class="inputValue" placeholder="Email address" [(ngModel)]="getUserProfile().email"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier home"></div>
-            <input class="inputValue" placeholder="Home address"/>
+            <input class="inputValue" placeholder="Home address" [(ngModel)]="getUserProfile().address"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier city"></div>
-            <input class="inputValue" placeholder="Province"/>
+            <input class="inputValue" placeholder="Province" [(ngModel)]="getUserProfile().province"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier city"></div>
-            <input class="inputValue" placeholder="City/Municipality"/>
+            <input class="inputValue" placeholder="City/Municipality" [(ngModel)]="getUserProfile().city"/>
         </div>
         <div class="itemFooterContainer">
-            <div class="button" (click)="doTransfer()">Update Profile</div>
+            <div class="button" (click)="updateProfile()">Update Profile</div>
         </div>
     </div>
 </div>

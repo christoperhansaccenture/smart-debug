@@ -119,9 +119,71 @@ export module SSO {
             });
         }
         
+        async updateCustomerInformation(accessToken:string, clientId:string, msaId:string, body:string) : Promise<string> {
+
+            var path:string = '/apimysmartws/ssoapi/rewards/CustomerInfo';
+            var jsonBody = JSON.parse(body);
+            
+            var uuidString = uuid.v4();
+            var arrUuid = uuidString.split('-');
+            uuidString = '';
+            for(var i = 0; i < arrUuid.length; i++){
+                uuidString = uuidString + arrUuid[i];    
+            }
+
+            return new Promise<string> (
+                function(resolve, reject) { 
+                    request.put({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientID': clientId,
+                            'msaID': msaId,
+                            'accessToken': accessToken,
+                            'nonce': uuidString
+                        },
+                        form: jsonBody
+                    }, 
+                    function(err,httpResponse,body){  
+                        resolve(body);
+                })   
+            });
+        }
+        
+        async searchCustomerInformation(accessToken:string, clientId:string, msaId:string, query:string) : Promise<string> {
+
+            var path:string = '/apimysmartws/ssoapi/rewards/SearchCustomerInfo';
+            var jsonQuery = JSON.parse(query);
+            
+            var uuidString = uuid.v4();
+            var arrUuid = uuidString.split('-');
+            uuidString = '';
+            for(var i = 0; i < arrUuid.length; i++){
+                uuidString = uuidString + arrUuid[i];    
+            }
+
+            return new Promise<string> (
+                function(resolve, reject) { 
+                    request.get({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientID': clientId,
+                            'msaID': msaId,
+                            'accessToken': accessToken,
+                            'nonce': uuidString
+                        },
+                        qs: jsonQuery
+                    }, 
+                    function(err,httpResponse,body){  
+                        resolve(body);
+                })   
+            });
+        }
+        
         async getCustomerInformation(accessToken:string, clientId:string, msaId:string, query:string) : Promise<string> {
 
-            var path:string = '/apimysmartws/ssoapi/rewards/GetCustomerInformation';
+            var path:string = '/apimysmartws/ssoapi/rewards/GetCustomerInfo';
             var jsonQuery = JSON.parse(query);
             
             var uuidString = uuid.v4();
@@ -462,38 +524,6 @@ export module SSO {
                             'nonce': uuidString
                         },
                         form: json
-                    }, 
-                    function(err,httpResponse,body){  
-                        resolve(body);
-                })   
-            });
-        }
-        
-        async getFavourite(accessToken:string, clientId:string, msaId:string, query:string) : Promise<string> {
-
-            var path:string = '/apimysmartws/ssoapi/rewards/GetFavorites';
-            
-            var uuidString = uuid.v4();
-            var arrUuid = uuidString.split('-');
-            uuidString = '';
-            for(var i = 0; i < arrUuid.length; i++){
-                uuidString = uuidString + arrUuid[i];    
-            }
-            
-            var json = JSON.parse(query);
-
-            return new Promise<string> (
-                function(resolve, reject) { 
-                    request.post({
-                        url: config.baseurl + path,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'clientID': clientId,
-                            'msaID': msaId,
-                            'accessToken': accessToken,
-                            'nonce': uuidString
-                        },
-                        qs: json
                     }, 
                     function(err,httpResponse,body){  
                         resolve(body);

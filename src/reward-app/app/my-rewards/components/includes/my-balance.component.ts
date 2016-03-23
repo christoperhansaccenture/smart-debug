@@ -8,15 +8,15 @@ import {AccountService} from '../../../shared/services/account.service';
 export class MyBalanceComponent {
     
     constructor (private _accountService: AccountService) {
-        this._accountService.getBalanceFromBackEnd(false);
+       // this._accountService.getBalanceFromBackEnd(false);
     }
     
     selectedPhoneNumber(){
-        return this._accountService.getSelectedPhoneNumber();
+        //return this._accountService.getSelectedPhoneNumber();
     }
     
     getBalance(){
-        return this._accountService.getBalance();
+       // return this._accountService.getBalance();
     }
     
 }

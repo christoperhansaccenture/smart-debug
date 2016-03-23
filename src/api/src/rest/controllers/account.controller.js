@@ -351,9 +351,59 @@ class AccountController {
     getCustomerInformation(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
+            var data = {};
             token = token.replace('Bearer ', '');
-            console.log(req.query);
+            var nJwt = require('njwt');
+            try {
+                var jwt = nJwt.verify(token, config.signingKey);
+            }
+            catch (e) {
+                res.sendStatus(403);
+            }
+            const ssoService = new sso_service_1.SSO.sso();
+            try {
+                data = {
+                    min: req.params.min
+                };
+                //search customer number by mobile phone number  
+                var result = yield ssoService.searchCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                data = {
+                    customerNo: JSON.parse(result).data[0].cusCustomerNo
+                };
+                //get actual customer information
+                result = yield ssoService.getCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                //mapping
+                result = JSON.parse(result);
+                var userProfile = {
+                    firstName: result.data.cusFName,
+                    middleName: '',
+                    lastName: result.data.cusLName,
+                    birthdate: result.data.cspCustomerBirthday,
+                    email: result.data.cusEmail,
+                    address: result.data.cspAddress,
+                    province: result.data.cspState,
+                    city: result.data.cspCity
+                };
+                if (result.data.additionalInfoDisplayDatas.length !== 0) {
+                    for (var i = 0; i < result.data.additionalInfoDisplayDatas.length; i++) {
+                        if (result.data.additionalInfoDisplayDatas[i].addLabel === "Middle Name") {
+                            userProfile.middleName = result.data.additionalInfoDisplayDatas[i].addValue;
+                            break;
+                        }
+                    }
+                }
+                res.json(userProfile);
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
+    updateCustomerInformation(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var token = req.get("Authorization");
+            token = token.replace('Bearer ', '');
+            var data = {};
             var nJwt = require('njwt');
             try {
                 var jwt = nJwt.verify(token, config.signingKey);
@@ -365,10 +415,57 @@ class AccountController {
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.getCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
+                data = {
+                    min: req.params.min
+                };
+                //search customer number by mobile phone number  
+                var result = yield ssoService.searchCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                data = {
+                    customerNo: JSON.parse(result).data[0].cusCustomerNo
+                };
+                //get actual customer information
+                result = yield ssoService.getCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                var userProfile = JSON.parse(result);
+                userProfile.data.cusFName = req.body.firstName;
+                userProfile.data.cusLName = req.body.lastName;
+                userProfile.data.cspCustomerBirthday = req.body.birthdate;
+                userProfile.data.cusEmail = req.body.email;
+                userProfile.data.cspAddress = req.body.address;
+                userProfile.data.cspState = req.body.province;
+                userProfile.data.cspCity = req.body.city;
+                if (userProfile.data.additionalInfoDisplayDatas.length !== 0) {
+                    for (var i = 0; i < userProfile.data.additionalInfoDisplayDatas.length; i++) {
+                        if (userProfile.data.additionalInfoDisplayDatas[i].addLabel === "Middle Name") {
+                            userProfile.data.additionalInfoDisplayDatas[i].addValue = req.body.middleName;
+                            break;
+                        }
+                        if (i === (userProfile.data.additionalInfoDisplayDatas.length - 1)) {
+                            var addData = {
+                                addValue: req.body.middleName,
+                                addSize: 50,
+                                addLabel: "Middle Name",
+                                addMaster: 3,
+                                addId: 3101,
+                                additionalInfoDisplayDataSet: null
+                            };
+                            userProfile.data.additionalInfoDisplayDatas.push(addData);
+                        }
+                    }
+                }
+                else {
+                    var addData = {
+                        addValue: req.body.middleName,
+                        addSize: 50,
+                        addLabel: "Middle Name",
+                        addMaster: 3,
+                        addId: 3101,
+                        additionalInfoDisplayDataSet: null
+                    };
+                    userProfile.data.additionalInfoDisplayDatas.push(addData);
+                }
+                result = yield ssoService.updateCustomerInformation(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(userProfile));
                 console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
+                res.json(userProfile);
             }
             catch (err) {
                 console.log(err);
@@ -378,7 +475,6 @@ class AccountController {
     getListOfLinkedAccounts(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
             console.log(req.query);
             var nJwt = require('njwt');
@@ -529,7 +625,6 @@ class AccountController {
     getListOfMobileNumber(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
             var data = {
                 min: req.params.min
@@ -543,79 +638,31 @@ class AccountController {
             }
             const ssoService = new sso_service_1.SSO.sso();
             try {
-                var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                console.log("get link list " + result);
-                var jsonObject = JSON.parse(result);
-                var finalResult = {
-                    phoneNo: '',
-                    name: '',
-                    rewards: '0'
-                };
                 var listOfMobile = [];
-                if (jsonObject.data.length === 0) {
-                    //return only 1 mobile number
-                    console.log(req.params.min);
-                    finalResult.phoneNo = req.params.min;
-                    result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                    finalResult.name = JSON.parse(result).FirstName;
+                var result = yield ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                var resultJson = JSON.parse(result).SubscriptionList;
+                for (var i = 0; i < resultJson.length; i++) {
+                    var mobileListItem = {
+                        phoneNo: resultJson[i].Subscription,
+                        name: resultJson[i].SubscriptionName,
+                        rewards: '0'
+                    };
+                    data = {
+                        min: resultJson[i].Subscription
+                    };
                     result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
                     var resJson = JSON.parse(result);
-                    console.log(result);
                     if (resJson.data.length !== 0) {
                         for (var i = 0; i < resJson.data.length; i++) {
                             if (resJson.data[i].drawChance === false) {
-                                finalResult.rewards = resJson.data[i].rwdCashbackValue;
+                                mobileListItem.rewards = resJson.data[i].rwdCashbackValue;
                             }
                         }
                     }
-                    listOfMobile.push(finalResult);
+                    listOfMobile.push(mobileListItem);
                 }
-                else {
-                    finalResult.phoneNo = req.params.min;
-                    result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                    console.log(result);
-                    finalResult.name = JSON.parse(result).FirstName;
-                    result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                    var resJson = JSON.parse(result);
-                    console.log(result);
-                    if (resJson.data.length !== 0) {
-                        for (var i = 0; i < resJson.data.length; i++) {
-                            if (resJson.data[i].drawChance === false) {
-                                finalResult.rewards = resJson.data[i].rwdCashbackValue;
-                            }
-                        }
-                    }
-                    listOfMobile.push(finalResult);
-                    for (var i = 0; i < jsonObject.data.length; i++) {
-                        var mobileData = {
-                            phoneNo: '',
-                            name: '',
-                            rewards: '0'
-                        };
-                        mobileData.phoneNo = jsonObject.data[i].cusLoyaltyId;
-                        mobileData.name = jsonObject.data[i].cusFName;
-                        data = {
-                            min: jsonObject.data[i].cusLoyaltyId
-                        };
-                        result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                        var resJson = JSON.parse(result);
-                        console.log(result);
-                        if (resJson.data.length !== 0) {
-                            for (var i = 0; i < resJson.data.length; i++) {
-                                if (resJson.data[i].drawChance === false) {
-                                    mobileData.rewards = resJson.data[i].rwdCashbackValue;
-                                }
-                            }
-                        }
-                        listOfMobile.push(mobileData);
-                    }
-                }
-                // var resJson = JSON.parse(result);       
-                console.log(listOfMobile);
-                res.json(listOfMobile);
             }
             catch (err) {
-                console.log(err);
             }
         });
     }
