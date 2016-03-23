@@ -8,6 +8,7 @@ import {CatalogService} from '../services/catalog.service';
 import {ItemBeltComponent} from './item-belt.component';
 import {MostPopularItemBeltComponent} from './most-popular-item-belt.component';
 import {AllCategoryItemBeltComponent} from './all-category-item-belt.component';
+import {AlmostGetItemBeltComponent} from './almost-get-item-belt.component';
 import {LifestyleItemBeltComponent} from './lifestyle-item-belt.component';
 import {MobileItemBeltComponent} from './mobile-item-belt.component';
 import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
@@ -20,6 +21,7 @@ import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
         ItemBeltComponent,
         MostPopularItemBeltComponent,
         AllCategoryItemBeltComponent,
+        AlmostGetItemBeltComponent,
         LifestyleItemBeltComponent,
         MobileItemBeltComponent,
         FavoriteItemBeltComponent
