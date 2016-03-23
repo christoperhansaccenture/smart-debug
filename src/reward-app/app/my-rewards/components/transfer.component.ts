@@ -40,9 +40,40 @@ export class TransferComponent  {
         return this._matchMediaService.getmm();  
     }
     
+    ableToTransfer(){
+        if((this.phone !== '' || this.phone !== undefined || this.phone !== null) &&
+            (this.transferred !== '' || this.transferred !== undefined || this.transferred !== null)){
+            
+            if(this.getPointValue() - this.transferred >= 0){
+               return true; 
+            }else{
+                return false;
+            }
+                    
+        }else{
+            return false;
+        }
+        
+    }
+    
     doTransfer(){
-        this._modalService.toggleTransferModal();
-        this._modalService.setTransferData(this.transferred,this.phone);
+        
+        if(this.ableToTransfer()){
+                
+            var transferData:any = {
+         
+                from: this._accountService.getSelectedUserPhone().phoneNo,
+                to : this.phone,
+                srcCurrId: 1,
+                destCurrId: 1,
+                amount: this.transferred 
+                
+            };
+            
+            this._accountService.transferPoints(transferData);     
+            
+        }
+        
     }
 	
 }

@@ -172,6 +172,11 @@ $col-3-height: 340px;
                 background-color: $smartred;
                 color: #FFF;
                 
+                &.disable{
+                    background-color: #EEE;
+                    cursor: default;
+                }
+                
             }
             
         }

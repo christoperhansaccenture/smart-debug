@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {PhoneNumber} from '../models/phone-number';
 import {SmartIntegrationService} from './smart-integration.service';
 import { Router } from 'angular2/router';
+import {ModalService} from './modal.service';
 
 @Injectable()
 export class AccountService {
@@ -16,7 +17,9 @@ export class AccountService {
     userProfile = {};
     
     
-    constructor (private _smartIntegrationService: SmartIntegrationService,private _router:Router) {}
+    constructor (private _smartIntegrationService: SmartIntegrationService,
+        private _router:Router,
+        private _modalService:ModalService) {}
     
     setSelectedUserPhone(userPhone){
         this.selectedUserPhone = userPhone;
@@ -111,6 +114,28 @@ export class AccountService {
             response => {
                 
                 //open modal successfully updated
+                
+            },
+            error =>{
+                console.log('not authorize?');
+                
+                //open modal failed to update
+                
+            }
+        );
+    }
+    
+    transferPoints(transferData){
+        
+        
+        var promise = this._smartIntegrationService.transferPoints(JSON.stringify(transferData));
+        
+        promise.subscribe(
+            response => {
+                
+                //open modal successfully updated
+                this._modalService.toggleTransferModal();
+                this._modalService.setTransferData(transferData.amount,transferData.to);
                 
             },
             error =>{

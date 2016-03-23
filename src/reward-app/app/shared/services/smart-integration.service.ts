@@ -148,4 +148,15 @@ export class SmartIntegrationService {
 
     }
     
+    transferPoints(transferData:string){
+        let url = this.serviceBase + '/transfer';      
+
+        return this._http.post(url,transferData,
+        <RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
+
+    }
+    
 }

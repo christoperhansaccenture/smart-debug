@@ -622,9 +622,50 @@ class AccountController {
             }
         });
     }
+    // async getListOfMobileNumber(req:string,res:string) : Promise<string> {
+    //     var token:string = req.get("Authorization");
+    //     token = token.replace('Bearer ','');
+    //     var data  = {
+    //         min: req.params.min
+    //     }
+    //     var nJwt = require('njwt');  
+    //     try{
+    //         var jwt = nJwt.verify(token,config.signingKey);
+    //     }catch(e){
+    //         res.sendStatus(403);
+    //     }
+    //     const ssoService:SSO.sso = new SSO.sso();
+    //     try{
+    //         var listOfMobile = [];
+    //         var result =  await ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(data));
+    //         var resultJson = JSON.parse(result).SubscriptionList;
+    //         for(var i = 0; i < resultJson.length; i++){
+    //             var mobileListItem = {
+    //                 phoneNo: resultJson[i].Subscription,
+    //                 name: resultJson[i].SubscriptionName,
+    //                 rewards: '0'    
+    //             };
+    //             data  = {
+    //                 min: resultJson[i].Subscription
+    //             }
+    //             result =  await ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(data));
+    //             var resJson = JSON.parse(result);
+    //             if(resJson.data.length !== 0){
+    //                 for(var i = 0; i < resJson.data.length; i++){
+    //                     if(resJson.data[i].drawChance === false){
+    //                         mobileListItem.rewards = resJson.data[i].rwdCashbackValue;
+    //                     }
+    //                 }
+    //             }
+    //             listOfMobile.push(mobileListItem);
+    //         }
+    //     }catch(err){
+    //     }
+    // }
     getListOfMobileNumber(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
+            //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
             var data = {
                 min: req.params.min
@@ -638,31 +679,79 @@ class AccountController {
             }
             const ssoService = new sso_service_1.SSO.sso();
             try {
+                var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                console.log("get link list " + result);
+                var jsonObject = JSON.parse(result);
+                var finalResult = {
+                    phoneNo: '',
+                    name: '',
+                    rewards: '0'
+                };
                 var listOfMobile = [];
-                var result = yield ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                var resultJson = JSON.parse(result).SubscriptionList;
-                for (var i = 0; i < resultJson.length; i++) {
-                    var mobileListItem = {
-                        phoneNo: resultJson[i].Subscription,
-                        name: resultJson[i].SubscriptionName,
-                        rewards: '0'
-                    };
-                    data = {
-                        min: resultJson[i].Subscription
-                    };
+                if (jsonObject.data.length === 0) {
+                    //return only 1 mobile number
+                    console.log(req.params.min);
+                    finalResult.phoneNo = req.params.min;
+                    result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
+                    finalResult.name = JSON.parse(result).FirstName;
                     result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
                     var resJson = JSON.parse(result);
+                    console.log(result);
                     if (resJson.data.length !== 0) {
                         for (var i = 0; i < resJson.data.length; i++) {
                             if (resJson.data[i].drawChance === false) {
-                                mobileListItem.rewards = resJson.data[i].rwdCashbackValue;
+                                finalResult.rewards = resJson.data[i].rwdCashbackValue;
                             }
                         }
                     }
-                    listOfMobile.push(mobileListItem);
+                    listOfMobile.push(finalResult);
                 }
+                else {
+                    finalResult.phoneNo = req.params.min;
+                    result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
+                    console.log(result);
+                    finalResult.name = JSON.parse(result).FirstName;
+                    result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                    var resJson = JSON.parse(result);
+                    console.log(result);
+                    if (resJson.data.length !== 0) {
+                        for (var i = 0; i < resJson.data.length; i++) {
+                            if (resJson.data[i].drawChance === false) {
+                                finalResult.rewards = resJson.data[i].rwdCashbackValue;
+                            }
+                        }
+                    }
+                    listOfMobile.push(finalResult);
+                    for (var i = 0; i < jsonObject.data.length; i++) {
+                        var mobileData = {
+                            phoneNo: '',
+                            name: '',
+                            rewards: '0'
+                        };
+                        mobileData.phoneNo = jsonObject.data[i].cusLoyaltyId;
+                        mobileData.name = jsonObject.data[i].cusFName;
+                        data = {
+                            min: jsonObject.data[i].cusLoyaltyId
+                        };
+                        result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                        var resJson = JSON.parse(result);
+                        console.log(result);
+                        if (resJson.data.length !== 0) {
+                            for (var i = 0; i < resJson.data.length; i++) {
+                                if (resJson.data[i].drawChance === false) {
+                                    mobileData.rewards = resJson.data[i].rwdCashbackValue;
+                                }
+                            }
+                        }
+                        listOfMobile.push(mobileData);
+                    }
+                }
+                // var resJson = JSON.parse(result);       
+                console.log(listOfMobile);
+                res.json(listOfMobile);
             }
             catch (err) {
+                console.log(err);
             }
         });
     }

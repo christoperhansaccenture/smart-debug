@@ -62,5 +62,18 @@ export class OverviewComponent  {
         this._layoutService.accountFromHome = true;
         this._router.navigate(['AccountOverview']);
     }
+    
+    goToCatalogList(category: string) {
+        // set filter in service
+        this._catalogService.filter.reset();
+        if (category === 'Most Popular') {
+            this._catalogService.filter.categories.mostPopular = true;
+        }
+        else if (category === 'All Categories') {
+            this._catalogService.filter.all();
+        }
+        // go to page
+        this._router.navigate(['CatalogList']);
+    }
 	
 }

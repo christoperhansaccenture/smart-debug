@@ -106,11 +106,11 @@ class RewardController {
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
             var jsonBody = {
-                min: req.body.min,
-                destLoyaltyId: req.body.destLoyaltyId,
-                srcCurrencyId: req.body.srcCurrencyId,
-                destCurrencyId: req.body.destCurrencyId,
-                rwdQty: req.body.rwdQty
+                min: req.body.from,
+                destLoyaltyId: req.body.to,
+                srcCurrencyId: req.body.srcCurrId,
+                destCurrencyId: req.body.destCurrId,
+                rwdQty: req.body.amount
             };
             var nJwt = require('njwt');
             try {
@@ -125,10 +125,17 @@ class RewardController {
             try {
                 var result = yield ssoService.transferpoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
+                var errorCheckRes = res;
+                errorCheckRes = this.errorHandlingService.transferRequestErrorHandling(res, result);
+                if (errorCheckRes === null) {
+                    res.json(JSON.parse(result));
+                }
+                else {
+                    res = errorCheckRes;
+                }
             }
             catch (err) {
+                res.sendStatus(500);
                 console.log(err);
             }
         });

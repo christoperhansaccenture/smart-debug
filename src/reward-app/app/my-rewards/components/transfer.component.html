@@ -22,7 +22,7 @@
                 <div class="pointText">Remaining points after transferred</div>
                 <div class="pointValue">{{(getRemainingPoints())}} <span>pts</span></div>
             </div>
-            <div class="button red" (click)="doTransfer()">Proceed</div>
+            <div class="button" [ngClass]="{disable : !ableToTransfer()}" (click)="doTransfer()">Proceed</div>
         </div>
     </div>
 </div>

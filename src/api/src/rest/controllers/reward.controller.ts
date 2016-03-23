@@ -1,5 +1,7 @@
 'use strict';
 import { SSO } from '../services/sso.service';
+import { ErrorHandlingService } from '../services/error-handling.service';
+
 var request = require('request'); 
 var config = require('../config/config');
 
@@ -17,6 +19,7 @@ var config = require('../config/config');
 // export module Login {
     export class RewardController implements rewardInterface{
         private ssoService:SSO.sso;
+        private errorHandlingService:ErrorHandlingService.ErrorHandlingService;
             constructor() {       
             
             }
@@ -121,11 +124,11 @@ var config = require('../config/config');
                 token = token.replace('Bearer ','');
                 
                 var jsonBody = {
-                    min: req.body.min,
-                    destLoyaltyId: req.body.destLoyaltyId,
-                    srcCurrencyId: req.body.srcCurrencyId,
-                    destCurrencyId: req.body.destCurrencyId,
-                    rwdQty: req.body.rwdQty
+                    min: req.body.from,
+                    destLoyaltyId: req.body.to,
+                    srcCurrencyId: req.body.srcCurrId,
+                    destCurrencyId: req.body.destCurrId,
+                    rwdQty: req.body.amount
                 };
                 
                 var nJwt = require('njwt');  
@@ -142,11 +145,18 @@ var config = require('../config/config');
                 try {  
                     var result =  await ssoService.transferpoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
                     console.log(result);
-                    // var resJson = JSON.parse(result);       
+                    var errorCheckRes = res;
+                    errorCheckRes = this.errorHandlingService.transferRequestErrorHandling(res,result);
                     
-                    res.json(JSON.parse(result));
+                    if(errorCheckRes === null){
+                        res.json(JSON.parse(result));
+                    }else{
+                        res = errorCheckRes;
+                    }
+
                 }
                 catch (err) {
+                    res.sendStatus(500);
                     console.log(err);
                 }
             }
