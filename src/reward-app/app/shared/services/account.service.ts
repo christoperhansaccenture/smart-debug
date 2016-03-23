@@ -121,5 +121,52 @@ export class AccountService {
             }
         );
     }
+
+    // TODO: To be cleaned up
+    selectedPhoneNumber: PhoneNumber ={
+        type: '', isBroadband:false, name: '', number: ''
+    };
+
+    allPhoneNumber: any = [];
+
+    getAllAvalaiblePhoneNumber(){
+
+        if(this.allPhoneNumber == undefined || this.allPhoneNumber == null || this.allPhoneNumber.length === 0){
+
+            //TODO find how to get all phone number list
+            var phoneNumber:string = localStorage.getItem('phoneNumber');
+            //var name = JSON.parse(sessionStorage.getItem('loginData')).result.name;
+            var name = 'Dummy Name'
+
+            this.allPhoneNumber.push({type: 'postpaid', isBroadband: false, name: name, number: phoneNumber});
+            this.allPhoneNumber.push({type: 'postpaid', isBroadband: true, name: '', number: '09293424235'});
+            this.allPhoneNumber.push({type: 'prepaid', isBroadband: false, name: '', number: '09293424236'});
+
+            this.selectedPhoneNumber = this.allPhoneNumber[0];
+
+        }
+
+        return this.allPhoneNumber;
+    }
+
+    getSelectedPhoneNumber(){
+
+        if(this.allPhoneNumber == undefined || this.allPhoneNumber == null || this.allPhoneNumber.length === 0){
+            this.getAllAvalaiblePhoneNumber();
+        }
+
+        return this.selectedPhoneNumber;
+    }
+
+    userPhoneNumber: any = [
+        {number:'092898874081',name:'Tiffany',primary:true,type:'Postpaid'},
+        {number:'092898874081',name:'Tamara',primary:false,type:'Prepaid'},
+        {number:'092898874081',name:'Jessica',primary:false,type:'Bro Postpaid'},
+        {number:'092898874081',name:'',primary:false,type:'Bro prepaid'}
+    ];
+
+    getUserPhoneNumber(){
+        return this.userPhoneNumber;
+    }
     
 }

@@ -10,11 +10,13 @@ export class MyPlanComponent {
     constructor (private _accountService: AccountService) {}
     
     selectedPhoneNumber(){
-        return this._accountService.getSelectedPhoneNumber();
+        //return this._accountService.getSelectedPhoneNumber();
+        return "";
     }
     
     getPlanName(){
-        return this._accountService.getPlanName();
+        //return this._accountService.getPlanName();
+        return "";
     }
     
 }
