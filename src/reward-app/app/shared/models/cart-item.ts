@@ -18,6 +18,7 @@ export class CartItem {
         }
     };
     type: string = "catalog";
+    changedOnCart: boolean = false;
 
     // only for pay bill
     merchantIdentifier;
