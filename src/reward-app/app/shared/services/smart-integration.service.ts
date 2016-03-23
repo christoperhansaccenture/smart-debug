@@ -72,10 +72,11 @@ export class SmartIntegrationService {
             }
             else {
                 bill = {
-                    merchantIdentifier: "0",
-                    amount: 0,
-                    pin: "0",
-                    ref: "0"
+                    merchantIdentifier: item.merchantIdentifier,
+                    amount: item.amount,
+                    pin: item.pin,
+                    ref: item.getSendTo()
+                    //ref: item.ref
                 };
             }
             let result = {

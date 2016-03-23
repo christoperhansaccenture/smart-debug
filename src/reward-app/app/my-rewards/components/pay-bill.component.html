@@ -9,30 +9,30 @@
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier card"></div>
-            <select class="inputValue select">
-                <option value="smart1">Smart</option>
-                <option value="smart2">Smart 2</option>
+            <select class="inputValue select" [(ngModel)]="selection">
+                <option value="SMART">Smart</option>
+                <option value="PLDT">PLDT</option>
             </select>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier phone"></div>
-            <input class="inputValue" placeholder="Smart Number"/>
+            <input class="inputValue" [placeholder]="getNumberPlaceholder()" [(ngModel)]="number"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier invoice"></div>
-            <input class="inputValue" placeholder="Peso amount"/>
+            <input class="inputValue" placeholder="Peso amount" [(ngModel)]="amount"/>
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier lock"></div>
-            <input class="inputValue" type="password" placeholder="Payment PIN"/>
+            <input class="inputValue" type="password" placeholder="Payment PIN" [(ngModel)]="pin"/>
         </div>
         <div class="itemFooterContainer">
             <div class="point">
                 <div class="pointPic"></div>
                 <div class="pointText">Points Needed</div>
-                <div class="pointValue">990 <span>pts</span></div>
+                <div class="pointValue">{{ getPointsNeeded() }} <span>pts</span></div>
             </div>
-            <div class="button red">Add to Cart</div>
+            <div class="button red" (click)="addToCart()">Add to Cart</div>
         </div>
     </div>
 </div>

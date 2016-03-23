@@ -4,7 +4,7 @@
             <div class="hamburger" *ngIf="getHeaderLayout().hamburger" (click)="toggleLeftMenu()"></div>
             <div class="back" *ngIf="getHeaderLayout().back" (click)="goToPreviousPage()"></div>
             <div class="cart" *ngIf="getHeaderLayout().cart" (click)="goToCart()">
-                <div class="amount" *ngIf="getTotalItems()">
+                <div class="amount">
                     {{ getTotalItems() }}
                 </div>
             </div>

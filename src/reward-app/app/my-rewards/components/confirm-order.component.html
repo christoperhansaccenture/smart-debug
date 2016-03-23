@@ -16,33 +16,59 @@
         </div>
         <div class="itemListContainer">
             <div *ngFor="#item of getItems()" class="itemDetailContainer">
-                <div class="col-left">
-                    <div class="itemPic">
-                        <img [src]="item.catalog.imageUrl" />
-                        <div class="overlay"
-                            [class.postpaid]="item.catalog.isOnlyPostpaid()"
-                            [class.prepaid]="item.catalog.isOnlyPrepaid()"
-                            [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
-                            {{ getOverlayText(item.catalog) }}
+                <div class="catalog" *ngIf="!item.isBill()">
+                    <div class="col-left">
+                        <div class="itemPic">
+                            <img [src]="item.catalog.imageUrl" />
+                            <div class="overlay"
+                                [class.postpaid]="item.catalog.isOnlyPostpaid()"
+                                [class.prepaid]="item.catalog.isOnlyPrepaid()"
+                                [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
+                                {{ getOverlayText(item.catalog) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-right">
+                        <div class="row item-header">
+                            <div class="itemText">
+                                <div class="itemSubHeader">{{ item.catalog.name }}</div>
+                            </div>
+                            <div class="itemPoint">{{ item.catalog.points }} <span>pts</span></div>
+                        </div>
+                        <div class="row item-amount">
+                            <span class="counter">
+                                <span class="amount">{{ item.amount }} item(s)</span>
+                            </span>
+                            <span class="sub-total">Sub Total:</span>
+                            <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
+                        </div>
+                        <div class="row number-selection-container">
+                            <span class="label">Send to: </span> {{ item.getSendTo() }}
                         </div>
                     </div>
                 </div>
-                <div class="col-right">
-                    <div class="row item-header">
-                        <div class="itemText">
-                            <div class="itemSubHeader">{{ item.catalog.name }}</div>
+                <div class="bill" *ngIf="item.isBill()">
+                    <div class="col-left">
+                        <div class="billPic">
                         </div>
-                        <div class="itemPoint">{{ item.catalog.points }} <span>pts</span></div>
                     </div>
-                    <div class="row item-amount">
-                        <span class="counter">
-                            <span class="amount">{{ item.amount }} item(s)</span>
-                        </span>
-                        <span class="sub-total">Sub Total:</span>
-                        <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
-                    </div>
-                    <div class="row number-selection-container">
-                        <span class="label">Send to: </span> {{ item.getSendTo() }}
+                    <div class="col-right">
+                        <div class="row item-header">
+                            <div class="itemText">
+                                <div class="itemSubHeader">Pay Bill with Points</div>
+                            </div>
+                        </div>
+                        <div class="row item-amount">
+                            <span class="peso-amount-label">Peso Amount:</span>
+                            <div class="peso-amount">P{{ item.getTotalPoints() }}</div>
+                        </div>
+                        <div class="row item-amount">
+                            <span class="sub-total">Sub Total:</span>
+                            <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
+                        </div>
+                        <div class="row number-selection-container">
+                            <span class="label">Send to: </span> {{ item.getSendTo() }}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,9 @@ import {SmartIntegrationService} from './smart-integration.service';
 export class CartService {
 
     numberSelection = {
+        currentNumber: true,
         oneNumber: false,
+        decidePerItem: false,
         myNumber: {
             checked: false,
             number: ""
@@ -37,14 +39,18 @@ export class CartService {
         else {
             let item: CartItem = new CartItem();
             item.catalog = catalog;
+            item.type = 'catalog';
             item.amount = 1;
             this.items[catalog.id] = item;
         }
         this.saveToStorage();
     }
 
-    removeItem(catalog: Catalog) {
-        delete this.items[catalog.id];
+    removeItem(item: CartItem) {
+        if (item.isBill())
+            delete this.items[-1];
+        else
+            delete this.items[item.catalog.id];
         this.saveToStorage();
     }
 
@@ -63,21 +69,24 @@ export class CartService {
                 let item: CartItem = new CartItem();
                 item.amount = tempItem.amount;
                 item.numberSelection = tempItem.numberSelection;
+                item.type = tempItem.type;
 
-                let c = new Catalog();
-                c.id = tempItem.catalog.id;
-                c.code = tempItem.catalog.code;
-                c.name = tempItem.catalog.name;
-                c.description = tempItem.catalog.description;
-                c.imageUrl = tempItem.catalog.imageUrl;
-                c.categories = tempItem.catalog.categories;
-                c.points = tempItem.catalog.points;
-                c.stock = tempItem.catalog.stock;
-                c.favorite = tempItem.catalog.favorite;
-                c.giftable = tempItem.catalog.giftable;
-                c.expiry = new Date(tempItem.catalog.expiry);
-                item.catalog = c;
-                this.items[c.id] = item;
+                if (!item.isBill()) {
+                    let c = new Catalog();
+                    c.id = tempItem.catalog.id;
+                    c.code = tempItem.catalog.code;
+                    c.name = tempItem.catalog.name;
+                    c.description = tempItem.catalog.description;
+                    c.imageUrl = tempItem.catalog.imageUrl;
+                    c.categories = tempItem.catalog.categories;
+                    c.points = tempItem.catalog.points;
+                    c.stock = tempItem.catalog.stock;
+                    c.favorite = tempItem.catalog.favorite;
+                    c.giftable = tempItem.catalog.giftable;
+                    c.expiry = new Date(tempItem.catalog.expiry);
+                    item.catalog = c;
+                }
+                this.items[key] = item;
             }
 
             if (sessionStorage.getItem('cartSelection')) {
@@ -96,7 +105,7 @@ export class CartService {
     getTotalItems(): number {
         let result: number = 0;
         for (let key in this.items) 
-            result += this.items[key].amount;
+            result++;
         return result;
     }
 
@@ -105,6 +114,22 @@ export class CartService {
         for (let key in this.items)
             arr.push(this.items[key]);
         this._smartIntegrationService.confirmOrder(arr);
+    }
+
+    addBillToCart(selection, number, amount, pin) {
+        let item: CartItem = new CartItem();
+        item.type = 'bill';
+        item.amount = amount;
+        item.merchantIdentifier = selection;
+        item.pin = pin;
+        item.ref = ""; //?
+        item.numberSelection.myNumber.checked = true;
+        item.numberSelection.myNumber.number = number;
+        this.items[-1] = item;
+        this.saveToStorage();
+    }
+
+    updateBillAmount() {
     }
     
 }

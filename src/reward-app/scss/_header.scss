@@ -93,7 +93,7 @@ $smallheight: 48px;
                     -moz-transform:scaleX(-1);
                     -ms-transform:scaleX(-1);
                     transform:scaleX(-1);
-                    left: 14%;
+                    left: -10%;
                     top: 11%;
                     position: relative;
                     text-align: center;
@@ -102,7 +102,10 @@ $smallheight: 48px;
                     //padding: 3px;
                     color: white;
                     border-radius: 10px;
-                    min-width: 17px;
+                    min-height: 20px;
+                    min-width: 20px;
+                    line-height: 20px;
+                    font-size: smaller;
                     background-color: $smartred;
                 }
             }

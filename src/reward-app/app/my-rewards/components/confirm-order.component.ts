@@ -49,7 +49,9 @@ export class ConfirmOrderComponent  {
     getPointsRequired() {
         if (this.getItems() && this.getItems().length > 0) {
             return this.getItems()
-            .map(e => e.amount * e.catalog.points)
+            .map(e => {
+                return +e.getTotalPoints();
+            })
             .reduce((prev, curr) => {
                 return prev + curr;
             });
@@ -66,10 +68,6 @@ export class ConfirmOrderComponent  {
         for (let key in this._cartService.items) 
             items.push(this._cartService.items[key]);
         return items;
-    }
-
-    removeItem(item: CartItem) {
-        this._cartService.removeItem(item.catalog);
     }
 
     plusItem(item: CartItem) {
