@@ -2,10 +2,14 @@ import {Component, OnInit} from 'angular2/core';
 import {CatalogService} from '../services/catalog.service';
 import {AccountService} from '../../shared/services/account.service';
 import {ModalService} from '../../shared/services/modal.service';
+import {StringTruncatePipe} from '../../shared/pipes/string-truncate.pipe';
 
 @Component({
     selector: 'almost-get-item-belt',
     templateUrl: 'app/my-rewards/components/almost-get-item-belt.component.html',
+    pipes: [
+        StringTruncatePipe
+    ]
 })
 export class AlmostGetItemBeltComponent implements OnInit {
 

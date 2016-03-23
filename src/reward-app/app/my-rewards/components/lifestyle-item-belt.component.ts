@@ -1,10 +1,14 @@
 import {Component, OnInit} from 'angular2/core';
 import {CatalogService} from '../services/catalog.service';
 import {ModalService} from '../../shared/services/modal.service';
+import {StringTruncatePipe} from '../../shared/pipes/string-truncate.pipe';
 
 @Component({
     selector: 'lifestyle-item-belt',
     templateUrl: 'app/my-rewards/components/lifestyle-item-belt.component.html',
+    pipes: [
+        StringTruncatePipe
+    ]
 })
 export class LifestyleItemBeltComponent implements OnInit {
 
