@@ -61,7 +61,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         return this._accountService.selectedUserPhone.rewards;
     }
 
-    getPointsRequired() {
+    getPointsRequired(): number {
         if (this.getItems() && this.getItems().length > 0) {
             return this.getItems()
             .map(e => {
@@ -74,8 +74,16 @@ export class ShoppingCartComponent implements AfterViewInit {
         return 0;
     }
 
-    getPointsRemaining() {
+    getPointsRemaining(): number {
         return this.getCurrentPoints() - this.getPointsRequired();
+    }
+
+    getPointsRequiredNaN() {
+        return (isNaN(this.getPointsRequired())) ? 0 : this.getPointsRequired();
+    }
+
+    getPointsRemainingNaN() {
+        return (isNaN(this.getPointsRemaining())) ? 0 : this.getPointsRemaining();
     }
 
     getItems(): CartItem[] {
@@ -164,8 +172,8 @@ export class ShoppingCartComponent implements AfterViewInit {
     }
 
     canContinue() {
-        return this.getItems().length < 1 || this.getPointsRemaining() < 0
-            || (this.getBill().length == 1 && this.getBill()[0]);
+        return !(this.getItems().length < 1 || this.getPointsRemaining() < 0)
+            && !(isNaN(this.getPointsRequired()) && isNaN(this.getPointsRemaining()));
     }
 
     goToNext() {
@@ -240,6 +248,12 @@ export class ShoppingCartComponent implements AfterViewInit {
 
     toggleEditBill() {
         this.editBill = !this.editBill;
+    }
+
+    billAmountChange(item: CartItem) {
+        if (item.amount < 1) {
+            item.amount = 1
+        }
     }
 	
 }

@@ -23,6 +23,7 @@ export class FavoriteItemBeltComponent implements OnInit {
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => e.favorite)
+                .sort((a, b) => a.points - b.points)
                 .slice(0, 11);
         }
         else

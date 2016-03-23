@@ -100,7 +100,7 @@ export class CatalogService {
                             c.description = e.description;
                             c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
                             c.categories = e.categories;
-                            c.points = e.points;
+                            c.points = +e.points;
                             c.stock = e.stock;
                             c.favorite = e.favorite;
                             c.giftable = e.giftable;

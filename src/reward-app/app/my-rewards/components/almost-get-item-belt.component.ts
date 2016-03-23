@@ -27,6 +27,7 @@ export class AlmostGetItemBeltComponent implements OnInit {
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => e.points > currentPoints)
+                .sort((a, b) => a.points - b.points)
                 .slice(0, 11);
         }
         else

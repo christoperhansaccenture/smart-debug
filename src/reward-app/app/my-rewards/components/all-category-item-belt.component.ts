@@ -21,7 +21,7 @@ export class AllCategoryItemBeltComponent implements OnInit {
 
     getCategories() {
         if (this._catalogService.catalogs) {
-            return this._catalogService.catalogs.slice(0, 11);
+            return this._catalogService.catalogs.sort((a, b) => a.points - b.points).slice(0, 11);
         }
         else
             return null;

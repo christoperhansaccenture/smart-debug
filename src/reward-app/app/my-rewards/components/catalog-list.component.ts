@@ -64,7 +64,7 @@ export class CatalogListComponent {
                         result = e.name.toLowerCase().indexOf(filter.name.toLowerCase()) > -1;
                     }
                     return result;
-                });
+                }).sort((a, b) => a.points - b.points);
         }
         else
             return null;

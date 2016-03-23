@@ -23,6 +23,7 @@ export class MostPopularItemBeltComponent implements OnInit {
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => e.categories.indexOf('Most Popular') > -1)
+                .sort((a, b) => a.points - b.points)
                 .slice(0, 11);
         }
         else
