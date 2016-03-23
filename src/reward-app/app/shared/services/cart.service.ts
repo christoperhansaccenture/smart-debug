@@ -3,6 +3,7 @@ import {PhoneNumber} from '../models/phone-number';
 import {Catalog} from '../models/catalog';
 import {CartItem} from '../models/cart-item';
 import {SmartIntegrationService} from './smart-integration.service';
+import {AccountService} from './account.service';
 
 @Injectable()
 export class CartService {
@@ -28,7 +29,8 @@ export class CartService {
     };
     items: { [id: number] : CartItem; } = {};
 
-    constructor(private _smartIntegrationService: SmartIntegrationService) {
+    constructor(private _smartIntegrationService: SmartIntegrationService,
+               private _accountService: AccountService) {
         this.loadFromStorage();
     }
 
@@ -70,6 +72,7 @@ export class CartService {
                 item.amount = tempItem.amount;
                 item.numberSelection = tempItem.numberSelection;
                 item.type = tempItem.type;
+                item.changedOnCart = tempItem.changedOnCart;
 
                 if (!item.isBill()) {
                     let c = new Catalog();
@@ -123,8 +126,27 @@ export class CartService {
         item.merchantIdentifier = selection;
         item.pin = pin;
         item.ref = ""; //?
-        item.numberSelection.myNumber.checked = true;
-        item.numberSelection.myNumber.number = number;
+        item.clearNumberSelection();
+        // check main number
+        if (number === this._accountService.selectedUserPhone.phoneNo) {
+            item.numberSelection.currentNumber.checked = true;
+            item.numberSelection.currentNumber.number = number;
+        }
+        // check own numbers
+        let own = this._accountService.mobileNoList
+            .map(e => e.phoneNo)
+            .filter(e => e !== this._accountService.selectedUserPhone.phoneNo 
+                        && e === number);
+        if (own.length > 0) {
+            item.numberSelection.myNumber.checked = true;
+            item.numberSelection.myNumber.number = number;
+        }
+        // gift
+        if (!item.numberSelection.currentNumber.checked &&
+            !item.numberSelection.myNumber.checked) {
+            item.numberSelection.gift.checked = true;
+            item.numberSelection.gift.number = number;
+        }
         this.items[-1] = item;
         this.saveToStorage();
     }

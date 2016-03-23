@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, AfterViewInit} from 'angular2/core';
 import { Router } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
@@ -21,7 +21,7 @@ import {CartItem} from '../../shared/models/cart-item';
         AllCategoryItemBeltComponent
     ]
 })
-export class ShoppingCartComponent  {
+export class ShoppingCartComponent implements AfterViewInit {
 
     editBill:boolean = false;
     
@@ -35,7 +35,19 @@ export class ShoppingCartComponent  {
 		
             this._accountService.getMobileNumberlist();
 		this._layoutService.setCurrentPage('ShoppingCart');
+
+        let numberSelection = this.getNumberSelection();
+        let dirty: boolean = this.getItems().filter(e => e.changedOnCart).length > 0;
+        if (!dirty) {
+            if (this.getBill().length == 1 && this.getBill()[0]) {
+                numberSelection.currentNumber = false;
+                numberSelection.decidePerItem = true;
+            }
+        }
 	}
+
+    ngAfterViewInit() {
+    }
 	
 	getResize(){
         return this._matchMediaService.getmm();  
@@ -75,6 +87,12 @@ export class ShoppingCartComponent  {
 
     removeItem(item: CartItem) {
         this._cartService.removeItem(item);
+        if (this.getItems().length == 0) {
+            this.getNumberSelection().currentNumber = true;
+            this.getNumberSelection().oneNumber = false;
+            this.getNumberSelection().decidePerItem = false;
+            this.getNumberSelection().clear();
+        }
     }
 
     plusItem(item: CartItem) {
@@ -121,6 +139,7 @@ export class ShoppingCartComponent  {
         item.numberSelection.gift.checked = false;
         item.numberSelection.myNumber.checked = false;
         item.numberSelection.currentNumber.checked = !item.numberSelection.currentNumber.checked;
+        item.changedOnCart = true;
         this._cartService.saveToStorage();
     }
 
@@ -128,6 +147,7 @@ export class ShoppingCartComponent  {
         item.numberSelection.gift.checked = false;
         item.numberSelection.currentNumber.checked = false;
         item.numberSelection.myNumber.checked = !item.numberSelection.myNumber.checked;
+        item.changedOnCart = true;
         this._cartService.saveToStorage();
     }
 
@@ -135,6 +155,7 @@ export class ShoppingCartComponent  {
         item.numberSelection.myNumber.checked = false;
         item.numberSelection.currentNumber.checked = false;
         item.numberSelection.gift.checked = !item.numberSelection.gift.checked;
+        item.changedOnCart = true;
         this._cartService.saveToStorage();
     }
 
@@ -142,9 +163,13 @@ export class ShoppingCartComponent  {
         return this.getItems().filter(e => e.isBill());
     }
 
+    canContinue() {
+        return this.getItems().length < 1 || this.getPointsRemaining() < 0
+            || (this.getBill().length == 1 && this.getBill()[0]);
+    }
+
     goToNext() {
-        if (this.getItems().length < 1 || this.getPointsRemaining() < 0
-            || (this.getBill().length == 1 && this.getBill()[0]))
+        if (!this.canContinue())
             return;
 
         // if one number
