@@ -10,7 +10,15 @@
 
     .close {
         position: relative;
-        left: 97%;
+        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMC4wMDQwODkyMjQ4MjU4MzMwNykgc2NhbGUoNy45OTk3NDQ0MjM0NDgzOSw3Ljk5OTc0NDQyMzQ0ODM5KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40NDIwMzcsMEwxNi4wMDIwMzEsMTQuNTg1NzUxIDMwLjU4ODAyMiwwLjAyNTk5NjU2MyAzMi4wMDEwMjQsMS40NDA5OTY1IDE3LjQxNDc4MywxNi4wMDEwMDIgMzEuOTc1MDMsMzAuNTg3MDA2IDMwLjU2MDAyMiwzMiAxNS45OTkyNjgsMTcuNDEzOTY5IDEuNDEzMDAwOSwzMS45NzM5OTkgMCwzMC41NTg5OTggMTQuNTg2NDk0LDE1Ljk5ODc0MiAwLjAyNzAyODQ3MiwxLjQxNDAwMTl6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+        background-size: 30px;
+        background-position: center center;
+        height: 15px;
+        width: 15px;
+        margin-top: 5px;
+        margin-right: 5px;
+        float: right;
+        cursor: pointer;
     }
     
     .modalBody{

@@ -146,7 +146,10 @@ var config = require('../config/config');
                     var result =  await ssoService.transferpoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
                     console.log(result);
                     var errorCheckRes = res;
-                    errorCheckRes = this.errorHandlingService.transferRequestErrorHandling(res,result);
+                    
+                    const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
+                    
+                    errorCheckRes = errorHandlingService.transferRequestErrorHandling(res,result);
                     
                     if(errorCheckRes === null){
                         res.json(JSON.parse(result));

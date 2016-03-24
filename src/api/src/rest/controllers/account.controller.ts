@@ -469,7 +469,9 @@ var config = require('../config/config');
                         email : result.data.cusEmail,
                         address : result.data.cspAddress,
                         province : result.data.cspState,
-                        city : result.data.cspCity
+                        city : result.data.cspCity,
+                        gender: result.data.cspGender,
+                        familyStatus: result.data.cspFamilyStatus
                         
                     };
                     

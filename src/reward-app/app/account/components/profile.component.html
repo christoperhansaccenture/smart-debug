@@ -27,7 +27,7 @@
         <div class="itemContainer">
             <div class="itemIdentifier marital"></div>
             <select class="inputValue select" aria-placeholder="Marital Status"
-            [(ngModel)]="getUserProfile().cspFamilyStatus">
+            [(ngModel)]="getUserProfile().familyStatus">
                 <option value="1">Single</option>
                 <option value="2">Married</option>
             </select>
@@ -35,9 +35,9 @@
         <div class="itemContainer">
             <div class="itemIdentifier gender"></div>
             <select class="inputValue select" aria-placeholder="Gender"
-            [(ngModel)]="getUserProfile().cspGender">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+            [(ngModel)]="getUserProfile().gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
             </select>
         </div>
         <div class="itemContainer">
