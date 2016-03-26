@@ -50,6 +50,20 @@ $containerLogin-height: 400px;
 				padding-right: 0;
 				padding-left: 0;
 				
+                .spinner{
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    
+                    .item{
+                        background-color: #FFF;
+                        width: 10px;
+                        height: 10px;
+                    }
+                    
+                }
+                
 			}
             
             .errorAlert{
@@ -97,4 +111,41 @@ $containerLogin-height: 400px;
 	background: url(../img/login-app-capabilities.png) no-repeat;
 	background-position: center bottom;
 	margin-bottom: 20px;
+}
+
+.bounce1{
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.23s;
+}
+
+.bounce2{
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.bounce3{
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }

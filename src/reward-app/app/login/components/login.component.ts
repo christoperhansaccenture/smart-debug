@@ -27,6 +27,10 @@ export class LoginComponent {
     //     return this._authService.getErrorMessageFlag();
     // }
     
+    getLoadingState(){
+        return this._authService.getLoadingState();
+    }
+    
     getErrorMessageText(){
         return this._authService.getErrorMessageText();
     }
@@ -34,7 +38,10 @@ export class LoginComponent {
     login(event) {
 	
         event.preventDefault();
-        this._authService.login(this.userId,this.password);
+        
+        if(!this._authService.getLoadingState()){
+            this._authService.login(this.userId,this.password);
+        }
 
     }
     

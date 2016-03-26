@@ -16,6 +16,7 @@ export class AuthService {
     
     errorMessageFlag = false;
     errorMessageText = '';
+    isLoadingLogin = false;
     
     constructor (private _http: Http,
     private _router:Router,
@@ -37,7 +38,13 @@ export class AuthService {
         return this.errorMessageText;
     }
     
+    getLoadingState(){
+        return this.isLoadingLogin;
+    }
+    
     login(userId, password) {
+        
+        this.isLoadingLogin = true;
          
         if(this.checkIDPassword(userId,password)==0) 
          {
@@ -109,7 +116,7 @@ export class AuthService {
                 
                 sessionStorage.setItem('accessToken', JSON.stringify(response.json().token));  
                 this._router.navigate(['MyRewards']);  
-                
+                this.isLoadingLogin = false;
                 
             },
             error =>{
@@ -118,6 +125,7 @@ export class AuthService {
                 console.log('wrong combination of phone no/email and password');
                 this.errorMessageFlag = true;
                 this.errorMessageText = 'wrong combination of phone no/email and password';
+                this.isLoadingLogin = false;
                 //LoginComponentcheckErrorStatus=true;
                 //this._loginComponent.errorMessageText='wrong combination of phone no/email and password';
                 

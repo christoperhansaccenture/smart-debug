@@ -4,7 +4,14 @@
 		<div class="inner-box">
 			<input class="smartnumber" placeholder="Smart number or email address" [(ngModel)]="userId" />
 			<input placeholder="Password" type="password" [(ngModel)]="password" />
-			<div class="button"><a (click)="login($event)">Log In</a></div>
+			<div class="button">
+                <a (click)="login($event)" *ngIf="!getLoadingState()">Log In</a>
+                <div class="sk-three-bounce spinner" *ngIf="getLoadingState()">
+                    <div class="sk-child sk-bounce1 item"></div>
+                    <div class="sk-child sk-bounce2 item"></div>
+                    <div class="sk-child sk-bounce3 item"></div>
+                </div>
+            </div>
             <div class="errorAlert">{{getErrorMessageText()}}</div>
 			<p><a (click)="gotoForgotPassword()">Forgot your password?</a></p>
 			<p><a (click)="gotoRegister()">I don't have a My Smart Account yet</a></p>
