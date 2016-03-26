@@ -141,20 +141,17 @@ var config = require('../config/config');
                 //console.log(token);
                 //console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
+                const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
 
                 try {  
                     var result =  await ssoService.transferpoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
                     console.log(result);
-                    var errorCheckRes = res;
-                    
-                    const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
-                    
+                    var errorCheckRes = '';
+
                     errorCheckRes = errorHandlingService.transferRequestErrorHandling(res,result);
                     
                     if(errorCheckRes === null){
                         res.json(JSON.parse(result));
-                    }else{
-                        res = errorCheckRes;
                     }
 
                 }
@@ -408,7 +405,7 @@ var config = require('../config/config');
                         
                         for(var j = 0; j < resultFavoriteJson.length; j++){
                             
-                            if(resultJson[i].catProductNo === resultFavoriteJson[j].catProductNo){
+                            if(resultJson[i].catProductCode === resultFavoriteJson[j].catProductCode){
                                 item.favorite = true;
                                 break;
                             }

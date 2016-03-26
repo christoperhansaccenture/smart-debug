@@ -2,5 +2,7 @@
 	<div class="ModalInternal">
         <info-modal *ngIf='getModalStatus().info'></info-modal>
         <catalog-display-modal *ngIf='getModalStatus().catalogDisplay'></catalog-display-modal>
+        <error-modal *ngIf='getModalStatus().error'></error-modal>
+        <profile-modal *ngIf='getModalStatus().profile'></profile-modal>
 	</div>
 </div>

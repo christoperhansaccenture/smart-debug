@@ -43,7 +43,11 @@ export class OverviewComponent  {
 	}
     
     getUserData(){
-        return this._accountService.selectedUserPhone;
+        return this._accountService.getSelectedUserPhone();
+    }
+    
+    getRewardsBalance(){
+        return this._accountService.getRewardsBalance();
     }
 	
 	getResize(){

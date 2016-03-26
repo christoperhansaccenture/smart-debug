@@ -11,11 +11,10 @@ export class ModalService {
     mainModalState = false;
 
 	modalState = {
-		renewPlan: false,
         info: false,
-        updateCredit: false,
-        balance: false,
-        catalogDisplay: false
+        error: false,
+        catalogDisplay: false,
+        profile: false
 	}
     
     infoModalState = {
@@ -26,6 +25,8 @@ export class ModalService {
         point: '',
         phone: ''
     }
+    
+    errorMessage = '';
 	
 	constructor (private _layoutService: LayoutService) {}
 	
@@ -52,9 +53,24 @@ export class ModalService {
         this.infoModalState.transfer = !this.infoModalState.transfer; 
     }
     
+    toggleErrorModal(){
+        this.mainModalState = !this.mainModalState;
+        this.modalState.error = !this.modalState.error;
+    }
+    
+    toggleProfileModal(){
+        this.mainModalState = !this.mainModalState;
+        this.modalState.profile = !this.modalState.profile;
+    }
+    
     setTransferData(point,phone){
         this.transferData.point = point;
         this.transferData.phone = phone;
+    }
+    
+    setErrorMessage(message:string){
+        this.errorMessage = message;
+        console.log(this.errorMessage);
     }
     
     getTransferData(){

@@ -17,18 +17,18 @@
     <div class="subInfoContainer">
         <div class="leftSide">
             <div class="balance">Point Balance</div>
-            <div class="expire">First points expire on 31-12</div>
+            <div class="expire">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
         </div>
         <div class="rightSide">
-            <div class="text">{{ getUserData().rewards }} <span>pts</span></div>
+            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
         </div>    
     </div>
     <div class="subHeader belt">
         <div class="leftHeader">Most Popular</div>
-        <div class="subOption" (click)="goToCatalogList('Most Popular')">>See all</div>
+        <div class="subOption" (click)="goToCatalogList('Most Popular')">See all</div>
     </div>
     <div class="itemBelt">
-        <all-category-item-belt></all-category-item-belt>
+        <most-popular-item-belt></most-popular-item-belt>
     </div>
     <div class="subHeader belt">
         <div class="leftHeader">You can almost get...</div>

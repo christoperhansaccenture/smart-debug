@@ -25,7 +25,7 @@ export class TransferComponent  {
 	}
     
     getPointValue(){
-        return (this._accountService.selectedUserPhone.rewards) ? this._accountService.selectedUserPhone.rewards : 0;
+        return (this._accountService.getRewardsBalance().rewards) ? this._accountService.getRewardsBalance().rewards : 0;
     }
     
     getRemainingPoints(){

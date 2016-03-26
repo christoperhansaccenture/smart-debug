@@ -7,9 +7,9 @@
                     <div class="picture"></div>
                     <div class="text">Rewards</div>
                 </div>
-                <div class="smartPoint">{{ getUserData().rewards }} <span>pts</span></div>
-                <div class="expiry">First points expire on 31-12</div>
+                <div class="smartPoint">{{ getRewardsBalance().rewards }} <span>pts</span></div>
             </div>
+            <div class="expiry">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
             <select class="phoneNumber" *ngFor="#phone of getListOfPhone()">
                 <option >+63{{ phone.phoneNo }}</option>
             </select>

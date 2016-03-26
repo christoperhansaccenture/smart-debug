@@ -39,6 +39,9 @@ export class ActivityHistoryComponent  {
     }
     
     getActivity() {
+        
+        console.log(this._activityHistoryService.activities);
+        
         if (this._activityHistoryService.activities) {
             return this._activityHistoryService.activities
                 .filter(e => {

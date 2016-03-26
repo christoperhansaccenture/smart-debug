@@ -149,7 +149,8 @@ export class SmartIntegrationService {
     }
     
     transferPoints(transferData:string){
-        let url = this.serviceBase + '/transfer';      
+        let url = this.serviceBase + '/transfer';
+        //let url = 'http://localhost:8080/api/transfer';      
 
         return this._http.post(url,transferData,
         <RequestOptionsArgs> {headers: new Headers(

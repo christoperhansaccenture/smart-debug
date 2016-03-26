@@ -13,6 +13,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promi
     });
 };
 var sso_service_1 = require('../services/sso.service');
+var error_handling_service_1 = require('../services/error-handling.service');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
@@ -122,16 +123,14 @@ class RewardController {
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
+            const errorHandlingService = new error_handling_service_1.ErrorHandlingService.ErrorHandlingService();
             try {
                 var result = yield ssoService.transferpoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
-                var errorCheckRes = res;
-                errorCheckRes = this.errorHandlingService.transferRequestErrorHandling(res, result);
+                var errorCheckRes = '';
+                errorCheckRes = errorHandlingService.transferRequestErrorHandling(res, result);
                 if (errorCheckRes === null) {
                     res.json(JSON.parse(result));
-                }
-                else {
-                    res = errorCheckRes;
                 }
             }
             catch (err) {
@@ -347,7 +346,7 @@ class RewardController {
                         "imageUrl": resultJson[i].catProductImagePath
                     };
                     for (var j = 0; j < resultFavoriteJson.length; j++) {
-                        if (resultJson[i].catProductNo === resultFavoriteJson[j].catProductNo) {
+                        if (resultJson[i].catProductCode === resultFavoriteJson[j].catProductCode) {
                             item.favorite = true;
                             break;
                         }

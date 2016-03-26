@@ -16,7 +16,7 @@ import {MultiSliderComponent} from '../../shared/components/multi-slider.compone
 })
 export class HeaderComponent {
     scrollY = 0;
-    menu;
+    menu;   
     subMenu;
     hideSubMenu: boolean = true;
     filterFunction = false;
@@ -31,7 +31,7 @@ export class HeaderComponent {
         private _cartService: CartService) {}
     
     getPointValue(){
-        return (this._accountService.selectedUserPhone.rewards) ? this._accountService.selectedUserPhone.rewards : 0;
+        return ( this._accountService.getRewardsBalance().rewards ? this._accountService.getRewardsBalance().rewards : 0 );
     }
         
     getHeaderLayout(){
@@ -62,10 +62,6 @@ export class HeaderComponent {
 
     closeFilter() {
         this.filterFunction = false;
-    }
-    
-    selectedPhoneNumber(){
-        return this._accountService.getSelectedPhoneNumber();
     }
     
     getCurrentPage(){

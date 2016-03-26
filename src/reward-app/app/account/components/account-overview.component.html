@@ -5,16 +5,16 @@
             <div class="name">{{ getUserData().name }}</div>
             <div class="phoneDetail">
                 <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
-                <div class="phoneType">PRIMARY</div>
+                <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
                 <div class="numberType">Postpaid</div>
             </div>
             <div class="subInfoContainer">
                 <div class="leftSide">
                     <div class="balance">Point Balance</div>
-                    <div class="expire">First points expire on 31-12</div>
+                    <div class="expire">{{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}</div>
                 </div>
                 <div class="rightSide">
-                    <div class="text">{{ getUserData().rewards }} <span>pts</span></div>
+                    <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
                 </div>    
             </div>
         </div>

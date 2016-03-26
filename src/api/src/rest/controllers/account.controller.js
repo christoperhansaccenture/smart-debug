@@ -130,6 +130,45 @@ class AccountController {
                 var resultJson = JSON.parse(result).data;
                 var finalResult = [];
                 for (var i = 0; i < resultJson.length; i++) {
+                    var arrayDate = resultJson[i].cuaDate.split('-');
+                    var month = '';
+                    if (arrayDate[1] === '01') {
+                        month = 'January';
+                    }
+                    else if (arrayDate[1] === '02') {
+                        month = 'February';
+                    }
+                    else if (arrayDate[1] === '03') {
+                        month = 'March';
+                    }
+                    else if (arrayDate[1] === '04') {
+                        month = 'April';
+                    }
+                    else if (arrayDate[1] === '05') {
+                        month = 'May';
+                    }
+                    else if (arrayDate[1] === '06') {
+                        month = 'June';
+                    }
+                    else if (arrayDate[1] === '07') {
+                        month = 'July';
+                    }
+                    else if (arrayDate[1] === '08') {
+                        month = 'August';
+                    }
+                    else if (arrayDate[1] === '09') {
+                        month = 'September';
+                    }
+                    else if (arrayDate[1] === '10') {
+                        month = 'October';
+                    }
+                    else if (arrayDate[1] === '11') {
+                        month = 'November';
+                    }
+                    else if (arrayDate[1] === '12') {
+                        month = 'December';
+                    }
+                    var date = month + ' ' + arrayDate[2] + ', ' + arrayDate[0];
                     if ((resultJson[i].cuaRemarks.indexOf('Waiting for approval') > -1) ||
                         (resultJson[i].cuaRemarks.indexOf('confirmation') > -1) ||
                         (resultJson[i].cuaRemarks.indexOf('Not') > -1) ||
@@ -143,7 +182,7 @@ class AccountController {
                             "type": 'registration',
                             "name": 'Number Activation',
                             "desc": 'Activate ' + parameter[0],
-                            "date": resultJson[i].cuaDate,
+                            "date": date,
                             "media": 'Smart Reward App',
                             "point": '0'
                         };
@@ -155,7 +194,7 @@ class AccountController {
                             "type": 'earning',
                             "name": 'Earned Points',
                             "desc": 'Earned Points',
-                            "date": resultJson[i].cuaDate,
+                            "date": date,
                             "media": 'Smart Reward App',
                             "point": parameter[5]
                         };
@@ -163,6 +202,13 @@ class AccountController {
                     }
                     else if (resultJson[i].cuaActivityType === "3") {
                         var parameter = resultJson[i].cuaParams.split('#');
+                        var point = '0';
+                        if (parameter[1] === undefined || parameter[1] === null) {
+                            point = '0';
+                        }
+                        else {
+                            point = parameter[1];
+                        }
                         if (parameter.length === 4) {
                             if (parameter[3] === '0') {
                                 parameter[3] = 1;
@@ -171,9 +217,9 @@ class AccountController {
                                 "type": "redemption",
                                 "name": parameter[0],
                                 "desc": parameter[3] + ' item(s)',
-                                "date": "November 25, 2016",
+                                "date": date,
                                 "media": "Smart Reward App",
-                                "point": '-' + parameter[1]
+                                "point": '-' + point
                             };
                         }
                         else {
@@ -183,9 +229,9 @@ class AccountController {
                                     "type": "redemption",
                                     "name": "Pasa Reward",
                                     "desc": parameter[4] + ' item(s)',
-                                    "date": "November 25, 2016",
+                                    "date": date,
                                     "media": "Smart Reward App",
-                                    "point": parameter[1]
+                                    "point": '-' + point
                                 };
                             }
                             else {
@@ -193,9 +239,9 @@ class AccountController {
                                     "type": "redemption",
                                     "name": parameter[0],
                                     "desc": parameter[4] + ' item(s) to ' + parameter[3],
-                                    "date": "November 25, 2016",
+                                    "date": date,
                                     "media": "Smart Reward App",
-                                    "point": parameter[1]
+                                    "point": '-' + point
                                 };
                             }
                         }
@@ -207,9 +253,9 @@ class AccountController {
                             "type": "transfer",
                             "name": "Transfer Points",
                             "desc": "Transfer Points to " + parameter[0],
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
-                            "point": parameter[1]
+                            "point": '-' + parameter[1]
                         };
                         finalResult.push(item);
                     }
@@ -219,7 +265,7 @@ class AccountController {
                             "type": "Points Inquiry",
                             "name": "Points Inquiry",
                             "desc": "Points Inquiry to " + parameter[0],
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
                             "point": parameter[1]
                         };
@@ -231,7 +277,7 @@ class AccountController {
                             "type": "Event Registration",
                             "name": "Event Registration",
                             "desc": "Event Registration for " + parameter[0],
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
                             "point": '0'
                         };
@@ -260,7 +306,7 @@ class AccountController {
                             "type": "linking",
                             "name": name,
                             "desc": desc + linkNo,
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
                             "point": parameter[2]
                         };
@@ -272,7 +318,7 @@ class AccountController {
                             "type": "Account Transfer",
                             "name": "Change Mobile Number",
                             "desc": "mobile number changed to " + parameter[0],
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
                             "point": parameter[1]
                         };
@@ -284,9 +330,9 @@ class AccountController {
                             "type": "Reward Expiry",
                             "name": "Points Expiry",
                             "desc": "expired points from " + parameter[0],
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
-                            "point": parameter[1]
+                            "point": '-' + parameter[1]
                         };
                         finalResult.push(item);
                     }
@@ -296,9 +342,9 @@ class AccountController {
                             "type": "Bills Payment",
                             "name": "Bills Payment",
                             "desc": "bills payment for " + parameter[0],
-                            "date": "November 25, 2016",
+                            "date": date,
                             "media": "Smart Reward App",
-                            "point": parameter[1]
+                            "point": '-' + parameter[1]
                         };
                         finalResult.push(item);
                     }
@@ -684,56 +730,56 @@ class AccountController {
                 var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
                 console.log("get link list " + result);
                 var jsonObject = JSON.parse(result);
-                var finalResult = {
-                    phoneNo: '',
-                    name: '',
-                    rewards: '0'
+                var userData = {
+                    phoneData: [],
+                    rewards: '0',
+                    expPoints: '0',
+                    expDate: ''
                 };
-                var listOfMobile = [];
+                //var listOfMobile = [];
                 if (jsonObject.data.length === 0) {
+                    var phoneData = {
+                        phoneNo: '',
+                        name: '',
+                        primary: ''
+                    };
                     //return only 1 mobile number
                     console.log(req.params.min);
-                    finalResult.phoneNo = req.params.min;
+                    phoneData.phoneNo = req.params.min;
+                    phoneData.primary = true;
                     result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                    finalResult.name = JSON.parse(result).FirstName;
+                    phoneData.name = JSON.parse(result).FirstName;
                     result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                    userData.phoneData.push(phoneData);
                     var resJson = JSON.parse(result);
                     console.log(result);
                     if (resJson.data.length !== 0) {
                         for (var i = 0; i < resJson.data.length; i++) {
                             if (resJson.data[i].drawChance === false) {
-                                finalResult.rewards = resJson.data[i].rwdCashbackValue;
+                                userData.rewards = resJson.data[i].rwdCashbackValue;
                             }
                         }
                     }
-                    listOfMobile.push(finalResult);
+                    result = yield ssoService.getLatestRewardExpiry(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                    resJson = JSON.parse(result).data;
+                    console.log(result);
+                    if (resJson.length !== 0) {
+                        userData.expPoints = resJson[0].creRewardBalance;
+                        userData.expDate = resJson[0].creExpiryDt;
+                    }
                 }
                 else {
-                    finalResult.phoneNo = req.params.min;
-                    result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
-                    console.log(result);
-                    finalResult.name = JSON.parse(result).FirstName;
-                    result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
-                    var resJson = JSON.parse(result);
-                    console.log(result);
-                    if (resJson.data.length !== 0) {
-                        for (var i = 0; i < resJson.data.length; i++) {
-                            if (resJson.data[i].drawChance === false) {
-                                finalResult.rewards = resJson.data[i].rwdCashbackValue;
-                            }
-                        }
-                    }
-                    listOfMobile.push(finalResult);
-                    for (var i = 0; i < jsonObject.data.length; i++) {
-                        var mobileData = {
-                            phoneNo: '',
-                            name: '',
-                            rewards: '0'
+                    if (jsonObject.data[0].primary === true) {
+                        //number used is child, so return from linked list is primary
+                        //call linked list again to get child numbers
+                        var phoneData = {
+                            phoneNo: jsonObject.data[0].cusLoyaltyId,
+                            name: jsonObject.data[0].cusFName,
+                            primary: jsonObject.data[0].primary
                         };
-                        mobileData.phoneNo = jsonObject.data[i].cusLoyaltyId;
-                        mobileData.name = jsonObject.data[i].cusFName;
+                        userData.phoneData.push(phoneData);
                         data = {
-                            min: jsonObject.data[i].cusLoyaltyId
+                            min: jsonObject.data[0].cusLoyaltyId
                         };
                         result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
                         var resJson = JSON.parse(result);
@@ -741,16 +787,69 @@ class AccountController {
                         if (resJson.data.length !== 0) {
                             for (var i = 0; i < resJson.data.length; i++) {
                                 if (resJson.data[i].drawChance === false) {
-                                    mobileData.rewards = resJson.data[i].rwdCashbackValue;
+                                    userData.rewards = resJson.data[i].rwdCashbackValue;
                                 }
                             }
                         }
-                        listOfMobile.push(mobileData);
+                        result = yield ssoService.getLatestRewardExpiry(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                        resJson = JSON.parse(result).data;
+                        console.log(result);
+                        if (resJson.length !== 0) {
+                            userData.expPoints = resJson[0].creRewardBalance;
+                            userData.expDate = resJson[0].creExpiryDt;
+                        }
+                        result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                        console.log("get link list " + result);
+                        jsonObject = JSON.parse(result);
+                    }
+                    else {
+                        //number used is primary number
+                        var phoneData = {
+                            phoneNo: '',
+                            name: '',
+                            primary: false
+                        };
+                        phoneData.phoneNo = req.params.min;
+                        phoneData.primary = true;
+                        result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
+                        phoneData.name = JSON.parse(result).FirstName;
+                        userData.phoneData.push(phoneData);
+                        data = {
+                            min: req.params.min
+                        };
+                        result = yield ssoService.getRewardBalance(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                        var resJson = JSON.parse(result);
+                        console.log(result);
+                        if (resJson.data.length !== 0) {
+                            for (var i = 0; i < resJson.data.length; i++) {
+                                if (resJson.data[i].drawChance === false) {
+                                    userData.rewards = resJson.data[i].rwdCashbackValue;
+                                }
+                            }
+                        }
+                        result = yield ssoService.getLatestRewardExpiry(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));
+                        resJson = JSON.parse(result).data;
+                        console.log(result);
+                        if (resJson.length !== 0) {
+                            userData.expPoints = resJson[0].creRewardBalance;
+                            userData.expDate = resJson[0].creExpiryDt;
+                        }
+                    }
+                    for (var i = 0; i < jsonObject.data.length; i++) {
+                        var phoneData = {
+                            phoneNo: '',
+                            name: '',
+                            primary: ''
+                        };
+                        phoneData.phoneNo = jsonObject.data[i].cusLoyaltyId;
+                        phoneData.name = jsonObject.data[i].cusFName;
+                        phoneData.primary = jsonObject.data[i].primary;
+                        userData.phoneData.push(phoneData);
                     }
                 }
                 // var resJson = JSON.parse(result);       
-                console.log(listOfMobile);
-                res.json(listOfMobile);
+                console.log(userData);
+                res.json(userData);
             }
             catch (err) {
                 console.log(err);

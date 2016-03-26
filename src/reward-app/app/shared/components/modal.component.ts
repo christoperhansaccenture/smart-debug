@@ -1,5 +1,7 @@
 import {Component} from 'angular2/core';
 import {InformationModalComponent} from './modal-includes/information-modal.component';
+import {ErrorModalComponent} from './modal-includes/error-modal.component';
+import {ProfileModalComponent} from './modal-includes/profile-modal.component';
 import {CatalogDisplayModalComponent} from './modal-includes/catalog-display-modal.component';
 import {ModalService} from '../services/modal.service';
 
@@ -8,6 +10,8 @@ import {ModalService} from '../services/modal.service';
     templateUrl: 'app/shared/components/modal.component.html',
     directives: [
         InformationModalComponent,
+        ErrorModalComponent,
+        ProfileModalComponent,
         CatalogDisplayModalComponent
     ]
 })

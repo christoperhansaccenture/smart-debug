@@ -11,9 +11,9 @@
         <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)">
             <div class="name">{{phone.name}}</div>
             <div class="phoneDetail">
-                <div class="phoneNo">{{phone.number}}</div>
+                <div class="phoneNo">{{phone.phoneNo}}</div>
                 <!--<div class="phoneType" *ngIf="phone.primary">PRIMARY</div>-->
-                <div class="numberType">{{phone.type}}</div>
+                <div class="numberType">postpaid<!--{{phone.type}}--></div>
             </div>
         </div>
         <div class="itemFooterContainer">
@@ -34,7 +34,7 @@
         </div>
         <div class="itemContainer">
             <div class="itemIdentifier phone"></div>
-            <div class="inputValue">{{selectedPhoneNumber.number}}</div>
+            <div class="inputValue">{{selectedPhoneNumber.phoneNo}}</div>
         </div>
         <!--<div class="itemInfoContainer">
             <div class="primaryBox">
@@ -60,7 +60,7 @@
                     <div class="itemDetail"><span>{{mobileNumber}} </span>has been added to your account</div>
                 </div>	
                 <div class="itemRow" *ngIf="editNumber.page">
-                    <div class="itemDetail"><span>{{selectedPhoneNumber.number}} </span>has been updated</div>
+                    <div class="itemDetail"><span>{{selectedPhoneNumber.phoneNo}} </span>has been updated</div>
                 </div>		
             </div>
             <div class="modalFooter">

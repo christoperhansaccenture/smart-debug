@@ -34,7 +34,7 @@ export class ManageNumberComponent  {
         private _accountService: AccountService) {
 		
 		this._layoutService.setCurrentPage('ManageNumber');
-		this.userPhoneNumber = this._accountService.getUserPhoneNumber();
+		this.userPhoneNumber = this._accountService.getMobileNumberlist();
         
 	}
 	

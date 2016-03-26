@@ -17,6 +17,10 @@ export class LeftMenuComponent {
         
     }
     
+    getRewardsBalance(){
+        return this._accountService.getRewardsBalance();
+    }
+    
     getUserData(){
         return this._accountService.selectedUserPhone;
     }
