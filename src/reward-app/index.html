@@ -25,25 +25,17 @@
     <script src="scripts/http.dev.js"></script>
     <script src="scripts/fastclick.js"></script>    
     <script src="scripts/nouislider.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 
     <script>
 
-      System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/main')
-            .then(null, console.error.bind(console));
+
     </script>
 </head>
 
 <body>
 
-    <smart-app>Loading...</smart-app>
+    <smart-app>Load...</smart-app>
 		
     <script>
         if ('addEventListener' in document) {
