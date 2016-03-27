@@ -5,7 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 
 @Component({
     selector: 'forgotpassword',
-    templateUrl: 'app/login/components/forgotpassword.html'
+    templateUrl: './app/login/components/forgotpassword.html'
 })
 export class ForgotPasswordComponent {
     

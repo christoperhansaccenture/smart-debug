@@ -5,7 +5,7 @@ import {StringTruncatePipe} from '../../shared/pipes/string-truncate.pipe';
 
 @Component({
     selector: 'all-category-item-belt',
-    templateUrl: 'app/my-rewards/components/all-category-item-belt.component.html',
+    templateUrl: './app/my-rewards/components/all-category-item-belt.component.html',
     pipes: [
         StringTruncatePipe
     ]

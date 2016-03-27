@@ -7,7 +7,7 @@ import {AccountService} from '../../shared/services/account.service';
 
 @Component({
     selector: 'account-overview',
-    templateUrl: 'app/account/components/account-overview.component.html'
+    templateUrl: './app/account/components/account-overview.component.html'
 })
 export class AccountOverviewComponent  {
     

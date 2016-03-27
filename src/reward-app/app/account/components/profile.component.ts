@@ -7,7 +7,7 @@ import {ModalService} from '../../shared/services/modal.service';
 
 @Component({
     selector: 'profile',
-    templateUrl: 'app/account/components/profile.component.html'
+    templateUrl: './app/account/components/profile.component.html'
 })
 export class ProfileComponent  {
     

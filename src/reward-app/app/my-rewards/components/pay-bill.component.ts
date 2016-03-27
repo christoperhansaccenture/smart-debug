@@ -7,7 +7,7 @@ import {ItemBeltComponent} from './item-belt.component';
 
 @Component({
     selector: 'overview',
-    templateUrl: 'app/my-rewards/components/pay-bill.component.html'
+    templateUrl: './app/my-rewards/components/pay-bill.component.html'
 })
 export class PayBillComponent  {
 

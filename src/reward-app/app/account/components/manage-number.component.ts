@@ -6,7 +6,7 @@ import {AccountService} from '../../shared/services/account.service';
 
 @Component({
     selector: 'manage-number',
-    templateUrl: 'app/account/components/manage-number.component.html'
+    templateUrl: './app/account/components/manage-number.component.html'
 })
 export class ManageNumberComponent  {
     

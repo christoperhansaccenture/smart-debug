@@ -7,7 +7,7 @@ import {AccountService} from '../../shared/services/account.service';
 
 @Component({
     selector: 'transfer',
-    templateUrl: 'app/my-rewards/components/transfer.component.html'
+    templateUrl: './app/my-rewards/components/transfer.component.html'
 })
 export class TransferComponent  {
     

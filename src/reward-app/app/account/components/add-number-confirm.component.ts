@@ -6,7 +6,7 @@ import {AccountService} from '../../shared/services/account.service';
 
 @Component({
     selector: 'add-number-konfirmasi',
-    templateUrl: 'app/account/components/add-number-confirm.component.html'
+    templateUrl: './app/account/components/add-number-confirm.component.html'
 })
 export class AddNumberConfirmComponent  {
     

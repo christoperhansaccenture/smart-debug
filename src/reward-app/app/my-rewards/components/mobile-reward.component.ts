@@ -7,7 +7,7 @@ import {ItemBeltComponent} from './item-belt.component';
 
 @Component({
     selector: 'overview',
-    templateUrl: 'app/my-rewards/components/mobile-reward.component.html'
+    templateUrl: './app/my-rewards/components/mobile-reward.component.html'
 })
 export class MobileRewardComponent  {
     

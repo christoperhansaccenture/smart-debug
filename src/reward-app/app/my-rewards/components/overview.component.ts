@@ -16,7 +16,7 @@ import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
 
 @Component({
     selector: 'overview',
-    templateUrl: 'app/my-rewards/components/overview.component.html',
+    templateUrl: './app/my-rewards/components/overview.component.html',
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,

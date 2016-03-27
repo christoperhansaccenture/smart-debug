@@ -8,7 +8,7 @@ import {RewardTypeService} from '../services/reward-type.service';
 
 @Component({
     selector: 'overview',
-    templateUrl: 'app/my-rewards/components/reward-detail.component.html'
+    templateUrl: './app/my-rewards/components/reward-detail.component.html'
 })
 export class RewardDetailComponent  {
     

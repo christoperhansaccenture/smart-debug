@@ -14,7 +14,7 @@ import {CartItem} from '../../shared/models/cart-item';
 
 @Component({
     selector: 'confirm-order',
-    templateUrl: 'app/my-rewards/components/confirm-order.component.html',
+    templateUrl: './app/my-rewards/components/confirm-order.component.html',
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,

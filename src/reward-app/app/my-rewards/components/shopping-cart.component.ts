@@ -14,7 +14,7 @@ import {CartItem} from '../../shared/models/cart-item';
 
 @Component({
     selector: 'shopping-cart',
-    templateUrl: 'app/my-rewards/components/shopping-cart.component.html',
+    templateUrl: './app/my-rewards/components/shopping-cart.component.html',
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,

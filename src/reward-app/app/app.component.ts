@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {MainLoginComponent} from './login/components/main-login.component';
 import {OverviewComponent} from './my-rewards/components/overview.component';
@@ -170,6 +170,7 @@ export class AppComponent implements OnInit {
 
 	constructor ( private _matchMediaService: MatchMediaService,
     private _headerService: HeaderService,
+    private _router: Router,
     private _rewardTypeService:RewardTypeService) {
         new FastClick(document.body);
     }
@@ -177,6 +178,8 @@ export class AppComponent implements OnInit {
     ngOnInit(){
         this.OnResize();
         this._rewardTypeService.initialRewards();
+
+        this._router.navigate(['Starter', 'Login']);
         //this.OnScroll();
         //FastClick1.attach(document.all);
         

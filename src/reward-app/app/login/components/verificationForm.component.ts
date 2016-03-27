@@ -6,7 +6,7 @@ import {PageNavigationService} from '../../shared/services/page-navigation.servi
 
 @Component({
     selector: 'verificationForm',
-    templateUrl: 'app/login/components/verificationForm.html'
+    templateUrl: './app/login/components/verificationForm.html'
 })
 export class VerificationFormComponent {
     

@@ -13,7 +13,7 @@ export class RewardTypeService {
     }
     
     initialRewards(){
-        this._http.get('services/rewards.json')
+        this._http.get('./services/rewards.json')
         .subscribe(
                 response => {
                     

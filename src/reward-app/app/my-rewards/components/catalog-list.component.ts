@@ -9,7 +9,7 @@ import {Catalog} from '../../shared/models/catalog';
 
 @Component({
     selector: 'catalog-list',
-    templateUrl: 'app/my-rewards/components/catalog-list.component.html'
+    templateUrl: './app/my-rewards/components/catalog-list.component.html'
 })
 export class CatalogListComponent {
 

@@ -12,7 +12,7 @@ import {Catalog} from '../../shared/models/catalog';
 
 @Component({
     selector: 'perks',
-    templateUrl: 'app/my-rewards/components/perks.component.html'
+    templateUrl: './app/my-rewards/components/perks.component.html'
 })
 export class PerksComponent  {
     

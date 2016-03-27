@@ -4,6 +4,7 @@ import {AppComponent} from './app.component';
 import {provide} from 'angular2/core';
 import {HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
 import {Headers} from "angular2/http";
+import {ROUTER_PROVIDERS, APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 class MyOptions extends BaseRequestOptions {
     
@@ -14,4 +15,20 @@ class MyOptions extends BaseRequestOptions {
 
 } 
 
-bootstrap(AppComponent, [HTTP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})]);
+bootstrap(AppComponent,[
+	HTTP_PROVIDERS, 
+	provide(RequestOptions, {useClass: MyOptions}),
+	ROUTER_PROVIDERS,
+	provide(LocationStrategy, { useClass: HashLocationStrategy }),
+	ROUTER_PROVIDERS,
+	provide(APP_BASE_HREF, { useValue: getPath() })
+
+]);
+
+function getPath(){
+	console.log(window.location.href);
+	var str = window.location.href;
+	var res = str.replace("index.html", "");
+	console.log(res);
+	return res;
+}

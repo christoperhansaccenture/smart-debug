@@ -8,7 +8,7 @@ import {NgModel} from 'angular2/common';
 @Component({
     directives: [NgModel],
     selector: 'login',
-    templateUrl: 'app/login/components/login.html'
+    templateUrl: './app/login/components/login.html'
 })
 export class LoginComponent {
     userId: string;

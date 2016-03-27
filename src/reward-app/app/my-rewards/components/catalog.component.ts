@@ -13,7 +13,7 @@ import {CatalogService} from '../services/catalog.service';
 
 @Component({
     selector: 'overview',
-    templateUrl: 'app/my-rewards/components/catalog.component.html',
+    templateUrl: './app/my-rewards/components/catalog.component.html',
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,

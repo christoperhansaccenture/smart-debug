@@ -6,7 +6,7 @@ import {ActivityHistoryService} from '../services/activity-history.service';
 
 @Component({
     selector: 'account-overview',
-    templateUrl: 'app/account/components/activity-history.component.html'
+    templateUrl: './app/account/components/activity-history.component.html'
 })
 export class ActivityHistoryComponent  {
     

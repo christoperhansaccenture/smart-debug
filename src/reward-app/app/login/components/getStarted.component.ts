@@ -5,7 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 
 @Component({
     selector: 'getStarted',
-    templateUrl: 'app/login/components/getStarted.html'
+    templateUrl: './app/login/components/getStarted.html'
 })
 export class GetStartedComponent {
 	
