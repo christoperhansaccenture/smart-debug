@@ -1,15 +1,31 @@
 <!-- <div class="leftmenuContainer" *ngIf="getLeftMenuState()"> ng-class="{'active': vmLeftMenu.showMenu}">-->
     <div class="leftmenuContainer" [ngClass]="{active : getLeftMenuState()}">
         <div class="menuHeader">
-            <div class="menuPic"></div>
-            <div class="menuHeaderText">
-                <div class="smartPic">
-                    <div class="picture"></div>
-                    <div class="text">Rewards</div>
-                </div>
-                <div class="smartPoint">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+            <div id="spinnerMenu" class="sk-circle"  *ngIf="getSpinnerStatus()">
+                <div id="spinnerItemWhite" class="spinnerItem sk-circle1 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle2 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle3 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle4 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle5 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle6 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle7 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle8 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle9 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle10 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle11 sk-child"></div>
+                <div id="spinnerItemWhite" class="sk-circle12 sk-child"></div>
             </div>
-            <div class="expiry">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
+            <div *ngIf="!getSpinnerStatus()">
+                <div class="menuPic"></div>
+                <div class="menuHeaderText">
+                    <div class="smartPic">
+                        <div class="picture"></div>
+                        <div class="text">Rewards</div>
+                    </div>
+                    <div class="smartPoint">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+                </div>
+                <div class="expiry">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
+            </div>
             <select class="phoneNumber" *ngFor="#phone of getListOfPhone()">
                 <option >+63{{ phone.phoneNo }}</option>
             </select>

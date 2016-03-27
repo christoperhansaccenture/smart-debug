@@ -23,7 +23,6 @@ export class AlmostGetItemBeltComponent implements OnInit {
 
     getCategories() {
         let currentPoints = Number((this._accountService.getRewardsBalance().rewards) ? this._accountService.getRewardsBalance().rewards : 0);
-        console.log(currentPoints);
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => e.points > currentPoints)

@@ -2,20 +2,36 @@
     <div class="containerBody">
         <div class="header">Account Overview</div>
         <div class="subHeader">
-            <div class="name">{{ getUserData().name }}</div>
-            <div class="phoneDetail">
-                <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
-                <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
-                <div class="numberType">Postpaid</div>
+            <div class="sk-circle" *ngIf="getSpinnerStatus()">
+                <div id="spinnerItemGreen" class="spinnerItem sk-circle1 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle2 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle3 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle4 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle5 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle6 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle7 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle8 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle9 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle10 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle11 sk-child"></div>
+                <div id="spinnerItemGreen" class="sk-circle12 sk-child"></div>
             </div>
-            <div class="subInfoContainer">
-                <div class="leftSide">
-                    <div class="balance">Point Balance</div>
-                    <div class="expire">{{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}</div>
+            <div *ngIf="!getSpinnerStatus()">
+                <div class="name">{{ getUserData().name }}</div>
+                <div class="phoneDetail">
+                    <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
+                    <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
+                    <div class="numberType">Postpaid</div>
                 </div>
-                <div class="rightSide">
-                    <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
-                </div>    
+                <div class="subInfoContainer">
+                    <div class="leftSide">
+                        <div class="balance">Point Balance</div>
+                        <div class="expire">{{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}</div>
+                    </div>
+                    <div class="rightSide">
+                        <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+                    </div>    
+                </div>
             </div>
         </div>
         <div class="infoHeader">Latest Transactions</div>

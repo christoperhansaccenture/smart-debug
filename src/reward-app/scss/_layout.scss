@@ -89,3 +89,24 @@ a {
 		cursor: default;
 	}
 }
+
+#spinnerItemGreen{
+    
+    &:before{
+        background-color: $smartgreen;
+    }
+    
+}
+
+#spinnerItemWhite{
+    
+    &:before{
+        background-color: #FFF;
+    }
+    
+}
+
+#spinnerMenu{
+    margin-bottom: 30px;
+    margin-top: 29px;
+}

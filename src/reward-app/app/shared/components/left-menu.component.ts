@@ -17,6 +17,10 @@ export class LeftMenuComponent {
         
     }
     
+    getSpinnerStatus(){
+        return this._accountService.spinnerAccount;
+    }
+    
     getRewardsBalance(){
         return this._accountService.getRewardsBalance();
     }

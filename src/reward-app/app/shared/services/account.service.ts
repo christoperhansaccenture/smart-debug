@@ -7,6 +7,11 @@ import {ModalService} from './modal.service';
 @Injectable()
 export class AccountService {
     
+    //TODO move these parameter to better implementation
+    spinnerAccount = false;
+    spinnerActHistory = false;
+    spinnerLoading = false;
+    
     selectedUserPhone:any = {
         phoneNo: "",
         name: "",
@@ -32,13 +37,22 @@ export class AccountService {
     }
     
     getSelectedUserPhone(){
+        
+        var selectedPhone = sessionStorage.getItem('SelectedPhone');
+        
+        if(selectedPhone === null || selectedPhone === undefined ){
+            //this.getMobileNumberlistFromBackEnd(true);
+        }else{
+            this.selectedUserPhone = JSON.parse(selectedPhone);
+        }
         return this.selectedUserPhone;
+        
     }
     
     getMobileNumberlist(){
         
         var mobileInStorage = sessionStorage.getItem('mobileNo');
-        
+        console.log(mobileInStorage);
         if(mobileInStorage === null || mobileInStorage === undefined ){
             //this.getMobileNumberlistFromBackEnd(true);
         }else{
@@ -82,7 +96,9 @@ export class AccountService {
         var mobileInStorage = sessionStorage.getItem('mobileNo');
         
         if(refresh === true || mobileInStorage === null || mobileInStorage === undefined){
-        
+            
+            this.spinnerAccount = true;
+            
             var promise = this._smartIntegrationService.getMobileListNumber();
             
             promise.subscribe(
@@ -131,10 +147,13 @@ export class AccountService {
                     sessionStorage.setItem('mobileNo',JSON.stringify(response.json().phoneData));
                     let min = localStorage.getItem('phoneNumber');
                     this.selectedUserPhone = this.mobileNoList.filter(e => e.phoneNo === min)[0];
+                    sessionStorage.setItem('SelectedPhone',JSON.stringify(this.selectedUserPhone));
+                    this.spinnerAccount = false;
                     
                 },
                 error =>{
                     console.log('not authorize?');
+                    this.spinnerAccount = false;
                 }
             );
         }

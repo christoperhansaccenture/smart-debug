@@ -20,6 +20,10 @@ export class AccountOverviewComponent  {
 		
 	}
     
+    getSpinnerStatus(){
+        return this._accountService.spinnerAccount;
+    }
+    
     getUserData(){
         return this._accountService.getSelectedUserPhone();
     }
