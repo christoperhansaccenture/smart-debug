@@ -56,8 +56,11 @@
 
                         .favorite-icon {
                             display: inline-block;
-                            width: 29%;
-                            font-size: 38px;
+                            height: 30px;
+                            width: 30px;
+                            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNTk5OTk5OTk5OTk5OTksMS45OTQ5NzEzNzA2OTcwMikgc2NhbGUoNy45LDcuOSkgICIgZmlsbD0iI0YxNDc1NiIgZD0iTTE2LDBMMTkuOCwxMi4yMDAwMDMgMzIsMTIuMjAwMDAzIDIyLjEsMTkuNzAwMDA0IDI1LjksMzEuOTAwMDA3IDE2LDI0LjQwMDAwNSA2LjA5OTk5OTQsMzEuOTAwMDA3IDkuOTAwMDAwMSwxOS43MDAwMDQgMCwxMi4yMDAwMDMgMTIuMiwxMi4yMDAwMDN6IiAvPg0KICA8L2c+DQo8L3N2Zz4NCg==") no-repeat;
+                            background-size: 30px;
+                            background-position: center center;
                         }
 
                         .favorite-text {
