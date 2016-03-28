@@ -32,7 +32,8 @@ export class LifestyleItemBeltComponent implements OnInit {
             return this._catalogService.catalogs
                 .filter(e => e.categories.indexOf('Lifestyle') > -1)
                 .sort((a, b) => a.points - b.points)
-                .slice(0, 11);
+                .slice(0, 11)
+                .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
         }
         else
             return null;

@@ -38,7 +38,10 @@ export class AllCategoryItemBeltComponent implements OnInit {
                 if (a < b) {
                     return -1;
                 }
-            }).sort((a, b) => a.points - b.points).slice(0, 11);
+            })
+            .sort((a, b) => a.points - b.points)
+            .slice(0, 11)
+            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
         }
         else
             return null;
