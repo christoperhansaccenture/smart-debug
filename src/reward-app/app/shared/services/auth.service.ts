@@ -51,11 +51,13 @@ export class AuthService {
              //alert("Please enter your password!");
              this.errorMessageText="Please enter your phone no/email and password";
              this.errorMessageFlag=true;
+             this.isLoadingLogin = false;
          }
          else if(this.checkIDPassword(userId,password)==2)
          {
               this.errorMessageText="Please enter a valid email address";
               this.errorMessageFlag=true;
+              this.isLoadingLogin = false;
          } 
          else if(this.checkIDPassword(userId,password)==1)
          {
