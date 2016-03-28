@@ -129,7 +129,12 @@ export class CatalogService {
                             c.code = e.code;
                             c.name = e.name;
                             c.description = e.description;
-                            c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
+                            if (e.imageUrl && e.imageUrl.indexOf(this._smartIntegrationService.imageUrlBase) > -1) {
+                                c.imageUrl = e.imageUrl;
+                            }
+                            else {
+                                c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
+                            }
                             c.categories = e.categories;
                             c.points = e.points;
                             c.stock = e.stock;
