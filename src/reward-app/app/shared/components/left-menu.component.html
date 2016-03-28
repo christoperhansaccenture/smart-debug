@@ -13,8 +13,8 @@
                 </div>
                 <div class="expiry">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
             </div>
-            <select class="phoneNumber" *ngFor="#phone of getListOfPhone()">
-                <option >+63{{ phone.phoneNo }}</option>
+            <select class="phoneNumber">
+                <option *ngFor="#phone of getListOfPhone()">+63{{ phone.phoneNo }}</option>
             </select>
         </div>
         <div class="menuItemBox">
