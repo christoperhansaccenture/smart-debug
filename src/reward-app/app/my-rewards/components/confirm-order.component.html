@@ -78,13 +78,13 @@
                 <div class="itemText">
                     <div class="itemSubHeader">Total Points Required:</div>
                 </div>
-                <div class="itemPoint">{{ getPointsRequired() }} <span>pts</span></div>
+                <div class="itemPoint">{{ getPointsRequiredNaN() }} <span>pts</span></div>
             </div>
             <div class="row">
                 <div class="itemText">
                     <div class="itemSubHeader">Remaining points after redemption:</div>
                 </div>
-                <div class="itemPoint">{{ getPointsRemaining() }} <span>pts</span></div>
+                <div class="itemPoint">{{ getPointsRemainingNaN() }} <span>pts</span></div>
             </div>
             <div class="row button-container">
                 <button class="button" (click)="confirm()">Confirm</button>

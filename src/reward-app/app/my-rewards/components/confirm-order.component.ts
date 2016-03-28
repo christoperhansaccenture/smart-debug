@@ -43,10 +43,12 @@ export class ConfirmOrderComponent  {
     }
 
     getCurrentPoints() {
-        return this._accountService.selectedUserPhone.rewards;
+        //return this._accountService.selectedUserPhone.rewards;
+        //return ( this._accountService.getRewardsBalance().rewards ? this._accountService.getRewardsBalance().rewards : 0 );
+        return this._accountService.getRewardsBalance().rewards;
     }
 
-    getPointsRequired() {
+    getPointsRequired(): number {
         if (this.getItems() && this.getItems().length > 0) {
             return this.getItems()
             .map(e => {
@@ -59,8 +61,16 @@ export class ConfirmOrderComponent  {
         return 0;
     }
 
-    getPointsRemaining() {
+    getPointsRemaining(): number {
         return this.getCurrentPoints() - this.getPointsRequired();
+    }
+
+    getPointsRequiredNaN() {
+        return (isNaN(this.getPointsRequired())) ? 0 : this.getPointsRequired();
+    }
+
+    getPointsRemainingNaN() {
+        return (isNaN(this.getPointsRemaining())) ? 0 : this.getPointsRemaining();
     }
 
     getItems() {

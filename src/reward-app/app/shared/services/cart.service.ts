@@ -116,7 +116,15 @@ export class CartService {
         let arr: CartItem[] = [];
         for (let key in this.items)
             arr.push(this.items[key]);
-        this._smartIntegrationService.confirmOrder(arr);
+        this._smartIntegrationService.confirmOrder(arr)
+            .subscribe(
+                response => {
+                    console.log('success response: ' + response);
+                },
+                error => {
+                    console.log('success response: ' + error);
+                }
+            );
     }
 
     addBillToCart(selection, number, amount, pin) {

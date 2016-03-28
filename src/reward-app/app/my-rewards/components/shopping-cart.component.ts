@@ -58,7 +58,9 @@ export class ShoppingCartComponent implements AfterViewInit {
     }
 
     getCurrentPoints() {
-        return this._accountService.selectedUserPhone.rewards;
+        //return this._accountService.selectedUserPhone.rewards;
+        //return ( this._accountService.getRewardsBalance().rewards ? this._accountService.getRewardsBalance().rewards : 0 );
+        return this._accountService.getRewardsBalance().rewards;
     }
 
     getPointsRequired(): number {
