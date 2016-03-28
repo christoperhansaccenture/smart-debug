@@ -143,7 +143,14 @@ export class CatalogService {
     }
 
     updateFavorite(catalog: Catalog) {
-        this._smartIntegrationService.updateFavorite(catalog);
+        this._smartIntegrationService.updateFavorite(catalog)
+            .subscribe(
+                response => {
+                    let c: Catalog = this.catalogs.filter(e => e.id == catalog.id)[0];
+                    c.favorite = catalog.favorite;
+                    sessionStorage.setItem('catalog',JSON.stringify(this.catalogs));
+                },
+            );
     }
     
 }
