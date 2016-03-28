@@ -4,11 +4,15 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgModel} from 'angular2/common';
+import {HorizontalSpinnerComponent} from '../../shared/components/spinners/horizontal-spinner.component';
 
 @Component({
-    directives: [NgModel],
     selector: 'login',
-    templateUrl: './app/login/components/login.html'
+    templateUrl: './app/login/components/login.html',
+    directives: [
+        NgModel,
+        HorizontalSpinnerComponent
+    ]
 })
 export class LoginComponent {
     userId: string;

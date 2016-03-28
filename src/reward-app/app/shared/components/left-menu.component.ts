@@ -3,10 +3,14 @@ import { Router } from 'angular2/router';
 import {LayoutService} from '../services/layout.service';
 import {AuthService} from '../services/auth.service';
 import {AccountService} from '../../shared/services/account.service';
+import {CircularSpinnerComponent} from './spinners/circular-spinner.component';
 
 @Component({
     selector: 'left-menu',
-    templateUrl: 'app/shared/components/left-menu.component.html'
+    templateUrl: 'app/shared/components/left-menu.component.html',
+    directives: [
+        CircularSpinnerComponent
+    ]
 })
 export class LeftMenuComponent {
     

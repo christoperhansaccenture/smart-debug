@@ -6,11 +6,7 @@
 			<input placeholder="Password" type="password" [(ngModel)]="password" />
 			<div class="button">
                 <a (click)="login($event)" *ngIf="!getLoadingState()">Log In</a>
-                <div class="sk-three-bounce spinner" *ngIf="getLoadingState()">
-                    <div class="sk-child sk-bounce1 item"></div>
-                    <div class="sk-child sk-bounce2 item"></div>
-                    <div class="sk-child sk-bounce3 item"></div>
-                </div>
+                <horizontal-spinner *ngIf="getLoadingState()" [color]="'white'"></horizontal-spinner>
             </div>
             <div class="errorAlert">{{getErrorMessageText()}}</div>
 			<p><a (click)="gotoForgotPassword()">Forgot your password?</a></p>

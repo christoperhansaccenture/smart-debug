@@ -1,20 +1,7 @@
 <!-- <div class="leftmenuContainer" *ngIf="getLeftMenuState()"> ng-class="{'active': vmLeftMenu.showMenu}">-->
     <div class="leftmenuContainer" [ngClass]="{active : getLeftMenuState()}">
         <div class="menuHeader">
-            <div id="spinnerMenu" class="sk-circle"  *ngIf="getSpinnerStatus()">
-                <div id="spinnerItemWhite" class="spinnerItem sk-circle1 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle2 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle3 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle4 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle5 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle6 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle7 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle8 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle9 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle10 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle11 sk-child"></div>
-                <div id="spinnerItemWhite" class="sk-circle12 sk-child"></div>
-            </div>
+            <circular-spinner *ngIf="getSpinnerStatus()" [color]="'white'"></circular-spinner>
             <div *ngIf="!getSpinnerStatus()">
                 <div class="menuPic"></div>
                 <div class="menuHeaderText">

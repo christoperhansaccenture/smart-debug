@@ -12,6 +12,7 @@ import {AlmostGetItemBeltComponent} from './almost-get-item-belt.component';
 import {LifestyleItemBeltComponent} from './lifestyle-item-belt.component';
 import {MobileItemBeltComponent} from './mobile-item-belt.component';
 import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
+import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 //import { Layout } from '../../model/layout';
 
 @Component({
@@ -24,7 +25,8 @@ import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
         AlmostGetItemBeltComponent,
         LifestyleItemBeltComponent,
         MobileItemBeltComponent,
-        FavoriteItemBeltComponent
+        FavoriteItemBeltComponent,
+        CircularSpinnerComponent
     ]
 })
 export class OverviewComponent  {

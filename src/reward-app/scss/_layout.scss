@@ -98,6 +98,41 @@ a {
     
 }
 
+
+.horizontal-spinner {
+	.sk-child {
+
+		&.white {
+		    background-color: #FFF !important;
+		}
+
+		&.green {
+			background-color: $smartgreen !important;	    
+		}
+
+	}
+}
+
+.circular-spinner {
+
+	.sk-child {
+
+		&.white {
+			&:before {
+		    	background-color: #FFF !important;
+			}
+		}
+
+		&.green {
+			&:before {
+		    	background-color: $smartgreen !important;
+			}
+		}
+
+	}
+
+}
+
 #spinnerItemWhite{
     
     &:before{
