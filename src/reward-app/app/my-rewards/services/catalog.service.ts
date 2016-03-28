@@ -149,7 +149,7 @@ export class CatalogService {
                     let c: Catalog = this.catalogs.filter(e => e.id == catalog.id)[0];
                     c.favorite = catalog.favorite;
                     sessionStorage.setItem('catalog',JSON.stringify(this.catalogs));
-                },
+                }
             );
     }
     
