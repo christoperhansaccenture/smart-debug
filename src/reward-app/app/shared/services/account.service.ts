@@ -91,6 +91,27 @@ export class AccountService {
         
     }
     
+    initializeForgotPassword(type:string,account:string){
+        
+        let link = ['VerificationForm'];
+        this._router.navigate(link); 
+        
+        //var promise = this._smartIntegrationService.initializeForgotPassword(type,account);
+            
+        // promise.subscribe(
+        //     response => {
+                
+                
+                
+        //     },
+        //     error =>{
+        //         console.log('not authorize?');
+        //         this.spinnerForgotPassword = false;
+        //     }
+        // );
+        
+    }
+    
     getMobileNumberlistFromBackEnd(refresh:boolean){
         
         var mobileInStorage = sessionStorage.getItem('mobileNo');

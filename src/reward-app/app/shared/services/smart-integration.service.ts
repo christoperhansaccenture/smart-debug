@@ -25,6 +25,10 @@ export class SmartIntegrationService {
                 this.imageUrlBase = config.baseImageUrl;
             });
     }
+    
+    initializeForgotPassword(type:String,account:string) {
+
+    }
 
 
     getCatalogs() {

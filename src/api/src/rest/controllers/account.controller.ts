@@ -464,6 +464,49 @@ var config = require('../config/config');
                 }
             }
             
+            async initializeRecoverPassword(req:string,res:string) : Promise<string> {
+             
+                var jsonBody{
+                    prefferedTypeID : req.params.type,
+                    value : req.params.account
+                }
+
+                const ssoService:SSO.sso = new SSO.sso();
+
+                try {  
+                    var result =  await ssoService.initializeRecoverPassword(JSON.stringify(jsonBody));
+                    console.log(result);
+                    // var resJson = JSON.parse(result);       
+                    
+                    res.json(JSON.parse(result));
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            }
+            
+            async recoverPassword(req:string,res:string) : Promise<string> {
+             
+                var jsonBody{
+                    FPKey : req.body.FPKey,
+                    password : req.body.password,
+                    mobileValidationCode : req.body.mobileValidationCode
+                }
+
+                const ssoService:SSO.sso = new SSO.sso();
+
+                try {  
+                    var result =  await ssoService.recoverPassword(JSON.stringify(jsonBody));
+                    console.log(result);
+                    // var resJson = JSON.parse(result);       
+                    
+                    res.json(JSON.parse(result));
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            }
+            
             async getCustomerInformation(req:string,res:string) : Promise<string> {
                 
                 var token:string = req.get("Authorization");

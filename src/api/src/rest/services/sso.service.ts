@@ -67,6 +67,60 @@ export module SSO {
             });
         }
         
+        async initializeRecoverPassword(body: string) : Promise<string> {
+
+            var path:string = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';
+            var uuidString = uuid.v4();
+            var arrUuid = uuidString.split('-');
+            uuidString = '';
+            for(var i = 0; i < arrUuid.length; i++){
+                uuidString = uuidString + arrUuid[i];    
+            }
+            
+            var json = JSON.parse(body);          
+            
+            return new Promise<string> (function(resolve, reject) {
+                request.post({
+                    url:    config.baseurl + path, 
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'clientKey': config.clientKey
+                    },
+                    form: json
+                },
+                function(err,httpResponse,body){     
+                    resolve(body);
+                })    
+            });
+        }
+        
+        async recoverPassword(body: string) : Promise<string> {
+
+            var path:string = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';
+            var uuidString = uuid.v4();
+            var arrUuid = uuidString.split('-');
+            uuidString = '';
+            for(var i = 0; i < arrUuid.length; i++){
+                uuidString = uuidString + arrUuid[i];    
+            }
+            
+            var json = JSON.parse(body);          
+            
+            return new Promise<string> (function(resolve, reject) {
+                request.post({
+                    url:    config.baseurl + path, 
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'clientKey': config.clientKey
+                    },
+                    form: json
+                },
+                function(err,httpResponse,body){     
+                    resolve(body);
+                })    
+            });
+        }
+        
         async getAccount(accessToken:string, clientId:string, msaId:string) : Promise<string> {
 
             var path:string = '/apimysmartws/ssoapi/account/requestUserProfileInfo';

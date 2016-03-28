@@ -88,6 +88,9 @@ import {RewardController} from './controllers/reward.controller';
 
 	// login related services
     router.post('/login', loginCtrl.postLogin);
+    router.post('/account',accountCtrl.register);
+    router.post('/accountpassword/recover/:type/:account',accountCtrl.initializeRecoverPassword);
+    //router.post('/accountpassword/recover',accountCtrl.recoverPassword);
     
     //account related services
     router.get('/account', accountCtrl.getAccount);
