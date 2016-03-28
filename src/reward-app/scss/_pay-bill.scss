@@ -97,9 +97,9 @@ $col-3-height: 340px;
                 padding-right: 5px;
                 border-radius: 5px;
                 font-size: 15px;
-                line-height: 1.5rem;
+                line-height: 1.9rem;
                 border: none;
-                margin-top: 12px;
+                margin: 12px 0;
                 
                 &.select{
                     width: calc(100% - 45px);
@@ -160,7 +160,6 @@ $col-3-height: 340px;
                 margin-left: 10px;
                 margin-right: 10px;
                 float: right;
-                background-color: $smartred;
                 color: #FFF;
                 
             }

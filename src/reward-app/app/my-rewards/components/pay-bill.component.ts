@@ -34,7 +34,10 @@ export class PayBillComponent  {
     }
 
     addToCart() {
-        this._cartService.addBillToCart(this.selection, this.number, this.amount, this.pin);
+        if (this.isFormValid()) {
+            this._cartService.addBillToCart(this.selection, this.number, this.amount, this.pin);
+            this.resetForm();
+        }
     }
 
     getNumberPlaceholder() {
@@ -48,6 +51,17 @@ export class PayBillComponent  {
 
     getPointsNeeded() {
         return this.amount ? this.amount : 0;
+    }
+
+    isFormValid() {
+        return this.number && this.amount && this.pin;
+    }
+
+    resetForm() {
+        this.selection = 'SMART';
+        this.number = "";
+        this.amount = "";
+        this.pin = "";
     }
 	
 }

@@ -32,7 +32,7 @@
                 <div class="pointText">Points Needed</div>
                 <div class="pointValue">{{ getPointsNeeded() }} <span>pts</span></div>
             </div>
-            <div class="button red" (click)="addToCart()">Add to Cart</div>
+            <div class="button" [class.disabled]="!isFormValid()" (click)="addToCart()">Add to Cart</div>
         </div>
     </div>
 </div>
