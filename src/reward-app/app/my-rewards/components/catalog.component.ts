@@ -63,5 +63,14 @@ export class CatalogComponent  {
         // go to page
         this._router.navigate(['CatalogList']);
     }
+
+    getFavorites() {
+        if (this._catalogService.catalogs) {
+            return this._catalogService.catalogs
+                .filter(e => e.favorite).length;
+        }
+        else
+            return null;
+    }
 	
 }

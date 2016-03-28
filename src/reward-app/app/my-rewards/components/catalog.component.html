@@ -10,11 +10,11 @@
         <div class="subOption" (click)="goToCatalogList('Most Popular')">See All</div>
     </div>
     <most-popular-item-belt></most-popular-item-belt>
-    <div class="subHeader">
+    <div class="subHeader" *ngIf="getFavorites()">
         <div class="leftHeader">My Favorites</div>
         <div class="subOption" (click)="goToCatalogList('My Favorite')">See All</div>
     </div>
-    <favorite-item-belt></favorite-item-belt>
+    <favorite-item-belt *ngIf="getFavorites()"></favorite-item-belt>
     <div class="subHeader">
         <div class="leftHeader">All Categories</div>
         <div class="subOption" (click)="goToCatalogList('All Categories')">See All</div>
