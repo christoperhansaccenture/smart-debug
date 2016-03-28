@@ -86,4 +86,13 @@ export class OverviewComponent  {
         this._router.navigate(['CatalogList']);
     }
 	
+    getCategories() {
+        let currentPoints = Number((this._accountService.getRewardsBalance().rewards) ? this._accountService.getRewardsBalance().rewards : 0);
+        if (this._catalogService.catalogs) {
+            return this._catalogService.catalogs
+                .filter(e => e.points > currentPoints).length;
+        }
+        else
+            return null;
+    }
 }

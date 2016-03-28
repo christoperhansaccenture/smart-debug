@@ -33,11 +33,11 @@
     <div class="itemBelt">
         <most-popular-item-belt></most-popular-item-belt>
     </div>
-    <div class="subHeader belt">
+    <div class="subHeader belt" *ngIf="getCategories()">
         <div class="leftHeader">You can almost get...</div>
         <div class="subOption" (click)="goToCatalogList('All Categories')">See all</div>
     </div>
-    <div class="itemBelt">
+    <div class="itemBelt" *ngIf="getCategories()">
         <almost-get-item-belt></almost-get-item-belt>
     </div>
 </div>
