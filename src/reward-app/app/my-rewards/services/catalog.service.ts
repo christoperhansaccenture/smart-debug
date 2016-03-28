@@ -82,11 +82,15 @@ export class CatalogService {
 	constructor(private _http: Http,
                private _smartIntegrationService: SmartIntegrationService) {}
 
-    loadAllCatalogs(refresh: boolean = false) {
-        
+    isCatalogsLoaded() {
         var catalogInStorage = sessionStorage.getItem('catalog');
         
-        if(catalogInStorage === null || catalogInStorage === undefined){
+        return !(catalogInStorage === null || catalogInStorage === undefined);
+    }
+
+    loadAllCatalogs(refresh: boolean = false) {
+        
+        if(!this.isCatalogsLoaded()){
             if (refresh || !this.catalogs) {
                 this._smartIntegrationService
                 .getCatalogs()

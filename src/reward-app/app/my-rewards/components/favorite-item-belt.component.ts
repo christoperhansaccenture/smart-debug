@@ -2,12 +2,16 @@ import {Component, OnInit} from 'angular2/core';
 import {CatalogService} from '../services/catalog.service';
 import {ModalService} from '../../shared/services/modal.service';
 import {StringTruncatePipe} from '../../shared/pipes/string-truncate.pipe';
+import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 
 @Component({
     selector: 'favorite-item-belt',
     templateUrl: './app/my-rewards/components/favorite-item-belt.component.html',
     pipes: [
         StringTruncatePipe
+    ],
+    directives: [
+        CircularSpinnerComponent
     ]
 })
 export class FavoriteItemBeltComponent implements OnInit {
@@ -17,6 +21,10 @@ export class FavoriteItemBeltComponent implements OnInit {
 
     ngOnInit() {
         this._catalogService.loadAllCatalogs();
+    }
+
+    isLoading() {
+        return !this._catalogService.isCatalogsLoaded();
     }
 
     getCategories() {
