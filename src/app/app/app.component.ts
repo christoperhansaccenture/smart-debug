@@ -29,7 +29,8 @@ declare var FastClick: FastClickStatic;
         <smart-header></smart-header>
         <my-modal></my-modal>
         <left-menu></left-menu>
-        <div id="content"><router-outlet></router-outlet></div>
+        <div id="content"
+        (window:scroll)="OnScroll()"><router-outlet></router-outlet></div>
         <smart-footer></smart-footer>
     `,
     directives: [
@@ -78,7 +79,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit(){
         this.OnResize();
-        
     }
     
     OnResize(){
@@ -87,7 +87,7 @@ export class AppComponent implements OnInit {
     }
     
     OnScroll(){
-        //this._headerService.headerOnScroll();
+        this._headerService.headerOnScroll();
     }
 
 }

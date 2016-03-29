@@ -66,4 +66,9 @@ export class HeaderComponent {
         this._layoutService.setNumberSelectionState();
     }
     
+    getResize(){
+        return this._matchMediaService.getmm();
+        
+    }
+    
 }

@@ -2,6 +2,7 @@
 
 
 'use strict';
+require('newrelic');
 var cluster = require('cluster');
 var request = require('request'); 
 
