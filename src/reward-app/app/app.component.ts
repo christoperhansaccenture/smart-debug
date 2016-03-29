@@ -179,7 +179,7 @@ export class AppComponent implements OnInit {
         this.OnResize();
         this._rewardTypeService.initialRewards();
 
-        this._router.navigate(['Starter', 'Login']);
+        //this._router.navigate(['Starter', 'Login']);
         //this.OnScroll();
         //FastClick1.attach(document.all);
         

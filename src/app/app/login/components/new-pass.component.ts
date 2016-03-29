@@ -5,7 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 
 @Component({
     selector: 'new-pass',
-    templateUrl: 'app/login/components/new-pass.component.html'
+    templateUrl: './app/login/components/new-pass.component.html'
 })
 export class NewPassComponent {
     

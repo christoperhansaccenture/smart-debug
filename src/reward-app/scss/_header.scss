@@ -107,18 +107,22 @@ $smallheight: 48px;
                     line-height: 20px;
                     font-size: smaller;
                     background-color: $smartred;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
             
             .points{
-                //float: left;
                 font-size: 30px;
                 color: #FFF;
                 height: 48px;
                 line-height: 48px;
-                //margin-left: 10px;
-                //width: 110px;
                 text-align: center;
+                position: fixed;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                z-index: -1;
                 
                 span{
                     font-size: 15px;

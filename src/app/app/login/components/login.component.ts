@@ -4,11 +4,15 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgModel} from 'angular2/common';
+import {HorizontalSpinnerComponent} from '../../shared/components/spinners/horizontal-spinner.component';
 
 @Component({
-    directives: [NgModel],
     selector: 'login',
-    templateUrl: 'app/login/components/login.html'
+    templateUrl: './app/login/components/login.html',
+    directives: [
+        NgModel,
+        HorizontalSpinnerComponent
+    ]
 })
 export class LoginComponent {
     userId: string;
@@ -27,6 +31,10 @@ export class LoginComponent {
     //     return this._authService.getErrorMessageFlag();
     // }
     
+    getLoadingState(){
+        return this._authService.getLoadingState();
+    }
+    
     getErrorMessageText(){
         return this._authService.getErrorMessageText();
     }
@@ -34,7 +42,10 @@ export class LoginComponent {
     login(event) {
 	
         event.preventDefault();
-        this._authService.login(this.userId,this.password);
+        
+        if(!this._authService.getLoadingState()){
+            this._authService.login(this.userId,this.password);
+        }
 
     }
     

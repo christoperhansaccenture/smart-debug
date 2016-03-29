@@ -50,6 +50,20 @@ $containerLogin-height: 400px;
 				padding-right: 0;
 				padding-left: 0;
 				
+                .spinner{
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    
+                    .item{
+                        background-color: #FFF;
+                        width: 10px;
+                        height: 10px;
+                    }
+                    
+                }
+                
 			}
             
             .errorAlert{

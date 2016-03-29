@@ -65,6 +65,7 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept,Authorization,Proxy-Authorization,X-session");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,DELETE,POST");
     next();
 });
 const port = process.env.PORT || 8080;
@@ -77,6 +78,9 @@ const rewardCtrl = new reward_controller_1.RewardController();
 // const SSO:SSO = new sso();
 // login related services
 router.post('/login', loginCtrl.postLogin);
+router.post('/account', accountCtrl.register);
+//router.post('/accountpassword/recover/:type/:account',accountCtrl.initializeRecoverPassword);
+//router.post('/accountpassword/recover',accountCtrl.recoverPassword);
 //account related services
 router.get('/account', accountCtrl.getAccount);
 router.get('/rewardBalance', accountCtrl.getRewardBalance);
@@ -100,7 +104,7 @@ router.post('/transfer', rewardCtrl.transferpoints);
 //router.post('/unmarkAsFavourite',rewardCtrl.removeFavouriteItem);
 router.get('/catalogDisplay', rewardCtrl.getCatalogDisplayPreferences);
 router.put('/payBill', rewardCtrl.payBillWithPoints);
-router.get('/customer/:min/redeem', rewardCtrl.redeemItems);
+router.post('/customer/:min/redeem', rewardCtrl.redeemItems);
 router.get('/customer/:min/catalog', rewardCtrl.getCatalogById);
 router.put('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.favouriteItem);
 router.delete('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.removeFavouriteItem);

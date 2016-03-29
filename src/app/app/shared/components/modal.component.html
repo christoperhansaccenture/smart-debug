@@ -1,8 +1,8 @@
 <div class="ModalOuterBox" *ngIf='getMainModalStatus()'>
 	<div class="ModalInternal">
-		<update-credit *ngIf='getModalStatus().updateCredit'></update-credit>
         <info-modal *ngIf='getModalStatus().info'></info-modal>
-        <renew-plan *ngIf='getModalStatus().renewPlan'></renew-plan>
-        <balance-modal *ngIf='getModalStatus().balance'></balance-modal>
+        <catalog-display-modal *ngIf='getModalStatus().catalogDisplay'></catalog-display-modal>
+        <error-modal *ngIf='getModalStatus().error'></error-modal>
+        <profile-modal *ngIf='getModalStatus().profile'></profile-modal>
 	</div>
 </div>

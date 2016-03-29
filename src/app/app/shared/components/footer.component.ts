@@ -7,7 +7,7 @@ import {PageNavigationService} from '../../shared/services/page-navigation.servi
 import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
-    selector: 'pltn-footer',
+    selector: 'smart-footer',
     templateUrl: 'app/shared/components/footer.component.html'
 })
 export class FooterComponent {
@@ -37,10 +37,7 @@ export class FooterComponent {
         
     }
     
-    getResize(){
-
-        return this._matchMediaService.getmm();       
-    }
+    getResize(){return this._matchMediaService.getmm();}
     
     additionalMenuStatus(){
         
@@ -53,21 +50,27 @@ export class FooterComponent {
     } 
     
     gotoHome(){
-        this._router.navigate(['MySmart']);
+        this._router.navigate(['MyRewards']);
         this.addMenu = false;
     }
     
-    gotoPlan(){
-        this._router.navigate(['Plan']);
+    gotoCatalog(){
+        this._router.navigate(['Catalog']);
         this.addMenu = false;
     }
     
-    gotoAddOn(){
+    gotoPerks(){
+        this._router.navigate(['Perks']);
         this.addMenu = false;
     }
     
-    gotoBalance(){
-        this._router.navigate(['Balance']);
+    gotoTransfer(){
+        this._router.navigate(['Transfer']);
+        this.addMenu = false;
+    }
+    
+    gotoPayBill(){
+        this._router.navigate(['PayBill']);
         this.addMenu = false;
     }
     

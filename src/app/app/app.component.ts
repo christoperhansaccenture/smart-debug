@@ -1,12 +1,15 @@
 import {Component, OnInit} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {HTTP_PROVIDERS} from 'angular2/http';
 import {MainLoginComponent} from './login/components/main-login.component';
 import {OverviewComponent} from './my-smart/components/overview.component';
-import {PlanComponent} from './my-smart/components/plan.component';
-import {BalanceComponent} from './my-smart/components/balance.component';
-import {ManageNumberComponent} from './my-smart/components/manage-number.component';
+import {AccountOverviewComponent} from './account/components/account-overview.component';
+import {ProfileComponent} from './account/components/profile.component';
+import {EditNumberComponent} from './account/components/edit-number.component';
+import {ActivityHistoryComponent} from './account/components/activity-history.component';
 import {HeaderComponent} from './shared/components/header.component';
 import {FooterComponent} from './shared/components/footer.component';
+import {LeftMenuComponent} from './shared/components/left-menu.component';
 import {SmartIntegrationService} from './shared/services/smart-integration.service';
 import {MatchMediaService} from './shared/services/match-media.service';
 import {LayoutService} from './shared/services/layout.service';
@@ -16,23 +19,24 @@ import {AuthService} from './shared/services/auth.service';
 import {FastClickStatic} from './shared/fastclick/fastclick.d';
 import {HeaderService} from './shared/services/header.service';
 import {ModalService} from './shared/services/modal.service';
+import {ActivityHistoryService} from './account/services/activity-history.service';
 import {ModalComponent} from './shared/components/modal.component';
 declare var FastClick: FastClickStatic;
 
 @Component({
-    selector: 'pltn-app',
+    selector: 'smart-app',
     template: `
-        <pltn-header></pltn-header>
+        <smart-header></smart-header>
         <my-modal></my-modal>
-        <router-outlet id="maincontainer"
-        (window:resize)="OnResize()"
-        (window:scroll)="OnScroll()"></router-outlet>
-        <pltn-footer></pltn-footer>
+        <left-menu></left-menu>
+        <div id="content"><router-outlet></router-outlet></div>
+        <smart-footer></smart-footer>
     `,
     directives: [
         HeaderComponent,
         ModalComponent,
         FooterComponent,
+        LeftMenuComponent,
         ROUTER_DIRECTIVES
     ],
     providers: [
@@ -44,13 +48,14 @@ declare var FastClick: FastClickStatic;
 		AuthService,
         HeaderService,
         ModalService,
-        SmartIntegrationService
+        SmartIntegrationService,
+        ActivityHistoryService,
     ]
 })
 
 @RouteConfig([
     {
-        path: '/main/...',
+        path: '/...',
         name: 'Starter',
         component: MainLoginComponent,
 		useAsDefault: true
@@ -59,39 +64,20 @@ declare var FastClick: FastClickStatic;
         path: '/mysmart',
         name: 'MySmart',
         component: OverviewComponent
-    },
-    {
-        path: '/plan',
-        name: 'Plan',
-        component: PlanComponent
-	},
-    {
-        path: '/balance',
-        name: 'Balance',
-        component: BalanceComponent
-	},
-    {
-        path: '/managenumber',
-        name: 'ManageNumber',
-        component: ManageNumberComponent
-	}
+    }
+    
 	
 ])
 export class AppComponent implements OnInit {
 
 	constructor ( private _matchMediaService: MatchMediaService,
-    private _headerService: HeaderService) {
+    private _headerService: HeaderService,
+    private _router: Router) {
         new FastClick(document.body);
     }
 
     ngOnInit(){
         this.OnResize();
-        //this.OnScroll();
-        //FastClick1.attach(document.all);
-        
-        //var options:  FastClickOptions;
-        
-        //FastClick.attach(document.body);
         
     }
     
@@ -101,7 +87,7 @@ export class AppComponent implements OnInit {
     }
     
     OnScroll(){
-        this._headerService.headerOnScroll();
+        //this._headerService.headerOnScroll();
     }
 
 }

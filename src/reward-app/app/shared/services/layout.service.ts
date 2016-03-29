@@ -9,7 +9,7 @@ export class LayoutService {
     numberSelection = false;
 
 	layoutState : Layout = {
-		appHeader: true,
+		appHeader: false,
 		loginHeader: false,
         appFooter: true,
         leftMenu: false

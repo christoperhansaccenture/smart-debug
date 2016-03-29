@@ -11,15 +11,29 @@ export class LayoutService {
 	layoutState : Layout = {
 		appHeader: false,
 		loginHeader: false,
-        appFooter: false
+        appFooter: true,
+        leftMenu: false
 	};
     
     footerState = {
         home: false,
-        plan: false,
-        addon: false,
-        balance: false
+        perks: false,
+        catalog: false,
+        paybill: false,
+        transfer: false
     };
+    
+    headerItem = {
+        hamburger: false,
+        back: false,
+        logo: false,
+        point: false,
+        filter: false,
+        cart: true
+    }
+    
+    accountFromHome = false;
+    historyFromAccount = false;
 	
 	constructor (private _pageNavigationService: PageNavigationService) {}
 	
@@ -30,11 +44,20 @@ export class LayoutService {
     getfooterState(){
         return this.footerState;
     }
+    
+    getHeaderLayout(){
+        return this.headerItem;
+    }
 	
 	setCurrentPage(current : string){
 	
 		this.currentPage = current;
 		this._pageNavigationService.setLoginNavigation(current);
+        
+        //scroll to top page
+        window.scrollTo(0,0);
+
+        this.headerItem.cart = true;
 		
 		if(current == 'GetStarted' ||
         current == 'Verification'){
@@ -42,7 +65,8 @@ export class LayoutService {
 			this.layoutState = {
 				appHeader: false,
 				loginHeader: false,
-                appFooter: false
+                appFooter: false,
+                leftMenu: false
 			};
 		}
 		
@@ -55,77 +79,357 @@ export class LayoutService {
 			this.layoutState = {
 				appHeader: false,
 				loginHeader: true,
-                appFooter: false
+                appFooter: false,
+                leftMenu: false
 			};
 			
 		}
-		else if(current == 'MySmart'){
+		else if(current == 'MyRewards'){
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
 
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
             
             this.footerState.home = true;
-            this.footerState.plan = false;
-            this.footerState.addon = false;
-            this.footerState.balance = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = true;
+            this.headerItem.point = false;
 			
 		}
-        else if(current == 'Plan'){
+        else if(current == 'Perks'){
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
 
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
-
+            
             this.footerState.home = false;
-            this.footerState.plan = true;
-            this.footerState.addon = false;
-            this.footerState.balance = false;
+            this.footerState.perks = true;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
 			
 		}
-        else if(current == 'Balance'){
+        else if(current == 'Catalog'){
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
 
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
-
+            
             this.footerState.home = false;
-            this.footerState.plan = false;
-            this.footerState.addon = false;
-            this.footerState.balance = true;
+            this.footerState.perks = false;
+            this.footerState.catalog = true;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
 			
 		}
-        else if(current == 'ManageNumber'){
-
-			this.layoutState = {
+        else if(current == 'RewardDetail' ||
+                current == 'MobileReward' ||
+               current == 'CatalogList'){
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
+            
+            this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: true
+                appFooter: true,
+                leftMenu: false
 			};
 
             this.footerState.home = false;
-            this.footerState.plan = false;
-            this.footerState.addon = false;
-            this.footerState.balance = false;
-			
-		}
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+        }
+        else if(current == 'ShoppingCart') {
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            this.headerItem.cart = false;
+            
+        }
+        else if(current == 'ConfirmOrder') {
+            
+            this._pageNavigationService.setRewardDetailNavigation(current);
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            this.headerItem.cart = false;
+            
+        }
+        else if(current == 'Transfer'){
+           
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = true;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+        }
+        else if(current == 'PayBill'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = true;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+            
+        }
+        else if(current == 'AccountOverview'){
+            
+            this._pageNavigationService.setAccountOverviewNavigation();
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            if(this.accountFromHome){
+                this.headerItem.back = true;
+                this.headerItem.hamburger = false;
+            }else{
+                this.headerItem.back = false;
+                this.headerItem.hamburger = true;
+            }
+            
+            this.headerItem.filter = false;
+            this.headerItem.logo = true;
+            this.headerItem.point = false;
+            
+            
+        }
+        else if(current == 'Profile'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+            
+        }
+        else if(current == 'ActivityHistory'){
+            
+            this._pageNavigationService.setActivityHistoryNavigation();
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            if(this.historyFromAccount){
+                this.headerItem.back = true;
+                this.headerItem.hamburger = false;
+            }else{
+                this.headerItem.back = false;
+                this.headerItem.hamburger = true;
+            }
+            
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+            
+        }
+        else if(current == 'AddNumber' ||
+                current == 'AddNumberConfirm' ||
+                current == 'EditNumber'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            if(current == 'AddNumber'){
+                this._pageNavigationService.setManageNumberNavigation('ManageNumber');
+            }
+            else if(current == 'EditNumber'){
+                this._pageNavigationService.setManageNumberNavigation('ManageNumber');
+            }
+            else{
+                this._pageNavigationService.setManageNumberNavigation('AddNumber');
+            }
+            
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
+        }
         else{
 			
 			this.layoutState = {
 				appHeader: true,
 				loginHeader: false,
-                appFooter: false
+                appFooter: true,
+                leftMenu: false
 			};
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+            
 
 		}
 	
 	}
+    
+    toggleLeftMenu(){
+        this.layoutState.leftMenu = !this.layoutState.leftMenu;
+    }
+    
+    getLeftMenuState(){
+        return this.layoutState.leftMenu;
+    }
 	
 	getLayout(){
 		return this.layoutState;

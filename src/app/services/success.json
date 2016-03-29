@@ -1,0 +1,196 @@
+{
+    "catalogs": [
+        {
+            "id": 1,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 500,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": true,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 2,
+            "name": "Free Seoul Rice Upgrade",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 2000,
+            "categories": [
+                "Most Popular", "Perks"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": true,
+            "expiry": "18-03"
+        },
+        {
+            "id": 3,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 1000,
+            "categories": [
+                "Lifestyle", "Bro Prepaid"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": true,
+            "giftable": true,
+            "expiry": "18-03"
+        },
+        {
+            "id": 4,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 1500,
+            "categories": [
+                "Most Popular", "Lifestyle", "Bro Postpaid"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 5,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 430,
+            "categories": [
+                "My Favorites", "Lifestyle", "Postpaid"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 6,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "My Favorites", "Prepaid"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 7,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 240,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 8,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 9,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 10,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 540,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 11,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        },
+        {
+            "id": 12,
+            "name": "Krispy Kreme P50 Treat",
+            "description": "Krispy Kreme P50 voucher, plus a double upsize on coffee",
+            "points": 50,
+            "categories": [
+                "Most Popular", "Lifestyle"
+            ],
+            "details": [
+                "Krispy Kreme P50 Voucher",
+                "Double upsize for coffee purchase"
+            ],
+            "favorite": false,
+            "giftable": false,
+            "expiry": "18-03"
+        }
+    ]
+}

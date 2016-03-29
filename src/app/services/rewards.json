@@ -1,0 +1,107 @@
+[
+    {
+        "type":"All",
+        "text":"All Categories",
+        "item":[]
+    },
+    {
+        "type":"popular",
+        "text":"Most Popular",
+        "item":[
+            {
+                "itemId":"1",
+                "itemName":"Krispy Kreme P50 Treat",
+                "points":"50",
+                "picture":""
+            },
+            {
+                "itemId":"2",
+                "itemName":"Free Seoul Rice Upgrade",
+                "points":"10",
+                "picture":""
+            },
+            {
+                "itemId":"3",
+                "itemName":"Body Shop P300 Treat",
+                "points":"300",
+                "picture":""
+            },
+            {
+                "itemId":"4",
+                "itemName":"Daily pass for 2 people",
+                "points":"1200",
+                "picture":""
+            },
+            {
+                "itemId":"5",
+                "itemName":"3 months Netflix for free",
+                "points":"1100",
+                "picture":""
+            },
+            {
+                "itemId":"6",
+                "itemName":"L'Occitane P1500 Treat",
+                "points":"1500",
+                "picture":""
+            }
+        ]
+    },
+    {
+        "type":"lifestyle",
+        "text":"Lifestyle",
+        "item":[
+            {
+                "itemId":"1",
+                "itemName":"Krispy Kreme P50 Treat",
+                "points":"50",
+                "picture":""
+            },
+            {
+                "itemId":"2",
+                "itemName":"Free Seoul Rice Upgrade",
+                "points":"10",
+                "picture":""
+            },
+            {
+                "itemId":"3",
+                "itemName":"Body Shop P300 Treat",
+                "points":"300",
+                "picture":""
+            }
+        ]
+    },
+    {
+        "type":"mobile",
+        "text":"Mobile",
+        "item":{
+            "postpaid":[
+                {
+                    "itemId":"1",
+                    "type": "postpaid",
+                    "itemName":"always On 2.5 hours",
+                    "points":"50",
+                    "picture":""
+                }
+            ],
+            "prepaid":[
+                {
+                    "itemId":"3",
+                    "type": "prepaid",
+                    "itemName":"Big Text Unlimited Text",
+                    "points":"300",
+                    "picture":""
+                }
+            ],
+            "broPostpaid":[
+                {
+                    "itemId":"2",
+                    "type": "broPostpaid",
+                    "itemName":"P50 Bill 50% off",
+                    "points":"10",
+                    "picture":""
+                }
+            ],
+            "broPrepaid":[]
+        }
+    }
+]

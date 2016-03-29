@@ -1,0 +1,93 @@
+$col-3-height: 340px;
+
+.rewardsDetailContainer {
+    
+    padding-bottom: 45px;
+    z-index: 1;
+    
+    .containerBody{
+        
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        
+        .header{
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding: 10px;
+            border-bottom: 1px solid $text-dark-gray;
+            position: fixed;
+            background-color: #FFF;
+            
+            .headerText{
+                color: $smartgreen;
+                font-size: 20px;
+                float: left;
+            }
+            
+            .favourites{
+                color: $smartred;
+                font-size: 15px;
+                line-height: 20px;
+                float: right;
+            }
+            
+        }
+        
+        .itemListContainer{
+            margin-top: 41px;
+            display: inline-block;
+        
+            .itemDetailContainer{
+                display: inline-block;
+                width: calc(100% - 20px);
+                padding: 10px;
+                min-height: 60px;
+                border-bottom: 1px solid $text-dark-gray;
+                
+                .itemPic{
+                    float: left;
+                    width: 80px;
+                    height: 80px;
+                    background-color: $smartred;
+                    
+                }
+                
+                .itemText{
+                    float: left;
+                    width: 50%;
+                    min-height: 60px;
+                    padding-left: 10px;
+                    
+                    .itemSubHeader{
+                        color: $smartgreen;
+                        font-size: 15px;
+                    }
+                    
+                    .itemDesc{
+                        color: $text-dark-gray;
+                        font-size: 13px;
+                    }
+                    
+                }
+                
+                .itemPoint{
+                    display: inline-block;
+                    width: calc(50% - 100px);
+                    font-size: 20px;
+                    text-align: right;
+                    min-height: 60px;
+                    color: $smartred;
+                    font-weight: bold;
+                    
+                    span{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
+}

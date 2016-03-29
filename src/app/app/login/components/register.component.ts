@@ -5,7 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 
 @Component({
     selector: 'register',
-    templateUrl: 'app/login/components/register.component.html'
+    templateUrl: './app/login/components/register.component.html'
 })
 export class RegisterComponent {
 	

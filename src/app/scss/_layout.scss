@@ -1,24 +1,37 @@
 $smartblue: #009CDE;
-$smartgreen: rgb(0,176,80);
+$smartgreen: rgb(80,179,48);
 $lightgray: #F5F5F5;
-$gray: #bcbac1;
+$gray: #838383;
+$smartred: #F14756;
 $text-size: 90%;
 $text-dark-gray: rgb(89,89,89);
-$text-light-gray: rgb(127,127,127);
+$dark-gray: rgb(89,89,89);
+$gray2: rgb(242,242,242);
 
 body{
 	// font-family: 'Roboto', sans-serif;
 	// font-family: Futura, Arial, sans-serif;
-	font-family: Helvetica, sans-serif;
-	background-color: #EEE;
+	font-family: 'Roboto', sans-serif;
+	// font-family: Helvetica, sans-serif;
+	background-color: #FFF;
 	margin: 0;
 	padding: 0;
 	font-size: 10.5pt;
 	line-height: 1.1rem;
+	height: 100%;
+	width: 100%;
+	// overflow: hidden;
 }
 
 a {
 	text-decoration: none
+}
+
+#content{
+	height: calc(100% - 50px);
+	width: 100%;
+	overflow-y: auto;
+	margin-bottom: 50px;
 }
 
 .outer-box{
@@ -53,13 +66,16 @@ a {
 }
 
 .button {
-	background-color: $smartblue;
+	background-color: $smartred;
 	text-align: center;
 	padding: 8px;
 	clear: both;
 	bottom: 0px;
 	width: 200px;
 	border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    color: white;
 
 	a {
 		color: white;
@@ -67,4 +83,65 @@ a {
 		width: 100%;
 		height: 100%;
 	}
+
+	&.disabled {
+		background-color: #aaa;
+		cursor: default;
+	}
+}
+
+#spinnerItemGreen{
+    
+    &:before{
+        background-color: $smartgreen;
+    }
+    
+}
+
+
+.horizontal-spinner {
+	.sk-child {
+
+		&.white {
+		    background-color: #FFF !important;
+		}
+
+		&.green {
+			background-color: $smartgreen !important;	    
+		}
+
+	}
+}
+
+.circular-spinner {
+
+	.sk-child {
+
+		&.white {
+			&:before {
+		    	background-color: #FFF !important;
+			}
+		}
+
+		&.green {
+			&:before {
+		    	background-color: $smartgreen !important;
+			}
+		}
+
+	}
+
+}
+
+#spinnerItemWhite{
+    
+    &:before{
+        background-color: #FFF;
+    }
+    
+}
+
+#spinnerMenu{
+    margin-bottom: 30px;
+    margin-top: 29px;
 }

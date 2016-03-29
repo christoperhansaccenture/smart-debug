@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" height="256" width="256" viewBox="0 0 256 256">
-  <g>
-    <ellipse cy="128" cx="128" stroke-width="15.8" ry="120.1" rx="120.1" stroke="#353535" fill="transparent" />
-    <path id="path1" transform="rotate(0,128,128) translate(1.59999999999999,1.59999999999999) scale(7.9,7.9)  " fill="#353535" d="M15,0L17,0 17,15.000008 32,15.000008 32,17.000008 17,17.000008 17,32 15,32 15,17.000008 0,17.000008 0,15.000008 15,15.000008z" />
-  </g>
-</svg>
-

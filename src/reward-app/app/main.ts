@@ -23,7 +23,7 @@ bootstrap(AppComponent,[
 	provide(RequestOptions, {useClass: MyOptions}),
 	ROUTER_PROVIDERS,
 	provide(LocationStrategy, { useClass: HashLocationStrategy }),
-	ROUTER_PROVIDERS,
+    ROUTER_PROVIDERS,
 	provide(APP_BASE_HREF, { useValue: getPath() })
 
 ]);

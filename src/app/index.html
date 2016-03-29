@@ -2,6 +2,7 @@
 <html>
 <head>
     <base href="/">
+
 	<meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -9,6 +10,7 @@
     <meta name="description" content="Welcome to Smart">
 	<title>Smart</title>
 	<link rel="stylesheet" href="css/app.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,700' rel='stylesheet' type='text/css'>
 
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
@@ -22,24 +24,18 @@
     <script src="scripts/router.dev.js"></script>
     <script src="scripts/http.dev.js"></script>
     <script src="scripts/fastclick.js"></script>    
+    <script src="scripts/nouislider.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 
     <script>
-      System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/main')
-            .then(null, console.error.bind(console));
+
+
     </script>
 </head>
 
 <body>
 
-    <pltn-app>Loading...</pltn-app>
+    <smart-app>Load...</smart-app>
 		
     <script>
         if ('addEventListener' in document) {

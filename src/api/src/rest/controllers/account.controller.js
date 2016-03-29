@@ -394,6 +394,43 @@ class AccountController {
             }
         });
     }
+    initializeRecoverPassword(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var jsonBody = {
+                prefferedTypeID: req.params.type,
+                value: req.params.account
+            };
+            const ssoService = new sso_service_1.SSO.sso();
+            try {
+                var result = yield ssoService.initializeRecoverPassword(JSON.stringify(jsonBody));
+                console.log(result);
+                // var resJson = JSON.parse(result);       
+                res.json(JSON.parse(result));
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
+    recoverPassword(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var jsonBody = {
+                FPKey: req.body.FPKey,
+                password: req.body.password,
+                mobileValidationCode: req.body.mobileValidationCode
+            };
+            const ssoService = new sso_service_1.SSO.sso();
+            try {
+                var result = yield ssoService.recoverPassword(JSON.stringify(jsonBody));
+                console.log(result);
+                // var resJson = JSON.parse(result);       
+                res.json(JSON.parse(result));
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
     getCustomerInformation(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");

@@ -31,27 +31,33 @@
         </div>
     </div>
 </div>
+
 <div class="footerMenu" *ngIf="getLayout().appFooter && !getResize().largeUp">
     <div class="column" (click)="gotoHome()">
         <div class="home" [ngClass]="{ active : getFooterState().home}"></div>
         <div class="text" [ngClass]="{ active : getFooterState().home}">Home</div>
     </div>
-    <div class="column" (click)="gotoPlan()">
-        <div class="plan" [ngClass]="{ active : getFooterState().plan}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().plan}">Plan</div>
+    <div class="column" (click)="gotoPerks()">
+        <div class="perks" [ngClass]="{ active : getFooterState().perks}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().perks}">Deals</div>
     </div>
-    <div class="column" (click)="gotoAddOn()">
-        <div class="addon" [ngClass]="{ active : getFooterState().addon}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().addon}">Add Ons</div>
+    <div class="column" (click)="gotoCatalog()">
+        <div class="catalog" [ngClass]="{ active : getFooterState().catalog}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().catalog}">Catalog</div>
     </div>
-    <div class="column" (click)="gotoBalance()">
-        <div class="balance" [ngClass]="{ active : getFooterState().balance}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().balance}">Balance</div>
+    <div class="column" (click)="gotoPayBill()">
+        <div class="paybill" [ngClass]="{ active : getFooterState().paybill}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().paybill}">Pay w/point</div>
     </div>
-    <div class="column" (click)="toggleAdditionalMenu()">
+    <div class="column" (click)="gotoTransfer()">
+        <div class="transfer" [ngClass]="{ active : getFooterState().transfer}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().transfer}">Transfer</div>
+    </div>
+    <!--<div class="column" (click)="toggleAdditionalMenu()">
     <a>
         <div class="more"></div>
         <div class="text">More</div>
     </a>
-    </div>
+    </div>-->
 </div>
+

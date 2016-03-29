@@ -1,57 +1,108 @@
-
-<div>
-	<div id="homeBodyLarge" class="mySmartContainerLarge" *ngIf="getResize().largeUp">
-        <div class="containerBody">
-            <div class="numberSelector">
-                <div class="topHalf">
-                    <my-number></my-number>
-                </div>
-                <div class="bottomHalf"></div>
+<div class="overviewContainer">
+    <div class="header"></div>
+    <div class="summary">
+        <div class="lineItem">
+            <div class="itemText">
+                <div class="itemName">Flexible Balance</div>
+                <div class="itemDate">Refreshes on 20-04</div>
             </div>
-            <div class="middleComponent">
-                <my-bundle></my-bundle>
-            </div>
-            <div class="rightComponent">
-                <div class="topComponent">
-                    <my-balance></my-balance>
-                </div>
-                <div class="bottomComponent">
-                    <div class="leftComponent">
-                        <my-plan></my-plan>
-                    </div>
-                    <div class="rightComponent">
-                        <my-point></my-point>
-                    </div>
-                </div>
-            </div>
+            <div class="itemValue">P320</div>
         </div>
-	</div>
-
-	<div id="homeBody" class="mySmartContainerSmall" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
-        <div class="containerBody">
-            <div id="hdrDropDown" class="myNumberContainer">
-                <my-number *ngIf="numberSelectionState()"></my-number>
+        <div class="lineItem">
+            <div class="itemText">
+                <div class="itemName">Unbilled Amount</div>
             </div>
-            <div class="itemRow">
-                <my-bundle></my-bundle>
-            </div>
-
-            <div class="itemRow">
-                <my-balance></my-balance>
-            </div>
-            
-            <div class="itemRow end">
-                <div class="subItem">
-                    <div class="myPlan">
-                        <my-plan></my-plan>
-                    </div>
-                    <div class="myPoint">
-                        <my-point></my-point>
-                    </div>
-                </div>
-            </div>
+            <div class="itemValue">P100</div>
         </div>
-	</div>
+        <div class="lineItem">
+            <div class="itemText">
+                <div class="itemName">Total Amount Due</div>
+                <div class="itemDate">Due 30-03</div>
+            </div>
+            <div class="itemValue">P1,500</div>
+        </div>
+        <div class="buttonContainer">
+            <div class="button">Pay Bill</div>
+            <div class="date">Data as of 21 March,  20:05</div>
+        </div>
+    </div>
+    <div class="addQuota">
+        <div class="subHeaderLine">
+            <div class="text">Remaining Quota</div>
+            <div class="addIcon"></div>
+        </div>
+        <div class="itemType">
+            <div class="text">Data</div>
+        </div>
+        <div class="lineItem">
+            <div class="icon comp"></div>
+            <div class="itemText">All Data</div>
+            <div class="arrow"></div>
+            <div class="itemValue">3650 <span>MB</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon whatsapp"></div>
+            <div class="itemText">Whatsapp</div>
+            <div class="arrow"></div>
+            <div class="itemValue">200 <span>MB</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon video"></div>
+            <div class="itemText">Video Streaming</div>
+            <div class="arrow"></div>
+            <div class="itemValue">900 <span>MB</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon gmail"></div>
+            <div class="itemText">Gmail</div>
+            <div class="arrow"></div>
+            <div class="itemValue">150 <span>MB</span></div>
+        </div>
+        <div class="itemType">
+            <div class="text">Voice</div>
+        </div>
+        <div class="lineItem">
+            <div class="icon allVoice"></div>
+            <div class="itemText">All Operators</div>
+            <div class="arrow"></div>
+            <div class="itemValue">320 <span>min</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon voiceSMS"></div>
+            <div class="itemText">Voice/SMS all operators</div>
+            <div class="arrow"></div>
+            <div class="itemValue">200 <span>min</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon smart"></div>
+            <div class="itemText">Smart-to-Smart</div>
+            <div class="arrow"></div>
+            <div class="itemValue"><span>min</span><div class="infinite"></div></div>
+        </div>
+        <div class="itemType">
+            <div class="text">SMS</div>
+        </div>
+        <div class="lineItem">
+            <div class="icon allSMS"></div>
+            <div class="itemText">All Operators</div>
+            <div class="arrow"></div>
+            <div class="itemValue">320 <span>SMS</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon voiceSMS"></div>
+            <div class="itemText">Voice/SMS all operators</div>
+            <div class="arrow"></div>
+            <div class="itemValue">200 <span>SMS</span></div>
+        </div>
+        <div class="lineItem">
+            <div class="icon smart"></div>
+            <div class="itemText">Smart-to-Smart</div>
+            <div class="arrow"></div>
+            <div class="itemValue"><span>SMS</span><div class="infinite"></div></div>
+        </div>
+        <div class="buttonContainer">
+            <div class="button">Add more</div>
+            <div class="date">Data as of 21 March,  20:05</div>
+        </div>
+    </div>
 </div>
-
-<!-- <div class="banner"></div> -->

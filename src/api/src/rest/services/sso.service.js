@@ -65,6 +65,54 @@ var SSO;
                 });
             });
         }
+        initializeRecoverPassword(body) {
+            return __awaiter(this, void 0, Promise, function* () {
+                var path = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';
+                var uuidString = uuid.v4();
+                var arrUuid = uuidString.split('-');
+                uuidString = '';
+                for (var i = 0; i < arrUuid.length; i++) {
+                    uuidString = uuidString + arrUuid[i];
+                }
+                var json = JSON.parse(body);
+                return new Promise(function (resolve, reject) {
+                    request.post({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientKey': config.clientKey
+                        },
+                        form: json
+                    }, function (err, httpResponse, body) {
+                        resolve(body);
+                    });
+                });
+            });
+        }
+        recoverPassword(body) {
+            return __awaiter(this, void 0, Promise, function* () {
+                var path = '/apimysmartws/ssoapi/login/requestValidateUserCredentials';
+                var uuidString = uuid.v4();
+                var arrUuid = uuidString.split('-');
+                uuidString = '';
+                for (var i = 0; i < arrUuid.length; i++) {
+                    uuidString = uuidString + arrUuid[i];
+                }
+                var json = JSON.parse(body);
+                return new Promise(function (resolve, reject) {
+                    request.post({
+                        url: config.baseurl + path,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'clientKey': config.clientKey
+                        },
+                        form: json
+                    }, function (err, httpResponse, body) {
+                        resolve(body);
+                    });
+                });
+            });
+        }
         getAccount(accessToken, clientId, msaId) {
             return __awaiter(this, void 0, Promise, function* () {
                 var path = '/apimysmartws/ssoapi/account/requestUserProfileInfo';

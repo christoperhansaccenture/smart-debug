@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, RouterOutlet } from 'angular2/router';
+import {Router, RouteConfig, ROUTER_DIRECTIVES, RouterOutlet } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {GetStartedComponent} from './getStarted.component';
@@ -57,8 +57,9 @@ export class MainLoginComponent {
 	constructor (private _layoutService: LayoutService) {}
 	
 	OnGetStarted(){
-	
-		if(this._layoutService.getCurrentPage() == 'GetStarted'){
+        console.log("main login component");
+        console.log(this._layoutService.getCurrentPage());
+        if (this._layoutService.getCurrentPage() == 'GetStarted'){
 			return true;
 		}else{
 			return false;

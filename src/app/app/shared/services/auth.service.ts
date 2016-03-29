@@ -11,14 +11,24 @@ import {SmartIntegrationService} from './smart-integration.service';
 @Injectable()
 export class AuthService {
     
-    serviceBase = 'https://powerful-beyond-41122.herokuapp.com/';
+    //serviceBase = 'http://localhost:8080/';
+    serviceBase;
     
     errorMessageFlag = false;
     errorMessageText = '';
+    isLoadingLogin = false;
     
     constructor (private _http: Http,
     private _router:Router,
-    private _smartIntegrationService: SmartIntegrationService) {}
+    private _smartIntegrationService: SmartIntegrationService) {
+        // get service base from config file
+        var url = 'services/api.json';
+        this._http.get(url)
+            .subscribe(file => {
+                let config = file.json().config;
+                this.serviceBase = config.baseUrl;
+            });
+    }
     
     getErrorMessageFlag(){
         return this.errorMessageFlag;
@@ -28,18 +38,26 @@ export class AuthService {
         return this.errorMessageText;
     }
     
+    getLoadingState(){
+        return this.isLoadingLogin;
+    }
+    
     login(userId, password) {
         
+        this.isLoadingLogin = true;
+         
         if(this.checkIDPassword(userId,password)==0) 
          {
              //alert("Please enter your password!");
              this.errorMessageText="Please enter your phone no/email and password";
              this.errorMessageFlag=true;
+             this.isLoadingLogin = false;
          }
          else if(this.checkIDPassword(userId,password)==2)
          {
               this.errorMessageText="Please enter a valid email address";
               this.errorMessageFlag=true;
+              this.isLoadingLogin = false;
          } 
          else if(this.checkIDPassword(userId,password)==1)
          {
@@ -49,6 +67,7 @@ export class AuthService {
     }
     
     checkIDPassword(userId,passoword){      
+        
         if(userId==null || userId=="" || passoword==null || passoword=="")
         { 
             return 0;
@@ -77,72 +96,38 @@ export class AuthService {
     }
     
     doLogin(userId, password){
-        var url = this.serviceBase + 'apimysmartws/ssoapi/login/requestValidateUserCredentials';
+        var url = this.serviceBase + '/login';
         
-        var data: any = {
-            clientKey: '79E19AAA42704B84870633377D33FBC1',
-            controlId: '',
-            endUserId: userId,
-            endUserPassword: password,
-            nonce: "C681A2BFF8E94B53BE79D83B1AE9314F"
-        };
+        // var data: any = {
+        //     endUserId: userId,
+        //     endUserPassword: password
+        // };
         
-        console.log(userId + "," + password);
+        var data = "username=" + userId + "&password=" + password;
+        
+        //console.log(userId + "," + password);
         
         //validate user credential
-        this._http.post(url, JSON.stringify(data), 
+        this._http.post(url, data, 
             <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json'})
+                {'Content-Type': 'application/x-www-form-urlencoded'})
             }).subscribe(
             response => {
                 
-                //sessionStorage.setItem('authorizationData', response.json().result.sessionId);
-                //sessionStorage.setItem('loginData',JSON.stringify(response.json()));
+                localStorage.setItem('phoneNumber',userId);
                 
-                //TODO we can do this because the user id could be email or phone number 
-                //need separate call to get all phone
-                
-                 if(response.json().status !== "200"){
-                     
-                    this.errorMessageFlag = true;
-                    this.errorMessageText = 'wrong combination of phone no/email and password';
-                 
-                }else{
-                     
-                    localStorage.setItem('phoneNumber',userId);
-                    sessionStorage.setItem('authorizationData', JSON.stringify(response.json().result));
-                    
-                    //request access token to the backend
-                    var promise = this.requestAccessToken();
-                    
-                    promise.subscribe(
-                    response => {
-                        
-                        if(response.json().status !== "200"){
-                            //internal server error
-                            this.errorMessageFlag = true;
-                            this.errorMessageText = 'Internal server error';
-                        }else{
-                            console.log(response.json().result);
-                            sessionStorage.setItem('accessToken', JSON.stringify(response.json().result));  
-                            this._router.navigate(['MySmart']);  
-                        }
-                        
-                    },
-                    error =>{
-                        //internal server error
-                        this.errorMessageFlag = true;
-                        this.errorMessageText = 'Internal server error';       
-                    });
-                    
-                 }
+                sessionStorage.setItem('accessToken', JSON.stringify(response.json().token));  
+                this._router.navigate(['MyRewards']);  
+                this.isLoadingLogin = false;
                 
             },
             error =>{
                 
+                //console.log(error.status);
                 console.log('wrong combination of phone no/email and password');
                 this.errorMessageFlag = true;
                 this.errorMessageText = 'wrong combination of phone no/email and password';
+                this.isLoadingLogin = false;
                 //LoginComponentcheckErrorStatus=true;
                 //this._loginComponent.errorMessageText='wrong combination of phone no/email and password';
                 
@@ -150,29 +135,9 @@ export class AuthService {
         );
     }
     
-    requestAccessToken(){
-        var url = this.serviceBase + 'apimysmartws/ssoApi/Login/requestAccessToken';
-        
-        var authData = JSON.parse(sessionStorage.getItem('authorizationData'));
-        
-        var data: any = {
-            clientID: authData.ClientID,
-            clientKey: '79E19AAA42704B84870633377D33FBC1',
-            authenticationCode: authData.AuthenticationCode
-        };
-        
-        
-        return this._http.post(url, JSON.stringify(data), 
-            <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json'})
-            })
-    }
-    
     logOut(){
         
-        sessionStorage.removeItem('authorizationData');
-        sessionStorage.removeItem('loginData');
-        
+        sessionStorage.removeItem('accessToken');
         this._router.navigate(['Starter','Login']);
         
     }

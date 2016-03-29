@@ -1,0 +1,66 @@
+$col-3-height: 340px;
+   
+.catalogContainer{
+    
+    background-color: #FFF;
+
+    .header{
+        display: inline-block;
+        width: 100%;
+        background: url(../img/catalog-banner.png) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 140px;
+        
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        
+        .text{
+            float: right;
+            background-color: rgba(0,0,0,0.5);
+            padding: 10px;
+            text-align: right;
+            
+            .headerSubText{
+                color: #FFF;
+                font-size: 15px;
+                line-height: 20px;
+            }
+
+            .button {
+                display: inline-block;
+                color: #fff;
+            }
+        }
+        
+    }
+    
+    .subHeader{
+        display: inline-block;
+        margin: 25px 10px 0px 10px;
+        width: calc(100% - 20px);
+   
+        .leftHeader{
+            display: table-cell;
+            height: 21px;
+            font-size: 21px;
+            color: $smartgreen;
+            float: left;
+            vertical-align: bottom;
+        }
+        
+        .subOption{
+            display: table-cell;
+            font-size: 15px;
+            height: 21px;  
+            color: black;
+            cursor: pointer;
+            float: right;
+            vertical-align: bottom;
+        }
+        
+    }
+    
+}
+

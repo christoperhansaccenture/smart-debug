@@ -1,0 +1,42 @@
+[
+    {
+        "type": "redemption",
+        "name": "The Body Shop P100 Treat",
+        "desc": "2 item(s) to 09186859935",
+        "date": "November 25, 2016",
+        "media": "Smart Reward App",
+        "point": "-200"
+    },
+    {
+        "type": "earning",
+        "name": "Earned Points",
+        "desc": "Buy Add Ons for 09320133865",
+        "date": "March 14, 2016",
+        "media": "Smart Reward App",
+        "point": "100"
+    },
+    {
+        "type": "registration",
+        "name": "Number Activation",
+        "desc": "Activate 09320133865",
+        "date": "March 12, 2016",
+        "media": "Smart Reward App",
+        "point": "0"
+    },
+    {
+        "type": "transfer",
+        "name": "Transfer Points",
+        "desc": "Transfer Points to 09320133887",
+        "date": "March 14, 2016",
+        "media": "Smart Reward App",
+        "point": "-50"
+    },
+    {
+        "type": "linking",
+        "name": "Account Linking",
+        "desc": "Link with 09320133868",
+        "date": "March 14, 2016",
+        "media": "Smart Reward App",
+        "point": "500"
+    }
+]

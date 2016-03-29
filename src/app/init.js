@@ -4,12 +4,11 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-// var wlInitOptions = {
-// 		// # To disable automatic hiding of the splash screen uncomment this property and use WL.App.hideSplashScreen() API
-// 		//autoHideSplash: false		 
-// 	};
 
-/*
+
+
+
+
 var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows Phone)/) && app) {
     console.log("UA: Running in Cordova/PhoneGap");
@@ -28,21 +27,45 @@ if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows 
 function bootstrapWeb() {
     // WL.Client.init(wlInitOptions);
     console.log("Bootstrapping AngularJS");
-    var domElement = document.querySelector('html');  
-    angular.bootstrap(domElement, ['pldtApp']);
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
     // ga('create', 'UA-69703910-1', 'auto');
 }
 
 function bootstrapApp() {
-    // WL.Client.init(wlInitOptions);
+    // set status bar
+    if(window.StatusBar) {
+  // org.apache.cordova.statusbar required
+
+        StatusBar.overlaysWebView(false);
+        StatusBar.backgroundColorByHexString("#40aa1b");
+    }
+    // StatusBar.overlaysWebView(false);
+
     console.log("Bootstrapping AngularJS");
-    var domElement = document.querySelector('html');  
-    angular.bootstrap(domElement, ['pldtApp']);
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
 
  //    ga('create', 'UA-69703910-1', {'storage': 'none','clientId':device.uuid});
 	// ga('set','checkProtocolTask',null);
 	// ga('set','checkStorageTask',null);
 }
-*/
+
 
 
