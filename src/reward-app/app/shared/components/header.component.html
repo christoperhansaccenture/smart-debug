@@ -24,45 +24,14 @@
                     [range]="{min:0, max:1000}"
                     (slide)="getFilter().points = $event"
                     ></multi-slider>
-                <!--
-                <span class="pointSlider">
-                    <div class="bar">
-                        <div class="bar selected" style="left: 30px; width: 200px"></div>
-                        <div class="pointer"></div>
-                        <div class="label" style="left: 25px;">30</div>
-                        <div class="pointer" style="left: 230px;"></div>
-                        <div class="label2" style="left: 225px;">230</div>
-                    </div>   
-                </span>
-                -->
             </div>
             <div class="categoryBox">
                 <div class="title">Categories</div>
                 <div class="options">
                     <ul>
-                        <!--
-                        <li (click)="getFilter().toggleMyFavorites()">
-                            <span class="check" [class.active]="getFilter().isMyFavorites()"></span>
-                            <span class="">My Favorites</span>
-                        </li>
-                        <li><span class="check active"></span><span class="">Perks</span></li>
-                        <li><span class="check"></span><span class="">Lifestyle</span></li>
-                        <li><span class="check"></span><span class="">Mobile</span>
-                            <ul>
-                                <li><span class="check"></span><span class="">Prepaid</span></li>
-                                <li><span class="check"></span><span class="">Postpaid</span></li>
-                                <li><span class="check"></span><span class="">Bro Prepaid</span></li>
-                                <li><span class="check"></span><span class="">Bro Postpaid</span></li>
-                            </ul>
-                        </li>
-                        -->
                         <li (click)="toggleMyFavorites()">
                             <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.myFavorites"/>
                             <span class="">My Favorites</span>
-                        </li>
-                        <li (click)="togglePerks()">
-                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.perks"/>
-                            <span class="">Perks</span>
                         </li>
                         <li (click)="toggleLifestyle()">
                             <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.lifestyle"/>

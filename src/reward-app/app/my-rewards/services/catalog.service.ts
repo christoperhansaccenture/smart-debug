@@ -41,7 +41,7 @@ export class CatalogService {
         all() {
             this.name = "";
             this.categories.myFavorites = true;
-            this.categories.perks = true;
+            //this.categories.perks = true;
             this.categories.lifestyle = true;
             this.categories.mobile = true;
             this.categories.prepaid = true;

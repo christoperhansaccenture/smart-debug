@@ -157,11 +157,6 @@ export class HeaderComponent {
         this.getFilter().categories.myFavorites = !this.getFilter().categories.myFavorites;
     }
 
-    togglePerks() {
-        this.getFilter().clearNonFilter();
-        this.getFilter().categories.perks = !this.getFilter().categories.perks;
-    }
-
     toggleLifestyle() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.lifestyle = !this.getFilter().categories.lifestyle;

@@ -44,6 +44,9 @@ export class CatalogListComponent {
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => {
+                    if (e.categories.indexOf('Deals') > -1 || e.points == 0)
+                        return false;
+
                     let filter = this._catalogService.filter;
                     let result = false;
                     let categoryArray = filter.getCategoryArray();
