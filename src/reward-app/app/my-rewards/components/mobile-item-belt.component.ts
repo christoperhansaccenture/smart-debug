@@ -33,7 +33,7 @@ export class MobileItemBeltComponent implements OnInit {
                 .filter(e => e.categories.indexOf('Mobile') > -1)
                 .sort((a, b) => a.points - b.points)
                 .slice(0, 11)
-                .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+                .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
         }
         else
             return null;
