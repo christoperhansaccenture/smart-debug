@@ -121,6 +121,8 @@ export class ShoppingCartComponent implements AfterViewInit {
 
     toggleParentCurrentNumber() {
         this.getNumberSelection().currentNumber = !this.getNumberSelection().currentNumber;
+        this.getNumberSelection().myNumber.checked = true;
+        this.getNumberSelection().myNumber.number = this.getCurrentNumber();
         this._cartService.saveToStorage();
     }
 
@@ -147,15 +149,15 @@ export class ShoppingCartComponent implements AfterViewInit {
 
     toggleCurrentNumber(item: CartItem) {
         item.numberSelection.gift.checked = false;
-        item.numberSelection.myNumber.checked = false;
-        item.numberSelection.currentNumber.checked = !item.numberSelection.currentNumber.checked;
+        item.numberSelection.currentNumber.checked = false;
+        item.numberSelection.myNumber.checked = true;
+        item.numberSelection.myNumber.number = this.getCurrentNumber();
         item.changedOnCart = true;
         this._cartService.saveToStorage();
     }
 
     toggleMyNumber(item: CartItem) {
         item.numberSelection.gift.checked = false;
-        item.numberSelection.currentNumber.checked = false;
         item.numberSelection.myNumber.checked = !item.numberSelection.myNumber.checked;
         item.changedOnCart = true;
         this._cartService.saveToStorage();
@@ -192,7 +194,7 @@ export class ShoppingCartComponent implements AfterViewInit {
                 };
             });
         }
-        else if (this.getNumberSelection().oneNumber) {
+        else if (this.getNumberSelection().oneNumber || this.getNumberSelection().gift.checked) {
             if (this.getNumberSelection().myNumber.checked) {
                 this.getItems().forEach(e => { 
                     e.clearNumberSelection();
@@ -211,7 +213,7 @@ export class ShoppingCartComponent implements AfterViewInit {
                     };
                 });
             }
-            else
+            else 
                 return;
         }
 
@@ -236,8 +238,7 @@ export class ShoppingCartComponent implements AfterViewInit {
 
     getMobileNumbers() {
         return this._accountService.mobileNoList
-            .map(e => e.phoneNo)
-            .filter(e => e !== this.getCurrentNumber());
+            .map(e => e.phoneNo);
     }
 
     getCurrentNumber() {

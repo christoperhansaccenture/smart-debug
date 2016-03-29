@@ -24,12 +24,7 @@
                 </li>
             </ul>
             <ul *ngIf="!getNumberSelection().currentNumber">
-                <li (click)="toggleParentCurrentNumber()">
-                    <input class="check" type="checkbox" [(ngModel)]="getNumberSelection().currentNumber"/>
-                    <span class="">Send all to {{ getCurrentNumber() }}</span>
-                </li>
-                <li (click)="toggleParentMyNumber()"
-                    *ngIf="getMobileNumbers().length > 0">
+                <li (click)="toggleParentMyNumber()">
                     <input class="check" type="checkbox" 
                         [(ngModel)]="getNumberSelection().myNumber.checked" />
                     <span>Send all to </span>
@@ -105,12 +100,7 @@
                                 </li>
                             </ul>
                             <ul *ngIf="!item.numberSelection.currentNumber.checked">
-                                <li (click)="toggleCurrentNumber(item)">
-                                    <input class="check" type="checkbox" [checked]="false"/>
-                                    <span class="">Send all to {{ getCurrentNumber() }}</span>
-                                </li>
-                                <li (click)="toggleMyNumber(item)"
-                                    *ngIf="getMobileNumbers().length > 0">
+                                <li (click)="toggleMyNumber(item)">
                                     <input class="check" type="checkbox" 
                                         [(ngModel)]="item.numberSelection.myNumber.checked" />
                                     <span>Send all to </span>
