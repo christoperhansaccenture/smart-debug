@@ -41,35 +41,10 @@ export class PerksComponent  {
     }
     
     getCatalogs() {
-        
-        this._catalogService.filter.categories.perks = true;
-        //console.log(this._catalogService.catalogs);
-        
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => {
-                    let filter = this._catalogService.filter;
-                    let result = false;
-                    let categoryArray = filter.getCategoryArray();
-                    //console.log(categoryArray);
-                    // filter category
-                    for (let i = 0 ; i < e.categories.length ; i++) {
-                        if (filter.isAll() 
-                            || (filter.categories.myFavorites && e.favorite) 
-                            || categoryArray.indexOf(e.categories[i]) > -1) {
-                            // filter points
-                            if (e.points >= filter.points[0] && e.points <= filter.points[1]) {
-                                result = true;
-                                break;
-                            }
-                        }
-                    }
-                    // filter name
-                    if (result) {
-                        result = e.name.toLowerCase().indexOf(filter.name.toLowerCase()) > -1;
-                    }
-                    
-                    return result;
+                    return e.points == 0 && e.categories.indexOf('Deals') > -1;
                 });
         }
         else
