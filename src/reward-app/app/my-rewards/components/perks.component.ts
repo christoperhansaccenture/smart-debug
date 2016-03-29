@@ -58,7 +58,6 @@ export class PerksComponent  {
                             || (filter.categories.myFavorites && e.favorite) 
                             || categoryArray.indexOf(e.categories[i]) > -1) {
                             // filter points
-                            console.log(result); 
                             if (e.points >= filter.points[0] && e.points <= filter.points[1]) {
                                 result = true;
                                 break;
