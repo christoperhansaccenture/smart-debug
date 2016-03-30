@@ -312,6 +312,7 @@ var config = require('../config/config');
                 }
 
                 const ssoService:SSO.sso = new SSO.sso();
+                const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
 
                 try {  
                     
@@ -319,11 +320,13 @@ var config = require('../config/config');
                       
                       var data = req.body;
                       
+                      let resultArray: any[] = [];
+
                       for(var i = 0; i < data.length; i++){
                           
                           if(data[i].type === 'catalog'){
                               
-                              var jsonBody ={
+                              let jsonBody ={
                                     min: req.params.min,
                                     productCode: data[i].catalog.code,
                                     quantity: data[i].catalog.quantity,
@@ -331,47 +334,84 @@ var config = require('../config/config');
                                     destLoyaltyId: data[i].catalog.dest
                                 };
                               
+                                /*
                               var result =  await ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                              console.log(JSON.stringify(result));
+                             */
 
-                              /*
                               try {  
-                                  var result =  await ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
-                                  var errorCheckRes = '';
+                                  let result =  await ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                                  let errorCheckRes;
 
-                                  errorCheckRes = errorHandlingService.transferRequestErrorHandling(res,result);
+                                  errorCheckRes = errorHandlingService.redeemAnItemErrorHandling(data[i].catalog.code, result);
 
-                                  if(!errorCheckRes){
-                                      res.json(result);
+                                  if (!errorCheckRes) {
+                                      resultArray.push({
+                                          status: 200,
+                                          productCode: data[i].catalog.code
+                                      });
                                   } else {
-                                      res.json(errorCheckRes);
+                                      resultArray.push(errorCheckRes);
                                   }
 
                               }
                               catch (err) {
                                   res.sendStatus(500);
+                                  resultArray.push({
+                                      status: 500,
+                                      productCode: data[i].catalog.code,
+                                      message: 'Internal server error'
+                                  });
                                   console.log(err);
                               }
-                             */
 
                               
                               
                           }else if(data[i].type === 'bill'){
                               
-                              var jsonBody ={
+                              let jsonBody ={
                                     min: req.params.min,
                                     merchantIdentifier: data[i].bill.merchantIdentifier,
                                     amount: data[i].bill.amount,
                                     pin: data[i].bill.pin,
                                     channel: data[i].channel,
-                                    ref: data[i].bill.ref
+                                    reference: data[i].bill.ref
                                 };
                                 
+                                /*
                                 var result =  await ssoService.payBillWithPoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
                               
+                                console.log(JSON.stringify(result));
+                                */
+                                try {  
+                                    let result =  await ssoService.payBillWithPoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                                    let errorCheckRes;
+
+                                    errorCheckRes = errorHandlingService.payBillErrorHandling(data[i].bill.ref, result);
+
+                                    if (!errorCheckRes) {
+                                        resultArray.push({
+                                            status: 200,
+                                            ref: data[i].bill.ref
+                                        });
+                                    } else {
+                                        resultArray.push(errorCheckRes);
+                                    }
+
+                                }
+                              catch (err) {
+                                  res.sendStatus(500);
+                                  resultArray.push({
+                                      status: 500,
+                                      ref: data[i].bill.ref,
+                                      message: 'Internal server error'
+                                  });
+                                  console.log(err);
+                              }
                           }
                           
                       }
-                      res.sendStatus(200);
+                      res.json(resultArray);
                     
                 }
                 catch (err) {

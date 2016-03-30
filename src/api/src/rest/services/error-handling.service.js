@@ -80,6 +80,192 @@ var ErrorHandlingService;
             }
             return res;
         }
+        genericErrorHandling(response) {
+            /*
+            var errorJson = {
+                status: 0,
+                message : ''
+            }
+           */
+            let errors = {};
+            errors['ERR_LAST_NAME_IS_MANDATORY'] = {
+                status: 400,
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_FIRST_NAME_IS_MANDATORY'] = {
+                status: 400,
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_MIDDLE_NAME_IS_MANDATORY'] = {
+                status: 400,
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_ADDRESS_IS_MANDATORY'] = {
+                status: 400,
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_PROVINCE_IS_MANDATORY'] = {
+                status: 400,
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_CITY_IS_MANDATORY'] = {
+                status: 400,
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_OPERATION_NOT_ALLOWED'] = {
+                status: 400,
+                message: 'You are not allowed to do the requested transaction'
+            };
+            errors['ERR_OPERATION_FAILED'] = {
+                status: 400,
+                message: 'You are not allowed to do the requested transaction'
+            };
+            errors['ERR_OPERATION_FAILED'] = {
+                status: 400,
+                message: 'You are not allowed to do the requested transaction'
+            };
+            return errors[response.errorcode];
+        }
+        redeemAnItemErrorHandling(productCode, response) {
+            console.log(JSON.stringify(response));
+            let result = this.genericErrorHandling(response);
+            if (!result) {
+                let errors = {};
+                errors['ERR_CATALOGUE_REDEMPTION_FAILED'] = {
+                    status: 500,
+                    message: 'Generic redemption error'
+                };
+                errors['ERR_INSUFFICIENT_POINT_BALANCE'] = {
+                    status: 400,
+                    message: 'Insufficient points'
+                };
+                errors['ERR_PRODUCT_NOT_FOUND'] = {
+                    status: 400,
+                    message: 'Item being redeemed does not exist'
+                };
+                errors['ERR_PASA_REWARDS_SOURCE_DESTINATION_SAME'] = {
+                    status: 400,
+                    message: 'Source and destination is the same'
+                };
+                errors['ERR_PASA_REWARDS_INVALID_MEGA_BRAND'] = {
+                    status: 400,
+                    message: 'Invalid mega brand'
+                };
+                errors['ERR_PASA_REWARDS_INVALID_SUBSCRIPTION'] = {
+                    status: 400,
+                    message: 'This item is not available for this number'
+                };
+                errors['ERR_PASA_REWARDS_INVALID_DESTINATION'] = {
+                    status: 400,
+                    message: 'Target number does not exist'
+                };
+                errors['ERR_CATALOGUE_ITEM_NOT_ALLOW_PASSA_REWARD'] = {
+                    status: 400,
+                    message: 'This item is not allowed to be sent as gift'
+                };
+                errors['ERR_NO_DATA_FOUND'] = {
+                    status: 400,
+                    message: 'Source number does not exist'
+                };
+                errors['ERR_REDEMPTION_WAITING_FOR_APPROVAL'] = {
+                    status: 400,
+                    message: 'Redemption waiting for approval'
+                };
+                result = errors[response.errorcode];
+            }
+            if (result) {
+                result.productCode = productCode;
+            }
+            return result;
+        }
+        payBillErrorHandling(ref, response) {
+            console.log(JSON.stringify(response));
+            let result = this.genericErrorHandling(response);
+            if (!result) {
+                let errors = {};
+                errors['ERR_INVALID_REDEMPTION_MERCHANT'] = {
+                    status: 400,
+                    message: 'Invalid merchant'
+                };
+                errors['ERR_REDEMPTION_MERCHANT_USER_NOT_VALID'] = {
+                    status: 500,
+                    message: 'Invalid merchant internal error'
+                };
+                errors['ERR_MERCHANT_SETTLEMENT_FAILED'] = {
+                    status: 500,
+                    message: 'Invalid merchant settlement internal error'
+                };
+                errors['ERR_REDEMPTION_MERCHANT_NO_MOBILE'] = {
+                    status: 500,
+                    message: 'Invalid merchant no mobile internal error'
+                };
+                errors['ERR_CASHBACK_FAILED_NO_MERCHANT_IDENTIFIER'] = {
+                    status: 400,
+                    message: 'Merchant does not exist'
+                };
+                errors['ERR_CASHBACK_FAILED_NO_LOYALTY_ID'] = {
+                    status: 400,
+                    message: 'Invalid customer number'
+                };
+                errors['ERR_CASHBACK_FAILED_NO_REFERENCE_FIELD'] = {
+                    status: 400,
+                    message: 'Missing account number'
+                };
+                errors['ERR_CASHBACK_DEBIT_FAILED'] = {
+                    status: 500,
+                    message: 'Invalid cashback debit internal error'
+                };
+                errors['ERR_LOAD_WALLET_FAILED'] = {
+                    status: 500,
+                    message: 'Invalid load wallet error'
+                };
+                errors['ERR_PIN_MANDATORY'] = {
+                    status: 400,
+                    message: 'Missing pin'
+                };
+                errors['ERR_CASHBACK_POST_CALL_FAILED'] = {
+                    status: 500,
+                    message: 'Invalid cashback post call internal error'
+                };
+                errors['ERR_CASHBACK_AMOUNT_INVALID'] = {
+                    status: 400,
+                    message: 'Invalid amount value'
+                };
+                errors['ERR_PIN_NOT_ENABLED'] = {
+                    status: 500,
+                    message: 'Invalid pin disabled internal error'
+                };
+                errors['ERR_CASHBACK_INVALID_CURRENCY'] = {
+                    status: 500,
+                    message: 'Invalid cashback disabled internal error'
+                };
+                errors['ERR_INCORRECT_PIN'] = {
+                    status: 400,
+                    message: 'Invalid pin value'
+                };
+                errors['ERR_INSUFFICIENT_POINT_BALANCE'] = {
+                    status: 400,
+                    message: 'Insufficient points'
+                };
+                errors['ERR_REDEMPTION_WAITING_FOR_APPROVAL'] = {
+                    status: 400,
+                    message: 'Waiting for approval'
+                };
+                errors['ERR_PIN_ENABLED_GLOBALLY'] = {
+                    status: 400,
+                    message: 'PIN is not yet set'
+                };
+                errors['ERR_CASHBACK_ACCOUNT_NO_INVALID'] = {
+                    status: 400,
+                    message: 'Invalid account number'
+                };
+                result = errors[response.errorcode];
+            }
+            if (result) {
+                result.ref = ref;
+            }
+            return result;
+        }
     }
     ErrorHandlingService_1.ErrorHandlingService = ErrorHandlingService;
 })(ErrorHandlingService = exports.ErrorHandlingService || (exports.ErrorHandlingService = {}));

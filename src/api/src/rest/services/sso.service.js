@@ -596,6 +596,7 @@ var SSO;
                 for (var i = 0; i < arrUuid.length; i++) {
                     uuidString = uuidString + arrUuid[i];
                 }
+                console.log('send: ' + body);
                 var json = JSON.parse(body);
                 return new Promise(function (resolve, reject) {
                     request.put({
@@ -609,7 +610,10 @@ var SSO;
                         },
                         form: json
                     }, function (err, httpResponse, body) {
-                        resolve(body);
+                        if (err) {
+                            reject(err);
+                        }
+                        resolve(JSON.parse(body));
                     });
                 });
             });
