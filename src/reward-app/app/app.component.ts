@@ -45,6 +45,7 @@ declare var FastClick: FastClickStatic;
         <my-modal></my-modal>
         <left-menu></left-menu>
         <div id="content"
+            [class.login]="isFullScreen()"
             [class.small]="!isFullScreen() && isSmallScreen()"
             [class.large]="!isFullScreen() && !isSmallScreen()">
             <router-outlet
