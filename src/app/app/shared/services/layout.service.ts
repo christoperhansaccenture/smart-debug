@@ -11,7 +11,7 @@ export class LayoutService {
 	layoutState : Layout = {
 		appHeader: false,
 		loginHeader: false,
-        appFooter: true,
+        appFooter: false,
         leftMenu: false
 	};
     

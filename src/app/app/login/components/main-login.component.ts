@@ -11,7 +11,7 @@ import {VerificationFormComponent} from './verificationForm.component';
 
 @Component({
     template: `
-		<div class="backgroundImage" [ngClass]="{ blur : !OnGetStarted() }"></div>
+		<div class="backgroundImage login" [ngClass]="{ blur : !OnGetStarted() }"></div>
         <router-outlet></router-outlet>
     `,
 	directives: [
