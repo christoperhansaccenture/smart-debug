@@ -14,3 +14,11 @@ run: node src/rest/main.js
 
 ### Debug
 run: node-debug src/rest/main.js
+
+## Deploying on Heroku
+
+Run 
+
+    git push heroku `git subtree split --prefix src/api/ master`:master --force
+
+on top level folder
