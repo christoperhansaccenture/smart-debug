@@ -64,3 +64,140 @@ $col-3-height: 340px;
     
 }
 
+
+.catalogContainerBody{
+    
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+    &.bodyFixed{
+        margin-top: 60px;
+    }
+
+    .catalogContainerLarge{
+        
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        
+        .container2{
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            
+            .container1{
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+
+                .componentContainer{
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    
+                    .subInfoContainer{
+                        display: inline-block;
+                        width: calc(100% - 20px);
+                        height: 50px;
+                        padding: 5px 10px 5px 10px;
+                        border-bottom: 1px solid #EEE;
+                        
+                        .leftSide{
+                            float: left;
+                            height: 50px;
+                            
+                            .balance{
+                                height: 18px;
+                                margin-top: 5px;
+                                color: black;
+                                font-size: 15px;
+                            }
+                            .expire{
+                                color: $gray;
+                                font-size: 13px;
+                            }    
+                        }
+                        .rightSide{
+                            float: right;
+
+                            line-height: 30px;
+                            
+                            .text{
+                                float: right;
+                                display: flex;
+                                align-items: center; // align vertical 
+                                justify-content: center; // align horizontal
+                                height: 50px;
+                                font-size: 25px;
+                                font-weight: bold;
+                                color: $smartred;
+                                span{
+                                    margin-top: 5px;
+                                    margin-left: 2px;
+                                    font-size: 15px;
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+                    } 
+                    
+                    .catalogComponent{
+                        width : 100%;
+                        
+                        .subHeader{
+                            display: inline-block;
+                            margin: 15px 10px 10px 10px;
+                            width: calc(100% - 20px);
+                            cursor: pointer;
+                            
+                            &.belt{
+                                margin-bottom: 5px;
+                            }
+                    
+                            .leftHeader{
+                                display: table-cell;
+                                line-height: 30px;
+                                font-size: 21px;
+                                color: $smartgreen;
+                                float: left;
+                                vertical-align: bottom;
+                            }
+                            
+                            .subOption{
+                                display: table-cell;
+                                font-size: 15px;
+                                height: 21px;  
+                                color: black;
+                                cursor: pointer;
+                                float: right;
+                                vertical-align: bottom;
+                                line-height: 30px;
+                            }
+                            
+                        }
+                        
+                        .itemBelt{
+                            width: calc(100% - 50px);
+                            margin-left: 20px;
+                            margin-right: 20px;
+                        }
+   
+                    }
+                    
+                }    
+                    
+            }
+        
+        }
+    }
+}

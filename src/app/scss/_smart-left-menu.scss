@@ -1,0 +1,134 @@
+.smartLeftMenu{
+    float: left;
+    position: relative;
+    left: 816px;
+    width: 204px;
+    background-color: #FFF;
+    
+    .header{
+        float: left;
+        width: calc(100% - 10px);
+        padding-left: 5px;
+        padding-right: 5px;
+        border-bottom: 1px solid #EEE;
+        color: $smartgreen;
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .numberContainer{
+        float: left;
+        width: calc(100% - 20px);
+        padding: 10px;
+        border-bottom: 1px solid #EEE;
+        
+        &.primary{
+            background-color: $smartgreen;
+        }
+        
+        .upperContainer{
+            
+            display: inline-block;
+            width: 100%;
+            
+            .name{
+                float: left;
+                color: $smartgreen;
+                
+                &.primary{
+                    color: #FFF;
+                }
+                
+            }
+            
+            .primaryBox{
+                float: right;
+                color: #FFF;
+                border: 1px solid #FFF;
+                font-size: 10px;
+                border-radius: 5px;
+                width: 50px;
+                text-align: center;
+            }
+            
+        }
+        
+        .buttomContainer{
+            
+            display: inline-block;
+            width: 100%;
+            
+            .phoneNo{
+                float: left;
+                color: $text-dark-gray;
+                
+                &.primary{
+                    color: #FFF;
+                }
+                
+            }
+            
+            .type{
+                float: right;
+                color: $text-dark-gray;
+                
+                &.primary{
+                    color: #FFF;
+                }
+            }
+            
+        }
+        
+    }
+    
+    .dividerLine{
+        float: left;
+        //height: 4px;
+        width: calc(100% - 10px);
+        padding-left: 5px;
+        padding-right: 5px;
+        border-bottom: 4px solid #EEE;
+    }
+    
+    .menuContainer{
+        float: left;
+        width: 100%;
+        
+        .menuItem{
+            float: left;
+            width: calc(100% - 10px);
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: $lightgray;
+            height: 40px;
+            cursor: pointer;
+            
+            &:hover{
+                background-color: $smartgreen;
+            }
+            
+            &.member{
+                background-color: #FFF;
+                
+                &:hover{
+                    background-color: $smartgreen;
+                }
+                
+            }
+            
+            .text{
+                color: $smartgreen;
+                font-size: 15px;
+                line-height: 40px;
+                
+                &:hover{
+                    color: #FFF;
+                }
+                
+            }
+            
+        }
+    }
+    
+}

@@ -224,3 +224,182 @@
     }
     
 }
+
+.activityContainerBody{
+    
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+    &.bodyFixed{
+        margin-top: 60px;
+    }
+
+    .activityContainerLarge{
+        
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        
+        .container2{
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            
+            .container1{
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+
+                .componentContainer{
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    
+                    .subInfoContainer{
+                        display: inline-block;
+                        width: calc(100% - 20px);
+                        height: 50px;
+                        padding: 5px 10px 5px 10px;
+                        border-bottom: 1px solid #EEE;
+                        
+                        .leftSide{
+                            float: left;
+                            height: 50px;
+                            
+                            .balance{
+                                height: 18px;
+                                margin-top: 5px;
+                                color: black;
+                                font-size: 15px;
+                            }
+                            .expire{
+                                color: $gray;
+                                font-size: 13px;
+                            }    
+                        }
+                        .rightSide{
+                            float: right;
+
+                            line-height: 30px;
+                            
+                            .text{
+                                float: right;
+                                display: flex;
+                                align-items: center; // align vertical 
+                                justify-content: center; // align horizontal
+                                height: 50px;
+                                font-size: 25px;
+                                font-weight: bold;
+                                color: $smartred;
+                                span{
+                                    margin-top: 5px;
+                                    margin-left: 2px;
+                                    font-size: 15px;
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+                    } 
+                    
+                    .activityComponent{
+                        width : 100%;
+                        
+                        .categoryHeader{
+                            color: $smartgreen;
+                            font-size: 20px;
+                            padding: 20px;
+                        }
+                        
+                        .itemBox{
+                            width: 100%;
+                            padding-top: 10px;
+                            padding-bottom: 5px;
+                            border-bottom: 1px solid #EEE;
+                            
+                            .itemHeader{
+                                display: inline-block;
+                                color: back;
+                                font-weight: bold;
+                                font-size: 15px;
+                                width: calc(100% - 10px);
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                margin-left: 10px;
+                            }
+                            
+                            .itemInfoLine{
+                                display: inline-block;
+                                width: 100%;
+                                
+                                .itemInfoIdentifier{
+                                    color: $smartgreen;
+                                    float:left;
+                                    font-size: 18px;
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                    width: calc(70% - 20px);
+                                }
+                                
+                                .itemInfoPoint{
+                                    color: $smartred;
+                                    float: right;
+                                    font-size: 20px;
+                                    margin-right: 10px;
+                                    width: calc(30% - 10px);
+                                    text-align: right;
+                                    
+                                    span{
+                                        font-size: 15px;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                            .itemAddInfo{
+                                display: inline-block;
+                                font-size: 15px;
+                                margin-left: 10px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                            }
+                            
+                            .itemDateInfo{
+                                display: inline-block;
+                                color: black;
+                                font-size: 15px;
+                                width: 100%;
+                                
+                                .itemDate{
+                                    float: left;
+                                    margin-left: 10px;
+                                }
+                                
+                                .itemBuyVia{
+                                    float: right;
+                                    margin-right: 10px;
+                                }
+                                
+                            }
+
+                        }
+                        
+                    }
+                    
+                }    
+                    
+            }
+        
+        }
+    }
+}

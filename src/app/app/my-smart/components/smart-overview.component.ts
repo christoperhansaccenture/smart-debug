@@ -8,12 +8,12 @@ import {CircularSpinnerComponent} from '../../shared/components/spinners/circula
 
 @Component({
     selector: 'overview',
-    templateUrl: './app/my-smart/components/overview.component.html',
+    templateUrl: './app/my-smart/components/smart-overview.component.html',
     directives: [
         CircularSpinnerComponent
     ]
 })
-export class OverviewComponent  {
+export class SmartOverviewComponent  {
     
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,

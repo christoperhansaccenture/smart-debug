@@ -1,10 +1,71 @@
-<div class="headerSmall" *ngIf="getLayout().appHeader && !getResize().largeUp">
+<div class="headerSmall" [ngClass]="{openSearch : filterFunction}" *ngIf="getLayout().appHeader && !getResize().largeUp">
 	<div class="mainBox">
         <div class="defaultBox">
             <div class="hamburger" *ngIf="getHeaderLayout().hamburger" (click)="toggleLeftMenu()"></div>
             <div class="back" *ngIf="getHeaderLayout().back" (click)="goToPreviousPage()"></div>
-            <div class="logo"></div>
+            <div class="cart" *ngIf="getHeaderLayout().cart" (click)="goToCart()">
+                <div class="amount">
+                    {{ getTotalItems() }}
+                </div>
+            </div>
+            <div class="magnifier" *ngIf="getHeaderLayout().filter && !filterFunction" (click)="toggleFilterFunction()"></div>
+            <div class="up-arrow" *ngIf="getHeaderLayout().filter && filterFunction" (click)="toggleFilterFunction()"></div>
+            
+            <div class="logo" *ngIf="getHeaderLayout().logo"></div>
+            <div class="points" *ngIf="getHeaderLayout().point">{{ getPointValue() }} <span>pts</span></div>
         </div>
+        <div class="filterBox" *ngIf="filterFunction">
+            <div class="filter-background" (click)="closeFilter()">
+            </div>
+            <div class="sliderBox">
+                <span class="description">Points</span>
+                <multi-slider
+                    [start]="getFilter().points"
+                    [range]="{min:0, max:1000}"
+                    (slide)="getFilter().points = $event"
+                    ></multi-slider>
+            </div>
+            <div class="categoryBox">
+                <div class="title">Categories</div>
+                <div class="options">
+                    <ul>
+                        <li (click)="toggleMyFavorites()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.myFavorites"/>
+                            <span class="">My Favorites</span>
+                        </li>
+                        <li (click)="toggleLifestyle()">
+                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.lifestyle"/>
+                            <span class="">Lifestyle</span>
+                        </li>
+                        <li>
+                            <div (click)="toggleMobile()">
+                                <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.mobile"/>
+                                <span class="">Mobile</span>
+                            </div>
+                            <ul>
+                                <li (click)="togglePrepaid()">
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.prepaid"/>
+                                    <span class="">Prepaid</span>
+                                </li>
+                                <li (click)="togglePostpaid()">
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.postpaid"/>
+                                    <span class="">Postpaid</span>
+                                </li>
+                                <li (click)="toggleBroPrepaid()">
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPrepaid"/>
+                                    <span class="">Bro Prepaid</span>
+                                </li>
+                                <li (click)="toggleBroPostpaid()">
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPostpaid"/>
+                                    <span class="">Bro Postpaid</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="headerContainer" *ngIf="getLayout().loginHeader">
@@ -31,11 +92,11 @@
             <div class="itemContainer">
                 <div id="hdrProfPicLarge" class="profilePicture"></div>
                 <div class="body">
-                    <div class="menuItem">
+                    <div class="menuItem" (click)="goToMySmart()">
                         <div class="smart"></div>
                         <div class="menuText"><span>My Smart</span></div>
                     </div>
-                    <div class="menuItem">
+                    <div class="menuItem" (click)="goToMyReward()">
                         <div class="rewards"></div>
                         <div class="menuText"><span>My Rewards</span></div>
                     </div>

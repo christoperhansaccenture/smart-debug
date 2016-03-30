@@ -6,6 +6,8 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {PageNavigationService} from '../../shared/services/page-navigation.service';
 import {AccountService} from '../../shared/services/account.service';
 import {MultiSliderComponent} from '../../shared/components/multi-slider.component';
+import {CartService} from '../../shared/services/cart.service';
+import {CatalogService} from '../../my-rewards/services/catalog.service';
 
 @Component({
     selector: 'smart-header',
@@ -23,16 +25,34 @@ export class HeaderComponent {
         private _router: Router,
 		private _matchMediaService: MatchMediaService,
 		private _pageNavigationService: PageNavigationService,
-        private _accountService: AccountService) {}
+        private _accountService: AccountService,
+        private _catalogService: CatalogService,
+        private _cartService: CartService) {}
     
-        
-    getHeaderLayout(){
-        return this._layoutService.getHeaderLayout();
+    
+    getPointValue(){
+        return ( this._accountService.getRewardsBalance().rewards ? this._accountService.getRewardsBalance().rewards : 0 );
     }
     
-    toggleLeftMenu(){
+    toggleFilterFunction(){
+        this.filterFunction = !this.filterFunction;
+        
+        if (this._layoutService.getCurrentPage() === 'Perks') {
+            this._catalogService.filter.reset();
+            this._catalogService.filter.categories.perks = true;
+        }
+        else if (this._layoutService.getCurrentPage() === 'Catalog') {
+            this._catalogService.filter.all();
+        }
+        
+        if(this.filterFunction){
+            this._router.navigate(['CatalogList']);    
+        }
+        
+    }
+
+    closeFilter() {
         this.filterFunction = false;
-        this._layoutService.toggleLeftMenu();
     }
     
     getCurrentPage(){
@@ -50,6 +70,10 @@ export class HeaderComponent {
             return false;
         }
     }
+
+    getFilter() {
+        return this._catalogService.filter;
+    }
 	
 	getLayout(){
 		return this._layoutService.getLayout();
@@ -60,7 +84,17 @@ export class HeaderComponent {
         this.filterFunction = false;
 		this._pageNavigationService.gotoPreviousPage();
         
-	}
+	}    
+    
+        
+    getHeaderLayout(){
+        return this._layoutService.getHeaderLayout();
+    }
+    
+    toggleLeftMenu(){
+        this.filterFunction = false;
+        this._layoutService.toggleLeftMenu();
+    }
     
     openNumberSelection(){
         this._layoutService.setNumberSelectionState();
@@ -69,6 +103,67 @@ export class HeaderComponent {
     getResize(){
         return this._matchMediaService.getmm();
         
+    }
+    
+    pointerLeftMove(event) {
+        console.log('dragging');
+        console.log('event: ' + event);
+    }
+
+    toggleMyFavorites() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.myFavorites = !this.getFilter().categories.myFavorites;
+    }
+
+    toggleLifestyle() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.lifestyle = !this.getFilter().categories.lifestyle;
+    }
+
+    toggleMobile() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.mobile = !this.getFilter().categories.mobile;
+        this.getFilter().categories.prepaid = this.getFilter().categories.mobile;
+        this.getFilter().categories.postpaid = this.getFilter().categories.mobile;
+        this.getFilter().categories.broPrepaid = this.getFilter().categories.mobile;
+        this.getFilter().categories.broPostpaid = this.getFilter().categories.mobile;
+    }
+
+    togglePrepaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.prepaid = !this.getFilter().categories.prepaid;
+    }
+
+    togglePostpaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.postpaid = !this.getFilter().categories.postpaid;
+    }
+
+    toggleBroPrepaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.broPrepaid = !this.getFilter().categories.broPrepaid;
+    }
+
+    toggleBroPostpaid() {
+        this.getFilter().clearNonFilter();
+        this.getFilter().categories.broPostpaid = !this.getFilter().categories.broPostpaid;
+    }
+
+    getTotalItems() {
+        return this._cartService.getTotalItems();
+    }
+
+    goToCart() {
+        this._router.navigate(['ShoppingCart']);
+        this.filterFunction = false;
+    }
+    
+    goToMySmart(){
+        this._router.navigate(['MySmart']);
+    }
+    
+    goToMyReward(){
+        this._router.navigate(['MyRewards']);
     }
     
 }

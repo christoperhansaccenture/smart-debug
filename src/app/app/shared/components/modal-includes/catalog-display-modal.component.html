@@ -1,0 +1,52 @@
+<div class="modalCatalogDisplayContent">
+    <div class="close" (click)="close()"></div>
+    <div class="modalBody">
+        <div class="header">
+            <div class="headerText">{{ getCatalog().name }}</div>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-left">
+                    <div class="image">
+                        <img [src]="getCatalog().imageUrl" />
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div>
+                        {{ getCatalog().description }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-left">
+                    <div *ngIf="getCatalog().favorite" class="favorite-container">
+                        <div class="favorite-icon">
+                        </div>
+                        <div class="favorite-text">
+                            Marked as Favorite
+                        </div>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div *ngIf="getCatalog().giftable" class="gift-icon"></div>
+                    <div *ngIf="getCatalog().giftable" class="gift">
+                        This item can be purchased as a gift
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-left">
+                </div>
+                <div class="col-right">
+                    <div class="button-container">
+                        <button 
+                            (click)="addToCart()"
+                            class="button">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>	
+    </div>
+</div>

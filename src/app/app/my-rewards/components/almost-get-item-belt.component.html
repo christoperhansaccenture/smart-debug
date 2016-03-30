@@ -1,0 +1,14 @@
+<circular-spinner *ngIf="isLoading()"></circular-spinner>
+<div class="almost-get-item-belt beltContainer">
+    <div *ngFor="#category of getCategories()" 
+    	class="itemContainer"
+        (click)="openCatalogDisplay(category)">
+        <div class="itemPic">
+            <img [src]="category.imageUrl" />
+        </div>
+        <div class="itemText">
+            <div class="itemDesc">{{ category.name | stringTruncate: 25 }}</div>
+            <div class="itemPoint">{{ category.points }} <span>points</span></div>
+        </div>
+    </div>
+</div>

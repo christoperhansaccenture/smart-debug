@@ -1,0 +1,73 @@
+<div class="mobileRewardContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="headerText">Mobile Rewards</div>
+        </div>
+        <div class="typeSelector">
+            <div class="type" [ngClass]="{active : typeMenu.postpaid}" (click)="activateType(0)">
+                <div class="textContainer"><div class="text">Postpaid</div></div>
+            </div>
+            <div class="type" [ngClass]="{active : typeMenu.prepaid}" (click)="activateType(1)">
+                <div class="textContainer"><div class="text">Prepaid</div></div>
+            </div>
+            <div class="type" [ngClass]="{active : typeMenu.broPostpaid}" (click)="activateType(2)">
+                <div class="textContainer"><div class="text">Smart Bro Postpaid</div></div>
+            </div>
+            <div class="type" [ngClass]="{active : typeMenu.broPrepaid}" (click)="activateType(3)">
+                <div class="textContainer"><div class="text">Smart Bro Prepaid</div></div>
+            </div>
+        </div>
+        <div class="itemListContainer">
+            <div class="itemDetailContainer">
+                <div class="itemPic"></div>
+                <div class="itemText">
+                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
+                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
+                </div>
+                <div class="itemPoint">50 <span>pts</span></div>
+            </div>
+            <div class="itemDetailContainer">
+                <div class="itemPic"></div>
+                <div class="itemText">
+                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
+                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
+                </div>
+                <div class="itemPoint">50 <span>pts</span></div>
+            </div>
+            <div class="itemDetailContainer">
+                <div class="itemPic"></div>
+                <div class="itemText">
+                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
+                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
+                </div>
+                <div class="itemPoint">50 <span>pts</span></div>
+            </div>
+            <div class="itemDetailContainer">
+                <div class="itemPic"></div>
+                <div class="itemText">
+                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
+                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
+                </div>
+                <div class="itemPoint">50 <span>pts</span></div>
+            </div>
+            <div class="itemDetailContainer">
+                <div class="itemPic"></div>
+                <div class="itemText">
+                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
+                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
+                </div>
+                <div class="itemPoint">50 <span>pts</span></div>
+            </div>
+            <div class="itemDetailContainer">
+                <div class="itemPic"></div>
+                <div class="itemText">
+                    <div class="itemSubHeader">Krispy Kreme P50 Treat</div>
+                    <div class="itemDesc">Krispy Kreme P50 voucher, plus a double upsize on coffee</div>    
+                </div>
+                <div class="itemPoint">50 <span>pts</span></div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<!-- <div class="banner"></div> -->

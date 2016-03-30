@@ -3,10 +3,15 @@ import { Router } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {ActivityHistoryService} from '../services/activity-history.service';
+import {AccountService} from '../../shared/services/account.service';
+import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
 
 @Component({
     selector: 'account-overview',
-    templateUrl: './app/account/components/activity-history.component.html'
+    templateUrl: './app/account/components/activity-history.component.html',
+    directives: [
+        SmartLeftMenuComponent
+    ]
 })
 export class ActivityHistoryComponent  {
     
@@ -15,12 +20,17 @@ export class ActivityHistoryComponent  {
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
 		private _layoutService: LayoutService,
-        private _activityHistoryService:ActivityHistoryService) {
+        private _activityHistoryService:ActivityHistoryService,
+        private _accountService: AccountService) {
 		
 		this._layoutService.setCurrentPage('ActivityHistory');
 		this._activityHistoryService.loadAllActivity();
         
 	}
+    
+    getRewardsBalance(){
+        return this._accountService.getRewardsBalance();
+    }
     
     toggleFilter(){
         this.historyFilter = !this.historyFilter;

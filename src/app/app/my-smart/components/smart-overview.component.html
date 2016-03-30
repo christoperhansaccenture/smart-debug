@@ -1,4 +1,4 @@
-<div class="overviewContainer" *ngIf="!getResize().largeUp">
+<div class="smartOverviewContainer" *ngIf="!getResize().largeUp">
     <div class="header"></div>
     <div class="summary">
         <div class="lineItem">
@@ -108,8 +108,8 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="containerBody" *ngIf="getResize().largeUp">
-    <div class="overviewContainerLarge">
+<div id="homeBodyLarge" class="smartContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartOverviewContainerLarge">
         <div class="container2">
             <div class="container1">
                 <div class="leftMenu">
@@ -162,7 +162,7 @@
                     <div class="remainingComponent">
                         <div class="headerText">Remaining Quota</div>
                         <div class="subHeaderText">
-                            <div class="itemText">FlexibleBalance</div>
+                            <div class="itemText">Flexible Balance</div>
                             <div class="itemValue">P320</div>
                         </div>
                         <div class="remainingContainer">
@@ -172,25 +172,27 @@
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon comp"></div>
-                                    <div class="itemText">All Data</div>
+                                    <div class="itemText">
+                                        <div class="text">All Data</div>
+                                    </div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">3650 <span>MB</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon whatsapp"></div>
-                                    <div class="itemText">Whatsapp</div>
+                                    <div class="itemText"><div class="text">Whatsapp</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">200 <span>MB</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon video"></div>
-                                    <div class="itemText">Video Streaming</div>
+                                    <div class="itemText"><div class="text">Video Streaming</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">900 <span>MB</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon gmail"></div>
-                                    <div class="itemText">Gmail</div>
+                                    <div class="itemText"><div class="text">Gmail</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">150 <span>MB</span></div>
                                 </div>
@@ -201,19 +203,19 @@
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon allVoice"></div>
-                                    <div class="itemText">All Operators</div>
+                                    <div class="itemText"><div class="text">All Operators</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">320 <span>min</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon voiceSMS"></div>
-                                    <div class="itemText">Voice/SMS all operators</div>
+                                    <div class="itemText"><div class="text">Voice/SMS all operators</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">200 <span>min</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon smart"></div>
-                                    <div class="itemText">Smart-to-Smart</div>
+                                    <div class="itemText"><div class="text">Smart-to-Smart</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue"><span>min</span><div class="infinite"></div></div>
                                 </div>
@@ -224,19 +226,19 @@
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon allSMS"></div>
-                                    <div class="itemText">All Operators</div>
+                                    <div class="itemText"><div class="text">All Operators</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">320 <span>SMS</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon voiceSMS"></div>
-                                    <div class="itemText">Voice/SMS all operators</div>
+                                    <div class="itemText"><div class="text">Voice/SMS all operators</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue">200 <span>SMS</span></div>
                                 </div>
                                 <div class="lineItem">
                                     <div class="icon smart"></div>
-                                    <div class="itemText">Smart-to-Smart</div>
+                                    <div class="itemText"><div class="text">Smart-to-Smart</div></div>
                                     <div class="arrow"></div>
                                     <div class="itemValue"><span>SMS</span><div class="infinite"></div></div>
                                 </div>

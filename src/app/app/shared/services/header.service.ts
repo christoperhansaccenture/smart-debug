@@ -13,13 +13,13 @@ export class HeaderService {
     
     headerOnScroll(){
         
-        var hdrmenuBar;
-        var homeBody;
-        var hdrProfPic;
+        // var hdrmenuBar;
+        // var homeBody;
+        // var hdrProfPic;
         
-        hdrmenuBar = document.getElementById('hdrMenu');
-        homeBody = document.getElementById('homeBody');
-        hdrProfPic = document.getElementById('hdrProfPic');
+        // hdrmenuBar = document.getElementById('hdrMenu');
+        // homeBody = document.getElementById('homeBody');
+        // hdrProfPic = document.getElementById('hdrProfPic');
         
         //largeView
         var hdrmenuBarLarge;
@@ -32,142 +32,56 @@ export class HeaderService {
         homeBodyLarge = document.getElementById('homeBodyLarge');
         hdrProfPicLarge = document.getElementById('hdrProfPicLarge');
         
+        //console.log(homeBodyLarge);
+        
         var scrollposition = (window.scrollY || window.pageYOffset);
         
         //console.log("scrolling: " + scrollposition);
         
-        if(!this._matchMediaService.getmm().mediumUp && !this._matchMediaService.getmm().largeUp){
-            if(scrollposition > 90 ){
-
-                
-                if(typeof document.getElementById('hdrProfPic')!== undefined && hdrProfPic.length !== 0){
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrProfPic.classList.add("profPicFixed");    
-                    }
-                }
-                
-                if(typeof document.getElementById('hdrMenu')!== undefined && hdrmenuBar.length !== 0){
-                    
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrmenuBar.classList.add("headerFixed");
-                    }
-                }
-                
-                if(this._layoutService.currentPage === 'MySmart'){
-                    if(typeof document.getElementById('homeBody')!== undefined && homeBody.length !== 0){
-                        
-                        homeBody.classList.add("bodyFixed");
-                    }
-                }
-
-            }
-            else{
-                
-                if(typeof document.getElementById('hdrProfPic')!== undefined && hdrProfPic.length !== 0){
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrProfPic.classList.remove("profPicFixed");    
-                    }
-                }
-                
-                 if(typeof document.getElementById('hdrMenu') !== undefined && hdrmenuBar.length !== 0){
-                    
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrmenuBar.classList.remove("headerFixed");
-                    }
-    
-                }
-                
-                if(this._layoutService.currentPage === 'MySmart'){
-                    if(typeof document.getElementById('homeBody')!== undefined && homeBody.length !== 0){
-                        
-                        homeBody.classList.remove("bodyFixed");
-                        
-                    }
-                }
-            }  
-            
-        }
-        else if(this._matchMediaService.getmm().mediumUp && !this._matchMediaService.getmm().largeUp){
-            if(scrollposition > 200 ){
-
-                
-                if(typeof document.getElementById('hdrProfPic')!== undefined && hdrProfPic.length !== 0){
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrProfPic.classList.add("profPicFixed");    
-                    }
-                }
-                
-                if(typeof document.getElementById('hdrMenu')!== undefined && hdrmenuBar.length !== 0){
-                    
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrmenuBar.classList.add("headerFixedMedium");
-                    }
-                }
-
-
-            }
-            else{
-                
-                if(typeof document.getElementById('hdrProfPic')!== undefined && hdrProfPic.length !== 0){
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrProfPic.classList.remove("profPicFixed");    
-                    }
-                }
-                
-                 if(typeof document.getElementById('hdrMenu') !== undefined && hdrmenuBar.length !== 0){
-                    
-                    if(this._layoutService.currentPage === 'MySmart'){
-                        hdrmenuBar.classList.remove("headerFixedMedium");
-                    }
-    
-                }
-
-            } 
-        }
-        else if(this._matchMediaService.getmm().largeUp){
+        if(this._matchMediaService.getmm().largeUp){
             
             if(scrollposition > 250 ){
                 
-                if(typeof document.getElementById('hdrProfPicLarge')!== undefined && hdrProfPicLarge.length !== 0){
+                if(typeof document.getElementById('hdrProfPicLarge')!== undefined && hdrProfPicLarge !== null){
                     
                     hdrProfPicLarge.classList.add("profPicFixed");    
                 }
                 
-                if(typeof document.getElementById('hdrMenuLarge')!== undefined && hdrmenuBarLarge.length !== 0){
+                if(typeof document.getElementById('hdrMenuLarge')!== undefined && hdrmenuBarLarge !== null){
                     
                     hdrmenuBarLarge.classList.add("headerFixed");
                 }
                 
-                if(this._layoutService.currentPage === 'MySmart'){
+                //if(this._layoutService.currentPage === 'MySmart'){
                     
-                    if(typeof document.getElementById('homeBodyLarge')!== undefined && homeBodyLarge.length !== 0){
+                    if(typeof document.getElementById('homeBodyLarge')!== undefined && homeBodyLarge !== null){
                     
                         homeBodyLarge.classList.add("bodyFixed");
                         
                     }
-                }
+                //}
 
 
             }
             else{
                 
-                if(typeof document.getElementById('hdrProfPicLarge') !== undefined && hdrProfPicLarge.length !== 0){
+                if(typeof document.getElementById('hdrProfPicLarge') !== undefined && hdrProfPicLarge !== null){
                     
                     hdrProfPicLarge.classList.remove("profPicFixed");    
                 }
                 
-                 if(typeof document.getElementById('hdrMenuLarge') !== undefined && hdrmenuBarLarge.length !== 0){
+                 if(typeof document.getElementById('hdrMenuLarge') !== undefined && hdrmenuBarLarge !== null){
                     
                     hdrmenuBarLarge.classList.remove("headerFixed");
     
                 }
                 
-                if(this._layoutService.currentPage === 'MySmart'){
-                    if(typeof document.getElementById('homeBodyLarge') !== undefined && homeBodyLarge.length !== 0){
+                //if(this._layoutService.currentPage === 'MySmart'){
+                    if(typeof document.getElementById('homeBodyLarge') !== undefined && homeBodyLarge !== null){
                     
                         homeBodyLarge.classList.remove("bodyFixed");
                     }
-                }         
+                //}         
 
             }
             
