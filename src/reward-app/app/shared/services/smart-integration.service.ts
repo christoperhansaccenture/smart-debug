@@ -85,7 +85,7 @@ export class SmartIntegrationService {
             }
             let result = {
                 type: item.type,
-                channel: 2,
+                channel: 3,
                 catalog: catalog,
                 bill: bill
             };
