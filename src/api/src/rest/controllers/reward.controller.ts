@@ -317,31 +317,53 @@ var config = require('../config/config');
                     
                       console.log(req.body);
                       
-                      var data = JSON.parse(req.body);
+                      var data = req.body;
                       
                       for(var i = 0; i < data.length; i++){
                           
-                          if(data[0].type === 'catalog'){
+                          if(data[i].type === 'catalog'){
                               
                               var jsonBody ={
                                     min: req.params.min,
-                                    productCode: data[0].catalog.code,
-                                    quantity: data[0].catalog.quantity,
-                                    channel: '2',
-                                    destLoyaltyId: data[0].catalog.dest
+                                    productCode: data[i].catalog.code,
+                                    quantity: data[i].catalog.quantity,
+                                    channel: data[i].channel,
+                                    destLoyaltyId: data[i].catalog.dest
                                 };
                               
                               var result =  await ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+
+                              /*
+                              try {  
+                                  var result =  await ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                                  var errorCheckRes = '';
+
+                                  errorCheckRes = errorHandlingService.transferRequestErrorHandling(res,result);
+
+                                  if(!errorCheckRes){
+                                      res.json(result);
+                                  } else {
+                                      res.json(errorCheckRes);
+                                  }
+
+                              }
+                              catch (err) {
+                                  res.sendStatus(500);
+                                  console.log(err);
+                              }
+                             */
+
                               
-                          }else if(data[0].type === 'bill'){
+                              
+                          }else if(data[i].type === 'bill'){
                               
                               var jsonBody ={
                                     min: req.params.min,
-                                    merchantIdentifier: data[0].bill.merchantIdentifier,
-                                    amount: data[0].bill.amount,
-                                    pin: data[0].bill.pin,
-                                    channel: '2',
-                                    ref: data[0].bill.ref
+                                    merchantIdentifier: data[i].bill.merchantIdentifier,
+                                    amount: data[i].bill.amount,
+                                    pin: data[i].bill.pin,
+                                    channel: data[i].channel,
+                                    ref: data[i].bill.ref
                                 };
                                 
                                 var result =  await ssoService.payBillWithPoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
@@ -349,6 +371,7 @@ var config = require('../config/config');
                           }
                           
                       }
+                      res.sendStatus(200);
                     
                 }
                 catch (err) {

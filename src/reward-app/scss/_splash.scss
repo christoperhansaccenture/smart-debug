@@ -1,0 +1,15 @@
+#splash {
+	background-color: $smartgreen;
+
+	.picture{
+		margin-top: 0;
+		height: 100px;
+		width: 100%;
+		background: url(../img/smart_blue.png) no-repeat;
+		background-position: center center;
+		background-size: 200px;
+		padding: 10px 0;
+		margin: 100px auto 0px;
+	}	
+
+}

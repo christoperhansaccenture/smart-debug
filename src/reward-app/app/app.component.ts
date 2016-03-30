@@ -44,7 +44,14 @@ declare var FastClick: FastClickStatic;
         <smart-header></smart-header>
         <my-modal></my-modal>
         <left-menu></left-menu>
-        <div id="content"><router-outlet></router-outlet></div>
+        <div id="content"
+            [class.login]="isFullScreen()"
+            [class.small]="!isFullScreen() && isSmallScreen()"
+            [class.large]="!isFullScreen() && !isSmallScreen()">
+            <router-outlet
+                (window:resize)="OnResize()">
+            </router-outlet>
+        </div>
         <smart-footer></smart-footer>
     `,
     directives: [
@@ -169,10 +176,11 @@ declare var FastClick: FastClickStatic;
 export class AppComponent implements OnInit {
 
 	constructor ( private _matchMediaService: MatchMediaService,
-    private _headerService: HeaderService,
-    private _router: Router,
-    private _rewardTypeService:RewardTypeService) {
-        new FastClick(document.body);
+                 private _headerService: HeaderService,
+                 private _router: Router,
+                 private _rewardTypeService:RewardTypeService,
+                private _layoutService: LayoutService) {
+                    new FastClick(document.body);
     }
 
     ngOnInit(){
@@ -196,6 +204,15 @@ export class AppComponent implements OnInit {
     
     OnScroll(){
         //this._headerService.headerOnScroll();
+    }
+
+    isFullScreen() {
+        let currentPage: string = this._layoutService.getCurrentPage();
+        return !currentPage || currentPage === 'GetStarted' || currentPage === 'Login';
+    }
+
+    isSmallScreen() {
+        return !this._matchMediaService.getmm().largeUp;
     }
 
 }

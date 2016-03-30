@@ -101,6 +101,10 @@ $col-3-height: 340px;
                 border: none;
                 margin: 12px 0;
                 
+                &:focus {
+                    outline: none
+                }
+                
                 &.select{
                     width: calc(100% - 45px);
                     height: 30px;

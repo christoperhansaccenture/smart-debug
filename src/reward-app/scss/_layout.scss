@@ -32,7 +32,21 @@ a {
     height: 100%;
 	width: 100%;
 	overflow-y: auto;
+	position: absolute;
+	height: 100%; 
 	//margin-bottom: 50px;
+
+	&.small {
+		height: calc(100% - 100px); 
+	}
+
+	&.large {
+		height: 100%; // To be reduced by the total outerHeight of large screen header and footer
+	}
+
+	&.login {
+		background-color: $smartgreen;
+	}
 }
 
 .outer-box{
@@ -50,18 +64,14 @@ a {
 
 	height: 100%;
     width: 100%;
-    background: url(../img/homepage.jpg) no-repeat;
+    //background: url(../img/homepage.jpg) no-repeat;
 	//background-color: $smartblue;
     background-size: cover;
     position: absolute;
 	z-index: 1;
-	
-	&.blur{
-		-webkit-filter: blur(5px);
-		-moz-filter: blur(5px);
-		-o-filter: blur(5px);
-		-ms-filter: blur(5px);
-		filter: blur(5px);
+
+	&.login {
+		background-color: $smartgreen;
 	}
 
 }
