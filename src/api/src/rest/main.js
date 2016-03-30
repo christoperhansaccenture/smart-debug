@@ -13,6 +13,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promi
         step("next", void 0);
     });
 };
+require('newrelic');
 var cluster = require('cluster');
 var request = require('request');
 // import { SSO } from "./services/sso.service";

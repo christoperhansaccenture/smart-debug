@@ -1,4 +1,4 @@
-<div class="headerSmall" [ngClass]="{openSearch : filterFunction}" *ngIf="getLayout().appHeader">
+<div class="headerSmall" *ngIf="getLayout().appHeader && !getResize().largeUp">
 	<div class="mainBox">
         <div class="defaultBox">
             <div class="hamburger" *ngIf="getHeaderLayout().hamburger" (click)="toggleLeftMenu()"></div>
@@ -11,4 +11,44 @@
 	<div class="headerLogin">
 		<div class="backArrow" (click)="goToPreviousPage()"></div>
 	</div>
+</div>
+
+<div class="headerLarge"  *ngIf="getLayout().appHeader && getResize().largeUp">
+    <div class="headerTop">
+        <div class="itemContainer">
+            <div class="smartLogo"></div>
+            <div class="menu">
+                <div class="menuItem">Products</div>
+                <div class="menuItem">Service</div>
+                <div class="menuItem">Buy Online</div>
+                <div class="menuItem">Help &amp; Support</div>
+            </div>
+        </div>
+    </div>
+    <div class="picAndBarContainerLarge">
+        <div class="header-picture"></div>
+        <div id="hdrMenuLarge" class="bar">
+            <div class="itemContainer">
+                <div id="hdrProfPicLarge" class="profilePicture"></div>
+                <div class="body">
+                    <div class="menuItem">
+                        <div class="smart"></div>
+                        <div class="menuText"><span>My Smart</span></div>
+                    </div>
+                    <div class="menuItem">
+                        <div class="rewards"></div>
+                        <div class="menuText"><span>My Rewards</span></div>
+                    </div>
+                    <div class="menuItem">
+                        <div class="account"></div>
+                        <div class="menuText"><span>My Account</span></div>
+                    </div>
+                    <div class="menuItem">
+                        <div class="logout"></div>
+                        <div class="menuText"><span>Log Out</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

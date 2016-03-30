@@ -30,8 +30,6 @@ export class HeaderService {
         
         hdrmenuBarLarge = document.getElementById('hdrMenuLarge');
         homeBodyLarge = document.getElementById('homeBodyLarge');
-        balanceBodyLarge = document.getElementById('balanceBodyLarge');
-        planBodyLarge = document.getElementById('planBodyLarge');
         hdrProfPicLarge = document.getElementById('hdrProfPicLarge');
         
         var scrollposition = (window.scrollY || window.pageYOffset);
@@ -105,13 +103,6 @@ export class HeaderService {
                         hdrmenuBar.classList.add("headerFixedMedium");
                     }
                 }
-                
-                // if(typeof document.getElementById('homeBody')!== undefined && homeBody.length !== 0){
-                    
-                //     if(this._layoutService.currentPage === 'MySmart'){
-                //         homeBody.classList.add("bodyFixedMedium");
-                //     }
-                // }
 
 
             }
@@ -130,13 +121,6 @@ export class HeaderService {
                     }
     
                 }
-                
-                // if(typeof document.getElementById('homeBody')!== undefined && homeBody.length !== 0){
-                    
-                //     if(this._layoutService.currentPage === 'MySmart'){
-                //         homeBody.classList.remove("bodyFixedMedium");
-                //     }
-                // }
 
             } 
         }
@@ -162,21 +146,6 @@ export class HeaderService {
                         
                     }
                 }
-                
-                
-                if(this._layoutService.currentPage === 'Balance'){
-                    if(typeof document.getElementById('balanceBodyLarge')!== undefined && balanceBodyLarge.length !== 0){
-                        balanceBodyLarge.classList.add("bodyFixed");
-                    }
-                }
-                
-                if(this._layoutService.currentPage === 'Plan'){
-                    
-                    if(typeof document.getElementById('planBodyLarge')!== undefined && planBodyLarge.length !== 0){
-                        planBodyLarge.classList.add("bodyFixed");
-                    }
-                    
-                }
 
 
             }
@@ -199,21 +168,6 @@ export class HeaderService {
                         homeBodyLarge.classList.remove("bodyFixed");
                     }
                 }         
-       
-                
-                if(this._layoutService.currentPage === 'Balance'){
-                    if(typeof document.getElementById('balanceBodyLarge') !== undefined && balanceBodyLarge.length !== 0){
-                        
-                            balanceBodyLarge.classList.remove("bodyFixed");
-                    }    
-                }
-                
-                if(this._layoutService.currentPage === 'Plan'){
-                    if(typeof document.getElementById('planBodyLarge')!== undefined && planBodyLarge.length !== 0){
-                        
-                        planBodyLarge.classList.remove("bodyFixed");
-                    }    
-                }
 
             }
             
