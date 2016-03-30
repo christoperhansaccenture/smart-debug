@@ -32,7 +32,17 @@ a {
     height: 100%;
 	width: 100%;
 	overflow-y: auto;
+	position: absolute;
+	height: 100%; 
 	//margin-bottom: 50px;
+
+	&.small {
+		height: calc(100% - 100px); 
+	}
+
+	&.large {
+		height: 100%; // To be reduced by the total outerHeight of large screen header and footer
+	}
 }
 
 .outer-box{
