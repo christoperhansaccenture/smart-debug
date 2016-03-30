@@ -1,19 +1,14 @@
 'use strict';
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promise, generator) {
-    return new Promise(function (resolve, reject) {
-        generator = generator.call(thisArg, _arguments);
-        function cast(value) { return value instanceof Promise && value.constructor === Promise ? value : new Promise(function (resolve) { resolve(value); }); }
-        function onfulfill(value) { try { step("next", value); } catch (e) { reject(e); } }
-        function onreject(value) { try { step("throw", value); } catch (e) { reject(e); } }
-        function step(verb, value) {
-            var result = generator[verb](value);
-            result.done ? resolve(result.value) : cast(result.value).then(onfulfill, onreject);
-        }
-        step("next", void 0);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments)).next());
     });
 };
-var sso_service_1 = require('../services/sso.service');
-var error_handling_service_1 = require('../services/error-handling.service');
+const sso_service_1 = require('../services/sso.service');
+const error_handling_service_1 = require('../services/error-handling.service');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
@@ -275,30 +270,31 @@ class RewardController {
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 console.log(req.body);
-                var data = JSON.parse(req.body);
+                var data = req.body;
                 for (var i = 0; i < data.length; i++) {
-                    if (data[0].type === 'catalog') {
+                    if (data[i].type === 'catalog') {
                         var jsonBody = {
                             min: req.params.min,
-                            productCode: data[0].catalog.code,
-                            quantity: data[0].catalog.quantity,
-                            channel: '2',
-                            destLoyaltyId: data[0].catalog.dest
+                            productCode: data[i].catalog.code,
+                            quantity: data[i].catalog.quantity,
+                            channel: data[i].channel,
+                            destLoyaltyId: data[i].catalog.dest
                         };
                         var result = yield ssoService.redeemAnItem(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                     }
-                    else if (data[0].type === 'bill') {
+                    else if (data[i].type === 'bill') {
                         var jsonBody = {
                             min: req.params.min,
-                            merchantIdentifier: data[0].bill.merchantIdentifier,
-                            amount: data[0].bill.amount,
-                            pin: data[0].bill.pin,
-                            channel: '2',
-                            ref: data[0].bill.ref
+                            merchantIdentifier: data[i].bill.merchantIdentifier,
+                            amount: data[i].bill.amount,
+                            pin: data[i].bill.pin,
+                            channel: data[i].channel,
+                            ref: data[i].bill.ref
                         };
                         var result = yield ssoService.payBillWithPoints(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                     }
                 }
+                res.sendStatus(200);
             }
             catch (err) {
                 console.log(err);
@@ -388,5 +384,5 @@ class RewardController {
     }
 }
 exports.RewardController = RewardController;
-// } 
+// }
 //# sourceMappingURL=reward.controller.js.map

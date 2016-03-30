@@ -1,25 +1,12 @@
 /// <reference path="../../typings/main.d.ts" />
 'use strict';
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promise, generator) {
-    return new Promise(function (resolve, reject) {
-        generator = generator.call(thisArg, _arguments);
-        function cast(value) { return value instanceof Promise && value.constructor === Promise ? value : new Promise(function (resolve) { resolve(value); }); }
-        function onfulfill(value) { try { step("next", value); } catch (e) { reject(e); } }
-        function onreject(value) { try { step("throw", value); } catch (e) { reject(e); } }
-        function step(verb, value) {
-            var result = generator[verb](value);
-            result.done ? resolve(result.value) : cast(result.value).then(onfulfill, onreject);
-        }
-        step("next", void 0);
-    });
-};
 require('newrelic');
 var cluster = require('cluster');
 var request = require('request');
 // import { SSO } from "./services/sso.service";
-var login_controller_1 = require('./controllers/login.controller');
-var account_controller_1 = require('./controllers/account.controller');
-var reward_controller_1 = require('./controllers/reward.controller');
+const login_controller_1 = require('./controllers/login.controller');
+const account_controller_1 = require('./controllers/account.controller');
+const reward_controller_1 = require('./controllers/reward.controller');
 // if (cluster.isMaster) {
 // 	var numWorkers = require('os').cpus().length;
 // 	console.log('Master cluster setting up ' + numWorkers + ' workers...');

@@ -324,7 +324,10 @@ export module SSO {
                         form: json
                     }, 
                     function(err,httpResponse,body){  
-                        resolve(body);
+                        if (err) {
+                            reject(err);
+                        }
+                        resolve(JSON.parse(body));
                 })   
             });
         }
