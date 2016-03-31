@@ -102,10 +102,16 @@
             padding-right: 5px;
             background-color: $lightgray;
             height: 40px;
+            color: $smartgreen;
             cursor: pointer;
             
             &:hover{
                 background-color: $smartgreen;
+            }
+            
+            &.selected{
+                background-color: $smartgreen;
+                color: #FFF;
             }
             
             &.member{
@@ -115,12 +121,36 @@
                     background-color: $smartgreen;
                 }
                 
+                &.selected{
+                    background-color: $smartgreen;
+                    color: #FFF;
+                }
+                
+            }
+            
+            .arrow{
+                float: right;
+                margin-right: 10px;
+                width: 20px;
+                height: 40px;
+                background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsNTkuMTI5NjA3MTM1OTk3NSkgc2NhbGUoNy45Mzg0OTI3MTI4MzgxNSw3LjkzODQ5MjcxMjgzODE1KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMzAuNTg3OTE1LDBMMzEuOTk1OTk4LDEuNDE5OTg0MiAxNS45NDk5NjQsMTcuMzUxIDAsMS40OTc5ODczIDEuNDA5OTEzMSwwLjA3ODk3OTE1MSAxNS45NDk5NjQsMTQuNTMxMDJ6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                background-position-x: center;
+                background-position-y: center;
+                background-size: 20px;
+                
+                &.open{
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsNTkuMTI3NDU1NzgyMjM4Mykgc2NhbGUoNy45Mzg3NDA2OTMyMTczNyw3LjkzODc0MDY5MzIxNzM3KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMTYuMDQ2OTk5LDBMMzEuOTk0OTk4LDE1Ljg1Mzk5MSAzMC41ODUwODYsMTcuMjcyOTk3IDE2LjA0NjAyMiwyLjgyMDAwNTEgMS40MDkwNTc2LDE3LjM1MSAwLDE1LjkzMTk5NHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                    background-position-x: center;
+                    background-position-y: center;
+                    background-size: 20px;
+                }
+                
             }
             
             .text{
-                color: $smartgreen;
                 font-size: 15px;
                 line-height: 40px;
+                float: left;
                 
                 &:hover{
                     color: #FFF;

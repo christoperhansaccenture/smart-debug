@@ -7,20 +7,21 @@ export class DesktopLeftMenuService {
     rewardApp = {
         redeemPoint : false,
         payBill : false,
-        transfer : false,
-        activityHistory : false
-    }
-    
-    redeemPoint = {
         deals : false,
         catalog : false,
-        filter : false
+        filter : false,
+        transfer : false,
+        activityHistory : false
     }
     
     constructor (private _router:Router) {}
     
     toggleRedeemPoints(){
         this.rewardApp.redeemPoint = !this.rewardApp.redeemPoint;
+    }
+    
+    toggleFilter(){
+        this.rewardApp.filter = !this.rewardApp.filter;
     }
     
     getRewardAppStatus(){
@@ -30,13 +31,28 @@ export class DesktopLeftMenuService {
     isCatalog(){
         this.rewardRefresh();
         this.rewardApp.redeemPoint = true;
-        this.redeemPoint.catalog = true;
+        this.rewardApp.catalog = true;
     }
     
     isDeals(){
         this.rewardRefresh();
         this.rewardApp.redeemPoint = true;
-        this.redeemPoint.deals = true;
+        this.rewardApp.deals = true;
+    }
+    
+    isPayBill(){
+        this.rewardRefresh();
+        this.rewardApp.payBill = true;
+    }
+    
+    isTransfer(){
+        this.rewardRefresh();
+        this.rewardApp.transfer = true;
+    }
+    
+    isActivityHistory(){
+        this.rewardRefresh();
+        this.rewardApp.activityHistory = true;
     }
     
     rewardRefresh(){
@@ -45,9 +61,9 @@ export class DesktopLeftMenuService {
         this.rewardApp.payBill = false;
         this.rewardApp.activityHistory = false;
         
-        this.redeemPoint.deals = false;
-        this.redeemPoint.catalog = false;
-        this.redeemPoint.filter = false;
+        this.rewardApp.deals = false;
+        this.rewardApp.catalog = false;
+        this.rewardApp.filter = false;
     }
     
 }

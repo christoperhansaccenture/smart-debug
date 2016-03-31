@@ -35,22 +35,20 @@
         <div *ngIf="isRewardApp()">
             <div class="menuItem" (click)="toggleRedeemPoints()">
                 <div class="text">Redeem Points</div>
-                <div class="arrow"></div>  
+                <div class="arrow" [ngClass]="{open : getRewardApp().redeemPoint}"></div>  
             </div>
             <div *ngIf="getRewardApp().redeemPoint">
-                <div class="menuItem member" (click)="goToDeals()">
-                    <div class="text">Get Exclusive Deals</div>
-                    <div class="arrow"></div>  
+                <div class="menuItem member" [ngClass]="{selected : getRewardApp().deals}" (click)="goToDeals()">
+                    <div class="text">Get Exclusive Deals</div> 
                 </div>
-                <div class="menuItem member" (click)="goToCatalog()">
+                <div class="menuItem member" [ngClass]="{selected : getRewardApp().catalog}" (click)="goToCatalog()">
                     <div class="text">Redeem Catalog</div>
-                    <div class="arrow"></div>  
                 </div>
-                <div class="menuItem member">
+                <div class="menuItem member" (click)="toggleFilter()">
                     <div class="text">Filter Catalog</div>
                     <div class="arrow"></div>  
                 </div>
-                <div class="filterBox">
+                <div class="filterBox" *ngIf="getRewardApp().filter">
                     <div class="sliderTitle">Points</div>
                     <div class="sliderBox">
                         <!--<span class="description">Points</span>-->
@@ -102,14 +100,13 @@
                 </div>
             </div>
         </div>
-        <div class="menuItem" (click)="goToPayBill()">
+        <div class="menuItem" [ngClass]="{selected : getRewardApp().payBill}" (click)="goToPayBill()">
             <div class="text">Pay Bill with Points</div>
         </div>
-        <div class="menuItem" (click)="goToTransfer()">
+        <div class="menuItem" [ngClass]="{selected : getRewardApp().transfer}" (click)="goToTransfer()">
             <div class="text">Transfer Points</div>
-            <div class="arrow"></div>
         </div>
-        <div class="menuItem" (click)="goToActivityHistory()">
+        <div class="menuItem" [ngClass]="{selected : getRewardApp().activityHistory}" (click)="goToActivityHistory()">
             <div class="text">Rewards Activity History</div>
         </div>
             <div class="menuItem">

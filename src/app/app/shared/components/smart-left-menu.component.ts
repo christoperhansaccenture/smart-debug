@@ -88,22 +88,27 @@ export class SmartLeftMenuComponent {
     }
     
     goToCatalog(){
+        this._desktopLeftMenuService.isCatalog();
         this._router.navigate(['Catalog']);
     }
     
     goToDeals(){
+        this._desktopLeftMenuService.isDeals();
         this._router.navigate(['Perks']);
     }
     
     goToActivityHistory(){
+        this._desktopLeftMenuService.isActivityHistory();
         this._router.navigate(['ActivityHistory']);
     }
     
     goToPayBill(){
+        this._desktopLeftMenuService.isPayBill();
         this._router.navigate(['PayBill']);
     }
     
     goToTransfer(){
+        this._desktopLeftMenuService.isTransfer();
         this._router.navigate(['Transfer']);
     }
         
@@ -117,6 +122,10 @@ export class SmartLeftMenuComponent {
     
     toggleRedeemPoints(){
         this._desktopLeftMenuService.toggleRedeemPoints();
+    }
+    
+    toggleFilter(){
+        this._desktopLeftMenuService.toggleFilter();
     }
     
     getRewardApp(){

@@ -62,8 +62,8 @@ export class SmartIntegrationService {
 
     confirmOrder(items: CartItem[]) {
         let min = localStorage.getItem('phoneNumber');
-        //var url = this.serviceBase + '/customer/' + min + '/redeem';
-        var url = 'http://localhost:8080/api' + '/customer/' + min + '/redeem';
+        var url = this.serviceBase + '/customer/' + min + '/redeem';
+        //var url = 'http://localhost:8080/api' + '/customer/' + min + '/redeem';
 
         let data = items.map(item => {
             let catalog;
