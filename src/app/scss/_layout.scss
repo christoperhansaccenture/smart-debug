@@ -37,13 +37,13 @@ a {
 	//margin-bottom: 50px;
 
 	&.small {
-		height: calc(100% - 100px); 
+		height: calc(100% - 98px);
 	}
 
 	&.large {
 		height: calc(100% - 50px); // To be reduced by the total outerHeight of large screen header and footer
         position: inherit;
-        margin-bottom: 50px;
+        //margin-bottom: 50px;
 	}
 
 	&.login {

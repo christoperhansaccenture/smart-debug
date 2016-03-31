@@ -128,10 +128,16 @@ $col-3-height: 340px;
         .leftSide{
             float: left;
             height: 50px;
+            padding-top: 5px;
+
+            &.one-line {
+                padding-top: 0;
+                display: flex;
+                align-items: center;
+            }
             
             .balance{
                 height: 18px;
-                margin-top: 5px;
                 color: black;
                 font-size: 15px;
             }
@@ -300,10 +306,16 @@ $col-3-height: 340px;
                                         .leftSide{
                                             float: left;
                                             height: 50px;
+                                            padding-top: 5px;
+
+                                            &.one-line {
+                                                padding-top: 0;
+                                                display: flex;
+                                                align-items: center;
+                                            }
                                             
                                             .balance{
                                                 height: 18px;
-                                                margin-top: 5px;
                                                 color: black;
                                                 font-size: 15px;
                                             }
