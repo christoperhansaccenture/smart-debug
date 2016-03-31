@@ -988,7 +988,7 @@ var config = require('../config/config');
                         
                     }else{
 
-                        if(jsonObject.data[0].primary === true){
+                        if(jsonObject.data[0].primary === 'True'){
                             //number used is child, so return from linked list is primary
                             //call linked list again to get child numbers
                             
@@ -996,7 +996,7 @@ var config = require('../config/config');
                             
                                 phoneNo : jsonObject.data[0].cusLoyaltyId,
                                 name : jsonObject.data[0].cusFName,
-                                primary : jsonObject.data[0].primary
+                                primary : true
                                 
                             };
                             
@@ -1099,7 +1099,12 @@ var config = require('../config/config');
                             
                             phoneData.phoneNo = jsonObject.data[i].cusLoyaltyId;
                             phoneData.name = jsonObject.data[i].cusFName;
-                            phoneData.primary = jsonObject.data[i].primary;
+                            
+                            if(jsonObject.data[i].primary === 'True'){
+                                phoneData.primary = true;
+                            }else{
+                                phoneData.primary = false;    
+                            }
                             
                             userData.phoneData.push(phoneData);  
                             

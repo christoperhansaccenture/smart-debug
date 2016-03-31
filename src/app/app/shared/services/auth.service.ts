@@ -117,7 +117,7 @@ export class AuthService {
                 localStorage.setItem('phoneNumber',userId);
                 
                 sessionStorage.setItem('accessToken', JSON.stringify(response.json().token));  
-                this._router.navigate(['MyRewards']);  
+                this._router.navigate(['MySmart']);  
                 this.isLoadingLogin = false;
                 
             },

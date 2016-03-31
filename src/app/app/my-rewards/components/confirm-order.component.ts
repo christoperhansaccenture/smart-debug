@@ -11,6 +11,7 @@ import {CartService} from '../../shared/services/cart.service';
 import {AccountService} from '../../shared/services/account.service';
 import {Catalog} from '../../shared/models/catalog';
 import {CartItem} from '../../shared/models/cart-item';
+import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
 
 @Component({
     selector: 'confirm-order',
@@ -18,7 +19,8 @@ import {CartItem} from '../../shared/models/cart-item';
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,
-        AllCategoryItemBeltComponent
+        AllCategoryItemBeltComponent,
+        SmartLeftMenuComponent
     ]
 })
 export class ConfirmOrderComponent  {
@@ -33,6 +35,10 @@ export class ConfirmOrderComponent  {
 		
 		this._layoutService.setCurrentPage('ConfirmOrder');
 	}
+    
+    getRewardsBalance(){
+        return this._accountService.getRewardsBalance();
+    }
 	
 	getResize(){
         return this._matchMediaService.getmm();  

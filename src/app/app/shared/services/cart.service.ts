@@ -114,9 +114,23 @@ export class CartService {
 
     confirm() {
         let arr: CartItem[] = [];
-        for (let key in this.items)
+        for (let key in this.items){
             arr.push(this.items[key]);
-        this._smartIntegrationService.confirmOrder(arr);
+        }
+            
+        var promise = this._smartIntegrationService.confirmOrder(arr);
+        
+        promise.subscribe(
+            response => {
+                
+                console.log('succeed');
+                
+            },
+            error =>{
+                console.log('not authorize?');
+            }
+        );
+        
     }
 
     addBillToCart(selection, number, amount, pin) {

@@ -2,7 +2,8 @@ $col-3-height: 340px;
 
 .transferContainer {
     
-    padding-bottom: 45px;
+    //padding-bottom: 45px;
+    height: 100%;
     z-index: 1;
     
     .containerBody{
@@ -202,6 +203,7 @@ $col-3-height: 340px;
         float: left;
         width: 100%;
         background-color: #FFF;
+        margin-bottom: 50px;
         
         .container2{
             float: left;
@@ -236,10 +238,16 @@ $col-3-height: 340px;
                         .leftSide{
                             float: left;
                             height: 50px;
+                            padding-top: 5px;
+
+                            &.one-line {
+                                padding-top: 0;
+                                display: flex;
+                                align-items: center;
+                            }
                             
                             .balance{
                                 height: 18px;
-                                margin-top: 5px;
                                 color: black;
                                 font-size: 15px;
                             }

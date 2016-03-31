@@ -11,6 +11,7 @@ import {CartService} from '../../shared/services/cart.service';
 import {AccountService} from '../../shared/services/account.service';
 import {Catalog} from '../../shared/models/catalog';
 import {CartItem} from '../../shared/models/cart-item';
+import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
 
 @Component({
     selector: 'shopping-cart',
@@ -18,7 +19,8 @@ import {CartItem} from '../../shared/models/cart-item';
     directives: [
         ItemBeltComponent,
         MostPopularItemBeltComponent,
-        AllCategoryItemBeltComponent
+        AllCategoryItemBeltComponent,
+        SmartLeftMenuComponent
     ]
 })
 export class ShoppingCartComponent implements AfterViewInit {
@@ -45,6 +47,10 @@ export class ShoppingCartComponent implements AfterViewInit {
             }
         }
 	}
+    
+    getRewardsBalance(){
+        return this._accountService.getRewardsBalance();
+    }
 
     ngAfterViewInit() {
     }

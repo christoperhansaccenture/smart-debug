@@ -62,7 +62,8 @@ export class SmartIntegrationService {
 
     confirmOrder(items: CartItem[]) {
         let min = localStorage.getItem('phoneNumber');
-        var url = this.serviceBase + '/customer/' + min + '/redeem';
+        //var url = this.serviceBase + '/customer/' + min + '/redeem';
+        var url = 'http://localhost:8080/api' + '/customer/' + min + '/redeem';
 
         let data = items.map(item => {
             let catalog;
@@ -94,7 +95,11 @@ export class SmartIntegrationService {
 
         console.log('confirm order: ');
         console.log(JSON.stringify(data));
-        return this._http.post(url, JSON.stringify(data));
+        console.log(url);
+        return this._http.post(url, JSON.stringify(data),<RequestOptionsArgs> {headers: new Headers(
+                {'Content-Type': 'application/json',
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+            })});
     }
 
     updateFavorite(catalog: Catalog) {

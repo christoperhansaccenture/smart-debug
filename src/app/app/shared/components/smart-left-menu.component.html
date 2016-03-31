@@ -1,23 +1,14 @@
 <div class="smartLeftMenu">
     <div class="header">My Numbers</div>
-    <div class="numberContainer primary">
+    <div class="numberContainer" [ngClass]="{primary : isSelected(phone)}" *ngFor="#phone of listOfMobileNumber()"
+        (click)="setSelectedNumber(phone)">
         <div class="upperContainer">
-            <div class="name primary">Tiffany</div>
-            <div class="primaryBox">PRIMARY</div>
+            <div class="name" [ngClass]="{primary : isSelected(phone)}"> {{ phone.name }}</div>
+            <div class="primaryBox" *ngIf="phone.primary">PRIMARY</div>
         </div>
         <div class="buttomContainer">
-            <div class="phoneNo primary">09298874801</div>
-            <div class="type primary">Postpaid</div>
-        </div>
-    </div>
-    <div class="numberContainer">
-        <div class="upperContainer">
-            <div class="name">Tamara</div>
-            <div class="primaryBox">PRIMARY</div>
-        </div>
-        <div class="buttomContainer">
-            <div class="phoneNo">092898874999</div>
-            <div class="type">Prepaid</div>
+            <div class="phoneNo" [ngClass]="{primary : isSelected(phone)}">+63{{ phone.phoneNo }}</div>
+            <div class="type" [ngClass]="{primary : isSelected(phone)}">Postpaid</div>
         </div>
     </div>
     <div class="dividerLine"></div>
@@ -59,21 +50,71 @@
                     <div class="text">Filter Catalog</div>
                     <div class="arrow"></div>  
                 </div>
-            </div>
-            <div class="menuItem" (click)="goToPayBill()">
-                <div class="text">Pay Bill with Points</div>
-            </div>
-            <div class="menuItem" (click)="goToTransfer()">
-                <div class="text">Transfer Points</div>
-                <div class="arrow"></div>
-            </div>
-            <div class="menuItem" (click)="goToActivityHistory()">
-                <div class="text">Rewards Activity History</div>
+                <div class="filterBox">
+                    <div class="sliderTitle">Points</div>
+                    <div class="sliderBox">
+                        <!--<span class="description">Points</span>-->
+                        <multi-slider
+                            [start]="getFilter().points"
+                            [range]="{min:0, max:1000}"
+                            (slide)="getFilter().points = $event"
+                            ></multi-slider>
+                    </div>
+                    <div class="categoryBox">
+                        <div class="title">Categories</div>
+                        <div class="options">
+                            <ul>
+                                <li (click)="toggleMyFavorites()">
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.myFavorites"/>
+                                    <span class="">My Favorites</span>
+                                </li>
+                                <li (click)="toggleLifestyle()">
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.lifestyle"/>
+                                    <span class="">Lifestyle</span>
+                                </li>
+                                <li>
+                                    <div (click)="toggleMobile()">
+                                        <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.mobile"/>
+                                        <span class="">Mobile</span>
+                                    </div>
+                                    <ul>
+                                        <li (click)="togglePrepaid()">
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.prepaid"/>
+                                            <span class="">Prepaid</span>
+                                        </li>
+                                        <li (click)="togglePostpaid()">
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.postpaid"/>
+                                            <span class="">Postpaid</span>
+                                        </li>
+                                        <li (click)="toggleBroPrepaid()">
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPrepaid"/>
+                                            <span class="">Bro Prepaid</span>
+                                        </li>
+                                        <li (click)="toggleBroPostpaid()">
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPostpaid"/>
+                                            <span class="">Bro Postpaid</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="menuItem">
+        <div class="menuItem" (click)="goToPayBill()">
+            <div class="text">Pay Bill with Points</div>
+        </div>
+        <div class="menuItem" (click)="goToTransfer()">
+            <div class="text">Transfer Points</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="menuItem" (click)="goToActivityHistory()">
+            <div class="text">Rewards Activity History</div>
+        </div>
+            <div class="menuItem">
             <div class="text">More Smart</div>
             <div class="arrow"></div>
         </div>
     </div>
-</div>
+ </div>

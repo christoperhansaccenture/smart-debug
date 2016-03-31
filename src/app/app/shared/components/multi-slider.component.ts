@@ -17,6 +17,7 @@ export class MultiSliderComponent implements AfterViewInit, OnInit {
     ngOnInit() {
         this.minValue = this.start[0];
         this.maxValue = this.start[1];
+        console.log('initialize slider');
     }
 
     floor(value) {

@@ -129,6 +129,263 @@
             }
             
         }
+        
+        .filterBox{
+            float: left;
+            width: 100%;
+
+            .search-container {
+                text-align: center;
+                margin-top: 20px;
+
+                .search {
+                    width: 80%;
+                    height: 35px;
+                    text-align: center;
+                    background-color: $smartgreen;
+                    border: 1px solid white;
+                    border-radius: 5px;
+                    color: #fff;
+
+                    &:placeholder-shown {
+                        color: $gray2;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: $gray2;
+                    }
+                }
+            }
+            
+            .sliderTitle{
+                margin-left: 10px;
+                color: $text-dark-gray;
+                font-weight: bold;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }           
+
+            .sliderBox{
+                width: calc(100% - 50px);
+                padding: 30px 10px 10px 10px;
+                height: 30px;
+                float: left;
+
+                .slider-container {
+                    float: left;
+                    width: calc(100%);
+
+                    .slider {
+                        width: 100%;
+                        display: inline-block;
+                        margin: 0 10px;
+
+                        &.noUi-horizontal {
+                            height: 6px;
+
+                            .noUi-handle {
+                                background: $smartred;  
+                                width: 22px; 
+                                height: 22px; 
+                                border: 1px solid $text-dark-gray;
+                                border-radius: 16px; 
+                                box-shadow: none;
+                                left: -10px;
+                                top: -10px;
+
+                                &:before {
+                                    display: none;
+                                }
+
+                                &:after {
+                                    display: none;
+                                }
+
+                                .noUi-tooltip {
+                                    position: absolute;
+                                    color: $text-dark-gray;
+                                    top: -20px;
+                                    width: 30px;
+                                    text-align: center;
+                                    left: -5px;
+                                }
+                            }
+                        }
+
+                        &.noUi-target {
+                            border: 1px solid $text-dark-gray;
+                            box-shadow: none;
+                        }
+
+                        &.noUi-background {
+                            background: #FFF;
+                            box-shadow: none;
+                        }
+
+                        .noUi-background {
+                            background: #FFF;
+                            box-shadow: none;
+                        }
+
+                        .noUi-connect {
+                            background: $smartred;
+                            box-shadow: none;
+                        }
+                    }
+                }
+
+                .pointSlider{
+                    width: calc(100% - 82px);
+                    padding: 30px 10px 10px 10px;
+                    height: 30px;
+                    margin-top: 10px;
+                    float: left;
+
+                    // border: 1px solid white;
+                    .bar{
+                        height: 4px;
+                        // background-color: #FFF;
+                        // margin-top: 10px;
+                        position: relative;
+                        width: 100%;
+                        border-radius: 3px;
+                        border: 1px solid #FFF;
+
+                        &.selected{
+                            position: absolute;
+                            background: #FFF;
+                            border: 0px; 
+                        }
+
+                        .pointer{
+                            position: absolute;
+                            margin: -10px;
+                            padding: 7px;
+                            width: 6px;
+                            height:6px;
+                            border-radius: 12px;
+                            background-color: $smartred;
+                            border: 1px solid #FFF;
+
+                        }
+
+                        .label{
+                            font-size: 11px;
+                            top: -28px;
+                            position: absolute;
+                            color: #FFF;
+                            // white-space: nowrap;
+                        }
+                        .label2{
+                            font-size: 11px;
+                            top: -28px;
+                            position: absolute;
+                            color: #FFF;
+                            // white-space: nowrap;
+                        }
+                    }
+                }
+            }
+
+            .categoryBox{
+                width: 100%;
+
+                .title{
+                    margin-left: 10px;
+                    color: $text-dark-gray;
+                    font-weight: bold;
+                }
+                .options{
+                    ul{
+                        list-style-type: none;
+                        margin:10px 10px 20px;
+                        padding: 0;
+
+                        li{
+                            color: $text-dark-gray;
+                            height: 30px;
+                            display: inline-block;
+                            align-items: center;
+                            line-height: 30px;
+                            // align-items: center; // align vertical 
+                            width: 100%;
+
+
+                            ul{
+                                display: block;
+                                list-style-type: none;
+                                width: 100%;
+                                // margin-left:30px;
+                                    margin: 0 0 10px 15px;
+                                padding-left: 15px;
+                                border-left: 1px $text-dark-gray solid;
+                                
+                                li{
+                                    color: $text-dark-gray;
+                                    height: 30px;
+                                    display: inline-block;
+                                    align-items: center;
+                                    line-height: 30px;
+                                    // align-items: center; // align vertical 
+                                    width: 100%;
+
+                                }
+                            }
+                        }
+
+                        &::after{
+                            clear: both;
+                            content: " ";
+                        }
+                    }
+                    
+                    .check{
+                        width: 0;
+                        height: 0;
+                        display: block;
+                        margin: 5px 27px 5px 5px;
+                        float: left;
+
+                        &:before {
+                            display: block;
+                            border-radius: 5px;
+                            border: 1px solid $text-dark-gray;
+                            float: left;
+
+                            content:"";
+                            display:inline-block;
+                            width: 20px;
+                            height: 20px;
+                            background-size: 12px;
+                            background-color: #FFF;
+                            border-radius: 5px;
+                        }
+
+                        &:checked {
+                            &:before {
+                                background-color: $smartred;
+                                content: '✓';
+                                color: white;
+                                text-align: center;
+                                font-size: 22px;
+                                line-height: 21px;
+                            }
+                        }
+
+                        &.active{
+                            background-color: $smartred;
+                        }
+
+                        &:focus {
+                            outline: none
+                        }
+                    }
+
+                    .txt{
+                        width: calc(100% - 30px);
+                    }
+                }
+            }
+        }
     }
     
 }

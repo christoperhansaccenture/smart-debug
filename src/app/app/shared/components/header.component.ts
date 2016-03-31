@@ -11,7 +11,10 @@ import {CatalogService} from '../../my-rewards/services/catalog.service';
 
 @Component({
     selector: 'smart-header',
-    templateUrl: 'app/shared/components/header.component.html'  
+    templateUrl: 'app/shared/components/header.component.html',
+     directives: [
+        MultiSliderComponent
+    ]
 })
 export class HeaderComponent {
     scrollY = 0;

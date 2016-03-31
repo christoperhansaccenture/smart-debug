@@ -108,6 +108,13 @@
                         <div class="logout"></div>
                         <div class="menuText"><span>Log Out</span></div>
                     </div>
+                    <div class="menuItem">
+                        <div class="cart" *ngIf="getHeaderLayout().cart" (click)="goToCart()">
+                            <div class="amount">
+                                {{ getTotalItems() }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

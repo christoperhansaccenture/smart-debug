@@ -34,6 +34,7 @@ export class AccountService {
     
     setSelectedUserPhone(userPhone){
         this.selectedUserPhone = userPhone;
+        sessionStorage.setItem('SelectedPhone',JSON.stringify(userPhone));
     }
     
     getSelectedUserPhone(){
@@ -57,7 +58,7 @@ export class AccountService {
             //this.getMobileNumberlistFromBackEnd(true);
         }else{
             this.mobileNoList = JSON.parse(mobileInStorage);
-            this.selectedUserPhone = this.mobileNoList[0];
+            //this.selectedUserPhone = this.mobileNoList[0];
         }
         
         return this.mobileNoList;
