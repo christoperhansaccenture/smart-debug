@@ -15,6 +15,7 @@ import {MainLoginComponent} from './login/components/main-login.component';
 import {SmartOverviewComponent} from './my-smart/components/smart-overview.component';
 import {ChangePasswordComponent} from './account/components/change-password.component';
 import {NewsletterComponent} from './account/components/newsletter.component';
+import {SmartMyplanComponent} from './my-smart/components/smart-myplan.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -190,6 +191,11 @@ declare var FastClick: FastClickStatic;
         path: '/newsletter',
         name: 'Newsletter',
         component: NewsletterComponent
+    },
+    {
+        path: '/myplan',
+        name: 'MyPlan',
+        component: SmartMyplanComponent
     }
     
 	
