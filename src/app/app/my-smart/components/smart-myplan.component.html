@@ -1,0 +1,93 @@
+<div class="smartMyPlanContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">My Plan</div>
+                <div class="headerSubText">View, renew or change existing Plan</div>
+            </div>
+        </div>
+        <div class="itemContainer withMarginTop">
+            <div class="itemIdentifier">Base Plan</div>
+            <div class="itemValue multiLine">
+                <div class="text">Surf Plus Plan 999</div>
+                <ul>
+                    <li>5 GB Data</li>
+                    <li>30 minutes of calls to all networks</li>
+                    <li>100 text to all networks</li>
+                </ul>
+            </div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Add-Ons</div>
+            <div class="itemValue multiLine">
+                <ul>
+                    <li>200 MB Instagram access</li>
+                </ul>
+            </div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier singleLine">Contract Duration</div>
+            <div class="itemValue singleLine">24 Months</div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier singleLine">Contract End Date</div>
+            <div class="itemValue red singleLine">06-01-17</div>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="button green left">Renew Plan</div>
+            <div class="button red right">Change Plan</div>
+            <div class="miniTextInfo">Data as of 21 March, 20:05</div>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartMyPlanContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartMyPlanContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="categoryHeader">My Plan</div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Base Plan</div>
+                            <div class="itemValue">
+                                <div class="text">Surf Plus Plan 999</div>
+                                <ul>
+                                    <li>5 GB Data</li>
+                                    <li>30 minutes of calls to all networks</li>
+                                    <li>100 text to all networks</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Add-Ons</div>
+                            <div class="itemValue">
+                                <ul>
+                                    <li>200 MB Instagram access</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Contract Duration</div>
+                            <div class="itemValue">24 Months</div>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Contract End Date</div>
+                            <div class="itemValue red">06-01-17</div>
+                        </div>
+                        <div class="itemFooterContainer">
+                            <div class="button red">Change Plan</div>
+                            <div class="button green">Renew Plan</div>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
