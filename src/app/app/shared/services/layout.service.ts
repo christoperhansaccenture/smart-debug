@@ -453,6 +453,34 @@ export class LayoutService {
             this.desktopMenu.smart = false;
             
         }
+        else if(current == 'ChangePassword' ||
+        current == 'Newsletter'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			};
+            
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = true;
+            this.headerItem.point = false;
+            
+            this.desktopMenu.account = true;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
+            
+        }
         else{
 			
 			this.layoutState = {

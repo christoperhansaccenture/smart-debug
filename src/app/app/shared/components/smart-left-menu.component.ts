@@ -116,6 +116,21 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isManageNumber();
         this._router.navigate(['ManageNumber']);
     }
+    
+    goToProfile(){
+        this._desktopLeftMenuService.isProfile();
+        this._router.navigate(['Profile']);
+    }
+    
+    goToChangePassword(){
+        this._desktopLeftMenuService.isChangePassword();
+        this._router.navigate(['ChangePassword']);
+    }
+    
+    goToNewsletter(){
+        this._desktopLeftMenuService.isNewsletter();
+        this._router.navigate(['Newsletter']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;
