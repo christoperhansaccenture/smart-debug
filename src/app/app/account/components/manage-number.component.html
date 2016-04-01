@@ -11,7 +11,7 @@
         <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)">
             <div class="name">{{phone.name}}</div>
             <div class="phoneDetail">
-                <div class="phoneNo">{{phone.phoneNo}}</div>
+                <div class="phoneNo">+63{{phone.phoneNo}}</div>
                 <!--<div class="phoneType" *ngIf="phone.primary">PRIMARY</div>-->
                 <div class="numberType">postpaid<!--{{phone.type}}--></div>
             </div>
@@ -21,51 +21,42 @@
         </div>
     </div>
     
-    <!--edit number-->
-    <div class="containerBody" *ngIf="editNumber.page">
-        <div class="itemCategory">
-            <div class="text">Manage My Number</div>
-        </div>
-        <div class="itemContainer">
-            <div class="itemIdentifier namePic"></div>
-            <div class="inputValue shorter" *ngIf="!editNumber.edit">{{selectedPhoneNumber.name}}</div>
-            <input class="inputValue" placeholder="Nick name" [(ngModel)]="selectedPhoneNumber.name" *ngIf="editNumber.edit"/>
-            <div class="itemIdentifier edit" *ngIf="!editNumber.edit" (click)="editable()"></div>
-        </div>
-        <div class="itemContainer">
-            <div class="itemIdentifier phone"></div>
-            <div class="inputValue">{{selectedPhoneNumber.phoneNo}}</div>
-        </div>
-        <!--<div class="itemInfoContainer">
-            <div class="primaryBox">
-                <div class="phoneType">PRIMARY</div>
-            </div>
-            <div class="primaryText">This number is set as primary number</div>
-            <div class="primaryText link">Set this number as primary</div>
-        </div>-->
-        <div class="itemFooterContainer">
-            <div class="buttonContainer">
-                <div class="button green">Remove</div>
-                <div class="button" [ngClass]="{red : editNumber.edit}" (click)="doEditNumber()">Update</div>
+</div>
+
+<!-- large view-->
+<div id="homeBodyLarge" class="manageNumberContainerBody" *ngIf="getResize().largeUp">
+    <div class="manageNumberContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="itemHeader">Manage My Number</div>
+                        <div class="containerBody">
+                            
+                            <!--main page-->
+                            <div *ngIf="!(addNumber.page || editNumber.page)">
+                                <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)">
+                                    <div class="name">{{phone.name}}</div>
+                                    <div class="phoneDetail">
+                                        <div class="phoneNo">+63{{phone.phoneNo}}</div>
+                                        <!--<div class="phoneType" *ngIf="phone.primary">PRIMARY</div>-->
+                                        <div class="numberType">postpaid<!--{{phone.type}}--></div>
+                                    </div>
+                                </div>
+                                <div class="itemFooterContainer">
+                                    <div class="button" (click)="toggleAddNumber()">Add new number</div>
+                                </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
-</div>
-<div class="ModalOuterBox" *ngIf="modalSuccess">
-	<div class="ModalInternal">
-        <div class="modalInformationContent">
-            <div class="modalBody">
-                <div class="itemRow" *ngIf="addNumber.page">
-                    <div class="itemDetail"><span>{{mobileNumber}} </span>has been added to your account</div>
-                </div>	
-                <div class="itemRow" *ngIf="editNumber.page">
-                    <div class="itemDetail"><span>{{selectedPhoneNumber.phoneNo}} </span>has been updated</div>
-                </div>		
-            </div>
-            <div class="modalFooter">
-                <div class="button red" (click)="close()">OK</div>			
-            </div>
-        </div>
-	</div>
 </div>

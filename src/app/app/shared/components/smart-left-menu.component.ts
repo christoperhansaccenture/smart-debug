@@ -111,13 +111,37 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isTransfer();
         this._router.navigate(['Transfer']);
     }
+    
+    goToManageNumber(){
+        this._desktopLeftMenuService.isManageNumber();
+        this._router.navigate(['ManageNumber']);
+    }
+    
+    goToProfile(){
+        this._desktopLeftMenuService.isProfile();
+        this._router.navigate(['Profile']);
+    }
+    
+    goToChangePassword(){
+        this._desktopLeftMenuService.isChangePassword();
+        this._router.navigate(['ChangePassword']);
+    }
+    
+    goToNewsletter(){
+        this._desktopLeftMenuService.isNewsletter();
+        this._router.navigate(['Newsletter']);
+    }
         
     isSmartApp(){
-        return false;
+        return this._layoutService.desktopMenu.smart;
     }
     
     isRewardApp(){
-        return true;
+        return this._layoutService.desktopMenu.reward;
+    }
+    
+    isAccount(){
+        return this._layoutService.desktopMenu.account;
     }
     
     toggleRedeemPoints(){

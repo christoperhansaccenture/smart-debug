@@ -13,6 +13,23 @@
     </div>
     <div class="dividerLine"></div>
     <div class="menuContainer">
+        <div *ngIf="isAccount()">
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().manageNumber}" (click)="goToManageNumber()">
+                <div class="text">Manage Number</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().profile}" (click)="goToProfile()">
+                <div class="text">Complete Profile</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().changePass}" (click)="goToChangePassword()">
+                <div class="text">Change Password</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().newsletter}" (click)="goToNewsletter()">
+                <div class="text">Sign Up for Newsletter</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().smartLife}">
+                <div class="text">Go to Smart Life</div>
+            </div>
+        </div>
         <div *ngIf="isSmartApp()">
             <div class="menuItem">
                 <div class="text">Number Details</div>
@@ -99,17 +116,17 @@
                     </div>
                 </div>
             </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().payBill}" (click)="goToPayBill()">
+                <div class="text">Pay Bill with Points</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().transfer}" (click)="goToTransfer()">
+                <div class="text">Transfer Points</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().activityHistory}" (click)="goToActivityHistory()">
+                <div class="text">Rewards Activity History</div>
+            </div>
         </div>
-        <div class="menuItem" [ngClass]="{selected : getRewardApp().payBill}" (click)="goToPayBill()">
-            <div class="text">Pay Bill with Points</div>
-        </div>
-        <div class="menuItem" [ngClass]="{selected : getRewardApp().transfer}" (click)="goToTransfer()">
-            <div class="text">Transfer Points</div>
-        </div>
-        <div class="menuItem" [ngClass]="{selected : getRewardApp().activityHistory}" (click)="goToActivityHistory()">
-            <div class="text">Rewards Activity History</div>
-        </div>
-            <div class="menuItem">
+        <div class="menuItem" *ngIf="isSmartApp() || isRewardApp()">
             <div class="text">More Smart</div>
             <div class="arrow"></div>
         </div>

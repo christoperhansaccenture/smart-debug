@@ -107,6 +107,7 @@
             
             &:hover{
                 background-color: $smartgreen;
+                color: #FFF;
             }
             
             &.selected{
@@ -119,6 +120,7 @@
                 
                 &:hover{
                     background-color: $smartgreen;
+                    color: #FFF;
                 }
                 
                 &.selected{

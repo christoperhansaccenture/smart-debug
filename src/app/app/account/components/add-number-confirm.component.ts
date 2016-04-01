@@ -3,10 +3,14 @@ import { Router } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
+import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
 
 @Component({
     selector: 'add-number-konfirmasi',
-    templateUrl: './app/account/components/add-number-confirm.component.html'
+    templateUrl: './app/account/components/add-number-confirm.component.html',
+    directives: [
+        SmartLeftMenuComponent
+    ]
 })
 export class AddNumberConfirmComponent  {
     
