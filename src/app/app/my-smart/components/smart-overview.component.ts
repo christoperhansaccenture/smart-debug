@@ -4,13 +4,15 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
+import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
 //import { Layout } from '../../model/layout';
 
 @Component({
     selector: 'overview',
     templateUrl: './app/my-smart/components/smart-overview.component.html',
     directives: [
-        CircularSpinnerComponent
+        CircularSpinnerComponent,
+        SmartLeftMenuComponent
     ]
 })
 export class SmartOverviewComponent  {

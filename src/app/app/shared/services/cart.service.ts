@@ -4,6 +4,7 @@ import {Catalog} from '../models/catalog';
 import {CartItem} from '../models/cart-item';
 import {SmartIntegrationService} from './smart-integration.service';
 import {AccountService} from './account.service';
+import { Router } from 'angular2/router';
 
 @Injectable()
 export class CartService {
@@ -30,7 +31,8 @@ export class CartService {
     items: { [id: number] : CartItem; } = {};
 
     constructor(private _smartIntegrationService: SmartIntegrationService,
-               private _accountService: AccountService) {
+               private _accountService: AccountService,
+               private _router:Router) {
         this.loadFromStorage();
     }
 
@@ -43,6 +45,7 @@ export class CartService {
             item.catalog = catalog;
             item.type = 'catalog';
             item.amount = 1;
+            item.numberSelection.currentNumber.number = this._accountService.selectedUserPhone.phoneNo;
             this.items[catalog.id] = item;
         }
         this.saveToStorage();
@@ -114,23 +117,19 @@ export class CartService {
 
     confirm() {
         let arr: CartItem[] = [];
-        for (let key in this.items){
+        for (let key in this.items)
             arr.push(this.items[key]);
-        }
-            
-        var promise = this._smartIntegrationService.confirmOrder(arr);
-        
-        promise.subscribe(
-            response => {
-                
-                console.log('succeed');
-                
-            },
-            error =>{
-                console.log('not authorize?');
-            }
-        );
-        
+        this._smartIntegrationService.confirmOrder(arr)
+            .subscribe(
+                response => {
+                    console.log('success response: ' + JSON.stringify(response));
+                    this.items = {};
+                    this._router.navigate(['MyRewards']);
+                },
+                error => {
+                    console.log('error response: ' + JSON.stringify(error));
+                }
+            );
     }
 
     addBillToCart(selection, number, amount, pin) {

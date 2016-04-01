@@ -15,6 +15,12 @@ export class LayoutService {
         leftMenu: false
 	};
     
+    desktopMenu = {
+        smart :false,
+        reward: false,
+        account: false
+    }
+    
     footerState = {
         home: false,
         perks: false,
@@ -82,6 +88,10 @@ export class LayoutService {
                 appFooter: false,
                 leftMenu: false
 			};
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
 			
 		}
 		else if(current == 'MyRewards'){
@@ -106,6 +116,10 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = true;
             this.headerItem.point = false;
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
 			
 		}
         else if(current == 'Perks'){
@@ -130,6 +144,10 @@ export class LayoutService {
             this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
 			
 		}
         else if(current == 'Catalog'){
@@ -154,6 +172,10 @@ export class LayoutService {
             this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
 			
 		}
         else if(current == 'RewardDetail' ||
@@ -181,6 +203,10 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
+            
         }
         else if(current == 'ShoppingCart') {
             
@@ -205,6 +231,10 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             this.headerItem.cart = false;
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
             
         }
         else if(current == 'ConfirmOrder') {
@@ -231,6 +261,10 @@ export class LayoutService {
             this.headerItem.point = true;
             this.headerItem.cart = false;
             
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
+            
         }
         else if(current == 'Transfer'){
            
@@ -253,6 +287,10 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
+            
         }
         else if(current == 'PayBill'){
             
@@ -274,6 +312,10 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
             
             
         }
@@ -306,6 +348,9 @@ export class LayoutService {
             this.headerItem.logo = true;
             this.headerItem.point = false;
             
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
             
         }
         else if(current == 'Profile'){
@@ -329,6 +374,9 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             
+            this.desktopMenu.account = true;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
             
         }
         else if(current == 'ActivityHistory'){
@@ -360,11 +408,15 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = true;
+            this.desktopMenu.smart = false;
             
         }
         else if(current == 'AddNumber' ||
                 current == 'AddNumberConfirm' ||
-                current == 'EditNumber'){
+                current == 'EditNumber' ||
+                current == 'ManageNumber'){
             
             this.layoutState = {
 				appHeader: true,
@@ -379,7 +431,7 @@ export class LayoutService {
             else if(current == 'EditNumber'){
                 this._pageNavigationService.setManageNumberNavigation('ManageNumber');
             }
-            else{
+            else if(current == 'AddNumberConfirm'){
                 this._pageNavigationService.setManageNumberNavigation('AddNumber');
             }
             
@@ -395,6 +447,10 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            
+            this.desktopMenu.account = true;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
             
         }
         else{
@@ -418,6 +474,9 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
 
 		}
 	

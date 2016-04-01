@@ -286,3 +286,334 @@
     }
     
 }
+
+.manageNumberContainerBody{
+    
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+    &.bodyFixed{
+        margin-top: 60px;
+    }
+
+    .manageNumberContainerLarge{
+        
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        
+        .container2{
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            
+            .container1{
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+
+                .componentContainer{
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    
+                    .itemComponent{
+                        width : 50%;
+                        float: left;
+                        
+                        .itemHeader{
+                            color: $smartgreen;
+                            font-size: 20px;
+                            padding: 20px;
+                        }
+                        
+                        .containerBody{
+        
+                            width: 100%;
+                            height: 100%;
+                            background-color: #FFF;
+                            
+                            
+                            .itemCategory{
+                                float: left;
+                                width: calc(100% - 20px);
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                font-size: 20px;
+                                border-bottom: 1px solid #EEE;
+                                
+                                .text{
+                                    width: 100%;
+                                    color: $smartgreen;
+                                    line-height: 40px;
+                                }
+                                
+                                .option{
+                                    width: 100%;
+                                    font-size: 13px;
+                                    line-height: 20px;
+                                    text-align: center;
+                                    padding-top: 20px;
+                                    padding-bottom: 20px;
+                                    float: left;
+                                    
+                                    .circle{
+                                        width: 20px;
+                                        height: 20px;
+                                        border-radius: 10px;
+                                        background-color: $gray;
+                                        font-size: 10px;
+                                        color: #FFF;
+                                        text-align: center;
+                                        display: inline-block;
+                                        text-align: center;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        
+                                        &.green{
+                                            background-color: $smartgreen;
+                                        }
+                                        
+                                    }
+                                    
+                                    .first{
+                                        float: left;
+                                        width: calc(40% - 5px);
+                                        padding-left: 5px;
+                                    }
+                                    
+                                    .line{
+                                        width: 14%;
+                                        float: left;
+                                        border-top: 2px solid $gray;
+                                        margin-left: 20px;
+                                        margin-top: 10px;
+                                        
+                                        &.green{
+                                            border-top: 2px solid $smartgreen;
+                                        }
+                                        
+                                    }
+                                    
+                                    .second{
+                                        float: right;
+                                        width: calc(40% - 5px);
+                                        padding-left: 5px;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                            .itemContainer{
+                                float: left;
+                                width: calc(100% - 20px);
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                border-bottom: 1px solid #EEE;
+                                cursor: pointer;
+                                
+                                .infoText{
+                                    padding: 10px;
+                                }
+                                
+                                .itemIdentifier{
+                                    float: left;
+                                    width: 30px;
+                                    color: $smartgreen;
+                                    font-size: 15px;
+                                    line-height: 30px;
+                                    height: 30px;
+                                    margin-right: 10px;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    
+                                    &.phone{
+                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMTQuOTkxOTk2NzY1MTM2Nykgc2NhbGUoOCw4KSAgIiBmaWxsPSIjMDAwMDAwIiBkPSJNMC4wODU5OTg1MzUsMTkuMzYyOTk3TDcuOTU1OTkzNywxOS4zNjI5OTcgNy45NTU5OTM3LDIyLjEyMDk5MSAwLjA4NTk5ODUzNSwyMi4xMjA5OTF6IE0wLDUuNzU4MDIzTDcuODY5OTk1MSw1Ljc1ODAyMyA3Ljg2OTk5NTEsOC41MTYwMTcyIDAsOC41MTYwMTcyeiBNMjAuMDUyMDAyLDUuMTg2MDAyQzIxLjI2NTk5MSw1LjE3MTAxNzksMjEuOTU3MDAxLDYuMDk2MDA1MiwyMS45NTcwMDEsNi4wOTYwMDUyTDIxLjU0NTk5LDkuNzkyMDE4MkMyMS4wMzIwMTMsMTAuMzA1OTk0IDE5LjQ4OTk5LDEwLjMwNTk5NCAxOS40OTIwMDQsMTAuMzA1OTk0IDE3Ljc0ODk5MywxMy41NDEwMDkgMjEuNDc2OTksMTguMTEwMDA3IDIxLjQ3Njk5LDE4LjExMDAwNyAyMi42MzYwMTcsMTguNDE4OTk3IDIzLjk1OTk5MSwxNy43MDAwMDMgMjMuOTU5OTkxLDE3LjcwMDAwM0wyNi4zNzMwMTYsMjAuNTIzMDAxQzI2LjEzNjk5MywyMS40MDgwMDkgMjUuNzI3OTk3LDIxLjkwODAwOSAyNS4zMTI5ODgsMjIuMTkwOTk4IDI0LjY0NDk4OSwyMi42NDIwMTggMjMuOTU5OTkxLDIyLjUyNTAxMyAyMy45NTk5OTEsMjIuNTI1MDEzIDE4LjYxOTk5NSwyMC43ODA5OTcgMTcuMTMxMDEyLDE1LjEzMjAxMiAxNy4xMzEwMTIsMTUuMTMyMDEyIDE1LjI4MjAxMyw4LjM1NTAwNjUgMTguNjcwOTksNS41ODE5OTc2IDE4LjY3MDk5LDUuNTgxOTk3NiAxOS4xODYwMDUsNS4zMDAwMTU3IDE5LjY0ODAxLDUuMTg5OTk5OCAyMC4wNTIwMDIsNS4xODYwMDJ6IE0xMS4wMTE5OTMsMS42MTMwMDU2TDExLjAxMTk5MywyNi42Mzc5ODcgMzEuMTkyOTkzLDI2LjYzNzk4NyAzMS4xOTI5OTMsMS42MTMwMDU2eiBNNC41NTQwMTYxLDBMMzIsMCAzMiwyOC4yNTIwMDEgNC41NTQwMTYxLDI4LjI1MjAwMSA0LjU1NDAxNjEsMjMuNDA5MDE2IDkuMzk3MDAzMiwyMy40MDkwMTYgOS4zOTcwMDMyLDE3Ljc1ODk5MyA0LjU1NDAxNjEsMTcuNzU4OTkzIDQuNTU0MDE2MSw5LjY4NjAwMDEgOS4zOTcwMDMyLDkuNjg2MDAwMSA5LjM5NzAwMzIsNC44NDMwMTUgNC41NTQwMTYxLDQuODQzMDE1eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                                        background-size: 30px;
+                                        background-position: center center;
+                                    }
+                                    
+                                    &.namePic{
+                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDExLjE5OTk5Njk0ODI0MjIsMCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjMjYyNjI2IiBkPSJNOS42OTk5Njc0LDE3LjkwMDAyNEwxOS41MDAwMzMsMTcuOTAwMDI0QzI0LjkwMDAwNCwxNy45MDAwMjQgMjkuMiwyMiAyOS4yLDI3LjEwMDAwNiAyOS4yLDI4LjkwMDAyNCAyOC43LDMwLjYwMDAwNiAyNy42OTk5OTgsMzJMMS41MDAwMDI0LDMyQzAuNTAwMDAwNzYsMzAuNjAwMDA2IC00LjkxNzgxOThFLTA4LDI4LjkwMDAyNCAwLDI3LjEwMDAwNiAtNC45MTc4MTk4RS0wOCwyMiA0LjI5OTk5NSwxNy45MDAwMjQgOS42OTk5Njc0LDE3LjkwMDAyNHogTTE0LjY5OTk3NiwwQzE4LjgwMDAxOSwwIDIyLjEwMDAxMywzLjMwMDAxODMgMjIuMTAwMDEzLDcuNDAwMDI0NCAyMi4xMDAwMTMsMTEuNSAxOC44MDAwMTksMTQuODAwMDE4IDE0LjY5OTk3NiwxNC44MDAwMTggMTAuNTk5OTkzLDE0LjgwMDAxOCA3LjI5OTk5OTgsMTEuNSA3LjI5OTk5OTgsNy40MDAwMjQ0IDcuMzk5OTc1OCwzLjMwMDAxODMgMTAuNjk5OTY5LDAgMTQuNjk5OTc2LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                                        background-size: 30px;
+                                        background-position: center center;
+                                    }
+                                    
+                                    &.edit{
+                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMTkuNjkxODc5MjcyNDYwOSkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMSwyNS4wNzcwM0wzMSwyNS4wNzcwM0MzMS41NTI5NzksMjUuMDc3MDMgMzIsMjUuNTI1MDI4IDMyLDI2LjA3NzAzIDMyLDI2LjYyOTAzMiAzMS41NTI5NzksMjcuMDc3MDMgMzEsMjcuMDc3MDNMMSwyNy4wNzcwM0MwLjQ0NzAyMTQ4LDI3LjA3NzAzIDAsMjYuNjI5MDMyIDAsMjYuMDc3MDMgMCwyNS41MjUwMjggMC40NDcwMjE0OCwyNS4wNzcwMyAxLDI1LjA3NzAzeiBNOS44MDY0MjEzLDE3LjM1NzkzMUw5LjY3NjAxNjgsMTcuNDg3MDE1IDguODYxMDE3MiwyMS4zOTMwMTggMTIuNzQ4MDEzLDIwLjU1ODAxNyAxMi44NjU0NTIsMjAuNDQxNzY3eiBNMjAuNTA5NjM2LDYuNzYzMDU3N0wxMS4yMjc2MDQsMTUuOTUxMTM0IDE0LjI4NjYzNCwxOS4wMzQ5NzIgMjMuNTY4MTMyLDkuODQ3NDMyMXogTTI0LjQ5MjAwMiwyLjgyMTAwM0wyMS45MzA4Myw1LjM1NjI0ODkgMjQuOTg5MzI2LDguNDQwNjI0MiAyNy41NjMsNS44OTMwMDU0eiBNMjQuNTAwMDAyLDBMMzAuMzk4OTk2LDUuOTAxMDA0OCAxMy43NDAwMTIsMjIuMzkxMDE4IDYuMjc1MDE5NiwyMy45OTMwMiA3Ljg0MjAxODEsMTYuNDg5MDE0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                                        background-size: 30px;
+                                        background-position: center center;
+                                        float: right;
+                                    }
+                                    
+                                }
+                                
+                                .inputValue{
+                                    width: calc(100% - 55px);
+                                    padding-left: 5px;
+                                    padding-right: 5px;
+                                    border-radius: 5px;
+                                    font-size: 15px;
+                                    line-height: 1.5rem;
+                                    border: none;
+                                    margin-top: 12px;
+                                    
+                                    &.phone{
+                                        width: calc(100% - 105px);
+                                    }
+                                    
+                                    &.shorter{
+                                        width: calc(100% - 95px);
+                                        float: left;
+                                    }
+                                    
+                                }
+                                
+                                .phoneCountryValue{
+                                    display: inline-block;
+                                    width: 30px;
+                                    height: 30px;
+                                    padding-left: 5px;
+                                    padding-right: 5px;
+                                    border-radius: 5px;
+                                    font-size: 15px;
+                                    line-height: 1.5rem;
+                                    margin-top: 12px;
+                                }
+                                
+                                .name{
+                                    font-size: 15px;
+                                    color: black;
+                                    width: calc(100% - 10px);
+                                    height: 17px;
+                                    margin-left: 10px;
+                                    margin-top: 10px;
+                                    margin-bottom: 5px;
+                                }
+                                
+                                .phoneDetail{
+                                    
+                                    display: inline-block;
+                                    width: calc(100% - 20px);
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                    color: $smartgreen;
+                                    padding-bottom: 10px;
+                                    
+                                    .phoneNo{
+                                        float: left;
+                                        font-size: 15px;
+                                    }
+                                    
+                                    .phoneType{
+                                        float: left;
+                                        background-color: $smartgreen;
+                                        height: 17px;
+                                        width: 50px;
+                                        color: #FFF;
+                                        margin-left: 20px;
+                                        font-size: 10px;
+                                        border-radius: 5px;
+                                        padding-left: 6px;
+                                    }
+                                    
+                                    .numberType{
+                                        float: right;
+                                        font-size: 13px;
+                                    }
+                                }
+                            
+                            }   
+                            
+                            .itemFooterContainer{
+                                display: inline-block;
+                                width: 100%;
+                                padding-top: 20px;
+                                
+                                .button {
+                                    width: 120px;
+                                    line-height: 1.5rem;
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                    background-color: $smartred;
+                                    color: #FFF;
+                                    cursor: pointer;
+                                    float: right;
+                                    
+                                }
+                                
+                                .buttonContainer{
+                                    width: 300px;
+                                    height: 50px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    
+                                    .button {
+                                        width: 100px;
+                                        line-height: 1.5rem;
+                                        margin-left: 10px;
+                                        margin-right: 10px;
+                                        background-color: $gray;
+                                        color: #FFF;
+                                        cursor: default;
+                                        float: right;
+                                        clear: none;
+                                                            
+                                        &.green{
+                                            background-color: $smartgreen;
+                                            cursor: pointer;
+                                            float: left;
+                                        }
+                                        
+                                        &.red{
+                                            background-color: $smartred;
+                                            cursor: pointer;
+                                            float: right;
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .bannerComponent{
+                        width: 45%;
+                        float: right;
+                        padding-top: 20px;
+                        
+                        .banner1{
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner1.png) no-repeat;
+                            background-size: cover;
+                            margin-bottom: 20px;
+                        }
+                        
+                        .banner2{
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner2.png) no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                    
+                }    
+                    
+            }
+        
+        }
+    }
+}

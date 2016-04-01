@@ -11,7 +11,12 @@ export class DesktopLeftMenuService {
         catalog : false,
         filter : false,
         transfer : false,
-        activityHistory : false
+        activityHistory : false,
+        manageNumber : false,
+        profile : false,
+        changePass : false,
+        newsletter : false,
+        smartLife : false
     }
     
     constructor (private _router:Router) {}
@@ -55,6 +60,16 @@ export class DesktopLeftMenuService {
         this.rewardApp.activityHistory = true;
     }
     
+    isManageNumber(){
+        this.rewardRefresh();
+        this.rewardApp.manageNumber = true;
+    }
+    
+    isProfile(){
+        this.rewardRefresh();
+        this.rewardApp.profile = true;
+    }
+    
     rewardRefresh(){
         this.rewardApp.redeemPoint = false;
         this.rewardApp.transfer = false;
@@ -64,6 +79,12 @@ export class DesktopLeftMenuService {
         this.rewardApp.deals = false;
         this.rewardApp.catalog = false;
         this.rewardApp.filter = false;
+        
+        this.rewardApp.manageNumber = false;
+        this.rewardApp.profile = false;
+        this.rewardApp.changePass = false;
+        this.rewardApp.newsletter = false;
+        this.rewardApp.smartLife = false;
     }
     
 }

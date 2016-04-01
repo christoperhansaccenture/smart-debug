@@ -111,13 +111,22 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isTransfer();
         this._router.navigate(['Transfer']);
     }
+    
+    goToManageNumber(){
+        this._desktopLeftMenuService.isManageNumber();
+        this._router.navigate(['ManageNumber']);
+    }
         
     isSmartApp(){
-        return false;
+        return this._layoutService.desktopMenu.smart;
     }
     
     isRewardApp(){
-        return true;
+        return this._layoutService.desktopMenu.reward;
+    }
+    
+    isAccount(){
+        return this._layoutService.desktopMenu.account;
     }
     
     toggleRedeemPoints(){
