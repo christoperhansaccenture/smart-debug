@@ -8,6 +8,7 @@ import {AccountService} from '../../shared/services/account.service';
 import {MultiSliderComponent} from '../../shared/components/multi-slider.component';
 import {CartService} from '../../shared/services/cart.service';
 import {CatalogService} from '../../my-rewards/services/catalog.service';
+import {DesktopLeftMenuService} from '../../shared/services/desktop-left-menu.service';
 
 @Component({
     selector: 'smart-header',
@@ -30,7 +31,8 @@ export class HeaderComponent {
 		private _pageNavigationService: PageNavigationService,
         private _accountService: AccountService,
         private _catalogService: CatalogService,
-        private _cartService: CartService) {}
+        private _cartService: CartService,
+        private _desktopLeftMenuService: DesktopLeftMenuService) {}
     
     
     getPointValue(){
@@ -167,6 +169,11 @@ export class HeaderComponent {
     
     goToMyReward(){
         this._router.navigate(['MyRewards']);
+    }
+    
+    goToAccount(){
+        this._desktopLeftMenuService.isManageNumber();
+        this._router.navigate(['ManageNumber']);
     }
     
 }
