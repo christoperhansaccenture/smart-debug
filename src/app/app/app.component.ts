@@ -18,6 +18,8 @@ import {NewsletterComponent} from './account/components/newsletter.component';
 import {SmartMyplanComponent} from './my-smart/components/smart-myplan.component';
 import {SmartBuyAddOnsComponent} from './my-smart/components/smart-buyaddons.component';
 import {SmartBuyAddOnsDetailComponent} from './my-smart/components/smart-buyaddons-detail.component';
+import {InitializePukComponent} from './my-smart/components/initialize-puk.component';
+import {ViewPukComponent} from './my-smart/components/view-puk.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -208,6 +210,16 @@ declare var FastClick: FastClickStatic;
         path: '/buyaddonsDetail',
         name: 'BuyAddOnsDetail',
         component: SmartBuyAddOnsDetailComponent
+    },
+    {
+        path: '/initializePuk',
+        name: 'InitializePuk',
+        component: InitializePukComponent
+    },
+    {
+        path: '/viewPuk',
+        name: 'ViewPuk',
+        component: ViewPukComponent
     }
 	
 ])

@@ -1,4 +1,4 @@
-.changePasswordContainer {
+.viewPukContainer {
     
     height: 100%;
     z-index: 1;
@@ -42,6 +42,37 @@
             
         }
         
+        .itemLabel{
+            width: calc(100% - 20px);
+            padding: 10px;
+            color: black;
+            font-size: 15px;
+        }
+        
+        .itemText{
+                
+            width: calc(100% - 20px);
+            padding: 10px;
+            float: left;
+            
+            .textIdentifier{
+                float: left;
+                font-size: 15px;
+                color: black;
+            }
+            
+            .textValue{
+                float: right;
+                font-size: 15px;
+                color: black;
+                
+                &.red{
+                    color: $smartred;
+                }
+                
+            }
+        }
+        
         .itemContainer{
             float: left;
             width: calc(100% - 20px);
@@ -81,7 +112,6 @@
                 margin-top: 12px;
                 
             }
-
             
         }
         
@@ -108,7 +138,7 @@
     
 }
 
-.changePasswordContainerBody{
+.viewPukContainerBody{
     
     max-width: 1020px;
     margin-left: auto;
@@ -119,7 +149,7 @@
         margin-top: 60px;
     }
 
-    .changePasswordContainerLarge{
+    .viewPukContainerLarge{
         
         float: left;
         width: 100%;
@@ -157,6 +187,38 @@
                             color: $smartgreen;
                             font-size: 20px;
                             padding: 20px;
+                        }
+                        
+                        .itemLabel{
+                            width: calc(100% - 20px);
+                            padding: 10px;
+                            background-color: #EEE;
+                            color: black;
+                            font-size: 15px;
+                        }
+                        
+                        .itemText{
+                
+                            width: calc(100% - 20px);
+                            padding: 10px;
+                            float: left;
+                            
+                            .textIdentifier{
+                                float: left;
+                                font-size: 15px;
+                                color: black;
+                            }
+                            
+                            .textValue{
+                                float: right;
+                                font-size: 15px;
+                                color: black;
+                                
+                                &.red{
+                                    color: $smartred;
+                                }
+                                
+                            }
                         }
                         
                         .itemContainer{
@@ -206,6 +268,9 @@
                                 }
                                 
                             }
+                            
+                            
+                            
                             
                         }
                         

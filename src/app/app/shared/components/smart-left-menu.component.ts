@@ -131,6 +131,21 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isNewsletter();
         this._router.navigate(['Newsletter']);
     }
+    
+    goToPlan(){
+        this._desktopLeftMenuService.isPlan();
+        this._router.navigate(['MyPlan']);
+    }
+    
+    goToAddOn(){
+        this._desktopLeftMenuService.isAddon();
+        this._router.navigate(['BuyAddOns']);
+    }
+    
+    goToPuk(){
+        this._desktopLeftMenuService.isPuk();
+        this._router.navigate(['InitializePuk']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;
@@ -152,8 +167,24 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.toggleFilter();
     }
     
+    toggleNumberDetail(){
+        this._desktopLeftMenuService.toggleNumberDetail();
+    }
+    
+    toggleBillingDetail(){
+        this._desktopLeftMenuService.toggleBillingDetail();
+    }
+    
     getRewardApp(){
         return this._desktopLeftMenuService.getRewardAppStatus();
+    }
+    
+    getAccountApp(){
+        return this._desktopLeftMenuService.getAccountAppStatus();
+    }
+    
+    getSmartApp(){
+        return this._desktopLeftMenuService.getSmartAppStatus();
     }
     
 }

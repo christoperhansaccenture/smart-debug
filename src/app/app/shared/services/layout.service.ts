@@ -549,7 +549,7 @@ export class LayoutService {
             }
             
         }
-        else if (current == "BuyAddOnsDetail") {
+        else if ( current == "BuyAddOns" || current == "BuyAddOnsDetail") {
 
             this.layoutState = {
                 appHeader: true,
@@ -574,7 +574,7 @@ export class LayoutService {
 
             this.desktopMenu.account = false;
             this.desktopMenu.reward = false;
-            this.desktopMenu.smart = false;
+            this.desktopMenu.smart = true;
 
         }
         else if(current == 'ChangePassword' ||
@@ -611,7 +611,10 @@ export class LayoutService {
             sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
-        else if(current == 'MySmart'){
+        else if(current == 'MySmart' ||
+        current == 'MyPlan' ||
+        current == 'InitializePuk' ||
+        current == 'ViewPuk'){
             
             this.layoutState = {
 				appHeader: true,

@@ -8,18 +8,13 @@
             </div>
         </div>
         <div>
+            <div class="itemLabel">For security purpose, please fill in your mySmart password to request PUK code</div>
             <div class="itemContainer">
-                <div class="itemText">
-                    <div class="textIdentifier">Smart Number</div>
-                    <div class="textValue">092898874099</div>
-                </div>
-                <div class="itemText">
-                    <div class="textIdentifier">PUK Code</div>
-                    <div class="textValue red">18455927</div>
-                </div>
+                <div class="itemIdentifier password"></div>
+                <input class="inputValue" placeholder="mySmart Password" />
             </div>
             <div class="itemFooterContainer">
-                <div class="button">OK</div>
+                <div class="button" (click)="gotoViewPuk()">Proceed</div>
             </div>
         </div>
     </div>
@@ -33,16 +28,13 @@
                 <div class="componentContainer">
                     <div class="itemComponent">
                         <div class="itemHeader">View PUK</div>
-                        <div class="itemText">
-                            <div class="textIdentifier">Smart Number</div>
-                            <div class="textValue">092898874099</div>
-                        </div>
-                        <div class="itemText">
-                            <div class="textIdentifier">PUK Code</div>
-                            <div class="textValue red">18455927</div>
+                        <div class="itemLabel">For security purpose, please fill in your mySmart password to request PUK code</div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier password"></div>
+                            <input class="inputValue" placeholder="mySmart Password" />
                         </div>
                         <div class="itemFooterContainer">
-                            <div class="button">OK</div>
+                            <div class="button" (click)="gotoViewPuk()">Proceed</div>
                         </div>
                     </div>
                     <div class="bannerComponent">
