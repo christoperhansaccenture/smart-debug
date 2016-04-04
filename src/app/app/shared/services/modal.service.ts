@@ -15,7 +15,8 @@ export class ModalService {
         error: false,
         catalogDisplay: false,
         profile: false,
-        buyaddons: false
+        buyaddons: false,
+        billsetting: false
 	}
     
     infoModalState = {
@@ -67,6 +68,11 @@ export class ModalService {
     toggleBuyAddOnsModal() {
         this.mainModalState = !this.mainModalState;
         this.modalState.buyaddons = !this.modalState.buyaddons;
+    }
+
+    toggleBillSettingModal() {
+        this.mainModalState = !this.mainModalState;
+        this.modalState.billsetting = !this.modalState.billsetting;
     }
     
     setTransferData(point,phone){
