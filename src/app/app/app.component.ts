@@ -19,6 +19,7 @@ import {SmartMyplanComponent} from './my-smart/components/smart-myplan.component
 import {SmartBuyAddOnsComponent} from './my-smart/components/smart-buyaddons.component';
 import {SmartBuyAddOnsDetailComponent} from './my-smart/components/smart-buyaddons-detail.component';
 import {SmartActiveInterRoamComponent} from './my-smart/components/smart-activeinterroam.component';
+import {SmartBillBalanceComponent} from './my-smart/components/smart-billbalance.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -214,6 +215,11 @@ declare var FastClick: FastClickStatic;
         path: '/activeInterRoam',
         name: 'ActiveInterRoam',
         component: SmartActiveInterRoamComponent
+    },
+    {
+        path: '/billbalance',
+        name: 'BillBalance',
+        component: SmartBillBalanceComponent
     }
 	
 ])
