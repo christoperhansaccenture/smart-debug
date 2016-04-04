@@ -146,6 +146,16 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isPuk();
         this._router.navigate(['InitializePuk']);
     }
+    
+    goToPastBill(){
+        this._desktopLeftMenuService.isPastBill();
+        this._router.navigate(['PastBill']);
+    }
+    
+    goToPastActivity(){
+        this._desktopLeftMenuService.isPastActivity();
+        this._router.navigate(['SmartActivity']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;

@@ -1,0 +1,114 @@
+<div class="smartActivityContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Activity History</div>
+                <div class="headerSubText">View your activity history</div>
+            </div>
+        </div>
+        <div>
+            <div class="itemContainer">
+                <div class="itemText">
+                    <div class="textIdentifier">From</div>
+                    <div class="textValue">20 Mar 2016</div>
+                </div>
+                <div class="itemText">
+                    <div class="textIdentifier">To</div>
+                    <div class="textValue">28 Mar 2016</div>
+                </div>
+                <div class="activityContainer">
+                    <div class="activityItem">
+                        <div class="activityId">ID: 2345568901</div>
+                        <div class="activityLine">
+                            <div class="activityName">Billing Payment</div>
+                            <div class="activityValue">P500</div>
+                        </div>
+                        <div class="activityLine">
+                            <div class="activityDate">28 Mar 2016 11:49 AM</div>
+                            <div class="activityValue"></div>
+                        </div>
+                        <div class="activityLine">
+                            <div class="activityVia">via mySmart App</div>
+                            <div class="activityStatus">Success</div>
+                        </div>
+                    </div>
+                    <div class="activityItem">
+                        <div class="activityId">ID: 3231343423</div>
+                        <div class="activityLine">
+                            <div class="activityName">Buy Add on</div>
+                            <div class="activityValue">Always On 99</div>
+                        </div>
+                        <div class="activityLine">
+                            <div class="activityDate">27 Mar 2016 03:10 PM</div>
+                            <div class="activityValue">P99</div>
+                        </div>
+                        <div class="activityLine">
+                            <div class="activityVia">via SMS Code</div>
+                            <div class="activityStatus">Failed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartActivityContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartActivityContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="itemHeader">Activity History</div>
+                        <div class="itemText">
+                            <div class="textIdentifier">From</div>
+                            <div class="textValue">20 Mar 2016</div>
+                        </div>
+                        <div class="itemText">
+                            <div class="textIdentifier">To</div>
+                            <div class="textValue">28 Mar 2016</div>
+                        </div>
+                        <div class="activityContainer">
+                            <div class="activityItem">
+                                <div class="activityId">ID: 2345568901</div>
+                                <div class="activityLine">
+                                    <div class="activityName">Billing Payment</div>
+                                    <div class="activityValue">P500</div>
+                                </div>
+                                <div class="activityLine">
+                                    <div class="activityDate">28 Mar 2016 11:49 AM</div>
+                                    <div class="activityValue"></div>
+                                </div>
+                                <div class="activityLine">
+                                    <div class="activityVia">via mySmart App</div>
+                                    <div class="activityStatus">Success</div>
+                                </div>
+                            </div>
+                            <div class="activityItem">
+                                <div class="activityId">ID: 3231343423</div>
+                                <div class="activityLine">
+                                    <div class="activityName">Buy Add on</div>
+                                    <div class="activityValue">Always On 99</div>
+                                </div>
+                                <div class="activityLine">
+                                    <div class="activityDate">27 Mar 2016 03:10 PM</div>
+                                    <div class="activityValue">P99</div>
+                                </div>
+                                <div class="activityLine">
+                                    <div class="activityVia">via SMS Code</div>
+                                    <div class="activityStatus">Failed</div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

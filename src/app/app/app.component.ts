@@ -21,6 +21,8 @@ import {SmartBuyAddOnsDetailComponent} from './my-smart/components/smart-buyaddo
 import {InitializePukComponent} from './my-smart/components/initialize-puk.component';
 import {ViewPukComponent} from './my-smart/components/view-puk.component';
 import {SmartActiveInterRoamComponent} from './my-smart/components/smart-activeinterroam.component';
+import {PastBillComponent} from './my-smart/components/past-bill.component';
+import {SmartActivityComponent} from './my-smart/components/activity.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -226,6 +228,16 @@ declare var FastClick: FastClickStatic;
         path: '/activeInterRoam',
         name: 'ActiveInterRoam',
         component: SmartActiveInterRoamComponent
+    },
+    {
+        path: '/smartActivity',
+        name: 'SmartActivity',
+        component: SmartActivityComponent
+    },
+    {
+        path: '/pastBill',
+        name: 'PastBill',
+        component: PastBillComponent
     }
 	
 ])

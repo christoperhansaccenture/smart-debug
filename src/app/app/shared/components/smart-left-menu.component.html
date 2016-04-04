@@ -63,13 +63,13 @@
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().billSetting}">
                     <div class="text">Bill Setting</div>
                 </div>
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastActivity}">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastActivity}" (click)="goToPastActivity()">
                     <div class="text">Past Activity</div> 
                 </div>
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().usage}">
                     <div class="text">View Usage</div>
                 </div>
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastBill}">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastBill}" (click)="goToPastBill()">
                     <div class="text">Past Bills</div>
                 </div>
             </div>
