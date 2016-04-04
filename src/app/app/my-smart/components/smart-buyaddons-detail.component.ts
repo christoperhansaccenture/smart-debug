@@ -67,4 +67,8 @@ export class SmartBuyAddOnsDetailComponent {
         return this._matchMediaService.getmm();
     }
 
+    toggleBuyAddOnsModal(){
+        this._modalService.toggleBuyAddOnsModal();
+    }
+
 }

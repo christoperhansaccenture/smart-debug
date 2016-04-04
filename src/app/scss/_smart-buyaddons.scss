@@ -41,6 +41,7 @@ $col-3-height: 340px;
             padding-left: 10px;
             padding-right: 10px;
             border-bottom: 1px solid #EEE;
+            cursor: pointer;
             &.withMarginTop {
                 margin-top: 15px;
             }
@@ -153,6 +154,7 @@ $col-3-height: 340px;
                             width: calc(100% - 20px);
                             padding: 5px 10px 5px 0px;
                             border-bottom: 1px solid #EEE;
+                            cursor: pointer;
                             &:last-child {
                                 border-bottom: none;
                             }

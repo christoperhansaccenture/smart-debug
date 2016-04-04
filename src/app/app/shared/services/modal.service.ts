@@ -14,7 +14,8 @@ export class ModalService {
         info: false,
         error: false,
         catalogDisplay: false,
-        profile: false
+        profile: false,
+        buyaddons: false
 	}
     
     infoModalState = {
@@ -61,6 +62,11 @@ export class ModalService {
     toggleProfileModal(){
         this.mainModalState = !this.mainModalState;
         this.modalState.profile = !this.modalState.profile;
+    }
+
+    toggleBuyAddOnsModal() {
+        this.mainModalState = !this.mainModalState;
+        this.modalState.buyaddons = !this.modalState.buyaddons;
     }
     
     setTransferData(point,phone){

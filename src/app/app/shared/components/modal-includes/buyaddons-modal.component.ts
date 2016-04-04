@@ -2,17 +2,12 @@ import {Component} from 'angular2/core';
 import {ModalService} from '../../services/modal.service';
 
 @Component({
-    selector: 'profile-modal',
-    templateUrl: 'app/shared/components/modal-includes/profile-modal.component.html'
+    selector: 'buyaddons-modal',
+    templateUrl: 'app/shared/components/modal-includes/buyaddons-modal.component.html'
 })
-export class ProfileModalComponent {
-    
-    message = '';
+export class BuyAddOnsModalComponent {
     
     constructor(private _modalService: ModalService){
-        
-        this.message = 'Profile Successfuly updated';
-        
     }
     
     close(){
