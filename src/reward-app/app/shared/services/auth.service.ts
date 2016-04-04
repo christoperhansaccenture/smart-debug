@@ -23,7 +23,12 @@ export class AuthService {
     private _smartIntegrationService: SmartIntegrationService) {
         // get service base from config file
         var url = 'services/api.json';
-        this._http.get(url)
+        this._http.get(url,
+                       <RequestOptionsArgs> {
+                           headers: new Headers({
+                               'Content-Type': 'application/x-www-form-urlencoded',
+                           })
+                       })
             .subscribe(file => {
                 let config = file.json().config;
                 this.serviceBase = config.baseUrl;

@@ -1,0 +1,62 @@
+<div class="newsletterContainer" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Subscribe Newsletter</div>
+                <div class="headerSubText">Save on bills while you learn more about Smart's awesome products and services!</div>
+            </div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier simcard"></div>
+            <select class="inputValue select">
+                <option value="1">Postpaid</option>
+                <option value="2">Prepaid</option>
+                <option value="3">Bro Postpaid</option>
+                <option value="4">Bro Prepaid</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier email"></div>
+            <input class="inputValue" placeholder="Email address"/>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="button">Proceed</div>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="newsletterContainerBody" *ngIf="getResize().largeUp">
+    <div class="newsletterContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="itemHeader">Subscribe Newsletter</div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier simcard"></div>
+                            <select class="inputValue select">
+                                <option value="1">Postpaid</option>
+                                <option value="2">Prepaid</option>
+                                <option value="3">Bro Postpaid</option>
+                                <option value="4">Bro Prepaid</option>
+                            </select>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier email"></div>
+                            <input class="inputValue" placeholder="Email address" />
+                        </div>
+                        <div class="itemFooterContainer">
+                            <div class="button">Proceed</div>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

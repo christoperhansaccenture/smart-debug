@@ -1,0 +1,271 @@
+.newsletterContainer {
+    
+    //padding-bottom: 45px;
+    height: 100%;
+    z-index: 1;
+    
+    .containerBody{
+        
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        
+        .header{
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid $text-dark-gray;
+            background-color: black;
+            height: 140px;
+            
+            .void{
+                display: inline-block;
+                 width: 100%;
+                 height: 65px;
+            }
+            .text{
+                display: inline-block;
+                background-color: rgba(255,255,255,0.5);
+                width: calc(100% - 20px);
+                padding: 10px;
+                height: 53px;
+                
+                .headerText{
+                    color: #FFF;
+                    font-size: 20px;
+                }
+                
+                .headerSubText{
+                    color: #FFF;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+            
+        }
+        
+        .itemContainer{
+            float: left;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            border-bottom: 1px solid #EEE;
+            
+            .itemIdentifier{
+                float: left;
+                width: 30px;
+                color: $smartgreen;
+                font-size: 15px;
+                line-height: 30px;
+                height: 30px;
+                margin-right: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                
+                &.simcard{
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDQ4LjYyNSwxKSBzY2FsZSg3LjkzNzUsNy45Mzc1KSAgIiBmaWxsPSIjMDAwMDAwIiBkPSJNMTAuMTAwMDA2LDIxLjM5OTk5NEwxMC4xMDAwMDYsMjguMDk5OTkxIDEzLjYwMDAwNiwyOC4wOTk5OTEgMTMuNjAwMDA2LDIxLjM5OTk5NHogTTYuMzAwMDE4MywyMS4zOTk5OTRMNi4zMDAwMTgzLDI4LjA5OTk5MSA5LjcwMDAxMjIsMjguMDk5OTkxIDkuNzAwMDEyMiwyMS4zOTk5OTR6IE0yLjUsMjEuMzk5OTk0TDIuNSwyNi43OTk5ODggMy43MDAwMTIyLDI4LjA5OTk5MSA2LDI4LjA5OTk5MSA2LDIxLjM5OTk5NHogTTIuNSwxNy43OTk5ODhMMi41LDIxLjA5OTk5MSAxMy44OTk5OTQsMjEuMDk5OTkxIDEzLjg5OTk5NCwyMi4wOTk5OTEgMTMuODk5OTk0LDI4LjA5OTk5MSAxNi4xMDAwMDYsMjguMDk5OTkxIDE3LjMwMDAxOCwyNi42OTk5OTcgMTcuMzAwMDE4LDIxLjA5OTk5MSAxNy4zMDAwMTgsMTkuMDk5OTkxIDE3LjMwMDAxOCwxNy43OTk5ODh6IE0xMy44OTk5OTQsMTAuNjk5OTk3TDEzLjg5OTk5NCwxNy4zOTk5OTQgMTcuMzAwMDE4LDE3LjM5OTk5NCAxNy4zMDAwMTgsMTIgMTYuMTAwMDA2LDEwLjY5OTk5N3ogTTEwLjEwMDAwNiwxMC42OTk5OTdMMTAuMTAwMDA2LDE3LjM5OTk5NCAxMy42MDAwMDYsMTcuMzk5OTk0IDEzLjYwMDAwNiwxMC42OTk5OTd6IE02LjMwMDAxODMsMTAuNjk5OTk3TDYuMzAwMDE4MywxNy4zOTk5OTQgOS43MDAwMTIyLDE3LjM5OTk5NCA5LjcwMDAxMjIsMTAuNjk5OTk3eiBNMy44MDAwMTgzLDEwLjY5OTk5N0wyLjUsMTIgMi41LDE3LjM5OTk5NCA2LDE3LjM5OTk5NCA2LDEwLjY5OTk5N3ogTTAsMEwxMywwIDIwLDYuMzk5OTkzOSAyMCwzMiAwLDMyeiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                    background-size: 30px;
+                    background-position: center center;
+                }
+                
+                &.email{
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsMzIuNzQ5OTk0MzIyNjU3Mikgc2NhbGUoNy45Mzc1MDA0NzMxMTE5LDcuOTM3NTAwNDczMTExOSkgICIgZmlsbD0iIzAwMDAwMCIgZD0iTTIsNS42Mjk0NzMyTDIsMjIgMzAuMDAyLDIyIDMwLjAwMDM2Niw1LjY2ODQwMzEgMTUuOTk4OTgxLDE2LjA3ODk2NXogTTIsMS45OTk5OTk5TDIsMy4xMzMwODAyIDE2LjAwMDkzNCwxMy41ODQ5NDYgMzAuMDAwMTE4LDMuMTc2NTQ2NiAyOS45OTk5OTksMS45OTk5OTk5eiBNMiwwTDI5Ljk5OTk5OSwwQzMxLjEwMywwLDMxLjk5OTk5OSwwLjg5Njk5OTg0LDMxLjk5OTk5OSwxLjk5OTk5OTlMMzEuOTk5OTk5LDIyQzMxLjk5OTk5OSwyMy4xMDI5OTksMzEuMTAzLDI0LDI5Ljk5OTk5OSwyNEwyLDI0QzAuODk3MDAwMDEsMjQsMCwyMy4xMDI5OTksMCwyMkwwLDEuOTk5OTk5OUMwLDAuODk2OTk5ODQsMC44OTcwMDAwMSwwLDIsMHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                    background-size: 30px;
+                    background-position: center center;
+                }
+                
+            }
+            
+            .inputValue{
+                width: calc(100% - 55px);
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+                font-size: 15px;
+                line-height: 1.5rem;
+                border: none;
+                margin-top: 12px;
+                
+                &.select{
+                    width: calc(100% - 45px);
+                    height: 30px;
+                    margin-top: 10px;
+                }
+                
+            }
+            
+        }
+        
+        .itemFooterContainer{
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+            
+            .button {
+                width: 100px;
+                line-height: 1.5rem;
+                margin-left: 10px;
+                margin-right: 10px;
+                float: right;
+                background-color: $smartred;
+                color: #FFF;
+                
+            }
+            
+        }
+        
+        
+    }
+    
+}
+
+.newsletterContainerBody{
+    
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+    &.bodyFixed{
+        margin-top: 60px;
+    }
+
+    .newsletterContainerLarge{
+        
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        
+        .container2{
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            
+            .container1{
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+
+                .componentContainer{
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    
+                    .itemComponent{
+                        width : 50%;
+                        float: left;
+                        
+                        .itemHeader{
+                            color: $smartgreen;
+                            font-size: 20px;
+                            padding: 20px;
+                        }
+                        
+                        .itemContainer{
+                            float: left;
+                            width: calc(100% - 20px);
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            border-bottom: 1px solid #EEE;
+                            
+                            .itemIdentifier{
+                                float: left;
+                                width: 30px;
+                                color: $smartgreen;
+                                font-size: 15px;
+                                line-height: 30px;
+                                height: 30px;
+                                margin-right: 10px;
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+                                
+                                &.simcard{
+                                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDQ4LjYyNSwxKSBzY2FsZSg3LjkzNzUsNy45Mzc1KSAgIiBmaWxsPSIjMDAwMDAwIiBkPSJNMTAuMTAwMDA2LDIxLjM5OTk5NEwxMC4xMDAwMDYsMjguMDk5OTkxIDEzLjYwMDAwNiwyOC4wOTk5OTEgMTMuNjAwMDA2LDIxLjM5OTk5NHogTTYuMzAwMDE4MywyMS4zOTk5OTRMNi4zMDAwMTgzLDI4LjA5OTk5MSA5LjcwMDAxMjIsMjguMDk5OTkxIDkuNzAwMDEyMiwyMS4zOTk5OTR6IE0yLjUsMjEuMzk5OTk0TDIuNSwyNi43OTk5ODggMy43MDAwMTIyLDI4LjA5OTk5MSA2LDI4LjA5OTk5MSA2LDIxLjM5OTk5NHogTTIuNSwxNy43OTk5ODhMMi41LDIxLjA5OTk5MSAxMy44OTk5OTQsMjEuMDk5OTkxIDEzLjg5OTk5NCwyMi4wOTk5OTEgMTMuODk5OTk0LDI4LjA5OTk5MSAxNi4xMDAwMDYsMjguMDk5OTkxIDE3LjMwMDAxOCwyNi42OTk5OTcgMTcuMzAwMDE4LDIxLjA5OTk5MSAxNy4zMDAwMTgsMTkuMDk5OTkxIDE3LjMwMDAxOCwxNy43OTk5ODh6IE0xMy44OTk5OTQsMTAuNjk5OTk3TDEzLjg5OTk5NCwxNy4zOTk5OTQgMTcuMzAwMDE4LDE3LjM5OTk5NCAxNy4zMDAwMTgsMTIgMTYuMTAwMDA2LDEwLjY5OTk5N3ogTTEwLjEwMDAwNiwxMC42OTk5OTdMMTAuMTAwMDA2LDE3LjM5OTk5NCAxMy42MDAwMDYsMTcuMzk5OTk0IDEzLjYwMDAwNiwxMC42OTk5OTd6IE02LjMwMDAxODMsMTAuNjk5OTk3TDYuMzAwMDE4MywxNy4zOTk5OTQgOS43MDAwMTIyLDE3LjM5OTk5NCA5LjcwMDAxMjIsMTAuNjk5OTk3eiBNMy44MDAwMTgzLDEwLjY5OTk5N0wyLjUsMTIgMi41LDE3LjM5OTk5NCA2LDE3LjM5OTk5NCA2LDEwLjY5OTk5N3ogTTAsMEwxMywwIDIwLDYuMzk5OTkzOSAyMCwzMiAwLDMyeiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                                    background-size: 30px;
+                                    background-position: center center;
+                                }
+                                
+                                &.email{
+                                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsMzIuNzQ5OTk0MzIyNjU3Mikgc2NhbGUoNy45Mzc1MDA0NzMxMTE5LDcuOTM3NTAwNDczMTExOSkgICIgZmlsbD0iIzAwMDAwMCIgZD0iTTIsNS42Mjk0NzMyTDIsMjIgMzAuMDAyLDIyIDMwLjAwMDM2Niw1LjY2ODQwMzEgMTUuOTk4OTgxLDE2LjA3ODk2NXogTTIsMS45OTk5OTk5TDIsMy4xMzMwODAyIDE2LjAwMDkzNCwxMy41ODQ5NDYgMzAuMDAwMTE4LDMuMTc2NTQ2NiAyOS45OTk5OTksMS45OTk5OTk5eiBNMiwwTDI5Ljk5OTk5OSwwQzMxLjEwMywwLDMxLjk5OTk5OSwwLjg5Njk5OTg0LDMxLjk5OTk5OSwxLjk5OTk5OTlMMzEuOTk5OTk5LDIyQzMxLjk5OTk5OSwyMy4xMDI5OTksMzEuMTAzLDI0LDI5Ljk5OTk5OSwyNEwyLDI0QzAuODk3MDAwMDEsMjQsMCwyMy4xMDI5OTksMCwyMkwwLDEuOTk5OTk5OUMwLDAuODk2OTk5ODQsMC44OTcwMDAwMSwwLDIsMHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                                    background-size: 30px;
+                                    background-position: center center;
+                                }
+                                
+                            }
+                            
+                            .inputValue{
+                                width: calc(100% - 55px);
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 5px;
+                                font-size: 15px;
+                                line-height: 1.5rem;
+                                border: none;
+                                margin-top: 12px;
+                                
+                                &.select{
+                                    width: calc(100% - 45px);
+                                    height: 30px;
+                                    margin-top: 10px;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        .itemFooterContainer{
+                            display: inline-block;
+                            width: 100%;
+                            padding-top: 20px;
+                            
+                            .button {
+                                width: 100px;
+                                line-height: 1.5rem;
+                                margin-left: 10px;
+                                margin-right: 10px;
+                                float: right;
+                                background-color: $smartred;
+                                color: #FFF;
+                                
+                            }
+                            
+                        }
+
+                    }
+                    
+                    .bannerComponent{
+                        width: 45%;
+                        float: right;
+                        padding-top: 20px;
+                        
+                        .banner1{
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner1.png) no-repeat;
+                            background-size: cover;
+                            margin-bottom: 20px;
+                        }
+                        
+                        .banner2{
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner2.png) no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                    
+                }    
+                    
+            }
+        
+        }
+    }
+}

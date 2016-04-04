@@ -14,16 +14,16 @@
     <div class="dividerLine"></div>
     <div class="menuContainer">
         <div *ngIf="isAccount()">
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().manageNumber}">
-                <div class="text" (click)="goToManageNumber()">Manage Number</div>
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().manageNumber}" (click)="goToManageNumber()">
+                <div class="text">Manage Number</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().profile}">
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().profile}" (click)="goToProfile()">
                 <div class="text">Complete Profile</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().changePass}">
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().changePass}" (click)="goToChangePassword()">
                 <div class="text">Change Password</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().newsletter}">
+            <div class="menuItem" [ngClass]="{selected : getRewardApp().newsletter}" (click)="goToNewsletter()">
                 <div class="text">Sign Up for Newsletter</div>
             </div>
             <div class="menuItem" [ngClass]="{selected : getRewardApp().smartLife}">

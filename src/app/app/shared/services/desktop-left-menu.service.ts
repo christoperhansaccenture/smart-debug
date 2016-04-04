@@ -70,6 +70,16 @@ export class DesktopLeftMenuService {
         this.rewardApp.profile = true;
     }
     
+    isChangePassword(){
+        this.rewardRefresh();
+        this.rewardApp.changePass = true;
+    }
+    
+    isNewsletter(){
+        this.rewardRefresh();
+        this.rewardApp.newsletter = true;
+    }
+    
     rewardRefresh(){
         this.rewardApp.redeemPoint = false;
         this.rewardApp.transfer = false;
