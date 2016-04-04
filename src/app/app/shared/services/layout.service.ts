@@ -549,6 +549,34 @@ export class LayoutService {
             }
             
         }
+        else if (current == "BuyAddOnsDetail") {
+
+            this.layoutState = {
+                appHeader: true,
+                loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+            };
+
+            this._pageNavigationService.setBuyAddOnsNavigation('BuyAddOns');
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = false;
+            this.headerItem.logo = false;
+            this.headerItem.point = false;
+
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
+
+        }
         else if(current == 'ChangePassword' ||
         current == 'Newsletter'){
             
@@ -559,7 +587,7 @@ export class LayoutService {
                 leftMenu: false
 			};
             
-            
+
             this.footerState.home = false;
             this.footerState.perks = false;
             this.footerState.catalog = false;
@@ -613,7 +641,7 @@ export class LayoutService {
             this.appLayout.smart = true;
             this.appLayout.reward = false;
             sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
-            
+
         }
         else{
 			
