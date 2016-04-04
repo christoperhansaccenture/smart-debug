@@ -23,6 +23,8 @@ export class LoginComponent {
 		private _layoutService: LayoutService,
 		private _authService: AuthService) {
 		
+        this._authService.autoLogin();
+
 		this._layoutService.setCurrentPage('Login');
 		
 	}

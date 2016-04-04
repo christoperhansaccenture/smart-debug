@@ -13,6 +13,8 @@ import {PerksComponent} from './my-rewards/components/perks.component';
 import {ConfirmOrderComponent} from './my-rewards/components/confirm-order.component';
 import {MainLoginComponent} from './login/components/main-login.component';
 import {SmartOverviewComponent} from './my-smart/components/smart-overview.component';
+import {ChangePasswordComponent} from './account/components/change-password.component';
+import {NewsletterComponent} from './account/components/newsletter.component';
 import {SmartMyplanComponent} from './my-smart/components/smart-myplan.component';
 import {SmartBuyAddOnsComponent} from './my-smart/components/smart-buyaddons.component';
 import {SmartBuyAddOnsDetailComponent} from './my-smart/components/smart-buyaddons-detail.component';
@@ -181,6 +183,16 @@ declare var FastClick: FastClickStatic;
         path: '/mysmart',
         name: 'MySmart',
         component: SmartOverviewComponent
+    },
+    {
+        path: '/changePassword',
+        name: 'ChangePassword',
+        component: ChangePasswordComponent
+    },
+    {
+        path: '/newsletter',
+        name: 'Newsletter',
+        component: NewsletterComponent
     },
     {
         path: '/myplan',

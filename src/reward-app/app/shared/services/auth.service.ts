@@ -99,7 +99,35 @@ export class AuthService {
         }
         
     }
-    
+
+    autoLogin() {
+        const refreshToken: string = localStorage.getItem('refreshToken');
+        if (refreshToken) {
+            this.refreshAccessToken()
+            .subscribe(
+                response => {
+                    localStorage.setItem('accessToken', response.json().accessToken);  
+                    this._router.navigate(['MyRewards']);  
+                },
+                error =>{
+                    this.logOut();
+                }
+            );
+        }
+    }
+
+    refreshAccessToken() {
+        const refreshToken: string = localStorage.getItem('refreshToken');
+        const url: string = this.serviceBase + '/token/renew';
+        if (refreshToken) {
+            let data = {
+                "refreshToken": refreshToken
+            };
+            return this._http.post(url, JSON.stringify(data));
+        }
+        return null;
+    }
+
     doLogin(userId, password){
         var url = this.serviceBase + '/login';
         
@@ -121,7 +149,8 @@ export class AuthService {
                 
                 localStorage.setItem('phoneNumber',userId);
                 
-                sessionStorage.setItem('accessToken', JSON.stringify(response.json().token));  
+                localStorage.setItem('accessToken', response.json().token);  
+                localStorage.setItem('refreshToken', response.json().refreshToken);
                 this._router.navigate(['MyRewards']);  
                 this.isLoadingLogin = false;
                 
@@ -142,7 +171,8 @@ export class AuthService {
     
     logOut(){
         
-        sessionStorage.removeItem('accessToken');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
         this._router.navigate(['Starter','Login']);
         
     }
