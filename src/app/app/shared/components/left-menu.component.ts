@@ -21,6 +21,18 @@ export class LeftMenuComponent {
         
     }
     
+    goToMyReward(){
+        this._router.navigate(['MyRewards']);
+    }
+    
+    goToMySmart(){
+        this._router.navigate(['MySmart']);
+    }
+    
+    getAppLayout(){
+       return this._layoutService.getAppLayout(); 
+    }
+    
     getSpinnerStatus(){
         return this._accountService.spinnerAccount;
     }
@@ -33,7 +45,7 @@ export class LeftMenuComponent {
         return this._accountService.selectedUserPhone;
     }
     getListOfPhone(){
-        return this._accountService.mobileNoList;
+        return this._accountService.getMobileNumberlist();
     }
     
     toggleLeftMenu(){

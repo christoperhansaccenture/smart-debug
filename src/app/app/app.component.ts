@@ -224,7 +224,8 @@ export class AppComponent implements OnInit {
     
      isFullScreen() {
          let currentPage: string = this._layoutService.getCurrentPage();
-         return !currentPage || currentPage === 'GetStarted' || currentPage === 'Login';
+         return !currentPage || currentPage === 'GetStarted' || currentPage === 'Login' ||
+         currentPage === 'Register';
      }
  
      isSmallScreen() {

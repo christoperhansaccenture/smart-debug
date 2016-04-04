@@ -1,12 +1,18 @@
 import {Injectable} from 'angular2/core';
 import { Layout } from '../models/layout';
 import {PageNavigationService} from './page-navigation.service';
+import {MatchMediaService} from './match-media.service';
 
 @Injectable()
 export class LayoutService {
 
 	currentPage: string;
     numberSelection = false;
+    
+    appLayout = {
+        smart : false,
+        reward : false
+    };
 
 	layoutState : Layout = {
 		appHeader: false,
@@ -19,7 +25,7 @@ export class LayoutService {
         smart :false,
         reward: false,
         account: false
-    }
+    };
     
     footerState = {
         home: false,
@@ -35,13 +41,27 @@ export class LayoutService {
         logo: false,
         point: false,
         filter: false,
-        cart: true
-    }
+        cart: false,
+        refresh: false
+    };
     
     accountFromHome = false;
     historyFromAccount = false;
 	
-	constructor (private _pageNavigationService: PageNavigationService) {}
+	constructor (private _pageNavigationService: PageNavigationService,
+    private _matchMediaService: MatchMediaService) {
+        
+        var layout = JSON.parse(sessionStorage.getItem('activeApp'));
+        if(layout !== null){
+            console.log(layout);
+            this.appLayout = layout;
+        }      
+        
+    }
+    
+    getAppLayout(){
+        return this.appLayout;
+    }
 	
 	getCurrentPage(){
 		return this.currentPage;
@@ -60,8 +80,10 @@ export class LayoutService {
 		this.currentPage = current;
 		this._pageNavigationService.setLoginNavigation(current);
         
-        //scroll to top page
-        window.scrollTo(0,0);
+        //scroll to top page only for mobile apps
+        if(!this._matchMediaService.getmm().largeUp){
+            window.scrollTo(0,0);
+        }
 
         this.headerItem.cart = true;
 		
@@ -116,10 +138,16 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = true;
             this.headerItem.point = false;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
 			
 		}
         else if(current == 'Perks'){
@@ -144,10 +172,16 @@ export class LayoutService {
             this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
 			
 		}
         else if(current == 'Catalog'){
@@ -172,10 +206,16 @@ export class LayoutService {
             this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
 			
 		}
         else if(current == 'RewardDetail' ||
@@ -202,10 +242,16 @@ export class LayoutService {
             this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'ShoppingCart') {
@@ -231,10 +277,15 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             this.headerItem.cart = false;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'ConfirmOrder') {
@@ -260,10 +311,15 @@ export class LayoutService {
             this.headerItem.logo = false;
             this.headerItem.point = true;
             this.headerItem.cart = false;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'Transfer'){
@@ -286,10 +342,16 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'PayBill'){
@@ -312,11 +374,16 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
             
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'AccountOverview'){
@@ -347,10 +414,16 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = true;
             this.headerItem.point = false;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'Profile'){
@@ -377,6 +450,15 @@ export class LayoutService {
             this.desktopMenu.account = true;
             this.desktopMenu.reward = false;
             this.desktopMenu.smart = false;
+            
+            if(this.appLayout.reward){
+                this.headerItem.cart = true;
+                this.headerItem.refresh = false;
+            }else{
+                this.headerItem.cart = false;
+                this.headerItem.refresh = true;
+            }
+            
             
         }
         else if(current == 'ActivityHistory'){
@@ -407,10 +489,16 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = true;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = true;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = false;
+            this.appLayout.reward = true;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else if(current == 'AddNumber' ||
@@ -452,6 +540,14 @@ export class LayoutService {
             this.desktopMenu.reward = false;
             this.desktopMenu.smart = false;
             
+            if(this.appLayout.reward){
+                this.headerItem.cart = true;
+                this.headerItem.refresh = false;
+            }else{
+                this.headerItem.cart = false;
+                this.headerItem.refresh = true;
+            }
+            
         }
         else if(current == 'ChangePassword' ||
         current == 'Newsletter'){
@@ -475,10 +571,48 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = true;
             this.headerItem.point = false;
+            this.headerItem.cart = false;
+            this.headerItem.refresh = true;
             
             this.desktopMenu.account = true;
             this.desktopMenu.reward = false;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = true;
+            this.appLayout.reward = false;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
+            
+        }
+        else if(current == 'MySmart'){
+            
+            this.layoutState = {
+				appHeader: true,
+				loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+			}; 
+            
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+            
+            this.headerItem.hamburger = true;
+            this.headerItem.back = false;
+            this.headerItem.filter = false;
+            this.headerItem.logo = true;
+            this.headerItem.point = false;
+            this.headerItem.cart = false;
+            this.headerItem.refresh = true;
+            
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = true;
+            
+            this.appLayout.smart = true;
+            this.appLayout.reward = false;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
             
         }
         else{
@@ -501,10 +635,16 @@ export class LayoutService {
             this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = true;
+            this.headerItem.cart = false;
+            this.headerItem.refresh = false;
             
             this.desktopMenu.account = false;
             this.desktopMenu.reward = false;
             this.desktopMenu.smart = false;
+            
+            this.appLayout.smart = true;
+            this.appLayout.reward = false;
+            sessionStorage.setItem('activeApp',JSON.stringify(this.appLayout));
 
 		}
 	
