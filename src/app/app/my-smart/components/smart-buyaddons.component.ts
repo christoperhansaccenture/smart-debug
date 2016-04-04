@@ -71,4 +71,8 @@ export class SmartBuyAddOnsComponent {
         this._router.navigate(['BuyAddOnsDetail']);
     }
 
+    toggleBuyAddOnsModal(){
+        this._modalService.toggleBuyAddOnsModal();
+    }
+
 }

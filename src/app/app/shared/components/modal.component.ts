@@ -3,6 +3,7 @@ import {InformationModalComponent} from './modal-includes/information-modal.comp
 import {ErrorModalComponent} from './modal-includes/error-modal.component';
 import {ProfileModalComponent} from './modal-includes/profile-modal.component';
 import {CatalogDisplayModalComponent} from './modal-includes/catalog-display-modal.component';
+import {BuyAddOnsModalComponent} from './modal-includes/buyaddons-modal.component';
 import {ModalService} from '../services/modal.service';
 
 @Component({
@@ -12,7 +13,8 @@ import {ModalService} from '../services/modal.service';
         InformationModalComponent,
         ErrorModalComponent,
         ProfileModalComponent,
-        CatalogDisplayModalComponent
+        CatalogDisplayModalComponent,
+        BuyAddOnsModalComponent
     ]
 })
 export class ModalComponent {

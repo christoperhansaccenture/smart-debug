@@ -19,6 +19,7 @@ $col-3-height: 340px;
             width: calc(100% - 20px);
             padding: 3px 10px 3px 10px;
             border-bottom: 1px solid #EEE;
+            cursor: pointer;
             &:last-child {
                 border-bottom: none;
             }

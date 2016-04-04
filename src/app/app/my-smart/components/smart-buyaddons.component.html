@@ -8,31 +8,31 @@
             </div>
         </div>
         <div class="itemContainer withMarginTop" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon allAddOns"></div>    
+            <div class="itemIcon allAddOns"></div>
             <div class="itemIdentifier">All Add Ons</div>
         </div>
         <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon call"></div>    
+            <div class="itemIcon call"></div>
             <div class="itemIdentifier">Call</div>
         </div>
         <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon text"></div>    
+            <div class="itemIcon text"></div>
             <div class="itemIdentifier">Text</div>
         </div>
         <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon data"></div>    
+            <div class="itemIcon data"></div>
             <div class="itemIdentifier">Data</div>
         </div>
         <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon videoSocialMedia"></div>    
+            <div class="itemIcon videoSocialMedia"></div>
             <div class="itemIdentifier">Video &amp; Social Media</div>
         </div>
         <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon allAddOns"></div>    
+            <div class="itemIcon allAddOns"></div>
             <div class="itemIdentifier">All Add Ons</div>
         </div>
         <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
-            <div class="itemIcon callText"></div>    
+            <div class="itemIcon callText"></div>
             <div class="itemIdentifier">Call and Text</div>
         </div>
     </div>
@@ -46,7 +46,7 @@
                 <div class="componentContainer">
                     <div class="itemComponent">
                         <div class="categoryHeader">Buy Add Ons</div>
-                        <div class="itemContainer" *ngFor="#el of list">
+                        <div class="itemContainer" *ngFor="#el of list" (click)="toggleBuyAddOnsModal()">
                             <div class="itemIcon internet">{{el.number}}</div>
                             <div class="itemIdentifier">
                                 <div class="title">{{el.title}}</div>

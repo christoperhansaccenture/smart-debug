@@ -568,7 +568,7 @@ export class LayoutService {
 
             this.headerItem.hamburger = false;
             this.headerItem.back = true;
-            this.headerItem.filter = false;
+            this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = false;
 
