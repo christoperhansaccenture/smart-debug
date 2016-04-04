@@ -70,6 +70,11 @@ export class PageNavigationService {
     setManageNumberNavigation(previous){
         this.previousPage = previous;
     }
+
+    setBuyAddOnsNavigation(previous) {
+        this.previousPage = previous;
+        this.currentPage = "BuyAddOnsDetail";
+    }
 	
 	gotoPreviousPage(){
 		

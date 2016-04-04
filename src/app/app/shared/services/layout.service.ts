@@ -453,6 +453,34 @@ export class LayoutService {
             this.desktopMenu.smart = false;
             
         }
+        else if (current == "BuyAddOnsDetail") {
+
+            this.layoutState = {
+                appHeader: true,
+                loginHeader: false,
+                appFooter: true,
+                leftMenu: false
+            };
+
+            this._pageNavigationService.setBuyAddOnsNavigation('BuyAddOns');
+
+            this.footerState.home = false;
+            this.footerState.perks = false;
+            this.footerState.catalog = false;
+            this.footerState.paybill = false;
+            this.footerState.transfer = false;
+
+            this.headerItem.hamburger = false;
+            this.headerItem.back = true;
+            this.headerItem.filter = true;
+            this.headerItem.logo = false;
+            this.headerItem.point = true;
+
+            this.desktopMenu.account = false;
+            this.desktopMenu.reward = false;
+            this.desktopMenu.smart = false;
+
+        }
         else{
 			
 			this.layoutState = {
