@@ -76,7 +76,8 @@ class RewardController {
            */
             console.log('request: ' + req.query.brands);
             console.log('redis_url: ' + process.env.REDIS_URL);
-            let client = redis.createclient(process.env.REDIS_URL);
+            let client = redis.createClient(process.env.REDIS_URL);
+            console.log('after redis_url');
             let promise = new Promise((resolve, reject) => {
                 let brands = req.query.brands.split(',');
                 let keys = brands.map(brand => 'catalogItems:' + brand);
