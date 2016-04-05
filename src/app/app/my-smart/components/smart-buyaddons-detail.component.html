@@ -1,6 +1,6 @@
 <div class="smartBuyAddOnsDetailContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
     <div class="containerBody">
-        <div class="categoryHeader">Buy Add Ons</div>
+        <div class="categoryHeader">Add Ons</div>
         <div class="itemContainer" *ngFor="#el of list" (click)="toggleBuyAddOnsModal()">
             <div class="itemIcon internet">{{el.number}}</div>
             <div class="itemIdentifier">

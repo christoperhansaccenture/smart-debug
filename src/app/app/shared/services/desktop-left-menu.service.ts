@@ -23,20 +23,21 @@ export class DesktopLeftMenuService {
     };
     
     smartApp = {
-        numberDetail : false,
-        plan : false,
-        addon : false,
-        roaming : false,
-        puk : false,
-        message : false,
-        billingDetail : false,
+        /*numberDetail : false,*/
+        /*usage : false,*/
+        addon: false,
+        billingDetail: false,
         balance : false,
+        pastBill: false,
+        pastActivity: false,
         billSetting : false,
-        pastActivity : false,
-        usage : false,
-        pastBill : false,
+        plan : false,
         pasaload : false,
-        epin : false,
+        roaming : false,
+        message : false,
+        service: false,
+        puk: false,
+        epin: false,
         moreSmart : false
     }
     
@@ -50,9 +51,13 @@ export class DesktopLeftMenuService {
         this.rewardApp.filter = !this.rewardApp.filter;
     }
     
-    toggleNumberDetail(){
+    /*toggleNumberDetail(){
         this.smartApp.numberDetail = !this.smartApp.numberDetail;
-    }
+    }*/
+
+    toggleService() {
+        this.smartApp.service = !this.smartApp.service;
+    }    
     
     toggleBillingDetail(){
         this.smartApp.billingDetail = !this.smartApp.billingDetail;
@@ -119,7 +124,7 @@ export class DesktopLeftMenuService {
     
     isPlan(){
         this.smartRefresh();
-        this.smartApp.numberDetail = true;
+        /*this.smartApp.numberDetail = true;*/
         this.smartApp.plan = true;
     }
     
@@ -135,13 +140,18 @@ export class DesktopLeftMenuService {
     
     isPuk(){
         this.smartRefresh();
-        this.smartApp.numberDetail = true;
+        this.smartApp.service = true;
         this.smartApp.puk = true;
     }
     
     isMessage(){
         this.smartRefresh();
         this.smartApp.message = true;
+    }
+
+    isMoreSmart() {
+        this.smartRefresh();
+        this.smartApp.moreSmart = true;
     }
     
     isBalance(){
@@ -162,11 +172,11 @@ export class DesktopLeftMenuService {
         this.smartApp.pastActivity = true;
     }
     
-    isUsage(){
+    /*isUsage(){
         this.smartRefresh();
         this.smartApp.billingDetail = true;
         this.smartApp.usage = true;
-    }
+    }*/
     
     isPastBill(){
         this.smartRefresh();
@@ -182,6 +192,7 @@ export class DesktopLeftMenuService {
     isEpin(){
         this.smartRefresh();
         this.smartApp.epin = true;
+        this.smartApp.service = true;
     }
     
     rewardRefresh(){
@@ -196,7 +207,8 @@ export class DesktopLeftMenuService {
     }
     
     smartRefresh(){
-        this.smartApp.numberDetail = false;
+        /*this.smartApp.numberDetail = false;*/
+        /*this.smartApp.usage = false;*/
         this.smartApp.plan = false;
         this.smartApp.addon = false;
         this.smartApp.roaming = false;
@@ -206,10 +218,11 @@ export class DesktopLeftMenuService {
         this.smartApp.balance = false;
         this.smartApp.billSetting = false;
         this.smartApp.pastActivity = false;
-        this.smartApp.usage = false;
         this.smartApp.pastBill = false;
         this.smartApp.pasaload = false;
         this.smartApp.epin = false;
+        this.smartApp.moreSmart = false;
+        this.smartApp.service = false;
     }
     
     accountRefresh(){

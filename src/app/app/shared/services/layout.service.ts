@@ -623,7 +623,8 @@ export class LayoutService {
         current == 'SmartActivity' ||
         current == 'ActiveInterRoam' ||
         current == 'BillBalance' ||
-        current == 'BillSetting'){
+        current == 'BillSetting' ||
+        current == 'PasaLoad') {
             
             this.layoutState = {
 				appHeader: true,

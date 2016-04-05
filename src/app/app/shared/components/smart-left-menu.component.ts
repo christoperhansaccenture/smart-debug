@@ -171,6 +171,11 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isBillSetting();
         this._router.navigate(['BillSetting']);
     }
+
+    goToPasaLoad() {
+        this._desktopLeftMenuService.isPasaload();
+        this._router.navigate(['PasaLoad']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;
@@ -192,8 +197,12 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.toggleFilter();
     }
     
-    toggleNumberDetail(){
+    /*toggleNumberDetail(){
         this._desktopLeftMenuService.toggleNumberDetail();
+    }*/
+
+    toggleService(){
+        this._desktopLeftMenuService.toggleService();
     }
     
     toggleBillingDetail(){
