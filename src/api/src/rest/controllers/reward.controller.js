@@ -515,8 +515,6 @@ class RewardController {
                                     status: 200,
                                     productCode: data[i].catalog.code
                                 });
-                                // increment most popular
-                                client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
                             }
                             else {
                                 resultArray.push(errorCheckRes);
