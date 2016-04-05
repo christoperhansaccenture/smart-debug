@@ -21,6 +21,15 @@ export class LeftMenuComponent {
         
     }
     
+    isOnApp(){
+        if(configChannel === 'app'){
+            console.log("run on app");
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     goToMyReward(){
         this._router.navigate(['MyRewards']);
     }

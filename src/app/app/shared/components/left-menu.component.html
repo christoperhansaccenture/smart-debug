@@ -17,8 +17,8 @@
         </select>
     </div>
     <div class="menuItemBox">
-        <div class="itemCategory click" (click)="goToMySmart()">
-            Go to MySmart App
+        <div class="itemCategory click" (click)="goToMySmart()" *ngIf="isOnApp()">
+            Go to My Smart
             <div class="arrow"></div>
         </div>
         <div class="itemCategory">Rewards Overview</div>
@@ -78,8 +78,8 @@
         </select>
     </div>
     <div class="menuItemBox">
-        <div class="itemCategory click" (click)="goToMyReward()">
-            Go to MyReward App
+        <div class="itemCategory click" (click)="goToMyReward()" *ngIf="isOnApp()">
+            Go to My Rewards
             <div class="arrow"></div>
         </div>
         <div class="itemCategory">Account Setting</div>

@@ -8,6 +8,8 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 
 
+var configAppType = 'smart'; //possible values: smart, rewards
+var configChannel = 'web'; //possible values: app, web
 
 var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows Phone)/) && app) {
@@ -18,8 +20,13 @@ if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows 
     
     document.addEventListener("deviceready", bootstrapApp, false);
     console.log("device ready event listenter activated");
-
+    
+    configChannel = 'app';
+    
 } else {
+    
+    configChannel = 'app';
+    
     console.log("UA: Running in browser");
     bootstrapWeb();    
 }
