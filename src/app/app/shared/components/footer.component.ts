@@ -61,6 +61,29 @@ export class FooterComponent {
         this._router.navigate(['PayBill']);
         this.addMenu = false;
     }
+
+    gotoSmartHome(){
+        this._router.navigate(['MySmart']);
+        this.addMenu = false;
+    }
+
+    gotoAddOns() {
+        this._router.navigate(['BuyAddOns']);
+        this.addMenu = false;
+    }
+
+    gotoBillBalance() {
+        this._router.navigate(['BillBalance']);
+        this.addMenu = false;
+    }
+
+    gotoMessage() {
+    }
+
+    gotoPlan() {
+        this._router.navigate(['MyPlan']);
+        this.addMenu = false;
+    }
     
     logOut(){
         this._authService.logOut();

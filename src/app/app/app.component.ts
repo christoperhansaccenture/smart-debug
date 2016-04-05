@@ -26,6 +26,7 @@ import {SmartActivityComponent} from './my-smart/components/activity.component';
 import {SmartBillBalanceComponent} from './my-smart/components/smart-billbalance.component';
 import {SmartBillSettingComponent} from './my-smart/components/smart-billsetting.component';
 import {SmartPasaLoadComponent} from './my-smart/components/smart-pasaload.component';
+import {SmartMessageComponent} from './my-smart/components/smart-message.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -256,6 +257,11 @@ declare var FastClick: FastClickStatic;
         path: '/pasaload',
         name: 'PasaLoad',
         component: SmartPasaLoadComponent
+    },
+    {
+        path: '/smartMessage',
+        name: 'SmartMessage',
+        component: SmartMessageComponent
     }
 	
 ])

@@ -1,6 +1,7 @@
 <div>
 	<div class="containerRegisterSmall">
 		<div class="outer-box">
+            <div class="smartLogo"></div>
 			<div class="header">Create a My Smart account now</div>
 			<div class="inner-box">
                 <input class="borderbottom" placeholder="Smart number or email address" [(ngModel)]="userid"/>
@@ -8,7 +9,7 @@
 				<input class="borderbottom halfsize" #lastname placeholder="Last Name" />
                 <input class="borderbottom" placeholder="smart number" *ngIf="showNumberField()"/>
 				<input class="borderbottom" #password placeholder="Password" type="password" />
-				<input #confirmpassword placeholder="Confirm Password" type="password" />
+				<input class="borderbottom" #confirmpassword placeholder="Confirm Password" type="password" />
                 <div class="errorAlert" *ngIf="checkErrorStatus">{{getErrorMessageText()}}</div>
 				<div class="button"><a (click)="register(firstname.value,lastname.value,password.value,confirmpassword.value)">Register</a></div>
 			</div>

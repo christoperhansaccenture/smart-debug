@@ -32,7 +32,11 @@ export class LayoutService {
         perks: false,
         catalog: false,
         paybill: false,
-        transfer: false
+        transfer: false,
+        addon: false,
+        billbalance: false,
+        message: false,
+        plan: false
     };
     
     headerItem = {
@@ -88,7 +92,8 @@ export class LayoutService {
         this.headerItem.cart = true;
 		
 		if(current == 'GetStarted' ||
-        current == 'Verification'){
+        current == 'Verification' ||
+        current == 'Login'){
 		
 			this.layoutState = {
 				appHeader: false,
@@ -100,7 +105,6 @@ export class LayoutService {
 		
 		else if (current == 'Register' ||
 			current == 'ForgotPassword' ||
-			current == 'Login' ||
 			current == 'VerificationForm' ||
             current == 'NewPass'){
 
@@ -132,7 +136,11 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
-            
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;            
+
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
             this.headerItem.filter = false;
@@ -166,6 +174,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -200,6 +212,10 @@ export class LayoutService {
             this.footerState.catalog = true;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -236,6 +252,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = false;
             this.headerItem.back = true;
@@ -270,6 +290,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -304,6 +328,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = false;
             this.headerItem.back = true;
@@ -368,6 +396,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = true;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -402,6 +434,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             if(this.accountFromHome){
                 this.headerItem.back = true;
@@ -440,6 +476,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -477,6 +517,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             if(this.historyFromAccount){
                 this.headerItem.back = true;
@@ -529,6 +573,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = false;
             this.headerItem.back = true;
@@ -549,7 +597,7 @@ export class LayoutService {
             }
             
         }
-        else if ( current == "BuyAddOns" || current == "BuyAddOnsDetail") {
+        else if (current == "BuyAddOnsDetail") {
 
             this.layoutState = {
                 appHeader: true,
@@ -565,6 +613,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = true;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
 
             this.headerItem.hamburger = false;
             this.headerItem.back = true;
@@ -597,6 +649,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -617,6 +673,7 @@ export class LayoutService {
         }
         else if(current == 'MySmart' ||
         current == 'MyPlan' ||
+        current == "BuyAddOns" || 
         current == 'InitializePuk' ||
         current == 'ViewPuk' ||
         current == 'PastBill' ||
@@ -632,12 +689,20 @@ export class LayoutService {
                 appFooter: true,
                 leftMenu: false
 			}; 
-            
-            this.footerState.home = false;
+
             this.footerState.perks = false;
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.message = false;
+            if (current == 'MySmart') this.footerState.home = true;
+            else this.footerState.home = false;
+            if (current == "BuyAddOns") this.footerState.addon = true;
+            else this.footerState.addon = false;
+            if(current == 'BillBalance') this.footerState.billbalance = true;
+            else this.footerState.billbalance = false;
+            if (current == 'MyPlan') this.footerState.plan = true;
+            else this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;
@@ -670,6 +735,10 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            this.footerState.addon = false;
+            this.footerState.billbalance = false;
+            this.footerState.message = false;
+            this.footerState.plan = false;
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;

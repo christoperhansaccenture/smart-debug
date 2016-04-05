@@ -25,6 +25,15 @@ $containerLogin-height: 400px;
 		background-color: rgba(0, 0, 0, 0);
 		max-width : 320px;
 		margin: 70px auto 0px;
+        
+        .smartLogo{
+            margin-top: 0;
+            height: 100px;
+            width: 100%;
+            background: url(../img/smart_blue.png) no-repeat;
+            background-position: center center;
+            background-size: 150px;
+        }
 		
 		.header {
 			color: #FFF;
@@ -43,7 +52,7 @@ $containerLogin-height: 400px;
 
 			.button {
 				width: 100%;
-				margin: 20px auto 18px;
+				margin: 60px auto 18px;
 				cursor: pointer;
 				background-color: transparent;
 				border: 1px solid #FFF;
@@ -83,10 +92,7 @@ $containerLogin-height: 400px;
 				background-color: rgba(0, 0, 0, 0);
 				outline: 0;
 				color : #FFF;
-				
-				&.smartnumber{
-					border-bottom: 1px solid #FFF;
-				}
+                border-bottom: 1px solid #FFF;
 				
 			}
 			
