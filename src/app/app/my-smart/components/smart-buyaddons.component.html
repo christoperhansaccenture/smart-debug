@@ -1,0 +1,62 @@
+<div class="smartBuyAddOnsContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Add Ons</div>
+                <div class="headerSubText">Choose and subscribe new add-ons</div>
+            </div>
+        </div>
+        <div class="itemContainer withMarginTop" (click)="toggleBuyAddOnsDetail()">
+            <div class="itemIcon allAddOns"></div>
+            <div class="itemIdentifier">All Add Ons</div>
+        </div>
+        <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
+            <div class="itemIcon call"></div>
+            <div class="itemIdentifier">Call</div>
+        </div>
+        <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
+            <div class="itemIcon text"></div>
+            <div class="itemIdentifier">Text</div>
+        </div>
+        <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
+            <div class="itemIcon data"></div>
+            <div class="itemIdentifier">Data</div>
+        </div>
+        <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
+            <div class="itemIcon videoSocialMedia"></div>
+            <div class="itemIdentifier">Video &amp; Social Media</div>
+        </div>
+        <div class="itemContainer" (click)="toggleBuyAddOnsDetail()">
+            <div class="itemIcon callText"></div>
+            <div class="itemIdentifier">Call and Text</div>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartBuyAddOnsContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartBuyAddOnsContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="categoryHeader">Add Ons</div>
+                        <div class="itemContainer" *ngFor="#el of list" (click)="toggleBuyAddOnsModal()">
+                            <div class="itemIcon internet">{{el.number}}</div>
+                            <div class="itemIdentifier">
+                                <div class="title">{{el.title}}</div>
+                                <div class="smallText">{{el.smallText}}</div>
+                            </div>
+                            <div class="itemValue">{{el.value}}</div>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 <div class="smartLeftMenu">
     <div class="header">My Numbers</div>
-    <div class="numberContainer" [ngClass]="{primary : isSelected(phone)}" *ngFor="#phone of listOfMobileNumber()"
-        (click)="setSelectedNumber(phone)">
+    <div class="numberContainer" [ngClass]="{primary : isSelected(phone)}" *ngFor="#phone of listOfMobileNumber()" (click)="setSelectedNumber(phone)">
         <div class="upperContainer">
             <div class="name" [ngClass]="{primary : isSelected(phone)}"> {{ phone.name }}</div>
             <div class="primaryBox" *ngIf="phone.primary">PRIMARY</div>
@@ -14,99 +13,138 @@
     <div class="dividerLine"></div>
     <div class="menuContainer">
         <div *ngIf="isAccount()">
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().manageNumber}" (click)="goToManageNumber()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().manageNumber}" (click)="goToManageNumber()">
                 <div class="text">Manage Number</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().profile}" (click)="goToProfile()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().profile}" (click)="goToProfile()">
                 <div class="text">Complete Profile</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().changePass}" (click)="goToChangePassword()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().changePass}" (click)="goToChangePassword()">
                 <div class="text">Change Password</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().newsletter}" (click)="goToNewsletter()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().newsletter}" (click)="goToNewsletter()">
                 <div class="text">Sign Up for Newsletter</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().smartLife}">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().smartLife}">
                 <div class="text">Go to Smart Life</div>
             </div>
         </div>
         <div *ngIf="isSmartApp()">
-            <div class="menuItem">
-                <div class="text">Number Details</div>
-                <div class="arrow"></div>  
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().addon}" (click)="goToAddOn()">
+                <div class="text">Add-Ons</div>
             </div>
-            <div class="menuItem">
-                <div class="text">Messages (3)</div>
-            </div>
-            <div class="menuItem">
+            <div class="menuItem" (click)="toggleBillingDetail()">
                 <div class="text">Billing Details</div>
                 <div class="arrow"></div>
             </div>
-            <div class="menuItem">
+            <div *ngIf="getSmartApp().billingDetail">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().balance}" (click)="goToBillBalance()">
+                    <div class="text">Billing Status</div>
+                </div>
+                <!-- <div class="menuItem member" [ngClass]="{selected : getSmartApp().usage}">
+                    <div class="text">View Usage</div>
+                </div> -->
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastBill}" (click)="goToPastBill()">
+                    <div class="text">Invoice History</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastActivity}" (click)="goToPastActivity()">
+                    <div class="text">Activity History</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().billSetting}" (click)="goToBillSetting()">
+                    <div class="text">Settings</div>
+                </div>
+            </div>
+            <!-- <div class="menuItem" (click)="toggleNumberDetail()">
+                <div class="text">Number Details</div>
+                <div class="arrow" [ngClass]="{open : getSmartApp().numberDetail}"></div>
+            </div>
+            <div *ngIf="getSmartApp().numberDetail">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().plan}" (click)="goToPlan()">
+                    <div class="text">Plan Details</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().puk}" (click)="goToPuk()">
+                    <div class="text">View PUK</div>
+                </div>
+            </div> -->
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().plan}" (click)="goToPlan()">
+                <div class="text">Plan Details</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().pasaload}" (click)="goToPasaLoad()">
                 <div class="text">Pasa Load</div>
             </div>
-            <div class="menuItem">
-                <div class="text">Get ePin</div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().roaming}" (click)="goToInternationalRoaming()">
+                <div class="text">Roaming</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().message}">
+                <div class="text">Messages (3)</div>
+            </div>
+            <div class="menuItem" (click)="toggleService()">
+                <div class="text">Service</div>
+                <div class="arrow" [ngClass]="{open : getSmartApp().service}"></div>
+            </div>
+            <div *ngIf="getSmartApp().service">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().puk}" (click)="goToPuk()">
+                    <div class="text">View PUK</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().epin}">
+                    <div class="text">Get ePin</div>
+                </div>
             </div>
         </div>
         <div *ngIf="isRewardApp()">
             <div class="menuItem" (click)="toggleRedeemPoints()">
                 <div class="text">Redeem Points</div>
-                <div class="arrow" [ngClass]="{open : getRewardApp().redeemPoint}"></div>  
+                <div class="arrow" [ngClass]="{open : getRewardApp().redeemPoint}"></div>
             </div>
             <div *ngIf="getRewardApp().redeemPoint">
                 <div class="menuItem member" [ngClass]="{selected : getRewardApp().deals}" (click)="goToDeals()">
-                    <div class="text">Get Exclusive Deals</div> 
+                    <div class="text">Get Exclusive Deals</div>
                 </div>
                 <div class="menuItem member" [ngClass]="{selected : getRewardApp().catalog}" (click)="goToCatalog()">
                     <div class="text">Redeem Catalog</div>
                 </div>
                 <div class="menuItem member" (click)="toggleFilter()">
                     <div class="text">Filter Catalog</div>
-                    <div class="arrow"></div>  
+                    <div class="arrow"></div>
                 </div>
                 <div class="filterBox" *ngIf="getRewardApp().filter">
                     <div class="sliderTitle">Points</div>
                     <div class="sliderBox">
                         <!--<span class="description">Points</span>-->
-                        <multi-slider
-                            [start]="getFilter().points"
-                            [range]="{min:0, max:1000}"
-                            (slide)="getFilter().points = $event"
-                            ></multi-slider>
+                        <multi-slider [start]="getFilter().points" [range]="{min:0, max:1000}" (slide)="getFilter().points = $event"></multi-slider>
                     </div>
                     <div class="categoryBox">
                         <div class="title">Categories</div>
                         <div class="options">
                             <ul>
                                 <li (click)="toggleMyFavorites()">
-                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.myFavorites"/>
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.myFavorites" />
                                     <span class="">My Favorites</span>
                                 </li>
                                 <li (click)="toggleLifestyle()">
-                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.lifestyle"/>
+                                    <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.lifestyle" />
                                     <span class="">Lifestyle</span>
                                 </li>
                                 <li>
                                     <div (click)="toggleMobile()">
-                                        <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.mobile"/>
+                                        <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.mobile" />
                                         <span class="">Mobile</span>
                                     </div>
                                     <ul>
                                         <li (click)="togglePrepaid()">
-                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.prepaid"/>
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.prepaid" />
                                             <span class="">Prepaid</span>
                                         </li>
                                         <li (click)="togglePostpaid()">
-                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.postpaid"/>
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.postpaid" />
                                             <span class="">Postpaid</span>
                                         </li>
                                         <li (click)="toggleBroPrepaid()">
-                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPrepaid"/>
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPrepaid" />
                                             <span class="">Bro Prepaid</span>
                                         </li>
                                         <li (click)="toggleBroPostpaid()">
-                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPostpaid"/>
+                                            <input class="check" type="checkbox" [(ngModel)]="getFilter().categories.broPostpaid" />
                                             <span class="">Bro Postpaid</span>
                                         </li>
                                     </ul>
@@ -128,7 +166,7 @@
         </div>
         <div class="menuItem" *ngIf="isSmartApp() || isRewardApp()">
             <div class="text">More Smart</div>
-            <div class="arrow"></div>
+            <!-- <div class="arrow"></div> -->
         </div>
     </div>
- </div>
+</div>

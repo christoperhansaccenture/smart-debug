@@ -53,7 +53,6 @@ export class AccountService {
     getMobileNumberlist(){
         
         var mobileInStorage = sessionStorage.getItem('mobileNo');
-        console.log(mobileInStorage);
         if(mobileInStorage === null || mobileInStorage === undefined ){
             //this.getMobileNumberlistFromBackEnd(true);
         }else{

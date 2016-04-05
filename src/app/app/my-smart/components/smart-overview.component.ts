@@ -23,7 +23,7 @@ export class SmartOverviewComponent  {
         private _accountService: AccountService) {
 		
 		this._layoutService.setCurrentPage('MySmart');
-        //this._accountService.getMobileNumberlistFromBackEnd(false);
+        this._accountService.getMobileNumberlistFromBackEnd(false);
 		
 	}
     

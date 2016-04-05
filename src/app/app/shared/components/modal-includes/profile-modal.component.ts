@@ -16,7 +16,7 @@ export class ProfileModalComponent {
     }
     
     close(){
-        this._modalService.toggleProfileModal();
+        this._modalService.toggleBuyAddOnsModal();
     }
     
 }

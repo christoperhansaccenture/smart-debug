@@ -1,0 +1,92 @@
+<div class="smartBillBalanceContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Bill Status</div>
+                <div class="headerSubText">View your billing status</div>
+            </div>
+        </div>
+        <div class="itemContainer withMarginTop">
+            <div class="itemIdentifier green">Total Payment Amount Due</div>
+            <div class="itemValue red">P1500</div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier green subItem">Invoice Previous Period</div>
+            <div class="itemValue">P500</div>
+        </div>
+
+        <div class="itemContainer">
+            <div class="itemIdentifier green subItem">Minimum Payment Required
+                    <br/>
+                <small>Due 20-04</small>
+            </div>
+            <div class="itemValue">P1000</div>
+        </div>
+
+        <div class="itemContainer">
+            <div class="itemIdentifier green subItem">Usage since Last Invoice
+                    <br/>
+                <small>as of 4 April</small>
+            </div>
+            <div class="itemValue">P1000</div>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="button green left">View
+                <br/>eStatement</div>
+            <div class="button red right">Pay Bill</div>
+            <br/>
+            <small>Data as of 21 March,  20:05</small>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartBillBalanceContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartBillBalanceContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="categoryHeader">Bill Status</div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier green">Total Payment Amount Due</div>
+                            <div class="itemValue red">P1500</div>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier green subItem">Invoice Previous Period</div>
+                            <div class="itemValue">P500</div>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier green subItem">Minimum Payment Required
+                                   <br/>
+                                <small>Due 20-04</small>
+                            </div>
+                            <div class="itemValue">P1000</div>
+                        </div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier green subItem">Usage since Last Invoice
+                                   <br/>
+                                <small>as of 4 April</small>
+                            </div>
+                            <div class="itemValue">P1000</div>
+                        </div>
+                        <!--<div class="separator"></div>-->
+                        
+                        <div class="itemFooterContainer">
+                            <div class="button red">Pay Bill</div>
+                            <div class="button green">View
+                                <br/>eStatement</div>
+                            <br/>
+                            <small>Data as of 21 March,  20:05</small>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

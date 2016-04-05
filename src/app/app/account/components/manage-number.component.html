@@ -1,7 +1,7 @@
 <div class="manageNumberContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
     
     <!--main page-->
-    <div class="containerBody" *ngIf="!(addNumber.page || editNumber.page)">
+    <div class="containerBody">
         <div class="header">
             <div class="text">
                 <div class="headerText">Manage My Numbers</div>
@@ -35,7 +35,7 @@
                         <div class="containerBody">
                             
                             <!--main page-->
-                            <div *ngIf="!(addNumber.page || editNumber.page)">
+                            <div>
                                 <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)">
                                     <div class="name">{{phone.name}}</div>
                                     <div class="phoneDetail">

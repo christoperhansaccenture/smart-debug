@@ -131,6 +131,51 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isNewsletter();
         this._router.navigate(['Newsletter']);
     }
+    
+    goToPlan(){
+        this._desktopLeftMenuService.isPlan();
+        this._router.navigate(['MyPlan']);
+    }
+    
+    goToAddOn(){
+        this._desktopLeftMenuService.isAddon();
+        this._router.navigate(['BuyAddOns']);
+    }
+    
+    goToPuk(){
+        this._desktopLeftMenuService.isPuk();
+        this._router.navigate(['InitializePuk']);
+    }
+    
+    goToPastBill(){
+        this._desktopLeftMenuService.isPastBill();
+        this._router.navigate(['PastBill']);
+    }
+    
+    goToPastActivity(){
+        this._desktopLeftMenuService.isPastActivity();
+        this._router.navigate(['SmartActivity']);
+    }
+    
+    goToInternationalRoaming(){
+        this._desktopLeftMenuService.isRoaming();
+        this._router.navigate(['ActiveInterRoam']);
+    }
+    
+    goToBillBalance(){
+        this._desktopLeftMenuService.isBalance();
+        this._router.navigate(['BillBalance']);
+    }
+    
+    goToBillSetting(){
+        this._desktopLeftMenuService.isBillSetting();
+        this._router.navigate(['BillSetting']);
+    }
+
+    goToPasaLoad() {
+        this._desktopLeftMenuService.isPasaload();
+        this._router.navigate(['PasaLoad']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;
@@ -152,8 +197,28 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.toggleFilter();
     }
     
+    /*toggleNumberDetail(){
+        this._desktopLeftMenuService.toggleNumberDetail();
+    }*/
+
+    toggleService(){
+        this._desktopLeftMenuService.toggleService();
+    }
+    
+    toggleBillingDetail(){
+        this._desktopLeftMenuService.toggleBillingDetail();
+    }
+    
     getRewardApp(){
         return this._desktopLeftMenuService.getRewardAppStatus();
+    }
+    
+    getAccountApp(){
+        return this._desktopLeftMenuService.getAccountAppStatus();
+    }
+    
+    getSmartApp(){
+        return this._desktopLeftMenuService.getSmartAppStatus();
     }
     
 }

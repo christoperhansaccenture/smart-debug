@@ -11,6 +11,7 @@ export class RegisterComponent {
 	
     checkErrorStatus=false;
     errorMessageText: string;
+    userid;
     
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
@@ -24,21 +25,29 @@ export class RegisterComponent {
         return this.errorMessageText;
     }
     
-    register(userid,firstname,lastname,password,confirmpassword){
-		 if(this.validate(userid,firstname,lastname,password,confirmpassword)==0) 
+    showNumberField(){
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.userid)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    register(firstname,lastname,password,confirmpassword){
+		 if(this.validate(this.userid,firstname,lastname,password,confirmpassword)==0) 
          {
              this.errorMessageText="Please enter all required information";
              this.getErrorMessageText();
              this.checkErrorStatus=true;
 
          }
-         else if(this.validate(userid,firstname,lastname,password,confirmpassword)==1)
+         else if(this.validate(this.userid,firstname,lastname,password,confirmpassword)==1)
          {
              this.errorMessageText="Password did not match";
              this.getErrorMessageText();
              this.checkErrorStatus=true;
          }         
-         else if(this.validate(userid,firstname,lastname,password,confirmpassword)==2)
+         else if(this.validate(this.userid,firstname,lastname,password,confirmpassword)==2)
          {
             let link = ['VerificationForm'];
             this._router.navigate(link)

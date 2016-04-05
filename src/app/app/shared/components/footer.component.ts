@@ -22,6 +22,10 @@ export class FooterComponent {
         private _authService: AuthService) {
 		
 	}
+    
+    getAppLayout(){
+        return this._layoutService.getAppLayout();
+    }
 	
 	getLayout(){
 		return this._layoutService.getLayout();
@@ -30,24 +34,8 @@ export class FooterComponent {
     getFooterState(){
         return this._layoutService.getfooterState();
     }
-	
-    toggleAdditionalMenu(){
-        
-        this.addMenu = !this.addMenu;
-        
-    }
     
     getResize(){return this._matchMediaService.getmm();}
-    
-    additionalMenuStatus(){
-        
-        if((this._layoutService.getLayout().appFooter && this.addMenu) == true){
-            return true;
-        }else{
-            return false;
-        }
-
-    } 
     
     gotoHome(){
         this._router.navigate(['MyRewards']);

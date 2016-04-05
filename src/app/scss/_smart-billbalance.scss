@@ -1,0 +1,254 @@
+$col-3-height: 340px;
+.smartBillBalanceContainer {
+    //padding-bottom: 45px;
+    z-index: 1;
+    height: 100%;
+    .containerBody {
+        width: 100%;
+        background-color: #FFF;
+        padding-bottom: 15px;
+        .header {
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid $text-dark-gray;
+            background: url(../img/billbalance.jpg) no-repeat;
+            background-size: cover;
+            height: 140px;
+            .void {
+                display: inline-block;
+                width: 100%;
+                height: 136px;
+            }
+            .text {
+                display: inline-block;
+                background-color: $gray;
+                width: calc(100% - 20px);
+                padding: 10px;
+                height: 37px;
+                .headerText {
+                    color: #FFF;
+                    font-size: 20px;
+                }
+                .headerSubText {
+                    color: #FFF;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+        }
+        .separator {
+            border-bottom: 1px solid #EEE;
+            margin-bottom: 10px;
+        }
+        .itemContainer {
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding: 10px;
+            &.withMarginTop {
+                margin-top: 15px;
+            }
+            .itemIdentifier {
+                float: left;
+                width: calc(100% - 100px);
+                font-size: 15px;
+                &.green {
+                    color: $smartgreen;
+                }
+                
+                &.subItem{
+                    padding-left: 40px;
+                    width: calc(100% - 140px);
+                }
+                
+                small {
+                    color: $gray;
+                }
+            }
+            .itemValue {
+                font-size: 15px;
+                float: right;
+                font-size: 15px;
+                width: 100px;
+                text-align: right;
+                &:after {
+                    clear: both;
+                }
+                &.red {
+                    color: $smartred;
+                }
+            }
+        }
+        .itemFooterContainer {
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+            small {
+                clear: both;
+                float: right;
+                color: $gray;
+                margin-right: 10px;
+            }
+        }
+        .button {
+            clear: none;
+            width: 100px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: $smartred;
+            color: #FFF;
+            &.disable {
+                background-color: #EEE;
+                cursor: default;
+            }
+            &.green {
+                background-color: $smartgreen;
+            }
+            &.red {
+                background-color: $smartred;
+                min-height: 34px;
+                line-height: 34px;
+            }
+            &.left {
+                float: left;
+            }
+            &.right {
+                float: right;
+            }
+        }
+    }
+}
+
+.smartBillBalanceContainerBody {
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    &.bodyFixed {
+        margin-top: 60px;
+    }
+    .smartBillBalanceContainerLarge {
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        .container2 {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            .container1 {
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+                .componentContainer {
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    .itemComponent {
+                        width: 72%;
+                        float: left;
+                        .categoryHeader {
+                            color: $smartgreen;
+                            font-size: 20px;
+                            padding: 0px 0px 20px 0px;
+                            margin-bottom: 20px;
+                        }
+                        .separator {
+                            border-bottom: 1px solid #EEE;
+                            margin-bottom: 10px;
+                        }
+                        .itemContainer {
+                            display: inline-block;
+                            width: calc(100% - 20px);
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            .itemIdentifier {
+                                float: left;
+                                width: calc(100% - 100px);
+                                font-size: 15px;
+                                margin-bottom: 10px;
+                                &.green {
+                                    color: $smartgreen;
+                                }
+                                &.subItem{
+                                    padding-left: 40px;
+                                    width: calc(100% - 140px);
+                                }
+                                small {
+                                    color: $gray;
+                                }
+                            }
+                            .itemValue {
+                                float: right;
+                                font-size: 15px;
+                                width: 70px;
+                                width: 100px;
+                                text-align: right;
+                                &:after {
+                                    clear: both;
+                                }
+                                &.red {
+                                    color: $smartred;
+                                }
+                            }
+                        }
+                        .itemFooterContainer {
+                            display: inline-block;
+                            width: 100%;
+                            padding: 20px 10px 0px 10px;
+                            small {
+                                clear: both;
+                                float: right;
+                                color: $gray;
+                            }
+                        }
+                        .button {
+                            clear: none;
+                            width: 100px;
+                            float: right;
+                            color: #FFF;
+                            &.disable {
+                                background-color: #EEE;
+                                cursor: default;
+                            }
+                            &.green {
+                                background-color: $smartgreen;
+                                margin-right: 10px;
+                            }
+                            &.red {
+                                background-color: $smartred;
+                                min-height: 34px;
+                                line-height: 34px;
+                            }
+                        }
+                    }
+                }
+                .bannerComponent {
+                    width: 25%;
+                    float: right;
+                    padding-top: 20px;
+                    .banner1 {
+                        width: 100%;
+                        height: 100px;
+                        background: url(../img/myplan-banner.jpg) no-repeat;
+                        background-size: cover;
+                        margin-bottom: 20px;
+                    }
+                    .banner2 {
+                        width: 100%;
+                        height: 100px;
+                        background: url(../img/myplan.jpg) no-repeat;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}

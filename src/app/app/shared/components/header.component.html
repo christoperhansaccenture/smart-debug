@@ -8,6 +8,7 @@
                     {{ getTotalItems() }}
                 </div>
             </div>
+            <div class="refresh" *ngIf="getHeaderLayout().refresh"></div>
             <div class="magnifier" *ngIf="getHeaderLayout().filter && !filterFunction" (click)="toggleFilterFunction()"></div>
             <div class="up-arrow" *ngIf="getHeaderLayout().filter && filterFunction" (click)="toggleFilterFunction()"></div>
             

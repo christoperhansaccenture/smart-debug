@@ -1,9 +1,9 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {MainRewardsComponent} from './my-rewards/components/main-rewards.component';
 import {OverviewComponent} from './my-rewards/components/overview.component';
 import {RewardDetailComponent} from './my-rewards/components/reward-detail.component';
-import {MobileRewardComponent} from './my-rewards/components/mobile-reward.component';
 import {CatalogComponent} from './my-rewards/components/catalog.component';
 import {CatalogListComponent} from './my-rewards/components/catalog-list.component';
 import {ShoppingCartComponent} from './my-rewards/components/shopping-cart.component';
@@ -16,6 +16,16 @@ import {SmartOverviewComponent} from './my-smart/components/smart-overview.compo
 import {ChangePasswordComponent} from './account/components/change-password.component';
 import {NewsletterComponent} from './account/components/newsletter.component';
 import {SmartMyplanComponent} from './my-smart/components/smart-myplan.component';
+import {SmartBuyAddOnsComponent} from './my-smart/components/smart-buyaddons.component';
+import {SmartBuyAddOnsDetailComponent} from './my-smart/components/smart-buyaddons-detail.component';
+import {InitializePukComponent} from './my-smart/components/initialize-puk.component';
+import {ViewPukComponent} from './my-smart/components/view-puk.component';
+import {SmartActiveInterRoamComponent} from './my-smart/components/smart-activeinterroam.component';
+import {PastBillComponent} from './my-smart/components/past-bill.component';
+import {SmartActivityComponent} from './my-smart/components/activity.component';
+import {SmartBillBalanceComponent} from './my-smart/components/smart-billbalance.component';
+import {SmartBillSettingComponent} from './my-smart/components/smart-billsetting.component';
+import {SmartPasaLoadComponent} from './my-smart/components/smart-pasaload.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -93,6 +103,11 @@ declare var FastClick: FastClickStatic;
 		useAsDefault: true
     },
     {
+        path: '/rewards/...',
+        name: 'Rewards',
+        component: MainRewardsComponent
+    },
+    {
         path: '/myrewards',
         name: 'MyRewards',
         component: OverviewComponent
@@ -101,11 +116,6 @@ declare var FastClick: FastClickStatic;
         path: '/rewardDetail',
         name: 'RewardDetail',
         component: RewardDetailComponent
-    },
-    {
-        path: '/mobileReward',
-        name: 'MobileReward',
-        component: MobileRewardComponent
     },
     {
         path: '/catalog',
@@ -196,8 +206,57 @@ declare var FastClick: FastClickStatic;
         path: '/myplan',
         name: 'MyPlan',
         component: SmartMyplanComponent
+    },
+    {
+        path: '/buyaddons',
+        name: 'BuyAddOns',
+        component: SmartBuyAddOnsComponent
+    },
+    {
+        path: '/buyaddonsDetail',
+        name: 'BuyAddOnsDetail',
+        component: SmartBuyAddOnsDetailComponent
+    },
+    {
+        path: '/initializePuk',
+        name: 'InitializePuk',
+        component: InitializePukComponent
+    },
+    {
+        path: '/viewPuk',
+        name: 'ViewPuk',
+        component: ViewPukComponent
+    },
+    {
+        path: '/activeInterRoam',
+        name: 'ActiveInterRoam',
+        component: SmartActiveInterRoamComponent
+    },
+    {
+        path: '/smartActivity',
+        name: 'SmartActivity',
+        component: SmartActivityComponent
+    },
+    {
+        path: '/pastBill',
+        name: 'PastBill',
+        component: PastBillComponent
+    },
+    {
+        path: '/billbalance',
+        name: 'BillBalance',
+        component: SmartBillBalanceComponent
+    },
+    {
+        path: '/billsetting',
+        name: 'BillSetting',
+        component: SmartBillSettingComponent
+    },
+    {
+        path: '/pasaload',
+        name: 'PasaLoad',
+        component: SmartPasaLoadComponent
     }
-    
 	
 ])
 export class AppComponent implements OnInit {
@@ -224,7 +283,8 @@ export class AppComponent implements OnInit {
     
      isFullScreen() {
          let currentPage: string = this._layoutService.getCurrentPage();
-         return !currentPage || currentPage === 'GetStarted' || currentPage === 'Login';
+         return !currentPage || currentPage === 'GetStarted' || currentPage === 'Login' ||
+         currentPage === 'Register';
      }
  
      isSmallScreen() {

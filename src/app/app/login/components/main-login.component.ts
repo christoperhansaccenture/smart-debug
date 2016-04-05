@@ -57,8 +57,6 @@ export class MainLoginComponent {
 	constructor (private _layoutService: LayoutService) {}
 	
 	OnGetStarted(){
-        console.log("main login component");
-        console.log(this._layoutService.getCurrentPage());
         if (this._layoutService.getCurrentPage() == 'GetStarted'){
 			return true;
 		}else{
