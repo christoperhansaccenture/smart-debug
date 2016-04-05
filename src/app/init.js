@@ -8,7 +8,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 
 
-var configAppType = 'smart'; //possible values: smart, rewards
+var configAppType = 'rewards'; //possible values: smart, rewards
 var configChannel = 'web'; //possible values: app, web
 
 var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;

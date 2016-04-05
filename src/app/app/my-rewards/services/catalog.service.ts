@@ -91,7 +91,7 @@ export class CatalogService {
     }
 
     loadAllCatalogs(refresh: boolean = false) {
-        
+        console.log(this._smartIntegrationService.imageUrlBase);
         if(!this.isCatalogsLoaded()){
             if (refresh || !this.catalogs) {
                 this._smartIntegrationService
@@ -119,8 +119,8 @@ export class CatalogService {
 
                         let min = localStorage.getItem('phoneNumber');
                         let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
-                        console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
-                        this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
+                        //console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
+                        //this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
                         
                     },
                     error =>{
@@ -137,12 +137,13 @@ export class CatalogService {
                             c.code = e.code;
                             c.name = e.name;
                             c.description = e.description;
-                            if (e.imageUrl && e.imageUrl.indexOf(this._smartIntegrationService.imageUrlBase) > -1) {
-                                c.imageUrl = e.imageUrl;
-                            }
-                            else {
+                            //console.log(e.imageUrl);
+                            //if (e.imageUrl && e.imageUrl.indexOf(this._smartIntegrationService.imageUrlBase) > -1) {
+                                //c.imageUrl = e.imageUrl;
+                            //}
+                            //else {
                                 c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
-                            }
+                            //}
                             c.ssoBrands = e.ssoBrands;
                             c.categories = e.categories;
                             c.points = e.points;
@@ -153,10 +154,10 @@ export class CatalogService {
                             return c;
                         });
                         let min = localStorage.getItem('phoneNumber');
-                        console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
+                        //console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
                         let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
-                        console.log('currentPhone: ' + JSON.stringify(currentPhone));
-                        this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
+                        //console.log('currentPhone: ' + JSON.stringify(currentPhone));
+                        //this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
          }
 
     }

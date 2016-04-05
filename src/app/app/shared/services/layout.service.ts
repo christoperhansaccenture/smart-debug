@@ -86,7 +86,11 @@ export class LayoutService {
         
         //scroll to top page only for mobile apps
         if(!this._matchMediaService.getmm().largeUp){
-            window.scrollTo(0,0);
+            //console.log("toUp");
+            var scrollposition = (window.scrollY || window.pageYOffset);
+            //window.scrollTo(0,0);
+            //window.scrollX = 0;
+            //window.scrollY = 0;
         }
 
         this.headerItem.cart = true;
