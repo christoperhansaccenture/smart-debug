@@ -2,10 +2,12 @@
 import { SSO } from '../services/sso.service';
 import { ErrorHandlingService } from '../services/error-handling.service';
 
+var process = require('process');
 var redis = require('redis');
 
 var request = require('request'); 
 var config = require('../config/config');
+
 
 
     export interface rewardInterface {
@@ -23,25 +25,6 @@ var config = require('../config/config');
     export class RewardController implements rewardInterface{
         private ssoService:SSO.sso;
 
-        private createRedisClient() {
-            var process = require('process');
-            console.log('create redis client');
-            console.log('redis_url: ' + process.env.REDIS_URL);
-            if (process.env.REDIS_URL) {
-                console.log('redis in heroku');
-                return redis.createClient(process.env.REDIS_URL);
-                /*
-                var rtg   = require("url").parse(process.env.REDIS_URL);
-                var redis = require("redis").createClient(rtg.port, rtg.hostname);
-
-                redis.auth(rtg.auth.split(":")[1]);
-
-                return redis;
-               */
-            } else {
-                return redis.createClient();
-            }
-        }
         private errorHandlingService:ErrorHandlingService.ErrorHandlingService;
             constructor() {       
             
@@ -112,7 +95,8 @@ var config = require('../config/config');
                */
                 console.log('request: ' + req.query.brands);
 
-                let client = this.createRedisClient();
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createclient(process.env.REDIS_URL);
 
                 let promise: Promise<string> = new Promise((resolve, reject) => {
                     let brands = req.query.brands.split(',');
@@ -238,7 +222,9 @@ var config = require('../config/config');
             async refreshCatalog(req, res): Promise<void> {
                 console.log('refresh catalog');
 
-                let client = this.createRedisClient();
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createClient(process.env.REDIS_URL);
+                console.log('refresh catalog');
 
                 var token:string = req.get("Authorization");
                 token = token.replace('Bearer ','');
@@ -585,7 +571,8 @@ var config = require('../config/config');
                       
                       let resultArray: any[] = [];
 
-                      let client = this.createRedisClient();
+                      console.log('redis_url: ' + process.env.REDIS_URL);
+                      let client = redis.createClient(process.env.REDIS_URL);
 
                       for(var i = 0; i < data.length; i++){
                           

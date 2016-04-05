@@ -9,24 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const sso_service_1 = require('../services/sso.service');
 const error_handling_service_1 = require('../services/error-handling.service');
+var process = require('process');
 var redis = require('redis');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
 class RewardController {
     constructor() {
-    }
-    createRedisClient() {
-        var process = require('process');
-        console.log('create redis client');
-        console.log('redis_url: ' + process.env.REDIS_URL);
-        if (process.env.REDIS_URL) {
-            console.log('redis in heroku');
-            return redis.createClient(process.env.REDIS_URL);
-        }
-        else {
-            return redis.createClient();
-        }
     }
     redeemAnItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
@@ -86,7 +75,8 @@ class RewardController {
             brandMap['TalkNText'] = 'TNT';
            */
             console.log('request: ' + req.query.brands);
-            let client = this.createRedisClient();
+            console.log('redis_url: ' + process.env.REDIS_URL);
+            let client = redis.createclient(process.env.REDIS_URL);
             let promise = new Promise((resolve, reject) => {
                 let brands = req.query.brands.split(',');
                 let keys = brands.map(brand => 'catalogItems:' + brand);
@@ -197,7 +187,9 @@ class RewardController {
     refreshCatalog(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             console.log('refresh catalog');
-            let client = this.createRedisClient();
+            console.log('redis_url: ' + process.env.REDIS_URL);
+            let client = redis.createClient(process.env.REDIS_URL);
+            console.log('refresh catalog');
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
             var nJwt = require('njwt');
@@ -504,7 +496,8 @@ class RewardController {
                 console.log(req.body);
                 var data = req.body;
                 let resultArray = [];
-                let client = this.createRedisClient();
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createClient(process.env.REDIS_URL);
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].type === 'catalog') {
                         let jsonBody = {
