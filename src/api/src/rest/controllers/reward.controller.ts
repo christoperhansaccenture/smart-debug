@@ -25,14 +25,19 @@ var config = require('../config/config');
 
         private createRedisClient() {
             var process = require('process');
+            console.log('create redis client');
+            console.log('redis_url: ' + process.env.REDIS_URL);
             if (process.env.REDIS_URL) {
                 console.log('redis in heroku');
+                return redis.createClient(process.env.REDIS_URL);
+                /*
                 var rtg   = require("url").parse(process.env.REDIS_URL);
                 var redis = require("redis").createClient(rtg.port, rtg.hostname);
 
                 redis.auth(rtg.auth.split(":")[1]);
 
                 return redis;
+               */
             } else {
                 return redis.createClient();
             }
