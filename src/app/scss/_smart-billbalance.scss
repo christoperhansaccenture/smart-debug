@@ -54,6 +54,12 @@ $col-3-height: 340px;
                 &.green {
                     color: $smartgreen;
                 }
+                
+                &.subItem{
+                    padding-left: 40px;
+                    width: calc(100% - 140px);
+                }
+                
                 small {
                     color: $gray;
                 }
@@ -100,6 +106,7 @@ $col-3-height: 340px;
             &.red {
                 background-color: $smartred;
                 min-height: 34px;
+                line-height: 34px;
             }
             &.left {
                 float: left;
@@ -170,6 +177,10 @@ $col-3-height: 340px;
                                 &.green {
                                     color: $smartgreen;
                                 }
+                                &.subItem{
+                                    padding-left: 40px;
+                                    width: calc(100% - 140px);
+                                }
                                 small {
                                     color: $gray;
                                 }
@@ -214,6 +225,7 @@ $col-3-height: 340px;
                             &.red {
                                 background-color: $smartred;
                                 min-height: 34px;
+                                line-height: 34px;
                             }
                         }
                     }

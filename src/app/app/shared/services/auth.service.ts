@@ -151,7 +151,19 @@ export class AuthService {
                 
                 localStorage.setItem('accessToken', response.json().token);  
                 localStorage.setItem('refreshToken', response.json().refreshToken);
-                this._router.navigate(['MyRewards']);  
+                
+                if(configChannel === 'app'){
+                    if(configAppType === 'smart'){
+                        this._router.navigate(['MySmart']);
+                    }else{
+                        this._router.navigate(['MyRewards']);
+                    }
+                      
+                }else{
+                    this._router.navigate(['MySmart']);  
+                }
+                
+                
                 this.isLoadingLogin = false;
                 
             },

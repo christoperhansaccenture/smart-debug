@@ -39,14 +39,14 @@ export class SmartIntegrationService {
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/success.json';
 
-        return this._http.get(url);
-        /*
+        //return this._http.get(url);
+        
         return this._http.get(url,
         <RequestOptionsArgs> {headers: new Headers(
                 {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
+             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
             })});
-           */
+           
     }
     
     getActivityHistory() {
