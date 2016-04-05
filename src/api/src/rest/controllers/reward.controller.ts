@@ -22,6 +22,21 @@ var config = require('../config/config');
 // export module Login {
     export class RewardController implements rewardInterface{
         private ssoService:SSO.sso;
+
+        private createRedisClient() {
+            var process = require('process');
+            if (process.env.REDIS_URL) {
+                console.log('redis in heroku');
+                var rtg   = require("url").parse(process.env.REDIS_URL);
+                var redis = require("redis").createClient(rtg.port, rtg.hostname);
+
+                redis.auth(rtg.auth.split(":")[1]);
+
+                return redis;
+            } else {
+                return redis.createClient();
+            }
+        }
         private errorHandlingService:ErrorHandlingService.ErrorHandlingService;
             constructor() {       
             
@@ -92,7 +107,7 @@ var config = require('../config/config');
                */
                 console.log('request: ' + req.query.brands);
 
-                let client = redis.createClient();
+                let client = this.createRedisClient();
 
                 let promise: Promise<string> = new Promise((resolve, reject) => {
                     let brands = req.query.brands.split(',');
@@ -218,7 +233,7 @@ var config = require('../config/config');
             async refreshCatalog(req, res): Promise<void> {
                 console.log('refresh catalog');
 
-                let client = redis.createClient();
+                let client = this.createRedisClient();
 
                 var token:string = req.get("Authorization");
                 token = token.replace('Bearer ','');
@@ -565,7 +580,7 @@ var config = require('../config/config');
                       
                       let resultArray: any[] = [];
 
-                      let client = redis.createClient();
+                      let client = this.createRedisClient();
 
                       for(var i = 0; i < data.length; i++){
                           

@@ -16,6 +16,19 @@ var config = require('../config/config');
 class RewardController {
     constructor() {
     }
+    createRedisClient() {
+        var process = require('process');
+        if (process.env.REDIS_URL) {
+            console.log('redis in heroku');
+            var rtg = require("url").parse(process.env.REDIS_URL);
+            var redis = require("redis").createClient(rtg.port, rtg.hostname);
+            redis.auth(rtg.auth.split(":")[1]);
+            return redis;
+        }
+        else {
+            return redis.createClient();
+        }
+    }
     redeemAnItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var token = req.get("Authorization");
@@ -74,7 +87,7 @@ class RewardController {
             brandMap['TalkNText'] = 'TNT';
            */
             console.log('request: ' + req.query.brands);
-            let client = redis.createClient();
+            let client = this.createRedisClient();
             let promise = new Promise((resolve, reject) => {
                 let brands = req.query.brands.split(',');
                 let keys = brands.map(brand => 'catalogItems:' + brand);
@@ -185,7 +198,7 @@ class RewardController {
     refreshCatalog(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             console.log('refresh catalog');
-            let client = redis.createClient();
+            let client = this.createRedisClient();
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
             var nJwt = require('njwt');
@@ -492,7 +505,7 @@ class RewardController {
                 console.log(req.body);
                 var data = req.body;
                 let resultArray = [];
-                let client = redis.createClient();
+                let client = this.createRedisClient();
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].type === 'catalog') {
                         let jsonBody = {
