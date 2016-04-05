@@ -18,7 +18,11 @@ import {NewsletterComponent} from './account/components/newsletter.component';
 import {SmartMyplanComponent} from './my-smart/components/smart-myplan.component';
 import {SmartBuyAddOnsComponent} from './my-smart/components/smart-buyaddons.component';
 import {SmartBuyAddOnsDetailComponent} from './my-smart/components/smart-buyaddons-detail.component';
+import {InitializePukComponent} from './my-smart/components/initialize-puk.component';
+import {ViewPukComponent} from './my-smart/components/view-puk.component';
 import {SmartActiveInterRoamComponent} from './my-smart/components/smart-activeinterroam.component';
+import {PastBillComponent} from './my-smart/components/past-bill.component';
+import {SmartActivityComponent} from './my-smart/components/activity.component';
 import {SmartBillBalanceComponent} from './my-smart/components/smart-billbalance.component';
 import {SmartBillSettingComponent} from './my-smart/components/smart-billsetting.component';
 import {SmartPasaLoadComponent} from './my-smart/components/smart-pasaload.component';
@@ -214,9 +218,29 @@ declare var FastClick: FastClickStatic;
         component: SmartBuyAddOnsDetailComponent
     },
     {
+        path: '/initializePuk',
+        name: 'InitializePuk',
+        component: InitializePukComponent
+    },
+    {
+        path: '/viewPuk',
+        name: 'ViewPuk',
+        component: ViewPukComponent
+    },
+    {
         path: '/activeInterRoam',
         name: 'ActiveInterRoam',
         component: SmartActiveInterRoamComponent
+    },
+    {
+        path: '/smartActivity',
+        name: 'SmartActivity',
+        component: SmartActivityComponent
+    },
+    {
+        path: '/pastBill',
+        name: 'PastBill',
+        component: PastBillComponent
     },
     {
         path: '/billbalance',

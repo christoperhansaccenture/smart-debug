@@ -1,0 +1,226 @@
+.pastBillContainer {
+    
+    height: 100%;
+    z-index: 1;
+    
+    .containerBody{
+        
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        
+        .header{
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid $text-dark-gray;
+            background-color: black;
+            height: 140px;
+            
+            .void{
+                display: inline-block;
+                 width: 100%;
+                 height: 80px;
+            }
+            .text{
+                display: inline-block;
+                background-color: rgba(255,255,255,0.5);
+                width: calc(100% - 20px);
+                padding: 10px;
+                height: 37px;
+                
+                .headerText{
+                    color: #FFF;
+                    font-size: 20px;
+                }
+                
+                .headerSubText{
+                    color: #FFF;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+            
+        }
+        
+        .itemContainer{
+            float: left;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            
+            .billItem{
+                            
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid #EEE;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                
+                .billDate{
+                    float: left;
+                    line-height: 35px;    
+                }
+                
+                .button {
+                    width: 100px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    float: right;
+                    background-color: $smartgreen;
+                    color: #FFF;
+                    clear: none;
+                    
+                }
+                
+            }
+            
+        }
+        
+        .itemFooterContainer{
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+            
+            .button {
+                width: 100px;
+                margin-left: 10px;
+                margin-right: 10px;
+                float: right;
+                background-color: $smartred;
+                color: #FFF;
+                
+            }
+            
+        }
+        
+        
+    }
+    
+}
+
+.pastBillContainerBody{
+    
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+    &.bodyFixed{
+        margin-top: 60px;
+    }
+
+    .pastBillContainerLarge{
+        
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        
+        .container2{
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            
+            .container1{
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+
+                .componentContainer{
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    
+                    .itemComponent{
+                        width : 50%;
+                        float: left;
+                        
+                        .itemHeader{
+                            color: $smartgreen;
+                            font-size: 20px;
+                            padding: 20px;
+                        }
+                        
+                        .billItem{
+                            
+                            float: left;
+                            width: 100%;
+                            border-bottom: 1px solid #EEE;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            
+                            .billDate{
+                                float: left;
+                                line-height: 35px;    
+                            }
+                            
+                            .button {
+                                width: 100px;
+                                margin-left: 10px;
+                                margin-right: 10px;
+                                float: right;
+                                background-color: $smartgreen;
+                                color: #FFF;
+                                clear: none;
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        .itemFooterContainer{
+                            display: inline-block;
+                            width: 100%;
+                            padding-top: 20px;
+                            
+                            .button {
+                                width: 100px;
+                                line-height: 1.5rem;
+                                margin-left: 10px;
+                                margin-right: 10px;
+                                float: right;
+                                background-color: $smartred;
+                                color: #FFF;
+                                
+                            }
+                            
+                        }
+
+                    }
+                    
+                    .bannerComponent{
+                        width: 45%;
+                        float: right;
+                        padding-top: 20px;
+                        
+                        .banner1{
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner1.png) no-repeat;
+                            background-size: cover;
+                            margin-bottom: 20px;
+                        }
+                        
+                        .banner2{
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner2.png) no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                    
+                }    
+                    
+            }
+        
+        }
+    }
+}

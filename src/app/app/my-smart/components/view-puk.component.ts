@@ -7,8 +7,8 @@ import {ModalService} from '../../shared/services/modal.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
 
 @Component({
-    selector: 'change-password',
-    templateUrl: './app/account/components/view-puk.component.html',
+    selector: 'view-puk',
+    templateUrl: './app/my-smart/components/view-puk.component.html',
     directives: [
         SmartLeftMenuComponent
     ]
@@ -21,7 +21,7 @@ export class ViewPukComponent  {
         private _accountService: AccountService,
         private _modalService: ModalService) {
 		
-		this._layoutService.setCurrentPage('ChangePassword');
+		this._layoutService.setCurrentPage('ViewPuk');
 		//this._accountService.getUserProfileFromBackEnd(false);
         
 	}

@@ -14,38 +14,69 @@
     <div class="dividerLine"></div>
     <div class="menuContainer">
         <div *ngIf="isAccount()">
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().manageNumber}" (click)="goToManageNumber()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().manageNumber}" (click)="goToManageNumber()">
                 <div class="text">Manage Number</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().profile}" (click)="goToProfile()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().profile}" (click)="goToProfile()">
                 <div class="text">Complete Profile</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().changePass}" (click)="goToChangePassword()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().changePass}" (click)="goToChangePassword()">
                 <div class="text">Change Password</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().newsletter}" (click)="goToNewsletter()">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().newsletter}" (click)="goToNewsletter()">
                 <div class="text">Sign Up for Newsletter</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getRewardApp().smartLife}">
+            <div class="menuItem" [ngClass]="{selected : getAccountApp().smartLife}">
                 <div class="text">Go to Smart Life</div>
             </div>
         </div>
         <div *ngIf="isSmartApp()">
-            <div class="menuItem">
+            <div class="menuItem" (click)="toggleNumberDetail()">
                 <div class="text">Number Details</div>
-                <div class="arrow"></div>  
+                <div class="arrow" [ngClass]="{open : getSmartApp().numberDetail}"></div>  
             </div>
-            <div class="menuItem">
+            <div *ngIf="getSmartApp().numberDetail">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().plan}" (click)="goToPlan()">
+                    <div class="text">Plan Details</div> 
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().addon}" (click)="goToAddOn()">
+                    <div class="text">Buy Add-Ons</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().roaming}">
+                    <div class="text">Activate International Roaming</div> 
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().puk}" (click)="goToPuk()">
+                    <div class="text">View PUK</div>
+                </div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().message}">
                 <div class="text">Messages (3)</div>
             </div>
-            <div class="menuItem">
+            <div class="menuItem" (click)="toggleBillingDetail()">
                 <div class="text">Billing Details</div>
                 <div class="arrow"></div>
             </div>
-            <div class="menuItem">
+            <div *ngIf="getSmartApp().billingDetail">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().balance}">
+                    <div class="text">Bill & Balance</div> 
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().billSetting}">
+                    <div class="text">Bill Setting</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastActivity}" (click)="goToPastActivity()">
+                    <div class="text">Past Activity</div> 
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().usage}">
+                    <div class="text">View Usage</div>
+                </div>
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastBill}" (click)="goToPastBill()">
+                    <div class="text">Past Bills</div>
+                </div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().pasaload}">
                 <div class="text">Pasa Load</div>
             </div>
-            <div class="menuItem">
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().epin}">
                 <div class="text">Get ePin</div>
             </div>
         </div>
