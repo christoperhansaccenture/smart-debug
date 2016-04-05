@@ -571,6 +571,7 @@ export class LayoutService {
             this.headerItem.filter = true;
             this.headerItem.logo = false;
             this.headerItem.point = false;
+            this.headerItem.cart = false;
 
             this.desktopMenu.account = false;
             this.desktopMenu.reward = false;
@@ -620,7 +621,9 @@ export class LayoutService {
         current == 'ViewPuk' ||
         current == 'PastBill' ||
         current == 'SmartActivity' ||
-        current == 'ActiveInterRoam'){
+        current == 'ActiveInterRoam' ||
+        current == 'BillBalance' ||
+        current == 'BillSetting'){
             
             this.layoutState = {
 				appHeader: true,

@@ -125,13 +125,11 @@ export class DesktopLeftMenuService {
     
     isAddon(){
         this.smartRefresh();
-        this.smartApp.numberDetail = true;
         this.smartApp.addon = true;
     }
     
     isRoaming(){
         this.smartRefresh();
-        this.smartApp.numberDetail = true;
         this.smartApp.roaming = true;
     }
     

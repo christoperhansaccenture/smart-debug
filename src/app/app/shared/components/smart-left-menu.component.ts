@@ -156,6 +156,21 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isPastActivity();
         this._router.navigate(['SmartActivity']);
     }
+    
+    goToInternationalRoaming(){
+        this._desktopLeftMenuService.isRoaming();
+        this._router.navigate(['ActiveInterRoam']);
+    }
+    
+    goToBillBalance(){
+        this._desktopLeftMenuService.isBalance();
+        this._router.navigate(['BillBalance']);
+    }
+    
+    goToBillSetting(){
+        this._desktopLeftMenuService.isBillSetting();
+        this._router.navigate(['BillSetting']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;

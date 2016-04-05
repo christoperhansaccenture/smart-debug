@@ -39,15 +39,15 @@
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().plan}" (click)="goToPlan()">
                     <div class="text">Plan Details</div> 
                 </div>
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().addon}" (click)="goToAddOn()">
-                    <div class="text">Buy Add-Ons</div>
-                </div>
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().roaming}">
-                    <div class="text">Activate International Roaming</div> 
-                </div>
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().puk}" (click)="goToPuk()">
                     <div class="text">View PUK</div>
                 </div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().addon}" (click)="goToAddOn()">
+                <div class="text">Buy Add-Ons</div>
+            </div>
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().roaming}" (click)="goToInternationalRoaming()">
+                <div class="text">Activate International Roaming</div>
             </div>
             <div class="menuItem" [ngClass]="{selected : getSmartApp().message}">
                 <div class="text">Messages (3)</div>
@@ -57,10 +57,10 @@
                 <div class="arrow"></div>
             </div>
             <div *ngIf="getSmartApp().billingDetail">
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().balance}">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().balance}" (click)="goToBillBalance()">
                     <div class="text">Bill & Balance</div> 
                 </div>
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().billSetting}">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().billSetting}" (click)="goToBillSetting()">
                     <div class="text">Bill Setting</div>
                 </div>
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().pastActivity}" (click)="goToPastActivity()">

@@ -1,9 +1,9 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {MainRewardsComponent} from './my-rewards/components/main-rewards.component';
 import {OverviewComponent} from './my-rewards/components/overview.component';
 import {RewardDetailComponent} from './my-rewards/components/reward-detail.component';
-import {MobileRewardComponent} from './my-rewards/components/mobile-reward.component';
 import {CatalogComponent} from './my-rewards/components/catalog.component';
 import {CatalogListComponent} from './my-rewards/components/catalog-list.component';
 import {ShoppingCartComponent} from './my-rewards/components/shopping-cart.component';
@@ -103,6 +103,11 @@ declare var FastClick: FastClickStatic;
 		useAsDefault: true
     },
     {
+        path: '/rewards/...',
+        name: 'Rewards',
+        component: MainRewardsComponent
+    },
+    {
         path: '/myrewards',
         name: 'MyRewards',
         component: OverviewComponent
@@ -111,11 +116,6 @@ declare var FastClick: FastClickStatic;
         path: '/rewardDetail',
         name: 'RewardDetail',
         component: RewardDetailComponent
-    },
-    {
-        path: '/mobileReward',
-        name: 'MobileReward',
-        component: MobileRewardComponent
     },
     {
         path: '/catalog',
