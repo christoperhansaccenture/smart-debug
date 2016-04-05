@@ -25,11 +25,11 @@
         <div class="subOption" (click)="goToCatalogList('Lifestyle')">See All</div>
     </div>
     <lifestyle-item-belt></lifestyle-item-belt>
-    <div class="subHeader">
+    <div class="subHeader" *ngIf="getMobile()">
         <div class="leftHeader">Mobile</div>
         <div class="subOption" (click)="goToCatalogList('Mobile')">See All</div>
     </div>
-    <mobile-item-belt></mobile-item-belt>
+    <mobile-item-belt *ngIf="getMobile()"></mobile-item-belt>
 </div>
 
 

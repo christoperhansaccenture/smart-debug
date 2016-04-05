@@ -1,19 +1,14 @@
 /// <reference path="../../../typings/main.d.ts" />
 'use strict';
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promise, generator) {
-    return new Promise(function (resolve, reject) {
-        generator = generator.call(thisArg, _arguments);
-        function cast(value) { return value instanceof Promise && value.constructor === Promise ? value : new Promise(function (resolve) { resolve(value); }); }
-        function onfulfill(value) { try { step("next", value); } catch (e) { reject(e); } }
-        function onreject(value) { try { step("throw", value); } catch (e) { reject(e); } }
-        function step(verb, value) {
-            var result = generator[verb](value);
-            result.done ? resolve(result.value) : cast(result.value).then(onfulfill, onreject);
-        }
-        step("next", void 0);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments)).next());
     });
 };
-var sso_service_1 = require('../services/sso.service');
+const sso_service_1 = require('../services/sso.service');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
@@ -56,7 +51,36 @@ class loginController {
             }
         });
     }
+    renewToken(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var token = req.get("Authorization");
+            token = token.replace('Bearer ', '');
+            var nJwt = require('njwt');
+            var jwt = "";
+            try {
+                jwt = nJwt.verify(token, config.signingKey);
+            }
+            catch (e) {
+                res.sendStatus(403);
+            }
+            const ssoService = new sso_service_1.SSO.sso();
+            let refreshToken = req.body.refreshToken;
+            console.log('refresh token: ' + refreshToken);
+            try {
+                // currently send received access token
+                let at = jwt.body.accessToken;
+                console.log('access token: ' + at);
+                res.json({
+                    accessToken: at
+                });
+            }
+            catch (err) {
+                res.sendStatus(401);
+                console.log(err);
+            }
+        });
+    }
 }
 exports.loginController = loginController;
-// } 
+// }
 //# sourceMappingURL=login.controller.js.map

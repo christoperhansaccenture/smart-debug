@@ -1,18 +1,13 @@
 'use strict';
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promise, generator) {
-    return new Promise(function (resolve, reject) {
-        generator = generator.call(thisArg, _arguments);
-        function cast(value) { return value instanceof Promise && value.constructor === Promise ? value : new Promise(function (resolve) { resolve(value); }); }
-        function onfulfill(value) { try { step("next", value); } catch (e) { reject(e); } }
-        function onreject(value) { try { step("throw", value); } catch (e) { reject(e); } }
-        function step(verb, value) {
-            var result = generator[verb](value);
-            result.done ? resolve(result.value) : cast(result.value).then(onfulfill, onreject);
-        }
-        step("next", void 0);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments)).next());
     });
 };
-var sso_service_1 = require('../services/sso.service');
+const sso_service_1 = require('../services/sso.service');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
@@ -682,6 +677,15 @@ class AccountController {
     }
     requestMobileNoList(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
+            let brandMap = {};
+            brandMap['50000'] = 'Prepaid';
+            brandMap['50001'] = 'Postpaid';
+            brandMap['50002'] = 'TalkNText';
+            brandMap['50005'] = 'BroPrepaid';
+            brandMap['50006'] = 'BroPostpaid';
+            brandMap['50008'] = 'BroPostpaidShareIt';
+            brandMap['50014'] = 'PostpaidServiceUnit';
+            brandMap['50027'] = 'Infinity';
             var token = req.get("Authorization");
             //var min:string =  req.query.min;
             token = token.replace('Bearer ', '');
@@ -700,7 +704,11 @@ class AccountController {
                 var result = yield ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
+                result = JSON.parse(result);
+                result.SubscriptionList.forEach(subs => {
+                    subs.ssoBrand = brandMap[subs.BrandTypeId];
+                });
+                res.json(result);
             }
             catch (err) {
                 console.log(err);
@@ -890,7 +898,36 @@ class AccountController {
                     }
                 }
                 // var resJson = JSON.parse(result);       
-                console.log(userData);
+                console.log('before last: ' + userData);
+                // get brands
+                let brandMap = {};
+                brandMap['50000'] = 'Prepaid';
+                brandMap['50001'] = 'Postpaid';
+                brandMap['50002'] = 'TalkNText';
+                brandMap['50005'] = 'BroPrepaid';
+                brandMap['50006'] = 'BroPostpaid';
+                brandMap['50008'] = 'BroPostpaidShareIt';
+                brandMap['50014'] = 'PostpaidServiceUnit';
+                brandMap['50027'] = 'Infinity';
+                try {
+                    var result = yield ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify({}));
+                    console.log(result);
+                    // var resJson = JSON.parse(result);       
+                    result = JSON.parse(result);
+                    result.SubscriptionList.forEach(subs => {
+                        //subs.ssoBrand = brandMap[subs.BrandTypeId];
+                        userData.phoneData.forEach(phone => {
+                            if (phone.phoneNo == subs.Subscription) {
+                                console.log('match for: ' + phone.phoneNo);
+                                phone.ssoBrand = brandMap[subs.BrandTypeId];
+                            }
+                        });
+                    });
+                }
+                catch (err) {
+                    console.log(err);
+                }
+                // end brands
                 res.json(userData);
             }
             catch (err) {
@@ -900,5 +937,5 @@ class AccountController {
     }
 }
 exports.AccountController = AccountController;
-// } 
+// }
 //# sourceMappingURL=account.controller.js.map

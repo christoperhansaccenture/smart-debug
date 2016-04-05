@@ -309,6 +309,7 @@ export module SSO {
             }
             
             var json = JSON.parse(body);
+            console.log('redeem item: ' + json);
 
             return new Promise<string> (
                 function(resolve, reject) { 
@@ -751,7 +752,7 @@ export module SSO {
         
         async requestMobileNoList(accessToken:string, clientId:string, msaId:string, query:string) : Promise<string> {
 
-            var path:string = '/apimysmartws/ssoapi/account/requestMobileNoList';
+            var path:string = '/apimysmartws/ssoapi/account/requestMobileNoList?CorporateID=1';
             
             var uuidString = uuid.v4();
             var arrUuid = uuidString.split('-');

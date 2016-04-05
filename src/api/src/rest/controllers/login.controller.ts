@@ -9,6 +9,7 @@ var config = require('../config/config');
 
     export interface loginInterface {
         postLogin():Promise<string>;
+        renewToken():Promise<string>;
     }
 // export module Login {
     export class loginController implements loginInterface{
@@ -54,6 +55,38 @@ var config = require('../config/config');
                         console.log(err);
                     }
             }
-            
-        }
-// }
+
+            async renewToken(req: string,res: string) : Promise<string> {
+
+                var token:string = req.get("Authorization");
+                token = token.replace('Bearer ','');
+
+                var nJwt = require('njwt');  
+                var jwt = "";
+                try{
+                    jwt = nJwt.verify(token,config.signingKey);
+                }catch(e){
+                    res.sendStatus(403);
+                }
+
+                const ssoService:SSO.sso = new SSO.sso();
+
+                let refreshToken = req.body.refreshToken;
+                console.log('refresh token: ' + refreshToken);
+
+                try {
+                    // currently send received access token
+                    let at = jwt.body.accessToken;
+                    console.log('access token: ' + at);
+                    res.json({
+                        accessToken: at
+                    });
+                }
+                catch (err) {
+                    res.sendStatus(401);
+                    console.log(err);
+                }
+            }
+
+    }
+    // }

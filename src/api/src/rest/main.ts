@@ -89,6 +89,7 @@ import {RewardController} from './controllers/reward.controller';
 
 	// login related services
     router.post('/login', loginCtrl.postLogin);
+    router.post('/token/renew', loginCtrl.renewToken);
     router.post('/account',accountCtrl.register);
     //router.post('/accountpassword/recover/:type/:account',accountCtrl.initializeRecoverPassword);
     //router.post('/accountpassword/recover',accountCtrl.recoverPassword);
@@ -111,6 +112,7 @@ import {RewardController} from './controllers/reward.controller';
     //reward and redeem related services
     router.post('/redeem',rewardCtrl.redeemAnItem);
     router.get('/catalog',rewardCtrl.getListOfRedeemableItems);
+    router.get('/catalog/refresh',rewardCtrl.refreshCatalog);
     router.get('/favourites',rewardCtrl.getFavorites);
     router.post('/transfer',rewardCtrl.transferpoints);
     //router.post('/markAsFavourite',rewardCtrl.favouriteItem);

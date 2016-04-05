@@ -1,8 +1,9 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import { Router } from 'angular2/router';
 import {LayoutService} from '../services/layout.service';
 import {AuthService} from '../services/auth.service';
 import {AccountService} from '../../shared/services/account.service';
+import {CatalogService} from '../../my-rewards/services/catalog.service';
 import {CircularSpinnerComponent} from './spinners/circular-spinner.component';
 
 @Component({
@@ -12,13 +13,31 @@ import {CircularSpinnerComponent} from './spinners/circular-spinner.component';
         CircularSpinnerComponent
     ]
 })
-export class LeftMenuComponent {
+export class LeftMenuComponent implements OnInit {
+
+    selectedPhone;
     
     constructor(private _layoutService : LayoutService,
     private _router: Router,
     private _accountService: AccountService,
-    private _authService: AuthService){
-        
+    private _authService: AuthService,
+               private _catalogService: CatalogService){
+
+        let min = localStorage.getItem('phoneNumber');
+        this.selectedPhone = min;
+
+    }
+
+    phoneChange() {
+        console.log('phone is changed');
+        localStorage.setItem('phoneNumber',this.selectedPhone);
+        localStorage.setItem('mobileNo',this.selectedPhone);
+        this._catalogService.loadAllCatalogs(false);
+    }
+
+    ngOnInit() {
+        let min = localStorage.getItem('phoneNumber');
+        this.selectedPhone = min;
     }
     
     getSpinnerStatus(){
