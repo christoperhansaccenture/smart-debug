@@ -92,7 +92,8 @@ export class LayoutService {
         this.headerItem.cart = true;
 		
 		if(current == 'GetStarted' ||
-        current == 'Verification'){
+        current == 'Verification' ||
+        current == 'Login'){
 		
 			this.layoutState = {
 				appHeader: false,
@@ -104,7 +105,6 @@ export class LayoutService {
 		
 		else if (current == 'Register' ||
 			current == 'ForgotPassword' ||
-			current == 'Login' ||
 			current == 'VerificationForm' ||
             current == 'NewPass'){
 

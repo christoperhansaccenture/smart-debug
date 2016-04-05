@@ -1,0 +1,14 @@
+<div>
+	<div class="containerNewPassSmall">
+		<div class="outer-box">
+            <div class="smartLogo"></div>
+			<div class="header">Save Your New Password</div>
+			<div class="inner-box">
+				<input class="borderbottom" placeholder="Password" type="password" [(ngModel)]="newPassword"/>
+				<input placeholder="Confirm Password" type="password" [(ngModel)]="confirmPassword"/>
+                <div class="errorAlert" *ngIf="checkErrorStatus">{{getErrorMessageText()}}</div>
+				<div class="button"><a (click)="sendNewPass()">Save</a></div>
+			</div>
+		</div>
+	</div>
+</div>
