@@ -25,6 +25,15 @@ $containerLogin-height: 400px;
 		background-color: rgba(0, 0, 0, 0);
 		max-width : 300px;
 		margin: 100px auto 0px;
+        
+        .smartLogo{
+            margin-top: 0;
+            height: 100px;
+            width: 100%;
+            background: url(../img/smart_blue.png) no-repeat;
+            background-position: center center;
+            background-size: 150px;
+        }
 		
 		.header {
 			color: #FFF;
