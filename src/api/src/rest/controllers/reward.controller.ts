@@ -2,6 +2,8 @@
 import { SSO } from '../services/sso.service';
 import { ErrorHandlingService } from '../services/error-handling.service';
 
+var redis = require('redis');
+
 var request = require('request'); 
 var config = require('../config/config');
 
@@ -9,6 +11,7 @@ var config = require('../config/config');
     export interface rewardInterface {
         redeemAnItem():Promise<string>;
         getListOfRedeemableItems():Promise<string>;
+        refreshCatalog():Promise<void>;
         getFavorites():Promise<string>;
         transferpoints():Promise<string>;
         favouriteItem():Promise<string>;
@@ -61,7 +64,132 @@ var config = require('../config/config');
             }
             
             async getListOfRedeemableItems(req:string,res:string) : Promise<string> {
+
+                var token:string = req.get("Authorization");
+                token = token.replace('Bearer ','');
+
+                var nJwt = require('njwt');  
+                try{
+                    var jwt = nJwt.verify(token,config.signingKey);
+                }catch(e){
+                    res.sendStatus(403);
+                }
+
+                console.log(token);
+                console.log(jwt);
+                const ssoService:SSO.sso = new SSO.sso();
+
+                /*
+                let brandMap: { [id: string] : string; } = {};
+                brandMap['Postpaid'] = 'GOLD';
+                brandMap['Prepaid'] = 'BUDDY';
+                brandMap['BroPostpaid'] = 'PLUGIT';
+                brandMap['BroPostpaidShareIt'] = 'SHAREIT';
+                brandMap['BroPrepaid'] = 'SPBRO';
+                brandMap['PostpaidServiceUnit'] = 'SU';
+                brandMap['Infinity'] = 'INFINITY';
+                brandMap['TalkNText'] = 'TNT';
+               */
+                console.log('request: ' + req.query.brands);
+
+                let client = redis.createClient();
+
+                let promise: Promise<string> = new Promise((resolve, reject) => {
+                    let brands = req.query.brands.split(',');
+                    let keys = brands.map(brand => 'catalogItems:' + brand);
+                    client.sunion(keys, (err, ids) => {
+                        if (!err) {
+                            client.get('catalogs:all', (err, catalogString) => {
+                                let catalogs = JSON.parse(catalogString);
+                                catalogs.data = catalogs.data.filter(catalog => ids.indexOf(catalog.catProductNo) > -1);
+                                resolve(catalogs);
+                            });
+                        } else {
+                            reject(err);
+                        }
+                    });
+                });
+                promise.then(
+                    result => {
+
+                        //var resultFavorite =  await ssoService.getFavorites(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify({min:id}));
+                        var resultJson = result.data;
+                        //var resultFavoriteJson = JSON.parse(resultFavorite).data;
+                        var finalResult = {
+                            "data" :[]
+                        };
+
+                        for(var i = 0; i < resultJson.length; i++){
+                            var item:any ={
+                                "id": resultJson[i].catProductNo,
+                                "code": resultJson[i].catProductCode,
+                                "name": resultJson[i].catDescription,
+                                "ssoBrands": resultJson[i].ssoBrands,
+                                "description": resultJson[i].catLongDescription,
+                                "categories" : [],
+                                "points" : resultJson[i].catNumPoints,
+                                "stock" : resultJson[i].catAvailableStock,
+                                "favorite": false,
+                                "giftable": resultJson[i].catPasaRewardsEnabled == '1' ? true : false,
+                                "expiry": resultJson[i].catEndDate,
+                                "imageUrl": resultJson[i].catProductImagePath
+                            };
+
+                            /*
+                            for(var j = 0; j < resultFavoriteJson.length; j++){
+
+                                if(resultJson[i].catProductCode === resultFavoriteJson[j].catProductCode){
+                                    item.favorite = true;
+                                    break;
+                                }
+
+                            }
+                           */
+
+                            if(resultJson[i].catCategory === "15" ){
+                                item.categories.push("Most Popular");
+                            }
+                            else if(resultJson[i].catCategory === "19" ){
+                                item.categories.push("Deals");
+                            }
+                            else if(resultJson[i].catCategory === "20" ){
+                                item.categories.push("Lifestyle");
+                            }
+                            else if(resultJson[i].catCategory === "21" ){
+                                item.categories.push("Mobile");
+                            }
+
+                            var rules:string = 'Most Popular,Deals,Lifestyle,Mobile,Prepaid,Postpaid,Bro Prepaid,Bro Postpaid'
+
+                            var catProductValues = 	resultJson[i].catProductValues.split(',');
+                            for(var j = 0; j < catProductValues.length; j++){
+                                if(catProductValues[j].indexOf('Sun') > -1 || catProductValues[j].indexOf('SUN') > -1){
+                                    continue;
+                                }
+
+                                var temp:any = catProductValues[j];
+
+                                if(catProductValues[j].startsWith('GSM ')){
+                                    temp = catProductValues[j].replace('GSM ','');
+                                }
+
+                                if(rules.indexOf(temp) > -1){
+                                    item.categories.push(temp);
+                                }
+                            }					
+                            finalResult.data.push(item);
+                        }
+
+
+                        res.json(finalResult);
+
+                        //res.json(response);
+                    }, err => {
+                        console.log('error');
+                    }
+                );
                 
+                /*
                 var token:string = req.get("Authorization");
                 token = token.replace('Bearer ','');
                 
@@ -73,20 +201,135 @@ var config = require('../config/config');
                     res.sendStatus(403);
                 }
 
-                //console.log(token);
-                //console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
                 try {  
                     var result =  await ssoService.getListOfRedeemableItems(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
                     console.log(result);
-                    // var resJson = JSON.parse(result);       
                     
                     res.json(JSON.parse(result));
                 }
                 catch (err) {
                     console.log(err);
                 }
+                */
+            }
+
+            async refreshCatalog(req, res): Promise<void> {
+                console.log('refresh catalog');
+
+                let client = redis.createClient();
+
+                var token:string = req.get("Authorization");
+                token = token.replace('Bearer ','');
+                
+                var nJwt = require('njwt');  
+                try{
+                    var jwt = nJwt.verify(token,config.signingKey);
+                }catch(e){
+                    res.sendStatus(403);
+                }
+
+                const ssoService:SSO.sso = new SSO.sso();
+
+                try {  
+                    req.query.min = "9999924161";
+                    req.query.pagesize = "100000";
+                    req.query.pagepage = "1";
+                    console.log('before api call');
+                    let result = await ssoService.getListOfRedeemableItems(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
+                    console.log('after api call');
+                    
+                    let catalogs = JSON.parse(result);
+                    const now = new Date();
+                    catalogs.data = catalogs.data.filter(catalog => {
+                        const expiryDate = new Date(catalog.catEndDate);
+                        const expired = !(expiryDate > now);
+                        if (expired) {
+                            // remove from most popular
+                            client.zrem(['mostpopular', catalog.catProductNo]);
+                        } else {
+                            // add to most popular if not exists
+                            client.zrank(['mostpopular', catalog.catProductNo], (err, reply) => {
+                                if (reply == null) {
+                                    client.zadd(['mostpopular', 0, catalog.catProductNo]);
+                                }
+                            });
+                        }
+                        return !expired;
+                    });
+                    let brandMap: { [id: string] : string; } = {};
+                    brandMap['GOLD'] = 'Postpaid';
+                    brandMap['BUDDY'] = 'Prepaid';
+                    brandMap['PLUGIT'] = 'BroPostpaid';
+                    brandMap['SHAREIT'] = 'BroPostpaidShareIt';
+                    brandMap['SPBRO'] = 'BroPrepaid';
+                    brandMap['SU'] = 'PostpaidServiceUnit';
+                    brandMap['INFINITY'] = 'Infinity';
+                    brandMap['TNT'] = 'TalkNText';
+                    catalogs.data.forEach(catalog => {
+                        let stockLevel: number = 0;
+                        if (catalog.catAvailableStock > 10) {
+                            stockLevel = 1;
+                        }
+                        if (catalog.catAvailableStock > 30) {
+                            stockLevel = 2;
+                        }
+                        catalog.stockLevel = stockLevel;
+
+                        catalog.ssoBrands = [];
+                        catalog.catProductValues.split(',').forEach(e => {
+                            if (brandMap[e]) {
+                                catalog.ssoBrands.push(brandMap[e]);
+                            }
+                        });
+                    });
+                    client.set('catalogs:all', JSON.stringify(catalogs));
+                    /*
+                    let brands = [
+                        "ADDICT","BUDDY","BUDDY_IN",
+                        "GOLD","GOLDPS","INFINITY",
+                        "SPBRO","GSM Prepaid","GSM Postpaid",
+                        "Bro Prepaid","Bro Postpaid","PLUGIT",
+                        "TNT","Sun Broadband FLP","Sun GSM FLP","SHAREIT"
+                    ];
+                   */
+                    let brands = [
+                        'Postpaid', 'Prepaid', 'BroPostpaid',
+                        'BroPostpaidShareIt', 'BroPrepaid',
+                        'PostpaidServiceUnit', 'Infinity', 'TalkNText'
+                    ];
+                    let brandMap2: { [id: string] : string; } = {};
+                    brandMap2['Postpaid'] = 'GOLD';
+                    brandMap2['Prepaid'] = 'BUDDY';
+                    brandMap2['BroPostpaid'] = 'PLUGIT';
+                    brandMap2['BroPostpaidShareIt'] = 'SHAREIT';
+                    brandMap2['BroPrepaid'] = 'SPBRO';
+                    brandMap2['PostpaidServiceUnit'] = 'SU';
+                    brandMap2['Infinity'] = 'INFINITY';
+                    brandMap2['TalkNText'] = 'TNT';
+                    // filter based on brands
+                    brands.forEach(brand => {
+                        const ids: number[] = catalogs.data.filter(catalog => {
+                            return catalog.catProductValues.split(",").indexOf(brandMap2[brand]) > -1;
+                        }).map(catalog => catalog.catProductNo);
+                        const keyName = 'catalogItems:' + brand;
+                        client.del(keyName);
+                        let params = [keyName].concat(ids);
+                        if (params.length > 1) {
+                            client.sadd(params);
+                        }
+                    });
+
+                    res.sendStatus(200);
+
+                }
+                catch (err) {
+                    console.log(err);
+                }
+
+                console.log('finished redis');
+
             }
             
             async getFavorites(req:string,res:string) : Promise<string> {
@@ -300,7 +543,7 @@ var config = require('../config/config');
                 //var min:string =  req.query.min;
                 token = token.replace('Bearer ','');
              
-               // var data  = {
+                // var data  = {
                    //min: req.params.min
                 //}
                 
@@ -322,6 +565,8 @@ var config = require('../config/config');
                       
                       let resultArray: any[] = [];
 
+                      let client = redis.createClient();
+
                       for(var i = 0; i < data.length; i++){
                           
                           if(data[i].type === 'catalog'){
@@ -331,7 +576,7 @@ var config = require('../config/config');
                                     productCode: data[i].catalog.code,
                                     quantity: data[i].catalog.quantity,
                                     channel: data[i].channel,
-                                    destLoyaltyId: data[i].catalog.dest
+                                    destLoyaltyId: data[i].catalog.dest == req.params.min ? "" : data[i].catalog.dest
                                 };
                               
                                 /*
@@ -350,6 +595,8 @@ var config = require('../config/config');
                                           status: 200,
                                           productCode: data[i].catalog.code
                                       });
+                                      // increment most popular
+                                      client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
                                   } else {
                                       resultArray.push(errorCheckRes);
                                   }
@@ -443,7 +690,6 @@ var config = require('../config/config');
                 try {  
                     var result =  await ssoService.getCatalogById(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query), id);
                     var resultFavorite =  await ssoService.getFavorites(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify({min:id}));
-                    //console.log(result);
                     var resultJson = JSON.parse(result).data;
                     var resultFavoriteJson = JSON.parse(resultFavorite).data;
                     console.log(result);

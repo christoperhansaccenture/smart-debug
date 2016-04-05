@@ -19,16 +19,17 @@ import {VerificationFormComponent} from './verificationForm.component';
     ]
 })
 @RouteConfig([
-    {
-        path: '/',
-        name: 'GetStarted',
-        component: GetStartedComponent,
-		useAsDefault: true
-    },
+    // {
+    //     path: '/',
+    //     name: 'GetStarted',
+    //     component: GetStartedComponent,
+	// 	useAsDefault: true
+    // },
 	{
         path: '/login',
         name: 'Login',
-        component: LoginComponent
+        component: LoginComponent,
+        useAsDefault: true
     },
 	{
         path: '/register',

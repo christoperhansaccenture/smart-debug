@@ -4,6 +4,7 @@ export class Catalog {
     name: string;
     description: string;
     imageUrl: string;
+    ssoBrands: string[];
     categories: string[];
     points: number;
     stock: number;

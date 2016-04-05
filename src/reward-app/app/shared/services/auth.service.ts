@@ -7,6 +7,7 @@ import {Http} from 'angular2/http';
 import {Connection} from 'angular2/http';
 import {RequestOptions} from 'angular2/http';
 import {SmartIntegrationService} from './smart-integration.service';
+import {AccountService} from './account.service';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +21,8 @@ export class AuthService {
     
     constructor (private _http: Http,
     private _router:Router,
-    private _smartIntegrationService: SmartIntegrationService) {
+    private _smartIntegrationService: SmartIntegrationService,
+                private _accountService: AccountService) {
         // get service base from config file
         var url = 'services/api.json';
         this._http.get(url,
@@ -106,8 +108,16 @@ export class AuthService {
             this.refreshAccessToken()
             .subscribe(
                 response => {
+                    /*
                     localStorage.setItem('accessToken', response.json().accessToken);  
                     this._router.navigate(['MyRewards']);  
+                   */
+                    localStorage.setItem('accessToken', response.json().accessToken);  
+                    this._accountService.getMobileNumberlistFromBackEndPromise(true).then(
+                        resolve => {
+                            this._router.navigate(['MyRewards']);  
+                        }
+                    );
                 },
                 error =>{
                     this.logOut();
@@ -148,11 +158,16 @@ export class AuthService {
             response => {
                 
                 localStorage.setItem('phoneNumber',userId);
+                localStorage.setItem('mobileNo',userId);
                 
                 localStorage.setItem('accessToken', response.json().token);  
                 localStorage.setItem('refreshToken', response.json().refreshToken);
-                this._router.navigate(['MyRewards']);  
-                this.isLoadingLogin = false;
+                this._accountService.getMobileNumberlistFromBackEndPromise(true).then(
+                    resolve => {
+                        this._router.navigate(['MyRewards']);  
+                        this.isLoadingLogin = false;
+                    }
+                );
                 
             },
             error =>{

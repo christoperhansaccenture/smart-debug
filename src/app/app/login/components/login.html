@@ -1,8 +1,9 @@
 <div class="containerLoginSmall">
 	<div class="outer-box">
+        <div class="smartLogo"></div>
 		<div class="header">Enter your My Smart details to continue</div>
 		<div class="inner-box">
-			<input class="smartnumber" placeholder="Smart number or email address" [(ngModel)]="userId" />
+			<input placeholder="Smart number or email address" [(ngModel)]="userId" />
 			<input placeholder="Password" type="password" [(ngModel)]="password" />
 			<div class="button">
                 <a (click)="login($event)" *ngIf="!getLoadingState()">Log In</a>

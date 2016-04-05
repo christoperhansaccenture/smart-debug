@@ -815,6 +815,16 @@ var config = require('../config/config');
             }
             
             async requestMobileNoList(req:string,res:string) : Promise<string> {
+
+                let brandMap: { [id: string] : string; } = {};
+                brandMap['50000'] = 'Prepaid';
+                brandMap['50001'] = 'Postpaid';
+                brandMap['50002'] = 'TalkNText';
+                brandMap['50005'] = 'BroPrepaid';
+                brandMap['50006'] = 'BroPostpaid';
+                brandMap['50008'] = 'BroPostpaidShareIt';
+                brandMap['50014'] = 'PostpaidServiceUnit';
+                brandMap['50027'] = 'Infinity';
                 
                 var token:string = req.get("Authorization");
                 //var min:string =  req.query.min;
@@ -837,8 +847,12 @@ var config = require('../config/config');
                     var result =  await ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
                     console.log(result);
                     // var resJson = JSON.parse(result);       
+                    result = JSON.parse(result);
+                    result.SubscriptionList.forEach(subs => {
+                        subs.ssoBrand = brandMap[subs.BrandTypeId];
+                    });
                     
-                    res.json(JSON.parse(result));
+                    res.json(result);
                 }
                 catch (err) {
                     console.log(err);
@@ -935,7 +949,7 @@ var config = require('../config/config');
                         phoneData: [],
                         rewards: '0',
                         expPoints: '0',
-                        expDate: ''    
+                        expDate: ''
                     };
                     
                     //var listOfMobile = [];
@@ -1113,7 +1127,39 @@ var config = require('../config/config');
                     }
                     
                     // var resJson = JSON.parse(result);       
-                    console.log(userData);
+                    console.log('before last: ' + userData);
+                    
+                    // get brands
+                    let brandMap: { [id: string] : string; } = {};
+                    brandMap['50000'] = 'Prepaid';
+                    brandMap['50001'] = 'Postpaid';
+                    brandMap['50002'] = 'TalkNText';
+                    brandMap['50005'] = 'BroPrepaid';
+                    brandMap['50006'] = 'BroPostpaid';
+                    brandMap['50008'] = 'BroPostpaidShareIt';
+                    brandMap['50014'] = 'PostpaidServiceUnit';
+                    brandMap['50027'] = 'Infinity';
+
+                    try {  
+                        var result =  await ssoService.requestMobileNoList(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify({}));
+                        console.log(result);
+                        // var resJson = JSON.parse(result);       
+                        result = JSON.parse(result);
+                        result.SubscriptionList.forEach(subs => {
+                            //subs.ssoBrand = brandMap[subs.BrandTypeId];
+                            userData.phoneData.forEach(phone => {
+                                if (phone.phoneNo == subs.Subscription) {
+                                    console.log('match for: ' + phone.phoneNo);
+                                    phone.ssoBrand = brandMap[subs.BrandTypeId];
+                                }
+                            });
+                        });
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+                    // end brands
+
                     res.json(userData);
                 }
                 catch (err) {
