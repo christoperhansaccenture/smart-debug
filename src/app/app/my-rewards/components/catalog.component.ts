@@ -80,5 +80,15 @@ export class CatalogComponent  {
         else
             return null;
     }
+    
+    getMobile() {
+         if (this._catalogService.catalogs) {
+             return this._catalogService.catalogs
+                 .filter(e => e.categories.indexOf('Mobile') > -1).length;
+         }
+         else
+             return null;
+     }
+
 	
 }
