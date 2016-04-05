@@ -1,0 +1,110 @@
+<div class="smartBillSettingContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Settings</div>
+                <div class="headerSubText">Manage your billing preference</div>
+            </div>
+        </div>
+        <div class="itemContainer withMarginTop" (click)="toggleBillSettingModal()">
+            <div class="itemIdentifier">Credit Limit</div>
+            <div class="ic_edit"></div>
+            <div class="itemValue">P1,500</div>
+        </div>
+        <div class="separator"></div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Billing Cycle
+                <small class="info">Of the month</small>
+            </div>
+            <div class="itemValue">19th</div>
+        </div>
+        <div class="separator"></div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">Auto Debit
+                <div class="ic_mastercard">xxxx-7890</div>
+            </div>
+            <div class="itemValue">Enrolled</div>
+        </div>
+        <div class="separator"></div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">eBilling
+                <small class="info">tiffany@gmail.com</small>
+            </div>
+            <div class="itemValue">Enrolled</div>
+        </div>
+        <div class="separator"></div>
+        <div class="itemContainer">
+            <div class="itemIdentifier fullwidth">Billing Address</div>
+            <div class="itemValue fullwidth">
+                35th Dela Rosa Street, Makati, Metro Manila
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="itemFooterContainer">
+            <small>Data as of 21 March,  20:05</small>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartBillSettingContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartBillSettingContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="categoryHeader">Settings</div>
+                        <div class="separator"></div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Credit Limit</div>
+                            <div class="ic_edit"></div>
+                            <div class="itemValue">P1,500</div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Billing Cycle
+                                <small class="info">Of the month</small>
+                            </div>
+                            <div class="ic_edit"></div>
+                            <div class="itemValue">19th</div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">Auto Debit
+                                <div class="ic_mastercard">xxxx-7890</div>
+                            </div>
+                            <div class="ic_edit"></div>
+                            <div class="itemValue">Enrolled</div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier">eBilling
+                                <div class="value">tiffany@gmail.com</div>
+                            </div>
+                            <div class="ic_edit"></div>
+                            <div class="itemValue">Enrolled</div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="itemContainer">
+                            <div class="itemIdentifier fullwidth">Billing Address</div>
+                            <div class="ic_edit"></div>
+                            <div class="itemValue fullwidth">
+                                35th Dela Rosa Street, Makati, Metro Manila
+                            </div>
+                        </div>
+                        <div class="itemFooterContainer">
+                            <div class="button disable">Update</div>
+                            <br/>
+                            <small>Data as of 21 March,  20:05</small>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

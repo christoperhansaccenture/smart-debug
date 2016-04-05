@@ -1,4 +1,4 @@
-<div class="footerMenu" *ngIf="getLayout().appFooter && !getResize().largeUp" *ngIf="getAppLayout().reward">
+<div class="footerMenu" *ngIf="getLayout().appFooter && !getResize().largeUp && getAppLayout().reward">
     <div class="column" (click)="gotoHome()">
         <div class="home" [ngClass]="{ active : getFooterState().home}"></div>
         <div class="text" [ngClass]="{ active : getFooterState().home}">Home</div>
@@ -20,26 +20,26 @@
         <div class="text" [ngClass]="{ active : getFooterState().transfer}">Transfer</div>
     </div>
 </div>
-<div class="footerMenu" *ngIf="getLayout().appFooter && !getResize().largeUp" *ngIf="getAppLayout().smart">
-    <div class="column">
+<div class="footerMenu" *ngIf="getLayout().appFooter && !getResize().largeUp && getAppLayout().smart">
+    <div class="column" (click)="gotoSmartHome()">
         <div class="home" [ngClass]="{ active : getFooterState().home}"></div>
         <div class="text" [ngClass]="{ active : getFooterState().home}">Home</div>
     </div>
-    <div class="column">
-        <div class="addon" [ngClass]="{ active : getFooterState().perks}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().perks}">Buy Add-Ons</div>
+    <div class="column" (click)="gotoAddOns()">
+        <div class="addon" [ngClass]="{ active : getFooterState().addon}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().addon}">Buy Add-Ons</div>
     </div>
-    <div class="column">
-        <div class="catalog" [ngClass]="{ active : getFooterState().catalog}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().catalog}">Bill & Balance</div>
+    <div class="column" (click)="gotoBillBalance()">
+        <div class="billbalance" [ngClass]="{ active : getFooterState().billbalance}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().billbalance}">Bill &amp; Balance</div>
     </div>
-    <div class="column">
-        <div class="message" [ngClass]="{ active : getFooterState().paybill}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().paybill}">Messages</div>
+    <div class="column" (click)="gotoMessage()">
+        <div class="message" [ngClass]="{ active : getFooterState().message}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().message}">Messages</div>
     </div>
-    <div class="column">
-        <div class="transfer" [ngClass]="{ active : getFooterState().transfer}"></div>
-        <div class="text" [ngClass]="{ active : getFooterState().transfer}">Plan Details</div>
+    <div class="column" (click)="gotoPlan()">
+        <div class="plan" [ngClass]="{ active : getFooterState().plan}"></div>
+        <div class="text" [ngClass]="{ active : getFooterState().plan}">Plan Details</div>
     </div>
 </div>
 

@@ -596,7 +596,8 @@ var config = require('../config/config');
                                           productCode: data[i].catalog.code
                                       });
                                       // increment most popular
-                                      client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
+                                      //console.log('catalog: ' + data[i].catalog);
+                                      //client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
                                   } else {
                                       resultArray.push(errorCheckRes);
                                   }
