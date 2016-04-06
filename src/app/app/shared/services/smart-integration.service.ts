@@ -33,20 +33,26 @@ export class SmartIntegrationService {
 
     getCatalogs() {
         let min = localStorage.getItem('phoneNumber');
+        //let brands = JSON.parse(localStorage.getItem('brands'));
+        //let brands = this._accountService.mobileNoList.map(phone => phone.ssoBrand);
+        //let brands = ['Infinity'];
+        let brands = JSON.parse(localStorage.getItem('brands'));
+        console.log('get catalog brands: ' + JSON.stringify(brands));
 
-        let url = this.serviceBase + '/customer/' + min + '/catalog?pagesize=200&pagepage=1';
+        let url = this.serviceBase + '/catalog?brands=' + brands.join(',');
+        //let url = this.serviceBase + '/customer/' + min + '/catalog?pagesize=200&pagepage=1';
         //let url = this.serviceBase + '/customer/' + min + '/catalog';
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/success.json';
 
-        //return this._http.get(url);
-        
+        return this._http.get(url);
+        /*
         return this._http.get(url,
         <RequestOptionsArgs> {headers: new Headers(
                 {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+             'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'))
             })});
-           
+           */
     }
     
     getActivityHistory() {
