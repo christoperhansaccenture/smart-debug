@@ -73,8 +73,8 @@
                 </div>
             </div>
         </div>
-        <select class="phoneNumber">
-            <option *ngFor="#phone of getListOfPhone()">+63{{ phone.phoneNo }}</option>
+        <select class="phoneNumber" [(ngModel)]="selectedPhone" (ngModelChange)="phoneChange($event)">
+            <option *ngFor="#phone of getListOfPhone()" [value]="phone.phoneNo">+63{{ phone.phoneNo }}</option>
         </select>
     </div>
     <div class="menuItemBox">

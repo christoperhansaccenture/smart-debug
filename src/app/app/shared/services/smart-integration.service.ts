@@ -32,7 +32,7 @@ export class SmartIntegrationService {
 
 
     getCatalogs() {
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         //let brands = JSON.parse(localStorage.getItem('brands'));
         //let brands = this._accountService.mobileNoList.map(phone => phone.ssoBrand);
         //let brands = ['Infinity'];
@@ -60,7 +60,7 @@ export class SmartIntegrationService {
         //var url = 'http://localhost:8080/catalog';
         //var url = 'services/activity.json';        
         
-        var data = "?min=" + localStorage.getItem('phoneNumber') + "&actvityType=0&fromDate=2015-05-01&endDate=2016-03-16&pagesize=1000&pagepage=1";
+        var data = "?min=" + localStorage.getItem('mobileNo') + "&actvityType=0&fromDate=2015-05-01&endDate=2016-03-16&pagesize=1000&pagepage=1";
 
         return this._http.get(url + data,
         <RequestOptionsArgs> {headers: new Headers(
@@ -70,7 +70,7 @@ export class SmartIntegrationService {
     }
 
     confirmOrder(items: CartItem[]) {
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         var url = this.serviceBase + '/customer/' + min + '/redeem';
 
         let data = items.map(item => {
@@ -88,7 +88,7 @@ export class SmartIntegrationService {
                     merchantIdentifier: item.merchantIdentifier,
                     amount: item.amount,
                     pin: item.pin,
-                    ref: item.getSendTo()
+                    ref: item.ref
                     //ref: item.ref
                 };
             }
@@ -107,7 +107,7 @@ export class SmartIntegrationService {
     }
 
     updateFavorite(catalog: Catalog) {
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         var url = this.serviceBase + '/customer/' + min + '/catalog/' + catalog.id + '/favorite';
         if (catalog.favorite) {
             console.log('mark as favorite: ' + url);
@@ -126,7 +126,7 @@ export class SmartIntegrationService {
     }
     
     getMobileListNumber(){
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         let url = this.serviceBase + '/mobileNoList/' + min;      
 
         return this._http.get(url,
@@ -138,7 +138,7 @@ export class SmartIntegrationService {
     }
     
     getProfileInformation(){
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         let url = this.serviceBase + '/customerInformation/' + min;      
 
         return this._http.get(url,
@@ -150,7 +150,7 @@ export class SmartIntegrationService {
     }
     
     updateProfileInformation(userProfile:string){
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         let url = this.serviceBase + '/customerInformation/' + min;      
 
         return this._http.put(url,userProfile,

@@ -179,7 +179,12 @@ export class ConfirmOrderComponent  {
         let items = this.getItems();
         for (var index = 0; index < items.length; index++) {
             var element = items[index];
-            ga('send','event','Order','item ordered',element.catalog.name);
+            if(element.isBill()){
+                ga('send','event','Order','item ordered',"Pay bill with points");
+            }else{
+                ga('send','event','Order','item ordered',element.catalog.name);
+            }
+            
         }
     }
 	

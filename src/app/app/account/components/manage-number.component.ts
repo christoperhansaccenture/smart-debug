@@ -42,6 +42,10 @@ export class ManageNumberComponent  {
 		this.userPhoneNumber = this._accountService.mobileNoList;
         
 	}
+    
+    getSpinnerStatus(){
+        return this._accountService.spinnerAccount;
+    }
 	
 	getResize(){
         return this._matchMediaService.getmm();  

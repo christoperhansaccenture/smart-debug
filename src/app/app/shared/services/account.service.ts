@@ -9,8 +9,8 @@ export class AccountService {
     
     //TODO move these parameter to better implementation
     spinnerAccount = false;
-    spinnerActHistory = false;
     spinnerLoading = false;
+    spinnerProfile = false;
     
     selectedUserPhone:any = {
         phoneNo: "",
@@ -32,8 +32,16 @@ export class AccountService {
         private _router:Router,
         private _modalService:ModalService) {}
     
+    setSelectedUserPhoneByPhoneNo(phoneNo){
+        localStorage.setItem('mobileNo',phoneNo);
+        this.selectedUserPhone = this.mobileNoList.filter(e => e.phoneNo === phoneNo)[0];
+        sessionStorage.setItem('SelectedPhone',JSON.stringify(this.selectedUserPhone));
+    }
+    
     setSelectedUserPhone(userPhone){
+        localStorage.setItem('mobileNo',userPhone.phoneNo);
         this.selectedUserPhone = userPhone;
+        sessionStorage.setItem('SelectedPhone',JSON.stringify(userPhone));
     }
     
     getSelectedUserPhone(){
@@ -51,13 +59,13 @@ export class AccountService {
     
     getMobileNumberlist(){
         
-        var mobileInStorage = sessionStorage.getItem('mobileNo');
+        var mobileInStorage = localStorage.getItem('mobileNoList');
         //console.log(mobileInStorage);
         if(mobileInStorage === null || mobileInStorage === undefined ){
             //this.getMobileNumberlistFromBackEnd(true);
         }else{
             this.mobileNoList = JSON.parse(mobileInStorage);
-            this.selectedUserPhone = this.mobileNoList[0];
+            //this.selectedUserPhone = this.mobileNoList[0];
         }
         
         //return this.mobileNoList;
@@ -114,7 +122,7 @@ export class AccountService {
     
     getMobileNumberlistFromBackEnd(refresh:boolean){
         
-        var mobileInStorage = sessionStorage.getItem('mobileNo');
+        var mobileInStorage = localStorage.getItem('mobileNoList');
         
         if(refresh === true || mobileInStorage === null || mobileInStorage === undefined){
             
@@ -165,8 +173,8 @@ export class AccountService {
                     sessionStorage.setItem('rewardsData',JSON.stringify(this.rewardsData));
                     
                     console.log('mobile no list: ' + JSON.stringify(this.mobileNoList));
-                    sessionStorage.setItem('mobileNo',JSON.stringify(response.json().phoneData));
-                    let min = localStorage.getItem('phoneNumber');
+                    localStorage.setItem('mobileNoList',JSON.stringify(response.json().phoneData));
+                    let min = localStorage.getItem('mobileNo');
                     this.selectedUserPhone = this.mobileNoList.filter(e => e.phoneNo === min)[0];
                     sessionStorage.setItem('SelectedPhone',JSON.stringify(this.selectedUserPhone));
                     let brands = this.mobileNoList.filter(e => e.ssoBrand != null).map(phone => phone.ssoBrand);
@@ -187,10 +195,11 @@ export class AccountService {
         };
         
     }
-
+    
+    //call from login with resolve and reject
     getMobileNumberlistFromBackEndPromise(refresh:boolean){
         
-        var mobileInStorage = sessionStorage.getItem('mobileNo');
+        var mobileInStorage = localStorage.getItem('mobileNoList');
         
         if(refresh === true || mobileInStorage === null || mobileInStorage === undefined){
             
@@ -242,8 +251,8 @@ export class AccountService {
                         sessionStorage.setItem('rewardsData',JSON.stringify(this.rewardsData));
 
                         console.log('mobile no list: ' + JSON.stringify(this.mobileNoList));
-                        sessionStorage.setItem('mobileNo',JSON.stringify(response.json().phoneData));
-                        let min = localStorage.getItem('phoneNumber');
+                        localStorage.setItem('mobileNoList',JSON.stringify(response.json().phoneData));
+                        let min = localStorage.getItem('mobileNo');
                         this.selectedUserPhone = this.mobileNoList.filter(e => e.phoneNo === min)[0];
                         sessionStorage.setItem('SelectedPhone',JSON.stringify(this.selectedUserPhone));
                         let brands = this.mobileNoList.map(phone => phone.ssoBrand);
@@ -269,7 +278,7 @@ export class AccountService {
         var userProfileInStorage = sessionStorage.getItem('userProfile');
         
         if(refresh === true || userProfileInStorage === null || userProfileInStorage === undefined){
-        
+            this.spinnerProfile = true;
             var promise = this._smartIntegrationService.getProfileInformation();
             
             promise.subscribe(
@@ -277,10 +286,11 @@ export class AccountService {
                     
                     this.userProfile = response.json();
                     sessionStorage.setItem('userProfile',JSON.stringify(response.json()));
-                    
+                    this.spinnerProfile = false;
                 },
                 error =>{
                     console.log('not authorize?');
+                    this.spinnerProfile = false;
                 }
             );
         }

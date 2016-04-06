@@ -26,6 +26,10 @@ export class ProfileComponent  {
         
 	}
     
+    getSpinnerStatus(){
+        return this._accountService.spinnerProfile;
+    }
+    
     getUserProfile(){
         return this._accountService.getUserProfile();
     }

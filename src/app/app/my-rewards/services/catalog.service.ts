@@ -117,7 +117,7 @@ export class CatalogService {
                         
                         sessionStorage.setItem('catalog', JSON.stringify(response.json().data));
 
-                        let min = localStorage.getItem('phoneNumber');
+                        let min = localStorage.getItem('mobileNo');
                         let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
                         console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
                         this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
@@ -151,7 +151,7 @@ export class CatalogService {
                 c.expiry = new Date(e.expiry);
                 return c;
             });
-            let min = localStorage.getItem('phoneNumber');
+            let min = localStorage.getItem('mobileNo');
             console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
             let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
             console.log('currentPhone: ' + JSON.stringify(currentPhone));
