@@ -15,6 +15,7 @@ import {MobileItemBeltComponent} from './mobile-item-belt.component';
 import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
 import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 //import { Layout } from '../../model/layout';
+declare var ga:any;
 
 @Component({
     selector: 'overview',
@@ -73,6 +74,7 @@ export class OverviewComponent  {
     gotoAccountOverview(){
         this._layoutService.accountFromHome = true;
         this._router.navigate(['AccountOverview']);
+        ga('send','event','Button Clicked','Account Overview','');
     }
     
     goToCatalogList(category: string) {
@@ -86,6 +88,7 @@ export class OverviewComponent  {
         }
         // go to page
         this._router.navigate(['CatalogList']);
+        ga('send','event','Button Clicked','Catalog List',category);
     }
 	
     getCategories() {

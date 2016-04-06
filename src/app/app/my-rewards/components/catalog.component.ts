@@ -12,6 +12,7 @@ import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
 import {RewardTypeService} from '../services/reward-type.service';
 import {CatalogService} from '../services/catalog.service';
 import {AccountService} from '../../shared/services/account.service';
+declare var ga:any;
 
 @Component({
     selector: 'overview',
@@ -70,6 +71,7 @@ export class CatalogComponent  {
         }
         // go to page
         this._router.navigate(['CatalogList']);
+        ga('send','event','Button Clicked','Catalog List',category);
     }
 
     getFavorites() {

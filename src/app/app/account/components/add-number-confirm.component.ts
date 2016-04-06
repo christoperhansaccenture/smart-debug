@@ -4,6 +4,7 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'add-number-konfirmasi',
@@ -41,6 +42,7 @@ export class AddNumberConfirmComponent  {
     toggleAddNumber(){
         this.addNumber.page = !this.addNumber.page;
         this.addNumber.first = !this.addNumber.first;
+        ga('send','event','Button Clicked','toggleAddNumber','');
     }
     
     AddNumber(){
@@ -50,6 +52,7 @@ export class AddNumberConfirmComponent  {
     close(){
         this.modalSuccess = false;
         this._router.navigate(['ManageNumber']);
+        ga('send','event','Button Clicked','ManageNumber','');
     }
 	
 }

@@ -5,6 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {ActivityHistoryService} from '../services/activity-history.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'account-overview',
@@ -79,31 +80,37 @@ export class ActivityHistoryComponent  {
     toggleEarning() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.earning = !this.getFilter().categories.earning;
+        ga('send','event','Button Clicked','toggleEarning','');
     }
     
     toggleRedemption() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.redemption = !this.getFilter().categories.redemption;
+        ga('send','event','Button Clicked','toggleRedemption','');
     }
     
     toggleTransfer() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.transfer = !this.getFilter().categories.transfer;
+        ga('send','event','Button Clicked','toggleTransfer','');
     }
     
     toggleRegistration() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.registration = !this.getFilter().categories.registration;
+        ga('send','event','Button Clicked','toggleRegistration','');
     }
     
     toggleInquiry() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.inquiry = !this.getFilter().categories.inquiry;
+        ga('send','event','Button Clicked','toggleInquiry','');
     }
     
     toggleLinking() {
         this.getFilter().clearNonFilter();
         this.getFilter().categories.linking = !this.getFilter().categories.linking;
+        ga('send','event','Button Clicked','toggleLinking','');
     }
 	
 }

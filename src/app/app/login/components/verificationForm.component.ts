@@ -3,6 +3,7 @@ import { Router } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {PageNavigationService} from '../../shared/services/page-navigation.service';
+declare var ga:any;
 
 @Component({
     selector: 'verificationForm',
@@ -35,11 +36,13 @@ export class VerificationFormComponent {
                 let link;
                 link = ['NewPassword'];
                 this._router.navigate(link);
+                ga('send','event','Account Management','Password Changed','');
             }
             else if(this._pageNavigationService.getPreviousPage() == 'Register'){
                 let link;
                 link = ['Login'];
                 this._router.navigate(link);
+                ga('send','event','Account Management','New Account Registered','');
             }
             
         }

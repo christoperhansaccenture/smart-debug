@@ -6,6 +6,7 @@ import {CartService} from '../../shared/services/cart.service';
 import {ItemBeltComponent} from './item-belt.component';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'overview',
@@ -47,6 +48,7 @@ export class PayBillComponent  {
         if (this.isFormValid()) {
             this._cartService.addBillToCart(this.selection, this.number, this.amount, this.pin);
             this.resetForm();
+            ga('send','event','Order','Add Item to Cart','Pay Bill ' + this.selection);
         }
     }
 

@@ -5,6 +5,7 @@ import {AuthService} from '../services/auth.service';
 import {AccountService} from '../../shared/services/account.service';
 import {CatalogService} from '../../my-rewards/services/catalog.service';
 import {CircularSpinnerComponent} from './spinners/circular-spinner.component';
+declare var ga:any;
 
 @Component({
     selector: 'left-menu',
@@ -51,10 +52,12 @@ export class LeftMenuComponent implements OnInit  {
     
     goToMyReward(){
         this._router.navigate(['MyRewards']);
+        ga('send','event','Button clicked','MyRewards','');
     }
     
     goToMySmart(){
         this._router.navigate(['MySmart']);
+        ga('send','event','Button clicked','MySmart','');
     }
     
     getAppLayout(){
@@ -78,6 +81,7 @@ export class LeftMenuComponent implements OnInit  {
     
     toggleLeftMenu(){
         this._layoutService.toggleLeftMenu();
+        ga('send','event','Button clicked','toggleLeftMenu','');
     }
     
     getLeftMenuState(){
@@ -86,24 +90,29 @@ export class LeftMenuComponent implements OnInit  {
     
     gotoProfile(){
         this._router.navigate(['Profile']);
+        ga('send','event','Button clicked','Profile','');
     }
     
     gotoAccountOverview(){
         this._layoutService.accountFromHome = false;
         this._router.navigate(['AccountOverview']);
+        ga('send','event','Button clicked','AccountOverview','');
     }
     
     gotoManageNumber(){
         this._router.navigate(['ManageNumber']);
+        ga('send','event','Button clicked','ManageNumber','');
     }
     
     gotoActivityHistory(){
         this._layoutService.historyFromAccount = false;
         this._router.navigate(['ActivityHistory']);
+        ga('send','event','Button clicked','ActivityHistory','');
     }
     
     logout(){
          this._authService.logOut();
+         ga('send','event','Button clicked','logOut','');
     }
     
     closeLeftMenu(){

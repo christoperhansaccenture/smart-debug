@@ -4,6 +4,7 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {ItemBeltComponent} from './item-belt.component';
 //import { Layout } from '../../model/layout';
+declare var ga:any;
 
 @Component({
     selector: 'overview',
@@ -36,31 +37,36 @@ export class MobileRewardComponent  {
     }
     
     activateType(type){
-        
+        let rewardtype = '';
         if(type===0){
             this.typeMenu.postpaid = true;
             this.typeMenu.prepaid = false;
             this.typeMenu.broPostpaid = false;
             this.typeMenu.broPrepaid = false;
+            rewardtype = 'Postpaid';
         }
         else if(type===1){
             this.typeMenu.postpaid = false;
             this.typeMenu.prepaid = true;
             this.typeMenu.broPostpaid = false;
             this.typeMenu.broPrepaid = false;
+            rewardtype = 'Prepaid';
         }
         else if(type===2){
             this.typeMenu.postpaid = false;
             this.typeMenu.prepaid = false;
             this.typeMenu.broPostpaid = true;
             this.typeMenu.broPrepaid = false;
+            rewardtype = 'BroPostpaid';
         }
         else if(type===3){
             this.typeMenu.postpaid = false;
             this.typeMenu.prepaid = false;
             this.typeMenu.broPostpaid = false;
             this.typeMenu.broPrepaid = true;
+            rewardtype = 'BroPrepaid';
         }
+        ga('send','event','Button Clicked','Select Reward Type',rewardtype);
     }
 	
 }

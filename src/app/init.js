@@ -44,7 +44,7 @@ function bootstrapWeb() {
       });
       System.import('app/main')
             .then(null, console.error.bind(console));
-    // ga('create', 'UA-69703910-1', 'auto');
+     ga('create', 'UA-75852872-3', 'auto');
 }
 
 function bootstrapApp() {
@@ -69,9 +69,9 @@ function bootstrapApp() {
       System.import('app/main')
             .then(null, console.error.bind(console));
 
- //    ga('create', 'UA-69703910-1', {'storage': 'none','clientId':device.uuid});
-	// ga('set','checkProtocolTask',null);
-	// ga('set','checkStorageTask',null);
+     ga('create', 'UA-75852872-2', {'storage': 'none','clientId':device.uuid});
+	 ga('set','checkProtocolTask',null);
+	 ga('set','checkStorageTask',null);
 }
 
 

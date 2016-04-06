@@ -3,6 +3,7 @@ import {CatalogService} from '../services/catalog.service';
 import {ModalService} from '../../shared/services/modal.service';
 import {StringTruncatePipe} from '../../shared/pipes/string-truncate.pipe';
 import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
+declare var ga:any;
 
 @Component({
     selector: 'all-category-item-belt',
@@ -50,6 +51,7 @@ export class AllCategoryItemBeltComponent implements OnInit {
     openCatalogDisplay(catalog) {
         this._catalogService.selectedCatalog = catalog;
         this._modalService.toggleCatalogDisplayModal();
+         ga('send','event','Button Clicked','Open Catalog Display',catalog.name);
     }
     
 }

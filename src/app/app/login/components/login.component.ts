@@ -5,6 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgModel} from 'angular2/common';
 import {HorizontalSpinnerComponent} from '../../shared/components/spinners/horizontal-spinner.component';
+declare var ga:any;
 
 @Component({
     selector: 'login',
@@ -48,17 +49,19 @@ export class LoginComponent {
         if(!this._authService.getLoadingState()){
             this._authService.login(this.userId,this.password);
         }
-
+        ga('send','event','Button Clicked','Login','');
     }
     
     gotoForgotPassword() {
         let link = ['ForgotPassword'];
         this._router.navigate(link);
+        ga('send','event','Button Clicked','Forgot Password','');
     }
 	
 	gotoRegister(){
 		let link = ['Register'];
         this._router.navigate(link);
+        ga('send','event','Button Clicked','Register','');
 	}
 	
 	getResize(){
