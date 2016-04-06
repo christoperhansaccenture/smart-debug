@@ -123,6 +123,15 @@ export class CartService {
             .subscribe(
                 response => {
                     console.log('success response: ' + JSON.stringify(response));
+                    /*
+                    let itemsArray: CartItem[] = [];
+                    for (let key in this._cartService.items) 
+                        items.push(this._cartService.items[key]);
+                    itemsArray.filter((e) => e.status == 200);
+                   */
+                  console.log('get mobile number list');
+                    this._accountService.getMobileNumberlistFromBackEnd(true);
+                  console.log('after get mobile number list');
                     this.items = {};
                     this._router.navigate(['MyRewards']);
                 },
