@@ -35,6 +35,7 @@ export class ActivityHistoryComponent  {
     
     toggleFilter(){
         this.historyFilter = !this.historyFilter;
+        ga('send','event','Button Clicked','toggleFilter','');
     }
 	
 	getResize(){
@@ -75,6 +76,7 @@ export class ActivityHistoryComponent  {
     
     toggleAllTransaction() {
         this.getFilter().reset();
+        ga('send','event','Button Clicked','toggleAllTransaction','');
     }
     
     toggleEarning() {

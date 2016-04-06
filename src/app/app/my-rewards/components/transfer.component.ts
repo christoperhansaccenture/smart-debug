@@ -82,7 +82,7 @@ export class TransferComponent  {
             this._accountService.transferPoints(transferData);     
             ga('send','event','Transfer','Transfer', transferData);
         }
-         ga('send','event','Button clicked','Transfer','');
+
     }
 	
 }

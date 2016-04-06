@@ -49,6 +49,7 @@ export class CatalogComponent  {
     
     openDetailPage(type:string){
         this._rewardTypeService.setSelectedType(type);
+        ga('send','event','Button Clicked','Open Detail',type);
     }
 
     goToCatalogList(category: string) {

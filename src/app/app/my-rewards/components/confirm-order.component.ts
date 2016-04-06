@@ -47,6 +47,7 @@ export class ConfirmOrderComponent  {
     
     goToPayBill(){
         this._router.navigate(['PayBill']);
+        ga('send','event','Button Clicked','PayBill','');
     }
 
     getCurrentPoints() {
@@ -89,11 +90,13 @@ export class ConfirmOrderComponent  {
 
     plusItem(item: CartItem) {
         item.amount++;
+        ga('send','event','Order','Add Item to Cart',item.catalog.name);
     }
 
     minusItem(item: CartItem) {
         if (item.amount > 1) {
             item.amount--;
+            ga('send','event','Order','Item Removed',item.catalog.name);
         }
     }
 
@@ -104,30 +107,35 @@ export class ConfirmOrderComponent  {
     toggleParentOneNumber() {
         this.getNumberSelection().oneNumber = !this.getNumberSelection().oneNumber;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleParentOneNumber','');
     }
 
     toggleParentMyNumber() {
         this.getNumberSelection().gift.checked = false;
         this.getNumberSelection().myNumber.checked = !this.getNumberSelection().myNumber.checked;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleParentMyNumber','');
     }
 
     toggleParentGift() {
         this.getNumberSelection().myNumber.checked = false;
         this.getNumberSelection().gift.checked = !this.getNumberSelection().gift.checked;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleParentGift','');
     }
 
     toggleMyNumber(item: CartItem) {
         item.numberSelection.gift.checked = false;
         item.numberSelection.myNumber.checked = !this.getNumberSelection().myNumber.checked;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleMyNumber','');
     }
 
     toggleGift(item: CartItem) {
         item.numberSelection.myNumber.checked = false;
         item.numberSelection.gift.checked = !item.numberSelection.gift.checked;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleGift','');
     }
 
     goToNext() {
