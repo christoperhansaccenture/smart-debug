@@ -37,8 +37,9 @@ export class ManageNumberComponent  {
 		private _layoutService: LayoutService,
         private _accountService: AccountService) {
 		
+        this._accountService.getMobileNumberlistFromBackEnd(false);
 		this._layoutService.setCurrentPage('ManageNumber');
-		this.userPhoneNumber = this._accountService.getMobileNumberlist();
+		this.userPhoneNumber = this._accountService.mobileNoList;
         
 	}
 	

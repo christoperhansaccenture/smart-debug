@@ -28,7 +28,7 @@ export class SmartLeftMenuComponent {
     }
     
     isSelected(phone){
-        if(phone.phoneNo === this._accountService.getSelectedUserPhone().phoneNo){
+        if(phone.phoneNo === this._accountService.selectedUserPhone.phoneNo){
             return true;
         }else{
             return false;
@@ -41,7 +41,7 @@ export class SmartLeftMenuComponent {
     }
     
     listOfMobileNumber(){
-        return this._accountService.getMobileNumberlist();
+        return this._accountService.mobileNoList;
     }
     
     toggleMyFavorites() {

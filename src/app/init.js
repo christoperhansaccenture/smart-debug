@@ -25,7 +25,7 @@ if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows 
     
 } else {
     
-    configChannel = 'app';
+    configChannel = 'web';
     
     console.log("UA: Running in browser");
     bootstrapWeb();    

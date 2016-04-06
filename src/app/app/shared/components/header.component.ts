@@ -9,6 +9,7 @@ import {MultiSliderComponent} from '../../shared/components/multi-slider.compone
 import {CartService} from '../../shared/services/cart.service';
 import {CatalogService} from '../../my-rewards/services/catalog.service';
 import {DesktopLeftMenuService} from '../../shared/services/desktop-left-menu.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
     selector: 'smart-header',
@@ -32,11 +33,12 @@ export class HeaderComponent {
         private _accountService: AccountService,
         private _catalogService: CatalogService,
         private _cartService: CartService,
-        private _desktopLeftMenuService: DesktopLeftMenuService) {}
+        private _desktopLeftMenuService: DesktopLeftMenuService,
+        private _authService: AuthService) {}
     
     
     getPointValue(){
-        return ( this._accountService.getRewardsBalance().rewards ? this._accountService.getRewardsBalance().rewards : 0 );
+        return ( this._accountService.rewardsData.rewards ? this._accountService.rewardsData.rewards : 0 );
     }
     
     toggleFilterFunction(){
@@ -174,6 +176,10 @@ export class HeaderComponent {
     goToAccount(){
         this._desktopLeftMenuService.isManageNumber();
         this._router.navigate(['ManageNumber']);
+    }
+    
+    logout(){
+         this._authService.logOut();
     }
     
 }

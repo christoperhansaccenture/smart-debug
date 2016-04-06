@@ -19,6 +19,10 @@ class MyOptions extends BaseRequestOptions {
 } 
 
 enableProdMode();
+// bootstrap(AppComponent,[
+//   	HTTP_PROVIDERS,provide(RequestOptions, {useClass: MyOptions})
+// ]);
+
 bootstrap(AppComponent,[
 	ROUTER_PROVIDERS,
 	provide(LocationStrategy, { useClass: HashLocationStrategy }),

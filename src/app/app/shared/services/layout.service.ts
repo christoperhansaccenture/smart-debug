@@ -699,14 +699,31 @@ export class LayoutService {
             this.footerState.paybill = false;
             this.footerState.transfer = false;
             this.footerState.message = false;
-            if (current == 'MySmart') this.footerState.home = true;
-            else this.footerState.home = false;
-            if (current == "BuyAddOns") this.footerState.addon = true;
-            else this.footerState.addon = false;
-            if(current == 'BillBalance') this.footerState.billbalance = true;
-            else this.footerState.billbalance = false;
-            if (current == 'MyPlan') this.footerState.plan = true;
-            else this.footerState.plan = false;
+            
+            if (current == 'MySmart') {
+                this.footerState.home = true;
+            }
+            else{ 
+                this.footerState.home = false;
+            }
+            if (current == "BuyAddOns"){
+                this.footerState.addon = true;
+            }
+            else{
+                this.footerState.addon = false;
+            }
+            if(current == 'BillBalance'){
+                this.footerState.billbalance = true;
+            }
+            else{
+                this.footerState.billbalance = false;
+            }
+            if (current == 'MyPlan'){
+                 this.footerState.plan = true;
+            }
+            else{
+                this.footerState.plan = false;
+            }
             
             this.headerItem.hamburger = true;
             this.headerItem.back = false;

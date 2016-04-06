@@ -22,9 +22,9 @@ export class LeftMenuComponent implements OnInit  {
     private _accountService: AccountService,
     private _authService: AuthService,
     private _catalogService: CatalogService){
-        
+        this._accountService.getMobileNumberlistFromBackEnd(false);
         let min = localStorage.getItem('phoneNumber');
-         this.selectedPhone = min;
+        this.selectedPhone = min;
         
     }
     
@@ -73,7 +73,7 @@ export class LeftMenuComponent implements OnInit  {
         return this._accountService.selectedUserPhone;
     }
     getListOfPhone(){
-        return this._accountService.getMobileNumberlist();
+        return this._accountService.mobileNoList;
     }
     
     toggleLeftMenu(){

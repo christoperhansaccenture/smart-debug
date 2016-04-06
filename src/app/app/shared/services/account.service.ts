@@ -60,7 +60,7 @@ export class AccountService {
             this.selectedUserPhone = this.mobileNoList[0];
         }
         
-        return this.mobileNoList;
+        //return this.mobileNoList;
         
     }
     
@@ -179,7 +179,12 @@ export class AccountService {
                     this.spinnerAccount = false;
                 }
             );
-        }
+        }else{
+            
+           this.getRewardsBalance();
+           this.getMobileNumberlist();
+            
+        };
         
     }
 
