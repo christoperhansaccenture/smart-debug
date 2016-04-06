@@ -4,12 +4,14 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 
 @Component({
     selector: 'manage-number',
     templateUrl: './app/account/components/manage-number.component.html',
     directives: [
-        SmartLeftMenuComponent
+        SmartLeftMenuComponent,
+        CircularSpinnerComponent
     ]
 })
 export class ManageNumberComponent  {

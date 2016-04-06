@@ -79,7 +79,7 @@
                     </div>
                     <div class="activityComponent">
                         <div class="categoryHeader">Activity History</div>
-                        <circular-spinner></circular-spinner>
+                        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
                         <div *ngIf="!getSpinnerStatus()">
                             <div class="itemBox" *ngFor="#activity of getActivity()">
                                 <div class="itemHeader">{{activity.type}}</div>
