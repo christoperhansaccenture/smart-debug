@@ -1,8 +1,68 @@
-<div class="modalBuyAddOnsContent">
+<div class="modalSettingContent" *ngIf="getBillSettingModalState().credit">
     <div class="modalBody">
-        <div class="itemHeader">Modal</div>
+        <div class="itemTitle">Credit</div>
+        <div class="itemRow">
+        	<input class="inputValue" placeholder="Enter credit amount" />
+        </div>
     </div>
     <div class="modalFooter">
-        <div class="button red" (click)="close()">Confirm &amp; Proceed</div>
+        <div class="button green" (click)="close()">Cancel</div>
+        <div class="button red" (click)="close()">OK</div>
     </div>
 </div>
+
+
+<div class="modalSettingContent" *ngIf="getBillSettingModalState().billcycle">
+    <div class="modalBody">
+        <div class="itemTitle">Billing Cycle</div>
+        <div class="itemRow withOverflow">
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 18th</label>
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 19th</label>
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 20th</label>
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 21th</label>
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 22th</label>
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 23th</label>	
+        	<label class="labelRadio"><input type="radio" name="billcycle"/> 24th</label>	
+        </div>
+    </div>
+    <div class="modalFooter">
+        <div class="button green" (click)="close()">Cancel</div>
+        <div class="button red" (click)="close()">OK</div>
+    </div>
+</div>
+
+
+<div class="modalSettingContent" *ngIf="getBillSettingModalState().ebill">
+    <div class="modalBody">
+        <div class="itemTitle">eBilling</div>
+        <div class="itemRow">
+        	<label class="labelRadio"><input type="radio" name="ebill"/> Enrolled</label>
+        	<label class="labelRadio"><input type="radio" name="ebill"/> Not Enrolled</label>
+        </div>
+    </div>
+    <div class="modalFooter">
+        <div class="button green" (click)="close()">Cancel</div>
+        <div class="button red" (click)="close()">OK</div>
+    </div>
+</div>
+
+
+<div class="modalSettingContent" *ngIf="getBillSettingModalState().billaddress">
+    <div class="modalBody">
+        <div class="itemTitle">Billing Address</div>
+        <div class="itemRow">
+        	<input class="inputValue" placeholder="Enter Street Address" />
+        	<select class="inputValue" aria-placeholder="Choose City">
+    			<option>Choose City</option>
+        	</select>
+        	<select class="inputValue" aria-placeholder="Choose Province">
+        		<option>Choose Province</option>
+        	</select>
+        </div>
+    </div>
+    <div class="modalFooter">
+        <div class="button green" (click)="close()">Cancel</div>
+        <div class="button red" (click)="close()">OK</div>
+    </div>
+</div>
+

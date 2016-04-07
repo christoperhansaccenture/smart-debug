@@ -176,6 +176,16 @@ export class SmartLeftMenuComponent {
         this._desktopLeftMenuService.isPasaload();
         this._router.navigate(['PasaLoad']);
     }
+
+    goToMessage() {
+        this._desktopLeftMenuService.isMessage();
+        this._router.navigate(['SmartMessage']);
+    }
+
+    goToEPin() {
+        this._desktopLeftMenuService.isEpin();
+        this._router.navigate(['SmartEPin']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;

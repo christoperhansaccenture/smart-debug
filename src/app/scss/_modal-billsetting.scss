@@ -1,0 +1,58 @@
+.modalSettingContent {
+    background-color: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid $lightgray;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    .modalBody {
+        display: inline-block;
+        width: calc(100% - 20px);
+        padding: 20px 10px 0px 10px;
+        .itemTitle {
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0px 0px 10px 0px;
+        }
+        .itemRow {
+            margin-bottom: 5px;
+            width: 100%;
+            display: inline-block;
+            &.withOverflow {
+                height: 132px;
+                overflow: auto;
+            }
+            .inputValue {
+                border: none;
+                border-bottom: 1px solid $smartgreen;
+                width: 100%;
+                margin: 10px 0px 10px 0px;
+            }
+            .labelRadio{
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+    .modalFooter {
+        width: calc(100% - 20px);
+        margin: 0px 10px 20px 10px;
+        .button {
+            width: 35%;
+            line-height: 1.5rem;
+            margin-top: 5px;
+            display: inline-block;
+            color: #FFF;
+            cursor: pointer;
+            &.red {
+                float: right;
+                background-color: $smartred;
+            }
+            &.green {
+                background-color: $smartgreen;
+            }
+        }
+    }
+}

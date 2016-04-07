@@ -7,16 +7,17 @@
                 <div class="headerSubText">Manage your billing preference</div>
             </div>
         </div>
-        <div class="itemContainer withMarginTop" (click)="toggleBillSettingModal()">
+        <div class="itemContainer withMarginTop" (click)="toggleBillSettingModal('credit')">
             <div class="itemIdentifier">Credit Limit</div>
             <div class="ic_edit"></div>
             <div class="itemValue">P1,500</div>
         </div>
         <div class="separator"></div>
-        <div class="itemContainer">
+        <div class="itemContainer" (click)="toggleBillSettingModal('billcycle')">
             <div class="itemIdentifier">Billing Cycle
                 <small class="info">Of the month</small>
             </div>
+            <div class="ic_edit"></div>
             <div class="itemValue">19th</div>
         </div>
         <div class="separator"></div>
@@ -27,15 +28,17 @@
             <div class="itemValue">Enrolled</div>
         </div>
         <div class="separator"></div>
-        <div class="itemContainer">
+        <div class="itemContainer" (click)="toggleBillSettingModal('ebill')">
             <div class="itemIdentifier">eBilling
                 <small class="info">tiffany@gmail.com</small>
             </div>
+            <div class="ic_edit"></div>
             <div class="itemValue">Enrolled</div>
         </div>
         <div class="separator"></div>
-        <div class="itemContainer">
+        <div class="itemContainer" (click)="toggleBillSettingModal('billaddress')">
             <div class="itemIdentifier fullwidth">Billing Address</div>
+            <div class="ic_edit"></div>
             <div class="itemValue fullwidth">
                 35th Dela Rosa Street, Makati, Metro Manila
             </div>

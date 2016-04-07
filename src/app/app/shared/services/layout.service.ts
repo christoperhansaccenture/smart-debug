@@ -597,7 +597,10 @@ export class LayoutService {
             }
             
         }
-        else if (current == "BuyAddOnsDetail") {
+        else if (current == "BuyAddOnsDetail" ||
+            current == "SmartMessageDetail" ||
+            current == "SmartEPinVerify" || 
+            current == "SmartEPinView") {
 
             this.layoutState = {
                 appHeader: true,
@@ -606,24 +609,35 @@ export class LayoutService {
                 leftMenu: false
             };
 
-            this._pageNavigationService.setBuyAddOnsNavigation('BuyAddOns');
-
             this.footerState.home = false;
             this.footerState.perks = false;
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
-            this.footerState.addon = true;
+            this.footerState.addon = false;
             this.footerState.billbalance = false;
             this.footerState.message = false;
             this.footerState.plan = false;
 
             this.headerItem.hamburger = false;
             this.headerItem.back = true;
-            this.headerItem.filter = true;
+            this.headerItem.filter = false;
             this.headerItem.logo = false;
             this.headerItem.point = false;
             this.headerItem.cart = false;
+
+            if (current == "BuyAddOnsDetail") {
+                this._pageNavigationService.setPreviousPage('BuyAddOns');
+                this.footerState.addon = true;
+                this.headerItem.filter = true;
+            } else if (current == "SmartMessageDetail") {    
+                this._pageNavigationService.setPreviousPage('SmartMessage');
+                this.footerState.message = true;
+            } else if (current == "SmartEPinVerify") {
+                this._pageNavigationService.setPreviousPage('SmartEPin');
+            } else if (current == "SmartEPinView") {
+                this._pageNavigationService.setPreviousPage('SmartEPinVerify');
+            }
 
             this.desktopMenu.account = false;
             this.desktopMenu.reward = false;
@@ -681,7 +695,9 @@ export class LayoutService {
         current == 'ActiveInterRoam' ||
         current == 'BillBalance' ||
         current == 'BillSetting' ||
-        current == 'PasaLoad') {
+        current == 'PasaLoad' ||
+        current == 'SmartMessage' ||
+        current == 'SmartEPin') {
             
             this.layoutState = {
 				appHeader: true,
@@ -694,11 +710,12 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
-            this.footerState.message = false;
             if (current == 'MySmart') this.footerState.home = true;
             else this.footerState.home = false;
             if (current == "BuyAddOns") this.footerState.addon = true;
             else this.footerState.addon = false;
+            if (current == 'SmartMessage') this.footerState.message = true;
+            else this.footerState.message = false;
             if(current == 'BillBalance') this.footerState.billbalance = true;
             else this.footerState.billbalance = false;
             if (current == 'MyPlan') this.footerState.plan = true;

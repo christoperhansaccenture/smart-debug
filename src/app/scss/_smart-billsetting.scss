@@ -66,13 +66,14 @@ $col-3-height: 340px;
                 &.fullwidth {
                     float: none;
                     width: 100%;
+                    margin-bottom: 10px;
                 }
             }
             .itemValue {
                 font-size: 15px;
                 float: right;
                 font-size: 15px;
-                width: 100px;
+                width: 70px;
                 text-align: right;
                 color: $smartgreen;
                 &:after {
@@ -80,8 +81,21 @@ $col-3-height: 340px;
                 }
                 &.fullwidth {
                     float: none;
-                    width: 100%;
-                    padding-top: 10px;
+                    width: calc(100% - 20px);
+                }
+            }
+            .ic_edit {
+                float: right;
+                background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMTkuNjkxODc5MjcyNDYwOSkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMSwyNS4wNzcwM0wzMSwyNS4wNzcwM0MzMS41NTI5NzksMjUuMDc3MDMgMzIsMjUuNTI1MDI4IDMyLDI2LjA3NzAzIDMyLDI2LjYyOTAzMiAzMS41NTI5NzksMjcuMDc3MDMgMzEsMjcuMDc3MDNMMSwyNy4wNzcwM0MwLjQ0NzAyMTQ4LDI3LjA3NzAzIDAsMjYuNjI5MDMyIDAsMjYuMDc3MDMgMCwyNS41MjUwMjggMC40NDcwMjE0OCwyNS4wNzcwMyAxLDI1LjA3NzAzeiBNOS44MDY0MjEzLDE3LjM1NzkzMUw5LjY3NjAxNjgsMTcuNDg3MDE1IDguODYxMDE3MiwyMS4zOTMwMTggMTIuNzQ4MDEzLDIwLjU1ODAxNyAxMi44NjU0NTIsMjAuNDQxNzY3eiBNMjAuNTA5NjM2LDYuNzYzMDU3N0wxMS4yMjc2MDQsMTUuOTUxMTM0IDE0LjI4NjYzNCwxOS4wMzQ5NzIgMjMuNTY4MTMyLDkuODQ3NDMyMXogTTI0LjQ5MjAwMiwyLjgyMTAwM0wyMS45MzA4Myw1LjM1NjI0ODkgMjQuOTg5MzI2LDguNDQwNjI0MiAyNy41NjMsNS44OTMwMDU0eiBNMjQuNTAwMDAyLDBMMzAuMzk4OTk2LDUuOTAxMDA0OCAxMy43NDAwMTIsMjIuMzkxMDE4IDYuMjc1MDE5NiwyMy45OTMwMiA3Ljg0MjAxODEsMTYuNDg5MDE0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                background-position-x: center;
+                background-position-y: center;
+                background-size: 20px;
+                width: 15px;
+                height: 15px;
+                margin-left: 5px;
+                cursor: pointer;
+                &:after {
+                    clear: both;
                 }
             }
         }

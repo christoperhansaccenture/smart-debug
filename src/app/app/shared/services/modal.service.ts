@@ -1,66 +1,77 @@
-import {Injectable} from 'angular2/core';
+import { Injectable } from 'angular2/core';
 import { Layout } from '../models/layout';
-import {LayoutService} from './layout.service';
+import { LayoutService } from './layout.service';
 
 @Injectable()
 export class ModalService {
 
-	currentPage: string;
+    currentPage: string;
     numberSelection = false;
-    
+
     mainModalState = false;
 
-	modalState = {
+    modalState = {
         info: false,
         error: false,
         catalogDisplay: false,
         profile: false,
         buyaddons: false,
         billsetting: false
-	}
-    
-    infoModalState = {
-        transfer : false
     }
-    
+
+    billSettingModalState = {
+        credit: false,
+        billcycle: false,
+        ebill: false,
+        billaddress: false
+    }
+
+    infoModalState = {
+        transfer: false
+    }
+
     transferData: any = {
         point: '',
         phone: ''
     }
-    
+
     errorMessage = '';
-	
-	constructor (private _layoutService: LayoutService) {}
-	
-	getModalState(){
+
+    constructor(private _layoutService: LayoutService) {}
+
+    getModalState() {
         return this.modalState;
     }
-    
-    getMainModalState(){
+
+    getMainModalState() {
         return this.mainModalState;
     }
-    
-    getInfoModalState(){
+
+    getInfoModalState() {
         return this.infoModalState;
+    }
+
+    getBillSettingModalState() {
+        return this.billSettingModalState;
     }
 
     toggleCatalogDisplayModal() {
         this.mainModalState = !this.mainModalState;
         this.modalState.catalogDisplay = !this.modalState.catalogDisplay;
     }
-    
-    toggleTransferModal(){
+
+    toggleTransferModal() {
         this.mainModalState = !this.mainModalState;
         this.modalState.info = !this.modalState.info;
-        this.infoModalState.transfer = !this.infoModalState.transfer; 
+        this.infoModalState.transfer = !this.infoModalState.transfer;
     }
-    
-    toggleErrorModal(){
+
+    toggleErrorModal() {
         this.mainModalState = !this.mainModalState;
         this.modalState.error = !this.modalState.error;
     }
-    
-    toggleProfileModal(){
+
+    toggleProfileModal() {
         this.mainModalState = !this.mainModalState;
         this.modalState.profile = !this.modalState.profile;
     }
@@ -74,19 +85,30 @@ export class ModalService {
         this.mainModalState = !this.mainModalState;
         this.modalState.billsetting = !this.modalState.billsetting;
     }
-    
-    setTransferData(point,phone){
+
+    setBillSettingState(stateName: string) {
+        this.billSettingModalState.credit = false;
+        this.billSettingModalState.billcycle = false;
+        this.billSettingModalState.ebill = false;
+        this.billSettingModalState.billaddress = false;
+        if (stateName == 'credit') this.billSettingModalState.credit = true;
+        else if (stateName == 'billcycle') this.billSettingModalState.billcycle = true;
+        else if (stateName == 'ebill') this.billSettingModalState.ebill = true;
+        else if (stateName == 'billaddress') this.billSettingModalState.billaddress = true;
+    }
+
+    setTransferData(point, phone) {
         this.transferData.point = point;
         this.transferData.phone = phone;
     }
-    
-    setErrorMessage(message:string){
+
+    setErrorMessage(message: string) {
         this.errorMessage = message;
         console.log(this.errorMessage);
     }
-    
-    getTransferData(){
+
+    getTransferData() {
         return this.transferData;
     }
-    
+
 }
