@@ -12,8 +12,8 @@
             </div>
             <div class="expiry">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
         </div>
-        <select class="phoneNumber">
-            <option *ngFor="#phone of getListOfPhone()">+63{{ phone.phoneNo }}</option>
+        <select class="phoneNumber" [(ngModel)]="selectedPhone" (ngModelChange)="phoneChange($event)">
+            <option *ngFor="#phone of getListOfPhone()" [value]="phone.phoneNo">+63{{ phone.phoneNo }}</option>
         </select>
     </div>
     <div class="menuItemBox">
@@ -40,10 +40,10 @@
             <div class="arrow"></div>
         </div>
         <div class="itemCategory">Links</div>
-        <div class="itemMenu">
+        <!--<div class="itemMenu">
             <div class="text">Go to MySmart</div>
             <div class="arrow"></div>
-        </div>
+        </div>-->
         <div class="itemMenu">
             <div class="text">Go to Smart Life</div>
             <div class="arrow"></div>
@@ -73,8 +73,8 @@
                 </div>
             </div>
         </div>
-        <select class="phoneNumber">
-            <option *ngFor="#phone of getListOfPhone()">+63{{ phone.phoneNo }}</option>
+        <select class="phoneNumber" [(ngModel)]="selectedPhone" (ngModelChange)="phoneChange($event)">
+            <option *ngFor="#phone of getListOfPhone()" [value]="phone.phoneNo">+63{{ phone.phoneNo }}</option>
         </select>
     </div>
     <div class="menuItemBox">

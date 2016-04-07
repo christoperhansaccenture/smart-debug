@@ -8,7 +8,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 
 
-var configAppType = 'smart'; //possible values: smart, rewards
+var configAppType = 'rewards'; //possible values: smart, rewards
 var configChannel = 'web'; //possible values: app, web
 
 var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
@@ -25,7 +25,7 @@ if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows 
     
 } else {
     
-    configChannel = 'app';
+    configChannel = 'web';
     
     console.log("UA: Running in browser");
     bootstrapWeb();    
@@ -44,7 +44,7 @@ function bootstrapWeb() {
       });
       System.import('app/main')
             .then(null, console.error.bind(console));
-    // ga('create', 'UA-69703910-1', 'auto');
+     ga('create', 'UA-75852872-3', 'auto');
 }
 
 function bootstrapApp() {
@@ -69,9 +69,9 @@ function bootstrapApp() {
       System.import('app/main')
             .then(null, console.error.bind(console));
 
- //    ga('create', 'UA-69703910-1', {'storage': 'none','clientId':device.uuid});
-	// ga('set','checkProtocolTask',null);
-	// ga('set','checkStorageTask',null);
+     ga('create', 'UA-75852872-2', {'storage': 'none','clientId':device.uuid});
+	 ga('set','checkProtocolTask',null);
+	 ga('set','checkStorageTask',null);
 }
 
 

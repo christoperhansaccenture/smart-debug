@@ -15,6 +15,7 @@ import {MobileItemBeltComponent} from './mobile-item-belt.component';
 import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
 import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 //import { Layout } from '../../model/layout';
+declare var ga:any;
 
 @Component({
     selector: 'overview',
@@ -51,11 +52,11 @@ export class OverviewComponent  {
     }
     
     getUserData(){
-        return this._accountService.getSelectedUserPhone();
+        return this._accountService.selectedUserPhone;
     }
     
     getRewardsBalance(){
-        return this._accountService.getRewardsBalance();
+        return this._accountService.rewardsData;
     }
 	
 	getResize(){
@@ -73,6 +74,7 @@ export class OverviewComponent  {
     gotoAccountOverview(){
         this._layoutService.accountFromHome = true;
         this._router.navigate(['AccountOverview']);
+        ga('send','event','Button Clicked','Account Overview','');
     }
     
     goToCatalogList(category: string) {
@@ -86,10 +88,11 @@ export class OverviewComponent  {
         }
         // go to page
         this._router.navigate(['CatalogList']);
+        ga('send','event','Button Clicked','Catalog List',category);
     }
 	
     getCategories() {
-        let currentPoints = Number((this._accountService.getRewardsBalance().rewards) ? this._accountService.getRewardsBalance().rewards : 0);
+        let currentPoints = Number((this._accountService.rewardsData.rewards) ? this._accountService.rewardsData.rewards : 0);
         if (this._catalogService.catalogs) {
             return this._catalogService.catalogs
                 .filter(e => e.points > currentPoints).length;

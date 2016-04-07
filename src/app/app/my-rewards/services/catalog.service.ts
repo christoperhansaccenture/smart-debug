@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {SmartIntegrationService} from '../../shared/services/smart-integration.service';
 import {Catalog} from '../../shared/models/catalog';
+import {AccountService} from '../../shared/services/account.service';
 
 @Injectable()
 export class CatalogService {
@@ -80,7 +81,8 @@ export class CatalogService {
     };
 
 	constructor(private _http: Http,
-               private _smartIntegrationService: SmartIntegrationService) {}
+               private _smartIntegrationService: SmartIntegrationService,
+               private _accountService: AccountService) {}
 
     isCatalogsLoaded() {
         var catalogInStorage = sessionStorage.getItem('catalog');
@@ -89,7 +91,7 @@ export class CatalogService {
     }
 
     loadAllCatalogs(refresh: boolean = false) {
-        
+        //console.log(this._smartIntegrationService.imageUrlBase);
         if(!this.isCatalogsLoaded()){
             if (refresh || !this.catalogs) {
                 this._smartIntegrationService
@@ -103,6 +105,7 @@ export class CatalogService {
                             c.name = e.name;
                             c.description = e.description;
                             c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
+                            c.ssoBrands = e.ssoBrands;
                             c.categories = e.categories;
                             c.points = +e.points;
                             c.stock = e.stock;
@@ -112,7 +115,12 @@ export class CatalogService {
                             return c;
                         });
                         
-                        sessionStorage.setItem('catalog',JSON.stringify(response.json().data));
+                        sessionStorage.setItem('catalog', JSON.stringify(response.json().data));
+
+                        let min = localStorage.getItem('mobileNo');
+                        let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
+                        console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
+                        this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
                         
                     },
                     error =>{
@@ -122,29 +130,35 @@ export class CatalogService {
                 
             }    
         }else{
-            
             this.catalogs = JSON.parse(sessionStorage.getItem('catalog')).map(e => {
-                            let c = new Catalog();
-                            c.id = e.id;
-                            c.code = e.code;
-                            c.name = e.name;
-                            c.description = e.description;
-                            if (e.imageUrl && e.imageUrl.indexOf(this._smartIntegrationService.imageUrlBase) > -1) {
-                                c.imageUrl = e.imageUrl;
-                            }
-                            else {
-                                c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
-                            }
-                            c.categories = e.categories;
-                            c.points = e.points;
-                            c.stock = e.stock;
-                            c.favorite = e.favorite;
-                            c.giftable = e.giftable;
-                            c.expiry = new Date(e.expiry);
-                            return c;
-                        });
+                let c = new Catalog();
+                c.id = e.id;
+                c.code = e.code;
+                c.name = e.name;
+                c.description = e.description;
+                if (e.imageUrl && e.imageUrl.indexOf(this._smartIntegrationService.imageUrlBase) > -1) {
+                    c.imageUrl = e.imageUrl;
+                }
+                else {
+                    c.imageUrl = this._smartIntegrationService.imageUrlBase + '/' + e.imageUrl;
+                }
+                c.ssoBrands = e.ssoBrands;
+                c.categories = e.categories;
+                c.points = e.points;
+                c.stock = e.stock;
+                c.favorite = e.favorite;
+                c.giftable = e.giftable;
+                c.expiry = new Date(e.expiry);
+                return c;
+            });
+            let min = localStorage.getItem('mobileNo');
+            console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
+            let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
+            console.log('currentPhone: ' + JSON.stringify(currentPhone));
+            this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
+
          }
-        
+
     }
 
     updateFavorite(catalog: Catalog) {

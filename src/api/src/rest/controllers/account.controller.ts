@@ -1154,6 +1154,7 @@ var config = require('../config/config');
                                 }
                             });
                         });
+                        console.log('done');
                     }
                     catch (err) {
                         console.log(err);

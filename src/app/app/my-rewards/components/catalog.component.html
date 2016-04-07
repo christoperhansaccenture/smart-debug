@@ -24,11 +24,11 @@
         <div class="subOption" (click)="goToCatalogList('Lifestyle')">See All</div>
     </div>
     <lifestyle-item-belt></lifestyle-item-belt>
-    <div class="subHeader">
+    <div class="subHeader" *ngIf="getMobile()">
         <div class="leftHeader">Mobile</div>
         <div class="subOption" (click)="goToCatalogList('Mobile')">See All</div>
     </div>
-    <mobile-item-belt></mobile-item-belt>
+    <mobile-item-belt *ngIf="getMobile()"></mobile-item-belt>
 </div>
 
 <!-- large view-->
@@ -80,11 +80,11 @@
                         <div class="itemBelt">
                             <lifestyle-item-belt></lifestyle-item-belt>
                         </div>
-                        <div class="subHeader belt">
+                        <div class="subHeader belt" *ngIf="getMobile()">
                             <div class="leftHeader">Mobile</div>
                             <div class="subOption" (click)="goToCatalogList('Mobile')">See all</div>
                         </div>
-                        <div class="itemBelt">
+                        <div class="itemBelt" *ngIf="getMobile()">
                             <mobile-item-belt></mobile-item-belt>
                         </div>
                     </div>

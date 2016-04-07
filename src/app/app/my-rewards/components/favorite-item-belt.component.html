@@ -1,5 +1,5 @@
 <circular-spinner *ngIf="isLoading()"></circular-spinner>
-<div class="favorite-item-belt beltContainer">
+<div class="favorite-item-belt beltContainer" *ngIf="!isLoading()">
     <div *ngFor="#category of getCategories()" 
     	class="itemContainer"
         (click)="openCatalogDisplay(category)">

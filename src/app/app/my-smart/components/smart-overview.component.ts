@@ -24,6 +24,8 @@ export class SmartOverviewComponent  {
 		
 		this._layoutService.setCurrentPage('MySmart');
         this._accountService.getMobileNumberlistFromBackEnd(false);
+        //var scrollposition = (window.scrollY || window.pageYOffset);
+        //console.log(scrollposition);
 		
 	}
     

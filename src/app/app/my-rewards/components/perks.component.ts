@@ -9,7 +9,7 @@ import {ModalService} from '../../shared/services/modal.service';
 import {Catalog} from '../../shared/models/catalog';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
-
+declare var ga:any;
 //import { Layout } from '../../model/layout';
 
 @Component({
@@ -64,6 +64,7 @@ export class PerksComponent  {
     openCatalogDisplay(catalog) {
         this._catalogService.selectedCatalog = catalog;
         this._modalService.toggleCatalogDisplayModal();
+        ga('send','event','Button Clicked','Open Catalog Display',catalog.name);
     }
 
     getOverlayText(catalog: Catalog) {
@@ -85,6 +86,7 @@ export class PerksComponent  {
         catalog.favorite = !catalog.favorite;
         this._catalogService.updateFavorite(catalog);
         event.stopPropagation();
+        ga('send','event','Button Clicked','Toogle Favorite',catalog.favorite);
     }
 	
 }

@@ -12,6 +12,7 @@ import {AccountService} from '../../shared/services/account.service';
 import {Catalog} from '../../shared/models/catalog';
 import {CartItem} from '../../shared/models/cart-item';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'shopping-cart',
@@ -61,6 +62,7 @@ export class ShoppingCartComponent implements AfterViewInit {
     
     goToPayBill(){
         this._router.navigate(['PayBill']);
+        ga('send','event','Button Clicked','Pay Bill','');
     }
 
     getCurrentPoints() {
@@ -109,15 +111,18 @@ export class ShoppingCartComponent implements AfterViewInit {
             this.getNumberSelection().decidePerItem = false;
             this.getNumberSelection().clear();
         }
+        ga('send','event','Order','Item Removed',item.catalog.name);
     }
 
     plusItem(item: CartItem) {
         item.amount++;
+        ga('send','event','Order','Add Item to Cart',item.catalog.name);
     }
 
     minusItem(item: CartItem) {
         if (item.amount > 1) {
             item.amount--;
+            ga('send','event','Order','Item Removed',item.catalog.name);
         }
     }
 
@@ -130,6 +135,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         this.getNumberSelection().myNumber.checked = true;
         this.getNumberSelection().myNumber.number = this.getCurrentNumber();
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleParentCurrentNumber','');
     }
 
     toggleParentMyNumber() {
@@ -137,6 +143,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         this.getNumberSelection().decidePerItem = false;
         this.getNumberSelection().myNumber.checked = !this.getNumberSelection().myNumber.checked;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleParentMyNumber','');
     }
 
     toggleParentGift() {
@@ -144,6 +151,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         this.getNumberSelection().decidePerItem = false;
         this.getNumberSelection().gift.checked = !this.getNumberSelection().gift.checked;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleParentGift','');
     }
 
     toggleDecidePerItem() {
@@ -151,6 +159,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         this.getNumberSelection().myNumber.checked = false;
         this.getNumberSelection().decidePerItem = !this.getNumberSelection().decidePerItem;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleDecidePerItem','');
     }
 
     toggleCurrentNumber(item: CartItem) {
@@ -160,6 +169,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         item.numberSelection.myNumber.number = this.getCurrentNumber();
         item.changedOnCart = true;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleCurrentNumber','');
     }
 
     toggleMyNumber(item: CartItem) {
@@ -167,6 +177,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         item.numberSelection.myNumber.checked = !item.numberSelection.myNumber.checked;
         item.changedOnCart = true;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleMyNumber','');
     }
 
     toggleGift(item: CartItem) {
@@ -175,6 +186,7 @@ export class ShoppingCartComponent implements AfterViewInit {
         item.numberSelection.gift.checked = !item.numberSelection.gift.checked;
         item.changedOnCart = true;
         this._cartService.saveToStorage();
+        ga('send','event','Button clicked','toggleGift','');
     }
 
     getBill() {

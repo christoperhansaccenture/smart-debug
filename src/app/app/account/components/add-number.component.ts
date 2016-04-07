@@ -4,6 +4,7 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'add-number',
@@ -40,6 +41,7 @@ export class AddNumberComponent  {
     
     goTonextPageOfAddNumber(){
         this._router.navigate(['AddNumberConfirm']);
+        ga('send','event','Button Clicked','AddNumberConfirm','');
     }
     
     close(){

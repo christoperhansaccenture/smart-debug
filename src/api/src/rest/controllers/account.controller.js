@@ -923,6 +923,7 @@ class AccountController {
                             }
                         });
                     });
+                    console.log('done');
                 }
                 catch (err) {
                     console.log(err);

@@ -8,7 +8,8 @@
                 <div class="headerSubText">Connect your numbers to enable you use your points together</div>
             </div>
         </div>
-        <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)">
+        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
+        <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)" *ngIf="!getSpinnerStatus()">
             <div class="name">{{phone.name}}</div>
             <div class="phoneDetail">
                 <div class="phoneNo">+63{{phone.phoneNo}}</div>

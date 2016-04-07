@@ -4,7 +4,7 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 //import { Layout } from '../../model/layout';
-
+declare var ga:any;
 @Component({
     selector: 'account-overview',
     templateUrl: './app/account/components/account-overview.component.html'
@@ -25,7 +25,7 @@ export class AccountOverviewComponent  {
     }
     
     getUserData(){
-        return this._accountService.getSelectedUserPhone();
+        return this._accountService.selectedUserPhone;
     }
     
     getRewardsBalance(){
@@ -39,6 +39,7 @@ export class AccountOverviewComponent  {
     gotoActivityHistory(){
         this._layoutService.historyFromAccount = true;
         this._router.navigate(['ActivityHistory']);
+        ga('send','event','Button Clicked','ActivityHistory','');
     }
 	
 }

@@ -5,6 +5,7 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {ModalService} from '../../shared/services/modal.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'transfer',
@@ -79,9 +80,9 @@ export class TransferComponent  {
             };
             
             this._accountService.transferPoints(transferData);     
-            
+            ga('send','event','Transfer','Transfer', transferData);
         }
-        
+         ga('send','event','Button clicked','Transfer','');
     }
 	
 }

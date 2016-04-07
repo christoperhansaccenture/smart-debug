@@ -12,6 +12,7 @@ import {AccountService} from '../../shared/services/account.service';
 import {Catalog} from '../../shared/models/catalog';
 import {CartItem} from '../../shared/models/cart-item';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+declare var ga:any;
 
 @Component({
     selector: 'confirm-order',
@@ -175,6 +176,16 @@ export class ConfirmOrderComponent  {
 
     confirm() {
         this._cartService.confirm();
+        let items = this.getItems();
+        for (var index = 0; index < items.length; index++) {
+            var element = items[index];
+            if(element.isBill()){
+                ga('send','event','Order','item ordered',"Pay bill with points");
+            }else{
+                ga('send','event','Order','item ordered',element.catalog.name);
+            }
+            
+        }
     }
 	
 }

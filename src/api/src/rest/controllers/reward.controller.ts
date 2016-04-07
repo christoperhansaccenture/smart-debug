@@ -2,10 +2,12 @@
 import { SSO } from '../services/sso.service';
 import { ErrorHandlingService } from '../services/error-handling.service';
 
+var process = require('process');
 var redis = require('redis');
 
 var request = require('request'); 
 var config = require('../config/config');
+
 
 
     export interface rewardInterface {
@@ -22,6 +24,7 @@ var config = require('../config/config');
 // export module Login {
     export class RewardController implements rewardInterface{
         private ssoService:SSO.sso;
+
         private errorHandlingService:ErrorHandlingService.ErrorHandlingService;
             constructor() {       
             
@@ -92,7 +95,9 @@ var config = require('../config/config');
                */
                 console.log('request: ' + req.query.brands);
 
-                let client = redis.createClient();
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createClient(process.env.REDIS_URL);
+                console.log('after redis_url');
 
                 let promise: Promise<string> = new Promise((resolve, reject) => {
                     let brands = req.query.brands.split(',');
@@ -218,7 +223,9 @@ var config = require('../config/config');
             async refreshCatalog(req, res): Promise<void> {
                 console.log('refresh catalog');
 
-                let client = redis.createClient();
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createClient(process.env.REDIS_URL);
+                console.log('refresh catalog');
 
                 var token:string = req.get("Authorization");
                 token = token.replace('Bearer ','');
@@ -511,7 +518,7 @@ var config = require('../config/config');
                     amount: req.body.amount,
                     pin: req.body.pin,
                     channel: req.body.channel,
-                    ref: req.body.ref
+                    reference: req.body.ref
                 };
                 
                 var nJwt = require('njwt');  
@@ -565,7 +572,8 @@ var config = require('../config/config');
                       
                       let resultArray: any[] = [];
 
-                      let client = redis.createClient();
+                      console.log('redis_url: ' + process.env.REDIS_URL);
+                      let client = redis.createClient(process.env.REDIS_URL);
 
                       for(var i = 0; i < data.length; i++){
                           
@@ -596,7 +604,8 @@ var config = require('../config/config');
                                           productCode: data[i].catalog.code
                                       });
                                       // increment most popular
-                                      client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
+                                      //console.log('catalog: ' + data[i].catalog);
+                                      //client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
                                   } else {
                                       resultArray.push(errorCheckRes);
                                   }

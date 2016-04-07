@@ -7,6 +7,7 @@ import {ActivityHistory} from '../../shared/models/activity-history';
 export class ActivityHistoryService {
 
     activities:ActivityHistory[];
+    spinnerActHistory = false;
 
     filter = {
         categories: {
@@ -72,39 +73,46 @@ export class ActivityHistoryService {
 
 	constructor(private _http: Http,
                private _smartIntegrationService: SmartIntegrationService) {}
+               
+    isActivityLoaded() {
+        
+        return !(this.activities === null || this.activities === undefined);
+    }           
 
     loadAllActivity(refresh: boolean = false) {
-        if (refresh || !this.activities) {
-            
-            this._smartIntegrationService
-            .getActivityHistory()
-            .subscribe(
-                response => {
-                    this.activities = response.json();
-                    
-                    for (let i = 0 ; i < this.activities.length ; i++) {
-                        if(this.activities[i].type==="redemption"){
-                           this.activities[i].type = "Redemption";
-                        }else if(this.activities[i].type==="earning"){
-                            this.activities[i].type = "Earning";
-                        }else if(this.activities[i].type==="transfer"){
-                            this.activities[i].type = "Transfer Points";
-                        }else if(this.activities[i].type==="registration"){
-                            this.activities[i].type = "Activation";
-                        }else if(this.activities[i].type==="linking"){
-                            this.activities[i].type = "Account Linking/Unlinking";
-                        }else if(this.activities[i].type==="inquiry"){
-                            this.activities[i].type = "Points Inquiry";
+        if(!this.isActivityLoaded()){
+            if (refresh || !this.activities) {
+                
+                this._smartIntegrationService
+                .getActivityHistory()
+                .subscribe(
+                    response => {
+                        this.activities = response.json();
+                        
+                        for (let i = 0 ; i < this.activities.length ; i++) {
+                            if(this.activities[i].type==="redemption"){
+                            this.activities[i].type = "Redemption";
+                            }else if(this.activities[i].type==="earning"){
+                                this.activities[i].type = "Earning";
+                            }else if(this.activities[i].type==="transfer"){
+                                this.activities[i].type = "Transfer Points";
+                            }else if(this.activities[i].type==="registration"){
+                                this.activities[i].type = "Activation";
+                            }else if(this.activities[i].type==="linking"){
+                                this.activities[i].type = "Account Linking/Unlinking";
+                            }else if(this.activities[i].type==="inquiry"){
+                                this.activities[i].type = "Points Inquiry";
+                            }
                         }
+                        
+                        console.log(this.activities);
+                        
+                    },
+                    error =>{
+                        console.log('not authorized?!');
                     }
-                    
-                    //console.log(this.activities);
-                    
-                },
-                error =>{
-                    console.log('not authorized?!');
-                }
-            );
+                );
+            }    
         }
     }
     

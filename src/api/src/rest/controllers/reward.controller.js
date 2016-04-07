@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const sso_service_1 = require('../services/sso.service');
 const error_handling_service_1 = require('../services/error-handling.service');
+var process = require('process');
 var redis = require('redis');
 var request = require('request');
 var config = require('../config/config');
@@ -74,7 +75,9 @@ class RewardController {
             brandMap['TalkNText'] = 'TNT';
            */
             console.log('request: ' + req.query.brands);
-            let client = redis.createClient();
+            console.log('redis_url: ' + process.env.REDIS_URL);
+            let client = redis.createClient(process.env.REDIS_URL);
+            console.log('after redis_url');
             let promise = new Promise((resolve, reject) => {
                 let brands = req.query.brands.split(',');
                 let keys = brands.map(brand => 'catalogItems:' + brand);
@@ -185,7 +188,9 @@ class RewardController {
     refreshCatalog(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             console.log('refresh catalog');
-            let client = redis.createClient();
+            console.log('redis_url: ' + process.env.REDIS_URL);
+            let client = redis.createClient(process.env.REDIS_URL);
+            console.log('refresh catalog');
             var token = req.get("Authorization");
             token = token.replace('Bearer ', '');
             var nJwt = require('njwt');
@@ -492,7 +497,8 @@ class RewardController {
                 console.log(req.body);
                 var data = req.body;
                 let resultArray = [];
-                let client = redis.createClient();
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createClient(process.env.REDIS_URL);
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].type === 'catalog') {
                         let jsonBody = {
@@ -515,8 +521,6 @@ class RewardController {
                                     status: 200,
                                     productCode: data[i].catalog.code
                                 });
-                                // increment most popular
-                                client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
                             }
                             else {
                                 resultArray.push(errorCheckRes);

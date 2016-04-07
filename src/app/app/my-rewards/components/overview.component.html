@@ -13,7 +13,7 @@
         <div class="name">{{ getUserData().name }}</div>
         <div class="phoneDetail">
             <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
-            <div class="phoneType">PRIMARY</div>
+            <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
             <div class="numberType">Postpaid</div>
         </div>
         <div class="subInfoContainer">
@@ -66,7 +66,7 @@
                                         <div class="name">{{ getUserData().name }}</div>
                                         <div class="phoneDetail">
                                             <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
-                                            <div class="phoneType">PRIMARY</div>
+                                            <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
                                             <div class="numberType">Postpaid</div>
                                         </div>
                                     </div>
