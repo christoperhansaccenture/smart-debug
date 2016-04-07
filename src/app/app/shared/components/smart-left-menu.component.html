@@ -35,7 +35,7 @@
             </div>
             <div class="menuItem" (click)="toggleBillingDetail()">
                 <div class="text">Billing Details</div>
-                <div class="arrow"></div>
+                <div class="arrow" [ngClass]="{open : getSmartApp().billingDetail}"></div>
             </div>
             <div *ngIf="getSmartApp().billingDetail">
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().balance}" (click)="goToBillBalance()">
