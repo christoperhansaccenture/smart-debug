@@ -98,28 +98,19 @@
                             <div class="header">
                                 Latest Transaction
                             </div>
-                            <div class="itemBox">
-                                <div class="itemHeader">Redemption</div>
-                                <div class="itemInfoLine">
-                                    <div class="itemInfoIdentifier">The Body Shop P100 Treat</div>
-                                    <div class="itemInfoPoint">-200 <span>pts</span></div>
-                                </div>
-                                <div class="itemAddInfo">2 item(s) to 09186859935</div>
-                                <div class="itemDateInfo">
-                                    <div class="itemDate">On March 14, 2016</div>
-                                    <div class="itemBuyVia">via Smart Reward App</div>
-                                </div>
-                            </div>
-                            <div class="itemBox">
-                                <div class="itemHeader">Earning</div>
-                                <div class="itemInfoLine">
-                                    <div class="itemInfoIdentifier">Earned Points</div>
-                                    <div class="itemInfoPoint">100 <span>pts</span></div>
-                                </div>
-                                <div class="itemAddInfo">Buy Add Ons for 09320133865</div>
-                                <div class="itemDateInfo">
-                                    <div class="itemDate">On March 14, 2016</div>
-                                    <div class="itemBuyVia">via Smart Reward App</div>
+                            <circular-spinner *ngIf="getActivitySpinnerStatus()"></circular-spinner>
+                            <div *ngIf="!getActivitySpinnerStatus()">
+                                <div class="itemBox" *ngFor="#activity of getLatestActivity()">
+                                    <div class="itemHeader">{{activity.type}}</div>
+                                    <div class="itemInfoLine">
+                                        <div class="itemInfoIdentifier">{{activity.name}}</div>
+                                        <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
+                                    </div>
+                                    <div class="itemAddInfo">{{activity.desc}}</div>
+                                    <div class="itemDateInfo">
+                                        <div class="itemDate">On {{activity.date}}</div>
+                                        <div class="itemBuyVia">via {{activity.media}}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

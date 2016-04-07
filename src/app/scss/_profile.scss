@@ -161,6 +161,10 @@
                 border: none;
                 margin-top: 12px;
                 
+                &:focus {
+                    outline: none
+                }
+                
                 &.phone{
                     width: calc(100% - 105px);
                 }
@@ -379,6 +383,10 @@
                                 line-height: 1.5rem;
                                 border: none;
                                 margin-top: 12px;
+                                
+                                &:focus {
+                                    outline: none
+                                }
                                 
                                 &.phone{
                                     width: calc(100% - 105px);

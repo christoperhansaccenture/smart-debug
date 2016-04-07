@@ -71,7 +71,8 @@
                     <div class="subInfoContainer">
                         <div class="leftSide">
                             <div class="balance">Your Point:</div>
-                            <div class="expire">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
+                            <div class="expire" *ngIf="getRewardsBalance().expPoints != 0">
+                                {{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
                         </div>
                         <div class="rightSide">
                             <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>

@@ -106,12 +106,29 @@ $col-3-height: 340px;
                     outline: none
                 }
                 
+                &.phone{
+                    width: calc(100% - 105px);
+                }
+                
                 &.select{
                     width: calc(100% - 45px);
                     height: 30px;
                     margin-top: 10px;
                 }
             }
+            
+            .phoneCountryValue{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+                font-size: 15px;
+                line-height: 1.5rem;
+                margin-top: 12px;
+            }
+            
         }
         
         .itemFooterContainer{
@@ -328,11 +345,32 @@ $col-3-height: 340px;
                                 border: none;
                                 margin-top: 12px;
                                 
+                                &:focus {
+                                    outline: none
+                                }
+                                
+                                &.phone{
+                                    width: calc(100% - 105px);
+                                }
+                                
                                 &.select{
                                     width: calc(100% - 45px);
                                     height: 30px;
                                     margin-top: 10px;
                                 }
+                                
+                            }
+                            
+                            .phoneCountryValue{
+                                display: inline-block;
+                                width: 30px;
+                                height: 30px;
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 5px;
+                                font-size: 15px;
+                                line-height: 1.5rem;
+                                margin-top: 12px;
                             }
                         }
                         
@@ -379,6 +417,7 @@ $col-3-height: 340px;
                                         font-size: 15px;
                                     }
                                 }
+                                
                             }
                             
                             .button {

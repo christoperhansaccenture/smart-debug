@@ -4,7 +4,6 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
-//import {RewardTypeService} from '../services/reward-type.service';
 import {CatalogService} from '../services/catalog.service';
 import {ItemBeltComponent} from './item-belt.component';
 import {MostPopularItemBeltComponent} from './most-popular-item-belt.component';
@@ -13,8 +12,8 @@ import {AlmostGetItemBeltComponent} from './almost-get-item-belt.component';
 import {LifestyleItemBeltComponent} from './lifestyle-item-belt.component';
 import {MobileItemBeltComponent} from './mobile-item-belt.component';
 import {FavoriteItemBeltComponent} from './favorite-item-belt.component';
+import {ActivityHistoryService} from '../../account/services/activity-history.service';
 import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
-//import { Layout } from '../../model/layout';
 declare var ga:any;
 
 @Component({
@@ -37,15 +36,30 @@ export class OverviewComponent  {
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
 		private _layoutService: LayoutService,
-     // private _rewardTypeService: RewardTypeService,
         private _catalogService: CatalogService,
-        private _accountService: AccountService) {
+        private _accountService: AccountService,
+        private _activityHistoryService: ActivityHistoryService) {
 		
 		this._layoutService.setCurrentPage('MyRewards');
         this._catalogService.loadAllCatalogs();
+        this._activityHistoryService.loadAllActivity();
         this._accountService.getMobileNumberlistFromBackEnd(false);
 		
 	}
+    
+    getLatestActivity() {
+        if (this._activityHistoryService.activities) {
+            return this._activityHistoryService.activities
+            .slice(0, 2);
+        }
+        else{
+            return null;
+        }
+    }
+    
+    getActivitySpinnerStatus(){
+        return !this._activityHistoryService.isActivityLoaded();
+    }
     
     getSpinnerStatus(){
         return this._accountService.spinnerAccount;
