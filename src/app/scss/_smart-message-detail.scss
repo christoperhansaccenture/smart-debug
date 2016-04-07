@@ -1,0 +1,131 @@
+$col-3-height: 340px;
+.smartMessageDetailContainer {
+    //padding-bottom: 45px;
+    z-index: 1;
+    height: 100%;
+    .containerBody {
+        width: 100%;
+        background-color: #FFF;
+        height: 100%;
+        .header {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            .headerText {
+                color: $smartgreen;
+                font-size: 20px;
+            }
+            .headerSubText {
+                margin-top: 10px;
+            }
+        }
+        .itemContainer {
+            padding: 10px 10px 5px 10px;
+            .itemText {
+                white-space: pre-wrap;
+            }
+        }
+    }
+}
+
+.smartMessageDetailContainerBody {
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    &.bodyFixed {
+        margin-top: 60px;
+    }
+    .smartMessageDetailContainerLarge {
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        .container2 {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            .container1 {
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+                .componentContainer {
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding: 20px 20px 40px 20px;
+                    .itemComponent {
+                        width: 72%;
+                        float: left;
+                        .categoryHeader {
+                            color: $smartgreen;
+                            font-size: 20px;
+                            margin-bottom: 20px;
+                        }
+                        .itemContainer {
+                            display: inline-block;
+                            width: calc(100% - 20px);
+                            padding: 5px 10px 5px 10px;
+                            margin-left: 5px;
+                            .itemIdentifier {
+                                width: 100%;
+                                display: inline-block;
+                                padding: 10px;
+                                border-top: 1px solid #EEE;
+                                border-bottom: 1px solid #EEE;
+                                .itemTitle {
+                                    float: left;
+                                    width: calc(100% - 50px);
+                                    color: $smartgreen;
+                                    font-size: 20px;
+                                    .date {
+                                        float: none;
+                                        color: #000;
+                                        font-size: 14px;
+                                        line-height: 2em;
+                                    }
+                                }
+                                .ic_delete {
+                                    float: right;
+                                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDMyLjAwMDA4MDEwODU3NTcsMCkgc2NhbGUoNy45OTk5OTMzMjQyODUzNiw3Ljk5OTk5MzMyNDI4NTM2KSAgIiBmaWxsPSIjRkYyODVFIiBkPSJNMTUuMDAwMDAxLDguMDAwMDI3MkwxNyw4LjAwMDAyNzIgMTcsMjcuMDAwMDI4IDE1LjAwMDAwMSwyNy4wMDAwMjh6IE0xMS4wMDAwMDEsOC4wMDAwMjcyTDEzLjAwMDAwMSw4LjAwMDAyNzIgMTMuMDAwMDAxLDI3LjAwMDAyOCAxMS4wMDAwMDEsMjcuMDAwMDI4eiBNNy4wMDAwMDA1LDguMDAwMDI3Mkw5LjAwMDAwMSw4LjAwMDAyNzIgOS4wMDAwMDEsMjcuMDAwMDI4IDcuMDAwMDAwNSwyNy4wMDAwMjh6IE0zLjA3OTAxMDEsNS4wMDAwMjc0TDQuOTk1OTk5NCwyOS45MjI5OTkgMTkuMDAwMDA2LDMwLjAwMDAyNiAyMC45MTg5NDksNS4wMDAwMjc0eiBNMTMuNzcxOTg5LDEuOTk1OTk5OUwxMC4xOTg5ODksMi4wMDAwMDAxQzEwLjE1ODk4OSwyLjAyNSw5Ljk5ODk4OTIsMi4yNDEsOS45OTg5ODkyLDIuNjAwMDAwMUw5Ljk5ODk4OTIsMy4wMDAwMjU4IDEzLjk5ODk4OSwzLjAwMDAyNTggMTMuOTk4OTg5LDIuNjAwMDAwMUMxMy45OTg5ODksMi4yNDEsMTMuODM4OTg4LDIuMDI1LDEzLjc3MTk4OSwxLjk5NTk5OTl6IE0xMC4xOTg5ODksMEwxMy43OTg5ODgsMEMxNS4wMzE5ODksMCwxNS45OTg5ODksMS4xNDIsMTUuOTk4OTg5LDIuNjAwMDAwMUwxNS45OTg5ODksMy4wMDAwMjU4IDIzLjA3ODk4LDMuMDAwMDI1OCAyNCwzLjAwMDAyNzIgMjQsNS4wMDAwMjc0IDIyLjkyNTEyMSw1LjAwMDAyNzQgMjAuOTk1OTc2LDMwLjA3Njk5MUMyMC45OTkwMjcsMzEuMTAyOTkyLDIwLjEwMDk1NiwzMi4wMDAwMjYsMTguOTk5MDI5LDMyLjAwMDAyNkw0Ljk5OTA1MTIsMzIuMDAwMDI2QzMuODk2MDI1NSwzMi4wMDAwMjYsMi45OTkwNTQzLDMxLjEwMjk5MiwyLjk5OTA1NCwzMC4wMDAwMjZMMS4wNzMwNTksNS4wMDAwMjc0IDAsNS4wMDAwMjc0IDAsMy4wMDAwMjcyIDAuOTE4OTc4OTUsMy4wMDAwMjcyIDcuOTk4OTg4NywzLjAwMDAyNTggNy45OTg5ODg3LDIuNjAwMDAwMUM3Ljk5ODk4ODcsMS4xNDIsOC45NjU5ODkyLDAsMTAuMTk4OTg5LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4NCg==") no-repeat;
+                                    background-position-x: center;
+                                    background-position-y: center;
+                                    background-size: 30px;
+                                    height: 30px;
+                                    width: 30px;
+                                }
+                            }
+                            .itemText {
+                                clear: both;
+                                width: 100%;
+                                padding: 10px;
+                                white-space: pre-wrap;
+                            }
+                        }
+                    }
+                }
+                .bannerComponent {
+                    width: 25%;
+                    float: right;
+                    padding-top: 20px;
+                    .banner1 {
+                        width: 100%;
+                        height: 100px;
+                        background: url(../img/myplan-banner.jpg) no-repeat;
+                        background-size: cover;
+                        margin-bottom: 20px;
+                    }
+                    .banner2 {
+                        width: 100%;
+                        height: 100px;
+                        background: url(../img/myplan.jpg) no-repeat;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}

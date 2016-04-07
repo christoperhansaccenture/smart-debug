@@ -75,7 +75,7 @@
             <div class="menuItem" [ngClass]="{selected : getSmartApp().roaming}" (click)="goToInternationalRoaming()">
                 <div class="text">Roaming</div>
             </div>
-            <div class="menuItem" [ngClass]="{selected : getSmartApp().message}">
+            <div class="menuItem" [ngClass]="{selected : getSmartApp().message}" (click)="goToMessage()">
                 <div class="text">Messages (3)</div>
             </div>
             <div class="menuItem" (click)="toggleService()">
@@ -86,7 +86,7 @@
                 <div class="menuItem member" [ngClass]="{selected : getSmartApp().puk}" (click)="goToPuk()">
                     <div class="text">View PUK</div>
                 </div>
-                <div class="menuItem member" [ngClass]="{selected : getSmartApp().epin}">
+                <div class="menuItem member" [ngClass]="{selected : getSmartApp().epin}" (click)="goToEPin()">
                     <div class="text">Get ePin</div>
                 </div>
             </div>

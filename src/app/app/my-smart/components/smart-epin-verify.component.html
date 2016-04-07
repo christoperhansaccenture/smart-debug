@@ -1,0 +1,91 @@
+<div class="smartEPinContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Get ePin</div>
+                <div class="headerSubText">Purchase ePIN with your balance</div>
+            </div>
+        </div>
+        <div class="itemCategory">
+            <div class="option">
+                <div class="first">
+                    <div class="circle green">1</div> Fill in details</div>
+                <div class="line green"></div>
+                <div class="second">
+                    <div class="circle green">2</div> Verification</div>
+                <div class="line"></div>
+                <div class="third">
+                    <div class="circle">3</div> View ePin</div>
+            </div>
+        </div>
+        <div>
+            <div class="itemContainer">
+                <div class="itemText">
+                    We sent a verification code to your Smart mobile number <span class="red">092898874099</span>.
+                    <br/>
+                    <br/> This code will be valid for <span class="red">20 mins</span> for this transaction only.
+                </div>
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier key"></div>
+                <input class="inputValue" placeholder="Verification code" />
+            </div>
+            <div class="itemFooterContainer">
+                <div class="small">Smart Bro User? | Resend Code?</div>
+                <div class="button" (click)="goToView()">Next</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartEPinContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartEPinContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="itemHeader">Get ePin</div>
+                        <!--edit number-->
+                        <div class="containerBody">
+                            <div class="itemCategory">
+                                <div class="option">
+                                    <div class="first">
+                                        <div class="circle green">1</div> Fill in details</div>
+                                    <div class="line green"></div>
+                                    <div class="second">
+                                        <div class="circle green">2</div> Verification</div>
+                                    <div class="line"></div>
+                                    <div class="third">
+                                        <div class="circle">3</div> View ePIN</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="itemContainer">
+                                    <div class="itemText">
+                                        We sent a verification code to your Smart mobile number <span class="red">092898874099</span>.
+                                        <br/>
+                                        <br/> This code will be valid for <span class="red">20 mins</span> for this transaction only.
+                                    </div>
+                                </div>
+                                <div class="itemContainer">
+                                    <div class="itemIdentifier key"></div>
+                                    <input class="inputValue" placeholder="Verification code" />
+                                </div>
+                                <div class="itemFooterContainer">
+                                    <div class="small">Smart Bro User? | Resend Code?</div>
+                                    <div class="button" (click)="goToView()">Next</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

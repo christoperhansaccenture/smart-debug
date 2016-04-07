@@ -10,6 +10,10 @@ export class BillSettingModalComponent {
     constructor(private _modalService: ModalService) {
     }
 
+    getBillSettingModalState() {
+        return this._modalService.getBillSettingModalState();
+    }
+
     close() {
         this._modalService.toggleBillSettingModal();
     }

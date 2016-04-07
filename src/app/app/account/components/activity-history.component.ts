@@ -5,12 +5,14 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {ActivityHistoryService} from '../services/activity-history.service';
 import {AccountService} from '../../shared/services/account.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 declare var ga:any;
 
 @Component({
     selector: 'account-overview',
     templateUrl: './app/account/components/activity-history.component.html',
     directives: [
+        CircularSpinnerComponent,
         SmartLeftMenuComponent
     ]
 })
@@ -28,6 +30,10 @@ export class ActivityHistoryComponent  {
 		this._activityHistoryService.loadAllActivity();
         
 	}
+    
+    getSpinnerStatus(){
+        return !this._activityHistoryService.isActivityLoaded();
+    }
     
     getRewardsBalance(){
         return this._accountService.getRewardsBalance();
@@ -70,8 +76,8 @@ export class ActivityHistoryComponent  {
                     return result;
                 });
         }
-        else
-            return null;
+        else{return null;}
+            
     }
     
     toggleAllTransaction() {

@@ -87,6 +87,8 @@ export class FooterComponent {
     }
 
     gotoMessage() {
+        this._router.navigate(['SmartMessage']);
+        this.addMenu = false;
     }
 
     gotoPlan() {

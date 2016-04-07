@@ -166,7 +166,7 @@ export class AuthService {
             }).subscribe(
             response => {
                 
-                localStorage.setItem('phoneNumber',userId);
+                //localStorage.setItem('phoneNumber',userId);
                 localStorage.setItem('mobileNo',userId);
                 
                 localStorage.setItem('accessToken', response.json().token);  

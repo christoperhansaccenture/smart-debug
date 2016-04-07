@@ -147,7 +147,7 @@ export class CartService {
         item.amount = amount;
         item.merchantIdentifier = selection;
         item.pin = pin;
-        item.ref = ""; //?
+        item.ref = "0652202306"; //?
         item.clearNumberSelection();
         // check main number
         if (number === this._accountService.selectedUserPhone.phoneNo) {

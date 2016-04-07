@@ -1,10 +1,10 @@
-import {Component} from 'angular2/core';
+import { Component } from 'angular2/core';
 import { Router } from 'angular2/router';
-import {MatchMediaService} from '../../shared/services/match-media.service';
-import {LayoutService} from '../../shared/services/layout.service';
-import {ModalService} from '../../shared/services/modal.service';
-import {AccountService} from '../../shared/services/account.service';
-import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+import { MatchMediaService } from '../../shared/services/match-media.service';
+import { LayoutService } from '../../shared/services/layout.service';
+import { ModalService } from '../../shared/services/modal.service';
+import { AccountService } from '../../shared/services/account.service';
+import { SmartLeftMenuComponent } from '../../shared/components/smart-left-menu.component';
 
 @Component({
     selector: 'smart-billsetting',
@@ -33,7 +33,8 @@ export class SmartBillSettingComponent {
         return this._matchMediaService.getmm();
     }
 
-    toggleBillSettingModal(){
+    toggleBillSettingModal(state: string) {
+        this._modalService.setBillSettingState(state);
         this._modalService.toggleBillSettingModal();
     }
 

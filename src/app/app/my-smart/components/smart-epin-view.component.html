@@ -1,0 +1,111 @@
+<div class="smartEPinContainer" [ngClass]="{medium : getResize().mediumUp}" *ngIf="!getResize().largeUp">
+    <div class="containerBody">
+        <div class="header">
+            <div class="void"></div>
+            <div class="text">
+                <div class="headerText">Get ePin</div>
+                <div class="headerSubText">Purchase ePIN with your balance</div>
+            </div>
+        </div>
+        <div class="itemCategory">
+            <div class="option">
+                <div class="first">
+                    <div class="circle green">1</div> Fill in details</div>
+                <div class="line green"></div>
+                <div class="second">
+                    <div class="circle green">2</div> Verification</div>
+                <div class="line green"></div>
+                <div class="third">
+                    <div class="circle green">3</div> View ePin</div>
+            </div>
+        </div>
+        <div>
+            <div class="itemContainer">
+                <div class="itemText">
+                    P10 has been successfully deducted from
+                    <span class="red">092898874099</span>.
+                    <br/><br/> Reference No : <span class="red">151202001288</span>
+                </div>
+            </div>
+            <div class="itemContainer">
+                <div class="itemText">
+                    <ul>
+                        <li>ePIN
+                            <div class="value">10 Garena Shells</div>
+                        </li>
+                        <li>Password
+                            <div class="value red">ABC21SDFH345</div>
+                        </li>
+                        <li>Card Number
+                            <div class="value">ALKS332KJYS3</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="itemFooterContainer">
+                <div class="button">OK</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- large view-->
+<div id="homeBodyLarge" class="smartEPinContainerBody" *ngIf="getResize().largeUp">
+    <div class="smartEPinContainerLarge">
+        <div class="container2">
+            <div class="container1">
+                <smart-left-menu></smart-left-menu>
+                <div class="componentContainer">
+                    <div class="itemComponent">
+                        <div class="itemHeader">Get ePin</div>
+                        <!--edit number-->
+                        <div class="containerBody">
+                            <div class="itemCategory">
+                                <div class="option">
+                                    <div class="first">
+                                        <div class="circle green">1</div> Fill in details</div>
+                                    <div class="line green"></div>
+                                    <div class="second">
+                                        <div class="circle green">2</div> Verification</div>
+                                    <div class="line green"></div>
+                                    <div class="third">
+                                        <div class="circle green">3</div> View ePIN</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="itemContainer">
+                                    <div class="itemText">
+                                        P10 has been successfully deducted from
+                                        <span class="red">092898874099</span>.
+                                        <br/><br/> Reference No : <span class="red">151202001288</span>
+                                    </div>
+                                </div>
+                                <div class="itemContainer">
+                                    <div class="itemText">
+                                        <ul>
+                                            <li>ePIN
+                                                <div class="value">10 Garena Shells</div>
+                                            </li>
+                                            <li>Password
+                                                <div class="value red">ABC21SDFH345</div>
+                                            </li>
+                                            <li>Card Number
+                                                <div class="value">ALKS332KJYS3</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="itemFooterContainer">
+                                    <div class="button">OK</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bannerComponent">
+                        <div class="banner1"></div>
+                        <div class="banner2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

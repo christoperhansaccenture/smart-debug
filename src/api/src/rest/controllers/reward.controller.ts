@@ -518,7 +518,7 @@ var config = require('../config/config');
                     amount: req.body.amount,
                     pin: req.body.pin,
                     channel: req.body.channel,
-                    ref: req.body.ref
+                    reference: req.body.ref
                 };
                 
                 var nJwt = require('njwt');  

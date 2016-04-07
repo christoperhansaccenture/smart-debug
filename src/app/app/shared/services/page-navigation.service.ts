@@ -71,9 +71,8 @@ export class PageNavigationService {
         this.previousPage = previous;
     }
 
-    setBuyAddOnsNavigation(previous) {
+    setPreviousPage(previous) {
         this.previousPage = previous;
-        this.currentPage = "BuyAddOnsDetail";
     }
 	
 	gotoPreviousPage(){

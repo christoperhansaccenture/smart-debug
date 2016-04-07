@@ -1,0 +1,443 @@
+.smartEPinContainer {
+    z-index: 1;
+    .containerBody {
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;    
+        padding-bottom: 45px;
+        .header {
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid $text-dark-gray;
+            background: url(../img/epin.jpg) no-repeat;
+            background-size: cover;
+            height: 140px;
+            .void {
+                display: inline-block;
+                width: 100%;
+                height: 136px;
+            }
+            .text {
+                display: inline-block;
+                background-color: $gray;
+                width: calc(100% - 20px);
+                padding: 10px;
+                height: 37px;
+                .headerText {
+                    color: #FFF;
+                    font-size: 20px;
+                }
+                .headerSubText {
+                    color: #FFF;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+        }
+        .itemCategory {
+            float: left;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 20px;
+            border-bottom: 1px solid #EEE;
+            .text {
+                width: 100%;
+                color: $smartgreen;
+                line-height: 40px;
+            }
+            .option {
+                width: 100%;
+                font-size: 13px;
+                line-height: 20px;
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                float: left;
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: $gray;
+                    font-size: 10px;
+                    color: #FFF;
+                    text-align: center;
+                    display: inline-block;
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                    &.green {
+                        background-color: $smartgreen;
+                    }
+                }
+                .line {
+                    width: 5%;
+                    float: left;
+                    border-top: 2px solid $gray;
+                    margin-top: 10px;
+                    &.green {
+                        border-top: 2px solid $smartgreen;
+                    }
+                }
+                .first {
+                    float: left;
+                    width: calc(28% - 10px);
+                    padding: 0px 5px 0px 5px;
+                }
+                .second {
+                    float: left;
+                    width: calc(28% - 10px);
+                    padding: 0px 5px 0px 5px;
+                }
+                .third {
+                    float: left;
+                    width: calc(28% - 10px);
+                    padding: 0px 5px 0px 5px;
+                }
+            }
+        }
+        .itemContainer {
+            float: left;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            border-bottom: 1px solid #EEE;
+            cursor: pointer;
+            .itemText {
+                padding: 10px 0px 10px 0px;
+                .red {
+                    color: $smartred;
+                }
+                ul {
+                    margin-left: -20px;
+                    .value {
+                        width: calc(100% - 90px);
+                        float: right;
+                        text-align: right;
+                    }
+                }
+            }
+            .itemIdentifier {
+                float: left;
+                width: 30px;
+                color: $smartgreen;
+                font-size: 15px;
+                line-height: 30px;
+                height: 30px;
+                margin-right: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                &.key {
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuMzk2MTAxOTA2MjQ2MTIsMCkgc2NhbGUoNy45OTk5OTQyNzc5ODcxLDcuOTk5OTk0Mjc3OTg3MSkgICIgZmlsbD0iIzAwMDAwMCIgZD0iTTI1LjM2OTgzOCwzLjIwMzgzNzJDMjQuNjE4ODM2LDMuMTkzODI3NCAyMy44Njk4NDksMy40OTk4NTk0IDIzLjM0Njg0MSw0LjEwMTg1MjcgMjIuNDE2ODU2LDUuMTcyODQyOCAyMi41NTE4NDgsNi43Nzg4Njk5IDIzLjY0OTg0OCw3LjY4NTg1NzYgMjQuNzQ1ODMzLDguNTkzODgyOCAyNi4zODk4MjEsOC40NjA4ODYzIDI3LjMxOTgyMSw3LjM5MTg0OTMgMjguMjQ3ODA5LDYuMzIwODU5MiAyOC4xMTQ4MTQsNC43MTQ4MzIxIDI3LjAxNjgxNCwzLjgwNjg2NzkgMjYuNTM3ODI5LDMuNDA4ODU1NSAyNS45NTI4MjYsMy4yMTA4NTYyIDI1LjM2OTgzOCwzLjIwMzgzNzJ6IE0yMS45MzY4NDcsMC4wMDA4MTYxNjI4NkMyNC4xNDM4MzQsMC4wMjg4MzEyNjggMjYuMzUzODI2LDAuNzc4ODM1NTcgMjguMTY3ODA4LDIuMjgxODM0NiAzMi4zMTg3OCw1LjcxNjg1MiAzMi44MzI3ODQsMTEuNzg0ODggMjkuMzE1ODEsMTUuODM4OTE5IDI2Ljg3NTgyNSwxOC42NDg5MzMgMjMuMTUxODUxLDE5LjcxMTkyNyAxOS43MTA4NjQsMTguOTcyOTA5TDE2LjQwMDg4OSwyMi43ODU5ODFDMTYuNDAwODg5LDIyLjc4NTk4MSwxMy44NTI5MDMsMjIuNjIyOTU1LDEyLjA5MzkyNywyMy4yMzA5M0w0Ljc1MDk3NTEsMzEuNjk4MDE4IDAuMjYwMDA4MDUsMzIuMDAwMDI0IDAsMjkuMzM4MDIgMTEuMTA5OTI1LDE2LjUzMTkxN0MxMS4wMDg5MjgsMTUuODY0OTIxLDEwLjg5NDkzMSwxNS4zODk5NDIsMTAuODk0OTMxLDE1LjM4OTk0MkwxMi43Mzg5MTMsMTMuMjY3OTIxQzExLjM4MzkyNSwxMC4wNTA4NjIgMTEuODI3OTIzLDYuMjM3ODUwOSAxNC4yOTA5MDMsMy4zOTk4MjIzIDE2LjI2Nzg5NiwxLjEyMDgxNzUgMTkuMDk5ODc3LC0wLjAzNTE5NDk3NiAyMS45MzY4NDcsMC4wMDA4MTYxNjI4NnoiIC8+DQogIDwvZz4NCjwvc3ZnPg0K") no-repeat;
+                    background-size: 30px;
+                    background-position: center center;
+                }
+                &.game {
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNDIxMDg1NDcxNTIwMkUtMTQsNTEuNTQzOTcyOTkyODc1KSBzY2FsZSg4LjAwMDAwMTg5MzQ4MDE0LDguMDAwMDAxODkzNDgwMTQpICAiIGZpbGw9IiMwMDAwMDAiIGQ9Ik0yNS45MTAzNTMsNi44OTIwMzA2QzI2LjUwOTM1NCw2Ljg5MjAzMDYgMjcuMDA4MzQ4LDcuMzkxMDI1IDI3LjAwODM0OCw3Ljk5MDAyNTQgMjcuMDA4MzQ4LDguNTkwMDMyOSAyNi41MDkzNTQsOS4wODkwMjY4IDI1LjkxMDM1Myw5LjA4OTAyNjggMjUuMzEwMzQ1LDkuMDg5MDI2OCAyNC44MTEzNTIsOC41OTAwMzI5IDI0LjgxMTM1Miw3Ljk5MDAyNTQgMjQuODExMzUyLDcuMzkxMDI1IDI1LjMxMDM0NSw2Ljg5MjAzMDYgMjUuOTEwMzUzLDYuODkyMDMwNnogTTIzLjcxMjM0OSw0LjU5NDAyMDdDMjQuMzExMzUsNC41OTQwMjA3IDI0LjgxMTM1Miw1LjA5NDAyMjIgMjQuODExMzUyLDUuNjkzMDIyNiAyNC44MTEzNTIsNi4yOTIwMjMxIDI0LjMxMTM1LDYuNzkyMDI0IDIzLjcxMjM0OSw2Ljc5MjAyNCAyMy4xMTMzNDgsNi43OTIwMjQgMjIuNjE0MzUzLDYuMjkyMDIzMSAyMi42MTQzNTMsNS42OTMwMjI2IDIyLjYxNDM1Myw1LjA5NDAyMjIgMjMuMTEzMzQ4LDQuNTk0MDIwNyAyMy43MTIzNDksNC41OTQwMjA3eiBNNy4wMzIzMDg1LDQuMzk1MDE1MUw3LjEzMjI4NDYsNC4zOTUwMTUxIDguNzMwMzExNCw0LjM5NTAxNTEgOC43MzAzMTE0LDYuMDkzMDE3NSAxMC4zMjgzMDgsNi4wOTMwMTc1IDEwLjMyODMwOCw3LjY5MTAyODUgOC43MzAzMTE0LDcuNjkxMDI4NSA4LjczMDMxMTQsOS4xODkwMzM5IDcuMTMyMjg0Niw5LjE4OTAzMzkgNy4xMzIyODQ2LDcuNjkxMDI4NSA1LjQzNDI4MTgsNy42OTEwMjg1IDUuNDM0MjgxOCw2LjA5MzAxNzUgNy4wMzIzMDg1LDYuMDkzMDE3NXogTTI0LjgxMTM1MiwyLjk5NjAwOTVDMjIuNzEzMzU0LDIuOTk2MDA5NSAyMC45MTYzNTEsNC42OTQwMTE2IDIwLjkxNjM1MSw2Ljg5MjAzMDYgMjAuOTE2MzUxLDguOTg5MDM2IDIyLjYxNDM1MywxMC43ODcwMyAyNC44MTEzNTIsMTAuNzg3MDMgMjYuOTA4MzQyLDEwLjc4NzAzIDI4LjcwNjM1Miw5LjA4OTAyNjggMjguNzA2MzUyLDYuODkyMDMwNiAyOC43MDYzNTIsNC42OTQwMTE2IDI2LjkwODM0MiwyLjk5NjAwOTUgMjQuODExMzUyLDIuOTk2MDA5NXogTTcuODMxMjkxNiwyLjk5NjAwOTVDNS43MzQzMDEsMi45OTYwMDk1IDMuOTM2MjkxNCw0LjY5NDAxMTYgMy45MzYyOTEyLDYuNzkyMDI0IDMuOTM2MjkxNCw4Ljg4OTAyOTkgNS42MzQyOTQ1LDEwLjY4NzAzOCA3LjgzMTI5MTYsMTAuNjg3MDM4IDkuOTI5MzIwMywxMC42ODcwMzggMTEuNzI3Mjk5LDguOTg5MDM2IDExLjcyNzI5OSw2Ljc5MjAyNCAxMS43MjcyOTksNC42OTQwMTE2IDEwLjAyOTI5NiwyLjk5NjAwOTUgNy44MzEyOTE2LDIuOTk2MDA5NXogTTguMDMxMzA0MywwTDguMjMxMjg3LDBDOS4yMzAzMTMzLC0yLjAyMTUyNDhFLTA3IDEwLjIyOTMwOSwwLjMwMDAwMzYgMTEuMjI3Mjk4LDAuNzk5MDEyOTcgMTEuOTI2MzA1LDEuMTk5MDA3OSAxMi41MjYzMTMsMS42OTgwMTc0IDEzLjAyNTMwNywyLjI5NzAxNzlMMTkuMDE4MzM1LDIuMjk3MDE3OUMxOS41MTczMywxLjY5ODAxNzQgMjAuMTE3MzM4LDEuMTk5MDA3OSAyMC44MTYzNDUsMC43OTkwMTI5NyAyNC4xMTIzNDUsLTAuODk4OTg5MjUgMjguMTA3MzUxLDAuNDAwMDA5OTcgMjkuODA1MzUzLDMuNTk2MDE3IDMxLjUwMzM1Nyw2Ljg5MjAzMDYgMzMuNTAwMzcsMTcuMTc5MDQzIDMwLjMwNDM3OCwxOC44NzcwNiAyNy42MDczNDksMjAuMjc1MDU5IDIyLjAxNDM0NywxNS4xODIwNDQgMTkuMzE4MzI1LDExLjU4NjA0M0wxMi43MjYzMjUsMTEuNTg2MDQzQzEwLjAyOTI5NiwxNS4xODIwNDQgNC40MzYyOTMxLDIwLjI3NTA1OSAxLjczOTI5NDEsMTguODc3MDYgLTEuNTU2NzM1NywxNy4xNzkwNDMgMC41NDAyODU3Myw2Ljg5MjAzMDYgMi4yMzgyODg0LDMuNTk2MDE3IDMuNDM3Mjk3MSwxLjI5ODAwNzMgNS42MzQyOTQ1LC0yLjAyMTUyNDhFLTA3IDguMDMxMzA0MywweiIgLz4NCiAgPC9nPg0KPC9zdmc+DQo=") no-repeat;
+                    background-size: 30px;
+                    background-position: center center;
+                }
+                &.peso {
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU5Ljc1MjUzMzI1NzAwNzYsNTkpIHNjYWxlKDQuMzEyNSw0LjMxMjUpICAiIGZpbGw9IiMwMDAwMDAiIGQ9Ik0xMS42MjM5OTMsMTYuNDE5OTk4TDExLjYyMzk5MywxOC4yNSAxMy4xODM5ODksMTguMjVDMTUuMDYxOTgsMTguMjUsMTYuNTM3OTkzLDE3LjYzOTk5OSwxNy42MTE5OTgsMTYuNDE5OTk4eiBNMTEuNjIzOTkzLDEwLjU1NTAwOEwxMS42MjM5OTMsMTMuMTY1MDA5IDE5LjU0ODk4LDEzLjE2NTAwOUMxOS42NDk5OTMsMTIuNjkwMDAyIDE5LjY5OTk4MSwxMi4yMDUwMDIgMTkuNjk5OTgxLDExLjcxNDk5NiAxOS42OTk5ODEsMTEuMzU0OTk2IDE5LjY1Nzk4OCwxMC45NzAwMDEgMTkuNTc0OTgxLDEwLjU1NTAwOHogTTExLjYyMzk5Myw1LjUyOTk5ODhMMTEuNjIzOTkzLDcuMjk0OTk4MiAxNy44Mzc5ODEsNy4yOTQ5OTgyQzE2Ljc2NDk4Myw2LjEyMDAwMjcsMTUuMjEzOTg4LDUuNTI5OTk4OCwxMy4xODM5ODksNS41Mjk5OTg4eiBNMy40OTc5ODU3LDBMMTQuNTkyOTg2LDBDMTguMTgxOTc1LDAgMjEuMDI4OTkxLDAuNjI1IDIzLjEzNDk3OCwxLjg4NTAwMjEgMjUuMjM5OTg5LDMuMTM5OTk5NCAyNi42ODY5OCw0Ljk0NDk5OTcgMjcuNDc0OTc1LDcuMjk0OTk4MkwzMS42NTEsNy4yOTQ5OTgyIDMxLjY1MSwxMC41NzQ5OTcgMjguMTI4OTk3LDEwLjU3NDk5N0MyOC4xNDU5OTUsMTAuNjgwMDA4IDI4LjE2MTk4NiwxMC44MzAwMDIgMjguMTc4OTg1LDExLjAzNTAwNCAyOC4xOTU5ODMsMTEuMjM1MDAxIDI4LjIwMzk3OCwxMS40MTAwMDQgMjguMjAzOTc4LDExLjU1OTk5OCAyOC4yMDM5NzgsMTEuODU0OTk2IDI4LjE5MTk4NSwxMi4xMjUgMjguMTY1OTg0LDEyLjM2MDAwMSAyOC4xNDA5OSwxMi42MDAwMDYgMjguMTExOTk4LDEyLjg2NTAwNSAyOC4wNzgwMDIsMTMuMTY1MDA5TDMxLjY1MSwxMy4xNjUwMDkgMzEuNjUxLDE2LjQxOTk5OCAyNi45NDU5ODMsMTYuNDE5OTk4QzI2LjQxMDAwMywxNy41NTUwMDggMjUuNzEyOTgxLDE4LjU3NDk5NyAyNC44NTgwMDEsMTkuNDkwMDA1IDI0LjAwMjk5LDIwLjQwNDk5OSAyMy4wMTI5OTksMjEuMTg0OTk4IDIxLjg4ODk3NiwyMS44MjAwMDcgMjAuNzY1OTksMjIuNDY0OTk2IDE5LjUyNzk4NCwyMi45NTUwMDIgMTguMTc3OTc3LDIzLjMwNTAwOCAxNi44MjY5OTUsMjMuNjU0OTk5IDE1LjM4OTk4MywyMy44MzAwMDIgMTMuODYyOTc1LDIzLjgzMDAwMkwxMS42MjM5OTMsMjMuODMwMDAyIDExLjYyMzk5MywzMiAzLjQ5Nzk4NTcsMzIgMy40OTc5ODU3LDE2LjQxOTk5OCAwLDE2LjQxOTk5OCAwLDEzLjE2NTAwOSAzLjQ5Nzk4NTcsMTMuMTY1MDA5IDMuNDk3OTg1NywxMC41NTUwMDggMCwxMC41NTUwMDggMCw3LjI5NDk5ODIgMy40OTc5ODU3LDcuMjk0OTk4MnoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                    background-size: 30px;
+                    background-position: center center;
+                }
+            }
+            .inputValue {
+                width: calc(100% - 55px);
+                padding-left: 5px;
+                padding-right: 5px;
+                border-radius: 5px;
+                font-size: 15px;
+                line-height: 1.5rem;
+                border: none;
+                margin-top: 12px;
+            }
+        }
+        .itemFooterContainer {
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+            .small {
+                color: $smartgreen;
+                text-align: right;
+                padding: 0px 10px 10px 0px;
+            }
+            .button {
+                width: 120px;
+                line-height: 1.5rem;
+                margin-left: 10px;
+                margin-right: 10px;
+                background-color: $smartred;
+                color: #FFF;
+                cursor: pointer;
+                float: right;
+            }
+            .buttonContainer {
+                width: 300px;
+                height: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                .button {
+                    width: 100px;
+                    line-height: 1.5rem;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    background-color: $gray;
+                    color: #FFF;
+                    cursor: default;
+                    float: right;
+                    clear: none;
+                    &.green {
+                        background-color: $smartgreen;
+                        cursor: pointer;
+                        float: left;
+                    }
+                    &.red {
+                        background-color: $smartred;
+                        cursor: pointer;
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.smartEPinContainerBody {
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    &.bodyFixed {
+        margin-top: 60px;
+    }
+    .smartEPinContainerLarge {
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        .container2 {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            .container1 {
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+                .componentContainer {
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding-top: 20px;
+                    padding-bottom: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    .itemComponent {
+                        width: 50%;
+                        float: left;
+                        .itemHeader {
+                            color: $smartgreen;
+                            font-size: 20px;
+                            padding: 20px;
+                        }
+                        .containerBody {
+                            width: 100%;
+                            height: 100%;
+                            background-color: #FFF;
+                            .itemCategory {
+                                float: left;
+                                width: calc(100% - 20px);
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                font-size: 20px;
+                                border-bottom: 1px solid #EEE;
+                                .text {
+                                    width: 100%;
+                                    color: $smartgreen;
+                                    line-height: 40px;
+                                }
+                                .option {
+                                    width: 100%;
+                                    font-size: 13px;
+                                    line-height: 20px;
+                                    text-align: center;
+                                    padding-top: 20px;
+                                    padding-bottom: 20px;
+                                    float: left;
+                                    .circle {
+                                        width: 20px;
+                                        height: 20px;
+                                        border-radius: 10px;
+                                        background-color: $gray;
+                                        font-size: 10px;
+                                        color: #FFF;
+                                        text-align: center;
+                                        display: inline-block;
+                                        text-align: center;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        &.green {
+                                            background-color: $smartgreen;
+                                        }
+                                    }
+                                    .line {
+                                        width: 5%;
+                                        float: left;
+                                        border-top: 2px solid $gray;
+                                        margin-top: 10px;
+                                        &.green {
+                                            border-top: 2px solid $smartgreen;
+                                        }
+                                    }
+                                    .first {
+                                        float: left;
+                                        width: calc(28% - 10px);
+                                        padding: 0px 5px 0px 5px;
+                                    }
+                                    .second {
+                                        float: left;
+                                        width: calc(28% - 10px);
+                                        padding: 0px 5px 0px 5px;
+                                    }
+                                    .third {
+                                        float: left;
+                                        width: calc(28% - 10px);
+                                        padding: 0px 5px 0px 5px;
+                                    }
+                                }
+                            }
+                            .itemContainer {
+                                float: left;
+                                width: calc(100% - 20px);
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                border-bottom: 1px solid #EEE;
+                                cursor: pointer;
+                                .itemText {
+                                    padding: 10px 0px 10px 0px;
+                                    .red {
+                                        color: $smartred;
+                                    }
+                                    ul {
+                                        margin-left: -20px;
+                                        .value {
+                                            width: calc(100% - 90px);
+                                            float: right;
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+                                .itemIdentifier {
+                                    float: left;
+                                    width: 30px;
+                                    color: $smartgreen;
+                                    font-size: 15px;
+                                    line-height: 30px;
+                                    height: 30px;
+                                    margin-right: 10px;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    &.key {
+                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuMzk2MTAxOTA2MjQ2MTIsMCkgc2NhbGUoNy45OTk5OTQyNzc5ODcxLDcuOTk5OTk0Mjc3OTg3MSkgICIgZmlsbD0iIzAwMDAwMCIgZD0iTTI1LjM2OTgzOCwzLjIwMzgzNzJDMjQuNjE4ODM2LDMuMTkzODI3NCAyMy44Njk4NDksMy40OTk4NTk0IDIzLjM0Njg0MSw0LjEwMTg1MjcgMjIuNDE2ODU2LDUuMTcyODQyOCAyMi41NTE4NDgsNi43Nzg4Njk5IDIzLjY0OTg0OCw3LjY4NTg1NzYgMjQuNzQ1ODMzLDguNTkzODgyOCAyNi4zODk4MjEsOC40NjA4ODYzIDI3LjMxOTgyMSw3LjM5MTg0OTMgMjguMjQ3ODA5LDYuMzIwODU5MiAyOC4xMTQ4MTQsNC43MTQ4MzIxIDI3LjAxNjgxNCwzLjgwNjg2NzkgMjYuNTM3ODI5LDMuNDA4ODU1NSAyNS45NTI4MjYsMy4yMTA4NTYyIDI1LjM2OTgzOCwzLjIwMzgzNzJ6IE0yMS45MzY4NDcsMC4wMDA4MTYxNjI4NkMyNC4xNDM4MzQsMC4wMjg4MzEyNjggMjYuMzUzODI2LDAuNzc4ODM1NTcgMjguMTY3ODA4LDIuMjgxODM0NiAzMi4zMTg3OCw1LjcxNjg1MiAzMi44MzI3ODQsMTEuNzg0ODggMjkuMzE1ODEsMTUuODM4OTE5IDI2Ljg3NTgyNSwxOC42NDg5MzMgMjMuMTUxODUxLDE5LjcxMTkyNyAxOS43MTA4NjQsMTguOTcyOTA5TDE2LjQwMDg4OSwyMi43ODU5ODFDMTYuNDAwODg5LDIyLjc4NTk4MSwxMy44NTI5MDMsMjIuNjIyOTU1LDEyLjA5MzkyNywyMy4yMzA5M0w0Ljc1MDk3NTEsMzEuNjk4MDE4IDAuMjYwMDA4MDUsMzIuMDAwMDI0IDAsMjkuMzM4MDIgMTEuMTA5OTI1LDE2LjUzMTkxN0MxMS4wMDg5MjgsMTUuODY0OTIxLDEwLjg5NDkzMSwxNS4zODk5NDIsMTAuODk0OTMxLDE1LjM4OTk0MkwxMi43Mzg5MTMsMTMuMjY3OTIxQzExLjM4MzkyNSwxMC4wNTA4NjIgMTEuODI3OTIzLDYuMjM3ODUwOSAxNC4yOTA5MDMsMy4zOTk4MjIzIDE2LjI2Nzg5NiwxLjEyMDgxNzUgMTkuMDk5ODc3LC0wLjAzNTE5NDk3NiAyMS45MzY4NDcsMC4wMDA4MTYxNjI4NnoiIC8+DQogIDwvZz4NCjwvc3ZnPg0K") no-repeat;
+                                        background-size: 30px;
+                                        background-position: center center;
+                                    }
+                                    &.game {
+                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNDIxMDg1NDcxNTIwMkUtMTQsNTEuNTQzOTcyOTkyODc1KSBzY2FsZSg4LjAwMDAwMTg5MzQ4MDE0LDguMDAwMDAxODkzNDgwMTQpICAiIGZpbGw9IiMwMDAwMDAiIGQ9Ik0yNS45MTAzNTMsNi44OTIwMzA2QzI2LjUwOTM1NCw2Ljg5MjAzMDYgMjcuMDA4MzQ4LDcuMzkxMDI1IDI3LjAwODM0OCw3Ljk5MDAyNTQgMjcuMDA4MzQ4LDguNTkwMDMyOSAyNi41MDkzNTQsOS4wODkwMjY4IDI1LjkxMDM1Myw5LjA4OTAyNjggMjUuMzEwMzQ1LDkuMDg5MDI2OCAyNC44MTEzNTIsOC41OTAwMzI5IDI0LjgxMTM1Miw3Ljk5MDAyNTQgMjQuODExMzUyLDcuMzkxMDI1IDI1LjMxMDM0NSw2Ljg5MjAzMDYgMjUuOTEwMzUzLDYuODkyMDMwNnogTTIzLjcxMjM0OSw0LjU5NDAyMDdDMjQuMzExMzUsNC41OTQwMjA3IDI0LjgxMTM1Miw1LjA5NDAyMjIgMjQuODExMzUyLDUuNjkzMDIyNiAyNC44MTEzNTIsNi4yOTIwMjMxIDI0LjMxMTM1LDYuNzkyMDI0IDIzLjcxMjM0OSw2Ljc5MjAyNCAyMy4xMTMzNDgsNi43OTIwMjQgMjIuNjE0MzUzLDYuMjkyMDIzMSAyMi42MTQzNTMsNS42OTMwMjI2IDIyLjYxNDM1Myw1LjA5NDAyMjIgMjMuMTEzMzQ4LDQuNTk0MDIwNyAyMy43MTIzNDksNC41OTQwMjA3eiBNNy4wMzIzMDg1LDQuMzk1MDE1MUw3LjEzMjI4NDYsNC4zOTUwMTUxIDguNzMwMzExNCw0LjM5NTAxNTEgOC43MzAzMTE0LDYuMDkzMDE3NSAxMC4zMjgzMDgsNi4wOTMwMTc1IDEwLjMyODMwOCw3LjY5MTAyODUgOC43MzAzMTE0LDcuNjkxMDI4NSA4LjczMDMxMTQsOS4xODkwMzM5IDcuMTMyMjg0Niw5LjE4OTAzMzkgNy4xMzIyODQ2LDcuNjkxMDI4NSA1LjQzNDI4MTgsNy42OTEwMjg1IDUuNDM0MjgxOCw2LjA5MzAxNzUgNy4wMzIzMDg1LDYuMDkzMDE3NXogTTI0LjgxMTM1MiwyLjk5NjAwOTVDMjIuNzEzMzU0LDIuOTk2MDA5NSAyMC45MTYzNTEsNC42OTQwMTE2IDIwLjkxNjM1MSw2Ljg5MjAzMDYgMjAuOTE2MzUxLDguOTg5MDM2IDIyLjYxNDM1MywxMC43ODcwMyAyNC44MTEzNTIsMTAuNzg3MDMgMjYuOTA4MzQyLDEwLjc4NzAzIDI4LjcwNjM1Miw5LjA4OTAyNjggMjguNzA2MzUyLDYuODkyMDMwNiAyOC43MDYzNTIsNC42OTQwMTE2IDI2LjkwODM0MiwyLjk5NjAwOTUgMjQuODExMzUyLDIuOTk2MDA5NXogTTcuODMxMjkxNiwyLjk5NjAwOTVDNS43MzQzMDEsMi45OTYwMDk1IDMuOTM2MjkxNCw0LjY5NDAxMTYgMy45MzYyOTEyLDYuNzkyMDI0IDMuOTM2MjkxNCw4Ljg4OTAyOTkgNS42MzQyOTQ1LDEwLjY4NzAzOCA3LjgzMTI5MTYsMTAuNjg3MDM4IDkuOTI5MzIwMywxMC42ODcwMzggMTEuNzI3Mjk5LDguOTg5MDM2IDExLjcyNzI5OSw2Ljc5MjAyNCAxMS43MjcyOTksNC42OTQwMTE2IDEwLjAyOTI5NiwyLjk5NjAwOTUgNy44MzEyOTE2LDIuOTk2MDA5NXogTTguMDMxMzA0MywwTDguMjMxMjg3LDBDOS4yMzAzMTMzLC0yLjAyMTUyNDhFLTA3IDEwLjIyOTMwOSwwLjMwMDAwMzYgMTEuMjI3Mjk4LDAuNzk5MDEyOTcgMTEuOTI2MzA1LDEuMTk5MDA3OSAxMi41MjYzMTMsMS42OTgwMTc0IDEzLjAyNTMwNywyLjI5NzAxNzlMMTkuMDE4MzM1LDIuMjk3MDE3OUMxOS41MTczMywxLjY5ODAxNzQgMjAuMTE3MzM4LDEuMTk5MDA3OSAyMC44MTYzNDUsMC43OTkwMTI5NyAyNC4xMTIzNDUsLTAuODk4OTg5MjUgMjguMTA3MzUxLDAuNDAwMDA5OTcgMjkuODA1MzUzLDMuNTk2MDE3IDMxLjUwMzM1Nyw2Ljg5MjAzMDYgMzMuNTAwMzcsMTcuMTc5MDQzIDMwLjMwNDM3OCwxOC44NzcwNiAyNy42MDczNDksMjAuMjc1MDU5IDIyLjAxNDM0NywxNS4xODIwNDQgMTkuMzE4MzI1LDExLjU4NjA0M0wxMi43MjYzMjUsMTEuNTg2MDQzQzEwLjAyOTI5NiwxNS4xODIwNDQgNC40MzYyOTMxLDIwLjI3NTA1OSAxLjczOTI5NDEsMTguODc3MDYgLTEuNTU2NzM1NywxNy4xNzkwNDMgMC41NDAyODU3Myw2Ljg5MjAzMDYgMi4yMzgyODg0LDMuNTk2MDE3IDMuNDM3Mjk3MSwxLjI5ODAwNzMgNS42MzQyOTQ1LC0yLjAyMTUyNDhFLTA3IDguMDMxMzA0MywweiIgLz4NCiAgPC9nPg0KPC9zdmc+DQo=") no-repeat;
+                                        background-size: 30px;
+                                        background-position: center center;
+                                    }
+                                    &.peso {
+                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU5Ljc1MjUzMzI1NzAwNzYsNTkpIHNjYWxlKDQuMzEyNSw0LjMxMjUpICAiIGZpbGw9IiMwMDAwMDAiIGQ9Ik0xMS42MjM5OTMsMTYuNDE5OTk4TDExLjYyMzk5MywxOC4yNSAxMy4xODM5ODksMTguMjVDMTUuMDYxOTgsMTguMjUsMTYuNTM3OTkzLDE3LjYzOTk5OSwxNy42MTE5OTgsMTYuNDE5OTk4eiBNMTEuNjIzOTkzLDEwLjU1NTAwOEwxMS42MjM5OTMsMTMuMTY1MDA5IDE5LjU0ODk4LDEzLjE2NTAwOUMxOS42NDk5OTMsMTIuNjkwMDAyIDE5LjY5OTk4MSwxMi4yMDUwMDIgMTkuNjk5OTgxLDExLjcxNDk5NiAxOS42OTk5ODEsMTEuMzU0OTk2IDE5LjY1Nzk4OCwxMC45NzAwMDEgMTkuNTc0OTgxLDEwLjU1NTAwOHogTTExLjYyMzk5Myw1LjUyOTk5ODhMMTEuNjIzOTkzLDcuMjk0OTk4MiAxNy44Mzc5ODEsNy4yOTQ5OTgyQzE2Ljc2NDk4Myw2LjEyMDAwMjcsMTUuMjEzOTg4LDUuNTI5OTk4OCwxMy4xODM5ODksNS41Mjk5OTg4eiBNMy40OTc5ODU3LDBMMTQuNTkyOTg2LDBDMTguMTgxOTc1LDAgMjEuMDI4OTkxLDAuNjI1IDIzLjEzNDk3OCwxLjg4NTAwMjEgMjUuMjM5OTg5LDMuMTM5OTk5NCAyNi42ODY5OCw0Ljk0NDk5OTcgMjcuNDc0OTc1LDcuMjk0OTk4MkwzMS42NTEsNy4yOTQ5OTgyIDMxLjY1MSwxMC41NzQ5OTcgMjguMTI4OTk3LDEwLjU3NDk5N0MyOC4xNDU5OTUsMTAuNjgwMDA4IDI4LjE2MTk4NiwxMC44MzAwMDIgMjguMTc4OTg1LDExLjAzNTAwNCAyOC4xOTU5ODMsMTEuMjM1MDAxIDI4LjIwMzk3OCwxMS40MTAwMDQgMjguMjAzOTc4LDExLjU1OTk5OCAyOC4yMDM5NzgsMTEuODU0OTk2IDI4LjE5MTk4NSwxMi4xMjUgMjguMTY1OTg0LDEyLjM2MDAwMSAyOC4xNDA5OSwxMi42MDAwMDYgMjguMTExOTk4LDEyLjg2NTAwNSAyOC4wNzgwMDIsMTMuMTY1MDA5TDMxLjY1MSwxMy4xNjUwMDkgMzEuNjUxLDE2LjQxOTk5OCAyNi45NDU5ODMsMTYuNDE5OTk4QzI2LjQxMDAwMywxNy41NTUwMDggMjUuNzEyOTgxLDE4LjU3NDk5NyAyNC44NTgwMDEsMTkuNDkwMDA1IDI0LjAwMjk5LDIwLjQwNDk5OSAyMy4wMTI5OTksMjEuMTg0OTk4IDIxLjg4ODk3NiwyMS44MjAwMDcgMjAuNzY1OTksMjIuNDY0OTk2IDE5LjUyNzk4NCwyMi45NTUwMDIgMTguMTc3OTc3LDIzLjMwNTAwOCAxNi44MjY5OTUsMjMuNjU0OTk5IDE1LjM4OTk4MywyMy44MzAwMDIgMTMuODYyOTc1LDIzLjgzMDAwMkwxMS42MjM5OTMsMjMuODMwMDAyIDExLjYyMzk5MywzMiAzLjQ5Nzk4NTcsMzIgMy40OTc5ODU3LDE2LjQxOTk5OCAwLDE2LjQxOTk5OCAwLDEzLjE2NTAwOSAzLjQ5Nzk4NTcsMTMuMTY1MDA5IDMuNDk3OTg1NywxMC41NTUwMDggMCwxMC41NTUwMDggMCw3LjI5NDk5ODIgMy40OTc5ODU3LDcuMjk0OTk4MnoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                                        background-size: 30px;
+                                        background-position: center center;
+                                    }
+                                }
+                                .inputValue {
+                                    width: calc(100% - 55px);
+                                    padding-left: 5px;
+                                    padding-right: 5px;
+                                    border-radius: 5px;
+                                    font-size: 15px;
+                                    line-height: 1.5rem;
+                                    border: none;
+                                    margin-top: 12px;
+                                }
+                            }
+                            .itemFooterContainer {
+                                display: inline-block;
+                                width: 100%;
+                                padding-top: 20px;
+                                .small {
+                                    color: $smartgreen;
+                                    text-align: right;
+                                    padding: 0px 10px 10px 0px;
+                                }
+                                .button {
+                                    width: 120px;
+                                    line-height: 1.5rem;
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                    background-color: $smartred;
+                                    color: #FFF;
+                                    cursor: pointer;
+                                    float: right;
+                                }
+                                .buttonContainer {
+                                    width: 300px;
+                                    height: 50px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    .button {
+                                        width: 100px;
+                                        line-height: 1.5rem;
+                                        margin-left: 10px;
+                                        margin-right: 10px;
+                                        background-color: $gray;
+                                        color: #FFF;
+                                        cursor: default;
+                                        float: right;
+                                        clear: none;
+                                        &.green {
+                                            background-color: $smartgreen;
+                                            cursor: pointer;
+                                            float: left;
+                                        }
+                                        &.red {
+                                            background-color: $smartred;
+                                            cursor: pointer;
+                                            float: right;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .bannerComponent {
+                        width: 45%;
+                        float: right;
+                        padding-top: 20px;
+                        .banner1 {
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner1.png) no-repeat;
+                            background-size: cover;
+                            margin-bottom: 20px;
+                        }
+                        .banner2 {
+                            width: 100%;
+                            height: 100px;
+                            background: url(../img/banner2.png) no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,12 +5,14 @@ import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {ModalService} from '../../shared/services/modal.service';
 import {SmartLeftMenuComponent} from '../../shared/components/smart-left-menu.component';
+import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 
 @Component({
     selector: 'profile',
     templateUrl: './app/account/components/profile.component.html',
     directives: [
-        SmartLeftMenuComponent
+        SmartLeftMenuComponent,
+        CircularSpinnerComponent
     ]
 })
 export class ProfileComponent  {
@@ -25,6 +27,10 @@ export class ProfileComponent  {
 		this._accountService.getUserProfileFromBackEnd(false);
         
 	}
+    
+    getSpinnerStatus(){
+        return this._accountService.spinnerProfile;
+    }
     
     getUserProfile(){
         return this._accountService.getUserProfile();

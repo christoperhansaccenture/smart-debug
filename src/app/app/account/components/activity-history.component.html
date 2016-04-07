@@ -43,16 +43,19 @@
                 </div>
             </div>
         </div>
-        <div class="itemBox" *ngFor="#activity of getActivity()">
-            <div class="itemHeader">{{activity.type}}</div>
-            <div class="itemInfoLine">
-                <div class="itemInfoIdentifier">{{activity.name}}</div>
-                <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
-            </div>
-            <div class="itemAddInfo">{{activity.desc}}</div>
-            <div class="itemDateInfo">
-                <div class="itemDate">On {{activity.date}}</div>
-                <div class="itemBuyVia">via {{activity.media}}</div>
+        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
+        <div *ngIf="!getSpinnerStatus()">
+            <div class="itemBox" *ngFor="#activity of getActivity()">
+                <div class="itemHeader">{{activity.type}}</div>
+                <div class="itemInfoLine">
+                    <div class="itemInfoIdentifier">{{activity.name}}</div>
+                    <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
+                </div>
+                <div class="itemAddInfo">{{activity.desc}}</div>
+                <div class="itemDateInfo">
+                    <div class="itemDate">On {{activity.date}}</div>
+                    <div class="itemBuyVia">via {{activity.media}}</div>
+                </div>
             </div>
         </div>
      </div>
@@ -76,16 +79,19 @@
                     </div>
                     <div class="activityComponent">
                         <div class="categoryHeader">Activity History</div>
-                        <div class="itemBox" *ngFor="#activity of getActivity()">
-                            <div class="itemHeader">{{activity.type}}</div>
-                            <div class="itemInfoLine">
-                                <div class="itemInfoIdentifier">{{activity.name}}</div>
-                                <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
-                            </div>
-                            <div class="itemAddInfo">{{activity.desc}}</div>
-                            <div class="itemDateInfo">
-                                <div class="itemDate">On {{activity.date}}</div>
-                                <div class="itemBuyVia">via {{activity.media}}</div>
+                        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
+                        <div *ngIf="!getSpinnerStatus()">
+                            <div class="itemBox" *ngFor="#activity of getActivity()">
+                                <div class="itemHeader">{{activity.type}}</div>
+                                <div class="itemInfoLine">
+                                    <div class="itemInfoIdentifier">{{activity.name}}</div>
+                                    <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
+                                </div>
+                                <div class="itemAddInfo">{{activity.desc}}</div>
+                                <div class="itemDateInfo">
+                                    <div class="itemDate">On {{activity.date}}</div>
+                                    <div class="itemBuyVia">via {{activity.media}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>

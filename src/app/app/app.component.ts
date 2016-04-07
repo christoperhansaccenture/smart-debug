@@ -27,6 +27,10 @@ import {SmartBillBalanceComponent} from './my-smart/components/smart-billbalance
 import {SmartBillSettingComponent} from './my-smart/components/smart-billsetting.component';
 import {SmartPasaLoadComponent} from './my-smart/components/smart-pasaload.component';
 import {SmartMessageComponent} from './my-smart/components/smart-message.component';
+import {SmartMessageDetailComponent} from './my-smart/components/smart-message-detail.component';
+import {SmartEPinComponent} from './my-smart/components/smart-epin.component';
+import {SmartEPinVerifyComponent} from './my-smart/components/smart-epin-verify.component';
+import {SmartEPinViewComponent} from './my-smart/components/smart-epin-view.component';
 import {AccountOverviewComponent} from './account/components/account-overview.component';
 import {ProfileComponent} from './account/components/profile.component';
 import {EditNumberComponent} from './account/components/edit-number.component';
@@ -257,6 +261,26 @@ declare var FastClick: FastClickStatic;
         path: '/smartMessage',
         name: 'SmartMessage',
         component: SmartMessageComponent
+    },
+    {
+        path: '/smartMessageDetail',
+        name: 'SmartMessageDetail',
+        component: SmartMessageDetailComponent
+    },
+    {
+        path: '/smartEPin',
+        name: 'SmartEPin',
+        component: SmartEPinComponent
+    },
+    {
+        path: '/smartEPinVerify',
+        name: 'SmartEPinVerify',
+        component: SmartEPinVerifyComponent
+    },
+    {
+        path: '/smartEPinView',
+        name: 'SmartEPinView',
+        component: SmartEPinViewComponent
     }
 	
 ])

@@ -202,6 +202,16 @@ export class SmartLeftMenuComponent {
         this._router.navigate(['PasaLoad']);
         ga('send','event','Button clicked','PasaLoad','');
     }
+
+    goToMessage() {
+        this._desktopLeftMenuService.isMessage();
+        this._router.navigate(['SmartMessage']);
+    }
+
+    goToEPin() {
+        this._desktopLeftMenuService.isEpin();
+        this._router.navigate(['SmartEPin']);
+    }
         
     isSmartApp(){
         return this._layoutService.desktopMenu.smart;

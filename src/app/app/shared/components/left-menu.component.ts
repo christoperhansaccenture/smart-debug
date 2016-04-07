@@ -24,20 +24,22 @@ export class LeftMenuComponent implements OnInit  {
     private _authService: AuthService,
     private _catalogService: CatalogService){
         this._accountService.getMobileNumberlistFromBackEnd(false);
-        let min = localStorage.getItem('phoneNumber');
+        let min = localStorage.getItem('mobileNo');
         this.selectedPhone = min;
-        
+        console.log("constructor " + min);
     }
     
     phoneChange() {
-         //console.log('phone is changed');
-         localStorage.setItem('phoneNumber',this.selectedPhone);
+         console.log('phone is changed');
+         //localStorage.setItem('phoneNumber',this.selectedPhone);
+         console.log("constructor " + this.selectedPhone);
          localStorage.setItem('mobileNo',this.selectedPhone);
+         this._accountService.setSelectedUserPhoneByPhoneNo(this.selectedPhone);
          this._catalogService.loadAllCatalogs(false);
      }
  
      ngOnInit() {
-         let min = localStorage.getItem('phoneNumber');
+         let min = localStorage.getItem('mobileNo');
          this.selectedPhone = min;
       }
     

@@ -33,4 +33,43 @@ export class SmartMessageComponent {
         return this._matchMediaService.getmm();
     }
 
+    goToMessageDetail() {
+        this._router.navigate(['SmartMessageDetail']);
+    }
+
+    getListMessage(){ 
+        return [
+            {
+                'title':'Answer our Survey',
+                'text': 'Answer our Survey',
+                'date':'12:09 PM',
+                'status':'unread'
+            }, 
+            {
+                'title': 'Subscribe to Newsletter',
+                'text': 'Receive Smart Prepaid product and promo updates via email.',
+                'date': '11:27 PM',
+                'status': 'unread'
+            }, 
+            {
+                'title': 'Follow Us',
+                'text': 'Connect with us. Let’s talk through our social media channels.',
+                'date': 'Yesterday',
+                'status': 'read'
+            },
+            {
+                'title': 'Welcome to My Smart',
+                'text': 'Welcome to My Smart, Tiffany!, You have successfully registered to My Smart.',
+                'date': '18-03',
+                'status': 'read'
+            },
+            {
+                'title': 'My Smart Registration',
+                'text': 'Dear Tiffany, Welcome to My SMART. Please validate your account.',
+                'date': '18-03',
+                'status': 'unread'
+            }
+        ];
+    }
+
 }

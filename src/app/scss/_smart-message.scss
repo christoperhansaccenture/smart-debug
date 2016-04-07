@@ -1,0 +1,186 @@
+$col-3-height: 340px;
+.smartMessageContainer {
+    //padding-bottom: 45px;
+    z-index: 1;
+    height: 100%;
+    .containerBody {
+        width: 100%;
+        background-color: #FFF;
+        .header {
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid $text-dark-gray;
+            background: url(../img/message.jpg) no-repeat;
+            background-size: cover;
+            height: 140px;
+            margin-bottom: 55px;
+            .void {
+                display: inline-block;
+                width: 100%;
+                height: 136px;
+            }
+            .text {
+                display: inline-block;
+                background-color: $gray;
+                width: calc(100% - 20px);
+                padding: 10px;
+                height: 37px;
+                .headerText {
+                    color: #FFF;
+                    font-size: 20px;
+                }
+                .headerSubText {
+                    color: #FFF;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+        }
+        .separator {
+            border-bottom: 1px solid #EEE;
+        }
+        .itemContainer {
+            display: inline-block;
+            width: calc(100% - 25px);
+            padding: 10px 10px 5px 10px;
+            margin-left: 5px;
+            .itemIdentifier {
+                float: left;
+                width: calc(100% - 110px);
+                font-size: 15px;
+                .itemTitle {
+                    color: $smartgreen;
+                    font-size: 20px;
+                    &.unread {
+                        font-weight: bold;
+                    }
+                }
+                .itemText {
+                    padding: 10px 0px 0px 0px;
+                }
+            }
+            &.unread {
+                border-left: 5px solid $smartgreen;
+                margin-left: 0px;
+            }
+            .itemDate {
+                float: right;
+                font-size: 15px;
+                width: 80px;
+                text-align: right;
+                color: $smartred;
+            }
+        }
+        .itemFooterContainer {
+            display: inline-block;
+            width: 100%;
+            small {
+                clear: both;
+                float: right;
+                color: $gray;
+                margin-right: 10px;
+                :after {
+                    clear: both;
+                }
+            }
+        }
+    }
+}
+
+.smartMessageContainerBody {
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    &.bodyFixed {
+        margin-top: 60px;
+    }
+    .smartMessageContainerLarge {
+        float: left;
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 50px;
+        .container2 {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            .container1 {
+                float: left;
+                width: 100%;
+                position: relative;
+                right: 816px;
+                border-right: 4px solid #EEE;
+                .componentContainer {
+                    float: left;
+                    position: relative;
+                    left: 820px;
+                    width: calc(816px - 40px);
+                    background-color: #FFF;
+                    padding: 20px 20px 40px 20px;
+                    .itemComponent {
+                        width: 72%;
+                        float: left;
+                        .categoryHeader {
+                            color: $smartgreen;
+                            font-size: 20px;
+                            margin-bottom: 20px;
+                        }
+                        .separator {
+                            border-bottom: 1px solid #EEE;
+                        }
+                        .itemContainer {
+                            display: inline-block;
+                            width: calc(100% - 20px);
+                            padding: 5px 10px 5px 10px;
+                            margin-left: 5px;
+                            .itemIdentifier {
+                                float: left;
+                                width: calc(100% - 130px);
+                                font-size: 15px;
+                                .itemTitle {
+                                    color: $smartgreen;
+                                    font-size: 20px;
+                                    &.unread {
+                                        font-weight: bold;
+                                    }
+                                }
+                                .itemText {
+                                    padding: 10px 0px 0px 0px;
+                                }
+                            }
+                            &.unread {
+                                border-left: 5px solid $smartgreen;
+                                margin-left: 0px;
+                            }
+                            .itemDate {
+                                float: right;
+                                font-size: 15px;
+                                width: 100px;
+                                text-align: right;
+                                color: $smartred;
+                            }
+                        }
+                    }
+                }
+                .bannerComponent {
+                    width: 25%;
+                    float: right;
+                    padding-top: 20px;
+                    .banner1 {
+                        width: 100%;
+                        height: 100px;
+                        background: url(../img/myplan-banner.jpg) no-repeat;
+                        background-size: cover;
+                        margin-bottom: 20px;
+                    }
+                    .banner2 {
+                        width: 100%;
+                        height: 100px;
+                        background: url(../img/myplan.jpg) no-repeat;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}

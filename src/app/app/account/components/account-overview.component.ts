@@ -25,7 +25,7 @@ export class AccountOverviewComponent  {
     }
     
     getUserData(){
-        return this._accountService.getSelectedUserPhone();
+        return this._accountService.selectedUserPhone;
     }
     
     getRewardsBalance(){
