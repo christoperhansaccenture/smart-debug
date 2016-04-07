@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {MainRewardsComponent} from './my-rewards/components/main-rewards.component';
+//import {MainRewardsComponent} from './my-rewards/components/main-rewards.component';
 import {OverviewComponent} from './my-rewards/components/overview.component';
 import {RewardDetailComponent} from './my-rewards/components/reward-detail.component';
 import {CatalogComponent} from './my-rewards/components/catalog.component';
@@ -106,11 +106,6 @@ declare var FastClick: FastClickStatic;
         name: 'Starter',
         component: MainLoginComponent,
 		useAsDefault: true
-    },
-    {
-        path: '/rewards/...',
-        name: 'Rewards',
-        component: MainRewardsComponent
     },
     {
         path: '/myrewards',

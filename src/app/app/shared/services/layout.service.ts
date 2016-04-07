@@ -86,7 +86,11 @@ export class LayoutService {
         
         //scroll to top page only for mobile apps
         if(!this._matchMediaService.getmm().largeUp){
-            window.scrollTo(0,0);
+            //console.log("toUp");
+            var scrollposition = (window.scrollY || window.pageYOffset);
+            //window.scrollTo(0,0);
+            //window.scrollX = 0;
+            //window.scrollY = 0;
         }
 
         this.headerItem.cart = true;
@@ -710,6 +714,7 @@ export class LayoutService {
             this.footerState.catalog = false;
             this.footerState.paybill = false;
             this.footerState.transfer = false;
+            
             if (current == 'MySmart') this.footerState.home = true;
             else this.footerState.home = false;
             if (current == "BuyAddOns") this.footerState.addon = true;
