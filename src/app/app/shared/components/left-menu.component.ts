@@ -7,6 +7,8 @@ import {CatalogService} from '../../my-rewards/services/catalog.service';
 import {CircularSpinnerComponent} from './spinners/circular-spinner.component';
 declare var ga:any;
 
+declare var configChannel: any;
+
 @Component({
     selector: 'left-menu',
     templateUrl: 'app/shared/components/left-menu.component.html',

@@ -9,6 +9,9 @@ import {RequestOptions} from 'angular2/http';
 import {SmartIntegrationService} from './smart-integration.service';
 import {AccountService} from './account.service';
 
+declare var configChannel: any;
+declare var configAppType: any;
+
 @Injectable()
 export class AuthService {
     
