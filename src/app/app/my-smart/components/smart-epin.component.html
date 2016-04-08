@@ -41,55 +41,46 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="smartEPinContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartEPinContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="itemHeader">Get ePin</div>
-                        <!--edit number-->
-                        <div class="containerBody">
-                            <div class="itemCategory">
-                                <div class="option">
-                                    <div class="first">
-                                        <div class="circle green">1</div> Fill in details</div>
-                                    <div class="line"></div>
-                                    <div class="second">
-                                        <div class="circle">2</div> Verification</div>
-                                    <div class="line"></div>
-                                    <div class="third">
-                                        <div class="circle">3</div> View ePIN</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="itemContainer">
-                                    <div class="itemIdentifier game"></div>
-                                    <select class="inputValue" aria-placeholder="Game">
-                                        <option value="1">Game</option>
-                                        <option value="2">Game Credit</option>
-                                    </select>
-                                </div>
-                                <div class="itemContainer">
-                                    <div class="itemIdentifier peso"></div>
-                                    <select class="inputValue" aria-placeholder="Deniomination">
-                                        <option value="1">Denomination</option>
-                                        <option value="2">20000</option>
-                                    </select>
-                                </div>
-                                <div class="itemFooterContainer">
-                                    <div class="button" (click)="goToVerification()">Next</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
+<div class="smartEPinContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="itemHeader">Get ePin</div>
+        <!--edit number-->
+        <div class="containerBody">
+            <div class="itemCategory">
+                <div class="option">
+                    <div class="first">
+                        <div class="circle green">1</div> Fill in details</div>
+                    <div class="line"></div>
+                    <div class="second">
+                        <div class="circle">2</div> Verification</div>
+                    <div class="line"></div>
+                    <div class="third">
+                        <div class="circle">3</div> View ePIN</div>
+                </div>
+            </div>
+            <div>
+                <div class="itemContainer">
+                    <div class="itemIdentifier game"></div>
+                    <select class="inputValue" aria-placeholder="Game">
+                        <option value="1">Game</option>
+                        <option value="2">Game Credit</option>
+                    </select>
+                </div>
+                <div class="itemContainer">
+                    <div class="itemIdentifier peso"></div>
+                    <select class="inputValue" aria-placeholder="Deniomination">
+                        <option value="1">Denomination</option>
+                        <option value="2">20000</option>
+                    </select>
+                </div>
+                <div class="itemFooterContainer">
+                    <div class="button" (click)="goToVerification()">Next</div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

@@ -39,60 +39,60 @@ export class FooterComponent {
     getResize(){return this._matchMediaService.getmm();}
     
     gotoHome(){
-        this._router.navigate(['MyRewards']);
+        this._router.navigate(['MainPage','MyRewards']);
         this.addMenu = false;
         ga('send','event','Button clicked','MyRewards','');
     }
     
     gotoCatalog(){
-        this._router.navigate(['Catalog']);
+        this._router.navigate(['MainPage','Catalog']);
         this.addMenu = false;
         ga('send','event','Button clicked','Catalog','');
     }
     
     gotoPerks(){
-        this._router.navigate(['Perks']);
+        this._router.navigate(['MainPage','Perks']);
         this.addMenu = false;
         ga('send','event','Button clicked','Perks','');
     }
     
     gotoTransfer(){
-        this._router.navigate(['Transfer']);
+        this._router.navigate(['MainPage','Transfer']);
         this.addMenu = false;
         ga('send','event','Button clicked','Transfer','');
     }
     
     gotoPayBill(){
-        this._router.navigate(['PayBill']);
+        this._router.navigate(['MainPage','PayBill']);
         this.addMenu = false;
         ga('send','event','Button clicked','PayBill','');
     }
 
     gotoSmartHome(){
-        this._router.navigate(['MySmart']);
+        this._router.navigate(['MainPage','MySmart']);
         this.addMenu = false;
         ga('send','event','Button clicked','MySmart','');
     }
 
     gotoAddOns() {
-        this._router.navigate(['BuyAddOns']);
+        this._router.navigate(['MainPage','BuyAddOns']);
         this.addMenu = false;
         ga('send','event','Button clicked','BuyAddOns','');
     }
 
     gotoBillBalance() {
-        this._router.navigate(['BillBalance']);
+        this._router.navigate(['MainPage','BillBalance']);
         this.addMenu = false;
         ga('send','event','Button clicked','BillBalance','');
     }
 
     gotoMessage() {
-        this._router.navigate(['SmartMessage']);
+        this._router.navigate(['MainPage','SmartMessage']);
         this.addMenu = false;
     }
 
     gotoPlan() {
-        this._router.navigate(['MyPlan']);
+        this._router.navigate(['MainPage','MyPlan']);
         this.addMenu = false;
         ga('send','event','Button clicked','MyPlan','');
     }

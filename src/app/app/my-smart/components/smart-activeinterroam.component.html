@@ -21,32 +21,23 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="smartActiveInterRoamContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartActiveInterRoamContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="categoryHeader">Roaming</div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier">International Roaming</div>
-                            <div class="itemInput switch">
-                                <input type="checkbox" />
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="itemFooterContainer">
-                            <div class="button red">Roaming<br/>Package</div>
-                            <div class="button green" (click)="toggleAlertModal()">Roaming<br/>Guide</div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
-                </div>
+<div class="smartActiveInterRoamContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="categoryHeader">Roaming</div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">International Roaming</div>
+            <div class="itemInput switch">
+                <input type="checkbox" />
+                <div></div>
             </div>
         </div>
+        <div class="itemFooterContainer">
+            <div class="button red">Roaming<br/>Package</div>
+            <div class="button green" (click)="toggleAlertModal()">Roaming<br/>Guide</div>
+        </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

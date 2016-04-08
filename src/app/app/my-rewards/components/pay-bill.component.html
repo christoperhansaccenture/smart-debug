@@ -39,58 +39,49 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="payBillContainerBody" *ngIf="getResize().largeUp">
-    <div class="payBillContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="subInfoContainer">
-                        <div class="leftSide">
-                            <div class="balance">Your Point:</div>
-                            <div class="expire">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
-                        </div>
-                        <div class="rightSide">
-                            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
-                        </div>    
-                    </div>
-                    <div class="itemComponent">
-                        <div class="categoryHeader">Pay Bill with Points</div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier card"></div>
-                            <select class="inputValue select" [(ngModel)]="selection">
-                                <option value="SMART">Smart</option>
-                                <option value="PLDT">PLDT</option>
-                            </select>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier phone"></div>
-                            <div class="phoneCountryValue">+63</div>
-                            <input class="inputValue phone" [placeholder]="getNumberPlaceholder()" [(ngModel)]="number"/>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier invoice"></div>
-                            <input class="inputValue" placeholder="Peso amount" [(ngModel)]="amount"/>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier lock"></div>
-                            <input class="inputValue" type="password" placeholder="Payment PIN" [(ngModel)]="pin"/>
-                        </div>
-                        <div class="itemFooterContainer">
-                            <div class="point">
-                                <div class="pointPic"></div>
-                                <div class="pointText">Points Needed</div>
-                                <div class="pointValue">{{ getPointsNeeded() }} <span>pts</span></div>
-                            </div>
-                            <div class="button" [class.disabled]="!isFormValid()" (click)="addToCart()">Add to Cart</div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
-                </div>
-            </div>
+<div class="payBillContainerLarge" *ngIf="getResize().largeUp">
+    <div class="subInfoContainer">
+        <div class="leftSide">
+            <div class="balance">Your Point:</div>
+            <div class="expire" *ngIf="getRewardsBalance().expPoints != 0">{{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
         </div>
+        <div class="rightSide">
+            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+        </div>    
+    </div>
+    <div class="itemComponent">
+        <div class="categoryHeader">Pay Bill with Points</div>
+        <div class="itemContainer">
+            <div class="itemIdentifier card"></div>
+            <select class="inputValue select" [(ngModel)]="selection">
+                <option value="SMART">Smart</option>
+                <option value="PLDT">PLDT</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier phone"></div>
+            <div class="phoneCountryValue">+63</div>
+            <input class="inputValue phone" [placeholder]="getNumberPlaceholder()" [(ngModel)]="number"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier invoice"></div>
+            <input class="inputValue" placeholder="Peso amount" [(ngModel)]="amount"/>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier lock"></div>
+            <input class="inputValue" type="password" placeholder="Payment PIN" [(ngModel)]="pin"/>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="point">
+                <div class="pointPic"></div>
+                <div class="pointText">Points Needed</div>
+                <div class="pointValue">{{ getPointsNeeded() }} <span>pts</span></div>
+            </div>
+            <div class="button" [class.disabled]="!isFormValid()" (click)="addToCart()">Add to Cart</div>
+        </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

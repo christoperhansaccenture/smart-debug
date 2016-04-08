@@ -8,8 +8,7 @@
                 <div class="headerSubText">Connect your numbers to enable you use your points together</div>
             </div>
         </div>
-        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
-        <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)" *ngIf="!getSpinnerStatus()">
+        <div *ngFor="#phone of getUserPhoneNumber()" class="itemContainer" (click)="toggleEditNumber(phone)">
             <div class="name">{{phone.name}}</div>
             <div class="phoneDetail">
                 <div class="phoneNo">+63{{phone.phoneNo}}</div>
@@ -25,39 +24,30 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="manageNumberContainerBody" *ngIf="getResize().largeUp">
-    <div class="manageNumberContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="itemHeader">Manage My Number</div>
-                        <div class="containerBody">
-                            
-                            <!--main page-->
-                            <div>
-                                <div *ngFor="#phone of userPhoneNumber" class="itemContainer" (click)="toggleEditNumber(phone)">
-                                    <div class="name">{{phone.name}}</div>
-                                    <div class="phoneDetail">
-                                        <div class="phoneNo">+63{{phone.phoneNo}}</div>
-                                        <!--<div class="phoneType" *ngIf="phone.primary">PRIMARY</div>-->
-                                        <div class="numberType">postpaid<!--{{phone.type}}--></div>
-                                    </div>
-                                </div>
-                                <div class="itemFooterContainer">
-                                    <div class="button" (click)="toggleAddNumber()">Add new number</div>
-                                </div>
-                            </div>
-                                
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
+<div class="manageNumberContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="itemHeader">Manage My Number</div>
+        <div class="containerBody">
+            
+            <!--main page-->
+            <div>
+                <div *ngFor="#phone of getUserPhoneNumber()" class="itemContainer" (click)="toggleEditNumber(phone)">
+                    <div class="name">{{phone.name}}</div>
+                    <div class="phoneDetail">
+                        <div class="phoneNo">+63{{phone.phoneNo}}</div>
+                        <!--<div class="phoneType" *ngIf="phone.primary">PRIMARY</div>-->
+                        <div class="numberType">postpaid<!--{{phone.type}}--></div>
                     </div>
                 </div>
+                <div class="itemFooterContainer">
+                    <div class="button" (click)="toggleAddNumber()">Add new number</div>
+                </div>
             </div>
+                
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

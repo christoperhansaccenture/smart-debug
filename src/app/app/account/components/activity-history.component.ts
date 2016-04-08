@@ -9,7 +9,7 @@ import {CircularSpinnerComponent} from '../../shared/components/spinners/circula
 declare var ga:any;
 
 @Component({
-    selector: 'account-overview',
+    selector: 'activity-history',
     templateUrl: './app/account/components/activity-history.component.html',
     directives: [
         CircularSpinnerComponent,

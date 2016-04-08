@@ -93,17 +93,17 @@
             <div class="itemContainer">
                 <div id="hdrProfPicLarge" class="profilePicture"></div>
                 <div class="body">
-                    <div class="menuItem" (click)="goToMySmart()">
+                    <div class="menuItem shorter" (click)="goToMySmart()">
                         <div class="smart"></div>
-                        <div class="menuText"><span>My Smart</span></div>
+                        <div class="menuText shorter" [ngClass]="{selected : isSmartPage()}"><span>My Smart</span></div>
                     </div>
                     <div class="menuItem" (click)="goToMyReward()">
                         <div class="rewards"></div>
-                        <div class="menuText"><span>My Rewards</span></div>
+                        <div class="menuText" [ngClass]="{selected : isRewardsPage()}"><span>My Rewards</span></div>
                     </div>
                     <div class="menuItem" (click)="goToAccount()">
                         <div class="account"></div>
-                        <div class="menuText"><span>My Account</span></div>
+                        <div class="menuText" [ngClass]="{selected : isAccountPage()}"><span>My Account</span></div>
                     </div>
                     <div class="menuItem" (click)="logout()">
                         <div class="logout"></div>

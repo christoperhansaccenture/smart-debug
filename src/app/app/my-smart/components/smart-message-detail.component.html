@@ -10,31 +10,22 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="smartMessageDetailContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartMessageDetailContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="categoryHeader">Messages</div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier">
-                                <div class="itemTitle">
-                                    {{getMessage().title}}
-                                    <div class="date">{{getMessage().date}}</div>
-                                </div>
-                                <div class="ic_delete" (click)="promptDelete()"></div>
-                            </div>
-                            <div class="itemText">{{getMessage().text}}</div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
+<div class="smartMessageDetailContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="categoryHeader">Messages</div>
+        <div class="itemContainer">
+            <div class="itemIdentifier">
+                <div class="itemTitle">
+                    {{getMessage().title}}
+                    <div class="date">{{getMessage().date}}</div>
                 </div>
+                <div class="ic_delete" (click)="promptDelete()"></div>
             </div>
+            <div class="itemText">{{getMessage().text}}</div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

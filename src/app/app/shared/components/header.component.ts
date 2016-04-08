@@ -37,6 +37,17 @@ export class HeaderComponent {
         private _desktopLeftMenuService: DesktopLeftMenuService,
         private _authService: AuthService) {}
     
+    isSmartPage(){
+        return this._layoutService.desktopMenu.smart;
+    }
+    
+    isRewardsPage(){
+        return this._layoutService.desktopMenu.reward;
+    }
+    
+    isAccountPage(){
+        return this._layoutService.desktopMenu.account;
+    }
     
     getPointValue(){
         return ( this._accountService.rewardsData.rewards ? this._accountService.rewardsData.rewards : 0 );
@@ -171,24 +182,24 @@ export class HeaderComponent {
     }
 
     goToCart() {
-        this._router.navigate(['ShoppingCart']);
+        this._router.navigate(['MainPage','ShoppingCart']);
         this.filterFunction = false;
         ga('send','event','Button clicked','ShoppingCart','');
     }
     
     goToMySmart(){
-        this._router.navigate(['MySmart']);
+        this._router.navigate(['MainPage','MySmart']);
         ga('send','event','Button clicked','MySmart','');
     }
     
     goToMyReward(){
-        this._router.navigate(['MyRewards']);
+        this._router.navigate(['MainPage','MyRewards']);
         ga('send','event','Button clicked','MyRewards','');
     }
     
     goToAccount(){
         this._desktopLeftMenuService.isManageNumber();
-        this._router.navigate(['ManageNumber']);
+        this._router.navigate(['MainPage','ManageNumber']);
         ga('send','event','Button clicked','ManageNumber','');
     }
     

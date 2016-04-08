@@ -47,95 +47,86 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="rewardContainerBody" *ngIf="getResize().largeUp">
-    <div class="rewardOverviewContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="accountContainer">
-                        <div class="accountOverview">
-                            <div class="header">
-                                Account Overview
-                            </div>
-                            <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
-                            <div *ngIf="!getSpinnerStatus()">
-                                <div class="accountItem">
-                                    <div class="accountIcon"></div>
-                                    <div class="accountData">
-                                        <div class="name">{{ getUserData().name }}</div>
-                                        <div class="phoneDetail">
-                                            <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
-                                            <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
-                                            <div class="numberType">Postpaid</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accountItem">
-                                    <div class="accountIcon coin"></div>
-                                    <div class="accountData">
-                                        <div class="subInfoContainer">
-                                            <div class="leftSide"
-                                                [class.one-line]="getRewardsBalance().expPoints == 0">
-                                                <div class="balance">Point Balance</div>
-                                                <div class="expire"
-                                                    *ngIf="getRewardsBalance().expPoints != 0">
-                                                    {{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}
-                                                </div>
-                                            </div>
-                                            <div class="rightSide">
-                                                <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
-                                            </div>    
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="buttonContainer">
-                            <div class="button red" (click)="gotoActivityHistory()">Redeem Points</div>
-                        </div>
-                        <div class="latestTransaction">
-                            <div class="header">
-                                Latest Transaction
-                            </div>
-                            <circular-spinner *ngIf="getActivitySpinnerStatus()"></circular-spinner>
-                            <div *ngIf="!getActivitySpinnerStatus()">
-                                <div class="itemBox" *ngFor="#activity of getLatestActivity()">
-                                    <div class="itemHeader">{{activity.type}}</div>
-                                    <div class="itemInfoLine">
-                                        <div class="itemInfoIdentifier">{{activity.name}}</div>
-                                        <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
-                                    </div>
-                                    <div class="itemAddInfo">{{activity.desc}}</div>
-                                    <div class="itemDateInfo">
-                                        <div class="itemDate">On {{activity.date}}</div>
-                                        <div class="itemBuyVia">via {{activity.media}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="buttonContainer">
-                            <div class="button green" (click)="gotoActivityHistory()">View More</div>
+<div class="rewardOverviewContainerLarge" *ngIf="getResize().largeUp">
+    <div class="accountContainer">
+        <div class="accountOverview">
+            <div class="header">
+                Account Overview
+            </div>
+            <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
+            <div *ngIf="!getSpinnerStatus()">
+                <div class="accountItem">
+                    <div class="accountIcon"></div>
+                    <div class="accountData">
+                        <div class="name">{{ getUserData().name }}</div>
+                        <div class="phoneDetail">
+                            <div class="phoneNo">+63{{ getUserData().phoneNo }}</div>
+                            <div class="phoneType" *ngIf="getUserData().primary">PRIMARY</div>
+                            <div class="numberType">Postpaid</div>
                         </div>
                     </div>
-                    <div class="catalogComponent">
-                        <div class="subHeader belt">
-                            <div class="leftHeader">Most Popular</div>
-                            <div class="subOption" (click)="goToCatalogList('Most Popular')">See all</div>
-                        </div>
-                        <div class="itemBelt">
-                            <most-popular-item-belt></most-popular-item-belt>
-                        </div>
-                        <div class="subHeader belt" *ngIf="getCategories()">
-                            <div class="leftHeader">You can almost get...</div>
-                            <div class="subOption" (click)="goToCatalogList('All Categories')">See all</div>
-                        </div>
-                        <div class="itemBelt" *ngIf="getCategories()">
-                            <almost-get-item-belt></almost-get-item-belt>
+                </div>
+                <div class="accountItem">
+                    <div class="accountIcon coin"></div>
+                    <div class="accountData">
+                        <div class="subInfoContainer">
+                            <div class="leftSide"
+                                [class.one-line]="getRewardsBalance().expPoints == 0">
+                                <div class="balance">Point Balance</div>
+                                <div class="expire"
+                                    *ngIf="getRewardsBalance().expPoints != 0">
+                                    {{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}
+                                </div>
+                            </div>
+                            <div class="rightSide">
+                                <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+                            </div>    
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="buttonContainer">
+            <div class="button red" (click)="gotoActivityHistory()">Redeem Points</div>
+        </div>
+        <div class="latestTransaction">
+            <div class="header">
+                Latest Transaction
+            </div>
+            <circular-spinner *ngIf="getActivitySpinnerStatus()"></circular-spinner>
+            <div *ngIf="!getActivitySpinnerStatus()">
+                <div class="itemBox" *ngFor="#activity of getLatestActivity()">
+                    <div class="itemHeader">{{activity.type}}</div>
+                    <div class="itemInfoLine">
+                        <div class="itemInfoIdentifier">{{activity.name}}</div>
+                        <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
+                    </div>
+                    <div class="itemAddInfo">{{activity.desc}}</div>
+                    <div class="itemDateInfo">
+                        <div class="itemDate">On {{activity.date}}</div>
+                        <div class="itemBuyVia">via {{activity.media}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <div class="button green" (click)="gotoActivityHistory()">View More</div>
+        </div>
+    </div>
+    <div class="catalogComponent">
+        <div class="subHeader belt">
+            <div class="leftHeader">Most Popular</div>
+            <div class="subOption" (click)="goToCatalogList('Most Popular')">See all</div>
+        </div>
+        <div class="itemBelt">
+            <most-popular-item-belt></most-popular-item-belt>
+        </div>
+        <div class="subHeader belt" *ngIf="getCategories()">
+            <div class="leftHeader">You can almost get...</div>
+            <div class="subOption" (click)="goToCatalogList('All Categories')">See all</div>
+        </div>
+        <div class="itemBelt" *ngIf="getCategories()">
+            <almost-get-item-belt></almost-get-item-belt>
         </div>
     </div>
 </div>

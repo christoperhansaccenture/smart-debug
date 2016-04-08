@@ -26,45 +26,36 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="manageNumberContainerBody" *ngIf="getResize().largeUp">
-    <div class="manageNumberContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="itemHeader">Add new number</div>
-                        <div class="containerBody">
-                            <div class="itemCategory">
-                                <div class="option">
-                                    <div class="first"><div class="circle green">1</div>fill in number detail</div>
-                                    <div class="line green"></div>
-                                    <div class="second"><div class="circle green">2</div>verificationCode</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="itemContainer">
-                                    <div class="infoText">We sent a verification code to your Smart mobile number {{mobileNumber}}.
-                                    This code will be valid for 24 hours.
-                                    </div>
-                                </div>
-                                <div class="itemContainer">
-                                    <div class="itemIdentifier namePic"></div>
-                                    <input class="inputValue" placeholder="Verification code"/>
-                                </div>
-                                <div class="itemFooterContainer">
-                                    <div class="button" (click)="AddNumber()">Next</div>
-                                </div>
-                            </div>
-                        </div>
+<div class="manageNumberContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="itemHeader">Add new number</div>
+        <div class="containerBody">
+            <div class="itemCategory">
+                <div class="option">
+                    <div class="first"><div class="circle green">1</div>fill in number detail</div>
+                    <div class="line green"></div>
+                    <div class="second"><div class="circle green">2</div>verificationCode</div>
+                </div>
+            </div>
+            <div>
+                <div class="itemContainer">
+                    <div class="infoText">We sent a verification code to your Smart mobile number {{mobileNumber}}.
+                    This code will be valid for 24 hours.
                     </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
+                </div>
+                <div class="itemContainer">
+                    <div class="itemIdentifier namePic"></div>
+                    <input class="inputValue" placeholder="Verification code"/>
+                </div>
+                <div class="itemFooterContainer">
+                    <div class="button" (click)="AddNumber()">Next</div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>
 

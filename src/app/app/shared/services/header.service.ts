@@ -36,12 +36,13 @@ export class HeaderService {
         
         var scrollposition = (window.scrollY || window.pageYOffset);
         
-        //console.log("scrolling: " + scrollposition);
+        console.log("scrolling: " + scrollposition);
         
-        if(this._matchMediaService.getmm().largeUp){
             
-            if(scrollposition > 250 ){
-                
+        if(scrollposition >=250 ){
+            
+            if(this._matchMediaService.getmm().largeUp){
+            
                 if(typeof document.getElementById('hdrProfPicLarge')!== undefined && hdrProfPicLarge !== null){
                     
                     hdrProfPicLarge.classList.add("profPicFixed");    
@@ -52,38 +53,36 @@ export class HeaderService {
                     hdrmenuBarLarge.classList.add("headerFixed");
                 }
                 
-                //if(this._layoutService.currentPage === 'MySmart'){
-                    
-                    if(typeof document.getElementById('homeBodyLarge')!== undefined && homeBodyLarge !== null){
-                    
-                        homeBodyLarge.classList.add("bodyFixed");
-                        
-                    }
-                //}
-
-
-            }
-            else{
+                if(typeof document.getElementById('homeBodyLarge')!== undefined && homeBodyLarge !== null){
                 
+                    homeBodyLarge.classList.add("bodyFixed");
+                    
+                }
+                
+            }
+
+        }
+        else{
+            
+            if(this._matchMediaService.getmm().largeUp){
+            
                 if(typeof document.getElementById('hdrProfPicLarge') !== undefined && hdrProfPicLarge !== null){
                     
                     hdrProfPicLarge.classList.remove("profPicFixed");    
                 }
                 
-                 if(typeof document.getElementById('hdrMenuLarge') !== undefined && hdrmenuBarLarge !== null){
+                if(typeof document.getElementById('hdrMenuLarge') !== undefined && hdrmenuBarLarge !== null){
                     
                     hdrmenuBarLarge.classList.remove("headerFixed");
     
                 }
-                
-                //if(this._layoutService.currentPage === 'MySmart'){
-                    if(typeof document.getElementById('homeBodyLarge') !== undefined && homeBodyLarge !== null){
-                    
-                        homeBodyLarge.classList.remove("bodyFixed");
-                    }
-                //}         
-
+            
             }
+            
+            if(typeof document.getElementById('homeBodyLarge') !== undefined && homeBodyLarge !== null){
+            
+                homeBodyLarge.classList.remove("bodyFixed");
+            }         
             
         }
         

@@ -55,12 +55,12 @@ export class LeftMenuComponent implements OnInit  {
     }
     
     goToMyReward(){
-        this._router.navigate(['MyRewards']);
+        this._router.navigate(['MainPage','MyRewards']);
         ga('send','event','Button clicked','MyRewards','');
     }
     
     goToMySmart(){
-        this._router.navigate(['MySmart']);
+        this._router.navigate(['MainPage','MySmart']);
         ga('send','event','Button clicked','MySmart','');
     }
     
@@ -93,24 +93,24 @@ export class LeftMenuComponent implements OnInit  {
     }
     
     gotoProfile(){
-        this._router.navigate(['Profile']);
+        this._router.navigate(['MainPage','Profile']);
         ga('send','event','Button clicked','Profile','');
     }
     
     gotoAccountOverview(){
         this._layoutService.accountFromHome = false;
-        this._router.navigate(['AccountOverview']);
+        this._router.navigate(['MainPage','AccountOverview']);
         ga('send','event','Button clicked','AccountOverview','');
     }
     
     gotoManageNumber(){
-        this._router.navigate(['ManageNumber']);
+        this._router.navigate(['MainPage','ManageNumber']);
         ga('send','event','Button clicked','ManageNumber','');
     }
     
     gotoActivityHistory(){
         this._layoutService.historyFromAccount = false;
-        this._router.navigate(['ActivityHistory']);
+        this._router.navigate(['MainPage','ActivityHistory']);
         ga('send','event','Button clicked','ActivityHistory','');
     }
     

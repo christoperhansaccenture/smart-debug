@@ -1,0 +1,12 @@
+<div id="homeBodyLarge" class="mainPageContainerBody" [ngClass]="{small : !getResize().largeUp}">
+    <div class="mainPageContainerLarge" [ngClass]="{small : !getResize().largeUp}">
+        <div class="container2" [ngClass]="{small : !getResize().largeUp}">
+            <div class="container1" [ngClass]="{small : !getResize().largeUp}">
+                <smart-left-menu *ngIf="getResize().largeUp"></smart-left-menu>
+                <div class="componentContainer" [ngClass]="{small : !getResize().largeUp}">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

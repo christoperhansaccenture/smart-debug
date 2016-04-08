@@ -62,40 +62,31 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="activityContainerBody" *ngIf="getResize().largeUp">
-    <div class="activityContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="subInfoContainer">
-                        <div class="leftSide">
-                            <div class="balance">Your Point:</div>
-                            <div class="expire" *ngIf="getRewardsBalance().expPoints != 0">
-                                {{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
-                        </div>
-                        <div class="rightSide">
-                            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
-                        </div>    
-                    </div>
-                    <div class="activityComponent">
-                        <div class="categoryHeader">Activity History</div>
-                        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
-                        <div *ngIf="!getSpinnerStatus()">
-                            <div class="itemBox" *ngFor="#activity of getActivity()">
-                                <div class="itemHeader">{{activity.type}}</div>
-                                <div class="itemInfoLine">
-                                    <div class="itemInfoIdentifier">{{activity.name}}</div>
-                                    <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
-                                </div>
-                                <div class="itemAddInfo">{{activity.desc}}</div>
-                                <div class="itemDateInfo">
-                                    <div class="itemDate">On {{activity.date}}</div>
-                                    <div class="itemBuyVia">via {{activity.media}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="activityContainerLarge" *ngIf="getResize().largeUp">
+    <div class="subInfoContainer">
+        <div class="leftSide">
+            <div class="balance">Your Point:</div>
+            <div class="expire" *ngIf="getRewardsBalance().expPoints != 0">
+                {{getRewardsBalance().expPoints}} pts expire on {{getRewardsBalance().expDate}}</div>
+        </div>
+        <div class="rightSide">
+            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+        </div>    
+    </div>
+    <div class="activityComponent">
+        <div class="categoryHeader">Activity History</div>
+        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
+        <div *ngIf="!getSpinnerStatus()">
+            <div class="itemBox" *ngFor="#activity of getActivity()">
+                <div class="itemHeader">{{activity.type}}</div>
+                <div class="itemInfoLine">
+                    <div class="itemInfoIdentifier">{{activity.name}}</div>
+                    <div class="itemInfoPoint">{{activity.point}} <span>pts</span></div>
+                </div>
+                <div class="itemAddInfo">{{activity.desc}}</div>
+                <div class="itemDateInfo">
+                    <div class="itemDate">On {{activity.date}}</div>
+                    <div class="itemBuyVia">via {{activity.media}}</div>
                 </div>
             </div>
         </div>

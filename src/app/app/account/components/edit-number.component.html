@@ -32,48 +32,39 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="manageNumberContainerBody" *ngIf="getResize().largeUp">
-    <div class="manageNumberContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="itemHeader">Manage My Number</div>
-                        <!--edit number-->
-                        <div class="containerBody">
-                            <div class="itemContainer">
-                                <div class="itemIdentifier namePic"></div>
-                                <div class="inputValue shorter" *ngIf="!editNumber.edit">{{selectedPhoneNumber.name}}</div>
-                                <input class="inputValue" placeholder="Nick name" [(ngModel)]="selectedPhoneNumber.name" *ngIf="editNumber.edit"/>
-                                <div class="itemIdentifier edit" *ngIf="!editNumber.edit" (click)="editable()"></div>
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier phone"></div>
-                                <div class="inputValue">{{selectedPhoneNumber.number}}</div>
-                            </div>
-                            <!--<div class="itemInfoContainer">
-                                <div class="primaryBox">
-                                    <div class="phoneType">PRIMARY</div>
-                                </div>
-                                <div class="primaryText">This number is set as primary number</div>
-                                <div class="primaryText link">Set this number as primary</div>
-                            </div>-->
-                            <div class="itemFooterContainer">
-                                <div class="buttonContainer">
-                                    <div class="button green">Remove</div>
-                                    <div class="button" [ngClass]="{red : editNumber.edit}" (click)="doEditNumber()">Update</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
+<div class="manageNumberContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="itemHeader">Manage My Number</div>
+        <!--edit number-->
+        <div class="containerBody">
+            <div class="itemContainer">
+                <div class="itemIdentifier namePic"></div>
+                <div class="inputValue shorter" *ngIf="!editNumber.edit">{{selectedPhoneNumber.name}}</div>
+                <input class="inputValue" placeholder="Nick name" [(ngModel)]="selectedPhoneNumber.name" *ngIf="editNumber.edit"/>
+                <div class="itemIdentifier edit" *ngIf="!editNumber.edit" (click)="editable()"></div>
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier phone"></div>
+                <div class="inputValue">{{selectedPhoneNumber.number}}</div>
+            </div>
+            <!--<div class="itemInfoContainer">
+                <div class="primaryBox">
+                    <div class="phoneType">PRIMARY</div>
+                </div>
+                <div class="primaryText">This number is set as primary number</div>
+                <div class="primaryText link">Set this number as primary</div>
+            </div>-->
+            <div class="itemFooterContainer">
+                <div class="buttonContainer">
+                    <div class="button green">Remove</div>
+                    <div class="button" [ngClass]="{red : editNumber.edit}" (click)="doEditNumber()">Update</div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>
 

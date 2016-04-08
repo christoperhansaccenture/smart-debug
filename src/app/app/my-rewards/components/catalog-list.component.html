@@ -33,56 +33,47 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="catalogListContainerBody" *ngIf="getResize().largeUp">
-    <div class="catalogListContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="subInfoContainer">
-                        <div class="leftSide"
-                            [class.one-line]="getRewardsBalance().expPoints == 0">
-                            <div class="balance">Point Balance</div>
-                            <div class="expire"
-                                *ngIf="getRewardsBalance().expPoints != 0">
-                                {{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}
-                            </div>
-                        </div>
-                        <div class="rightSide">
-                            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
-                        </div>    
-                    </div>
-                    <div class="catalogComponent">
-                        <div class="categoryHeader">{{getCatalogListTitle()}}</div>
-                        <div class="itemListContainer">
-                            <div *ngFor="#catalog of getCatalogs()"
-                                (click)="openCatalogDisplay(catalog)"
-                                class="itemDetailContainer">
-                                <div class="itemPic">
-                                    <img [src]="catalog.imageUrl" />
-                                    <div class="overlay"
-                                        [class.postpaid]="catalog.isOnlyPostpaid()"
-                                        [class.prepaid]="catalog.isOnlyPrepaid()"
-                                        [class.bro]="catalog.isOnlyBroPrepaid() || catalog.isOnlyBroPostpaid()">
-                                        {{ getOverlayText(catalog) }}
-                                    </div>
-                                </div>
-                                <div class="itemText">
-                                    <div class="itemSubHeader">{{ catalog.name }}</div>
-                                    <div class="itemDesc">{{ catalog.description }}</div>    
-                                </div>
-                                <div class="itemPoint">{{ catalog.points }} <span>pts</span></div>
-                                <div class="item-favorite"
-                                    [class.red]="catalog.favorite"
-                                    (click)="toggleFavorite(catalog, $event)">
-                                </div>
-                                <!--<div class="valid-until">
-                                    <span class="label">Valid until: </span> {{ catalog.getExpiryString() }}
-                                </div>-->
-                            </div>
-                        </div>
+<div class="catalogListContainerLarge" *ngIf="getResize().largeUp">
+    <div class="subInfoContainer">
+        <div class="leftSide"
+            [class.one-line]="getRewardsBalance().expPoints == 0">
+            <div class="balance">Point Balance</div>
+            <div class="expire"
+                *ngIf="getRewardsBalance().expPoints != 0">
+                {{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}
+            </div>
+        </div>
+        <div class="rightSide">
+            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+        </div>    
+    </div>
+    <div class="catalogComponent">
+        <div class="categoryHeader">{{getCatalogListTitle()}}</div>
+        <div class="itemListContainer">
+            <div *ngFor="#catalog of getCatalogs()"
+                (click)="openCatalogDisplay(catalog)"
+                class="itemDetailContainer">
+                <div class="itemPic">
+                    <img [src]="catalog.imageUrl" />
+                    <div class="overlay"
+                        [class.postpaid]="catalog.isOnlyPostpaid()"
+                        [class.prepaid]="catalog.isOnlyPrepaid()"
+                        [class.bro]="catalog.isOnlyBroPrepaid() || catalog.isOnlyBroPostpaid()">
+                        {{ getOverlayText(catalog) }}
                     </div>
                 </div>
+                <div class="itemText">
+                    <div class="itemSubHeader">{{ catalog.name }}</div>
+                    <div class="itemDesc">{{ catalog.description }}</div>    
+                </div>
+                <div class="itemPoint">{{ catalog.points }} <span>pts</span></div>
+                <div class="item-favorite"
+                    [class.red]="catalog.favorite"
+                    (click)="toggleFavorite(catalog, $event)">
+                </div>
+                <!--<div class="valid-until">
+                    <span class="label">Valid until: </span> {{ catalog.getExpiryString() }}
+                </div>-->
             </div>
         </div>
     </div>

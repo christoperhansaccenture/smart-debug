@@ -22,33 +22,24 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="smartMessageContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartMessageContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="categoryHeader">Messages</div>
-                        <div *ngFor="#msg of getListMessage()">
-                            <div class="separator"></div>
-                            <div class="itemContainer" [ngClass]="{ unread : msg.status == 'unread'}" (click)="goToMessageDetail()">
-                                <div class="itemIdentifier">
-                                    <div class="itemTitle" [ngClass]="{ unread : msg.status == 'unread'}">
-                                        {{msg.title}}
-                                    </div>
-                                    <div class="itemText">{{msg.text}}</div>
-                                </div>
-                                <div class="itemDate">{{msg.date}}</div>
-                            </div>
-                        </div>
+<div class="smartMessageContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="categoryHeader">Messages</div>
+        <div *ngFor="#msg of getListMessage()">
+            <div class="separator"></div>
+            <div class="itemContainer" [ngClass]="{ unread : msg.status == 'unread'}" (click)="goToMessageDetail()">
+                <div class="itemIdentifier">
+                    <div class="itemTitle" [ngClass]="{ unread : msg.status == 'unread'}">
+                        {{msg.title}}
                     </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
+                    <div class="itemText">{{msg.text}}</div>
                 </div>
+                <div class="itemDate">{{msg.date}}</div>
             </div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

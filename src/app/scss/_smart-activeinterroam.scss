@@ -119,142 +119,107 @@ $col-3-height: 340px;
     }
 }
 
-.smartActiveInterRoamContainerBody {
-    max-width: 1020px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    &.bodyFixed {
-        margin-top: 60px;
-    }
-    .smartActiveInterRoamContainerLarge {
+.smartActiveInterRoamContainerLarge {
+        
+    .itemComponent {
+        width: 72%;
         float: left;
-        width: 100%;
-        background-color: #FFF;
-        margin-bottom: 50px;
-        .container2 {
-            float: left;
-            width: 100%;
-            overflow: hidden;
-            .container1 {
+        .categoryHeader {
+            color: $smartgreen;
+            font-size: 20px;
+            padding: 0px 0px 20px 0px;
+            border-bottom: 1px solid #EEE;
+            margin-bottom: 20px;
+        }
+        .itemContainer {
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            .itemIdentifier {
                 float: left;
-                width: 100%;
-                position: relative;
-                right: 816px;
-                border-right: 4px solid #EEE;
-                .componentContainer {
-                    float: left;
-                    position: relative;
-                    left: 820px;
-                    width: calc(816px - 40px);
-                    background-color: #FFF;
-                    padding-top: 20px;
-                    padding-bottom: 40px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    .itemComponent {
-                        width: 72%;
-                        float: left;
-                        .categoryHeader {
-                            color: $smartgreen;
-                            font-size: 20px;
-                            padding: 0px 0px 20px 0px;
-                            border-bottom: 1px solid #EEE;
-                            margin-bottom: 20px;
-                        }
-                        .itemContainer {
-                            display: inline-block;
-                            width: calc(100% - 20px);
-                            padding-left: 10px;
-                            padding-right: 10px;
-                            .itemIdentifier {
-                                float: left;
-                                width: calc(100% - 70px);
-                                font-size: 15px;
-                                height: 30px;
-                                margin-right: 10px;
-                                font-weight: bold;
-                            }
-                            .itemInput {
-                                float: right;
-                                font-size: 15px;
-                                width: 70px;
-                                &:after {
-                                    clear: both;
-                                }
-                                &.switch {
-                                    display: inline-block;
-                                    font-size: 20px;
-                                    height: 1em;
-                                    width: 2em;
-                                    border-radius: 1em;
-                                    border: 1px solid $smartgreen;
-                                    div {
-                                        height: 1em;
-                                        width: 1em;
-                                        border-radius: 1em;
-                                        background: $smartgreen;
-                                        box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
-                                        -webkit-transition: all 300ms;
-                                        -moz-transition: all 300ms;
-                                        transition: all 300ms;
-                                    }
-                                    input {
-                                        position: absolute;
-                                        opacity: 0;
-                                        &:checked + div {
-                                            -webkit-transform: translate3d(100%, 0, 0);
-                                            -moz-transform: translate3d(100%, 0, 0);
-                                            transform: translate3d(100%, 0, 0);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .itemFooterContainer {
-                            display: inline-block;
-                            width: 100%;
-                            padding-top: 20px;
-                        }
-                        .button {
-                            clear: none;
-                            width: 100px;
-                            margin-left: 10px;
-                            margin-right: 10px;
-                            float: right;
-                            color: #FFF;
-                            &.disable {
-                                background-color: #EEE;
-                                cursor: default;
-                            }
-                            &.green {
-                                background-color: $smartgreen;
-                            }
-                            &.red {
-                                background-color: $smartred;
-                            }
-                        }
-                    }
+                width: calc(100% - 70px);
+                font-size: 15px;
+                height: 30px;
+                margin-right: 10px;
+                font-weight: bold;
+            }
+            .itemInput {
+                float: right;
+                font-size: 15px;
+                width: 70px;
+                &:after {
+                    clear: both;
                 }
-                .bannerComponent {
-                    width: 25%;
-                    float: right;
-                    padding-top: 20px;
-                    .banner1 {
-                        width: 100%;
-                        height: 100px;
-                        background: url(../img/myplan-banner.jpg) no-repeat;
-                        background-size: cover;
-                        margin-bottom: 20px;
+                &.switch {
+                    display: inline-block;
+                    font-size: 20px;
+                    height: 1em;
+                    width: 2em;
+                    border-radius: 1em;
+                    border: 1px solid $smartgreen;
+                    div {
+                        height: 1em;
+                        width: 1em;
+                        border-radius: 1em;
+                        background: $smartgreen;
+                        box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+                        -webkit-transition: all 300ms;
+                        -moz-transition: all 300ms;
+                        transition: all 300ms;
                     }
-                    .banner2 {
-                        width: 100%;
-                        height: 100px;
-                        background: url(../img/myplan.jpg) no-repeat;
-                        background-size: cover;
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        &:checked + div {
+                            -webkit-transform: translate3d(100%, 0, 0);
+                            -moz-transform: translate3d(100%, 0, 0);
+                            transform: translate3d(100%, 0, 0);
+                        }
                     }
                 }
             }
         }
+        .itemFooterContainer {
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+        }
+        .button {
+            clear: none;
+            width: 100px;
+            margin-left: 10px;
+            margin-right: 10px;
+            float: right;
+            color: #FFF;
+            &.disable {
+                background-color: #EEE;
+                cursor: default;
+            }
+            &.green {
+                background-color: $smartgreen;
+            }
+            &.red {
+                background-color: $smartred;
+            }
+        }
+    }
+}
+.bannerComponent {
+    width: 25%;
+    float: right;
+    padding-top: 20px;
+    .banner1 {
+        width: 100%;
+        height: 100px;
+        background: url(../img/myplan-banner.jpg) no-repeat;
+        background-size: cover;
+        margin-bottom: 20px;
+    }
+    .banner2 {
+        width: 100%;
+        height: 100px;
+        background: url(../img/myplan.jpg) no-repeat;
+        background-size: cover;
     }
 }

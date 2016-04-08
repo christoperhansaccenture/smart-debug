@@ -4,11 +4,15 @@ import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
 import {ActivityHistoryService} from '../../account/services/activity-history.service';
+import {CircularSpinnerComponent} from '../../shared/components/spinners/circular-spinner.component';
 
 declare var ga:any;
 @Component({
     selector: 'account-overview',
-    templateUrl: './app/account/components/account-overview.component.html'
+    templateUrl: './app/account/components/account-overview.component.html',
+    directives: [
+        CircularSpinnerComponent
+    ]
 })
 export class AccountOverviewComponent  {
     
@@ -19,6 +23,7 @@ export class AccountOverviewComponent  {
         private _activityHistoryService: ActivityHistoryService) {
 		
 		this._layoutService.setCurrentPage('AccountOverview');
+        this._activityHistoryService.loadAllActivity();
 		
 	}
     

@@ -34,29 +34,20 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="smartBuyAddOnsContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartBuyAddOnsContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="categoryHeader">Add Ons</div>
-                        <div class="itemContainer" *ngFor="#el of list" (click)="toggleBuyAddOnsModal()">
-                            <div class="itemIcon internet">{{el.number}}</div>
-                            <div class="itemIdentifier">
-                                <div class="title">{{el.title}}</div>
-                                <div class="smallText">{{el.smallText}}</div>
-                            </div>
-                            <div class="itemValue">{{el.value}}</div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
-                </div>
+<div class="smartBuyAddOnsContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="categoryHeader">Add Ons</div>
+        <div class="itemContainer" *ngFor="#el of list" (click)="toggleBuyAddOnsModal()">
+            <div class="itemIcon internet">{{el.number}}</div>
+            <div class="itemIdentifier">
+                <div class="title">{{el.title}}</div>
+                <div class="smallText">{{el.smallText}}</div>
             </div>
+            <div class="itemValue">{{el.value}}</div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

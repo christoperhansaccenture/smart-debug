@@ -110,117 +110,82 @@ $col-3-height: 340px;
     }
 }
 
-.smartBuyAddOnsContainerBody {
-    max-width: 1020px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    &.bodyFixed {
-        margin-top: 60px;
-    }
-    .smartBuyAddOnsContainerLarge {
+.smartBuyAddOnsContainerLarge {
+    
+    .itemComponent {
+        width: 72%;
         float: left;
-        width: 100%;
-        background-color: #FFF;
-        margin-bottom: 50px;
-        .container2 {
-            float: left;
-            width: 100%;
-            overflow: hidden;
-            .container1 {
+        .categoryHeader {
+            color: $smartgreen;
+            font-size: 20px;
+            padding: 0px 0px 20px 0px;
+        }
+        .itemContainer {
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding: 5px 10px 5px 0px;
+            border-bottom: 1px solid #EEE;
+            cursor: pointer;
+            &:last-child {
+                border-bottom: none;
+            }
+            .itemIcon {
+                height: 50px;
+                width: 30px;
                 float: left;
-                width: 100%;
-                position: relative;
-                right: 816px;
-                border-right: 4px solid #EEE;
-                .componentContainer {
-                    float: left;
-                    position: relative;
-                    left: 820px;
-                    width: calc(816px - 40px);
-                    background-color: #FFF;
-                    padding-top: 20px;
-                    padding-bottom: 40px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    .itemComponent {
-                        width: 72%;
-                        float: left;
-                        .categoryHeader {
-                            color: $smartgreen;
-                            font-size: 20px;
-                            padding: 0px 0px 20px 0px;
-                        }
-                        .itemContainer {
-                            display: inline-block;
-                            width: calc(100% - 20px);
-                            padding: 5px 10px 5px 0px;
-                            border-bottom: 1px solid #EEE;
-                            cursor: pointer;
-                            &:last-child {
-                                border-bottom: none;
-                            }
-                            .itemIcon {
-                                height: 50px;
-                                width: 30px;
-                                float: left;
-                                color: $smartgreen;
-                                font-size: 17px;
-                                text-align: center;
-                                &.internet {
-                                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMC4xMzIwMTE0MTM1NzQyMTkpIHNjYWxlKDgsOCkgICIgZmlsbD0iIzUwQjMzMCIgZD0iTTIzLjU0Mjk2OSwyMi40NTgwMkMyMi43MzQ5ODUsMjUuODcwMDEgMjEuNDA3OTU5LDI4LjA3NzAxMiAyMC4wOTA5NDIsMjkuNDg3MDE2IDIzLjc2Mzk3NywyOC4zNzUwMTYgMjYuNzk5OTg4LDI1LjgwNjAxNCAyOC41MzY5ODcsMjIuNDU4MDJ6IE0xMC40OTM5NTgsMjIuNDU4MDJDMTIuMjE4OTk0LDI3Ljk1MTAwNSAxNS4xODk5NDEsMjkuNjYwMDIyIDE2LjA1NDk5MywzMC4wNDcwMTUgMTYuOTQ4OTc1LDI5Ljc1NiAyMC4xMDE5OSwyOC4zMTE5OTggMjEuNjEwOTYyLDIyLjQ1ODAyeiBNMy40NjI5NTE3LDIyLjQ1ODAyQzUuMjc0OTYzNCwyNS45NTEwMDMgOC41MDY5NTgsMjguNTg1MDA4IDEyLjM5Mzk4MiwyOS42MTIwMTggMTEuMDI2OTc4LDI4LjE5MTAyNiA5LjU0Mzk0NTMsMjUuOTQxMDI0IDguNTM3OTYzOSwyMi40NTgwMnogTTI0LjE1OTk3MywxMi40NDE5OTNDMjQuMjcwOTk2LDEzLjU5NjAxNiAyNC4zMzY5NzUsMTQuODI0MDE0IDI0LjMwMjk3OSwxNi4xOTk5OSAyNC4yNjMsMTcuODI3MDA3IDI0LjExOTk5NSwxOS4yNjg5OTMgMjMuOTExOTg3LDIwLjU3OTk5OUwyOS4zMzk5NjYsMjAuNTc5OTk5QzI5LjgzNTk5OSwxOS4xNDM5OTMgMzAuMTE3OTgxLDE3LjYxMTAwMyAzMC4xMTc5ODEsMTYuMDA5MDExIDMwLjExNzk4MSwxNC43NzUwMDMgMjkuOTQxOTU2LDEzLjU4Mzk5MiAyOS42NDA5OTEsMTIuNDQxOTkzeiBNOS40Njc5NTY1LDEyLjQ0MTk5M0M5LjI5Mzk0NTMsMTMuNzg1MDEyIDkuMjQ2OTQ4MiwxNS4yNjQwMTYgOS40MDc5NTksMTYuOTIxMDAxIDkuNTM5OTc4LDE4LjI3NTAwNSA5Ljc0MTk0MzQsMTkuNDgzMDEyIDkuOTg3OTc2MSwyMC41Nzk5OTlMMjIuMDA2OTU4LDIwLjU3OTk5OUMyMi4yMjU5NTIsMTkuMjgwMDA5IDIyLjM3OTk0NCwxNy44MjcwMDcgMjIuNDIwOTU5LDE2LjE1Mjk5MyAyMi40NTQ5NTYsMTQuNzkwMDE3IDIyLjQwMzk5MiwxMy41NjAwMDUgMjIuMjg5MDAxLDEyLjQ0MTk5M3ogTTIuMzU4OTQ3OCwxMi40NDE5OTNDMi4wNTg5NiwxMy41ODM5OTIgMS44ODI5OTU2LDE0Ljc3NTAwMyAxLjg4Mjk5NTYsMTYuMDA5MDExIDEuODgyOTk1NiwxNy42MTEwMDMgMi4xNjQ5NzgsMTkuMTQzOTkzIDIuNjU5OTczMSwyMC41Nzk5OTlMOC4wNzM5NzQ2LDIwLjU3OTk5OUM3Ljg0ODk5OSwxOS41MTMwMTEgNy42NTY5ODI0LDE4LjM3NTAxMSA3LjUzMjk1OSwxNy4xMDQwMTUgNy4zNjY5NDM0LDE1LjM5Nzk4OSA3LjQwNjk4MjQsMTMuODU1OTk1IDcuNTc2OTY1MywxMi40NDE5OTN6IE0yMC4yMjE5ODUsMi41NjkwMDE3QzIxLjcyNzk2Niw0LjExOTk5NzIsMjMuMjIxOTg1LDYuNjE3MDA4LDIzLjkxMDk1LDEwLjU2NDAwMUwyOS4wMTc5NDQsMTAuNTY0MDAxQzI3LjQxNjk5Miw2Ljc2ODAwOTQsMjQuMTk1OTg0LDMuODEzOTk3NSwyMC4yMjE5ODUsMi41NjkwMDE3eiBNMTIuNTI5OTY4LDIuMzcyMDEwMkM4LjIxNDk2NTgsMy40NjY5ODE5LDQuNjgxOTQ1OCw2LjUzMjk5MzEsMi45ODE5OTQ2LDEwLjU2NDAwMUw3LjkwMTAwMSwxMC41NjQwMDFDOC43OTE5OTIyLDYuNjYwOTgzOCwxMC43ODU5NSw0LjAxODAwNzUsMTIuNTI5OTY4LDIuMzcyMDEwMnogTTE2LjA5NTk0NywxLjk5MjAwNTNDMTQuOTc4OTQzLDIuNjA5MDEwMiwxMS4xODI5ODMsNS4wNzAwMDk5LDkuODA4OTYsMTAuNTY0MDAxTDIyLjAxMzk3NywxMC41NjQwMDFDMjAuNzg1OTUsNC4xMTIwMDE2LDE3LjE4MDk2OSwyLjM3Mjk4NywxNi4wOTU5NDcsMS45OTIwMDUzeiBNMTUuODkxOTY4LDBMMTYuMTI5OTQ0LDAuMDUzMDA5MDMyQzI0Ljg5MTk2OCwwLjEyMjk4NTY5IDMyLDcuMjUxOTg3NyAzMiwxNi4wMDkwMTEgMzIsMjQuNzcwMDA0IDI0Ljg4Njk2MywzMS45MDAwMTIgMTYuMTIxOTQ4LDMxLjk2Njk5OEwxNS44Mjg5NzksMzEuOTY0MDA4QzcuMDg2OTc1MSwzMS44NzEwMjEgMCwyNC43NTMwMDUgMCwxNi4wMDkwMTEgMCw3LjI4Njk5MTMgNy4wNTI5Nzg1LDAuMTg0OTk3NDUgMTUuNzY1OTkxLDAuMDU3OTgzMzk4eiIgLz4NCiAgPC9nPg0KPC9zdmc+DQo=") no-repeat;
-                                    background-position-x: center;
-                                    background-position-y: 18px;
-                                    background-size: 25px;
-                                }
-                            }
-                            .itemIdentifier {
-                                float: left;
-                                width: calc(100% - 90px);
-                                padding-left: 10px;
-                                height: 50px;
-                                .title {
-                                    color: $smartgreen;
-                                    font-size: 20px;
-                                    line-height: 25px;
-                                }
-                                .smallText {
-                                    font-size: 15px;
-                                }
-                            }
-                            .itemValue {
-                                float: right;
-                                font-size: 20px;
-                                width: 50px;
-                                text-align: right;
-                                color: $smartred;
-                                line-height: 25px;
-                                &:after {
-                                    clear: both;
-                                }
-                            }
-                        }
-                    }
+                color: $smartgreen;
+                font-size: 17px;
+                text-align: center;
+                &.internet {
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMC4xMzIwMTE0MTM1NzQyMTkpIHNjYWxlKDgsOCkgICIgZmlsbD0iIzUwQjMzMCIgZD0iTTIzLjU0Mjk2OSwyMi40NTgwMkMyMi43MzQ5ODUsMjUuODcwMDEgMjEuNDA3OTU5LDI4LjA3NzAxMiAyMC4wOTA5NDIsMjkuNDg3MDE2IDIzLjc2Mzk3NywyOC4zNzUwMTYgMjYuNzk5OTg4LDI1LjgwNjAxNCAyOC41MzY5ODcsMjIuNDU4MDJ6IE0xMC40OTM5NTgsMjIuNDU4MDJDMTIuMjE4OTk0LDI3Ljk1MTAwNSAxNS4xODk5NDEsMjkuNjYwMDIyIDE2LjA1NDk5MywzMC4wNDcwMTUgMTYuOTQ4OTc1LDI5Ljc1NiAyMC4xMDE5OSwyOC4zMTE5OTggMjEuNjEwOTYyLDIyLjQ1ODAyeiBNMy40NjI5NTE3LDIyLjQ1ODAyQzUuMjc0OTYzNCwyNS45NTEwMDMgOC41MDY5NTgsMjguNTg1MDA4IDEyLjM5Mzk4MiwyOS42MTIwMTggMTEuMDI2OTc4LDI4LjE5MTAyNiA5LjU0Mzk0NTMsMjUuOTQxMDI0IDguNTM3OTYzOSwyMi40NTgwMnogTTI0LjE1OTk3MywxMi40NDE5OTNDMjQuMjcwOTk2LDEzLjU5NjAxNiAyNC4zMzY5NzUsMTQuODI0MDE0IDI0LjMwMjk3OSwxNi4xOTk5OSAyNC4yNjMsMTcuODI3MDA3IDI0LjExOTk5NSwxOS4yNjg5OTMgMjMuOTExOTg3LDIwLjU3OTk5OUwyOS4zMzk5NjYsMjAuNTc5OTk5QzI5LjgzNTk5OSwxOS4xNDM5OTMgMzAuMTE3OTgxLDE3LjYxMTAwMyAzMC4xMTc5ODEsMTYuMDA5MDExIDMwLjExNzk4MSwxNC43NzUwMDMgMjkuOTQxOTU2LDEzLjU4Mzk5MiAyOS42NDA5OTEsMTIuNDQxOTkzeiBNOS40Njc5NTY1LDEyLjQ0MTk5M0M5LjI5Mzk0NTMsMTMuNzg1MDEyIDkuMjQ2OTQ4MiwxNS4yNjQwMTYgOS40MDc5NTksMTYuOTIxMDAxIDkuNTM5OTc4LDE4LjI3NTAwNSA5Ljc0MTk0MzQsMTkuNDgzMDEyIDkuOTg3OTc2MSwyMC41Nzk5OTlMMjIuMDA2OTU4LDIwLjU3OTk5OUMyMi4yMjU5NTIsMTkuMjgwMDA5IDIyLjM3OTk0NCwxNy44MjcwMDcgMjIuNDIwOTU5LDE2LjE1Mjk5MyAyMi40NTQ5NTYsMTQuNzkwMDE3IDIyLjQwMzk5MiwxMy41NjAwMDUgMjIuMjg5MDAxLDEyLjQ0MTk5M3ogTTIuMzU4OTQ3OCwxMi40NDE5OTNDMi4wNTg5NiwxMy41ODM5OTIgMS44ODI5OTU2LDE0Ljc3NTAwMyAxLjg4Mjk5NTYsMTYuMDA5MDExIDEuODgyOTk1NiwxNy42MTEwMDMgMi4xNjQ5NzgsMTkuMTQzOTkzIDIuNjU5OTczMSwyMC41Nzk5OTlMOC4wNzM5NzQ2LDIwLjU3OTk5OUM3Ljg0ODk5OSwxOS41MTMwMTEgNy42NTY5ODI0LDE4LjM3NTAxMSA3LjUzMjk1OSwxNy4xMDQwMTUgNy4zNjY5NDM0LDE1LjM5Nzk4OSA3LjQwNjk4MjQsMTMuODU1OTk1IDcuNTc2OTY1MywxMi40NDE5OTN6IE0yMC4yMjE5ODUsMi41NjkwMDE3QzIxLjcyNzk2Niw0LjExOTk5NzIsMjMuMjIxOTg1LDYuNjE3MDA4LDIzLjkxMDk1LDEwLjU2NDAwMUwyOS4wMTc5NDQsMTAuNTY0MDAxQzI3LjQxNjk5Miw2Ljc2ODAwOTQsMjQuMTk1OTg0LDMuODEzOTk3NSwyMC4yMjE5ODUsMi41NjkwMDE3eiBNMTIuNTI5OTY4LDIuMzcyMDEwMkM4LjIxNDk2NTgsMy40NjY5ODE5LDQuNjgxOTQ1OCw2LjUzMjk5MzEsMi45ODE5OTQ2LDEwLjU2NDAwMUw3LjkwMTAwMSwxMC41NjQwMDFDOC43OTE5OTIyLDYuNjYwOTgzOCwxMC43ODU5NSw0LjAxODAwNzUsMTIuNTI5OTY4LDIuMzcyMDEwMnogTTE2LjA5NTk0NywxLjk5MjAwNTNDMTQuOTc4OTQzLDIuNjA5MDEwMiwxMS4xODI5ODMsNS4wNzAwMDk5LDkuODA4OTYsMTAuNTY0MDAxTDIyLjAxMzk3NywxMC41NjQwMDFDMjAuNzg1OTUsNC4xMTIwMDE2LDE3LjE4MDk2OSwyLjM3Mjk4NywxNi4wOTU5NDcsMS45OTIwMDUzeiBNMTUuODkxOTY4LDBMMTYuMTI5OTQ0LDAuMDUzMDA5MDMyQzI0Ljg5MTk2OCwwLjEyMjk4NTY5IDMyLDcuMjUxOTg3NyAzMiwxNi4wMDkwMTEgMzIsMjQuNzcwMDA0IDI0Ljg4Njk2MywzMS45MDAwMTIgMTYuMTIxOTQ4LDMxLjk2Njk5OEwxNS44Mjg5NzksMzEuOTY0MDA4QzcuMDg2OTc1MSwzMS44NzEwMjEgMCwyNC43NTMwMDUgMCwxNi4wMDkwMTEgMCw3LjI4Njk5MTMgNy4wNTI5Nzg1LDAuMTg0OTk3NDUgMTUuNzY1OTkxLDAuMDU3OTgzMzk4eiIgLz4NCiAgPC9nPg0KPC9zdmc+DQo=") no-repeat;
+                    background-position-x: center;
+                    background-position-y: 18px;
+                    background-size: 25px;
                 }
-                .bannerComponent {
-                    width: 25%;
-                    float: right;
-                    padding-top: 20px;
-                    .banner1 {
-                        width: 100%;
-                        height: 100px;
-                        background: url(../img/myplan-banner.jpg) no-repeat;
-                        background-size: cover;
-                        margin-bottom: 20px;
-                    }
-                    .banner2 {
-                        width: 100%;
-                        height: 100px;
-                        background: url(../img/myplan.jpg) no-repeat;
-                        background-size: cover;
-                    }
+            }
+            .itemIdentifier {
+                float: left;
+                width: calc(100% - 90px);
+                padding-left: 10px;
+                height: 50px;
+                .title {
+                    color: $smartgreen;
+                    font-size: 20px;
+                    line-height: 25px;
+                }
+                .smallText {
+                    font-size: 15px;
+                }
+            }
+            .itemValue {
+                float: right;
+                font-size: 20px;
+                width: 50px;
+                text-align: right;
+                color: $smartred;
+                line-height: 25px;
+                &:after {
+                    clear: both;
                 }
             }
         }
+    }
+}
+.bannerComponent {
+    width: 25%;
+    float: right;
+    padding-top: 20px;
+    .banner1 {
+        width: 100%;
+        height: 100px;
+        background: url(../img/myplan-banner.jpg) no-repeat;
+        background-size: cover;
+        margin-bottom: 20px;
+    }
+    .banner2 {
+        width: 100%;
+        height: 100px;
+        background: url(../img/myplan.jpg) no-repeat;
+        background-size: cover;
     }
 }

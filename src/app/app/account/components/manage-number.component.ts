@@ -30,8 +30,6 @@ export class ManageNumberComponent  {
     
     mobileNumber = '';
     
-    userPhoneNumber: any = [];
-    
     selectedPhoneNumber:any = {};
     
 	constructor (private _router: Router,
@@ -41,9 +39,13 @@ export class ManageNumberComponent  {
 		
         this._accountService.getMobileNumberlistFromBackEnd(false);
 		this._layoutService.setCurrentPage('ManageNumber');
-		this.userPhoneNumber = this._accountService.mobileNoList;
         
 	}
+    
+    getUserPhoneNumber(){
+        console.log(this._accountService.mobileNoList);
+        return this._accountService.mobileNoList;
+    }
     
     getSpinnerStatus(){
         return this._accountService.spinnerAccount;

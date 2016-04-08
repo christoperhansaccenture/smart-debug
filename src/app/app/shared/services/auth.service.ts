@@ -178,13 +178,13 @@ export class AuthService {
                     resolve => {
                         if(configChannel === 'app'){
                             if(configAppType === 'smart'){
-                                this._router.navigate(['MySmart']);
+                                this._router.navigate(['MainPage','MySmart']);
                             }else{
-                                this._router.navigate(['MyRewards']);
+                                this._router.navigate(['MainPage','MyRewards']);
                             }
                             
                         }else{
-                            this._router.navigate(['MySmart']);  
+                            this._router.navigate(['MainPage','MySmart']);  
                         }
                         this.isLoadingLogin = false;
                     }

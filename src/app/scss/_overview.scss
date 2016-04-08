@@ -173,354 +173,311 @@ $col-3-height: 340px;
     
 }
 
-.rewardContainerBody{
-    
-    max-width: 1020px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    
-    &.bodyFixed{
-        margin-top: 60px;
-    }
 
-    .rewardOverviewContainerLarge{
+.rewardOverviewContainerLarge{
         
-        float: left;
-        width: 100%;
-        background-color: #FFF;
-        margin-bottom: 50px;
-        
-        .container2{
-            float: left;
-            width: 100%;
-            overflow: hidden;
+                        
+    .accountContainer{
             
-            .container1{
-                float: left;
-                width: 100%;
-                position: relative;
-                right: 816px;
-                border-right: 4px solid #EEE;
-
-                .componentContainer{
-                    float: left;
-                    position: relative;
-                    left: 820px;
-                    width: calc(816px - 40px);
-                    background-color: #FFF;
-                    padding-top: 20px;
-                    padding-bottom: 40px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                        
-                    .accountContainer{
-                            
-                        display: inline-block;
-                        width: 100%;
-                      
-                        .accountOverview{
-                          
-                            .header{
-                                font-size: 20px;
-                                width: 50%;
-                                padding: 10px;
-                                color: $smartgreen;
-                                border-bottom: 1px solid #EEE;
-                            }
-                            
-                            .accountItem{
-                                display: inline-block;
-                                width: 49%;
-                                //margin-right: 20px;
-                                
-                                .accountIcon{
-                                    height: 60px;
-                                    width: 40px;
-                                    float: left;
-                                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDQ5LjYwMDAwNjEwMzUxNTYsMCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMTMuODk5MDAzLDI4Ljg5OTk5NEMxMy41OTkwMTUsMjguODk5OTk0LDEzLjM5OTAwMywyOS4xMDAwMDYsMTMuMzk5MDAzLDI5LjI5OTk4OEwxMy4zOTkwMDMsMzAuMTk5OTgyQzEzLjM5OTAwMywzMC4zOTk5OTQsMTMuNTk5MDE1LDMwLjYwMDAwNiwxMy44OTkwMDMsMzAuNjAwMDA2TDE3LjMwMDAwOSwzMC42MDAwMDZDMTcuNTk5MDIsMzAuNjAwMDA2LDE3LjgwMDAwOSwzMC4zOTk5OTQsMTcuODAwMDA5LDMwLjE5OTk4MkwxNy44MDAwMDksMjkuMjk5OTg4QzE3LjgwMDAwOSwyOS4xMDAwMDYsMTcuNTk5MDIsMjguODk5OTk0LDE3LjMwMDAwOSwyOC44OTk5OTR6IE04LjAwMDAwOTYsMjguODk5OTk0QzcuNjk4OTgzNywyOC44OTk5OTQsNy41MDAwMDkxLDI5LjEwMDAwNiw3LjUwMDAwOTEsMjkuMjk5OTg4TDcuNTAwMDA5MSwzMC4xOTk5ODJDNy41MDAwMDkxLDMwLjM5OTk5NCw3LjY5ODk4MzcsMzAuNjAwMDA2LDguMDAwMDA5NiwzMC42MDAwMDZMMTEuMzk5LDMwLjYwMDAwNkMxMS42OTg5ODksMzAuNjAwMDA2LDExLjg5OTAwMSwzMC4zOTk5OTQsMTEuODk5MDAxLDMwLjE5OTk4MkwxMS44OTkwMDEsMjkuMjk5OTg4QzExLjg5OTAwMSwyOS4xMDAwMDYsMTEuNjk4OTg5LDI4Ljg5OTk5NCwxMS4zOTksMjguODk5OTk0eiBNMi4yOTk5OTA3LDI4Ljg5OTk5NEMyLjAwMDAwMjMsMjguODk5OTk0LDEuNzk5OTg5OSwyOS4xMDAwMDYsMS43OTk5ODk3LDI5LjI5OTk4OEwxLjc5OTk4OTcsMzAuMTk5OTgyQzEuNzk5OTg5OSwzMC4zOTk5OTQsMi4wMDAwMDIzLDMwLjYwMDAwNiwyLjI5OTk5MDcsMzAuNjAwMDA2TDUuNjk4OTgxMywzMC42MDAwMDZDNi4wMDAwMDcyLDMwLjYwMDAwNiw2LjE5ODk4MTgsMzAuMzk5OTk0LDYuMTk4OTgxOCwzMC4xOTk5ODJMNi4xOTg5ODE4LDI5LjI5OTk4OEM2LjE5ODk4MTgsMjkuMTAwMDA2LDYuMDAwMDA3MiwyOC44OTk5OTQsNS42OTg5ODEzLDI4Ljg5OTk5NHogTTEzLjg5OTAwMywyNS42OTk5ODJDMTMuNTk5MDE1LDI1LjY5OTk4MiwxMy4zOTkwMDMsMjUuODk5OTk0LDEzLjM5OTAwMywyNi4xMDAwMDZMMTMuMzk5MDAzLDI3QzEzLjM5OTAwMywyNy4xOTk5ODIsMTMuNTk5MDE1LDI3LjM5OTk5NCwxMy44OTkwMDMsMjcuMzk5OTk0TDE3LjMwMDAwOSwyNy4zOTk5OTRDMTcuNTk5MDIsMjcuMzk5OTk0LDE3LjgwMDAwOSwyNy4xOTk5ODIsMTcuODAwMDA5LDI3TDE3LjgwMDAwOSwyNi4xMDAwMDZDMTcuODAwMDA5LDI1Ljg5OTk5NCwxNy41OTkwMiwyNS42OTk5ODIsMTcuMzAwMDA5LDI1LjY5OTk4MnogTTguMDAwMDA5NiwyNS42OTk5ODJDNy42OTg5ODM3LDI1LjY5OTk4Miw3LjUwMDAwOTEsMjUuODk5OTk0LDcuNTAwMDA5MSwyNi4xMDAwMDZMNy41MDAwMDkxLDI3QzcuNTAwMDA5MSwyNy4xOTk5ODIsNy42OTg5ODM3LDI3LjM5OTk5NCw4LjAwMDAwOTYsMjcuMzk5OTk0TDExLjM5OSwyNy4zOTk5OTRDMTEuNjk4OTg5LDI3LjM5OTk5NCwxMS44OTkwMDEsMjcuMTk5OTgyLDExLjg5OTAwMSwyN0wxMS44OTkwMDEsMjYuMTAwMDA2QzExLjg5OTAwMSwyNS44OTk5OTQsMTEuNjk4OTg5LDI1LjY5OTk4MiwxMS4zOTksMjUuNjk5OTgyeiBNMi4yOTk5OTA3LDI1LjY5OTk4MkMyLjAwMDAwMjMsMjUuNjk5OTgyLDEuNzk5OTg5OSwyNS44OTk5OTQsMS43OTk5ODk3LDI2LjEwMDAwNkwxLjc5OTk4OTcsMjdDMS43OTk5ODk5LDI3LjE5OTk4MiwyLjAwMDAwMjMsMjcuMzk5OTk0LDIuMjk5OTkwNywyNy4zOTk5OTRMNS42OTg5ODEzLDI3LjM5OTk5NEM2LjAwMDAwNzIsMjcuMzk5OTk0LDYuMTk4OTgxOCwyNy4xOTk5ODIsNi4xOTg5ODE4LDI3TDYuMTk4OTgxOCwyNi4xMDAwMDZDNi4xOTg5ODE4LDI1Ljg5OTk5NCw2LjAwMDAwNzIsMjUuNjk5OTgyLDUuNjk4OTgxMywyNS42OTk5ODJ6IE0xMy44OTkwMDMsMjIuNUMxMy41OTkwMTUsMjIuNSwxMy4zOTkwMDMsMjIuNjk5OTgyLDEzLjM5OTAwMywyMi44OTk5OTRMMTMuMzk5MDAzLDIzLjc5OTk4OEMxMy4zOTkwMDMsMjQsMTMuNTk5MDE1LDI0LjE5OTk4MiwxMy44OTkwMDMsMjQuMTk5OTgyTDE3LjMwMDAwOSwyNC4xOTk5ODJDMTcuNTk5MDIsMjQuMTk5OTgyLDE3LjgwMDAwOSwyNCwxNy44MDAwMDksMjMuNzk5OTg4TDE3LjgwMDAwOSwyMi44OTk5OTRDMTcuODAwMDA5LDIyLjY5OTk4MiwxNy41OTkwMiwyMi41LDE3LjMwMDAwOSwyMi41eiBNOC4wMDAwMDk2LDIyLjVDNy42OTg5ODM3LDIyLjUsNy41MDAwMDkxLDIyLjY5OTk4Miw3LjUwMDAwOTEsMjIuODk5OTk0TDcuNTAwMDA5MSwyMy43OTk5ODhDNy41MDAwMDkxLDI0LDcuNjk4OTgzNywyNC4xOTk5ODIsOC4wMDAwMDk2LDI0LjE5OTk4MkwxMS4zOTksMjQuMTk5OTgyQzExLjY5ODk4OSwyNC4xOTk5ODIsMTEuODk5MDAxLDI0LDExLjg5OTAwMSwyMy43OTk5ODhMMTEuODk5MDAxLDIyLjg5OTk5NEMxMS44OTkwMDEsMjIuNjk5OTgyLDExLjY5ODk4OSwyMi41LDExLjM5OSwyMi41eiBNMi4yOTk5OTA3LDIyLjVDMi4wMDAwMDIzLDIyLjUsMS43OTk5ODk5LDIyLjY5OTk4MiwxLjc5OTk4OTcsMjIuODk5OTk0TDEuNzk5OTg5NywyMy43OTk5ODhDMS43OTk5ODk5LDI0LDIuMDAwMDAyMywyNC4xOTk5ODIsMi4yOTk5OTA3LDI0LjE5OTk4Mkw1LjY5ODk4MTMsMjQuMTk5OTgyQzYuMDAwMDA3MiwyNC4xOTk5ODIsNi4xOTg5ODE4LDI0LDYuMTk4OTgxOCwyMy43OTk5ODhMNi4xOTg5ODE4LDIyLjg5OTk5NEM2LjE5ODk4MTgsMjIuNjk5OTgyLDYuMDAwMDA3MiwyMi41LDUuNjk4OTgxMywyMi41eiBNMi4wMDAwMDI0LDIuNjAwMDA2MUwyLjAwMDAwMjQsMjAuMzk5OTk0IDE3LjcwMDAzMywyMC4zOTk5OTQgMTcuNzAwMDMzLDIuNjAwMDA2MXogTTE3LjU5OTAyLDAuODk5OTkzOUMxNy4zOTkwMDgsMC44OTk5OTM5IDE3LjE5ODk5NiwxLjEwMDAwNjEgMTcuMTk4OTk2LDEuMjk5OTg3OCAxNy4xOTg5OTYsMS41IDE3LjM5OTAwOCwxLjY5OTk4MTcgMTcuNTk5MDIsMS42OTk5ODE3IDE3LjgwMDAwOSwxLjY5OTk4MTcgMTguMDAwMDIxLDEuNSAxOC4wMDAwMjEsMS4yOTk5ODc4IDE4LjAwMDAyMSwxLjEwMDAwNjEgMTcuODAwMDA5LDAuODk5OTkzOSAxNy41OTkwMiwwLjg5OTk5Mzl6IE0wLDBMMTkuNTk5OTk5LDAgMTkuNTk5OTk5LDMyIDAsMzJ6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
-                                    background-position-x: center;
-                                    background-position-y: center;
-                                    background-size: 35px;
-                                    
-                                    &.coin{
-                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMi4wNzIwMDYyMjU1ODU4OCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMCwyMi4zMjgwMDZDMy41MjcwMDA0LDI0Ljk0NTAxIDkuMjU0OTk3MywyNi41OTE5ODMgMTYsMjYuNTkxOTgzIDIyLjc0NDk5NSwyNi41OTE5ODMgMjguNDczMDA3LDI0Ljk0NTAxIDMyLDIyLjMyODAwNkwzMiwyNi4xOTI5OTZDMjkuNzU1OTk3LDI5LjI2NTk5NCAyMy40NDkwMDUsMzEuNDgxOTk4IDE2LDMxLjQ4MTk5OCA4LjU1MjAwMiwzMS40ODE5OTggMi4yNDQwMDMzLDI5LjI2NTk5NCAwLDI2LjE5Mjk5NnogTTAsMTMuOTY0OTk4QzMuNjc2MDAyNSwxNi44NTk5ODcgOS44NDcwMDAxLDE4LjM2Mzk4NCAxNiwxOC4zNjM5ODQgMjIuMTUzLDE4LjM2Mzk4NCAyOC4zMjQwMDUsMTYuODU5OTg3IDMyLDEzLjk2NDk5OEwzMiwxOC40NDQwMDFDMjkuNzU1OTk3LDIxLjUxNDAxMSAyMy40NDkwMDUsMjMuNzMzMDA1IDE2LDIzLjczMzAwNSA4LjU1MjAwMiwyMy43MzMwMDUgMi4yNDQwMDMzLDIxLjUxNDAxMSAwLDE4LjQ0NDAwMXogTTE2LDBDMjMuNDQ5MDA1LC0yLjEyMDAxNEUtMDcsMjkuNzU1OTk3LDIuMjE4OTk0MSwzMiw1LjI5MDk4NTNMMzIsMTAuMjEyOTgzQzI5Ljc1NTk5NywxMy4yODU5ODEgMjMuNDQ5MDA1LDE1LjUwMjk5MiAxNiwxNS41MDI5OTIgOC41NTIwMDIsMTUuNTAyOTkyIDIuMjQ0MDAzMywxMy4yODU5ODEgMCwxMC4yMTI5ODNMMCw1LjI5MDk4NTNDMi4yNDQwMDMzLDIuMjE4OTk0MSw4LjU1MjAwMiwtMi4xMjAwMTRFLTA3LDE2LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
-                                        background-position-x: center;
-                                        background-position-y: center;
-                                        background-size: 35px;
-                                    }
-                                     
-                                }
-                                
-                                .accountData{
-                                    
-                                    float: left;
-                                    width: calc(100% - 40px);
-                                    
-                                    .name{
-                                        font-size: 15px;
-                                        color: black;
-                                        width: calc(100% - 10px);
-                                        padding-left: 10px;
-                                        padding-top: 10px;
-                                        margin-bottom: 5px;
-                                    }
-                                
-                                    .phoneDetail{
-                                        
-                                        display: inline-block;
-                                        width: calc(100% - 20px);
-                                        padding-left: 10px;
-                                        padding-right: 10px;
-                                        color: $smartgreen;
-                                        padding-bottom: 10px;
-                                        
-                                        .phoneNo{
-                                            float: left;
-                                            font-size: 15px;
-                                        }
-                                        
-                                        .phoneType{
-                                            float: left;
-                                            background-color: $smartgreen;
-                                            height: 17px;
-                                            width: 50px;
-                                            color: #FFF;
-                                            margin-left: 20px;
-                                            font-size: 10px;
-                                            border-radius: 5px;
-                                            padding-left: 6px;
-                                        }
-                                        
-                                        .numberType{
-                                            float: right;
-                                            font-size: 13px;
-                                        }
-                                    } 
-                                    
-                                    .subInfoContainer{
-                                        display: inline-block;
-                                        width: calc(100% - 20px);
-                                        height: 50px;
-                                        padding: 5px 10px 5px 10px;
-                                        
-                                        .leftSide{
-                                            float: left;
-                                            height: 50px;
-                                            padding-top: 5px;
-
-                                            &.one-line {
-                                                padding-top: 0;
-                                                display: flex;
-                                                align-items: center;
-                                            }
-                                            
-                                            .balance{
-                                                height: 18px;
-                                                color: black;
-                                                font-size: 15px;
-                                            }
-                                            .expire{
-                                                color: $gray;
-                                                font-size: 13px;
-                                            }    
-                                        }
-                                        .rightSide{
-                                            float: right;
-
-                                            line-height: 30px;
-                                            
-                                            .text{
-                                                float: right;
-                                                display: flex;
-                                                align-items: center; // align vertical 
-                                                justify-content: center; // align horizontal
-                                                height: 50px;
-                                                font-size: 25px;
-                                                font-weight: bold;
-                                                color: $smartred;
-                                                span{
-                                                    margin-top: 5px;
-                                                    margin-left: 2px;
-                                                    font-size: 15px;
-                                                    font-weight: normal;
-                                                }
-                                            }
-                                        }
-                                    }       
-                                }
-                            }
-                        }
-                      
-                        .latestTransaction{
-                            
-                            border-bottom: 1px solid #EEE;
-                          
-                            .header{
-                                font-size: 20px;
-                                width: 50%;
-                                padding: 10px;
-                                color: $smartgreen;
-                                border-bottom: 1px solid #EEE;
-                            }
-                            
-                            .itemBox{
-                                display: inline-block;
-                                width: 45%;
-                                padding-top: 10px;
-                                padding-bottom: 5px;
-                                margin-right: 20px;
-                                
-                                
-                                .itemHeader{
-                                    display: inline-block;
-                                    color: back;
-                                    font-weight: bold;
-                                    font-size: 15px;
-                                    width: calc(100% - 10px);
-                                    padding-top: 5px;
-                                    padding-bottom: 5px;
-                                    margin-left: 10px;
-                                }
-                                
-                                .itemInfoLine{
-                                    display: inline-block;
-                                    width: 100%;
-                                    
-                                    .itemInfoIdentifier{
-                                        color: $smartgreen;
-                                        float:left;
-                                        font-size: 18px;
-                                        margin-left: 10px;
-                                        margin-right: 10px;
-                                        width: calc(70% - 20px);
-                                    }
-                                    
-                                    .itemInfoPoint{
-                                        color: $smartred;
-                                        float: right;
-                                        font-size: 20px;
-                                        margin-right: 10px;
-                                        width: calc(30% - 10px);
-                                        text-align: right;
-                                        
-                                        span{
-                                            font-size: 15px;
-                                        }
-                                        
-                                    }
-                                    
-                                }
-                                
-                                .itemAddInfo{
-                                    display: inline-block;
-                                    font-size: 15px;
-                                    margin-left: 10px;
-                                    padding-top: 5px;
-                                    padding-bottom: 5px;
-                                }
-                                
-                                .itemDateInfo{
-                                    display: inline-block;
-                                    color: black;
-                                    font-size: 15px;
-                                    width: 100%;
-                                    
-                                    .itemDate{
-                                        float: left;
-                                        margin-left: 10px;
-                                    }
-                                    
-                                    .itemBuyVia{
-                                        float: right;
-                                        margin-right: 10px;
-                                    }
-                                    
-                                }
-
-                            }
-                            
-                        }
-                        
-                        .buttonContainer{
-                            display: inline-block;
-                            width: calc(100% - 40px);
-                            margin-right: 40px;
-                            
-                            .button{
-                                margin-top: 10px;
-                                width: 150px;
-                                line-height: 1rem;
-                                margin-left: 10px;
-                                margin-right: 10px;
-                                float: right;
-                                font-size: 13px;
-                                color: #FFF;
-                                cursor: pointer;
-                                
-                                &.green{
-                                    background-color: $smartgreen;
-                                }
-                                
-                                &.red{
-                                    background-color: $smartred;
-                                }
-                                
-                            }
-                            
-                        }
-                        
-
-                    }
-                    
-                    
-                    .catalogComponent{
-                        width : 100%;
-                        
-                        .subHeader{
-                            display: inline-block;
-                            margin: 15px 10px 10px 10px;
-                            width: calc(100% - 20px);
-                            cursor: pointer;
-                            
-                            &.belt{
-                                margin-bottom: 5px;
-                            }
-                    
-                            .leftHeader{
-                                display: table-cell;
-                                line-height: 30px;
-                                font-size: 21px;
-                                color: $smartgreen;
-                                float: left;
-                                vertical-align: bottom;
-                            }
-                            
-                            .subOption{
-                                display: table-cell;
-                                font-size: 15px;
-                                height: 21px;  
-                                color: black;
-                                cursor: pointer;
-                                float: right;
-                                vertical-align: bottom;
-                                line-height: 30px;
-                            }
-                            
-                        }
-                        
-                        .itemBelt{
-                            width: calc(100% - 50px);
-                            margin-left: 20px;
-                            margin-right: 20px;
-                        }
-   
-                    }
-                    
-                }    
-                    
-            }
+        display: inline-block;
+        width: 100%;
         
+        .accountOverview{
+            
+            .header{
+                font-size: 20px;
+                width: 50%;
+                padding: 10px;
+                color: $smartgreen;
+                border-bottom: 1px solid #EEE;
+            }
+            
+            .accountItem{
+                display: inline-block;
+                width: 49%;
+                //margin-right: 20px;
+                
+                .accountIcon{
+                    height: 60px;
+                    width: 40px;
+                    float: left;
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDQ5LjYwMDAwNjEwMzUxNTYsMCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMTMuODk5MDAzLDI4Ljg5OTk5NEMxMy41OTkwMTUsMjguODk5OTk0LDEzLjM5OTAwMywyOS4xMDAwMDYsMTMuMzk5MDAzLDI5LjI5OTk4OEwxMy4zOTkwMDMsMzAuMTk5OTgyQzEzLjM5OTAwMywzMC4zOTk5OTQsMTMuNTk5MDE1LDMwLjYwMDAwNiwxMy44OTkwMDMsMzAuNjAwMDA2TDE3LjMwMDAwOSwzMC42MDAwMDZDMTcuNTk5MDIsMzAuNjAwMDA2LDE3LjgwMDAwOSwzMC4zOTk5OTQsMTcuODAwMDA5LDMwLjE5OTk4MkwxNy44MDAwMDksMjkuMjk5OTg4QzE3LjgwMDAwOSwyOS4xMDAwMDYsMTcuNTk5MDIsMjguODk5OTk0LDE3LjMwMDAwOSwyOC44OTk5OTR6IE04LjAwMDAwOTYsMjguODk5OTk0QzcuNjk4OTgzNywyOC44OTk5OTQsNy41MDAwMDkxLDI5LjEwMDAwNiw3LjUwMDAwOTEsMjkuMjk5OTg4TDcuNTAwMDA5MSwzMC4xOTk5ODJDNy41MDAwMDkxLDMwLjM5OTk5NCw3LjY5ODk4MzcsMzAuNjAwMDA2LDguMDAwMDA5NiwzMC42MDAwMDZMMTEuMzk5LDMwLjYwMDAwNkMxMS42OTg5ODksMzAuNjAwMDA2LDExLjg5OTAwMSwzMC4zOTk5OTQsMTEuODk5MDAxLDMwLjE5OTk4MkwxMS44OTkwMDEsMjkuMjk5OTg4QzExLjg5OTAwMSwyOS4xMDAwMDYsMTEuNjk4OTg5LDI4Ljg5OTk5NCwxMS4zOTksMjguODk5OTk0eiBNMi4yOTk5OTA3LDI4Ljg5OTk5NEMyLjAwMDAwMjMsMjguODk5OTk0LDEuNzk5OTg5OSwyOS4xMDAwMDYsMS43OTk5ODk3LDI5LjI5OTk4OEwxLjc5OTk4OTcsMzAuMTk5OTgyQzEuNzk5OTg5OSwzMC4zOTk5OTQsMi4wMDAwMDIzLDMwLjYwMDAwNiwyLjI5OTk5MDcsMzAuNjAwMDA2TDUuNjk4OTgxMywzMC42MDAwMDZDNi4wMDAwMDcyLDMwLjYwMDAwNiw2LjE5ODk4MTgsMzAuMzk5OTk0LDYuMTk4OTgxOCwzMC4xOTk5ODJMNi4xOTg5ODE4LDI5LjI5OTk4OEM2LjE5ODk4MTgsMjkuMTAwMDA2LDYuMDAwMDA3MiwyOC44OTk5OTQsNS42OTg5ODEzLDI4Ljg5OTk5NHogTTEzLjg5OTAwMywyNS42OTk5ODJDMTMuNTk5MDE1LDI1LjY5OTk4MiwxMy4zOTkwMDMsMjUuODk5OTk0LDEzLjM5OTAwMywyNi4xMDAwMDZMMTMuMzk5MDAzLDI3QzEzLjM5OTAwMywyNy4xOTk5ODIsMTMuNTk5MDE1LDI3LjM5OTk5NCwxMy44OTkwMDMsMjcuMzk5OTk0TDE3LjMwMDAwOSwyNy4zOTk5OTRDMTcuNTk5MDIsMjcuMzk5OTk0LDE3LjgwMDAwOSwyNy4xOTk5ODIsMTcuODAwMDA5LDI3TDE3LjgwMDAwOSwyNi4xMDAwMDZDMTcuODAwMDA5LDI1Ljg5OTk5NCwxNy41OTkwMiwyNS42OTk5ODIsMTcuMzAwMDA5LDI1LjY5OTk4MnogTTguMDAwMDA5NiwyNS42OTk5ODJDNy42OTg5ODM3LDI1LjY5OTk4Miw3LjUwMDAwOTEsMjUuODk5OTk0LDcuNTAwMDA5MSwyNi4xMDAwMDZMNy41MDAwMDkxLDI3QzcuNTAwMDA5MSwyNy4xOTk5ODIsNy42OTg5ODM3LDI3LjM5OTk5NCw4LjAwMDAwOTYsMjcuMzk5OTk0TDExLjM5OSwyNy4zOTk5OTRDMTEuNjk4OTg5LDI3LjM5OTk5NCwxMS44OTkwMDEsMjcuMTk5OTgyLDExLjg5OTAwMSwyN0wxMS44OTkwMDEsMjYuMTAwMDA2QzExLjg5OTAwMSwyNS44OTk5OTQsMTEuNjk4OTg5LDI1LjY5OTk4MiwxMS4zOTksMjUuNjk5OTgyeiBNMi4yOTk5OTA3LDI1LjY5OTk4MkMyLjAwMDAwMjMsMjUuNjk5OTgyLDEuNzk5OTg5OSwyNS44OTk5OTQsMS43OTk5ODk3LDI2LjEwMDAwNkwxLjc5OTk4OTcsMjdDMS43OTk5ODk5LDI3LjE5OTk4MiwyLjAwMDAwMjMsMjcuMzk5OTk0LDIuMjk5OTkwNywyNy4zOTk5OTRMNS42OTg5ODEzLDI3LjM5OTk5NEM2LjAwMDAwNzIsMjcuMzk5OTk0LDYuMTk4OTgxOCwyNy4xOTk5ODIsNi4xOTg5ODE4LDI3TDYuMTk4OTgxOCwyNi4xMDAwMDZDNi4xOTg5ODE4LDI1Ljg5OTk5NCw2LjAwMDAwNzIsMjUuNjk5OTgyLDUuNjk4OTgxMywyNS42OTk5ODJ6IE0xMy44OTkwMDMsMjIuNUMxMy41OTkwMTUsMjIuNSwxMy4zOTkwMDMsMjIuNjk5OTgyLDEzLjM5OTAwMywyMi44OTk5OTRMMTMuMzk5MDAzLDIzLjc5OTk4OEMxMy4zOTkwMDMsMjQsMTMuNTk5MDE1LDI0LjE5OTk4MiwxMy44OTkwMDMsMjQuMTk5OTgyTDE3LjMwMDAwOSwyNC4xOTk5ODJDMTcuNTk5MDIsMjQuMTk5OTgyLDE3LjgwMDAwOSwyNCwxNy44MDAwMDksMjMuNzk5OTg4TDE3LjgwMDAwOSwyMi44OTk5OTRDMTcuODAwMDA5LDIyLjY5OTk4MiwxNy41OTkwMiwyMi41LDE3LjMwMDAwOSwyMi41eiBNOC4wMDAwMDk2LDIyLjVDNy42OTg5ODM3LDIyLjUsNy41MDAwMDkxLDIyLjY5OTk4Miw3LjUwMDAwOTEsMjIuODk5OTk0TDcuNTAwMDA5MSwyMy43OTk5ODhDNy41MDAwMDkxLDI0LDcuNjk4OTgzNywyNC4xOTk5ODIsOC4wMDAwMDk2LDI0LjE5OTk4MkwxMS4zOTksMjQuMTk5OTgyQzExLjY5ODk4OSwyNC4xOTk5ODIsMTEuODk5MDAxLDI0LDExLjg5OTAwMSwyMy43OTk5ODhMMTEuODk5MDAxLDIyLjg5OTk5NEMxMS44OTkwMDEsMjIuNjk5OTgyLDExLjY5ODk4OSwyMi41LDExLjM5OSwyMi41eiBNMi4yOTk5OTA3LDIyLjVDMi4wMDAwMDIzLDIyLjUsMS43OTk5ODk5LDIyLjY5OTk4MiwxLjc5OTk4OTcsMjIuODk5OTk0TDEuNzk5OTg5NywyMy43OTk5ODhDMS43OTk5ODk5LDI0LDIuMDAwMDAyMywyNC4xOTk5ODIsMi4yOTk5OTA3LDI0LjE5OTk4Mkw1LjY5ODk4MTMsMjQuMTk5OTgyQzYuMDAwMDA3MiwyNC4xOTk5ODIsNi4xOTg5ODE4LDI0LDYuMTk4OTgxOCwyMy43OTk5ODhMNi4xOTg5ODE4LDIyLjg5OTk5NEM2LjE5ODk4MTgsMjIuNjk5OTgyLDYuMDAwMDA3MiwyMi41LDUuNjk4OTgxMywyMi41eiBNMi4wMDAwMDI0LDIuNjAwMDA2MUwyLjAwMDAwMjQsMjAuMzk5OTk0IDE3LjcwMDAzMywyMC4zOTk5OTQgMTcuNzAwMDMzLDIuNjAwMDA2MXogTTE3LjU5OTAyLDAuODk5OTkzOUMxNy4zOTkwMDgsMC44OTk5OTM5IDE3LjE5ODk5NiwxLjEwMDAwNjEgMTcuMTk4OTk2LDEuMjk5OTg3OCAxNy4xOTg5OTYsMS41IDE3LjM5OTAwOCwxLjY5OTk4MTcgMTcuNTk5MDIsMS42OTk5ODE3IDE3LjgwMDAwOSwxLjY5OTk4MTcgMTguMDAwMDIxLDEuNSAxOC4wMDAwMjEsMS4yOTk5ODc4IDE4LjAwMDAyMSwxLjEwMDAwNjEgMTcuODAwMDA5LDAuODk5OTkzOSAxNy41OTkwMiwwLjg5OTk5Mzl6IE0wLDBMMTkuNTk5OTk5LDAgMTkuNTk5OTk5LDMyIDAsMzJ6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                    background-position-x: center;
+                    background-position-y: center;
+                    background-size: 35px;
+                    
+                    &.coin{
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMi4wNzIwMDYyMjU1ODU4OCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjNTBCMzMwIiBkPSJNMCwyMi4zMjgwMDZDMy41MjcwMDA0LDI0Ljk0NTAxIDkuMjU0OTk3MywyNi41OTE5ODMgMTYsMjYuNTkxOTgzIDIyLjc0NDk5NSwyNi41OTE5ODMgMjguNDczMDA3LDI0Ljk0NTAxIDMyLDIyLjMyODAwNkwzMiwyNi4xOTI5OTZDMjkuNzU1OTk3LDI5LjI2NTk5NCAyMy40NDkwMDUsMzEuNDgxOTk4IDE2LDMxLjQ4MTk5OCA4LjU1MjAwMiwzMS40ODE5OTggMi4yNDQwMDMzLDI5LjI2NTk5NCAwLDI2LjE5Mjk5NnogTTAsMTMuOTY0OTk4QzMuNjc2MDAyNSwxNi44NTk5ODcgOS44NDcwMDAxLDE4LjM2Mzk4NCAxNiwxOC4zNjM5ODQgMjIuMTUzLDE4LjM2Mzk4NCAyOC4zMjQwMDUsMTYuODU5OTg3IDMyLDEzLjk2NDk5OEwzMiwxOC40NDQwMDFDMjkuNzU1OTk3LDIxLjUxNDAxMSAyMy40NDkwMDUsMjMuNzMzMDA1IDE2LDIzLjczMzAwNSA4LjU1MjAwMiwyMy43MzMwMDUgMi4yNDQwMDMzLDIxLjUxNDAxMSAwLDE4LjQ0NDAwMXogTTE2LDBDMjMuNDQ5MDA1LC0yLjEyMDAxNEUtMDcsMjkuNzU1OTk3LDIuMjE4OTk0MSwzMiw1LjI5MDk4NTNMMzIsMTAuMjEyOTgzQzI5Ljc1NTk5NywxMy4yODU5ODEgMjMuNDQ5MDA1LDE1LjUwMjk5MiAxNiwxNS41MDI5OTIgOC41NTIwMDIsMTUuNTAyOTkyIDIuMjQ0MDAzMywxMy4yODU5ODEgMCwxMC4yMTI5ODNMMCw1LjI5MDk4NTNDMi4yNDQwMDMzLDIuMjE4OTk0MSw4LjU1MjAwMiwtMi4xMjAwMTRFLTA3LDE2LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                        background-position-x: center;
+                        background-position-y: center;
+                        background-size: 35px;
+                    }
+                        
+                }
+                
+                .accountData{
+                    
+                    float: left;
+                    width: calc(100% - 40px);
+                    
+                    .name{
+                        font-size: 15px;
+                        color: black;
+                        width: calc(100% - 10px);
+                        padding-left: 10px;
+                        padding-top: 10px;
+                        margin-bottom: 5px;
+                    }
+                
+                    .phoneDetail{
+                        
+                        display: inline-block;
+                        width: calc(100% - 20px);
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        color: $smartgreen;
+                        padding-bottom: 10px;
+                        
+                        .phoneNo{
+                            float: left;
+                            font-size: 15px;
+                        }
+                        
+                        .phoneType{
+                            float: left;
+                            background-color: $smartgreen;
+                            height: 17px;
+                            width: 50px;
+                            color: #FFF;
+                            margin-left: 20px;
+                            font-size: 10px;
+                            border-radius: 5px;
+                            padding-left: 6px;
+                        }
+                        
+                        .numberType{
+                            float: right;
+                            font-size: 13px;
+                        }
+                    } 
+                    
+                    .subInfoContainer{
+                        display: inline-block;
+                        width: calc(100% - 20px);
+                        height: 50px;
+                        padding: 5px 10px 5px 10px;
+                        
+                        .leftSide{
+                            float: left;
+                            height: 50px;
+                            padding-top: 5px;
+
+                            &.one-line {
+                                padding-top: 0;
+                                display: flex;
+                                align-items: center;
+                            }
+                            
+                            .balance{
+                                height: 18px;
+                                color: black;
+                                font-size: 15px;
+                            }
+                            .expire{
+                                color: $gray;
+                                font-size: 13px;
+                            }    
+                        }
+                        .rightSide{
+                            float: right;
+
+                            line-height: 30px;
+                            
+                            .text{
+                                float: right;
+                                display: flex;
+                                align-items: center; // align vertical 
+                                justify-content: center; // align horizontal
+                                height: 50px;
+                                font-size: 25px;
+                                font-weight: bold;
+                                color: $smartred;
+                                span{
+                                    margin-top: 5px;
+                                    margin-left: 2px;
+                                    font-size: 15px;
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+                    }       
+                }
+            }
         }
+        
+        .latestTransaction{
+            
+            border-bottom: 1px solid #EEE;
+            
+            .header{
+                font-size: 20px;
+                width: 50%;
+                padding: 10px;
+                color: $smartgreen;
+                border-bottom: 1px solid #EEE;
+            }
+            
+            .itemBox{
+                display: inline-block;
+                width: 45%;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                margin-right: 20px;
+                
+                
+                .itemHeader{
+                    display: inline-block;
+                    color: back;
+                    font-weight: bold;
+                    font-size: 15px;
+                    width: calc(100% - 10px);
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    margin-left: 10px;
+                }
+                
+                .itemInfoLine{
+                    display: inline-block;
+                    width: 100%;
+                    
+                    .itemInfoIdentifier{
+                        color: $smartgreen;
+                        float:left;
+                        font-size: 18px;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        width: calc(70% - 20px);
+                    }
+                    
+                    .itemInfoPoint{
+                        color: $smartred;
+                        float: right;
+                        font-size: 20px;
+                        margin-right: 10px;
+                        width: calc(30% - 10px);
+                        text-align: right;
+                        
+                        span{
+                            font-size: 15px;
+                        }
+                        
+                    }
+                    
+                }
+                
+                .itemAddInfo{
+                    display: inline-block;
+                    font-size: 15px;
+                    margin-left: 10px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+                
+                .itemDateInfo{
+                    display: inline-block;
+                    color: black;
+                    font-size: 15px;
+                    width: 100%;
+                    
+                    .itemDate{
+                        float: left;
+                        margin-left: 10px;
+                    }
+                    
+                    .itemBuyVia{
+                        float: right;
+                        margin-right: 10px;
+                    }
+                    
+                }
+
+            }
+            
+        }
+        
+        .buttonContainer{
+            display: inline-block;
+            width: calc(100% - 40px);
+            margin-right: 40px;
+            
+            .button{
+                margin-top: 10px;
+                width: 150px;
+                line-height: 1rem;
+                margin-left: 10px;
+                margin-right: 10px;
+                float: right;
+                font-size: 13px;
+                color: #FFF;
+                cursor: pointer;
+                
+                &.green{
+                    background-color: $smartgreen;
+                }
+                
+                &.red{
+                    background-color: $smartred;
+                }
+                
+            }
+            
+        }
+        
+
     }
-}
+
+
+    .catalogComponent{
+        width : 100%;
+        
+        .subHeader{
+            display: inline-block;
+            margin: 15px 10px 10px 10px;
+            width: calc(100% - 20px);
+            cursor: pointer;
+            
+            &.belt{
+                margin-bottom: 5px;
+            }
+
+            .leftHeader{
+                display: table-cell;
+                line-height: 30px;
+                font-size: 21px;
+                color: $smartgreen;
+                float: left;
+                vertical-align: bottom;
+            }
+            
+            .subOption{
+                display: table-cell;
+                font-size: 15px;
+                height: 21px;  
+                color: black;
+                cursor: pointer;
+                float: right;
+                vertical-align: bottom;
+                line-height: 30px;
+            }
+            
+        }
+        
+        .itemBelt{
+            width: calc(100% - 50px);
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+    }
+
+}   

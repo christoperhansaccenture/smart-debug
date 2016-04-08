@@ -118,137 +118,102 @@ $col-3-height: 340px;
     }
 }
 
-.smartBillBalanceContainerBody {
-    max-width: 1020px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    &.bodyFixed {
-        margin-top: 60px;
-    }
-    .smartBillBalanceContainerLarge {
+.smartBillBalanceContainerLarge {
+
+    .itemComponent {
+        width: 72%;
         float: left;
-        width: 100%;
-        background-color: #FFF;
-        margin-bottom: 50px;
-        .container2 {
-            float: left;
-            width: 100%;
-            overflow: hidden;
-            .container1 {
+        .categoryHeader {
+            color: $smartgreen;
+            font-size: 20px;
+            padding: 0px 0px 20px 0px;
+            margin-bottom: 20px;
+        }
+        .separator {
+            border-bottom: 1px solid #EEE;
+            margin-bottom: 10px;
+        }
+        .itemContainer {
+            display: inline-block;
+            width: calc(100% - 20px);
+            padding-left: 10px;
+            padding-right: 10px;
+            .itemIdentifier {
                 float: left;
-                width: 100%;
-                position: relative;
-                right: 816px;
-                border-right: 4px solid #EEE;
-                .componentContainer {
-                    float: left;
-                    position: relative;
-                    left: 820px;
-                    width: calc(816px - 40px);
-                    background-color: #FFF;
-                    padding-top: 20px;
-                    padding-bottom: 40px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    .itemComponent {
-                        width: 72%;
-                        float: left;
-                        .categoryHeader {
-                            color: $smartgreen;
-                            font-size: 20px;
-                            padding: 0px 0px 20px 0px;
-                            margin-bottom: 20px;
-                        }
-                        .separator {
-                            border-bottom: 1px solid #EEE;
-                            margin-bottom: 10px;
-                        }
-                        .itemContainer {
-                            display: inline-block;
-                            width: calc(100% - 20px);
-                            padding-left: 10px;
-                            padding-right: 10px;
-                            .itemIdentifier {
-                                float: left;
-                                width: calc(100% - 100px);
-                                font-size: 15px;
-                                margin-bottom: 10px;
-                                &.green {
-                                    color: $smartgreen;
-                                }
-                                &.subItem{
-                                    padding-left: 40px;
-                                    width: calc(100% - 140px);
-                                }
-                                small {
-                                    color: $gray;
-                                }
-                            }
-                            .itemValue {
-                                float: right;
-                                font-size: 15px;
-                                width: 70px;
-                                width: 100px;
-                                text-align: right;
-                                &:after {
-                                    clear: both;
-                                }
-                                &.red {
-                                    color: $smartred;
-                                }
-                            }
-                        }
-                        .itemFooterContainer {
-                            display: inline-block;
-                            width: 100%;
-                            padding: 20px 10px 0px 10px;
-                            small {
-                                clear: both;
-                                float: right;
-                                color: $gray;
-                            }
-                        }
-                        .button {
-                            clear: none;
-                            width: 100px;
-                            float: right;
-                            color: #FFF;
-                            &.disable {
-                                background-color: #EEE;
-                                cursor: default;
-                            }
-                            &.green {
-                                background-color: $smartgreen;
-                                margin-right: 10px;
-                            }
-                            &.red {
-                                background-color: $smartred;
-                                min-height: 34px;
-                                line-height: 34px;
-                            }
-                        }
-                    }
+                width: calc(100% - 100px);
+                font-size: 15px;
+                margin-bottom: 10px;
+                &.green {
+                    color: $smartgreen;
                 }
-                .bannerComponent {
-                    width: 25%;
-                    float: right;
-                    padding-top: 20px;
-                    .banner1 {
-                        width: 100%;
-                        height: 100px;
-                        background: url(../img/myplan-banner.jpg) no-repeat;
-                        background-size: cover;
-                        margin-bottom: 20px;
-                    }
-                    .banner2 {
-                        width: 100%;
-                        height: 100px;
-                        background: url(../img/myplan.jpg) no-repeat;
-                        background-size: cover;
-                    }
+                &.subItem{
+                    padding-left: 40px;
+                    width: calc(100% - 140px);
+                }
+                small {
+                    color: $gray;
+                }
+            }
+            .itemValue {
+                float: right;
+                font-size: 15px;
+                width: 70px;
+                width: 100px;
+                text-align: right;
+                &:after {
+                    clear: both;
+                }
+                &.red {
+                    color: $smartred;
                 }
             }
         }
+        .itemFooterContainer {
+            display: inline-block;
+            width: 100%;
+            padding: 20px 10px 0px 10px;
+            small {
+                clear: both;
+                float: right;
+                color: $gray;
+            }
+        }
+        .button {
+            clear: none;
+            width: 100px;
+            float: right;
+            color: #FFF;
+            &.disable {
+                background-color: #EEE;
+                cursor: default;
+            }
+            &.green {
+                background-color: $smartgreen;
+                margin-right: 10px;
+            }
+            &.red {
+                background-color: $smartred;
+                min-height: 34px;
+                line-height: 34px;
+            }
+        }
+    }
+}
+.bannerComponent {
+    width: 25%;
+    float: right;
+    padding-top: 20px;
+    .banner1 {
+        width: 100%;
+        height: 100px;
+        background: url(../img/myplan-banner.jpg) no-repeat;
+        background-size: cover;
+        margin-bottom: 20px;
+    }
+    .banner2 {
+        width: 100%;
+        height: 100px;
+        background: url(../img/myplan.jpg) no-repeat;
+        background-size: cover;
     }
 }

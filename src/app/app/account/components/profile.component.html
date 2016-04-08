@@ -74,85 +74,76 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="profileContainerBody" *ngIf="getResize().largeUp">
-    <div class="profileContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="itemComponent">
-                        <div class="itemHeader">My Profile</div>
-                        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
-                        <div *ngIf="!getSpinnerStatus()">
-                            <div class="itemCategory">Account Profile</div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier name"></div>
-                                <input class="inputValue" placeholder="First Name*" [(ngModel)]="getUserProfile().firstName" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier name"></div>
-                                <input class="inputValue" placeholder="Middle Name" [(ngModel)]="getUserProfile().middleName" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier name"></div>
-                                <input class="inputValue" placeholder="Last Name" [(ngModel)]="getUserProfile().lastName" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier birthdate"></div>
-                                <input class="inputValue" placeholder="Birthdate" [(ngModel)]="getUserProfile().birthdate" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier marital"></div>
-                                <select class="inputValue select" aria-placeholder="Marital Status" [(ngModel)]="getUserProfile().familyStatus">
-                                    <option value="1">Single</option>
-                                    <option value="2">Married</option>
-                                    <option value="3">Divorced</option>
-                                    <option value="4">Widow</option>
-                                    <option value="5">Widower</option>
-                                    <option value="6">Civil Union</option>
-                                    <option value="7">separated</option>
-                                </select>
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier gender"></div>
-                                <select class="inputValue select" aria-placeholder="Gender" [(ngModel)]="getUserProfile().gender">
-                                    <option value="M">Male</option>
-                                    <option value="F">Female</option>
-                                </select>
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier statusPic"></div>
-                                <div class="status">Status</div>
-                                <div class="statusValue">Active</div>
-                            </div>
-                            <div class="itemCategory">Contact Details</div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier email"></div>
-                                <input class="inputValue" placeholder="Email address" [(ngModel)]="getUserProfile().email" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier home"></div>
-                                <input class="inputValue" placeholder="Home address" [(ngModel)]="getUserProfile().address" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier city"></div>
-                                <input class="inputValue" placeholder="Province" [(ngModel)]="getUserProfile().province" />
-                            </div>
-                            <div class="itemContainer">
-                                <div class="itemIdentifier city"></div>
-                                <input class="inputValue" placeholder="City/Municipality" [(ngModel)]="getUserProfile().city" />
-                            </div>
-                            <div class="itemFooterContainer">
-                                <div class="button" (click)="updateProfile()">Update Profile</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
-                </div>
+<div class="profileContainerLarge" *ngIf="getResize().largeUp">
+    <div class="itemComponent">
+        <div class="itemHeader">My Profile</div>
+        <circular-spinner *ngIf="getSpinnerStatus()"></circular-spinner>
+        <div *ngIf="!getSpinnerStatus()">
+            <div class="itemCategory">Account Profile</div>
+            <div class="itemContainer">
+                <div class="itemIdentifier name"></div>
+                <input class="inputValue" placeholder="First Name*" [(ngModel)]="getUserProfile().firstName" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier name"></div>
+                <input class="inputValue" placeholder="Middle Name" [(ngModel)]="getUserProfile().middleName" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier name"></div>
+                <input class="inputValue" placeholder="Last Name" [(ngModel)]="getUserProfile().lastName" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier birthdate"></div>
+                <input class="inputValue" placeholder="Birthdate" [(ngModel)]="getUserProfile().birthdate" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier marital"></div>
+                <select class="inputValue select" aria-placeholder="Marital Status" [(ngModel)]="getUserProfile().familyStatus">
+                    <option value="1">Single</option>
+                    <option value="2">Married</option>
+                    <option value="3">Divorced</option>
+                    <option value="4">Widow</option>
+                    <option value="5">Widower</option>
+                    <option value="6">Civil Union</option>
+                    <option value="7">separated</option>
+                </select>
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier gender"></div>
+                <select class="inputValue select" aria-placeholder="Gender" [(ngModel)]="getUserProfile().gender">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier statusPic"></div>
+                <div class="status">Status</div>
+                <div class="statusValue">Active</div>
+            </div>
+            <div class="itemCategory">Contact Details</div>
+            <div class="itemContainer">
+                <div class="itemIdentifier email"></div>
+                <input class="inputValue" placeholder="Email address" [(ngModel)]="getUserProfile().email" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier home"></div>
+                <input class="inputValue" placeholder="Home address" [(ngModel)]="getUserProfile().address" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier city"></div>
+                <input class="inputValue" placeholder="Province" [(ngModel)]="getUserProfile().province" />
+            </div>
+            <div class="itemContainer">
+                <div class="itemIdentifier city"></div>
+                <input class="inputValue" placeholder="City/Municipality" [(ngModel)]="getUserProfile().city" />
+            </div>
+            <div class="itemFooterContainer">
+                <div class="button" (click)="updateProfile()">Update Profile</div>
             </div>
         </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

@@ -152,304 +152,189 @@ $col-3-height: 340px;
                     }
                 }
             }
-        }
-        
-        // .itemListContainer{
-        //     display: inline-block;
-        
-        //     .itemDetailContainer{
-        //         display: inline-block;
-        //         width: calc(100% - 20px);
-        //         padding: 10px;
-        //         min-height: 60px;
-        //         border-bottom: 1px solid #EEE;
-                
-        //         &:last-child{
-        //             border : none;
-        //         }
-                
-        //         .itemPic{
-        //             float: left;
-        //             width: 80px;
-        //             height: 80px;
-        //             background-color: $smartred;
-                    
-        //         }
-                
-        //         .itemText{
-        //             float: left;
-        //             width: 50%;
-        //             min-height: 60px;
-        //             padding-left: 10px;
-        //             margin-right: 10px;
-                    
-        //             .itemSubHeader{
-        //                 color: $smartgreen;
-        //                 font-size: 15px;
-        //             }
-                    
-        //             .itemDesc{
-        //                 color: $text-dark-gray;
-        //                 font-size: 13px;
-        //             }
-                    
-        //         }
-                
-        //         .itemPoint{
-        //             display: inline-block;
-        //             width: calc(50% - 100px);
-        //             font-size: 20px;
-        //             text-align: right;
-        //             min-height: 60px;
-        //             color: $smartred;
-        //             font-weight: bold;
-                    
-        //             span{
-        //                 font-size: 10px;
-        //             }
-        //         }
-                
-        //         .valid-until {
-        //             display: inline-block;
-        //             margin-top: 10px;
-        //             width: 100%;
-
-        //             .label {
-        //                 font-weight: bold;
-        //             }
-        //         }
-                
-        //     }
-        // }
-        
-        
+        }  
     }
     
 }
 
-.dealContainerBody{
-    
-    max-width: 1020px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    
-    &.bodyFixed{
-        margin-top: 60px;
-    }
-
-    .dealContainerLarge{
+.dealContainerLarge{
+                    
+    .subInfoContainer{
+        display: inline-block;
+        width: calc(100% - 20px);
+        height: 50px;
+        padding: 5px 10px 5px 10px;
+        border-bottom: 1px solid #EEE;
         
-        float: left;
-        width: 100%;
-        background-color: #FFF;
-        margin-bottom: 50px;
-        
-        .container2{
+        .leftSide{
             float: left;
-            width: 100%;
-            overflow: hidden;
+            height: 50px;
+            padding-top: 5px;
+
+            &.one-line {
+                padding-top: 0;
+                display: flex;
+                align-items: center;
+            }
             
-            .container1{
-                float: left;
-                width: 100%;
-                position: relative;
-                right: 816px;
-                border-right: 4px solid #EEE;
+            .balance{
+                height: 18px;
+                color: black;
+                font-size: 15px;
+            }
+            .expire{
+                color: $gray;
+                font-size: 13px;
+            }    
+        }
+        .rightSide{
+            float: right;
 
-                .componentContainer{
+            line-height: 30px;
+            
+            .text{
+                float: right;
+                display: flex;
+                align-items: center; // align vertical 
+                justify-content: center; // align horizontal
+                height: 50px;
+                font-size: 25px;
+                font-weight: bold;
+                color: $smartred;
+                span{
+                    margin-top: 5px;
+                    margin-left: 2px;
+                    font-size: 15px;
+                    font-weight: normal;
+                }
+            }
+        }
+    } 
+    
+    .catalogComponent{
+        width : 100%;
+        
+        .categoryHeader{
+            color: $smartgreen;
+            font-size: 20px;
+            padding: 20px;
+        }
+        
+        .itemListContainer{
+            //margin-top: 41px;
+            display: inline-block;
+        
+            .itemDetailContainer{
+                display: inline-block;
+                width: calc(100% - 20px);
+                padding: 10px;
+                min-height: 60px;
+                border-bottom: 1px solid $lightgray;
+                
+                .itemPic{
                     float: left;
+                    width: 80px;
+                    height: 80px;
                     position: relative;
-                    left: 820px;
-                    width: calc(816px - 40px);
-                    background-color: #FFF;
-                    padding-top: 20px;
-                    padding-bottom: 40px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    
-                    .subInfoContainer{
+                    z-index: 1;
+            
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+
+                    .overlay {
+                        text-align: center;
+                        //margin-top: 75%;
+                        border-radius: 3px;
+                        color: #fff;
+                        font-size: 12px;
                         display: inline-block;
-                        width: calc(100% - 20px);
-                        height: 50px;
-                        padding: 5px 10px 5px 10px;
-                        border-bottom: 1px solid #EEE;
-                        
-                        .leftSide{
-                            float: left;
-                            height: 50px;
-                            padding-top: 5px;
+                        width: 100%;
+                        position: absolute;
+                        top: 75%;
 
-                            &.one-line {
-                                padding-top: 0;
-                                display: flex;
-                                align-items: center;
-                            }
-                            
-                            .balance{
-                                height: 18px;
-                                color: black;
-                                font-size: 15px;
-                            }
-                            .expire{
-                                color: $gray;
-                                font-size: 13px;
-                            }    
+                        &.postpaid {
+                            background-color: $smartblue;
                         }
-                        .rightSide{
-                            float: right;
 
-                            line-height: 30px;
-                            
-                            .text{
-                                float: right;
-                                display: flex;
-                                align-items: center; // align vertical 
-                                justify-content: center; // align horizontal
-                                height: 50px;
-                                font-size: 25px;
-                                font-weight: bold;
-                                color: $smartred;
-                                span{
-                                    margin-top: 5px;
-                                    margin-left: 2px;
-                                    font-size: 15px;
-                                    font-weight: normal;
-                                }
-                            }
+                        &.prepaid {
+                            background-color: $smartgreen;
                         }
-                    } 
+
+                        &.bro {
+                            background-color: $smartred;
+                        }
+                    }
+                }
+                
+                .itemText{
+                    float: left;
+                    width: 50%;
+                    min-height: 60px;
+                    padding-left: 10px;
                     
-                    .catalogComponent{
-                        width : 100%;
-                        
-                        .categoryHeader{
-                            color: $smartgreen;
-                            font-size: 20px;
-                            padding: 20px;
-                        }
-                        
-                        .itemListContainer{
-                            //margin-top: 41px;
-                            display: inline-block;
-                        
-                            .itemDetailContainer{
-                                display: inline-block;
-                                width: calc(100% - 20px);
-                                padding: 10px;
-                                min-height: 60px;
-                                border-bottom: 1px solid $lightgray;
-                                
-                                .itemPic{
-                                    float: left;
-                                    width: 80px;
-                                    height: 80px;
-                                    position: relative;
-                                    z-index: 1;
-                            
-                                    img {
-                                        max-width: 100%;
-                                        max-height: 100%;
-                                    }
-
-                                    .overlay {
-                                        text-align: center;
-                                        //margin-top: 75%;
-                                        border-radius: 3px;
-                                        color: #fff;
-                                        font-size: 12px;
-                                        display: inline-block;
-                                        width: 100%;
-                                        position: absolute;
-                                        top: 75%;
-
-                                        &.postpaid {
-                                            background-color: $smartblue;
-                                        }
-
-                                        &.prepaid {
-                                            background-color: $smartgreen;
-                                        }
-
-                                        &.bro {
-                                            background-color: $smartred;
-                                        }
-                                    }
-                                }
-                                
-                                .itemText{
-                                    float: left;
-                                    width: 50%;
-                                    min-height: 60px;
-                                    padding-left: 10px;
-                                    
-                                    .itemSubHeader{
-                                        color: $smartgreen;
-                                        font-size: 15px;
-                                    }
-                                    
-                                    .itemDesc{
-                                        color: $text-dark-gray;
-                                        font-size: 13px;
-                                    }
-                                    
-                                }
-                                
-                                .itemPoint{
-                                    display: inline-block;
-                                    width: calc(50% - 100px);
-                                    font-size: 20px;
-                                    text-align: right;
-                                    min-height: 50px;
-                                    color: $smartred;
-                                    font-weight: bold;
-                                    
-                                    span{
-                                        font-size: 10px;
-                                    }
-                                }
-
-                                .item-favorite {
-                                    padding-right: 5px;
-
-                                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMTEuOTIxNDczNjk2OTM2MSkgc2NhbGUoOC4wMDEwMDA1Mjk0NzQ2Nyw4LjAwMTAwMDUyOTQ3NDY3KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMTUuOTk3OTk5LDYuMjI1OTg0OUwxMy42OTAwMTQsMTMuMDMwMDA0IDYuMzc1MDA1NSwxMy4wMzAwMDQgMTIuMjkyOTc5LDE3LjE1MDAwMSAxMC4wMDI5OTksMjMuOTAxOTg2IDE1Ljk5Nzk5OSwxOS43Mjg5OCAyMS45OTMsMjMuOTAxOTg2IDE5LjcwMzAyLDE3LjE1MDAwMSAyNS42MjA5OTIsMTMuMDMwMDA0IDE4LjMwNTk4NCwxMy4wMzAwMDR6IE0xNS45OTc5OTksMEwxOS43Mzg5NywxMS4wMzAwMDMgMzEuOTk1OTk4LDExLjAzMDAwMyAyMi4wNzk5NzUsMTcuOTMxOTgzIDI1LjgzOTAxLDI5LjAxNjAwMiAxNS45OTc5OTksMjIuMTY1OTk0IDYuMTU2OTg3NCwyOS4wMTYwMDIgOS45MTU5NjI5LDE3LjkzMTk4MyAwLDExLjAzMDAwMyAxMi4yNTY5NjgsMTEuMDMwMDAzeiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
-                                    background-size: 30px;
-                                    background-position: center center;
-                                    display: inline-block;
-                                    height: 30px;
-                                    width: 30px;
-                                    float: right;
-
-                                    &::after{
-                                        clear: both;
-                                        content: " ";
-                                    }
-
-                                    &.red {
-                                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNTk5OTk5OTk5OTk5OTksMS45OTQ5NzEzNzA2OTcwMikgc2NhbGUoNy45LDcuOSkgICIgZmlsbD0iI0YxNDc1NiIgZD0iTTE2LDBMMTkuOCwxMi4yMDAwMDMgMzIsMTIuMjAwMDAzIDIyLjEsMTkuNzAwMDA0IDI1LjksMzEuOTAwMDA3IDE2LDI0LjQwMDAwNSA2LjA5OTk5OTQsMzEuOTAwMDA3IDkuOTAwMDAwMSwxOS43MDAwMDQgMCwxMi4yMDAwMDMgMTIuMiwxMi4yMDAwMDN6IiAvPg0KICA8L2c+DQo8L3N2Zz4NCg==") no-repeat;
-                                        background-size: 30px;
-                                        background-position: center center;
-                                    }
-                                }
-
-                                .valid-until {
-                                    display: inline-block;
-                                    margin-top: 10px;
-                                    width: 100%;
-
-                                    .label {
-                                        font-weight: bold;
-                                    }
-                                }
-                            }
-                        }    
-                        
+                    .itemSubHeader{
+                        color: $smartgreen;
+                        font-size: 15px;
                     }
                     
-                }    
+                    .itemDesc{
+                        color: $text-dark-gray;
+                        font-size: 13px;
+                    }
                     
+                }
+                
+                .itemPoint{
+                    display: inline-block;
+                    width: calc(50% - 100px);
+                    font-size: 20px;
+                    text-align: right;
+                    min-height: 50px;
+                    color: $smartred;
+                    font-weight: bold;
+                    
+                    span{
+                        font-size: 10px;
+                    }
+                }
+
+                .item-favorite {
+                    padding-right: 5px;
+
+                    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMTEuOTIxNDczNjk2OTM2MSkgc2NhbGUoOC4wMDEwMDA1Mjk0NzQ2Nyw4LjAwMTAwMDUyOTQ3NDY3KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMTUuOTk3OTk5LDYuMjI1OTg0OUwxMy42OTAwMTQsMTMuMDMwMDA0IDYuMzc1MDA1NSwxMy4wMzAwMDQgMTIuMjkyOTc5LDE3LjE1MDAwMSAxMC4wMDI5OTksMjMuOTAxOTg2IDE1Ljk5Nzk5OSwxOS43Mjg5OCAyMS45OTMsMjMuOTAxOTg2IDE5LjcwMzAyLDE3LjE1MDAwMSAyNS42MjA5OTIsMTMuMDMwMDA0IDE4LjMwNTk4NCwxMy4wMzAwMDR6IE0xNS45OTc5OTksMEwxOS43Mzg5NywxMS4wMzAwMDMgMzEuOTk1OTk4LDExLjAzMDAwMyAyMi4wNzk5NzUsMTcuOTMxOTgzIDI1LjgzOTAxLDI5LjAxNjAwMiAxNS45OTc5OTksMjIuMTY1OTk0IDYuMTU2OTg3NCwyOS4wMTYwMDIgOS45MTU5NjI5LDE3LjkzMTk4MyAwLDExLjAzMDAwMyAxMi4yNTY5NjgsMTEuMDMwMDAzeiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                    background-size: 30px;
+                    background-position: center center;
+                    display: inline-block;
+                    height: 30px;
+                    width: 30px;
+                    float: right;
+
+                    &::after{
+                        clear: both;
+                        content: " ";
+                    }
+
+                    &.red {
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNTk5OTk5OTk5OTk5OTksMS45OTQ5NzEzNzA2OTcwMikgc2NhbGUoNy45LDcuOSkgICIgZmlsbD0iI0YxNDc1NiIgZD0iTTE2LDBMMTkuOCwxMi4yMDAwMDMgMzIsMTIuMjAwMDAzIDIyLjEsMTkuNzAwMDA0IDI1LjksMzEuOTAwMDA3IDE2LDI0LjQwMDAwNSA2LjA5OTk5OTQsMzEuOTAwMDA3IDkuOTAwMDAwMSwxOS43MDAwMDQgMCwxMi4yMDAwMDMgMTIuMiwxMi4yMDAwMDN6IiAvPg0KICA8L2c+DQo8L3N2Zz4NCg==") no-repeat;
+                        background-size: 30px;
+                        background-position: center center;
+                    }
+                }
+
+                .valid-until {
+                    display: inline-block;
+                    margin-top: 10px;
+                    width: 100%;
+
+                    .label {
+                        font-weight: bold;
+                    }
+                }
             }
+        }    
         
-        }
     }
-}
+    
+}    

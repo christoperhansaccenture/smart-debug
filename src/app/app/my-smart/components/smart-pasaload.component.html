@@ -91,101 +91,92 @@
     </div>
 </div>
 <!-- large view-->
-<div id="homeBodyLarge" class="smartPasaLoadContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartPasaLoadContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <!-- Check if this is Prepaid -->
-                    <div class="itemComponent" *ngIf="isPrepaid()">
-                        <div class="itemHeader">Pasa Load</div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier phone"></div>
-                            <div class="phoneCountryValue">+63</div>
-                            <input class="inputValue" placeholder="Destination Number" />
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier transfer"></div>
-                            <select class="inputValue select">
-                                <option value="1" selected="true">Pass Load</option>
-                                <option value="2">Text Package</option>
-                                <option value="3">Data Package</option>
-                                <option value="4">Bro Package</option>
-                                <option value="5">PLDT Package</option>
-                            </select>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier peso"></div>
-                            <select class="inputValue select" aria-placeholder="Amount">
-                                <option value="10000">10000</option>
-                                <option value="20000">20000</option>
-                            </select>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier amount"></div>
-                            <div class="itemTextIdentifier bold">Amount deducted from your balance</div>
-                            <div class="itemText">P16</div>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier check"></div>
-                            <div class="itemTextIdentifier bold">Load validity</div>
-                            <div class="itemText">5 <small>days</small></div>
-                        </div>
-                        <div class="itemFooterContainer">
-                            <div class="button">Proceed</div>
-                        </div>
-                    </div>
-                    <!-- Check if this is Postpaid -->
-                    <div class="itemComponent" *ngIf="isPostpaid()">
-                        <div class="itemHeader">Pasa Load</div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier phone"></div>
-                            <div class="phoneCountryValue">+63</div>
-                            <input class="inputValue" placeholder="Destination Number" />
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier transfer"></div>
-                            <select class="inputValue select">
-                                <option value="1" selected="true">Pass Load</option>
-                                <option value="2">Text Package</option>
-                                <option value="3">Data Package</option>
-                                <option value="4">Bro Package</option>
-                                <option value="5">PLDT Package</option>
-                            </select>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier box"></div>
-                            <select class="inputValue select" aria-placeholder="Amount">
-                                <option value="1">All Text 20</option>
-                                <option value="2">All Data 20</option>
-                            </select>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier note"></div>
-                            <div class="itemTextIdentifier">Unlimited SMS to all networks, 20 mins of calls to SMART/TNT/SUN &amp; 15MB</div>
-                            <div class="itemText"></div>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier amount"></div>
-                            <div class="itemTextIdentifier bold">Amount deducted from your balance</div>
-                            <div class="itemText">P20</div>
-                        </div>
-                        <div class="itemContainer">
-                            <div class="itemIdentifier check"></div>
-                            <div class="itemTextIdentifier bold">Load validity</div>
-                            <div class="itemText">5 <small>days</small></div>
-                        </div>
-                        <div class="itemFooterContainer">
-                            <div class="button" (click)="toggleMessage()">Proceed</div>
-                        </div>
-                    </div>
-                    <div class="bannerComponent">
-                        <div class="banner1"></div>
-                        <div class="banner2"></div>
-                    </div>
-                </div>
-            </div>
+<div class="smartPasaLoadContainerLarge" *ngIf="getResize().largeUp">
+    <!-- Check if this is Prepaid -->
+    <div class="itemComponent" *ngIf="isPrepaid()">
+        <div class="itemHeader">Pasa Load</div>
+        <div class="itemContainer">
+            <div class="itemIdentifier phone"></div>
+            <div class="phoneCountryValue">+63</div>
+            <input class="inputValue" placeholder="Destination Number" />
         </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier transfer"></div>
+            <select class="inputValue select">
+                <option value="1" selected="true">Pass Load</option>
+                <option value="2">Text Package</option>
+                <option value="3">Data Package</option>
+                <option value="4">Bro Package</option>
+                <option value="5">PLDT Package</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier peso"></div>
+            <select class="inputValue select" aria-placeholder="Amount">
+                <option value="10000">10000</option>
+                <option value="20000">20000</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier amount"></div>
+            <div class="itemTextIdentifier bold">Amount deducted from your balance</div>
+            <div class="itemText">P16</div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier check"></div>
+            <div class="itemTextIdentifier bold">Load validity</div>
+            <div class="itemText">5 <small>days</small></div>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="button">Proceed</div>
+        </div>
+    </div>
+    <!-- Check if this is Postpaid -->
+    <div class="itemComponent" *ngIf="isPostpaid()">
+        <div class="itemHeader">Pasa Load</div>
+        <div class="itemContainer">
+            <div class="itemIdentifier phone"></div>
+            <div class="phoneCountryValue">+63</div>
+            <input class="inputValue" placeholder="Destination Number" />
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier transfer"></div>
+            <select class="inputValue select">
+                <option value="1" selected="true">Pass Load</option>
+                <option value="2">Text Package</option>
+                <option value="3">Data Package</option>
+                <option value="4">Bro Package</option>
+                <option value="5">PLDT Package</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier box"></div>
+            <select class="inputValue select" aria-placeholder="Amount">
+                <option value="1">All Text 20</option>
+                <option value="2">All Data 20</option>
+            </select>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier note"></div>
+            <div class="itemTextIdentifier">Unlimited SMS to all networks, 20 mins of calls to SMART/TNT/SUN &amp; 15MB</div>
+            <div class="itemText"></div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier amount"></div>
+            <div class="itemTextIdentifier bold">Amount deducted from your balance</div>
+            <div class="itemText">P20</div>
+        </div>
+        <div class="itemContainer">
+            <div class="itemIdentifier check"></div>
+            <div class="itemTextIdentifier bold">Load validity</div>
+            <div class="itemText">5 <small>days</small></div>
+        </div>
+        <div class="itemFooterContainer">
+            <div class="button" (click)="toggleMessage()">Proceed</div>
+        </div>
+    </div>
+    <div class="bannerComponent">
+        <div class="banner1"></div>
+        <div class="banner2"></div>
     </div>
 </div>

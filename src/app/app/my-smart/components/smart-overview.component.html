@@ -108,162 +108,153 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="smartContainerBody" *ngIf="getResize().largeUp">
-    <div class="smartOverviewContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="remainingComponent">
-                        <div class="headerText">Remaining Quota</div>
-                        <div class="subHeaderText">
-                            <div class="itemText">Flexible Balance</div>
-                            <div class="itemValue">P320</div>
-                        </div>
-                        <div class="remainingContainer">
-                            <div class="remainingItem">
-                                <div class="itemType">
-                                    <div class="text">Data</div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon comp"></div>
-                                    <div class="itemText">
-                                        <div class="text">All Data</div>
-                                    </div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">3650 <span>MB</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon whatsapp"></div>
-                                    <div class="itemText"><div class="text">Whatsapp</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">200 <span>MB</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon video"></div>
-                                    <div class="itemText"><div class="text">Video Streaming</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">900 <span>MB</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon gmail"></div>
-                                    <div class="itemText"><div class="text">Gmail</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">150 <span>MB</span></div>
-                                </div>
-                            </div>
-                            <div class="remainingItem">
-                                <div class="itemType">
-                                    <div class="text">Voice</div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon allVoice"></div>
-                                    <div class="itemText"><div class="text">All Operators</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">320 <span>min</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon voiceSMS"></div>
-                                    <div class="itemText"><div class="text">Voice/SMS all operators</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">200 <span>min</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon smart"></div>
-                                    <div class="itemText"><div class="text">Smart-to-Smart</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue"><span>min</span><div class="infinite"></div></div>
-                                </div>
-                            </div>
-                            <div class="remainingItem">
-                                <div class="itemType">
-                                    <div class="text">SMS</div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon allSMS"></div>
-                                    <div class="itemText"><div class="text">All Operators</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">320 <span>SMS</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon voiceSMS"></div>
-                                    <div class="itemText"><div class="text">Voice/SMS all operators</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue">200 <span>SMS</span></div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="icon smart"></div>
-                                    <div class="itemText"><div class="text">Smart-to-Smart</div></div>
-                                    <div class="arrow"></div>
-                                    <div class="itemValue"><span>SMS</span><div class="infinite"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buttonContainer">
-                        <div class="button">Add more</div>
-                    </div>
-                    <div class="otherComponent">
-                        <div class="otherItem border">
-                            <div class="header">My Plan</div>
-                            <div class="lineBodyContainer">
-                                <div class="lineItem">
-                                    <div class="itemText">
-                                        <div class="itemName">My Plan</div>
-                                    </div>
-                                    <div class="itemValue">Surf Plus Plan 999</div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="itemText">
-                                        <div class="itemName">Contract Ends</div>
-                                    </div>
-                                    <div class="itemValue">31-12-2016</div>
-                                </div>
-                            </div>
-                            <div class="buttonContainerOther">
-                                <div class="button middle">View Details</div>
-                            </div>
-                        </div>
-                        <div class="otherItem border">
-                            <div class="header">My Bills</div>
-                            <div class="lineBodyContainer">
-                                <div class="lineItem">
-                                    <div class="itemText">
-                                        <div class="itemName">Unbilled Amount</div>
-                                    </div>
-                                    <div class="itemValue">P100.73</div>
-                                </div>
-                                <div class="lineItem">
-                                    <div class="itemText">
-                                        <div class="itemName">Total Amount Due</div>
-                                        <div class="itemDate">Due 30-03</div>
-                                    </div>
-                                    <div class="itemValue">P320</div>
-                                </div>
-                            </div>
-                            <div class="buttonContainerOther">
-                                <div class="button left">eStatement</div>
-                                <div class="button right">Pay Bill</div>
-                            </div>
-                        </div>
-                        <div class="otherItem">
-                            <div class="header">My Points</div>
-                            <div class="lineBodyContainer">
-                                <div class="lineItem">
-                                    <div class="itemText">
-                                        <div class="itemName">Point Balance</div>
-                                        <div class="itemDate">200 points expire on 31-03</div>
-                                    </div>
-                                    <div class="itemValue">1010 <span>pts</span></div>
-                                </div>
-                            </div>
-                            <div class="buttonContainerOther">
-                                <div class="button left">View Details</div>
-                                <div class="button right">Redeem</div>
-                            </div>
-                        </div>
-                    </div>
+<div class="smartOverviewContainerLarge" *ngIf="getResize().largeUp">
+    <div class="remainingComponent">
+        <div class="headerText">Remaining Quota</div>
+        <div class="subHeaderText">
+            <div class="itemText">Flexible Balance</div>
+            <div class="itemValue">P320</div>
+        </div>
+        <div class="remainingContainer">
+            <div class="remainingItem">
+                <div class="itemType">
+                    <div class="text">Data</div>
                 </div>
+                <div class="lineItem">
+                    <div class="icon comp"></div>
+                    <div class="itemText">
+                        <div class="text">All Data</div>
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">3650 <span>MB</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon whatsapp"></div>
+                    <div class="itemText"><div class="text">Whatsapp</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">200 <span>MB</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon video"></div>
+                    <div class="itemText"><div class="text">Video Streaming</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">900 <span>MB</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon gmail"></div>
+                    <div class="itemText"><div class="text">Gmail</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">150 <span>MB</span></div>
+                </div>
+            </div>
+            <div class="remainingItem">
+                <div class="itemType">
+                    <div class="text">Voice</div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon allVoice"></div>
+                    <div class="itemText"><div class="text">All Operators</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">320 <span>min</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon voiceSMS"></div>
+                    <div class="itemText"><div class="text">Voice/SMS all operators</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">200 <span>min</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon smart"></div>
+                    <div class="itemText"><div class="text">Smart-to-Smart</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue"><span>min</span><div class="infinite"></div></div>
+                </div>
+            </div>
+            <div class="remainingItem">
+                <div class="itemType">
+                    <div class="text">SMS</div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon allSMS"></div>
+                    <div class="itemText"><div class="text">All Operators</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">320 <span>SMS</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon voiceSMS"></div>
+                    <div class="itemText"><div class="text">Voice/SMS all operators</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue">200 <span>SMS</span></div>
+                </div>
+                <div class="lineItem">
+                    <div class="icon smart"></div>
+                    <div class="itemText"><div class="text">Smart-to-Smart</div></div>
+                    <div class="arrow"></div>
+                    <div class="itemValue"><span>SMS</span><div class="infinite"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <div class="button">Add more</div>
+    </div>
+    <div class="otherComponent">
+        <div class="otherItem border">
+            <div class="header">My Plan</div>
+            <div class="lineBodyContainer">
+                <div class="lineItem">
+                    <div class="itemText">
+                        <div class="itemName">My Plan</div>
+                    </div>
+                    <div class="itemValue">Surf Plus Plan 999</div>
+                </div>
+                <div class="lineItem">
+                    <div class="itemText">
+                        <div class="itemName">Contract Ends</div>
+                    </div>
+                    <div class="itemValue">31-12-2016</div>
+                </div>
+            </div>
+            <div class="buttonContainerOther">
+                <div class="button middle">View Details</div>
+            </div>
+        </div>
+        <div class="otherItem border">
+            <div class="header">My Bills</div>
+            <div class="lineBodyContainer">
+                <div class="lineItem">
+                    <div class="itemText">
+                        <div class="itemName">Unbilled Amount</div>
+                    </div>
+                    <div class="itemValue">P100.73</div>
+                </div>
+                <div class="lineItem">
+                    <div class="itemText">
+                        <div class="itemName">Total Amount Due</div>
+                        <div class="itemDate">Due 30-03</div>
+                    </div>
+                    <div class="itemValue">P320</div>
+                </div>
+            </div>
+            <div class="buttonContainerOther">
+                <div class="button left">eStatement</div>
+                <div class="button right">Pay Bill</div>
+            </div>
+        </div>
+        <div class="otherItem">
+            <div class="header">My Points</div>
+            <div class="lineBodyContainer">
+                <div class="lineItem">
+                    <div class="itemText">
+                        <div class="itemName">Point Balance</div>
+                        <div class="itemDate">200 points expire on 31-03</div>
+                    </div>
+                    <div class="itemValue">1010 <span>pts</span></div>
+                </div>
+            </div>
+            <div class="buttonContainerOther">
+                <div class="button left">View Details</div>
+                <div class="button right">Redeem</div>
             </div>
         </div>
     </div>

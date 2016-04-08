@@ -94,119 +94,110 @@
 </div>
 
 <!-- large view-->
-<div id="homeBodyLarge" class="confirmCartContainerBody" *ngIf="getResize().largeUp">
-    <div class="confirmCartContainerLarge">
-        <div class="container2">
-            <div class="container1">
-                <smart-left-menu></smart-left-menu>
-                <div class="componentContainer">
-                    <div class="subInfoContainer">
-                        <div class="leftSide"
-                            [class.one-line]="getRewardsBalance().expPoints == 0">
-                            <div class="balance">Point Balance</div>
-                            <div class="expire"
-                                *ngIf="getRewardsBalance().expPoints != 0">
-                                {{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}
-                            </div>
-                        </div>
-                        <div class="rightSide">
-                            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
-                        </div>    
+<div class="confirmCartContainerLarge" *ngIf="getResize().largeUp">
+    <div class="subInfoContainer">
+        <div class="leftSide"
+            [class.one-line]="getRewardsBalance().expPoints == 0">
+            <div class="balance">Point Balance</div>
+            <div class="expire"
+                *ngIf="getRewardsBalance().expPoints != 0">
+                {{getRewardsBalance().expPoints}} points expire on {{getRewardsBalance().expDate}}
+            </div>
+        </div>
+        <div class="rightSide">
+            <div class="text">{{ getRewardsBalance().rewards }} <span>pts</span></div>
+        </div>    
+    </div>
+    <div class="cartComponent">
+        <div class="containerBody">
+            <div class="header">
+                <div class="headerText">Shopping Cart</div>
+                <div class="steps">
+                    <div class="step">
+                        <span class="circle number green">1</span>
+                        Review your item(s)
                     </div>
-                    <div class="cartComponent">
-                        <div class="containerBody">
-                            <div class="header">
-                                <div class="headerText">Shopping Cart</div>
-                                <div class="steps">
-                                    <div class="step">
-                                        <span class="circle number green">1</span>
-                                        Review your item(s)
-                                    </div>
-                                    <div class="step-separator green"></div>
-                                    <div class="step">
-                                        <span class="circle number green">2</span>
-                                        Confirm Order
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="itemListContainer">
-                                <div *ngFor="#item of getItems()" class="itemDetailContainer">
-                                    <div class="catalog" *ngIf="!item.isBill()">
-                                        <div class="col-left">
-                                            <div class="itemPic">
-                                                <img [src]="item.catalog.imageUrl" />
-                                                <div class="overlay"
-                                                    [class.postpaid]="item.catalog.isOnlyPostpaid()"
-                                                    [class.prepaid]="item.catalog.isOnlyPrepaid()"
-                                                    [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
-                                                    {{ getOverlayText(item.catalog) }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-right">
-                                            <div class="row item-header">
-                                                <div class="itemText">
-                                                    <div class="itemSubHeader">{{ item.catalog.name }}</div>
-                                                </div>
-                                                <div class="itemPoint">{{ item.catalog.points }} <span>pts</span></div>
-                                            </div>
-                                            <div class="row item-amount">
-                                                <span class="counter">
-                                                    <span class="amount">{{ item.amount }} item(s)</span>
-                                                </span>
-                                                <span class="sub-total">Sub Total:</span>
-                                                <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
-                                            </div>
-                                            <div class="row number-selection-container">
-                                                <span class="label">Send to: </span> {{ item.getSendTo() }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bill" *ngIf="item.isBill()">
-                                        <div class="col-left">
-                                            <div class="billPic">
-                                            </div>
-                                        </div>
-                                        <div class="col-right">
-                                            <div class="row item-header">
-                                                <div class="itemText">
-                                                    <div class="itemSubHeader">Pay Bill with Points</div>
-                                                </div>
-                                            </div>
-                                            <div class="row item-amount">
-                                                <span class="peso-amount-label">Peso Amount:</span>
-                                                <div class="peso-amount">P{{ item.getTotalPoints() }}</div>
-                                            </div>
-                                            <div class="row item-amount">
-                                                <span class="sub-total">Sub Total:</span>
-                                                <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
-                                            </div>
-                                            <div class="row number-selection-container">
-                                                <span class="label">Send to: </span> {{ item.getSendTo() }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="summary">
-                                <div class="row">
-                                    <div class="itemText">
-                                        <div class="itemSubHeader">Total Points Required:</div>
-                                    </div>
-                                    <div class="itemPoint">{{ getPointsRequiredNaN() }} <span>pts</span></div>
-                                </div>
-                                <div class="row">
-                                    <div class="itemText">
-                                        <div class="itemSubHeader">Remaining points after redemption:</div>
-                                    </div>
-                                    <div class="itemPoint">{{ getPointsRemainingNaN() }} <span>pts</span></div>
-                                </div>
-                                <div class="row button-container">
-                                    <button class="button" (click)="confirm()">Confirm</button>
+                    <div class="step-separator green"></div>
+                    <div class="step">
+                        <span class="circle number green">2</span>
+                        Confirm Order
+                    </div>
+                </div>
+            </div>
+            <div class="itemListContainer">
+                <div *ngFor="#item of getItems()" class="itemDetailContainer">
+                    <div class="catalog" *ngIf="!item.isBill()">
+                        <div class="col-left">
+                            <div class="itemPic">
+                                <img [src]="item.catalog.imageUrl" />
+                                <div class="overlay"
+                                    [class.postpaid]="item.catalog.isOnlyPostpaid()"
+                                    [class.prepaid]="item.catalog.isOnlyPrepaid()"
+                                    [class.bro]="item.catalog.isOnlyBroPrepaid() || item.catalog.isOnlyBroPostpaid()">
+                                    {{ getOverlayText(item.catalog) }}
                                 </div>
                             </div>
                         </div>
+                        <div class="col-right">
+                            <div class="row item-header">
+                                <div class="itemText">
+                                    <div class="itemSubHeader">{{ item.catalog.name }}</div>
+                                </div>
+                                <div class="itemPoint">{{ item.catalog.points }} <span>pts</span></div>
+                            </div>
+                            <div class="row item-amount">
+                                <span class="counter">
+                                    <span class="amount">{{ item.amount }} item(s)</span>
+                                </span>
+                                <span class="sub-total">Sub Total:</span>
+                                <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
+                            </div>
+                            <div class="row number-selection-container">
+                                <span class="label">Send to: </span> {{ item.getSendTo() }}
+                            </div>
+                        </div>
                     </div>
+                    <div class="bill" *ngIf="item.isBill()">
+                        <div class="col-left">
+                            <div class="billPic">
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            <div class="row item-header">
+                                <div class="itemText">
+                                    <div class="itemSubHeader">Pay Bill with Points</div>
+                                </div>
+                            </div>
+                            <div class="row item-amount">
+                                <span class="peso-amount-label">Peso Amount:</span>
+                                <div class="peso-amount">P{{ item.getTotalPoints() }}</div>
+                            </div>
+                            <div class="row item-amount">
+                                <span class="sub-total">Sub Total:</span>
+                                <div class="itemPoint">{{ item.getTotalPoints() }} <span>pts</span></div>
+                            </div>
+                            <div class="row number-selection-container">
+                                <span class="label">Send to: </span> {{ item.getSendTo() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="summary">
+                <div class="row">
+                    <div class="itemText">
+                        <div class="itemSubHeader">Total Points Required:</div>
+                    </div>
+                    <div class="itemPoint">{{ getPointsRequiredNaN() }} <span>pts</span></div>
+                </div>
+                <div class="row">
+                    <div class="itemText">
+                        <div class="itemSubHeader">Remaining points after redemption:</div>
+                    </div>
+                    <div class="itemPoint">{{ getPointsRemainingNaN() }} <span>pts</span></div>
+                </div>
+                <div class="row button-container">
+                    <button class="button" (click)="confirm()">Confirm</button>
                 </div>
             </div>
         </div>
