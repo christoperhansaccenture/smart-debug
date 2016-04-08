@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Welcome to PLDT Home">
+    <title>PLDT Home</title>
+    <link rel="stylesheet" href="css/app.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,700' rel='stylesheet' type='text/css'>
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="scripts/es6-shim.min.js"></script>
+    <script src="scripts/system-polyfills.js"></script>
+    <script src="scripts/angular2-polyfills.js"></script>
+    <script src="scripts/system.src.js"></script>
+    <script src="scripts/Rx.js"></script>
+    <script src="scripts/angular2.dev.js"></script>
+    <script src="scripts/router.dev.js"></script>
+    <script src="scripts/http.dev.js"></script>
+    <script src="scripts/fastclick.js"></script>
+    <script src="scripts/nouislider.js"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <pldt-app>Loading...</pldt-app>
+    <script>
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+        }, false);
+    }
+    </script>
+    <!-- start scripts -->
+    <script src="init.js"></script>
+    <!-- end scripts -->
+</body>
+
+</html>

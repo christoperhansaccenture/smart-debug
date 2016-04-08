@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+}
+
+.bodyDesign {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: -8px;
+    #content {
+        width: $pageWidth;
+        display: block;
+        margin: auto;
+    }
+    .button {
+        padding: 15px;
+        display: inline-block;
+        text-align: center;
+        &.black {
+            background-color: #000;
+            color: #FFF;
+        }
+        &.white {
+            border: 1px solid #666;
+            color: #666;
+        }
+        &.large {
+            font-size: 18px;
+        }
+        &.x-large {
+            font-size: 22px;
+        }
+    }
+    .clearfix {
+        clear: both;
+    }
+    .tabContainer {
+        margin-bottom: 10px;
+        .tabItem {
+            text-align: center;
+            display: inline-block;
+            background-color: #EEE;
+            padding: 10px;
+            margin-left: -5px;
+            border: 1px solid #666;
+            margin-bottom: 10px;
+            &.percent30 {
+                width: calc(30% - 20px);
+            }
+            &.active {
+                border-bottom: none;
+                background-color: #FFF;
+            }
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+$pageWidth: 1024px;
+$pldtred: #D32F31;
+
+@import "home";
+@import "header";
+@import "footer";
+@import "main";
+
+@import "pltn/layout";
+@import "pltn/header";
+@import "pltn/leftmenu";
+@import "pltn/home";
+@import "pltn/login";
+@import "pltn/mysmart";
+@import "pltn/mybills";
+@import "pltn/myplan";

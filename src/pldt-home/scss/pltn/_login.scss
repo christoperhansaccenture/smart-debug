@@ -1,0 +1,234 @@
+$containerLogin-height: 400px;
+
+.containerLoginLarge {
+	margin: 110px auto 0px;
+	width: 1180px;
+	height: $containerLogin-height;
+
+	.col-left {
+		float: left;
+		margin-right: 1%;
+		width: 65%;
+
+		h2 {
+			color: $smartblue;
+			padding-left: 20px;
+		}
+
+		.outer-box {
+			height: 320px;
+			.inner-box {
+				height: 280px;
+				img {
+					float: right;
+					padding-left: 10px;
+					width: 20%;
+				}
+				p {
+					font-size: $text-size;
+				}
+
+			}
+		}
+
+	}
+
+	.col-right {
+		float: left;
+		margin-left: 1%;
+		width: 33%;
+
+		h2 {
+			color: $smartblue;
+			text-align: center;
+		}
+		h3 {
+			font-size: 110%;
+			font-weight: normal;
+			color: $text-dark-gray;
+			text-align: center;
+		}
+
+		.outer-box {
+			height: 288px;
+			.inner-box {
+				background-color: $lightgray;
+				border: 0;
+				text-align: center;
+
+				.button.fb {
+					background-color: rgb(59,89,153);
+					width: 90%;
+					padding-left: 15px;
+					padding-right: 15px;
+					margin-bottom: 33px;
+
+					a {
+						color: white;
+					}
+
+					.icon {
+						background: url('../img/fb.png') no-repeat;
+						background-size: 100%;
+						width: 20px;
+						height: 20px;
+						float: left;
+					}
+				}
+
+				.button {
+					width: 25%;
+					margin: 0 auto;
+				}
+
+				input {
+					width: 90%;
+					padding: 5px 15px;
+					margin: 2px auto;
+					display: block;
+					height: $mainheigt - 22px;
+					border: 1px solid $gray;
+					border-radius: 3px;
+					line-height: $mainheigt - 20px;
+					font-size: small;
+					margin-bottom: 5px;
+					background: #FFF;
+					outline: 0;
+				}
+			}
+		}
+		.after-box {
+			margin-top: 20px;
+			p {
+				padding: 0px 30px;
+				font-size: 90%;
+				a {
+					color: $text-dark-gray;
+					text-decoration: underline;
+				}
+			}
+		}
+
+	}
+}
+
+
+.containerLoginSmall {
+	margin: 100px auto 0px;
+	height: $containerLogin-height;
+
+	h2 {
+		color: $smartblue;
+		text-align: center;
+	}
+	h3 {
+		font-size: 110%;
+		font-weight: normal;
+		color: $text-dark-gray;
+		text-align: center;
+	}
+
+	.outer-box {
+		.inner-box {
+			background-color: $lightgray;
+			border: 0;
+			text-align: center;
+
+			.button.fb {
+				background-color: rgb(59,89,153);
+				width: 90%;
+				padding-left: 15px;
+				padding-right: 15px;
+				margin-bottom: 33px;
+
+				a {
+					color: white;
+				}
+				.icon {
+						background: url('../img/fb.png') no-repeat;
+						background-size: 100%;
+						width: 20px;
+						height: 20px;
+						float: left;
+					}
+			}
+
+			.button {
+				width: 25%;
+				margin: 0 auto;
+			}
+
+			input {
+				width: 90%;
+				padding: 5px 15px;
+				margin: 2px auto;
+				display: block;
+				height: $mainheigt - 22px;
+				border: 1px solid $gray;
+				border-radius: 3px;
+				line-height: $mainheigt - 20px;
+				font-size: small;
+				margin-bottom: 5px;
+				background: #FFF;
+				outline: 0;
+			}
+		}
+	}
+	.after-box {
+		margin-top: 20px;
+		p {
+			padding: 0px 30px;
+			font-size: 90%;
+			a {
+				color: $text-dark-gray;
+				text-decoration: underline;
+			}
+		}
+	}
+
+}
+
+.login-app-capabilities {
+	height: 125px;
+	width: 502px;
+	background: url(../img/login-app-capabilities.png) no-repeat;
+	background-position: center bottom;
+	margin-bottom: 20px;
+}
+
+.apple-download {
+	height: 54px;
+	width: 157px;
+	float: left;
+	background: url(../img/appledownload.png) no-repeat;
+	background-position: center bottom;
+	margin-bottom: 20px;
+
+	a {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+
+}
+
+.android-download {
+	height: 54px;
+	width: 157px;
+	float: left;
+	background: url(../img/googleplaydownload.png) no-repeat;
+	background-position: center bottom;
+	margin-bottom: 20px;
+
+	a {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&:after {
+		clear: both;
+		content: " "; 
+    	display: table; 
+	}
+}
