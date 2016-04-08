@@ -40,6 +40,8 @@ class loginController {
                 var jwt = nJwt.create(claims, signingKey);
                 console.log(jwt);
                 var token = jwt.compact();
+                res.cookie('accessToken', token, { httpOnly: true });
+                res.cookie('refreshToken', result2Json.result.RefreshToken, { httpOnly: true });
                 res.json({
                     token: token,
                     refreshToken: result2Json.result.RefreshToken
@@ -70,8 +72,6 @@ class loginController {
                 // currently send received access token
                 let at = jwt.body.accessToken;
                 console.log('access token: ' + at);
-                res.cookie('accessToken', token);
-                res.cookie('refreshToken', result2Json.result.RefreshToken);
                 res.json({
                     accessToken: at
                 });
