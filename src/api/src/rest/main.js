@@ -28,6 +28,7 @@ var process = require('process');
 var config = require('./config/config');
 const app = express();
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 console.log(config.baseurl);
 // app.use(function(req, res, next) {
 //     // Verify authentication
@@ -50,10 +51,44 @@ console.log(config.baseurl);
 // });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept,Authorization,Proxy-Authorization,X-session");
     res.header("Access-Control-Allow-Methods", "GET,PUT,DELETE,POST");
+    console.log("log cookies main : " + cookieParser.JSONCookies(req.cookies));
+    console.log("request path : " + req.path);
+    console.log("log app main : " + res.locals.jwt);
+    if (req.path === '/api/login') {
+        if (req.cookies['mysmartSession']) {
+            req.url = '/api/loginWithCookies';
+            console.log("url : " + req.url);
+        }
+    }
+    else {
+        if (req.cookies['accessToken']) {
+            if (req.path === '/api/token/renew') {
+                //console.log("refresh token : " + cookieParser.JSONCookies(req.cookies).refreshToken);
+                req.body['refreshToken'] = cookieParser.JSONCookies(req.cookies).refreshToken;
+            }
+            var token = cookieParser.JSONCookies(req.cookies).accessToken;
+        }
+        else {
+            var token = req.get('Authorization');
+            token = token.replace('Bearer ', '');
+        }
+        var nJwt = require('njwt');
+        console.log("token : " + token);
+        try {
+            var jwt = nJwt.verify(token, config.signingKey);
+            res.locals.jwt = jwt;
+            console.log("log jwt main : " + res.locals.jwt);
+        }
+        catch (err) {
+            console.log("error : " + err);
+            res.sendStatus(403);
+        }
+    }
     next();
 });
 const port = process.env.PORT || 8080;

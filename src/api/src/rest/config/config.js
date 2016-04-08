@@ -7,7 +7,7 @@ config.web = {};
 // config.baseurl = 'http://localhost:8000';
 config.baseurl = 'https://powerful-beyond-41122.herokuapp.com';
 config.signingKey = 'a8f35732-f700-48de-a05a-dccb7a2e517a';
-config.clientKey = '79E19AAA42704B84870633377D33FBC1';
+config.clientKey = '73321C206E4343DC8C42B8227CC284CE';
 
 config.default_stuff =  ['red','green','blue','apple','yellow','orange','politics'];
 config.twitter.user_name = process.env.TWITTER_USER || 'username';

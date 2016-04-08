@@ -70,6 +70,8 @@ class loginController {
                 // currently send received access token
                 let at = jwt.body.accessToken;
                 console.log('access token: ' + at);
+                res.cookie('accessToken', token);
+                res.cookie('refreshToken', result2Json.result.RefreshToken);
                 res.json({
                     accessToken: at
                 });
