@@ -19,8 +19,6 @@ class RewardController {
     }
     redeemAnItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.min,
                 productCode: req.body.productCode,
@@ -28,13 +26,7 @@ class RewardController {
                 channel: req.body.channel,
                 destLoyaltyId: req.body.destLoyaltyId
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             console.log(token);
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -51,16 +43,7 @@ class RewardController {
     }
     getListOfRedeemableItems(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             /*
@@ -191,15 +174,7 @@ class RewardController {
             console.log('redis_url: ' + process.env.REDIS_URL);
             let client = redis.createClient(process.env.REDIS_URL);
             console.log('refresh catalog');
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 req.query.min = "9999924161";
@@ -298,15 +273,7 @@ class RewardController {
     }
     getFavorites(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -323,8 +290,6 @@ class RewardController {
     }
     transferpoints(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.from,
                 destLoyaltyId: req.body.to,
@@ -332,13 +297,7 @@ class RewardController {
                 destCurrencyId: req.body.destCurrId,
                 rwdQty: req.body.amount
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -360,20 +319,12 @@ class RewardController {
     }
     favouriteItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.params.min,
                 cafProductNo: req.params.catalogId,
                 cafFavoriteFlag: 1
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -390,20 +341,12 @@ class RewardController {
     }
     removeFavouriteItem(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.params.min,
                 cafProductNo: req.params.catalogId,
                 cafFavoriteFlag: 0
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -420,15 +363,7 @@ class RewardController {
     }
     getCatalogDisplayPreferences(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -445,8 +380,6 @@ class RewardController {
     }
     payBillWithPoints(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.min,
                 merchantIdentifier: req.body.merchantIdentifier,
@@ -455,13 +388,7 @@ class RewardController {
                 channel: req.body.channel,
                 reference: req.body.ref
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -478,19 +405,7 @@ class RewardController {
     }
     redeemItems(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            // var data  = {
-            //min: req.params.min
-            //}
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             const ssoService = new sso_service_1.SSO.sso();
             const errorHandlingService = new error_handling_service_1.ErrorHandlingService.ErrorHandlingService();
             try {
@@ -584,17 +499,9 @@ class RewardController {
     }
     getCatalogById(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var id = req.params.min;
             console.log(id);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();

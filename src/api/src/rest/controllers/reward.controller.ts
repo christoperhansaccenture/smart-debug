@@ -30,11 +30,7 @@ var config = require('../config/config');
             
             }
             
-            async redeemAnItem(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
+            async redeemAnItem(req:string,res:string) : Promise<string> { 
                 var jsonBody ={
                     min: req.body.min,
                     productCode: req.body.productCode,
@@ -43,12 +39,7 @@ var config = require('../config/config');
                     destLoyaltyId: req.body.destLoyaltyId
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 console.log(token);
                 console.log(jwt);
@@ -67,18 +58,8 @@ var config = require('../config/config');
             }
             
             async getListOfRedeemableItems(req:string,res:string) : Promise<string> {
-
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -227,15 +208,7 @@ var config = require('../config/config');
                 let client = redis.createClient(process.env.REDIS_URL);
                 console.log('refresh catalog');
 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -341,16 +314,7 @@ var config = require('../config/config');
             
             async getFavorites(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -370,9 +334,6 @@ var config = require('../config/config');
             
             async transferpoints(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
                 var jsonBody = {
                     min: req.body.from,
                     destLoyaltyId: req.body.to,
@@ -381,12 +342,7 @@ var config = require('../config/config');
                     rwdQty: req.body.amount
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -413,21 +369,13 @@ var config = require('../config/config');
             
             async favouriteItem(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
                 var jsonBody ={
                     min: req.params.min,
                     cafProductNo: req.params.catalogId,
                     cafFavoriteFlag: 1
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -447,21 +395,13 @@ var config = require('../config/config');
             
             async removeFavouriteItem(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
                 var jsonBody ={
                     min: req.params.min,
                     cafProductNo: req.params.catalogId,
                     cafFavoriteFlag: 0
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -479,17 +419,8 @@ var config = require('../config/config');
                 }
             }
             
-            async getCatalogDisplayPreferences(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+            async getCatalogDisplayPreferences(req:string,res:string) : Promise<string> {                
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -507,11 +438,7 @@ var config = require('../config/config');
                 }
             }
             
-            async payBillWithPoints(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
+            async payBillWithPoints(req:string,res:string) : Promise<string> {  
                 var jsonBody ={
                     min: req.body.min,
                     merchantIdentifier: req.body.merchantIdentifier,
@@ -521,12 +448,7 @@ var config = require('../config/config');
                     reference: req.body.ref
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -545,21 +467,7 @@ var config = require('../config/config');
             }
             
             async redeemItems(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
-                // var data  = {
-                   //min: req.params.min
-                //}
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 const ssoService:SSO.sso = new SSO.sso();
                 const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
@@ -677,19 +585,11 @@ var config = require('../config/config');
             
             async getCatalogById(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-				
 				var id:string = req.params.min;
 				
 				console.log(id);
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);

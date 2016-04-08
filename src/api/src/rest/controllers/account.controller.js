@@ -16,17 +16,7 @@ class AccountController {
     }
     getAccount(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            console.log(config.signingKey);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -42,18 +32,7 @@ class AccountController {
     }
     getRewardBalance(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            console.log(req.query);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -79,18 +58,7 @@ class AccountController {
     }
     getLatestRewardExpiry(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
-            console.log(req.query);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -106,18 +74,9 @@ class AccountController {
     }
     getActivityHistory(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
             console.log(req.query);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
+            //console.log(token);
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -355,9 +314,6 @@ class AccountController {
     }
     register(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 firstName: req.body.firstName,
                 middleName: req.body.middleName,
@@ -368,14 +324,7 @@ class AccountController {
                 min: req.body.min,
                 channel: req.body.channel
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -428,16 +377,17 @@ class AccountController {
     }
     getCustomerInformation(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
+            //var token:string = req.get("Authorization");
             var data = {};
-            token = token.replace('Bearer ', '');
+            /*token = token.replace('Bearer ','');
+            
             var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
+            try{
+                var jwt = nJwt.verify(token,config.signingKey);
+            }catch(e){
                 res.sendStatus(403);
-            }
+            }*/
+            var jwt = res.locals.jwt;
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 data = {
@@ -481,17 +431,8 @@ class AccountController {
     }
     updateCustomerInformation(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var data = {};
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -554,17 +495,8 @@ class AccountController {
     }
     getListOfLinkedAccounts(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             console.log(req.query);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -580,9 +512,6 @@ class AccountController {
     }
     linkAccount(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.min,
                 primaryLoyaltyId: req.body.primaryLoyaltyId,
@@ -591,14 +520,7 @@ class AccountController {
                 lrqInitiator: req.body.lrqInitiator,
                 channel: req.body.channel
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -614,9 +536,6 @@ class AccountController {
     }
     unlinkAccount(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.min,
                 primaryLoyaltyId: req.body.primaryLoyaltyId,
@@ -625,14 +544,7 @@ class AccountController {
                 lrqInitiator: req.body.lrqInitiator,
                 channel: req.body.channel
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -648,19 +560,11 @@ class AccountController {
     }
     rewardsAlertNotification(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
             var jsonBody = {
                 min: req.body.min,
                 status: req.body.status
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             //console.log(token);
             //console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
@@ -687,17 +591,8 @@ class AccountController {
             brandMap['50014'] = 'PostpaidServiceUnit';
             brandMap['50027'] = 'Infinity';
             var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
             console.log(req.query);
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
-            console.log(token);
+            var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
@@ -757,19 +652,10 @@ class AccountController {
     // }
     getListOfMobileNumber(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            //var min:string =  req.query.min;
-            token = token.replace('Bearer ', '');
             var data = {
                 min: req.params.min
             };
-            var nJwt = require('njwt');
-            try {
-                var jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 var result = yield ssoService.getListOfLinkedAccounts(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(data));

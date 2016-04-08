@@ -59,17 +59,7 @@ var config = require('../config/config');
             }
 
             async renewToken(req: string,res: string) : Promise<string> {
-
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-
-                var nJwt = require('njwt');  
-                var jwt = "";
-                try{
-                    jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 const ssoService:SSO.sso = new SSO.sso();
 

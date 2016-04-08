@@ -55,16 +55,7 @@ class loginController {
     }
     renewToken(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
-            var token = req.get("Authorization");
-            token = token.replace('Bearer ', '');
-            var nJwt = require('njwt');
-            var jwt = "";
-            try {
-                jwt = nJwt.verify(token, config.signingKey);
-            }
-            catch (e) {
-                res.sendStatus(403);
-            }
+            var jwt = res.locals.jwt;
             const ssoService = new sso_service_1.SSO.sso();
             let refreshToken = req.body.refreshToken;
             console.log('refresh token: ' + refreshToken);

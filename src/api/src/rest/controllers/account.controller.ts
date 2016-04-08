@@ -27,19 +27,8 @@ var config = require('../config/config');
             
             async getAccount(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-             
-                console.log(config.signingKey);
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
-                console.log(token);
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -57,20 +46,8 @@ var config = require('../config/config');
             
             async getRewardBalance(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
-                console.log(req.query);
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
-                console.log(token);
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -101,20 +78,8 @@ var config = require('../config/config');
             
             async getLatestRewardExpiry(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
-                console.log(req.query);
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
-                console.log(token);
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -131,21 +96,12 @@ var config = require('../config/config');
             }
             
             async getActivityHistory(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
+                          
                 console.log(req.query);
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
+                //console.log(token);
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -426,10 +382,6 @@ var config = require('../config/config');
             
             async register(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
                 var jsonBody ={
                     firstName: req.body.firstName,
                     middleName: req.body.middleName,
@@ -441,14 +393,8 @@ var config = require('../config/config');
                     channel: req.body.channel
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -509,19 +455,21 @@ var config = require('../config/config');
             
             async getCustomerInformation(req:string,res:string) : Promise<string> {
                 
-                var token:string = req.get("Authorization");
+                //var token:string = req.get("Authorization");
                 var data = {};
-                token = token.replace('Bearer ','');
+                /*token = token.replace('Bearer ','');
                 
                 var nJwt = require('njwt');  
                 try{
                     var jwt = nJwt.verify(token,config.signingKey);
                 }catch(e){
                     res.sendStatus(403);
-                }
+                }*/
+                
+                var jwt = res.locals.jwt;
 
                 const ssoService:SSO.sso = new SSO.sso();
-
+                
                 try {
                     
                     data = {
@@ -579,19 +527,10 @@ var config = require('../config/config');
             }
             
             async updateCustomerInformation(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
                 var data = {};
-                var nJwt = require('njwt');  
                 
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -675,20 +614,10 @@ var config = require('../config/config');
             }
             
             async getListOfLinkedAccounts(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-             
                 console.log(req.query);
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -705,12 +634,7 @@ var config = require('../config/config');
                 }
             }
             
-            async linkAccount(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
+            async linkAccount(req:string,res:string) : Promise<string> {                
                 var jsonBody ={
                     min: req.body.min,
                     primaryLoyaltyId: req.body.primaryLoyaltyId,
@@ -720,14 +644,8 @@ var config = require('../config/config');
                     channel: req.body.channel
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -744,11 +662,6 @@ var config = require('../config/config');
             }
             
             async unlinkAccount(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
                 var jsonBody ={
                     min: req.body.min,
                     primaryLoyaltyId: req.body.primaryLoyaltyId,
@@ -758,14 +671,8 @@ var config = require('../config/config');
                     channel: req.body.channel
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                console.log(token);
+                var jwt = res.locals.jwt;
+                
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -782,21 +689,12 @@ var config = require('../config/config');
             }
             
             async rewardsAlertNotification(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
                 var jsonBody ={
                     min: req.body.min,
                     status: req.body.status
                 };
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
                 //console.log(token);
                 //console.log(jwt);
@@ -826,20 +724,11 @@ var config = require('../config/config');
                 brandMap['50014'] = 'PostpaidServiceUnit';
                 brandMap['50027'] = 'Infinity';
                 
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
+                var token:string = req.get("Authorization");          
                 console.log(req.query);
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
+                var jwt = res.locals.jwt;
 
-                console.log(token);
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
@@ -921,22 +810,12 @@ var config = require('../config/config');
             // }
             
             async getListOfMobileNumber(req:string,res:string) : Promise<string> {
-                
-                var token:string = req.get("Authorization");
-                //var min:string =  req.query.min;
-                token = token.replace('Bearer ','');
-             
                 var data  = {
                     min: req.params.min
                 }
                 
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
+                var jwt = res.locals.jwt;
+                
                 const ssoService:SSO.sso = new SSO.sso();
 
                 try {  
