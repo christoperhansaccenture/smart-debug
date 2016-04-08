@@ -3,7 +3,8 @@ import { Router } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
-//import { Layout } from '../../model/layout';
+import {ActivityHistoryService} from '../../account/services/activity-history.service';
+
 declare var ga:any;
 @Component({
     selector: 'account-overview',
@@ -14,14 +15,29 @@ export class AccountOverviewComponent  {
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
 		private _layoutService: LayoutService,
-        private _accountService: AccountService) {
+        private _accountService: AccountService,
+        private _activityHistoryService: ActivityHistoryService) {
 		
 		this._layoutService.setCurrentPage('AccountOverview');
 		
 	}
     
+    getActivitySpinnerStatus(){
+        return !this._activityHistoryService.isActivityLoaded();
+    }
+    
     getSpinnerStatus(){
         return this._accountService.spinnerAccount;
+    }
+    
+    getLatestActivity() {
+        if (this._activityHistoryService.activities) {
+            return this._activityHistoryService.activities
+            .slice(0, 2);
+        }
+        else{
+            return null;
+        }
     }
     
     getUserData(){

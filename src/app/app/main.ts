@@ -8,6 +8,9 @@ import {ROUTER_PROVIDERS, APP_BASE_HREF, LocationStrategy, Router, HashLocationS
 import {MyHttp} from './shared/services/my-http.service';
 
 
+declare var configChannel: any;
+declare var configAppType: any;
+
 
 class MyOptions extends BaseRequestOptions {
     
