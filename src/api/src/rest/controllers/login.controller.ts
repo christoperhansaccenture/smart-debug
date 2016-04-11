@@ -58,6 +58,11 @@ var config = require('../config/config');
                     }
             }
 
+            async testCookie(req: string,res: string) : Promise<string> {
+                res.cookie('abcd', '12345');
+                res.sendStatus(200);
+            }
+
             async renewToken(req: string,res: string) : Promise<string> {
                 var jwt = res.locals.jwt;
 

@@ -71,11 +71,23 @@ import {RewardController} from './controllers/reward.controller';
 	app.use(bodyParser.json());
     app.use(cookieParser());
     app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
+        //res.header("Access-Control-Allow-Origin", "*"); // doesn't work when using cookie
+        let allow: string;
+        if (req.hostname == 'localhost') {
+            allow = 'http://localhost:3000';
+        } 
+        else if (req.hostname == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
+            allow = 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com';
+        }
+        if (allow) {
+            res.header("Access-Control-Allow-Origin", allow);
+        }
+        //res.header("Access-Control-Allow-Origin", "http://localhost:3000, http://smart-web.s3-website-ap-southeast-1.amazonaws.com");
+        res.header("Access-Control-Allow-Credentials", "true");
         res.header("Access-Control-Allow-Headers", 
         "Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept,Authorization,Proxy-Authorization,X-session");
         res.header("Access-Control-Allow-Methods","GET,PUT,DELETE,POST");
-        console.log("log cookies main : " + cookieParser.JSONCookies(req.cookies));
+        //console.log("log cookies main : " + cookieParser.JSONCookies(req.cookies));
         console.log("request path : " + req.path);
         console.log("log app main : " + res.locals.jwt);
         if(req.path === '/api/login'){
@@ -123,6 +135,7 @@ import {RewardController} from './controllers/reward.controller';
     router.post('/login', loginCtrl.postLogin);
     router.post('/token/renew', loginCtrl.renewToken);
     router.post('/account',accountCtrl.register);
+    router.get('/test', loginCtrl.testCookie);
     //router.post('/accountpassword/recover/:type/:account',accountCtrl.initializeRecoverPassword);
     //router.post('/accountpassword/recover',accountCtrl.recoverPassword);
     

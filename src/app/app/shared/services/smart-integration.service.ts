@@ -62,11 +62,7 @@ export class SmartIntegrationService {
         
         var data = "?min=" + localStorage.getItem('mobileNo') + "&actvityType=0&fromDate=2015-05-01&endDate=2016-03-16&pagesize=1000&pagepage=1";
 
-        return this._http.get(url + data,
-        <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
+        return this._http.get(url + data);
     }
 
     confirmOrder(items: CartItem[]) {
@@ -111,17 +107,11 @@ export class SmartIntegrationService {
         var url = this.serviceBase + '/customer/' + min + '/catalog/' + catalog.id + '/favorite';
         if (catalog.favorite) {
             console.log('mark as favorite: ' + url);
-            return this._http.put(url, null,<RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
+            return this._http.put(url, null);
         }
         else {
             console.log('delete favorite: ' + url);
-            return this._http.delete(url,<RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
+            return this._http.delete(url);
         }
     }
     
@@ -129,23 +119,14 @@ export class SmartIntegrationService {
         let min = localStorage.getItem('mobileNo');
         let url = this.serviceBase + '/mobileNoList/' + min;      
 
-        return this._http.get(url,
-        <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
-
+        return this._http.get(url);
     }
     
     getProfileInformation(){
         let min = localStorage.getItem('mobileNo');
         let url = this.serviceBase + '/customerInformation/' + min;      
 
-        return this._http.get(url,
-        <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
+        return this._http.get(url);
 
     }
     
@@ -153,11 +134,7 @@ export class SmartIntegrationService {
         let min = localStorage.getItem('mobileNo');
         let url = this.serviceBase + '/customerInformation/' + min;      
 
-        return this._http.put(url,userProfile,
-        <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
+        return this._http.put(url,userProfile);
 
     }
     
@@ -165,11 +142,7 @@ export class SmartIntegrationService {
         let url = this.serviceBase + '/transfer';
         //let url = 'http://localhost:8080/api/transfer';      
 
-        return this._http.post(url,transferData,
-        <RequestOptionsArgs> {headers: new Headers(
-                {'Content-Type': 'application/json',
-             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-            })});
+        return this._http.post(url,transferData);
 
     }
     

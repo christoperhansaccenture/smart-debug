@@ -3,6 +3,8 @@ import {Http, Request, RequestOptions, RequestMethod, RequestOptionsArgs, Header
 import {Observable} from 'rxjs/Observable';
 import {Router} from 'angular2/router';
 
+declare var configChannel: any;
+
 @Injectable()
 export class MyHttp {
     serviceBase: string;		 
@@ -40,13 +42,16 @@ export class MyHttp {
         return this._request(RequestMethod.Delete, url, null, options);
     }
 
-    private _createAuthHeaders(): Headers {
-        let headers: Headers = new Headers({
-            'Content-Type': 'application/json'
-        });
-        let accessToken = localStorage.getItem('accessToken');
-        if (accessToken) {
-            headers.append('Authorization', 'Bearer ' + accessToken)
+    private _createAuthHeaders(method: RequestMethod): Headers {
+        let headers: Headers = new Headers();
+        if (method != RequestMethod.Get) {
+            headers.append('Content-Type', 'application/json');        
+        }
+        if (configChannel !== 'web') {
+            let accessToken = localStorage.getItem('accessToken');
+            if (accessToken) {
+                headers.append('Authorization', 'Bearer ' + accessToken)
+            }
         }
         return headers;
     }
@@ -62,7 +67,7 @@ export class MyHttp {
                 requestOptions[attrname] = options[attrname];
             }
         } else {
-            requestOptions.headers = this._createAuthHeaders();
+            requestOptions.headers = this._createAuthHeaders(method);
         }
         return Observable.create((observer) => {
             this._http.request(new Request(requestOptions))

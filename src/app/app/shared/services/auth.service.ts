@@ -28,12 +28,7 @@ export class AuthService {
         private _accountService: AccountService) {
         // get service base from config file
         var url = 'services/api.json';
-        this._http.get(url,
-                       <RequestOptionsArgs> {
-                           headers: new Headers({
-                               'Content-Type': 'application/x-www-form-urlencoded',
-                           })
-                       })
+        this._http.get(url)
             .subscribe(file => {
                 let config = file.json().config;
                 this.serviceBase = config.baseUrl;

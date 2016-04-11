@@ -53,6 +53,12 @@ class loginController {
             }
         });
     }
+    testCookie(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            res.cookie('abcd', '12345');
+            res.sendStatus(200);
+        });
+    }
     renewToken(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var jwt = res.locals.jwt;
