@@ -1,260 +1,214 @@
+.homeContainer{
+    
+    background-color: #FFF;
+    
+    .bodyHeader{
+        color: black;
+        width: calc(100% - 20px);
+        font-size: 23px;
+        padding: 20px 0px 0px 20px;
+        line-height: 40px;
+        
+    }
+    
+    .divider{
+        display: inline-block;
+        width: 90%;
+        height: 2px;
+        margin-left: 5%;
+        border-bottom: 2px solid $lightgray;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .homeActionsLayout{
+        
+        width: 100%;
+        display: inline-block;
+        padding-bottom: 20px;
 
+        &::after{
+            clear: both;
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        .box{
+            width: 100%;
 
-.banner{
-	height: 500px;
-	width: 100%;
-	background-color: #333;
-	background: url(../img/smart-corp-android_smartphone_kit-banner.jpg) no-repeat;
-	background-position: center bottom;
-	margin-bottom: 20px;
+            .col1{
+                width: 100%;
+                float: left;
+            }
+
+            .col3{
+                width:calc(100% / 3);
+                // padding: 0 2%;
+                float: left;
+                
+                .actionsBox{
+                    float: left;
+                    margin-left: 10%;
+                    margin-right: 10%;
+                    width: 80%;
+
+                    ul {
+                        list-style: none inside;
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            border-top: 2px solid #EEE;
+                            border-left: 2px solid #EEE;
+                            border-right: 2px solid #EEE;
+                            color: $pldtred;
+                            font-size: 17px;
+                            
+                            &.seeLess{
+                                 border-top: none;
+                            }
+
+                            &:not(.heading):hover {
+                                background-color: $pldtred;
+                            }
+                            
+                            &:last-child{
+                                border-bottom: 2px solid #EEE;
+                            }
+
+                            &.heading {
+                                font-weight:bold;
+                                padding: 10px;
+                                border: none;
+                                font-size: 23px;
+                            }
+
+                            span {
+                                padding: 10px 0px 10px 10px;
+                                color: $pldtred;
+                                width: calc(100% - 20px);
+                                height:100%;
+                                display: inline-block;
+                                
+                                &.smaller{
+                                    font-size: 12px;
+                                }
+                                
+                                &.moreOption{
+                                    text-align: center;
+                                }
+
+                                &:hover {
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }               
+            }
+        }
+    }
+    
+    .productContainer{
+        display: inline-block;
+        padding-top: 20px;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-bottom: 20px;
+        width: 94%;
+        
+        .product{
+            width: 50%;
+            
+            &.left{
+                float: left;
+            }
+            
+            &.right{
+                float: right;
+            }
+            
+            .productName{
+                display: inline-block;
+                font-size: 23px;
+                color: black;
+            }
+            
+            
+            .productBody{
+                display: inline-block;
+                width: calc(100% - 40px);
+                text-align: center;
+                margin: 20px auto 20px auto;
+                
+                .productImage{
+                    height: 200px;
+                    width: 100%;
+                    
+                    &.leftImage{
+                        width: 50%;
+                        float: left;
+                    }
+                    
+                    &.allin{
+                        background: url(../img/all-in.png) no-repeat;
+                        background-position: center;
+                        background-size: 200px;
+                    }
+                    
+                    &.help{
+                        background: url(../img/help.png) no-repeat;
+                        background-position: center;
+                        background-size: 150px;
+                    }
+                    
+                    &.watch{
+                        background: url(../img/watch.jpg) no-repeat;
+                        background-position: center;
+                        background-size: 150px;
+                    }
+                    
+                    &.idina{
+                        background: url(../img/idina.jpg) no-repeat;
+                        background-position: center;
+                        background-size: 150px;
+                    }
+                    
+                }
+                
+                .productDesc{
+                    font-size: 20px;
+                    height: 45px;
+                    
+                    &.rightText{
+                        width: 50%;
+                        font-size: 15px;
+                        float: right;
+                        
+                    }
+                    
+                    .itemTitle{
+                        font-size: 18px; 
+                        color: $pldtred;
+                        margin: 10px 0 10px 0;
+                        
+                        &.bold{
+                            font-weight: bold;
+                        }
+                        
+                    }
+                    
+                }  
+                
+            }
+            
+            .button{
+                width: 100px;
+                margin: 10px auto 0 auto;
+                color: #FFF;
+            }
+            
+        }
+    }    
 }
 
-.bannerSmall{
-	margin-top: 48px;
-	height: 200px;
-	width: 100%;
-	background-color: #333;
-	background: url(../img/smart-corp-android_smartphone_kit-banner.jpg) no-repeat;
-	background-position: center bottom;
-	background-size: 100% 100%;
-	margin-bottom: 20px;
-}
-
-.productBox{
-	float: left;
-	margin-bottom: 10px;
-	width: 100%;
-
-	h2 {
-		font-size: 110%;
-		color: $smartblue;
-		padding: 0 2%;
-	}
-
-	.outer-box{
-		height: 280px;
-
-		.inner-box{
-			height: 240px;
-
-			h3 {
-				margin-top: 0px;
-			}
-
-			p {
-				font-size: $text-size;			
-
-			}
-
-			img {
-				float: right;
-				padding-left: 10px;
-				width: 25%;
-			}
-
-			.button {
-				background-color: $smartblue;
-				text-align: center;
-				padding: 8px;
-				clear: both;
-				bottom: 0px;
-				width: 200px;
-				border-radius: 3px;
-
-				a {
-					color: white;
-				}
-
-			}
-		}
-	}
-		
-}
-
-.actionsBox{
-	float: left;
-			margin-left: 10%;
-			margin-right: 10%;
-			width: 80%;
-
-			ul {
-				list-style: none inside;
-			    margin: 0;
-			    padding: 0;
-			    border: 1px solid $smartblue;
-
-			    li {
-			  		border-bottom: 1px solid $smartblue;
-			  		color: $smartblue;
-
-			  		&:not(.heading):hover {
-			  			background-color: $smartblue;
-			  		}
-
-			  		&:last-child {
-			  			border: 0;
-			  		}
-
-			  		&.heading {
-			  			font-weight:bold;
-			  			padding: 10px;
-			  		}
-
-			    	a {
-			    		padding: 10px 0px 10px 10px;
-			    		color: $smartblue;
-			    		width:100%;
-			    		height:100%;
-			    		display: inline-block;
-
-			    		&:hover {
-			    			color: white;
-			    		}
-			    	}
-			    }
-			}
-}
-
-
-.actionsSmallBox{
-	display: block;
-	width: 100%;
-	border: 1px solid $smartblue;
-	
-	.menuitem {
-		// display: block;
-		height: 48px;
-		width: 95%;
-		padding-left: 5%;
-		cursor: pointer;
-		color: $smartblue;
-		border-bottom: 1px solid $smartblue;
-		font-size: medium;
-
-		// justify-content: center; // align horizontal
-		// padding: 10px;
-		&.active{
-			font-weight: bold;
-		}
-
-		&:last-child{
-			border: 0px;
-		}
-
-		.left{
-			float: left;
-			height: 48px;
-			width: calc(100% - 30px);
-			display: flex;
-			align-items: center; // align vertical 
-
-		}
-
-		.right{
-			float: right;
-			display: block;
-			width: 30px;
-			height: 48px;
-			background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQoJCQkJCQkJCQkJIDwhLS0gQ3JlYXRlZCB3aXRoIFNWRy1lZGl0IC0gaHR0cDovL3N2Zy1lZGl0Lmdvb2dsZWNvZGUuY29tLyAtLT4NCgkJCQkJCQkJCQkgPGc+DQoJCQkJCQkJCQkJICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+DQoJCQkJCQkJCQkJICA8ZyBpZD0ic3ZnXzciPg0KCQkJCQkJCQkJCSAgIDxsaW5lIHk9Ik5hTiIgeD0iTmFOIiBpZD0ic3ZnXzUiIHkyPSI4LjI1Njk0IiB4Mj0iNi4zMDY5NCIgeTE9IjMuODc0ODkiIHgxPSIwLjMxNjMzIiBzdHJva2UtbGluZWNhcD0ibnVsbCIgc3Ryb2tlLWxpbmVqb2luPSJudWxsIiBzdHJva2U9IiMwMDlDREUiIGZpbGw9Im5vbmUiLz4NCgkJCQkJCQkJCQkgICA8bGluZSBpZD0ic3ZnXzYiIHk9Ik5hTiIgeD0iTmFOIiB5Mj0iOC4yNDkwNiIgeDI9IjUuNjc0OTkiIHkxPSIzLjg2NzAxIiB4MT0iMTEuNjY1NTkiIHN0cm9rZS1saW5lY2FwPSJudWxsIiBzdHJva2UtbGluZWpvaW49Im51bGwiIHN0cm9rZT0iIzAwOUNERSIgZmlsbD0ibm9uZSIvPg0KCQkJCQkJCQkJCSAgPC9nPg0KCQkJCQkJCQkJCSA8L2c+DQoJCQkJCQkJCQkJPC9zdmc+") no-repeat;
-			background-position: 9px 18px;
-				
-				&.active{
-					-webkit-transform: rotate(180deg);
-					transform: rotate(180deg); 
-				}
-		}
-
-		&::after{
-			clear: both;
-			content: " "; 
-	    	display: table; 
-		}
-	}
-
-	.submenuBox{
-		display: none;
-		width: 100%;
-
-		&::after{
-			clear: both;
-			content: " "; 
-	    	display: table; 
-		}
-
-		&.active{
-			display: table;	
-
-		}
-
-		.submenuitem {
-			display: block;
-			height: 48px;
-			width: 90%;
-			padding-left: 10%;
-			cursor: pointer;
-			color: #000;
-			background-color: $white;
-			border-bottom: 1px solid $smartblue;
-			display: flex;
-			align-items: center; // align vertical 
-
-			&:hover{
-				color: $smartblue;	
-			}
-		}
-	}
-	
-
-	
-
-}
-
-.homeProductsLayout{
-	width: 100%;
-
-
-	.box{
-		width: 100%;
-
-		.col1{
-			width: 100%;
-			float: left;
-		}
-
-		.col2{
-			width: 46%;
-			padding: 0 2%;
-			float: left;
-		}
-
-	}
-}
-
-.homeActionsLayout{
-	width: 95%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
-
-	&::after{
-		clear: both;
-		content: " "; /* 1 */
-    	display: table; /* 2 */
-	}
-	.box{
-		width: 100%;
-
-		.col1{
-			width: 100%;
-			float: left;
-		}
-
-		.col3{
-			width:calc(100% / 3);
-			// padding: 0 2%;
-			float: left;
-		}
-
-	}
-}
 

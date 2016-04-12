@@ -1,105 +1,99 @@
-<div>
-    <div class="homeBanner">
-        <div class="large" ng-if="vmHome.mm.largeUp">
-            <div class="banner"></div>
-        </div>
-    </div>
+<div class="homeContainer">
+    <!--<div class="bodyHeader">Internet, TV and home phone</div>-->
     <div class="homeActionsLayout">
         <div class="box">
             <div class="col3">
                 <div class="actionsBox">
                     <ul>
-                        <li class="heading">Shop</li>
-                        <li><a href="#">Phones</a></li>
-                        <li><a href="#">Postpaid</a></li>
-                        <li><a href="#">Mobile broadband</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col3">
-                <div class="actionsBox">
-                    <ul>
                         <li class="heading">Explore</li>
-                        <li><a href="#">Postpaid plans</a></li>
-                        <li><a href="#">Broadband plans</a></li>
-                        <li><a href="#">Prepaid plans</a></li>
+                        <li (click)="goToCompare()"><span>Compare internet plans</span></li>
+                        <li><span>See home phone plans</span></li>
+                        <li><span>Extra options</span></li>
+                        <div *ngIf="option.explore">
+                            <li><span>Coverage Check</span></li>
+                            <li><span>Top-Ups</span></li>
+                            <li><span>Special Promotions</span></li>
+                        </div>
+                        <li  [ngClass]="{seeLess : option.explore}" (click)="toggleExplore()"><span class="moreOption smaller">{{exploreText()}}</span></li>
                     </ul>
                 </div>
             </div>
             <div class="col3">
                 <div class="actionsBox">
                     <ul>
-                        <li class="heading">Top 3 Support</li>
-                        <li><a href="#">Invoice and payment</a></li>
-                        <li><a href="#">Order Status</a></li>
-                        <li><a href="#">Device Support</a></li>
+                        <li class="heading">Quick Links</li>
+                        <li><span>Invoice and  payments</span></li>
+                        <li><span>Compare internet plans</span></li>
+                        <li><span>Store locator</span></li>
+                        <div *ngIf="option.link">
+                            <li><span>View & Pay Bill</span></li>
+                            <li><span>Account Management</span></li>
+                            <li><span>Rewards</span></li>
+                        </div>
+                        <li [ngClass]="{seeLess : option.link}" (click)="toggleLink()"><span class="moreOption smaller">{{linkText()}}</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col3">
+                <div class="actionsBox">
+                    <ul>
+                        <li class="heading">Help &#38; Support</li>
+                        <li><span>Instalation &#38; Usage</span></li>
+                        <li><span>Wi-Fi Router Set Up</span></li>
+                        <li><span>Problem &#38; Support</span></li>
+                        <div *ngIf="option.help">
+                            <li><span>Track My Order</span></li>
+                            <li><span>Troubleshoot a Problem</span></li>
+                            <li><span>Contact Us</span></li>
+                        </div>
+                        <li  [ngClass]="{seeLess : option.help}" (click)="toggleHelp()"><span class="moreOption smaller">{{helpText()}}</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="homeProductsLayout">
-        <div class="box" ng-if="vmHome.mm.mediumUp">
-            <div class="col2">
-                <div class="productBox">
-                    <h2>Postpaid</h2>
-                    <div class="outer-box">
-                        <div class="inner-box">
-                            <img src="../img/home-postpaid.png" />
-                            <h3>The perfect plan for you</h3>
-                            <p>
-                                Smart Postpaid lets you choose the plan that best suits your lifestyle. Experience it with the latest smartphones powered by the biggest and most advanced network.
-                            </p>
-                            <div class="button"><a href="#">See our plans</a></div>
-                        </div>
-                    </div>
+    <div class="divider"></div>
+    <div class="productContainer">
+        <div class="product left">
+            <div class="productName">Are you new at PLDT?</div>
+            <div class="productBody">
+                <div class="productImage allin"></div>
+                <div class="productDesc">All-in-1 package with best price</div>
+            </div>
+            <div class="button">learn more</div>
+        </div>
+        <div class="product right">
+            <div class="productName">Can we help you?</div>
+            <div class="productBody">
+                <div class="productImage help"></div>
+                <div class="productDesc">Track you order and knows when the installment scheduled</div>
+            </div>
+            <div class="button">learn more</div>   
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="productContainer">
+        <div class="product left">
+            <div class="productName">Explore add-ons</div>
+            <div class="productBody">
+                <div class="productImage watch leftImage"></div>
+                <div class="productDesc rightText">
+                    <div class="itemTitle bold">Don’t Miss the Deal!</div>
+                    Get a Smartwatch on top of your Internet package only with P199/mo</div>
+            </div>
+            <div class="button">learn more</div>
+        </div>
+        <div class="product right">
+            <div class="productName">Interested in Fiber?</div>
+            <div class="productBody">
+                <div class="productImage idina leftImage"></div>
+                <div class="productDesc rightText">
+                    Subscribe Fibr Plan and win
+                    <div class="itemTitle bold">FREE TICKET</div>
+                    <div class="itemTitle">For Idina Menzel concert in Manila</div>
                 </div>
             </div>
-            <div class="col2">
-                <div class="productBox">
-                    <h2>Prepaid</h2>
-                    <div class="outer-box">
-                        <div class="inner-box">
-                            <img src="../img/home-postpaid.png" />
-                            <h3>Jump in with the best offers in Prepaid.</h3>
-                            <p>
-                                Enjoy every moment to the fullest with free calls, text, and data when you subscribe to Smart's amazing and exciting offers - perfect for the whole barkada.
-                            </p>
-                            <div class="button"><a href="#">Learn more</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col2">
-                <div class="productBox">
-                    <h2>Broadband</h2>
-                    <div class="outer-box">
-                        <div class="inner-box">
-                            <img src="../img/home-postpaid.png" />
-                            <h3>Take your online experience mobile</h3>
-                            <p>
-                                and get your favorite gadgets with your choice of Bro device. Surf at blazing speeds with the country's first and extensive LTE network!
-                            </p>
-                            <div class="button"><a href="#">See our plans</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col2">
-                <div class="productBox">
-                    <h2>Phones</h2>
-                    <div class="outer-box">
-                        <div class="inner-box">
-                            <img src="../img/home-postpaid.png" />
-                            <h3>Get the latest phone with our plans</h3>
-                            <p>
-                                Own the latest phone in the market and save at the same time when you sign up with our plans
-                            </p>
-                            <div class="button"><a href="#">View phones</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="button">learn more</div>   
         </div>
     </div>
 </div>

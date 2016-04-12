@@ -1,0 +1,648 @@
+.filterContainer{
+    width: calc(100% - 44px);
+    margin: 20px 20px 20px 20px;
+    border: 2px solid #EEE;
+    float: left;
+    
+    .filterSlider{
+        float: left;
+        width: 50%;
+        
+        .sliderBox{
+            width: calc(100% - 60px);
+            padding: 30px 10px 10px 10px;
+            height: 50px;
+            margin-top: 10px;
+            float: left;
+            
+            .description{
+                color: black;
+                font-weight: bold;
+                width: 50px;
+                height: 30px;
+                // margin-top: 33px;
+                margin-left: 10px;
+                text-align: left;
+                float: left;
+                // display: flex;
+                // align-items: center; // align vertical 
+                // justify-content: center; // align horizontal
+                
+                &.left{
+                    width: 100px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                
+                &.right{
+                    width: 150px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    margin-left: 100px;
+                    text-align: right;
+                }
+                
+            }
+
+            .slider-container {
+                float: left;
+                width: calc(100% - 82px);
+
+                .slider {
+                    width: 100%;
+                    display: inline-block;
+                    margin: 0 10px;
+
+                    &.noUi-horizontal {
+                        height: 6px;
+
+                        .noUi-handle {
+                            background: $pldtred;  
+                            width: 22px; 
+                            height: 22px; 
+                            border: 1px solid #fff;
+                            border-radius: 16px; 
+                            box-shadow: none;
+                            left: -10px;
+                            top: -10px;
+
+                            &:before {
+                                display: none;
+                            }
+
+                            &:after {
+                                display: none;
+                            }
+
+                            .noUi-tooltip {
+                                position: absolute;
+                                color: black;
+                                top: -20px;
+                                width: 80px;
+                                left: -5px;
+                            }
+                        }
+                    }
+
+                    &.noUi-target {
+                        border: 1px solid #FFF;
+                        box-shadow: none;
+                    }
+
+                    &.noUi-background {
+                        background: #EEE;
+                        box-shadow: none;
+                    }
+
+                    .noUi-background {
+                        background: #EEE;
+                        box-shadow: none;
+                    }
+
+                    .noUi-connect {
+                        background: $pldtred;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    .categoryFilter{
+        float: right;
+        width: calc(50% - 80px);
+        
+        .categoryBox{
+            width: 100%;
+
+            .title{
+                margin-top: 20px;
+                font-size: 15px;
+                color: black;
+                font-weight: bold;
+            }
+            .options{
+                ul{
+                    list-style-type: none;
+                    margin:10px 10px 20px;
+                    padding: 0;
+
+                    li{
+                        color: black;
+                        height: 30px;
+                        display: inline-block;
+                        align-items: center;
+                        line-height: 30px;
+                        // align-items: center; // align vertical 
+                        width: 100%;
+                    }
+
+                    &::after{
+                        clear: both;
+                        content: " ";
+                    }
+                }
+                
+                .check{
+                    width: 0;
+                    height: 0;
+                    display: block;
+                    margin: 5px 27px 5px 5px;
+                    float: left;
+
+                    &:before {
+                        display: block;
+                        border-radius: 5px;
+                        border: 1px solid black;
+                        float: left;
+
+                        content:"";
+                        display:inline-block;
+                        width: 20px;
+                        height: 20px;
+                        background-size: 12px;
+                        background-color: #FFF;
+                        border-radius: 5px;
+                    }
+
+                    &:checked {
+                        &:before {
+                            background-color: $pldtred;
+                            content: '✓';
+                            color: white;
+                            text-align: center;
+                            font-size: 22px;
+                            line-height: 21px;
+                        }
+                    }
+
+                    &.active{
+                        background-color: $pldtred;
+                    }
+
+                    &:focus {
+                        outline: none
+                    }
+                }
+
+                .txt{
+                    width: calc(100% - 30px);
+                }
+            }
+        }
+    }
+}
+
+.backButton{
+    float: left;
+    margin: 40px 0 0 50px;
+    width: 50px;
+    height: 80px;
+    border: 1px solid black;
+    cursor: pointer;
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU5LjEyOTYxMTI0MTUwNTksMSkgc2NhbGUoNy45Mzg0OTIyMzk2MDc5Niw3LjkzODQ5MjIzOTYwNzk2KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMTUuODU0MDQ4LDBMMTcuMjcyOTk3LDEuNDEwMDAzMyAyLjgxOTk1NDMsMTUuOTUwMDExIDE3LjM1MSwzMC41ODcwMDQgMTUuOTMyMDUxLDMxLjk5NjAwMSAwLDE1Ljk0OTAwNHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+    background-position: center;
+    background-size: 40px;
+    
+}
+
+.nextButton{
+    float: right;
+    margin: 40px 50px 0 0;
+    width: 50px;
+    height: 80px;
+    border: 1px solid black;
+    cursor: pointer;
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDU5LjEyOTYwMzY3MDc2OTgsMSkgc2NhbGUoNy45Mzg0OTIyMzk2MDc5Niw3LjkzODQ5MjIzOTYwNzk2KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40MjAwNDgyLDBMMTcuMzUxMDAxLDE2LjA0Njk5NiAxLjQ5ODA1MTMsMzEuOTk2MDAxIDAuMDc4OTc5NjMxLDMwLjU4NTk5NyAxNC41MzEwNDYsMTYuMDQ2MDE5IDAsMS40MDg5OTY0eiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+    background-position: center;
+    background-size: 40px;
+    
+}
+
+.planBodyContainer{
+    float: left;
+    width: 100%;
+    padding-bottom: 20px;
+    
+    .planContainer{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .planItem{
+            float: left;
+            width: 33%;
+            min-height: 310px;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 20px 0px 20px 0px;
+            
+            &:last-child{
+                border-right: 1px solid black;
+            }
+            
+            .check{
+                display: block;
+                margin: 5px auto 10px auto;
+                height: 20px;
+                width: 20px;
+
+                &:before {
+                    border-radius: 15px;
+                    border: 1px solid black;
+                    content:"";
+                    display:inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-size: 12px;
+                    background-color: #FFF;
+                }
+
+                &:checked {
+                    &:before {
+                        background-color: $pldtred;
+                        content: '✓';
+                        color: white;
+                        text-align: center;
+                        font-size: 22px;
+                        line-height: 21px;
+                    }
+                }
+            }
+            
+            .planName{
+                font-size: 20px;
+                text-align: center;
+                color: $pldtred;
+            }
+            
+            .planBody{
+                //float: left;
+                width: 90%;
+                margin: 0 auto 0 auto;
+                
+                .planText{
+                    width: 100%;
+                    color: black;
+                    font-size: 15px;
+                    text-align: center;
+                    margin: 10px 0 10px 0;
+                }
+                
+                .planIcon{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 40px; 
+                    background-color: $pldtred;
+                    margin: 0 auto 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .text{
+                        color: #FFF;
+                        font-size: 22px;
+                        text-align: center;
+                    }
+                    
+                }
+                
+                .planTerm{
+                    width: 100%;
+                    color: black;
+                    font-size: 15px;
+                    font-style: italic;
+                    text-align: center;
+                    margin: 10px 0 10px 0;
+                    height: 18px;
+                }
+                
+            }
+            
+            .planDesc{
+                width: 90%;
+                margin: 0 auto 0 auto;
+                
+                ul{
+                    //list-style: none;
+                    
+                    li{
+                        
+                        font-size: 15px;
+                        color: black;
+                        
+                    }
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    .planBonusContainer{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .planBonus{
+            float: left;
+            width: 33%;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 20px 0px 20px 0px;
+            
+            &:last-child{
+                border-right: 1px solid black;
+            }
+            
+            .bonusBody{
+                
+                width: 90%;
+                margin: 0 auto 0 auto;
+                
+                .bonusHeader{
+                    font-size: 20px;
+                    text-decoration: underline;
+                    color: $pldtred;
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                
+                .bonusPicture{
+                    height: 100px;
+                    width: 100%;
+                    background: url(../img/bonus1.png) no-repeat;
+                    background-size: 200px;
+                    background-position: center;
+                    margin: 10px 0 10px 0;
+                    
+                    &.other{
+                        background: url(../img/bonus2.png) no-repeat;
+                        background-size: 200px;
+                        background-position: center;
+                    }
+                    
+                }
+                
+                .phonePicture{
+                    height: 100px;
+                    width: 100%;
+                    background: url(../img/phone.png) no-repeat;
+                    background-size: 120px;
+                    background-position: center;
+                    margin: 10px 0 10px 0;
+                    
+                }
+                
+                .bonusDesc{
+                    font-size: 15px;
+                    color: black;
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                
+            }
+        }
+        
+    }
+    
+    .addOnsContainer{
+        float: left;
+        width: 100%;
+        margin-top: 30px;
+        
+        .addOnsHeader{
+            width: 100%;
+            color: black;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        .addOnsSubHeader{
+            width: 100%;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        .category{
+            width: 40%;
+            height: 18px;
+            margin: 20px auto 20px auto;
+            font-size: 15px;
+            font-weight: bold;
+            
+            .left{
+                float: left;
+                text-decoration: underline;
+            }
+            
+            .right{
+                float: right;
+            }
+            
+        }
+        
+        .addOnsItemContainer{
+            width: calc(100% - 20px);
+            padding: 0 10px 20px 10px;
+            float: left;
+            
+            .addOnsItem{
+                width: 25%;
+                float: left;
+                
+                .check{
+                    display: block;
+                    margin: 5px auto 10px auto;
+                    height: 20px;
+                    width: 20px;
+
+                    &:before {
+                        border-radius: 5px;
+                        border: 1px solid black;
+                        content:"";
+                        display:inline-block;
+                        width: 20px;
+                        height: 20px;
+                        background-size: 12px;
+                        background-color: #FFF;
+                    }
+
+                    &:checked {
+                        &:before {
+                            background-color: $pldtred;
+                            content: '✓';
+                            color: white;
+                            text-align: center;
+                            font-size: 22px;
+                            line-height: 21px;
+                        }
+                    }
+                }
+                
+                .addOnsName{
+                    width: 100%;
+                    text-align: center;
+                    color: $pldtred;
+                    font-size: 20px;
+                    margin: 0 auto 0 auto;
+                }
+                
+                .addOnsDesc{
+                    width: 80%;
+                    margin: 0 auto 10px auto;
+                    height: 50px;
+                    text-align: center;
+                    font-size: 15px;
+                    color: black;
+                }
+                
+                .addOnsCost{
+                    width: 100%;
+                    margin-bottom: 5px;
+                    text-align: center;
+                    font-size: 15px;
+                    color: black;
+                    font-weight: bold;
+                }
+                
+                .addOnsLearn{
+                    width: 100%;
+                    text-align: center;
+                    font-size: 10px;
+                    color: blue;
+                    font-weight: bold;
+                    cursor: pointer;
+                    
+                    &:hover{
+                        text-decoration: underline;    
+                    }
+                    
+                }
+                
+                // .addOnsPicture{
+                //     height: 200px;
+                //     width: 100%;
+                // }
+                
+            }
+            
+        }
+        
+    }
+    
+    .valueContainer{
+        float: left;
+        width: 100%;
+        
+        .valueHeader{
+            width: 100%;
+            color: black;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        .valueSubHeader{
+            width: 100%;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        .valuePlan{
+            margin: 20px auto 0 auto;
+            width: 60%;
+            
+            .check{
+                display: block;
+                margin: 5px auto 10px auto;
+                height: 20px;
+                width: 20px;
+
+                &:before {
+                    border-radius: 5px;
+                    border: 1px solid black;
+                    content:"";
+                    display:inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-size: 12px;
+                    background-color: #FFF;
+                }
+
+                &:checked {
+                    &:before {
+                        background-color: $pldtred;
+                        content: '✓';
+                        color: white;
+                        text-align: center;
+                        font-size: 22px;
+                        line-height: 21px;
+                    }
+                }
+            }
+            
+            .valueBody{
+                
+                width: 70%;
+                margin: 0 auto 0 auto;
+                
+                .valuePicture{
+                    height: 200px;
+                    width: 100%;
+                    background: url(../img/iphone.png) no-repeat;
+                    background-position: center;
+                    background-size: 200px;
+                }
+                
+                .valueText{
+                    font-size: 20px;
+                    text-align: center;
+                }
+                
+                .valueText2{
+                    font-size: 18px;
+                    text-align: center;
+                }
+            }
+            
+            .valueDesc{
+                
+                width: 70%;
+                margin: 0 auto 0 auto;
+                
+                ul{
+                    li{
+                        font-size: 15px;
+                        color: black;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    .buttonContainer{
+        float: left;
+        width: calc(100% - 20px);
+        margin: 10px;
+        
+        .button{
+            color: #FFF;
+            width: 150px;
+            margin: 0 auto 0 auto;
+            clear: none;
+        }
+        
+    }
+    
+    
+}

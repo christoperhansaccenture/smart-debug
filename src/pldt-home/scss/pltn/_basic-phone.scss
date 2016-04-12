@@ -1,0 +1,142 @@
+.basicPhoneContainer{
+    
+    .bodyHeader{
+        color: $pldtred;
+        width: 100%;
+        font-size: 25px;
+        margin-top: 10px;
+        height: 40px;
+        line-height: 40px;
+        background-color: rgba(255, 255, 255, 0.8);
+        
+        .menuItem{
+            
+            float: left;
+            min-width: 130px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0 5px 0 5px;
+            
+            &.selected{
+                background-color: #FFF;
+            }
+            
+        }
+        
+    }
+    
+    .basicPhoneBodyContainer{
+        display: inline-block;
+        width: 100%;
+        background-color: #FFF;
+        padding-bottom: 40px;
+        
+        .upperContainer{
+            display: inline-block;
+            width: calc(100% - 80px);
+            padding: 0 10px 40px 10px;
+            
+            .planBox{
+                float: left;
+                width: 250px;
+                height: 250px;
+                margin: 40px;
+                border: 1px solid black;
+                
+                .planHeader{
+                    width: 100%;
+                    font-size: 18px;
+                    color: $pldtred;
+                    text-align: center;
+                    margin: 20px 0 20px 0;
+                }
+                
+                .planBody{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 40px; 
+                    background-color: $pldtred;
+                    margin: 0 auto 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .text{
+                        color: #FFF;
+                        font-size: 22px;
+                        text-align: center;
+                        
+                        span{
+                            font-size: 15px;
+                        }
+                        
+                    }
+                }
+                
+                .buttonContainer{
+                    width: 100%;
+                    margin-top: 20px;
+                    
+                    .button{
+                        width: 100px;
+                        clear: none;
+                        color: #FFF;
+                        margin: 0 auto 0 auto;
+                    }
+                }
+                
+            }
+            
+            .planDetail{
+                float: right;
+                width: 400px;
+                height: 250px;
+                margin: 40px;
+                
+                .planHeader{
+                    width: calc(100% - 20px);
+                    font-size: 18px;
+                    color: $pldtred;
+                    padding: 10px;
+                    border-bottom: 1px solid black;
+                }
+                
+                .planItem{
+                    float: left;
+                    width: calc(100% - 20px);
+                    font-size: 18px;
+                    color: black;
+                    padding: 10px;
+                    border-bottom: 1px solid black;
+                    
+                    .identifier{
+                        float: left;
+                    }
+                    
+                    .value{
+                        float: right;
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        .lowerContainer{
+            display: inline-block;
+            height: 500px;
+            width: 100%;
+            background: url(../img/feature.png) no-repeat;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+
+    }
+      
+}
+
+

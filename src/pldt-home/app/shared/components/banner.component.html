@@ -1,0 +1,10 @@
+<div class="banner" [ngClass]="{ compare : isCompare(), fibr : isFibr(), phone : isPhone(), bundle : isBundle() }"></div>
+<div class="bannerAdvr" *ngIf="!isCompare()">
+    <div class="advrContainer">
+        <div class="advrBody">
+            <div class="title">{{adverTitleText()}}</div>
+            <div class="desc">{{adverDescText()}}</div>
+        </div>
+    </div>
+    <div class="button">learn more</div>
+</div>

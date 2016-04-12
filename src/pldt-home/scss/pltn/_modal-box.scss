@@ -1,0 +1,22 @@
+.ModalOuterBox{
+	display: table;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20000;
+    overflow: hidden;
+    background: rgba(0,0,0, 0.8);
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in; 
+	
+	.ModalInternal{
+		display: table-cell;
+		vertical-align: middle;
+
+	}
+}

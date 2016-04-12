@@ -3,18 +3,20 @@ import { Injectable } from 'angular2/core';
 @Injectable()
 export class LayoutService {
 
-    layout = {
-        pltn: false
-    };
-
-    constructor() {}
-
-    setLayout(key, value) {
-        this.layout[key] = value;
+    currentPage: string = '';
+    
+    layout ={
+        compare : false
     }
 
-    getLayout() {
-        return this.layout;
+    constructor() {}
+    
+    setCurrentPage(page : string){
+        this.currentPage = page;
+    }
+    
+    getCurrentPage(){
+        return this.currentPage;
     }
 
 }

@@ -1,0 +1,150 @@
+.dslContainer{
+    
+    .bodyHeader{
+        color: $pldtred;
+        width: 100%;
+        font-size: 25px;
+        margin-top: 10px;
+        height: 40px;
+        line-height: 40px;
+        background-color: rgba(255, 255, 255, 0.8);
+        
+        .menuItem{
+            
+            float: left;
+            width: 130px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            
+            &.selected{
+                background-color: #FFF;
+            }
+            
+        }
+        
+    }
+    
+    .dslBodyContainer{
+        display: inline-block;
+        width: 100%;
+        background-color: #FFF;
+        padding-bottom: 40px;
+        
+        .planDescContainer{
+            
+            float: left;
+            width: calc(100% - 40px);
+            padding: 20px;
+            
+            .planItem{
+                
+                float: left;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                margin-bottom: 20px;
+                
+                .dsl{
+                    float: left;
+                    height: 50px;
+                    width: 130px;
+                    display: block;
+                    background: url(../img/pldt-dsl.png) no-repeat;
+                    background-size: 100px;
+                    background-position: center;
+                }
+                .text{
+                    float: left;
+                    width: 500px;
+                    margin-left: 80px;
+                    text-align: left;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 50px;
+                }    
+            }
+            
+            
+        }
+        
+        .subHeader{
+            font-size: 20px;
+            margin: 10px 0 10px 30px;
+            color: $pldtred;
+        }
+        
+        .map{
+            height: 400px;
+            width: calc(100% - 20px);
+            margin: 10px 10px 20px 10px;
+            //background: url(../img/map.png) no-repeat;
+            //background-position: center;
+            //background-size: 200px;
+        }
+        
+        .addressContainer{
+            float: left;
+            width: 100%;
+            
+            .addressInnerContainer{
+                
+                width: 500px;
+                margin: 0 auto 0 auto;
+                
+                .addressItem{
+                    width: 100%;
+                    float: left;
+                    margin: 10px;
+                    
+                    .identifier{
+                        float: left;
+                        width: 100px;
+                        display: flex;
+                        align-items: center;
+                        height: 25px;
+                    }
+                    
+                    input{
+                        width: 300px;
+                        float: left;
+                        margin-left: 10px;
+                        height: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0 10px 0 10px;
+                        
+                        &.postal{
+                            width: 80px;
+                        }
+                        
+                    }
+                    
+                }
+                
+                .buttonContainer{
+                    float: left;
+                    width: calc(100% - 20px);
+                    margin: 10px;
+                    
+                    .button{
+                        color: #FFF;
+                        width: 150px;
+                        margin: 0 auto 0 auto;
+                        clear: none;
+                    }
+                    
+                }
+            }
+            
+        }
+
+    }
+      
+}

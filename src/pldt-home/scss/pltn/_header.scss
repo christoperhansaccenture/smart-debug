@@ -5,129 +5,84 @@ $smallheight: 48px;
 
 .headerLarge{
 	z-index: 100;
-
 	top: 0px;
 	width: 100%;
+        
+    .search{
+        position: fixed;
+        right: calc((100% - 1020px)/2);
+        width: q500px;
+        height: 30px;
+        float: right;
+        margin: 5px 20px 20px 0;
+        background-color: rgba(255,255,255,0.9);
+        transition: left 0.15s, width 0.15s;
+        border: none;
+        padding-left: 10px;
+        
+        &.headeranimate{
+            z-index: 200;
+            top: 5px;
+            right : 10px;
+            border : 1px solid black;
+            color: black;
+        }
+        
+        &:hover{
+            width: 200px;
+            transition: left 0.3s, width 0.3s;
+        }
+        
+        &:focus{
+            width: 200px;
+            transition: left 0.3s, width 0.3s;
+        } 
+        
+        
+    }
 
-	.segment{
-		width: 1180px;
-		height: 25px;
-		-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
-		-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
-		box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
-		background-color: #FFF;
-		margin-top: 0;
-		// margin-left: auto;
-		// margin-right: auto;
-		margin-bottom: 20px;
-		display: block;
-		position: fixed;
-		top: 0px;// margin-top: 60px;
-		left: calc((100% - 1180px)/2);
-		
-		&.headeranimate{
-			visibility: hidden;
-		}
-		
-		ul {
-		    list-style: none inside;
-		    margin: 0;
-		    padding: 0;
-
-		    li {
-			    float: left;
-
-			    a {
-		
-				    color: $smartblue;
-				    box-sizing: content-box;
-					font-size: 14px;
-				    display: table-cell;
-				    height: 25px;
-				    padding: 0 8px;
-				    position: relative;
-				    text-align: center;
-				    text-decoration: none;
-				    vertical-align: middle;
-				    // width: 80px;
-				    -ms-touch-action: none;
-				    touch-action: none;
-				    -webkit-tap-highlight-color: rgba(255,255,255,0);
-
-				    &:hover {
-					    background-color: $lightgray;
-					}
-
-					&.active{
-						background-color: $smartblue;
-						color: #FFF;
-
-						&::after{
-							border-left: 8px solid transparent;
-						    border-right: 8px solid transparent;
-						    border-top: 8px solid $smartblue;
-						    content: '';
-						    display: block;
-						    height: 0;
-						    position: absolute;
-						    top: 25px;
-						    left: 50%;
-						    margin-left: -8px;
-						    width: 0;
-						    z-index: 1;
-						}
-
-					}
-
-				}
-
-
-			}
-		}
-
-	}
 
 	.main{
-		width: 1180px;
+		width: 1020px;
 		height: $mainheigt;
 		-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
 		-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
 		box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
-		background-color: $smartblue;
+		background-color: #FFF;
 		margin-left: auto;
 		margin-right: auto;
 		position: absolute;
 		top: 45px;// margin-top: 60px;
-		left: calc((100% - 1180px)/2);
+		left: calc((100% - 1020px)/2);
 		transition: left 0.15s, width 0.15s;
 
-
-
 		&.headeranimate{
-			width: 100%;
+			width: calc(100% - 20px);
+            padding-left: 20px;
 			top: 0;
 			left: 0;
 			position: fixed;
 			transition: left 0.15s, width 0.15s;
-			
-			
+            z-index: 100;
 
 		}
+        
 		.box{
-			width: 1180px;
+            
+			width: 1020px;
 			height: $mainheigt;
-			margin-left: auto;
-			margin-right: auto;
+			//margin-left: auto;
+			//margin-right: auto;
 
-			a{
-				float: left;
-				&.logo{
-					height: $mainheigt;
-					width: 100px;
-					display: block;
-					background: url(../img/smartblacklogo.png) no-repeat;
-				}
-			}
+			.logo{
+                float: left;
+                height: $mainheigt;
+                width: 130px;
+                display: block;
+                background: url(../img/pldt-home.png) no-repeat;
+                background-size: 100px;
+                background-position: center;
+            }
 
 			ul {
 			    list-style: none inside;
@@ -138,19 +93,74 @@ $smallheight: 48px;
 			    li {
 				    float: left;
 			    	cursor: pointer;
-
+                    margin-left: 20px;
+                    
+                    &.internet {
+                            
+                        float: left; 
+                        height: 50px;
+                        width: 100px;
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsMzIuNjM0ODcxMDY1NjcpIHNjYWxlKDcuOTM3NSw3LjkzNzUpICAiIGZpbGw9IiNDMDAwMDAiIGQ9Ik0xNiwxOC40MDIzMDdDMTYuNzk5OTg4LDE4LjQwMjMwNyAxNy41LDE4LjcwMjMxMSAxOC4wOTk5NzYsMTkuMzAyMzE1IDE5LjA5OTk3NiwyMC41MDIzMSAxOSwyMi4yMDIzMDMgMTcuNzk5OTg4LDIzLjMwMjMwNSAxNi41OTk5NzYsMjQuMzAyMzAzIDE0Ljc5OTk4OCwyNC4zMDIzMDMgMTMuNzk5OTg4LDIzLjEwMjI5NSAxMi43OTk5ODgsMjIuMDAyMzA2IDEyLjg5OTk2MywyMC4yMDIzMDcgMTQuMDk5OTc2LDE5LjEwMjMwMyAxNC41OTk5NzYsMTguNjAyMzA0IDE1LjI5OTk4OCwxOC40MDIzMDcgMTYsMTguNDAyMzA3eiBNMTUuNzk5OTg4LDkuODAyMzM1N0MxNy4yOTk5ODgsOS44MDIzMzU3IDE4Ljc5OTk4OCwxMC4xMDIzMjMgMjAuMjAwMDEyLDEwLjcwMjMyOCAyMi4wOTk5NzYsMTEuNjAyMzIgMjMuNzk5OTg4LDEzLjIwMjMyMiAyNS41LDE1LjAwMjMyMUwyMS43OTk5ODgsMTguMzAyMzE3QzE3LjM5OTk2MywxMy44MDIzMjcsMTQuNzAwMDEyLDEzLjMwMjMyOCwxMCwxNy43MDIzMTJMOS43OTk5ODc4LDE3LjkwMjMwOSA2LjU5OTk3NTYsMTQuMjAyMzIgNi43OTk5ODc4LDE0LjAwMjMyM0M5LjI5OTk4NzgsMTEuMzAyMzMzLDEyLjU5OTk3Niw5LjkwMjMyNjUsMTUuNzk5OTg4LDkuODAyMzM1N3ogTTE1Ljc5OTIwNywwLjAwMjI3MTYxMUMxNS45OTk2NzMsLTAuMDAwNzcwOTgxMzIgMTYuMTk5OTY1LC0wLjAwMDc3MDgwMjMzIDE2LjM5OTk2MywwLjAwMjM1NDU4MDcgMTguODk5OTYzLDAuMDAyMzU0MzgxNiAyMS4yOTk5ODgsMC41MDIzNTMyNyAyMy41LDEuNjAyMzQxNiAyNy41OTk5NzYsMy45MDIzMzk3IDMwLjA5OTk3Niw2LjEwMjMzMTYgMzIsOC4yMDIzMzM0TDI4LjA5OTk3NiwxMS43MDIzMjZDMjYuMjk5OTg4LDkuNzAyMzI5NiAyNC4yMDAwMTIsNy44MDIzNCAyMS4zOTk5NjMsNi4zMDIzNDMzIDE1LjM5OTk2MywzLjYwMjMzNzMgNy41OTk5NzU2LDYuMDAyMzQxMiAzLjU5OTk3NTYsMTAuNTAyMzMyTDMuMzk5OTYzNCwxMC43MDIzMjggMCw2LjgwMjM0MjQgMC4yMDAwMTIyMSw2LjYwMjMzMDZDMy4yMDMxMTM2LDMuMTE0ODQ3MSw5LjU4NDc2NDUsMC4wOTY1ODY3MTIsMTUuNzk5MjA3LDAuMDAyMjcxNjExeiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                        background-position: left center;
+                        background-size: 20px;
+                        
+                    }
+                    
+                    &.phone {
+                            
+                        float: left; 
+                        height: 50px;
+                        width: 160px;
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsMzIuNjM4ODk4MjM1NTEwOSkgc2NhbGUoNy45Mzc0OTgxMDYyODg5Niw3LjkzNzQ5ODEwNjI4ODk2KSAgIiBmaWxsPSIjQzAwMDAwIiBkPSJNMTguMDE3NDg1LDE3Ljg0Njk3M0wxOC4wMTc0ODUsMjAuMDQwMDI1IDIwLjMxMDUxNCwyMC4wNDAwMjUgMjAuMzEwNTE0LDE3Ljg0Njk3M3ogTTE0LjUyODQyNSwxNy44NDY5NzNMMTQuNTI4NDI1LDIwLjA0MDAyNSAxNi44MjE0NTUsMjAuMDQwMDI1IDE2LjgyMTQ1NSwxNy44NDY5NzN6IE0xMS4xMzgzNjUsMTcuODQ2OTczTDExLjEzODM2NSwyMC4wNDAwMjUgMTMuNDMxNDI2LDIwLjA0MDAyNSAxMy40MzE0MjYsMTcuODQ2OTczeiBNMTguMDE3NDg1LDE0Ljk1NTk4NEwxOC4wMTc0ODUsMTcuMTQ4OTc1IDIwLjMxMDUxNCwxNy4xNDg5NzUgMjAuMzEwNTE0LDE0Ljk1NTk4NHogTTE0LjUyODQyNSwxNC45NTU5ODRMMTQuNTI4NDI1LDE3LjE0ODk3NSAxNi44MjE0NTUsMTcuMTQ4OTc1IDE2LjgyMTQ1NSwxNC45NTU5ODR6IE0xMS4xMzgzNjUsMTQuOTU1OTg0TDExLjEzODM2NSwxNy4xNDg5NzUgMTMuNDMxNDI2LDE3LjE0ODk3NSAxMy40MzE0MjYsMTQuOTU1OTg0eiBNMTguMDE3NDg1LDExLjg2NDk4MkwxOC4wMTc0ODUsMTQuMDU3OTc0IDIwLjMxMDUxNCwxNC4wNTc5NzQgMjAuMzEwNTE0LDExLjg2NDk4MnogTTE0LjYyNzQyNSwxMS44NjQ5ODJMMTQuNjI3NDI1LDE0LjA1Nzk3NCAxNi45MjA0NTYsMTQuMDU3OTc0IDE2LjkyMDQ1NiwxMS44NjQ5ODJ6IE0xMS4xMzgzNjUsMTEuODY0OTgyTDExLjEzODM2NSwxNC4wNTc5NzQgMTMuNDMxNDI2LDE0LjA1Nzk3NCAxMy40MzE0MjYsMTEuODY0OTgyeiBNOS41NDMzNzMsNy41NzcwMjE1TDEyLjQzNDQwMyw3LjU3NzAyMTUgMTIuNDM0NDAzLDkuNTcxMDA4MSAxOS40MTM1LDkuNTcxMDA4MSAxOS40MTM1LDcuNTc3MDIxNSAyMi4zMDQ1MjksNy41NzcwMjE1IDIyLjMwNDUyOSwxMC45NjcwMzQgMjIuNDA0NTM3LDEwLjk2NzAzNEMyMi40MDQ1MzcsMTAuOTY3MDM0LDI0LjQ5ODU2LDE2LjM1MTAwMywyOC43ODU2MDQsMTkuMDQzMDE4TDI5LjU4MzYxOCwyMy4xMzEwMjcgMjguMjg3NjExLDIzLjEzMTAyNyAyOC4yODc2MTEsMjQuMDI3OTk5IDMuNjYwMjY4NCwyNC4wMjc5OTkgMy42NjAyNjg0LDIzLjEzMTAyNyAyLjM2NDI2MTMsMjMuMTMxMDI3QzIuMzY0MjYxMywyMy4xMzEwMjcgMy4wNjIyNjg2LDE5LjM0MjAyOSAzLjE2MjI3NTcsMTguODQzOTgyIDMuMTYyMjc1OSwxOC44NDM5ODIgNy45NDczNDM3LDE1LjY1MzAwNSA5LjQ0MzM2NTksMTAuODY4MDM1TDkuNTQzMzczLDEwLjg2ODAzNXogTTE1LjQyNTQ0LDBDMTkuMjE0NDkzLDEuOTQ0MTM1OUUtMDggMjMuODAwNTUyLDAuNTk4MDIyMDkgMjguODg1NjEsMi4zOTMwMDM2IDI4Ljg4NTYxLDIuMzkzMDAzOSAzMC45Nzk2MzMsMy4wOTEwMDE0IDMxLjY3NjY2NCw1LjI4NDAyMzcgMzEuNjc2NjY0LDUuMjg0MDIzNyAzMi41NzQ2NTUsOC40NzUwMDA4IDMxLjM3NzY0OSwxMC4yNjkwMzcgMzEuMzc3NjQ5LDEwLjI2OTAzNyAyNS41OTU1NTgsOS45NzAwMjU1IDI0LjU5ODU2Niw5LjQ3MjAwOTEgMjQuNTk4NTY2LDkuNDcyMDA5MSAyMy44MDA1NTIsNC45ODUwMTI1IDIwLjMxMDUxNCw0LjM4NzAyMSAyMC4zMTA1MTQsNC4zODcwMjEgOS43NDIzNTA1LDMuMDkxMDAxNCA4LjY0NTM1MTMsNi4xODIwMDI5IDguNjQ1MzUxMyw2LjE4MjAwMjkgOC4yNDYzMjgyLDkuMTcyOTk3OSA3Ljc0ODMzNTcsOS4zNzIwMDMgNy43NDgzMzU3LDkuMzcyMDAzIDMuMTYyMjc1OSwxMC4yNjkwMzcgMC45NjgyNDYyMywxMC4xNzAwMzggMC45NjgyNDY0NywxMC4xNzAwMzggLTAuODI1NzgzODQsOC4xNzYwMjAxIDAuNDcwMjIzNTIsNS4xODUwMjQ3IDAuNDcwMjIzNDMsNS4xODUwMjQ3IDAuOTY4MjQ2NDcsMy40OTAwMTg1IDIuODYzMjYxMSwyLjQ5MzAwOTcgMi44NjMyNjA5LDIuNDkzMDEgNy41NDkzMjc3LDEuOTQ0MTM1OUUtMDggMTUuNDI1NDQsMHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                        background-position: left center;
+                        background-size: 20px;
+                        
+                    }
+                    
+                    &.tv {
+                            
+                        float: left; 
+                        height: 50px;
+                        width: 200px;
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsMi45ODA0Mzg3MDkyNTkwMykgc2NhbGUoNy45Mzc1LDcuOTM3NSkgICIgZmlsbD0iI0MwMDAwMCIgZD0iTTI3LDI0LjUwMDk5MUMyNi40NDgsMjQuNTAwOTkxIDI2LDI0Ljk0OTk5IDI2LDI1LjUwMDk5MSAyNiwyNi4wNTE5OTEgMjYuNDQ4LDI2LjUwMDk5MSAyNywyNi41MDA5OTEgMjcuNTUyLDI2LjUwMDk5MSAyOCwyNi4wNTE5OTEgMjgsMjUuNTAwOTkxIDI4LDI0Ljk0OTk5IDI3LjU1MiwyNC41MDA5OTEgMjcsMjQuNTAwOTkxeiBNMjcsMjIuNTAwOTkxQzI4LjY1Mzk5OSwyMi41MDA5OTEgMzAsMjMuODQ2OTkyIDMwLDI1LjUwMDk5MSAzMCwyNy4xNTQ5OSAyOC42NTM5OTksMjguNTAwOTkxIDI3LDI4LjUwMDk5MSAyNS4zNDYwMDEsMjguNTAwOTkxIDI0LDI3LjE1NDk5IDI0LDI1LjUwMDk5MSAyNCwyMy44NDY5OTIgMjUuMzQ2MDAxLDIyLjUwMDk5MSAyNywyMi41MDA5OTF6IE0yNywxOC4wMDA5OTFDMjcuODI3OTk5LDE4LjAwMDk5MSAyOC41LDE4LjY3Mjk5MSAyOC41LDE5LjUwMDk5MSAyOC41LDIwLjMyODk5MSAyNy44Mjc5OTksMjEuMDAwOTkxIDI3LDIxLjAwMDk5MSAyNi4xNzIwMDEsMjEuMDAwOTkxIDI1LjUsMjAuMzI4OTkxIDI1LjUsMTkuNTAwOTkxIDI1LjUsMTguNjcyOTkxIDI2LjE3MjAwMSwxOC4wMDA5OTEgMjcsMTguMDAwOTkxeiBNMjcsMTQuMDAwOTkxQzI3LjgyNzk5OSwxNC4wMDA5OTEgMjguNSwxNC42NzI5OTEgMjguNSwxNS41MDA5OTEgMjguNSwxNi4zMjg5OTEgMjcuODI3OTk5LDE3LjAwMDk5MSAyNywxNy4wMDA5OTEgMjYuMTcyMDAxLDE3LjAwMDk5MSAyNS41LDE2LjMyODk5MSAyNS41LDE1LjUwMDk5MSAyNS41LDE0LjY3Mjk5MSAyNi4xNzIwMDEsMTQuMDAwOTkxIDI3LDE0LjAwMDk5MXogTTUsMTIuNTAwOTkxTDUsMjYuNTAwOTkxIDIxLDI2LjUwMDk5MSAyMSwxMi41MDA5OTF6IE01LDEwLjUwMDk5TDIxLDEwLjUwMDk5QzIyLjEwNCwxMC41MDA5OTEsMjMsMTEuMzk1OTkxLDIzLDEyLjUwMDk5MUwyMywyNi41MDA5OTFDMjMsMjcuNjA1OTksMjIuMTA0LDI4LjUwMDk5MSwyMSwyOC41MDA5OTFMNSwyOC41MDA5OTFDMy44OTU5OTk5LDI4LjUwMDk5MSwzLDI3LjYwNTk5LDMsMjYuNTAwOTkxTDMsMTIuNTAwOTkxQzMsMTEuMzk1OTkxLDMuODk1OTk5OSwxMC41MDA5OTEsNSwxMC41MDA5OXogTTIsOS41MDA5OTA0TDIsMjkuNTAwOTkxIDMwLDI5LjUwMDk5MSAzMCwyNS41MDA5OTEgMzAsOS41MDA5OTA0eiBNMS40OTkxODk5LDBDMS43NTQ5MjYsNC43NjgzNzE2RS0wNywyLjAxMDY2MjEsMC4wOTc3NDc4MDMsMi4yMDYxNTE1LDAuMjkzMjQyNDVMOC40OTkwNTExLDYuNTg2MzAxNSAxNC43OTE4NDgsMC4yOTQyMzg1N0MxNS4xODI4MjcsLTAuMDk2NzUwNzM2IDE1LjgxNDc5MywtMC4wOTY3NTA3MzYgMTYuMjA1NzcyLDAuMjk0MjM4NTcgMTYuNTk2NzUsMC42ODUyMjczOSAxNi41OTY3NSwxLjMxODIwOTYgMTYuMjA1NzcyLDEuNzA4MTk5TDE1LjgxNDUyNywyLjA5OTM5ODYgMTUuNzk2NDY4LDIuMTE5Mzc5IDEwLjQxMzQ5Miw3LjUwMDk5MDQgMzEsNy41MDA5OTA0QzMxLjU1MjAwMiw3LjUwMDk5MDksMzIsNy45NDg5ODg5LDMyLDguNTAwOTkwNEwzMiwzMC41MDA5OTFDMzIsMzEuMDUyOTkzLDMxLjU1MjAwMiwzMS41MDA5OTEsMzEsMzEuNTAwOTkxTDEsMzEuNTAwOTkxQzAuNDQ3OTk4MDUsMzEuNTAwOTkxLDAsMzEuMDUyOTkzLDAsMzAuNTAwOTkxTDAsOC41MDA5OTA0QzAsNy45NDg5ODg5LDAuNDQ3OTk4MDUsNy41MDA5OTA5LDEsNy41MDA5OTA0TDYuNTg1ODcwMyw3LjUwMDk5MDQgMC43OTIyMjgyMiwxLjcwNzIwMUMwLjQwMTI0OTQ0LDEuMzE2MjEyMiAwLjQwMTI0OTQ0LDAuNjg0MjMwMzMgMC43OTIyMjgyMiwwLjI5MzI0MjQ1IDAuOTg3NzE3NjMsMC4wOTc3NDc4MDMgMS4yNDM0NTM3LDQuNzY4MzcxNkUtMDcgMS40OTkxODk5LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                        background-position: left center;
+                        background-size: 20px;
+                        
+                    }
+                    
+                    &.bundle {
+                            
+                        float: left; 
+                        height: 50px;
+                        width: 100px;
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDE2Ljc0ODAwMTYzNTA3NDYsMSkgc2NhbGUoNy45Mzc1LDcuOTM3NSkgICIgZmlsbD0iI0MwMDAwMCIgZD0iTTIuMDAyMDc2NiwxMC4zMTM3MDNMMi4wMDIwNzY2LDIyLjczOTAxNCAxMi45NTI5NTEsMjkuMTA4MDU1IDEyLjk1Mjk1MSwxNi41ODI5NDN6IE0yNi4wMjkwNjgsMTAuMjQwODg0TDE0Ljk1NDk5OCwxNi41NzU0NDUgMTQuOTU0OTk4LDI5LjEwOTYxMiAyNi4wMjkwNjgsMjIuNzM1OTYyeiBNNy45NTQ3NDE0LDUuNzY2NzE3TDMuMDQwMjk0MSw4LjYwMjAwOTggMTMuOTQ3MDEyLDE0Ljg0NzAyNCAxOC45MTU3NDksMTIuMDA0NzU4eiBNMTMuOTQ4MDA3LDIuMzA5MDIxTDkuOTY0MjU4MSw0LjYwNzM2NTYgMjAuOTMzODk1LDEwLjg1MDMxOCAyNC44NzI1NDMsOC41OTcyOTI5eiBNMTMuOTQ2MDUzLDBMMjguMDMyLDguMTA2OTk0NiAyOC4wMzIsMjMuODkxOTY4IDEzLjk0NDEsMzIgMCwyMy44ODg5NzcgMCw4LjA0NjAyMDV6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                        background-position: left center;
+                        background-size: 20px;
+                        
+                    }
+                    
+                    &.account {
+                            
+                        float: left; 
+                        height: 50px;
+                        width: 120px;
+                        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEsMTAuMjUxMTYxMzM2ODk4OCkgc2NhbGUoNy45Mzc1LDcuOTM3NSkgICIgZmlsbD0iI0MwMDAwMCIgZD0iTTIxLjkxNDk3OCwxOC43MDk5OTlDMjEuOTE0OTc4LDE4LjcwOTk5OSwzMS4xMjEwMzMsMjAuOTAxMDAxLDMyLDI5LjY2ODk5OUwwLDI5LjY2ODk5OUMwLDI5LjY2ODk5OSwyLjYyOTAyODMsMjAuMDIxOTk2LDEwLjUxODAwNSwxOS4xNDM5OTdMMTIuNjU4MDIsMjguMjk0OTk4IDE0LjIyOTk4LDI4LjI4NDk5NiAxNi4wMTIwMjQsMjMuNjAxOTk3IDE0LjM0ODAyMiwyMC43MDcwMDEgMTcuNjc3MDAyLDIwLjcwNzAwMSAxNi4wNzg5NzksMjMuNjcyOTk3IDE4LjExNjAyOCwyOC4yNTM5OTggMTkuMzQxOTgsMjguMjQzOTk2eiBNMTUuNzc4MDE1LDBDMjAuNjUzOTkyLDAgMjQuNjEyLDMuOTUxOTk1OCAyNC42MTIsOC44MzMwMDAyIDI0LjYxMiwxMy43MDkgMjAuNjUzOTkyLDE3LjY2NiAxNS43NzgwMTUsMTcuNjY2IDEwLjg5NzAzNCwxNy42NjYgNi45NDQwMzA4LDEzLjcwOSA2Ljk0NDAzMDgsOC44MzMwMDAyIDYuOTQ0MDMwOCwzLjk1MTk5NTggMTAuODk3MDM0LDAgMTUuNzc4MDE1LDB6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+                        background-position: left center;
+                        background-size: 20px;
+                        
+                    }
 
 				    a {
 			
-					    color: #FFF;
-					    font-size: 16px;
+					    color: $pldtred;
+					    font-size: 20px;
 					    // font-weight: bold;
 					    box-sizing: content-box;
 		
 					    display: table-cell;
 					    height: $mainheigt;
 					    line-height: $mainheigt;
-					    padding: 0 15px;
+					    padding: 0 10px 0 25px;
 					    position: relative;
 					    text-align: center;
 					    text-decoration: none;
@@ -162,7 +172,7 @@ $smallheight: 48px;
 
 					    &:hover {
 						    // background-color: $lightgray;
-						    color: $lightgray;
+						    //color: $lightgray;
 
 							&::after{
 								border-left: 8px solid transparent;
@@ -181,8 +191,6 @@ $smallheight: 48px;
 						}
 
 						&.active{
-							background-color: $smartblue;
-							color: #FFF;
 
 							&::after{
 								border-left: 8px solid transparent;
@@ -209,24 +217,9 @@ $smallheight: 48px;
 
 			.right{
 				float: right;
-				width: 300px;
+				width: 200px;
+                //margin-right: 30px;
 
-				input{
-					float: left;
-					display: block;
-					height: $mainheigt - 22px;
-					border: 1px solid $smartblue;
-					width: 150px;
-					border-radius: 3px;
-					line-height: $mainheigt - 20px;
-					text-align: center;	
-					font-size: small;
-					margin: 10px 10px;
-					background: #FFF;
-					color: $smartblue;
-					outline: 0;
-
-				}
 			}
 			
 		}
@@ -234,12 +227,10 @@ $smallheight: 48px;
 	}
 
 	.sub{
-		width: 1180px;
-		min-height: 100px;
-		display: block;
+		width: 1020px;
 		background-color: $lightgray;
 		position: absolute;
-		left: calc((100% - 1180px)/2);
+		left: calc((100% - 1020px)/2);
 		top: 45px + $mainheigt;
 		margin: 0 auto;
 		box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
@@ -247,6 +238,7 @@ $smallheight: 48px;
 		&.headeranimate{
 			position: fixed;
 			top: $mainheigt;
+            z-index: 90;
 		}
 
 		&::after{
@@ -256,17 +248,17 @@ $smallheight: 48px;
 		}
 
 		.itm{
-			min-width: 100px;
-			min-height: 100px;
 			float: left;
 			display: block;
-			margin: 20px 30px 40px 40px;
+			margin: 20px 20px 20px 40px;
+            cursor: pointer;
 
 			a{
 				&.head{
 
-					color: $smartblue;
-					font-weight: bold;
+					color: $pldtred;
+					//font-weight: bold;
+                    font-size: 15px;
 				}
 			}
 
@@ -276,12 +268,13 @@ $smallheight: 48px;
 			    padding: 0;
 
 			    li {
-			
+			        
+                    cursor: pointer;
 
 				    a {
 			
 					    color: #000;
-					    font-size: small;
+					    font-size: 15px;
 					    box-sizing: content-box;
 					    display: table-cell;
 					    height: 30px;
@@ -298,11 +291,11 @@ $smallheight: 48px;
 
 					    &:hover {
 						    // background-color: $lightgray;
-						    color: $smartblue;
+						    color: $pldtred;
 						    &::after{
 								border-bottom: 6px solid transparent;
 							    border-top: 6px solid transparent;
-							    border-left: 6px solid $smartblue;
+							    border-left: 6px solid $pldtred;
 							    content: '';
 							    display: block;
 							    height: 0;
