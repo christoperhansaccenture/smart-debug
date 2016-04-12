@@ -1,55 +1,69 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
+import { LayoutService } from '../services/layout.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
     selector: 'pldt-header-pltn',
     templateUrl: 'app/shared/components/header-pltn.component.html'
 })
-export class HeaderPltnComponent implements OnInit {
+export class HeaderPltnComponent {
+    
+    isShowSub = false;
+    subMenu = '';
 
-    constructor() {
+    constructor(private _router:Router,
+    private _layoutService: LayoutService,
+    private _modalService: ModalService) {
 
     }
+    
+    click(){
+        console.log(this._layoutService.currentPage);
+    }
 
-    ngOnInit() {
-
-		var oriClassSegment = "";
-		var oriClassMain = "";
-
-		var hdrsegment = document.getElementById('hdrsegment');
-		var hdrmain = document.getElementById('hdrmain');
-
-		oriClassSegment = hdrsegment.className;
-		oriClassMain = hdrmain.className;
-
-        window.onscroll = function() { myFunction() };
-
-        function myFunction() {
-            //get enabled elements
-
-            var scrollposition = (window.scrollY || window.pageYOffset);
-
-            if (scrollposition > 45) {
-                if (hdrsegment !== "undefined") {
-                    hdrsegment.className += " headeranimate";
-                }
-
-                if (hdrmain !== "undefined") {
-                    hdrmain.className += " headeranimate";
-                }
-
-
-            } else {
-                if (hdrsegment !== "undefined") {
-					console.log(oriClassSegment);
-                    hdrsegment.className = oriClassSegment;
-                }
-
-                if (hdrmain !== "undefined") {
-                    hdrmain.className = oriClassMain;
-                }
-            }
-        }
+    goToHome(){
+        this._router.navigate(['Home']);
+    }
+    
+    goToFibr(){
+        this._router.navigate(["Fibr"]);
+    }
+    
+    goToDSL(){
+        this._router.navigate(["DSL"]);
+    }
+    
+    goToUltera(){
+        this._router.navigate(["Ultera"]);
+    }
+    
+    goToBasicPhone(){
+        this._router.navigate(["BasicPhone"]);
+    }
+    
+    goToCompare(){
+        this._router.navigate(["Compare"]);
+    }
+    
+    goToBundleIvt(){
+        this._router.navigate(["BundleIvt"]);
+    }
+    
+    showSubMenu(menu){
+        this.subMenu = menu;
+        this.isShowSub = true;   
+    }
+    
+    hideSubMenu(){
+        this.isShowSub = false;
+    }
+    keepSubMenu(){
+        this.isShowSub = true;
+    }
+    
+    openLoginModal(){
+        this._modalService.toggleLoginModal();
     }
 
 }

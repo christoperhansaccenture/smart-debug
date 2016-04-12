@@ -1,0 +1,44 @@
+<div class="fibrContainer">
+    <div class="bodyHeader">
+        <div class="menuItem" (click)="goToCompare()">Compare</div>
+        <div class="menuItem selected">Fibr</div>
+        <div class="menuItem" (click)="goToDSL()">DSL</div>
+        <div class="menuItem" (click)="goToUltera()">Ultera 4G</div>
+        <!--<div class="menuItem">Extra Options</div>-->
+    </div> 
+    <div class="fibrBodyContainer">
+        <div class="planDescContainer">
+            <div class="planItem">
+                <div class="fibr"></div>
+                <div class="text">HOME Fibr is the country's most powerful broadband deliveringspeeds of up to 1 Gbps with equal upload and download speeds.</div>
+            </div>
+        </div>
+        <div class="subHeader">
+            Tell us your address, and we'll advice the best available service for you
+        </div>
+        <div class="addressContainer">
+            <div class="addressInnerContainer">
+                <div class="addressItem">
+                    <div class="identifier">Postcode </div><input class="postal"/>
+                </div>
+                <div class="addressItem">
+                    <div class="identifier">Province </div><input />
+                </div>
+                <div class="addressItem">
+                    <div class="identifier">City </div><input />
+                </div>
+                <div class="addressItem">
+                    <div class="identifier">Barangay </div><input />
+                </div>
+                <div class="buttonContainer">
+                    <div class="button" (click)="openItem()">Check Coverage</div>
+                </div>
+            </div>
+        </div>
+        <!--<div id="googleMap" class="map" (click)="openItem()"></div>-->
+        <div class="subHeader" *ngIf="itemShow">
+            Help us find the best plan for you
+        </div>
+        <pldt-plan *ngIf="itemShow"></pldt-plan>
+    </div>
+</div>

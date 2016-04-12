@@ -1,0 +1,52 @@
+<div class="compareContainer">
+    <div class="bodyHeader">
+        <div class="menuItem selected">Compare</div>
+        <div class="menuItem" (click)="goToFibr()">Fibr</div>
+        <div class="menuItem" (click)="goToDSL()">DSL</div>
+        <div class="menuItem" (click)="goToUltera()">Ultera 4G</div>
+        <!--<div class="menuItem">Extra Options</div>-->
+    </div> 
+    <div class="compareBodyContainer">
+        <div class="planDescContainer">
+            <div class="planItem">
+                <div class="fibr" (click)="goToFibr()"></div>
+                <div class="text">HOME Fibr is the country's most powerful broadband deliveringspeeds of up to 1 Gbps with equal upload and download speeds.</div>
+            </div>
+            <div class="planItem">
+                <div class="dsl" (click)="goToDSL()"></div>
+                <div class="text">HOME DSL is the country's home broadband that lets your family enjoy family-sized connection with speeds of up to 15 Mbps with low price</div>
+            </div>
+            <div class="planItem">
+                <div class="ultera" (click)="goToUltera()"></div>
+                <div class="text">HOME Ultera is the country's wireless internet powered by an LTE Wi-Fi, allowing up to 5 users to connect at once, with speed up to 10 Mbps with low price</div>
+            </div>
+        </div>
+        <div class="subHeader">
+            Tell us your address, and we'll advice the best available service for you
+        </div>
+        <div class="addressContainer">
+            <div class="addressInnerContainer">
+                <div class="addressItem">
+                    <div class="identifier">Postcode </div><input class="postal"/>
+                </div>
+                <div class="addressItem">
+                    <div class="identifier">Province </div><input />
+                </div>
+                <div class="addressItem">
+                    <div class="identifier">City </div><input />
+                </div>
+                <div class="addressItem">
+                    <div class="identifier">Barangay </div><input />
+                </div>
+                <div class="buttonContainer">
+                    <div class="button" (click)="openItem()">Check Coverage</div>
+                </div>
+            </div>
+        </div>
+        <!--<div id="googleMap" class="map" (click)="openItem()"></div>-->
+        <div class="subHeader" *ngIf="itemShow">
+            Help us find the best plan for you
+        </div>
+        <pldt-plan *ngIf="itemShow"></pldt-plan>
+    </div>
+</div>

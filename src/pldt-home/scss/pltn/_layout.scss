@@ -1,22 +1,121 @@
 $smartblue: #009CDE;
 $smartgreen: rgb(0, 176, 80);
+$pldtred : rgb(192,0,0);
 $lightgray: #EEE;
 $gray: rgb(217, 217, 217);
 $text-size: 90%;
 $text-dark-gray: rgb(89, 89, 89);
 $text-light-gray: rgb(127, 127, 127);
+
+#maincontainer{
+    padding-bottom: 50px;
+    
+    .banner{
+        height: 500px;
+        width: 100%;
+        background: url(../img/pldt-home-bg.png) no-repeat;
+        background-position: center bottom;
+        margin-bottom: 20px;
+        
+        &.compare{
+            background: url(../img/compare-banner.jpg) no-repeat;
+            background-position: center bottom;
+            margin-bottom: 20px;
+        }
+        
+        &.fibr{
+            background: url(../img/fibr-banner.jpg) no-repeat;
+            background-position: center bottom;
+            margin-bottom: 20px;
+        }
+        
+        &.phone{
+            background: url(../img/phone-banner.jpg) no-repeat;
+            background-position: center bottom;
+            margin-bottom: 20px;
+        }
+        
+        &.bundle{
+            background: url(../img/bundle-banner.jpg) no-repeat;
+            background-position: center bottom;
+            margin-bottom: 20px;
+        }
+        
+    }
+    
+    .bannerAdvr{
+        width: 1020px;
+        padding-bottom: 20px;
+        margin-top: -350px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .advrContainer{
+            width: 520px;
+            height: 130px;
+            background-color: rgba(192,0,0,0.5);
+            display: flex;
+            align-items: flex-end;
+            
+            .advrBody{
+                width: 400px;
+                height: 80px;
+                background-color: $pldtred;
+                text-align: center;
+                padding: 10px;
+                
+                .title{
+                    font-size: 25px;
+                    color: #FFF;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                
+                .desc{
+                    font-size: 20px;
+                    color: #FFF;
+                }
+                
+            }
+            
+        }
+        
+        .button{
+            width: 100px;
+            color: #FFF;
+            margin-top: 20px;
+        }
+        
+    }
+    
+    .bodyContainer{
+        
+        width: 1020px;
+        min-height: 500px;
+        padding-bottom: 20px;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        left: calc((100% - 1020px)/2);
+        
+        &.hideAdv{
+            margin-top: -87px;
+        }
+    
+    }
+    
+}
+
 .bodyDesignPltn {
-    // font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     // font-family: Futura, Arial, sans-serif;
-    font-family: Helvetica, sans-serif;
-    background-color: #FFF;
-    margin: 0;
-    padding: 0;
+    //font-family: Helvetica, sans-serif;
+    background-color: #EEE;
     font-size: 10.5pt;
-    line-height: 1.1rem;
     a {
         text-decoration: none
     }
+    
     .outer-box {
         background-color: $lightgray;
         padding: 10px;
@@ -27,13 +126,15 @@ $text-light-gray: rgb(127, 127, 127);
         }
     }
     .button {
-        background-color: $smartblue;
+        background-color: $pldtred;
         text-align: center;
         padding: 8px;
         clear: both;
         bottom: 0px;
         width: 200px;
         border-radius: 3px;
+        cursor: pointer;
+        
         a {
             color: white;
             display: inline-block;

@@ -1,0 +1,211 @@
+<div class="filterContainer">
+    <div class="filterSlider">
+        <div class="sliderBox">
+            <div class="description">Price</div>
+            <multi-slider
+                [type]="'price'"
+                [start]="getFilter().price"
+                [range]="{min:999, max:5000}"
+                (slide)="getFilter().price = $event"
+                ></multi-slider>
+        </div>
+        <div class="sliderBox">
+            <div class="description">Speed</div>
+            <multi-slider
+                [type]="'speed'"
+                [start]="getFilter().speed"
+                [range]="{min:1, max:100}"
+                (slide)="getFilter().speed = $event"
+                ></multi-slider>
+            <div class="description left">email user</div>
+            <div class="description right">HDTV movies addict</div>
+        </div>
+        <div class="sliderBox">
+            <div class="description">Quota</div>
+            <multi-slider
+                [type]="'quota'"
+                [start]="getFilter().quota"
+                [range]="{min:80, max:200}"
+                (slide)="getFilter().quota = $event"
+                ></multi-slider>
+            <div class="description left">casual browser</div>
+            <div class="description right">video streaming addict</div>
+        </div>
+    </div>
+    <div class="categoryFilter">
+        <div class="categoryBox">
+            <div class="title">Categories</div>
+            <div class="options">
+                <ul>
+                    <li>
+                        <input class="check" type="checkbox"/>
+                        <span class="">All</span>
+                    </li>
+                    <li>
+                        <input class="check" type="checkbox"/>
+                        <span class="">Internet Only</span>
+                    </li>
+                    <li>
+                        <div>
+                            <input class="check" type="checkbox"/>
+                            <span class="">Internet + Home Phone</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <input class="check" type="checkbox"/>
+                            <span class="">Internet + TV Channel</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <input class="check" type="checkbox"/>
+                            <span class="">All-in-1</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="planBodyContainer">
+    <div class="backButton"></div>
+    <div class="nextButton"></div>
+    <div class="planContainer">
+        <div class="planItem">
+            <input class="check" name="plan" type="radio" />
+            <div class="planName">Lite Plan</div>
+            <div class="planBody">
+                <div class="planText">Speed up to</div>
+                <div class="planIcon">
+                    <div class="text smaller">30 Mbps</div>
+                </div>
+                <div class="planIcon left">
+                    <div class="text smaller">45 Channels</div>
+                </div>
+                <div class="planIcon right">
+                    <div class="text smaller">Free Phone Service</div>
+                </div>
+            </div>
+            <div class="planDesc">
+                <ul>
+                    <li>Unlimited Internet</li>
+                    <li>FREE Wi-Fi modem</li>
+                    <li>FREE Installation</li>
+                </ul>
+            </div>
+        </div>
+        <div class="planItem">
+            <input class="check" name="plan" type="radio" />
+            <div class="planName">Medium Plan</div>
+            <div class="planBody">
+                <div class="planText">Speed up to</div>
+                <div class="planIcon">
+                    <div class="text smaller">50 Mbps</div>
+                </div>
+                <div class="planIcon left">
+                    <div class="text smaller">80 Channels</div>
+                </div>
+                <div class="planIcon right">
+                    <div class="text smaller">Free Phone Service</div>
+                </div>
+            </div>
+            <div class="planDesc">
+                <ul>
+                    <li>Unlimited Internet</li>
+                    <li>FREE Wi-Fi modem</li>
+                    <li>FREE Installation</li>
+                </ul>
+            </div>
+        </div>
+        <div class="planItem">
+            <input class="check" name="plan" type="radio" />
+            <div class="planName">Heavy Plan</div>
+            <div class="planBody">
+                <div class="planText">Speed up to</div>
+                <div class="planIcon">
+                    <div class="text smaller">100 Mbps</div>
+                </div>
+                <div class="planIcon left">
+                    <div class="text smaller">100 Channels</div>
+                </div>
+                <div class="planIcon right">
+                    <div class="text smaller">Free Phone Service</div>
+                </div>
+            </div>
+            <div class="planDesc">
+                <ul>
+                    <li>Unlimited Internet</li>
+                    <li>FREE Wi-Fi modem</li>
+                    <li>FREE Installation</li>
+                </ul>
+            </div>
+        </div>
+    </div>  
+    <div class="valueContainer">
+        <div class="valueHeader">WANT EVEN BETTER VALUE?</div>
+        <div class="valueSubHeader">Pick from our best plans, best value for you!</div>
+        <div class="valuePlan">
+            <input class="check" type="checkbox" />
+            <div class="valueBody">
+                <div class="valuePicture"></div>
+                <div class="valueText">iPhone 6S</div>
+                <div class="valueText2">with Smart Mobile Plan</div>
+            </div>
+            <div class="valueDesc">
+                <ul>
+                    <li>500 call minutes to Smart, Sun, TNT, and PLDT</li>
+                    <li>2,000 All-Net SMS</li>
+                    <li>250 MB Mobile Internet</li>
+                    <li>300 MB Internet Usage for FB/IG/ and Viber</li>
+                    <li>Unlimited Music Spinnr Streaming</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="addOnsContainer">
+        <div class="addOnsHeader">CHOOSE ADD-ON(S)</div>
+        <div class="addOnsSubHeader">Pick from our best plans, best value for you!</div>
+        <!--<div class="category">
+            <div class="left">Devices</div>
+            <div class="right">Call-All Bundles</div>
+        </div>-->
+        <div class="addOnsItemContainer">
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">TVOLUTION BOX</div>
+                <div class="addOnsPicture tvolution"></div>
+                <div class="addOnsDesc">Watch videos on demand on your TV</div>
+                <div class="addOnsCost">Only P199/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">BASIC FAM CAM</div>
+                <div class="addOnsPicture famcam"></div>
+                <div class="addOnsDesc">Monitor your family even when you're away</div>
+                <div class="addOnsCost">Only P99/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">ADVANCED FAM CAM</div>
+                <div class="addOnsPicture famcamAdvance"></div>
+                <div class="addOnsDesc">Unites family even when away from home with 2-way audio feature</div>
+                <div class="addOnsCost">Only P499/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">WIFI REPEATER</div>
+                <div class="addOnsPicture repeater"></div>
+                <div class="addOnsDesc">Extend WiFi signal at home with WiFi repeater</div>
+                <div class="addOnsCost">Only P99/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <div class="button" (click)="openItem()">Buy Now</div>
+    </div>
+</div>

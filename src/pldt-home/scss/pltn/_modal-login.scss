@@ -1,0 +1,82 @@
+.modalLoginContent{
+    background-color: #FFF;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 85%;
+    max-width: 320px;
+    padding: 5px;
+    border: 1px solid $lightgray;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4);
+    border-radius: 15px;
+
+    .close {
+        position: relative;
+        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMC4wMDQwODkyMjQ4MjU4MzMwNykgc2NhbGUoNy45OTk3NDQ0MjM0NDgzOSw3Ljk5OTc0NDQyMzQ0ODM5KSAgIiBmaWxsPSIjODM4MzgzIiBkPSJNMS40NDIwMzcsMEwxNi4wMDIwMzEsMTQuNTg1NzUxIDMwLjU4ODAyMiwwLjAyNTk5NjU2MyAzMi4wMDEwMjQsMS40NDA5OTY1IDE3LjQxNDc4MywxNi4wMDEwMDIgMzEuOTc1MDMsMzAuNTg3MDA2IDMwLjU2MDAyMiwzMiAxNS45OTkyNjgsMTcuNDEzOTY5IDEuNDEzMDAwOSwzMS45NzM5OTkgMCwzMC41NTg5OTggMTQuNTg2NDk0LDE1Ljk5ODc0MiAwLjAyNzAyODQ3MiwxLjQxNDAwMTl6IiAvPg0KICA8L2c+DQo8L3N2Zz4=") no-repeat;
+        background-size: 30px;
+        background-position: center center;
+        height: 15px;
+        width: 15px;
+        margin-top: 5px;
+        margin-right: 5px;
+        float: right;
+        cursor: pointer;
+    }
+    
+    .modalBody{
+    
+        display: inline-block;
+        padding: 15px;
+        width: 92%;
+
+        .header {
+			color: $pldtred;
+			font-size: 20px;
+			line-height: 40px;
+			padding-right: 20px;
+			margin-bottom: 10px;
+		}
+		
+		.inner-box {
+			
+			border: 0;
+			text-align: center;
+			padding: 0;
+
+			.button {
+				width: 100%;
+				margin: 60px auto 18px;
+				cursor: pointer;
+				border: 1px solid #FFF;
+				padding-right: 0;
+				padding-left: 0;
+                
+			}
+
+			input {
+				width: 100%;
+				margin: 2px auto;
+				display: block;
+				height: 20px;
+				border: none;
+				line-height: 20px;
+				font-size: 15px;
+				margin-bottom: 5px;
+				background-color: rgba(0, 0, 0, 0);
+				outline: 0;
+				color : #FFF;
+                border-bottom: 1px solid black;
+				
+			}
+			
+			p {
+				a {
+					color: black;
+					text-decoration: underline;
+					cursor: pointer;
+				}
+			}
+		}
+    
+    }
+        
+}   

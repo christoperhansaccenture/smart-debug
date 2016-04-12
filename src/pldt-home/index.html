@@ -22,6 +22,8 @@
     <script src="scripts/http.dev.js"></script>
     <script src="scripts/fastclick.js"></script>
     <script src="scripts/nouislider.js"></script>
+    <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDt4cooKUTRCjntf-1YzJjLt4EbEu3-nZk"></script>-->
+    <script type="text/javascript" src="app/shared/mapping.js"></script>
     <script>
     </script>
 </head>
@@ -29,11 +31,11 @@
 <body>
     <pldt-app>Loading...</pldt-app>
     <script>
-    if ('addEventListener' in document) {
-        document.addEventListener('DOMContentLoaded', function() {
-            FastClick.attach(document.body);
-        }, false);
-    }
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        }
     </script>
     <!-- start scripts -->
     <script src="init.js"></script>
