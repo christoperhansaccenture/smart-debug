@@ -8,6 +8,7 @@ import {Connection} from 'angular2/http';
 import {RequestOptions} from 'angular2/http';
 import {SmartIntegrationService} from './smart-integration.service';
 import {AccountService} from './account.service';
+import {CatalogService} from '../../my-rewards/services/catalog.service';
 
 declare var configChannel: any;
 declare var configAppType: any;
@@ -25,7 +26,8 @@ export class AuthService {
     constructor (private _http: Http,
     private _router:Router,
     private _smartIntegrationService: SmartIntegrationService,
-        private _accountService: AccountService) {
+        private _accountService: AccountService,
+        private _catalogService: CatalogService) {
         // get service base from config file
         var url = 'services/api.json';
         this._http.get(url)
@@ -113,6 +115,8 @@ export class AuthService {
                     localStorage.setItem('accessToken', response.json().accessToken);  
                     this._accountService.getMobileNumberlistFromBackEndPromise(true).then(
                         resolve => {
+                            // load catalogs
+                            this._catalogService.loadAllCatalogs(false);
                             if(configChannel === 'app'){
                                 if(configAppType === 'smart'){
                                     this._router.navigate(['MySmart']);
@@ -171,6 +175,8 @@ export class AuthService {
                 localStorage.setItem('refreshToken', response.json().refreshToken);
                 this._accountService.getMobileNumberlistFromBackEndPromise(true).then(
                     resolve => {
+                        // load catalogs
+                        this._catalogService.loadAllCatalogs(false);
                         if(configChannel === 'app'){
                             if(configAppType === 'smart'){
                                 this._router.navigate(['MainPage','MySmart']);

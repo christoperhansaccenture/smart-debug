@@ -90,10 +90,12 @@ export class CatalogService {
         return !(catalogInStorage === null || catalogInStorage === undefined);
     }
 
+    loadingCatalogs: boolean = false;
     loadAllCatalogs(refresh: boolean = false) {
         //console.log(this._smartIntegrationService.imageUrlBase);
         if(!this.isCatalogsLoaded()){
             if (refresh || !this.catalogs) {
+                this.loadingCatalogs = true;
                 this._smartIntegrationService
                 .getCatalogs()
                 .subscribe(
@@ -121,10 +123,12 @@ export class CatalogService {
                         let currentPhone = this._accountService.mobileNoList.filter(e => min == e.phoneNo)[0];
                         console.log('mobile no list: ' + JSON.stringify(this._accountService.mobileNoList));
                         this.catalogs = this.catalogs.filter(catalog => catalog.ssoBrands.indexOf(currentPhone.ssoBrand) > -1);
+                        this.loadingCatalogs = false;
                         
                     },
                     error =>{
                         console.log('not authorized?');
+                        this.loadingCatalogs = false;
                     }
                 );
                 
