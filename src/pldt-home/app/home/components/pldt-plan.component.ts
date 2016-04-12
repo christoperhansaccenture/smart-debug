@@ -14,8 +14,8 @@ export class PldtPlanComponent{
     
     filter = {
         price : [999,5000],
-        speed : [1,1000],
-        quota : [80,1000]    
+        speed : [1,100],
+        quota : [80,200]    
     };
 
     constructor(private _router:Router) {

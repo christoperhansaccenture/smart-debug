@@ -14,7 +14,7 @@
             <multi-slider
                 [type]="'speed'"
                 [start]="getFilter().speed"
-                [range]="{min:1, max:1000}"
+                [range]="{min:1, max:100}"
                 (slide)="getFilter().speed = $event"
                 ></multi-slider>
             <div class="description left">email user</div>
@@ -25,7 +25,7 @@
             <multi-slider
                 [type]="'quota'"
                 [start]="getFilter().quota"
-                [range]="{min:80, max:201}"
+                [range]="{min:80, max:200}"
                 (slide)="getFilter().quota = $event"
                 ></multi-slider>
             <div class="description left">casual browser</div>
@@ -78,13 +78,18 @@
             <div class="planBody">
                 <div class="planText">Speed up to</div>
                 <div class="planIcon">
-                    <div class="text">30 Mbps</div>
+                    <div class="text smaller">30 Mbps</div>
                 </div>
-                <div class="planTerm"></div>
+                <div class="planIcon left">
+                    <div class="text smaller">45 Channels</div>
+                </div>
+                <div class="planIcon right">
+                    <div class="text smaller">Free Phone Service</div>
+                </div>
             </div>
             <div class="planDesc">
                 <ul>
-                    <li>80 GB/mo volume allowance</li>
+                    <li>Unlimited Internet</li>
                     <li>FREE Wi-Fi modem</li>
                     <li>FREE Installation</li>
                 </ul>
@@ -96,13 +101,18 @@
             <div class="planBody">
                 <div class="planText">Speed up to</div>
                 <div class="planIcon">
-                    <div class="text">50 Mbps</div>
+                    <div class="text smaller">50 Mbps</div>
                 </div>
-                <div class="planTerm">Apply now and get 2X speed*</div>
+                <div class="planIcon left">
+                    <div class="text smaller">80 Channels</div>
+                </div>
+                <div class="planIcon right">
+                    <div class="text smaller">Free Phone Service</div>
+                </div>
             </div>
             <div class="planDesc">
                 <ul>
-                    <li>Unlimited</li>
+                    <li>Unlimited Internet</li>
                     <li>FREE Wi-Fi modem</li>
                     <li>FREE Installation</li>
                 </ul>
@@ -114,90 +124,24 @@
             <div class="planBody">
                 <div class="planText">Speed up to</div>
                 <div class="planIcon">
-                    <div class="text">100 Mbps</div>
+                    <div class="text smaller">100 Mbps</div>
                 </div>
-                <div class="planTerm">Apply now and get 2X speed*</div>
+                <div class="planIcon left">
+                    <div class="text smaller">100 Channels</div>
+                </div>
+                <div class="planIcon right">
+                    <div class="text smaller">Free Phone Service</div>
+                </div>
             </div>
             <div class="planDesc">
                 <ul>
-                    <li>Unlimited</li>
+                    <li>Unlimited Internet</li>
                     <li>FREE Wi-Fi modem</li>
                     <li>FREE Installation</li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="planBonusContainer">
-        <div class="planBonus">
-            <div class="bonusBody">
-                <div class="bonusHeader">Comes With</div>
-                <div class="bonusPicture"></div>
-                <div class="bonusDesc">Free movies & TV channels</div>
-                <div class="phonePicture"></div>
-                <div class="bonusDesc">Free Basic Phone</div>
-            </div>
-        </div>
-        <div class="planBonus">
-            <div class="bonusBody">
-                <div class="bonusHeader">Comes With</div>
-                <div class="bonusPicture"></div>
-                <div class="bonusDesc">Free movies & TV channels</div>
-                <div class="phonePicture"></div>
-                <div class="bonusDesc">Free Basic Phone</div>
-            </div>
-        </div>
-        <div class="planBonus">
-            <div class="bonusBody">
-                <div class="bonusHeader">Comes With</div>
-                <div class="bonusPicture other"></div>
-                <div class="bonusDesc">Free movies & TV channels</div>
-                <div class="phonePicture"></div>
-                <div class="bonusDesc">Free Basic Phone</div>
-            </div>
-        </div>
-    </div>
-    <div class="addOnsContainer">
-        <div class="addOnsHeader">CHOOSE ADD-ON(S)</div>
-        <div class="addOnsSubHeader">Pick from our best plans, best value for you!</div>
-        <div class="category">
-            <div class="left">Devices</div>
-            <div class="right">Call-All Bundles</div>
-        </div>
-        <div class="addOnsItemContainer">
-            <div class="addOnsItem">
-                <input class="check" type="checkbox" />
-                <div class="addOnsName">TVOLUTION BOX</div>
-                <!--<div class="addOnsPicture tv"></div>-->
-                <div class="addOnsDesc">Watch videos on demand on your TV</div>
-                <div class="addOnsCost">Only P199/mo</div>
-                <div class="addOnsLearn">LEARN MORE</div>
-            </div>
-            <div class="addOnsItem">
-                <input class="check" type="checkbox" />
-                <div class="addOnsName">BASIC FAM CAM</div>
-                <!--<div class="addOnsPicture tv"></div>-->
-                <div class="addOnsDesc">Monitor your family even when you're away</div>
-                <div class="addOnsCost">Only P99/mo</div>
-                <div class="addOnsLearn">LEARN MORE</div>
-            </div>
-            <div class="addOnsItem">
-                <input class="check" type="checkbox" />
-                <div class="addOnsName">ADVANCED FAM CAM</div>
-                <!--<div class="addOnsPicture tv"></div>-->
-                <div class="addOnsDesc">Unites family even when away from home with 2-way audio feature</div>
-                <div class="addOnsCost">Only P499/mo</div>
-                <div class="addOnsLearn">LEARN MORE</div>
-            </div>
-            <div class="addOnsItem">
-                <input class="check" type="checkbox" />
-                <div class="addOnsName">WIFI REPEATER</div>
-                <!--<div class="addOnsPicture tv"></div>-->
-                <div class="addOnsDesc">Extend WiFi signal at home with WiFi repeater</div>
-                <div class="addOnsCost">Only P99/mo</div>
-                <div class="addOnsLearn">LEARN MORE</div>
-            </div>
-        </div>
-    </div>
+    </div>  
     <div class="valueContainer">
         <div class="valueHeader">WANT EVEN BETTER VALUE?</div>
         <div class="valueSubHeader">Pick from our best plans, best value for you!</div>
@@ -216,6 +160,48 @@
                     <li>300 MB Internet Usage for FB/IG/ and Viber</li>
                     <li>Unlimited Music Spinnr Streaming</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="addOnsContainer">
+        <div class="addOnsHeader">CHOOSE ADD-ON(S)</div>
+        <div class="addOnsSubHeader">Pick from our best plans, best value for you!</div>
+        <!--<div class="category">
+            <div class="left">Devices</div>
+            <div class="right">Call-All Bundles</div>
+        </div>-->
+        <div class="addOnsItemContainer">
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">TVOLUTION BOX</div>
+                <div class="addOnsPicture tvolution"></div>
+                <div class="addOnsDesc">Watch videos on demand on your TV</div>
+                <div class="addOnsCost">Only P199/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">BASIC FAM CAM</div>
+                <div class="addOnsPicture famcam"></div>
+                <div class="addOnsDesc">Monitor your family even when you're away</div>
+                <div class="addOnsCost">Only P99/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">ADVANCED FAM CAM</div>
+                <div class="addOnsPicture famcamAdvance"></div>
+                <div class="addOnsDesc">Unites family even when away from home with 2-way audio feature</div>
+                <div class="addOnsCost">Only P499/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
+            </div>
+            <div class="addOnsItem">
+                <input class="check" type="checkbox" />
+                <div class="addOnsName">WIFI REPEATER</div>
+                <div class="addOnsPicture repeater"></div>
+                <div class="addOnsDesc">Extend WiFi signal at home with WiFi repeater</div>
+                <div class="addOnsCost">Only P99/mo</div>
+                <div class="addOnsLearn">LEARN MORE</div>
             </div>
         </div>
     </div>

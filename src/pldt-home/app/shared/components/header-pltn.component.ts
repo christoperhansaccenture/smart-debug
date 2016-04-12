@@ -42,6 +42,10 @@ export class HeaderPltnComponent {
         this._router.navigate(["BasicPhone"]);
     }
     
+    goToCompare(){
+        this._router.navigate(["Compare"]);
+    }
+    
     goToBundleIvt(){
         this._router.navigate(["BundleIvt"]);
     }

@@ -4,13 +4,13 @@ import { LayoutService } from '../../shared/services/layout.service';
 import {MultiSliderComponent} from '../../shared/components/multi-slider.component';
 
 @Component({
-    selector: 'bundle-plan',
-    templateUrl: 'app/home/components/bundle-plan.component.html',
+    selector: 'dsl-plan',
+    templateUrl: 'app/home/components/dsl-plan.component.html',
     directives: [
         MultiSliderComponent
     ]
 })
-export class BundlePlanComponent{
+export class DSLPlanComponent{
     
     filter = {
         price : [999,5000],

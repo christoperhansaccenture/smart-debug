@@ -88,7 +88,7 @@ export class MultiSliderComponent implements AfterViewInit, OnInit {
                     },
                     {to: function( value, start, settings ) {
                         
-                            if(value===1000){
+                            if(value===200){
                                 return 'unlimited';
                             }else{
                                 return Math.floor(value) + ' GB';

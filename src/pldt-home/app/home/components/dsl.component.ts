@@ -2,14 +2,14 @@ import { Component } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { LayoutService } from '../../shared/services/layout.service';
 import {MultiSliderComponent} from '../../shared/components/multi-slider.component';
-import {PldtPlanComponent} from './pldt-plan.component';
+import {DSLPlanComponent} from './dsl-plan.component';
 
 @Component({
     selector: 'dsl',
     templateUrl: 'app/home/components/dsl.component.html',
     directives: [
         MultiSliderComponent,
-        PldtPlanComponent
+        DSLPlanComponent
     ],
 })
 export class DSLComponent{
