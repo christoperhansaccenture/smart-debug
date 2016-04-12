@@ -1,7 +1,7 @@
 .filterContainer{
     width: calc(100% - 44px);
     margin: 20px 20px 20px 20px;
-    border: 2px solid #EEE;
+    border: 2px solid #EEF;
     float: left;
     
     .filterSlider{
@@ -32,6 +32,7 @@
                     width: 100px;
                     margin-top: 10px;
                     margin-bottom: 10px;
+                    font-weight: normal;
                 }
                 
                 &.right{
@@ -40,6 +41,7 @@
                     margin-bottom: 10px;
                     margin-left: 100px;
                     text-align: right;
+                    font-weight: normal;
                 }
                 
             }
