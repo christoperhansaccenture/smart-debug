@@ -55,6 +55,7 @@ app.use(cookieParser());
 app.use(function (req, res, next) {
     //res.header("Access-Control-Allow-Origin", "*"); // doesn't work when using cookie
     let allow;
+    console.log('hostname: ' + req.hostname);
     if (req.hostname == 'localhost') {
         allow = 'http://localhost:3000';
     }
