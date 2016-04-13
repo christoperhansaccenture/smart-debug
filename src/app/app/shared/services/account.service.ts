@@ -388,4 +388,41 @@ export class AccountService {
         return this.userPhoneNumber;
     }
     
+    linkAccount(min:string):boolean{
+        var promise = this._smartIntegrationService.linkAccount(min);
+        var res;
+        promise.subscribe(
+            response => {
+                console.log(response.json());
+                //open modal successfully transfer
+                res = true;
+            },
+            error =>{
+                //open modal failed transfer
+                this._modalService.setErrorMessage(error.json().message);
+                this._modalService.toggleErrorModal();
+                res = false;
+            }
+        );
+        return res;
+    }
+    
+    unlinkAccount(min:string):boolean{
+        var promise = this._smartIntegrationService.unlinkAccount(min);
+        var res;
+        promise.subscribe(
+            response => {
+                console.log(response.json());
+                //open modal successfully transfer
+                res = true;
+            },
+            error =>{
+                //open modal failed transfer
+                this._modalService.setErrorMessage(error.json().message);
+                this._modalService.toggleErrorModal();
+                res = false;
+            }
+        );
+        return res;
+    }
 }

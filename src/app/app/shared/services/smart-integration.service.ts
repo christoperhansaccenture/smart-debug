@@ -8,6 +8,8 @@ import {RequestOptions} from 'angular2/http';
 import {Catalog} from '../models/catalog';
 import {CartItem} from '../models/cart-item';
 
+declare var configChannel: any;
+
 @Injectable()
 export class SmartIntegrationService {
     
@@ -144,6 +146,40 @@ export class SmartIntegrationService {
 
         return this._http.post(url,transferData);
 
+    }
+    
+    linkAccount(childNumber:string){
+        let url = this.serviceBase + '/linkAccount';
+        let parentNumber = localStorage.getItem('mobileNo');
+        let source;
+        if(configChannel === 'web'){
+            source = '2';
+        }else{
+            source = '3';
+        }
+        let data = {
+            parentNumber : parentNumber,
+            childNumber : childNumber,
+            source : source
+        };        
+        return this._http.post(url,JSON.stringify(data));
+    }
+    
+    unlinkAccount(childNumber:string){
+        let url = this.serviceBase + '/unlinkAccount';
+        let parentNumber = localStorage.getItem('mobileNo');
+        let source;
+        if(configChannel === 'web'){
+            source = '2';
+        }else{
+            source = '3';
+        }
+        let data = {
+            parentNumber : parentNumber,
+            childNumber : childNumber,
+            source : source
+        };        
+        return this._http.post(url,JSON.stringify(data));
     }
     
 }

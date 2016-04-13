@@ -40,7 +40,7 @@ export class AddNumberComponent  {
     }
     
     goTonextPageOfAddNumber(){
-        this._router.navigate(['AddNumberConfirm']);
+        this._router.navigate(['AddNumberConfirm',{mobileNumber: this.mobileNumber}]);
         ga('send','event','Button Clicked','AddNumberConfirm','');
     }
     

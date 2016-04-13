@@ -513,12 +513,12 @@ class AccountController {
     linkAccount(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var jsonBody = {
-                min: req.body.min,
-                primaryLoyaltyId: req.body.primaryLoyaltyId,
-                childLoyaltyId: req.body.childLoyaltyId,
-                lrqSource: req.body.lrqSource,
-                lrqInitiator: req.body.lrqInitiator,
-                channel: req.body.channel
+                min: req.body.parentNumber,
+                primaryLoyaltyId: req.body.parentNumber,
+                childLoyaltyId: req.body.childNumber,
+                lrqSource: req.body.source,
+                lrqInitiator: req.body.parentNumber,
+                channel: req.body.source
             };
             var jwt = res.locals.jwt;
             console.log(jwt);
@@ -537,12 +537,12 @@ class AccountController {
     unlinkAccount(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var jsonBody = {
-                min: req.body.min,
-                primaryLoyaltyId: req.body.primaryLoyaltyId,
-                childLoyaltyId: req.body.childLoyaltyId,
-                lrqSource: req.body.lrqSource,
-                lrqInitiator: req.body.lrqInitiator,
-                channel: req.body.channel
+                min: req.body.parentNumber,
+                primaryLoyaltyId: req.body.parentNumber,
+                childLoyaltyId: req.body.childNumber,
+                lrqSource: req.body.source,
+                lrqInitiator: req.body.parentNumber,
+                channel: req.body.source
             };
             var jwt = res.locals.jwt;
             console.log(jwt);

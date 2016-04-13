@@ -636,12 +636,12 @@ var config = require('../config/config');
             
             async linkAccount(req:string,res:string) : Promise<string> {                
                 var jsonBody ={
-                    min: req.body.min,
-                    primaryLoyaltyId: req.body.primaryLoyaltyId,
-                    childLoyaltyId: req.body.childLoyaltyId,
-                    lrqSource: req.body.lrqSource,
-                    lrqInitiator: req.body.lrqInitiator,
-                    channel: req.body.channel
+                    min: req.body.parentNumber,
+                    primaryLoyaltyId: req.body.parentNumber,
+                    childLoyaltyId: req.body.childNumber,
+                    lrqSource: req.body.source,
+                    lrqInitiator: req.body.parentNumber,
+                    channel: req.body.source
                 };
                 
                 var jwt = res.locals.jwt;
@@ -663,12 +663,12 @@ var config = require('../config/config');
             
             async unlinkAccount(req:string,res:string) : Promise<string> {
                 var jsonBody ={
-                    min: req.body.min,
-                    primaryLoyaltyId: req.body.primaryLoyaltyId,
-                    childLoyaltyId: req.body.childLoyaltyId,
-                    lrqSource: req.body.lrqSource,
-                    lrqInitiator: req.body.lrqInitiator,
-                    channel: req.body.channel
+                    min: req.body.parentNumber,
+                    primaryLoyaltyId: req.body.parentNumber,
+                    childLoyaltyId: req.body.childNumber,
+                    lrqSource: req.body.source,
+                    lrqInitiator: req.body.parentNumber,
+                    channel: req.body.source
                 };
                 
                 var jwt = res.locals.jwt;
