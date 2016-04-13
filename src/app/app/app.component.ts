@@ -90,6 +90,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit(){
         this.OnResize();
+        this._router.navigate(['Starter', 'Login']);
     }
     
     OnResize(){
