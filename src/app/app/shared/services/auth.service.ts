@@ -138,13 +138,17 @@ export class AuthService {
     }
 
     refreshAccessToken() {
-        const refreshToken: string = localStorage.getItem('refreshToken');
         const url: string = this.serviceBase + '/token/renew';
-        if (refreshToken) {
-            let data = {
-                "refreshToken": refreshToken
-            };
-            return this._http.post(url, JSON.stringify(data));
+        if (configChannel === 'app') {
+            const refreshToken: string = localStorage.getItem('refreshToken');
+            if (refreshToken) {
+                let data = {
+                    "refreshToken": refreshToken
+                };
+                return this._http.post(url, JSON.stringify(data));
+            }
+        } else {
+            return this._http.post(url, null);
         }
         return null;
     }
