@@ -93,18 +93,34 @@
             <div class="itemContainer">
                 <div id="hdrProfPicLarge" class="profilePicture"></div>
                 <div class="body">
-                    <div class="menuItem shorter" (click)="goToMySmart()">
+                    <!--<div class="menuItem shorter" (click)="goToMySmart()">
                         <div class="smart"></div>
                         <div class="menuText shorter" [ngClass]="{selected : isSmartPage()}"><span>My Smart</span></div>
-                    </div>
-                    <div class="menuItem" (click)="goToMyReward()">
-                        <div class="rewards"></div>
-                        <div class="menuText" [ngClass]="{selected : isRewardsPage()}"><span>My Rewards</span></div>
+                    </div>-->
+                    <div class="menuItem" (click)="goToMySmart()">
+                        <div class="overview"></div>
+                        <div class="menuText" [ngClass]="{selected : isSmartPage()}"><span>Overview</span></div>
                     </div>
                     <div class="menuItem" (click)="goToAccount()">
                         <div class="account"></div>
-                        <div class="menuText" [ngClass]="{selected : isAccountPage()}"><span>My Account</span></div>
+                        <div class="menuText" [ngClass]="{selected : isAccountPage()}"><span>Account Management</span></div>
                     </div>
+                    <div class="menuItem">
+                        <div class="billing"></div>
+                        <div class="menuText"><span>Billing & Payment</span></div>
+                    </div>
+                    <div class="menuItem" (click)="goToMyReward()">
+                        <div class="rewards"></div>
+                        <div class="menuText" [ngClass]="{selected : isRewardsPage()}"><span>Rewards</span></div>
+                    </div>
+                    <div class="menuItem">
+                        <div class="help"></div>
+                        <div class="menuText"><span>Help</span></div>
+                    </div>
+                    <!--<div class="menuItem" (click)="goToAccount()">
+                        <div class="account"></div>
+                        <div class="menuText" [ngClass]="{selected : isAccountPage()}"><span>My Account</span></div>
+                    </div>-->
                     <div class="menuItem" (click)="logout()">
                         <div class="logout"></div>
                         <div class="menuText"><span>Log Out</span></div>
