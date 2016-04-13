@@ -46,6 +46,14 @@ export class EditNumberComponent  {
         }
     }
     
+    deleteNumber(){
+        var res = true;
+        this.selectedPhoneNumber.forEach(phoneNumber => {
+            res = res && this._accountService.unlinkAccount(phoneNumber);
+        });
+        this.modalSuccess = res;
+    }
+    
     close(){
         this.modalSuccess = false;
         this._router.navigate(['ManageNumber']);

@@ -24,7 +24,7 @@
         </div>-->
         <div class="itemFooterContainer">
             <div class="buttonContainer">
-                <div class="button green">Remove</div>
+                <div class="button green" (click)="deleteNumber()">Remove</div>
                 <div class="button" [ngClass]="{red : editNumber.edit}" (click)="doEditNumber()">Update</div>
             </div>
         </div>

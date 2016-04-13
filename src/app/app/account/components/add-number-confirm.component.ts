@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import { Router } from 'angular2/router';
+import { Router, RouteParams } from 'angular2/router';
 import {MatchMediaService} from '../../shared/services/match-media.service';
 import {LayoutService} from '../../shared/services/layout.service';
 import {AccountService} from '../../shared/services/account.service';
@@ -29,10 +29,11 @@ export class AddNumberConfirmComponent  {
 	constructor (private _router: Router,
 		private _matchMediaService: MatchMediaService,
 		private _layoutService: LayoutService,
-        private _accountService: AccountService) {
+        private _accountService: AccountService,
+        params: RouteParams) {
 		
 		this._layoutService.setCurrentPage('AddNumberConfirm');
-        
+        this.mobileNumber = params.get('mobileNumber');
 	}
 	
 	getResize(){
@@ -46,7 +47,7 @@ export class AddNumberConfirmComponent  {
     }
     
     AddNumber(){
-        this.modalSuccess = true;
+        this.modalSuccess = this._accountService.linkAccount(this.mobileNumber);
     }
     
     close(){
