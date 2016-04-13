@@ -633,10 +633,6 @@ $smallheight: 48px;
                         margin-right: 15px;
                         cursor: pointer;
                         
-                        .shorter{
-                            width: 95px;
-                        }
-                        
                         .cart{
                             width:40px;
                             height:40px;
@@ -722,11 +718,46 @@ $smallheight: 48px;
                             background-size: 15px;
 
                         }
+                        
+                        .overview {
+                            
+                            float: left; 
+                            height: 40px;
+                            width: 30px;
+                            cursor: pointer;
+                            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNTk5OTk5OTk5OTk5OTksMS41OTk5OTk5OTk5OTk5OSkgc2NhbGUoNy45LDcuOSkgICIgZmlsbD0iI0ZGRkZGRiIgZD0iTTI0LDI0TDMyLDI0IDMyLDMyIDI0LDMyeiBNMTIsMjRMMjAsMjQgMjAsMzIgMTIsMzJ6IE0wLDI0TDgsMjQgOCwzMiAwLDMyeiBNMjQsMTJMMzIsMTIgMzIsMjAgMjQsMjB6IE0xMiwxMkwyMCwxMiAyMCwyMCAxMiwyMHogTTAsMTJMOCwxMiA4LDIwIDAsMjB6IE0yNCwwTDMyLDAgMzIsOCAyNCw4eiBNMTIsMEwyMCwwIDIwLDggMTIsOHogTTAsMEw4LDAgOCw4IDAsOHoiIC8+DQogIDwvZz4NCjwvc3ZnPg==") no-repeat;
+                            background-position: center center;
+                            background-size: 15px;
+
+                        }
+                        
+                        .billing {
+                            
+                            float: left; 
+                            height: 40px;
+                            width: 30px;
+                            cursor: pointer;
+                            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDMxLjk5OTk5MjM3MDYwNTUsMCkgc2NhbGUoOCw4KSAgIiBmaWxsPSIjRkZGRkZGIiBkPSJNNS45OTk5OTcxLDE5Ljk5OTk3MUwxMi45OTk5OTcsMTkuOTk5OTcxQzEzLjU1MTk5OSwxOS45OTk5NzEgMTMuOTk5OTk3LDIwLjQ0ODAzIDEzLjk5OTk5NywyMC45OTk5NzEgMTMuOTk5OTk3LDIxLjU1MTk3MyAxMy41NTE5OTksMjEuOTk5OTcxIDEyLjk5OTk5NywyMS45OTk5NzFMNS45OTk5OTcxLDIxLjk5OTk3MUM1LjQ0ODAwMjgsMjEuOTk5OTcxIDQuOTk5OTk3MSwyMS41NTE5NzMgNC45OTk5OTcxLDIwLjk5OTk3MSA0Ljk5OTk5NzEsMjAuNDQ4MDMgNS40NDgwMDI4LDE5Ljk5OTk3MSA1Ljk5OTk5NzEsMTkuOTk5OTcxeiBNNiwxNkwxNSwxNkMxNS41NTIsMTYgMTYsMTYuNDQ4IDE2LDE3IDE2LDE3LjU1MiAxNS41NTIsMTggMTUsMThMNiwxOEM1LjQ0ODAwMDEsMTggNS4wMDAwMDAxLDE3LjU1MiA1LDE3IDUuMDAwMDAwMSwxNi40NDggNS40NDgwMDAxLDE2IDYsMTZ6IE02LDEyTDE4LDEyQzE4LjU1MiwxMiAxOSwxMi40NDggMTksMTMgMTksMTMuNTUyIDE4LjU1MiwxNCAxOCwxNEw2LDE0QzUuNDQ4MDAwMSwxNCA1LjAwMDAwMDEsMTMuNTUyIDUsMTMgNS4wMDAwMDAxLDEyLjQ0OCA1LjQ0ODAwMDEsMTIgNiwxMnogTTE3LDMuNDEzOTk5NkwxNyw3LjAzMTk5MSAyMC42MTc5OTEsNy4wMzE5OTF6IE0yLDJMMiwzMCAyMi4wMDAwMDEsMzAgMjIuMDAwMDAxLDkuMDMxOTg5MSAxNSw5LjAzMTk4OTEgMTUsMnogTTIsMEwxNi40MTQwMDEsMCAyNC4wMDAwMDEsNy41ODYwMDA0IDI0LjAwMDAwMSwzMEMyNC4wMDAwMDEsMzEuMTAzMDAxLDIzLjEwMywzMiwyMi4wMDAwMDEsMzJMMiwzMkMwLjg5Njk5OTg0LDMyLDAsMzEuMTAzMDAxLDAsMzBMMCwyQzAsMC44OTY5OTkzNiwwLjg5Njk5OTg0LDAsMiwweiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                            background-position: center center;
+                            background-size: 15px;
+
+                        }
+                        
+                        .help {
+                            
+                            float: left; 
+                            height: 40px;
+                            width: 30px;
+                            cursor: pointer;
+                            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiPg0KICA8Zz4NCiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDEuNTk5OTk5OTk5OTk5OTksMS41OTk5OTk5OTk5OTk5OSkgc2NhbGUoNy45LDcuOSkgICIgZmlsbD0iI0ZGRkZGRiIgZD0iTTE0LjU4MDAwMiwyMy4zOTQwMTJMMTQuNTgwMDAyLDI2LjIzNTAwMSAxNy4xODM5OSwyNi4yMzUwMDEgMTcuMTgzOTksMjMuMzk0MDEyeiBNMTYuMTE3OTk2LDUuNzY2MDA2NUMxNC41Mzk5OTMsNS43NjYwMDY1IDEzLjI3ODk5Miw2LjIzOTAxMzcgMTIuMzMyOTkzLDcuMTg4MDAzNSAxMC45OTE5ODksOC41MjUwMDkyIDEwLjMyMDk5OSwxMC4yMjMwMDcgMTAuMzIwOTk5LDEyLjI3MzAxTDEzLjA0Mzk5MSwxMi4yNzMwMUMxMy4wNDM5OTEsMTAuNjk1MDA3IDEzLjQzNzk4OCw5LjUxMzAwMDUgMTQuMjI2OTksOC43MjMwMDcyIDE0LjY5Nzk5OCw4LjI1IDE1LjI4OTAwMSw4LjAxMzAwMDUgMTYsOC4wMTMwMDA1IDE2Ljg2Nzk5Niw4LjAxMzAwMDUgMTcuNTM3MDAzLDguMjUgMTguMDA5OTk1LDguNzIzMDA3MiAxOC41NjE5OTYsOS4yNzUwMDkyIDE4LjgzODk4OSwxMC4xMDYwMDMgMTguODM4OTg5LDExLjIwNzAwMSAxOC44Mzg5ODksMTIuMDc3MDExIDE4LjUyMjk5NSwxMi44MjcwMTEgMTcuODkyOTksMTMuNDU1MDAyIDE2Ljc4OTAwMSwxNC41NjEwMDUgMTYuMDM5MDAxLDE1LjQyOTAwMSAxNS42NDQ5ODksMTYuMDYxMDA1IDE1LjA5MDk4OCwxNi45MjYwMSAxNC44MTcwMDEsMTguMjI4MDEyIDE0LjgxNzAwMSwxOS45NjQwMDVMMTYuOTQ3OTk4LDE5Ljk2NDAwNUMxNi45NDc5OTgsMTguNTQ1MDEzIDE3LjMwMjAwMiwxNy40NzgwMTIgMTguMDA5OTk1LDE2Ljc2NzAxNCAxOC45NTU5OTQsMTUuODI0MDA1IDE5LjcwNTk5NCwxNS4wNzQwMDUgMjAuMjU5OTk1LDE0LjUyMjAwMyAyMS4yMDUwMDIsMTMuNTc0MDA1IDIxLjY3OTAwMSwxMi40MzIwMDcgMjEuNjc5MDAxLDExLjA5MDAxMiAyMS42NzkwMDEsOS41MTMwMDA1IDIxLjE2Niw4LjIxMDk5ODUgMjAuMTQyOTksNy4xODgwMDM1IDE5LjE5NDk5Miw2LjIzOTAxMzcgMTcuODUzOTg5LDUuNzY2MDA2NSAxNi4xMTc5OTYsNS43NjYwMDY1eiBNMTYsMEMyNC44MTk5OTIsMCAzMiw3LjE3ODAwOSAzMiwxNi4wMDEwMDcgMzIsMjQuODIyMDA2IDI0LjgxOTk5MiwzMiAxNiwzMiA3LjE3NTk5NDksMzIgMCwyNC44MjIwMDYgMCwxNi4wMDEwMDcgMCw3LjE3ODAwOSA3LjE3NTk5NDksMCAxNiwweiIgLz4NCiAgPC9nPg0KPC9zdmc+") no-repeat;
+                            background-position: center center;
+                            background-size: 15px;
+
+                        }
                             
                         .menuText{
                             float: left; 
                             color: #FFF;
-                            width: 80px;
                             height: 40px;
                             line-height: 40px;
                             
@@ -734,10 +765,6 @@ $smallheight: 48px;
                                 display: inline-block;
                                 vertical-align: middle;
                                 line-height: normal;  
-                            }
-                            
-                            &.shorter{
-                                width: 65px;
                             }
                             
                             &.selected {
