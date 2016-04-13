@@ -73,7 +73,7 @@ declare var FastClick: FastClickStatic;
 		useAsDefault: true
     },
     {
-        path: 'main/...',
+        path: '/main/../...',
         name: 'MainPage',
         component: MainPageComponent
     }
