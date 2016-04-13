@@ -55,11 +55,12 @@ app.use(cookieParser());
 app.use(function (req, res, next) {
     //res.header("Access-Control-Allow-Origin", "*"); // doesn't work when using cookie
     let allow;
-    console.log('hostname: ' + req.hostname);
-    if (req.hostname == 'localhost') {
+    let origin = req.get('origin');
+    console.log('origin: ' + req.get('origin'));
+    if (origin == 'http://localhost:3000') {
         allow = 'http://localhost:3000';
     }
-    else if (req.hostname == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
+    else if (origin == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
         allow = 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com';
     }
     if (allow) {
