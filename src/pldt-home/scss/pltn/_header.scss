@@ -323,43 +323,9 @@ $smallheight: 48px;
 	z-index: 100;
 	top: 0px;
 	width: 100%;
-        
-    .search{
-        position: fixed;
-        right: calc((100% - 1020px)/2);
-        width: q500px;
-        height: 30px;
-        float: right;
-        margin: 5px 20px 20px 0;
-        background-color: rgba(255,255,255,0.9);
-        transition: left 0.15s, width 0.15s;
-        border: none;
-        padding-left: 10px;
-        
-        &.headeranimate{
-            z-index: 200;
-            top: 5px;
-            right : 10px;
-            border : 1px solid black;
-            color: black;
-        }
-        
-        &:hover{
-            width: 200px;
-            transition: left 0.3s, width 0.3s;
-        }
-        
-        &:focus{
-            width: 200px;
-            transition: left 0.3s, width 0.3s;
-        } 
-        
-        
-    }
-
-
+    
 	.main{
-		width: 1020px;
+		width: calc(100% - 20px);
 		height: $mainheigt;
 		-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
 		-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
@@ -367,10 +333,12 @@ $smallheight: 48px;
 		background-color: #FFF;
 		margin-left: auto;
 		margin-right: auto;
-		position: absolute;
-		top: 45px;// margin-top: 60px;
-		left: calc((100% - 1020px)/2);
 		transition: left 0.15s, width 0.15s;
+        padding-left: 20px;
+		top: 0;
+		left: 0;
+		position: fixed;
+        z-index: 100;
 
 		&.headeranimate{
 			width: calc(100% - 20px);
@@ -383,18 +351,60 @@ $smallheight: 48px;
 
 		}
         
+        
+        
 		.box{
             
-			width: 1020px;
+			width: 100%;
 			height: $mainheigt;
 			//margin-left: auto;
 			//margin-right: auto;
              font-size: 15px;
              
+             .leftMenu{
+                 float:left;
+                 //position:fixed;
+                 //left:5%;
+                 width:50px;
+                 height:50px;
+                 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4gIDxnPiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMjQuMDAwMDEyMzk3NzY0Nikgc2NhbGUoNy45OTk5OTkwNDYzMjU4LDcuOTk5OTk5MDQ2MzI1OCkgICIgZmlsbD0iI0MwMDAwMCIgZD0iTTIuMzg0MTg2RS0wNiwyNEwzMi4wMDAwMDQsMjQgMzIuMDAwMDA0LDI2IDIuMzg0MTg2RS0wNiwyNnogTTAsMTEuOTk5OTk4TDMyLDExLjk5OTk5OCAzMiwxMy45OTk5OTggMCwxMy45OTk5OTh6IE0yLjM4NDE4NkUtMDYsMEwzMi4wMDAwMDQsMCAzMi4wMDAwMDQsMiAyLjM4NDE4NkUtMDYsMnoiIC8+ICA8L2c+PC9zdmc+) no-repeat;
+                 background-position: left center;
+                 background-size: 20px;
+             }
+             
+             .search{
+                //right: 70%;
+                float: right;
+                width: 50px;
+                height: 50px;
+                background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4gIDxnPiAgICA8cGF0aCBpZD0icGF0aDEiIHRyYW5zZm9ybT0icm90YXRlKDAsMTI4LDEyOCkgdHJhbnNsYXRlKDAsMC4xMjAwODY1NDU4ODk1NjMpIHNjYWxlKDcuOTk5OTkxNDE2NjM5NjIsNy45OTk5OTE0MTY2Mzk2MikgICIgZmlsbD0iI0MwMDAwMCIgZD0iTTEyLjgzMzA3Niw0LjU4ODk2MjVDOS4wNDIwNDU4LDQuNTg4OTYyNSA1Ljc1MDA0MDgsNy4xODE5NjUzIDUuMzUxMDUyNSwxMC42NzM5MTkgNC45NTIwNjQzLDE0LjM2NDkwNyA3Ljk0NTA1NjcsMTcuNzU2ODg2IDEyLjEzNDA5OCwxOC4wNTU4OTUgMTYuMzI0MTE3LDE4LjQ1NDg4IDIwLjAxNTEwOSwxNS43NjA4OTUgMjAuNDE0MDk4LDExLjk3MDkzOSAyMC44MTMxNDgsOC4yNzk5NTA1IDE3LjgyMTEzMiw0Ljg4Nzk3MTggMTMuNjMxMTEzLDQuNTg4OTYyNXogTTEyLjczMzA5OSw1LjczNDM2NDFFLTEwQzEzLjEzMjA4OCwtMi4wMTU4MjY4RS0wNyAxMy42MzExMTMsLTIuMDE1ODI2OEUtMDcgMTQuMDMwMTAyLDAuMTAwMDA1MjYgMjEuMDEzMDk5LDAuNjk3OTkzOCAyNi4xMDAxNTQsNi4yODQ5Njc0IDI1LjQwMjE1NCwxMi41Njg5MjcgMjUuMTAzMTQxLDE0Ljc2MzkyMiAyNC4yMDUxMjksMTYuNzU4OTA2IDIyLjgwODE1MSwxOC40NTQ4OEwzMS4yODgxNjMsMjcuNTMyODNDMzIuMzg1MTUyLDI4LjYyOTgzOSAzMi4xODUxNCwzMC40MjU4MTggMzAuODg5MTc1LDMxLjMyMjgxNyAyOS41OTIxNzIsMzIuMzIwNzk1IDI3LjY5NjE3LDMyLjEyMDgxOCAyNi41OTkxMTgsMzEuMDIzODA4TDE4LjAyMDEwNywyMS43NDY4NTNDMTYuMDI1MTA0LDIyLjU0NDg1MiAxMy44MzAwODksMjIuOTQzODY3IDExLjQzNjA5NywyMi43NDM4NTcgNC40NTMwMzg5LDIyLjE0NTg2OSAtMC42MzM5NTU3MiwxNi41NTk5MDEgMC4wNjQwNDUwMTksMTAuMjc0OTM0IDAuNzYyMDQ1NzMsNC4zODg5ODIyIDYuMzQ5MDQyMiwtMi4wMTU4MjY4RS0wNyAxMi43MzMwOTksNS43MzQzNjQxRS0xMHoiIC8+ICA8L2c+PC9zdmc+) no-repeat;
+                background-position: left center;
+                background-size: 20px;
+                
+                /*&.headeranimate{
+                    z-index: 200;
+                    top: 5px;
+                    right : 10px;
+                    border : 1px solid black;
+                    color: black;
+                }
+                
+                &:hover{
+                    width: 200px;
+                    transition: left 0.3s, width 0.3s;
+                }
+                
+                &:focus{
+                    width: 200px;
+                    transition: left 0.3s, width 0.3s;
+                } */
+   
+            }
+             
 			.logo{
                 //float: ;
                 position: fixed;
-                left: 50%;
+                left: 35%;
                 height: $mainheigt;
                 width: 130px;
                 display: block;
@@ -490,6 +500,61 @@ $smallheight: 48px;
 		}
 
 	}
+    
+    .sub{
+		width: 100%;
+		background-color: $lightgray;
+		position: absolute;
+		float:left;
+		top: $mainheigt;
+		//margin: 0 auto;
+		//box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
+
+		&.headeranimate{
+			position: fixed;
+			top: $mainheigt;
+            z-index: 90;
+		}
+
+		&::after{
+			clear: both;
+			content: " "; /* 1 */
+    		display: table; /* 2 */
+		}
+        
+        .searchbox{
+            position: fixed;
+            width: 97.5%;
+            padding-left:10px;
+            height: $mainheigt;
+            border-top-style: solid;
+            border-color: #9E0D14;
+            border-width: 2px 0px 0px 0px;
+            //margin: 10px 10px 10px 10px;
+            background-color: rgba(255,255,255,0.9);
+            transition: left 0.15s, width 0.15s;
+            
+            &.headeranimate{
+                z-index: 200;
+                top: 5px;
+                right : 10px;
+                border : 1px solid black;
+                color: black;
+            }
+            
+            /*&:hover{
+                width: 200px;
+                transition: left 0.3s, width 0.3s;
+            }
+            
+            &:focus{
+                width: 200px;
+                transition: left 0.3s, width 0.3s;
+            } */
+            
+            
+        }
+    }
 }
 
 .right-mySmart {

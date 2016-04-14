@@ -34,5 +34,13 @@ export class LayoutService {
     getLayout(){
 		return this.layoutState;
 	}
+    
+    toggleLeftMenu(){
+        this.layoutState.leftMenu = !this.layoutState.leftMenu;
+    }
+    
+    getLeftMenuState(){
+        return this.layoutState.leftMenu;
+    }
 
 }
