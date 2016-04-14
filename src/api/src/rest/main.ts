@@ -73,10 +73,12 @@ import {RewardController} from './controllers/reward.controller';
     app.use(function(req, res, next) {
         //res.header("Access-Control-Allow-Origin", "*"); // doesn't work when using cookie
         let allow: string;
-        if (req.hostname == 'localhost') {
+        let origin: string = req.get('origin');
+        console.log('origin: ' + req.get('origin'));
+        if (origin == 'http://localhost:3000') {
             allow = 'http://localhost:3000';
         } 
-        else if (req.hostname == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
+        else if (origin == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
             allow = 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com';
         }
         if (allow) {
@@ -90,12 +92,13 @@ import {RewardController} from './controllers/reward.controller';
         //console.log("log cookies main : " + cookieParser.JSONCookies(req.cookies));
         console.log("request path : " + req.path);
         console.log("log app main : " + res.locals.jwt);
+        console.log('request method: ' + req.method);
         if(req.path === '/api/login'){
             if(req.cookies['mysmartSession']){
                 req.url = '/api/loginWithCookies';
                 console.log("url : " + req.url);
             }    
-        }else{
+        }else if (req.method !== 'OPTIONS') {
             if(req.cookies['accessToken']){ // if accessed from web
                 if(req.path === '/api/token/renew'){
                     //console.log("refresh token : " + cookieParser.JSONCookies(req.cookies).refreshToken);

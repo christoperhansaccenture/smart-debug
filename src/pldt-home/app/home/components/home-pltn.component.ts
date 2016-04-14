@@ -16,7 +16,7 @@ export class HomePltnComponent{
 
     constructor(private _router:Router,
     private _layoutService:LayoutService) {
-        this._layoutService.setCurrentPage('Home');
+        //this._layoutService.setCurrentPage('Home');
     }
     
     exploreText(){

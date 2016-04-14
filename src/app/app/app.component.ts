@@ -74,7 +74,7 @@ declare var configChannel: any;
 		useAsDefault: true
     },
     {
-        path: 'main/...',
+        path: '/main/../...',
         name: 'MainPage',
         component: MainPageComponent
     }
