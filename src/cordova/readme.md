@@ -3,7 +3,7 @@
 ## Installation
 
 1. Install [cordova](https://cordova.apache.org/) first
-2. Run `cordova platform add ios` or `cordova platform add android` on this folder
+2. Run `cordova prepare` on this folder
 
 ## Build
 
