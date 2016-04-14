@@ -32,6 +32,16 @@ export class SmartIntegrationService {
 
     }
 
+    getMostPopularCatalogs() {
+        let min = localStorage.getItem('mobileNo');
+        let brands = JSON.parse(localStorage.getItem('brands'));
+        console.log('get catalog brands: ' + JSON.stringify(brands));
+
+        let url = this.serviceBase + '/catalog/popular?brands=' + brands.join(',');
+
+        return this._http.get(url);
+    }
+
 
     getCatalogs() {
         let min = localStorage.getItem('mobileNo');

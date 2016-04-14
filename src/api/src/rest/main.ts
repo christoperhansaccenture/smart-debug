@@ -160,6 +160,7 @@ import {RewardController} from './controllers/reward.controller';
     //reward and redeem related services
     router.post('/redeem',rewardCtrl.redeemAnItem);
     router.get('/catalog',rewardCtrl.getListOfRedeemableItems);
+    router.get('/catalog/popular',rewardCtrl.getMostPopularItems);
     router.get('/catalog/refresh',rewardCtrl.refreshCatalog);
     router.get('/favourites',rewardCtrl.getFavorites);
     router.post('/transfer',rewardCtrl.transferpoints);

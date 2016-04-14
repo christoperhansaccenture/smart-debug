@@ -109,10 +109,12 @@ class RewardController {
 
                     }
                    */
-                    if (resultJson[i].catCategory === "15") {
-                        item.categories.push("Most Popular");
-                    }
-                    else if (resultJson[i].catCategory === "19") {
+                    /*
+                      if(resultJson[i].catCategory === "15" ){
+                          item.categories.push("Most Popular");
+                      }
+                     */
+                    if (resultJson[i].catCategory === "19") {
                         item.categories.push("Deals");
                     }
                     else if (resultJson[i].catCategory === "20") {
@@ -142,30 +144,6 @@ class RewardController {
             }, err => {
                 console.log('error');
             });
-            /*
-            var token:string = req.get("Authorization");
-            token = token.replace('Bearer ','');
-            
-            
-            var nJwt = require('njwt');
-            try{
-                var jwt = nJwt.verify(token,config.signingKey);
-            }catch(e){
-                res.sendStatus(403);
-            }
-
-            const ssoService:SSO.sso = new SSO.sso();
-
-            try {
-                var result =  await ssoService.getListOfRedeemableItems(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
-                console.log(result);
-                
-                res.json(JSON.parse(result));
-            }
-            catch (err) {
-                console.log(err);
-            }
-            */
         });
     }
     refreshCatalog(req, res) {
@@ -436,6 +414,9 @@ class RewardController {
                                     status: 200,
                                     productCode: data[i].catalog.code
                                 });
+                                // increment most popular
+                                //console.log('catalog: ' + data[i].catalog);
+                                client.zincrby(['mostpopular', data[i].catalog.quantity, data[i].catalog.catProductNo]);
                             }
                             else {
                                 resultArray.push(errorCheckRes);
@@ -567,6 +548,51 @@ class RewardController {
             catch (err) {
                 console.log(err);
             }
+        });
+    }
+    getMostPopularItems(req, res) {
+        return __awaiter(this, void 0, Promise, function* () {
+            var jwt = res.locals.jwt;
+            console.log(jwt);
+            const ssoService = new sso_service_1.SSO.sso();
+            /*
+            let brandMap: { [id: string] : string; } = {};
+            brandMap['Postpaid'] = 'GOLD';
+            brandMap['Prepaid'] = 'BUDDY';
+            brandMap['BroPostpaid'] = 'PLUGIT';
+            brandMap['BroPostpaidShareIt'] = 'SHAREIT';
+            brandMap['BroPrepaid'] = 'SPBRO';
+            brandMap['PostpaidServiceUnit'] = 'SU';
+            brandMap['Infinity'] = 'INFINITY';
+            brandMap['TalkNText'] = 'TNT';
+           */
+            console.log('request: ' + req.query.brands);
+            console.log('redis_url: ' + process.env.REDIS_URL);
+            let client = redis.createClient(process.env.REDIS_URL);
+            console.log('after redis_url');
+            let promise = new Promise((resolve, reject) => {
+                let brands = req.query.brands.split(',');
+                let keys = brands.map(brand => 'catalogItems:' + brand);
+                client.sunion(keys, (err, ids) => {
+                    if (!err) {
+                        client.get('catalogs:all', (err, catalogString) => {
+                            let catalogs = JSON.parse(catalogString);
+                            client.zrevrange(['mostpopular', 1, -1], (err, list) => {
+                                list = catalogs.data.filter(catalog => list.indexOf(catalog.catProductNo) > -1).map(e => e.catProductNo);
+                                resolve(list);
+                            });
+                        });
+                    }
+                    else {
+                        reject(err);
+                    }
+                });
+            });
+            promise.then(result => {
+                res.json(result);
+            }, err => {
+                console.log('error');
+            });
         });
     }
 }

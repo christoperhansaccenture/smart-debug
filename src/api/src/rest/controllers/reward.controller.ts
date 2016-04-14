@@ -13,6 +13,7 @@ var config = require('../config/config');
     export interface rewardInterface {
         redeemAnItem():Promise<string>;
         getListOfRedeemableItems():Promise<string>;
+        getMostPopularItems():Promise<string>;
         refreshCatalog():Promise<void>;
         getFavorites():Promise<string>;
         transferpoints():Promise<string>;
@@ -132,10 +133,12 @@ var config = require('../config/config');
                             }
                            */
 
+                          /*
                             if(resultJson[i].catCategory === "15" ){
                                 item.categories.push("Most Popular");
                             }
-                            else if(resultJson[i].catCategory === "19" ){
+                           */
+                            if(resultJson[i].catCategory === "19" ){
                                 item.categories.push("Deals");
                             }
                             else if(resultJson[i].catCategory === "20" ){
@@ -175,30 +178,6 @@ var config = require('../config/config');
                     }
                 );
                 
-                /*
-                var token:string = req.get("Authorization");
-                token = token.replace('Bearer ','');
-                
-                
-                var nJwt = require('njwt');  
-                try{
-                    var jwt = nJwt.verify(token,config.signingKey);
-                }catch(e){
-                    res.sendStatus(403);
-                }
-
-                const ssoService:SSO.sso = new SSO.sso();
-
-                try {  
-                    var result =  await ssoService.getListOfRedeemableItems(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
-                    console.log(result);
-                    
-                    res.json(JSON.parse(result));
-                }
-                catch (err) {
-                    console.log(err);
-                }
-                */
             }
 
             async refreshCatalog(req, res): Promise<void> {
@@ -513,7 +492,7 @@ var config = require('../config/config');
                                       });
                                       // increment most popular
                                       //console.log('catalog: ' + data[i].catalog);
-                                      //client.zincrby(['mostpopular', 1, data[i].catalog.catProductNo]);
+                                      client.zincrby(['mostpopular', data[i].catalog.quantity, data[i].catalog.catProductNo]);
                                   } else {
                                       resultArray.push(errorCheckRes);
                                   }
@@ -672,6 +651,55 @@ var config = require('../config/config');
                 catch (err) {
                     console.log(err);
                 }
+            }
+
+            async getMostPopularItems(req:string,res:string) : Promise<string> {
+                var jwt = res.locals.jwt;
+                
+                console.log(jwt);
+                const ssoService:SSO.sso = new SSO.sso();
+
+                /*
+                let brandMap: { [id: string] : string; } = {};
+                brandMap['Postpaid'] = 'GOLD';
+                brandMap['Prepaid'] = 'BUDDY';
+                brandMap['BroPostpaid'] = 'PLUGIT';
+                brandMap['BroPostpaidShareIt'] = 'SHAREIT';
+                brandMap['BroPrepaid'] = 'SPBRO';
+                brandMap['PostpaidServiceUnit'] = 'SU';
+                brandMap['Infinity'] = 'INFINITY';
+                brandMap['TalkNText'] = 'TNT';
+               */
+                console.log('request: ' + req.query.brands);
+
+                console.log('redis_url: ' + process.env.REDIS_URL);
+                let client = redis.createClient(process.env.REDIS_URL);
+                console.log('after redis_url');
+
+                let promise: Promise<string> = new Promise((resolve, reject) => {
+                    let brands = req.query.brands.split(',');
+                    let keys = brands.map(brand => 'catalogItems:' + brand);
+                    client.sunion(keys, (err, ids) => {
+                        if (!err) {
+                            client.get('catalogs:all', (err, catalogString) => {
+                                let catalogs = JSON.parse(catalogString);
+                                client.zrevrange(['mostpopular', 1, -1], (err, list) => {
+                                    list = catalogs.data.filter(catalog => list.indexOf(catalog.catProductNo) > -1).map(e => e.catProductNo);
+                                    resolve(list);
+                                });
+                            });
+                        } else {
+                            reject(err);
+                        }
+                    });
+                });
+                promise.then(
+                    result => {
+                        res.json(result);
+                    }, err => {
+                        console.log('error');
+                    }
+                );
             }
             
         }

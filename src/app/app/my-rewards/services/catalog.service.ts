@@ -9,6 +9,7 @@ export class CatalogService {
 
     selectedCatalog: Catalog;
     catalogs: Catalog[];
+    mostPopularCatalogs;
     filter = {
         name: "",
         categories: {
@@ -163,6 +164,46 @@ export class CatalogService {
 
          }
 
+    }
+
+    isMostPopularCatalogsLoaded() {
+        var catalogInStorage = sessionStorage.getItem('catalog');
+        var mostPopularCatalogInStorage = sessionStorage.getItem('mostpopular');
+        
+        return !(catalogInStorage === null || catalogInStorage === undefined) &&
+            !(mostPopularCatalogInStorage === null || mostPopularCatalogInStorage === undefined);
+    }
+
+    getMostPopularCatalogs(refresh: boolean = false) {
+        if(!this.isMostPopularCatalogsLoaded()) {
+            this._smartIntegrationService.getMostPopularCatalogs()
+                .subscribe(
+                    response => {
+                        this.mostPopularCatalogs = response;
+                        sessionStorage.setItem('mostpopular', JSON.stringify(response.json()));
+                        let result = [];
+                        this.mostPopularCatalogs.forEach(m => {
+                            this.catalogs.forEach(c => {
+                                if (m == c.id) {
+                                    result.push(c);
+                                }
+                            });
+                        });
+                        return result;
+                    }
+                );
+        } else {
+            this.mostPopularCatalogs = JSON.parse(sessionStorage.getItem('mostpopular'));
+            let result = [];
+            this.mostPopularCatalogs.forEach(m => {
+                this.catalogs.forEach(c => {
+                    if (m == c.id) {
+                        result.push(c);
+                    }
+                });
+            });
+            return result;
+        }
     }
 
     updateFavorite(catalog: Catalog) {
