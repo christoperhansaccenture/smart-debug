@@ -213,7 +213,18 @@ module.exports = function(grunt) {
                         dest:'../../debug/',
                         expand: true,
                     },
-                ] } 
+                ] } ,
+                
+            cordova: {
+                files: [              
+                    {
+                        cwd: '../../debug/',
+                        src:['**'],
+                        dest:'../cordova/www/',
+                        expand: true
+                    },
+                ] 
+            }
              
         },        
 
@@ -224,6 +235,7 @@ module.exports = function(grunt) {
         clean:{
             options: { force: true },
             debug: ["../../debug/", "!../../debug/node_modules/"],
+            cordova: ["../cordova/www/**"],
             sasscache: [".sass-cache/"]  
         },
 
@@ -288,6 +300,11 @@ module.exports = function(grunt) {
         'cssmin',
         //'uglify',
         'watch'
+        ]); 
+
+    grunt.registerTask('cordova',[      
+        'clean:cordova',
+        'copy:cordova'
         ]); 
 
 

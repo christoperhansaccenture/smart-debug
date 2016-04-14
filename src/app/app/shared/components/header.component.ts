@@ -189,11 +189,15 @@ export class HeaderComponent {
     
     goToMySmart(){
         this._router.navigate(['MainPage','MySmart']);
+        //this._router.parent.navigate(['MySmart']);
+        //this._router.navigate(['MySmart']);
         ga('send','event','Button clicked','MySmart','');
     }
     
     goToMyReward(){
         this._router.navigate(['MainPage','MyRewards']);
+        //this._router.parent.navigate(['MyRewards']);
+        //this._router.navigate(['MyRewards']);
         ga('send','event','Button clicked','MyRewards','');
     }
     

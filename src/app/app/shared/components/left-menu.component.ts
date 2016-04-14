@@ -25,7 +25,7 @@ export class LeftMenuComponent implements OnInit  {
     private _accountService: AccountService,
     private _authService: AuthService,
     private _catalogService: CatalogService){
-        this._accountService.getMobileNumberlistFromBackEnd(false);
+        //this._accountService.getMobileNumberlistFromBackEnd(false);
         let min = localStorage.getItem('mobileNo');
         this.selectedPhone = min;
         console.log("constructor " + min);
