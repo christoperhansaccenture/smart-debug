@@ -15,6 +15,7 @@ import { BannerComponent } from './shared/components/banner.component';
 import { ModalComponent } from './shared/components/modal.component';
 import {HeaderService} from './shared/services/header.service';
 import {ModalService} from './shared/services/modal.service';
+import {MatchMediaService} from './shared/services/match-media.service';
 import { FastClickStatic } from './shared/fastclick/fastclick.d';
 
 declare var FastClick: FastClickStatic;
@@ -26,7 +27,8 @@ declare var FastClick: FastClickStatic;
             <pldt-header-pltn></pldt-header-pltn>
             <my-modal></my-modal>
             <div id="maincontainer"
-            (window:scroll)="OnScroll()">
+            (window:scroll)="OnScroll()"
+            (window:resize)="OnResize()">
             <banner></banner>
             <div class="bodyContainer" [ngClass]="{hideAdv : isAdvHidden()}">
                 <router-outlet>
@@ -46,7 +48,8 @@ declare var FastClick: FastClickStatic;
         ROUTER_PROVIDERS,
         HeaderService,
         LayoutService,
-        ModalService
+        ModalService,
+        MatchMediaService
     ]
 })
 
@@ -94,11 +97,18 @@ export class AppComponent implements OnInit {
 
     constructor(private _router: Router,        
         private _headerService: HeaderService,
-        private _layoutService: LayoutService   ) {
+        private _layoutService: LayoutService,
+        private _matchMediaService: MatchMediaService  ) {
         new FastClick(document.body);
     }
 
-    ngOnInit() {
+    ngOnInit(){
+        this.OnResize();
+    }
+    
+    OnResize(){
+        this._matchMediaService.OnResize();
+        
     }
     
     isAdvHidden(){
@@ -108,5 +118,14 @@ export class AppComponent implements OnInit {
     OnScroll(){
         this._headerService.headerOnScroll();
     }
-
+    
+    isFullScreen() {
+         let currentPage: string = this._layoutService.getCurrentPage();
+         return !currentPage || currentPage === 'GetStarted' || currentPage === 'Login' ||
+         currentPage === 'Register';
+     }
+ 
+     isSmallScreen() {
+         return !this._matchMediaService.getmm().largeUp;
+     }
 }

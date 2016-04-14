@@ -2,6 +2,7 @@ import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { LayoutService } from '../services/layout.service';
 import { ModalService } from '../services/modal.service';
+import { MatchMediaService } from '../services/match-media.service';
 
 @Component({
     selector: 'pldt-header-pltn',
@@ -14,8 +15,9 @@ export class HeaderPltnComponent {
 
     constructor(private _router:Router,
     private _layoutService: LayoutService,
-    private _modalService: ModalService) {
-
+    private _modalService: ModalService,
+    private _matchMediaService:MatchMediaService) {
+        this._layoutService.setCurrentPage("home");
     }
     
     click(){
@@ -64,6 +66,15 @@ export class HeaderPltnComponent {
     
     openLoginModal(){
         this._modalService.toggleLoginModal();
+    }
+    
+    getLayout(){
+		return this._layoutService.getLayout();
+	}
+    
+    getResize(){
+        return this._matchMediaService.getmm();
+        
     }
 
 }
