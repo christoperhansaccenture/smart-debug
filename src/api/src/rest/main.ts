@@ -92,12 +92,13 @@ import {RewardController} from './controllers/reward.controller';
         //console.log("log cookies main : " + cookieParser.JSONCookies(req.cookies));
         console.log("request path : " + req.path);
         console.log("log app main : " + res.locals.jwt);
+        console.log('request method: ' + req.method);
         if(req.path === '/api/login'){
             if(req.cookies['mysmartSession']){
                 req.url = '/api/loginWithCookies';
                 console.log("url : " + req.url);
             }    
-        }else{
+        }else if (req.method !== 'OPTIONS') {
             if(req.cookies['accessToken']){ // if accessed from web
                 if(req.path === '/api/token/renew'){
                     //console.log("refresh token : " + cookieParser.JSONCookies(req.cookies).refreshToken);
