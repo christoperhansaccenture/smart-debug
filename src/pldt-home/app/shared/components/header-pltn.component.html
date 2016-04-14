@@ -1,4 +1,4 @@
-<div class="headerLarge">
+<div class="headerLarge" *ngIf="getResize().largeUp">
     <input class="search" placeholder="Search" id="hdrsearch" />
     <div class="main" id="hdrmain">
         <div class="box">
@@ -13,6 +13,69 @@
                 <ul>
                     <li class="account" (click)="openLoginModal()"><a>My PLDT</a></li>
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sub" [hidden]="!isShowSub" (mouseenter)="keepSubMenu()" (mouseleave)="hideSubMenu()" id="hdrsub">
+        <div *ngIf="(subMenu==='internet')">
+            <div class="itm" (click)="goToFibr()">
+                <a class="head">Fibr</a>
+            </div>
+            <div class="itm" (click)="goToDSL()">
+                <a class="head">DSL</a>
+            </div>
+            <div class="itm" (click)="goToUltera()">
+                <a class="head">Ultera 4G</a>
+            </div>
+            <div class="itm" (click)="goToCompare()">
+                <a class="head">Find the best plan for you</a>
+            </div>
+        </div>
+        <div *ngIf="subMenu==='phone'">
+            <div class="itm" (click)="goToBasicPhone()">
+                <a class="head">Basic Phone</a>
+            </div>
+            <div class="itm">
+                <a class="head">Wireless Home Phone</a>
+            </div>
+        </div>
+        <div *ngIf="subMenu==='movie'">
+            <div class="itm">
+                <a class="head">TV Channels</a>
+            </div>
+            <div class="itm">
+                <a class="head">Music</a>
+            </div>
+            <div class="itm">
+                <a class="head">Movie</a>
+            </div>
+        </div>
+        <div *ngIf="subMenu==='bundle'">
+            <div class="itm" (click)="goToBundleIvt()">
+                <a class="head">Internet, Voice & TV</a>
+            </div>
+            <div class="itm">
+                <a class="head">Internet, Voice, TV & Mobile</a>
+            </div>
+        </div>
+    </div>	
+</div>
+
+<div class="headerSmall" *ngIf="getLayout().appHeader && !getResize().largeUp">
+    <input class="search" placeholder="Search" id="hdrsearch" />
+    <div class="main" id="hdrmain">
+        <div class="box">
+            <div class="logo" (click)="goToHome()"></div>
+            <!--<ul>
+                <li class="internet" (mouseover)="showSubMenu('internet')" (mouseleave)="hideSubMenu()"><a>Internet</a></li>
+                <li class="phone" (mouseover)="showSubMenu('phone')" (mouseleave)="hideSubMenu()"><a>Home Phone</a></li>
+                <li class="tv" (mouseover)="showSubMenu('movie')" (mouseleave)="hideSubMenu()"><a>TV, Movie & Music</a></li>
+                <li class="bundle" (mouseover)="showSubMenu('bundle')" (mouseleave)="hideSubMenu()"><a>Bundle</a></li>
+            </ul>-->
+            <div class="right">
+                <!-- <ul>
+                    <li class="account" (click)="openLoginModal()"><a>My PLDT</a></li>
+                </ul> -->
             </div>
         </div>
     </div>
