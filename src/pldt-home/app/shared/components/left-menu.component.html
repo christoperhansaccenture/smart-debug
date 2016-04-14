@@ -1,0 +1,40 @@
+<div class="leftmenuContainer" [ngClass]="{active : getLeftMenuState()}" *ngIf="getLeftMenuState()">
+    <div class="menuHeader">
+        <div class="logo"></div>
+    </div>
+    <div class="menuItemBox">
+        <div class="itemCategory">
+            <div class="account">My PLDT</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="itemCategory">
+            <div class="internet">Internet</div>
+            <div class="arrow"></div>
+        </div>
+            <div class="itemMenu">
+                <div class="text">Fibr</div>
+            </div>
+            <div class="itemMenu">
+                <div class="text">DSL</div>
+            </div>
+            <div class="itemMenu">
+                <div class="text">Ultra 4G</div>
+            </div>
+            <div class="itemMenu" (click)="goToCompare()">
+                <div class="text">Find Best Plan</div>               
+            </div>
+        <div class="itemCategory">
+            <div class="phone">Home Phone</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="itemCategory">
+            <div class="tv">TV, Movie & Music</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="itemCategory">
+            <div class="bundle">Bundle</div>
+            <div class="arrow"></div>
+        </div>
+    </div>
+</div>
+<div class="leftmenuOther" *ngIf="getLeftMenuState()" (click)="toggleLeftMenu()"></div>

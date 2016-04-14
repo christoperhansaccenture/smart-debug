@@ -17,6 +17,7 @@ import {HeaderService} from './shared/services/header.service';
 import {ModalService} from './shared/services/modal.service';
 import {MatchMediaService} from './shared/services/match-media.service';
 import { FastClickStatic } from './shared/fastclick/fastclick.d';
+import {LeftMenuComponent} from './shared/components/left-menu.component'
 
 declare var FastClick: FastClickStatic;
 
@@ -25,6 +26,7 @@ declare var FastClick: FastClickStatic;
     template: ` 
         <div class="bodyDesignPltn">
             <pldt-header-pltn></pldt-header-pltn>
+            <left-menu></left-menu>
             <my-modal></my-modal>
             <div id="maincontainer"
             (window:scroll)="OnScroll()"
@@ -42,7 +44,8 @@ declare var FastClick: FastClickStatic;
         HeaderPltnComponent,
         BannerComponent,
         ModalComponent,
-        FooterComponent
+        FooterComponent,
+        LeftMenuComponent
     ],
     providers: [
         ROUTER_PROVIDERS,

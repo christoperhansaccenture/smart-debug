@@ -1,6 +1,7 @@
 {
     "config": {
         "baseUrl": "https://salty-fjord-81743.herokuapp.com/api",
-        "baseImageUrl": "http://staging.smart.com.ph/in-resources"
+        "baseImageUrl": "http://staging.smart.com.ph/in-resources",
+        "timeout": "15000"
     }
 }

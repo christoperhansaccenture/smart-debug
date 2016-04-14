@@ -76,5 +76,14 @@ export class HeaderPltnComponent {
         return this._matchMediaService.getmm();
         
     }
+    
+    toogleLeftMenu(){
+        this._layoutService.toggleLeftMenu();
+    }
+    
+    toogleSubMenu(menu:string){
+        this.subMenu = menu;
+        this.isShowSub = !this.isShowSub; 
+    }
 
 }

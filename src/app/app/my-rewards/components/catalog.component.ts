@@ -36,6 +36,8 @@ export class CatalogComponent  {
         private _catalogService: CatalogService,
         private _accountService: AccountService) {
 		
+        this._accountService.getMobileNumberlist();
+        //this._catalogService.loadAllCatalogs();
 		this._layoutService.setCurrentPage('Catalog');
 	}
     

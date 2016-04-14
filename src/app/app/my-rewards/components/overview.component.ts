@@ -41,9 +41,9 @@ export class OverviewComponent  {
         private _activityHistoryService: ActivityHistoryService) {
 		
 		this._layoutService.setCurrentPage('MyRewards');
+        this._accountService.getMobileNumberlist();
         this._catalogService.loadAllCatalogs();
         this._activityHistoryService.loadAllActivity();
-        this._accountService.getMobileNumberlistFromBackEnd(false);
 		
 	}
     

@@ -88,7 +88,11 @@ export class AccountService {
     
     getUserProfile(){
         
-        var userProfileInStorage = localStorage.getItem('userProfile');
+        if(this.userProfile !== null && this.userProfile !== undefined){
+            return this.userProfile;
+        }
+        
+        var userProfileInStorage = sessionStorage.getItem('userProfile');
         
         if(userProfileInStorage === null || userProfileInStorage === undefined ){
         }else{
@@ -264,7 +268,7 @@ export class AccountService {
                     error =>{
                         console.log('not authorize?');
                         this.spinnerAccount = false;
-                        reject();
+                        reject(error);
                     }
                 );
             });

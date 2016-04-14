@@ -22,6 +22,7 @@ import {ModalComponent} from './shared/components/modal.component';
 import {CartService} from './shared/services/cart.service';
 import {DesktopLeftMenuService} from './shared/services/desktop-left-menu.service';
 declare var FastClick: FastClickStatic;
+declare var configChannel: any;
 
 @Component({
     selector: 'smart-app',
@@ -90,8 +91,13 @@ export class AppComponent implements OnInit {
 
     ngOnInit(){
         this.OnResize();
-        this._router.navigate(['Starter', 'Login']);
+        
+        if(configChannel === 'app'){
+            this._router.navigate(['Starter', 'Login']);
+        }
+
     }
+    
     
     OnResize(){
         this._matchMediaService.OnResize();

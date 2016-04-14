@@ -6,11 +6,10 @@ import {Http, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions, BrowserXhr} fr
 import {Headers, XHRBackend} from "angular2/http";
 import {ROUTER_PROVIDERS, APP_BASE_HREF, LocationStrategy, Router, HashLocationStrategy} from 'angular2/router';
 import {MyHttp} from './shared/services/my-http.service';
-
+import 'rxjs/Rx';
 
 declare var configChannel: any;
 declare var configAppType: any;
-
 
 class MyOptions extends BaseRequestOptions {
     
@@ -42,7 +41,7 @@ bootstrap(AppComponent,[
 	ROUTER_PROVIDERS,
 	provide(LocationStrategy, { useClass: HashLocationStrategy }),
     ROUTER_PROVIDERS,
-	provide(APP_BASE_HREF, { useValue: getPath() }),
+    provide(APP_BASE_HREF, { useValue: getPath() }),
 	HTTP_PROVIDERS, 
     provide(Http, {
         useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, _router: Router) => {
@@ -58,6 +57,11 @@ function getPath(){
 	console.log(window.location.href);
 	var str = window.location.href;
 	var res = str.replace("index.html", "");
+    
+    if(configChannel === 'web'){
+        res = '/';
+    }
+    
 	console.log(res);
 	return res;
 }

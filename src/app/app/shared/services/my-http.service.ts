@@ -7,7 +7,8 @@ declare var configChannel: any;
 
 @Injectable()
 export class MyHttp {
-    serviceBase: string;		 
+    serviceBase: string;
+    timeout: number;		 
 
     constructor(private _http: Http,		
                 private _router: Router) {		
@@ -21,7 +22,8 @@ export class MyHttp {
                                    })		
                                    .subscribe(file => {		
                                        let config = file.json().config;		
-                                       this.serviceBase = config.baseUrl;		
+                                       this.serviceBase = config.baseUrl;	
+                                       this.timeout = Number(config.timeout);	
                                    });		
     }
 
@@ -71,6 +73,7 @@ export class MyHttp {
         }
         return Observable.create((observer) => {
             this._http.request(new Request(requestOptions))
+            .timeout(this.timeout,{status:408})
             .subscribe(
                 (res) => {
                     observer.next(res);
@@ -88,12 +91,14 @@ export class MyHttp {
                                 "refreshToken": refreshToken
                             };
                             this._http.post(url, JSON.stringify(data))
+                            .timeout(this.timeout,{status:408})
                             .subscribe(
                                 response => {
                                     localStorage.setItem('accessToken', response.json().accessToken);
                                     // do original call
                                     return Observable.create((observer) => {
                                         this._http.request(new Request(requestOptions))
+                                        .timeout(this.timeout,{status:408})
                                         .subscribe(
                                             (res) => {
                                                 console.log('retry success');
