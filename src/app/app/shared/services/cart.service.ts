@@ -133,7 +133,7 @@ export class CartService {
                     this._accountService.getMobileNumberlistFromBackEnd(true);
                   console.log('after get mobile number list');
                     this.items = {};
-                    this._router.navigate(['MyRewards']);
+                    this._router.navigate(['MainPage', 'MyRewards']);
                 },
                 error => {
                     console.log('error response: ' + JSON.stringify(error));
