@@ -33,6 +33,7 @@ export class ProfileComponent  {
     }
     
     getUserProfile(){
+        console.log(this._accountService.getUserProfile());
         return this._accountService.getUserProfile();
     }
 	

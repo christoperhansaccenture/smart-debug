@@ -24,6 +24,7 @@ if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|blackberry|Windows 
     configChannel = 'app';
     
 } else {
+
     
     configChannel = 'web';
     

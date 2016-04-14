@@ -169,7 +169,8 @@ export class AuthService {
         this._http.post(url, data, 
             <RequestOptionsArgs> {headers: new Headers(
                 {'Content-Type': 'application/x-www-form-urlencoded'})
-            }).subscribe(
+            })
+            .subscribe(
             response => {
                 
                 //localStorage.setItem('phoneNumber',userId);
@@ -192,19 +193,35 @@ export class AuthService {
                             this._router.navigate(['MainPage','MySmart']);  
                         }
                         this.isLoadingLogin = false;
+                    },
+                    
+                    reject => {
+                        
+                        if(reject.status === 408){
+                            this.errorMessageFlag = true;
+                            this.errorMessageText = 'network error, please try again';
+                        }
+                        
                     }
                 );
                 
             },
             error =>{
                 
-                //console.log(error.status);
-                console.log('wrong combination of phone no/email and password');
-                this.errorMessageFlag = true;
-                this.errorMessageText = 'wrong combination of phone no/email and password';
+                console.log(error);
+                
+                if(error.status === 408){
+                    this.errorMessageFlag = true;
+                    this.errorMessageText = 'network error, please try again';
+                }else{
+                    //console.log(error.status);
+                    console.log('wrong combination of phone no/email and password');
+                    this.errorMessageFlag = true;
+                    this.errorMessageText = 'wrong combination of phone no/email and password';
+                    //LoginComponentcheckErrorStatus=true;
+                    //this._loginComponent.errorMessageText='wrong combination of phone no/email and password';
+                }
                 this.isLoadingLogin = false;
-                //LoginComponentcheckErrorStatus=true;
-                //this._loginComponent.errorMessageText='wrong combination of phone no/email and password';
                 
             }
         );
