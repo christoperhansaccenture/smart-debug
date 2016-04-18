@@ -321,4 +321,19 @@ module.exports = function(grunt) {
         'ts'
     ]);
 
+    grunt.registerTask('build-stg',[      
+        'clean:debug',
+        'copy:dependencies',
+        'copy:resources',
+        'copy:html',
+        'copy:css',
+        'ts',
+        'copy:js',
+        //'concat',
+        'sass',
+        'clean:sasscache',
+        'jshint',
+        'cssmin'
+        //'uglify',
+        ]); 
 };
