@@ -290,7 +290,7 @@ class RewardController {
                 }
             }
             catch (err) {
-                res.sendStatus(500);
+                res.status(500).json({ message: 'Server error. Please try again later' });
                 console.log(err);
             }
         });
@@ -313,6 +313,7 @@ class RewardController {
                 res.json(JSON.parse(result));
             }
             catch (err) {
+                res.status(500).json({ message: 'Server error. Please try again later' });
                 console.log(err);
             }
         });
@@ -335,6 +336,7 @@ class RewardController {
                 res.json(JSON.parse(result));
             }
             catch (err) {
+                res.status(500).json({ message: 'Server error. Please try again later' });
                 console.log(err);
             }
         });

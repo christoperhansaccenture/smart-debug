@@ -154,6 +154,94 @@ export module ErrorHandlingService {
             return errors[response.errorcode];
             
         }
+        
+        genericErrorHandlingWithoutErrCode(response){
+            
+            /*
+            var errorJson = {
+                status: 0,
+                message : ''
+            }
+           */
+
+            let errors: { [id: string] : any; } = {};
+
+            errors['ERR_LAST_NAME_IS_MANDATORY'] = {
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_FIRST_NAME_IS_MANDATORY'] = {
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_MIDDLE_NAME_IS_MANDATORY'] = {
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_ADDRESS_IS_MANDATORY'] = {
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_PROVINCE_IS_MANDATORY'] = {
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_CITY_IS_MANDATORY'] = {
+                message: 'Please complete your profile first before proceeding with any transaction'
+            };
+            errors['ERR_OPERATION_NOT_ALLOWED'] = {
+                message: 'You are not allowed to do the requested transaction'
+            };
+            errors['ERR_OPERATION_FAILED'] = {
+                message: 'You are not allowed to do the requested transaction'
+            };
+            errors['ERR_OPERATION_FAILED'] = {
+                message: 'You are not allowed to do the requested transaction'
+            };
+
+            return errors[response.errorcode];
+            
+        }
+        
+        linkAccountErrorHandling(response){
+            console.log(JSON.parse(response).errorcode);
+            let result = this.genericErrorHandlingWithoutErrCode(JSON.parse(response));
+            
+            if (!result) {
+                let errors: { [id: string] : any; } = {};
+                errors['ERR_NOT_AUTHORIZED'] = {
+                    message : 'Not Authorized'
+                };
+                errors['ERR_NO_LOYALTY_ID'] = {
+                    message : 'Source Min is not existing'
+                };
+                errors['ERR_DUPLICATE_LINK_REQUEST'] = {
+                    message : 'Duplicate Link Request'
+                };
+                errors['ERR_NO_DATA_FOUND'] = {
+                    message : 'Mobile Number is not found in DB'
+                };
+                errors['ERR_LINK_REQUEST_SECONDARY_ALREADY_PRIMARY'] = {
+                    message : 'Mobile Number is already as primary'
+                };
+                errors['ERR_LINK_REQUEST_PRIMARY _ALREADY_SECONDARY'] = {
+                    message : 'Mobile Number is already as child'
+                };
+                result = errors[JSON.parse(response).errorcode];
+            }
+            console.log('Link Account Result :' + result);
+            return result;
+        }
+        
+        unlinkAccountErrorHandling(response){
+            console.log(JSON.parse(response).errorcode);
+            let result = this.genericErrorHandlingWithoutErrCode(JSON.parse(response));
+            
+            if (!result) {
+                let errors: { [id: string] : any; } = {};
+                errors['ERR_NO_DATA_FOUND'] = {
+                    message : 'Mobile Number is not found in DB'
+                };
+                result = errors[JSON.parse(response).errorcode];
+            }
+            console.log('Unlink Account Result :' + result);
+            return result;
+        }
 
         redeemAnItemErrorHandling(productCode, response){
             

@@ -341,7 +341,7 @@ var config = require('../config/config');
 
                 }
                 catch (err) {
-                    res.sendStatus(500);
+                    res.status(500).json({message:'Server error. Please try again later'});
                     console.log(err);
                 }
             }
@@ -368,6 +368,7 @@ var config = require('../config/config');
                     res.json(JSON.parse(result));
                 }
                 catch (err) {
+                    res.status(500).json({message:'Server error. Please try again later'});
                     console.log(err);
                 }
             }
@@ -394,6 +395,7 @@ var config = require('../config/config');
                     res.json(JSON.parse(result));
                 }
                 catch (err) {
+                    res.status(500).json({message:'Server error. Please try again later'});
                     console.log(err);
                 }
             }

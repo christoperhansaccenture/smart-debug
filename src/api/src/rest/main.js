@@ -114,9 +114,21 @@ const accountCtrl = new account_controller_1.AccountController();
 const rewardCtrl = new reward_controller_1.RewardController();
 // const minutesDAO:getMinutesToRaceDaoImpl = new getMinutesToRaceDaoImpl();
 // const SSO:SSO = new sso();
-// login related services
+//used in app and web
 router.post('/login', loginCtrl.postLogin);
 router.post('/token/renew', loginCtrl.renewToken);
+router.get('/catalog/popular', rewardCtrl.getMostPopularItems);
+router.get('/catalog', rewardCtrl.getListOfRedeemableItems);
+router.get('/activityHistory', accountCtrl.getActivityHistory);
+router.post('/customer/:min/redeem', rewardCtrl.redeemItems);
+router.put('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.favouriteItem);
+router.get('/mobileNoList/:min', accountCtrl.getListOfMobileNumber);
+router.get('/customerInformation/:min', accountCtrl.getCustomerInformation);
+router.put('/customerInformation/:min', accountCtrl.updateCustomerInformation);
+router.post('/transfer', rewardCtrl.transferpoints);
+router.post('/linkAccount', accountCtrl.linkAccount);
+router.post('/unlinkAccount', accountCtrl.unlinkAccount);
+// login related services
 router.post('/account', accountCtrl.register);
 router.get('/test', loginCtrl.testCookie);
 //router.post('/accountpassword/recover/:type/:account',accountCtrl.initializeRecoverPassword);
@@ -125,30 +137,19 @@ router.get('/test', loginCtrl.testCookie);
 router.get('/account', accountCtrl.getAccount);
 router.get('/rewardBalance', accountCtrl.getRewardBalance);
 router.get('/rewardExpiry', accountCtrl.getLatestRewardExpiry);
-router.get('/activityHistory', accountCtrl.getActivityHistory);
 router.post('/register', accountCtrl.register);
-router.get('/customerInformation/:min', accountCtrl.getCustomerInformation);
-router.put('/customerInformation/:min', accountCtrl.updateCustomerInformation);
 router.get('/LinkedAccounts', accountCtrl.getListOfLinkedAccounts);
-router.post('/linkAccount', accountCtrl.linkAccount);
-router.post('/unlinkAccount', accountCtrl.unlinkAccount);
 router.post('/rewardsNotification', accountCtrl.rewardsAlertNotification);
 router.get('/mobileList', accountCtrl.requestMobileNoList);
-router.get('/mobileNoList/:min', accountCtrl.getListOfMobileNumber);
 //reward and redeem related services
 router.post('/redeem', rewardCtrl.redeemAnItem);
-router.get('/catalog', rewardCtrl.getListOfRedeemableItems);
-router.get('/catalog/popular', rewardCtrl.getMostPopularItems);
 router.get('/catalog/refresh', rewardCtrl.refreshCatalog);
 router.get('/favourites', rewardCtrl.getFavorites);
-router.post('/transfer', rewardCtrl.transferpoints);
 //router.post('/markAsFavourite',rewardCtrl.favouriteItem);
 //router.post('/unmarkAsFavourite',rewardCtrl.removeFavouriteItem);
 router.get('/catalogDisplay', rewardCtrl.getCatalogDisplayPreferences);
 router.put('/payBill', rewardCtrl.payBillWithPoints);
-router.post('/customer/:min/redeem', rewardCtrl.redeemItems);
 router.get('/customer/:min/catalog', rewardCtrl.getCatalogById);
-router.put('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.favouriteItem);
 router.delete('/customer/:min/catalog/:catalogId/favorite', rewardCtrl.removeFavouriteItem);
 // router.get('/', async function (req, res) {
 //     // var minutes = minutesDAO.getMinutesToRace();

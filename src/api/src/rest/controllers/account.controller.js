@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const sso_service_1 = require('../services/sso.service');
+const error_handling_service_1 = require('../services/error-handling.service');
 var request = require('request');
 var config = require('../config/config');
 // export module Login {
@@ -81,6 +82,7 @@ class AccountController {
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 var result = yield ssoService.getActivityHistory(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(req.query));
+                console.log(result);
                 var resultJson = JSON.parse(result).data;
                 var finalResult = [];
                 for (var i = 0; i < resultJson.length; i++) {
@@ -161,7 +163,12 @@ class AccountController {
                             point = '0';
                         }
                         else {
-                            point = parameter[1];
+                            if (parameter[1] === '0' || parameter[1] === '0.0') {
+                                point = parameter[1];
+                            }
+                            else {
+                                point = '-' + parameter[1];
+                            }
                         }
                         if (parameter.length === 4) {
                             if (parameter[3] === '0') {
@@ -173,7 +180,7 @@ class AccountController {
                                 "desc": parameter[3] + ' item(s)',
                                 "date": date,
                                 "media": "Smart Reward App",
-                                "point": '-' + point
+                                "point": point
                             };
                         }
                         else {
@@ -185,7 +192,7 @@ class AccountController {
                                     "desc": parameter[4] + ' item(s)',
                                     "date": date,
                                     "media": "Smart Reward App",
-                                    "point": '-' + point
+                                    "point": point
                                 };
                             }
                             else {
@@ -195,7 +202,7 @@ class AccountController {
                                     "desc": parameter[4] + ' item(s) to ' + parameter[3],
                                     "date": date,
                                     "media": "Smart Reward App",
-                                    "point": '-' + point
+                                    "point": point
                                 };
                             }
                         }
@@ -303,7 +310,7 @@ class AccountController {
                         finalResult.push(item);
                     }
                 }
-                //console.log(result);
+                console.log(result);
                 // var resJson = JSON.parse(result);       
                 res.json(finalResult);
             }
@@ -523,11 +530,18 @@ class AccountController {
             var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
+            const errorHandlingService = new error_handling_service_1.ErrorHandlingService.ErrorHandlingService();
             try {
-                var result = yield ssoService.linkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
+                let result = yield ssoService.linkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
-                // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
+                let errorCheckRes;
+                errorCheckRes = errorHandlingService.linkAccountErrorHandling(result);
+                if (!errorCheckRes) {
+                    res.json({ message: 'success' });
+                }
+                else {
+                    res.status(400).json(errorCheckRes);
+                }
             }
             catch (err) {
                 console.log(err);
@@ -547,11 +561,19 @@ class AccountController {
             var jwt = res.locals.jwt;
             console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
+            const errorHandlingService = new error_handling_service_1.ErrorHandlingService.ErrorHandlingService();
             try {
-                var result = yield ssoService.unlinkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
+                let result = yield ssoService.unlinkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid, JSON.stringify(jsonBody));
                 console.log(result);
                 // var resJson = JSON.parse(result);       
-                res.json(JSON.parse(result));
+                let errorCheckRes;
+                errorCheckRes = errorHandlingService.unlinkAccountErrorHandling(result);
+                if (!errorCheckRes) {
+                    res.json({ message: 'success' });
+                }
+                else {
+                    res.status(400).json(errorCheckRes);
+                }
             }
             catch (err) {
                 console.log(err);

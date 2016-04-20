@@ -1,5 +1,7 @@
 'use strict';
 import { SSO } from '../services/sso.service';
+import { ErrorHandlingService } from '../services/error-handling.service';
+
 var request = require('request'); 
 var config = require('../config/config');
 
@@ -107,7 +109,7 @@ var config = require('../config/config');
 
                 try {  
                     var result =  await ssoService.getActivityHistory(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(req.query));
-                    
+                    console.log(result);
                     var resultJson = JSON.parse(result).data;
                     var finalResult = [];
                     
@@ -192,7 +194,14 @@ var config = require('../config/config');
                             if(parameter[1] === undefined || parameter[1] === null){
                                 point = '0';
                             }else{
-                                point = parameter[1];
+                                
+                                if(parameter[1] === '0' || parameter[1] === '0.0'){
+                                    point = parameter[1];
+                                }else{
+                                    point = '-' + parameter[1];
+                                }
+                                
+                                
                             }
                             
                             if(parameter.length === 4){
@@ -206,7 +215,7 @@ var config = require('../config/config');
                                     "desc": parameter[3] + ' item(s)',
                                     "date": date,
                                     "media": "Smart Reward App",
-                                    "point": '-' + point
+                                    "point": point
                                 };
                                 
                             }else{
@@ -220,7 +229,7 @@ var config = require('../config/config');
                                         "desc": parameter[4] + ' item(s)',
                                         "date": date,
                                         "media": "Smart Reward App",
-                                        "point": '-' + point
+                                        "point": point
                                     };
                                 }else{
                                     var item:any ={
@@ -229,7 +238,7 @@ var config = require('../config/config');
                                         "desc": parameter[4] + ' item(s) to ' + parameter[3],
                                         "date": date,
                                         "media": "Smart Reward App",
-                                        "point": '-' + point
+                                        "point": point
                                     };
                                 }
                                 
@@ -369,7 +378,7 @@ var config = require('../config/config');
                         }
                     }
                     
-                    //console.log(result);
+                    console.log(result);
                     // var resJson = JSON.parse(result);       
                     
                     res.json(finalResult);
@@ -648,13 +657,23 @@ var config = require('../config/config');
                 
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
+                const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
 
                 try {  
-                    var result =  await ssoService.linkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                    let result =  await ssoService.linkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
                     console.log(result);
+                    
+                    let errorCheckRes;
+                    errorCheckRes = errorHandlingService.linkAccountErrorHandling(result);
+                    
+                    if (!errorCheckRes) {
+                        res.json({message:'success'});    
+                    } else {
+                        res.status(400).json(errorCheckRes);
+                    }
                     // var resJson = JSON.parse(result);       
                     
-                    res.json(JSON.parse(result));
+                    
                 }
                 catch (err) {
                     console.log(err);
@@ -675,13 +694,23 @@ var config = require('../config/config');
                 
                 console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
+                const errorHandlingService:ErrorHandlingService.ErrorHandlingService = new ErrorHandlingService.ErrorHandlingService();
 
                 try {  
-                    var result =  await ssoService.unlinkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
+                    let result =  await ssoService.unlinkAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid,JSON.stringify(jsonBody));
                     console.log(result);
                     // var resJson = JSON.parse(result);       
                     
-                    res.json(JSON.parse(result));
+                    let errorCheckRes;
+                    errorCheckRes = errorHandlingService.unlinkAccountErrorHandling(result);
+                    
+                    if (!errorCheckRes) {
+                        res.json({message:'success'});    
+                    } else {
+                        res.status(400).json(errorCheckRes);
+                    }
+                    
+                    //res.json(JSON.parse(result));
                 }
                 catch (err) {
                     console.log(err);
