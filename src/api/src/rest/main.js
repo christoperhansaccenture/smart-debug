@@ -64,7 +64,7 @@ app.use(function (req, res, next) {
     //     allow = 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com';
     // }
     // if (allow) {
-        res.header("Access-Control-Allow-Origin", allow);
+        res.header("Access-Control-Allow-Origin", req.get('origin'));
     // }
     //res.header("Access-Control-Allow-Origin", "http://localhost:3000, http://smart-web.s3-website-ap-southeast-1.amazonaws.com");
     res.header("Access-Control-Allow-Credentials", "true");
