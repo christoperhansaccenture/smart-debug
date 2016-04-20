@@ -19,7 +19,7 @@ export class SmartIntegrationService {
     
     constructor (private _http: Http) {
         // get service base from config file
-        var url = 'services/api.json';
+        var url = '/services/api.json';
         this._http.get(url)
             .subscribe(file => {
                 let config = file.json().config;
