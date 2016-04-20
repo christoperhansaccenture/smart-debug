@@ -57,15 +57,15 @@ app.use(function (req, res, next) {
     let allow;
     let origin = req.get('origin');
     console.log('origin: ' + req.get('origin'));
-    if (origin == 'http://localhost:3000') {
-        allow = 'http://localhost:3000';
-    }
-    else if (origin == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
-        allow = 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com';
-    }
-    if (allow) {
+    // if (origin == 'http://localhost:3000') {
+    //     allow = 'http://localhost:3000';
+    // }
+    // else if (origin == 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com') {
+    //     allow = 'http://smart-web.s3-website-ap-southeast-1.amazonaws.com';
+    // }
+    // if (allow) {
         res.header("Access-Control-Allow-Origin", allow);
-    }
+    // }
     //res.header("Access-Control-Allow-Origin", "http://localhost:3000, http://smart-web.s3-website-ap-southeast-1.amazonaws.com");
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept,Authorization,Proxy-Authorization,X-session");
