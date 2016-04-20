@@ -13,8 +13,8 @@ declare var configChannel: any;
 @Injectable()
 export class SmartIntegrationService {
     
-    //serviceBase = 'https://powerful-beyond-41122.herokuapp.com/';
-    serviceBase: string;
+    serviceBase = 'https://smartdebug.herokuapp.com/api';
+    //serviceBase: string;
     imageUrlBase: string;
     
     constructor (private _http: Http) {
