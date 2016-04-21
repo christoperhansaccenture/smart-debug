@@ -18,14 +18,12 @@ class AccountController {
     getAccount(req, res) {
         return __awaiter(this, void 0, Promise, function* () {
             var jwt = res.locals.jwt;
-            console.log(jwt);
             const ssoService = new sso_service_1.SSO.sso();
             try {
                 var result = yield ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
                 res.json(JSON.parse(result));
             }
             catch (err) {
-                console.log(err);
             }
         });
     }

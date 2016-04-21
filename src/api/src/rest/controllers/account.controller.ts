@@ -20,7 +20,6 @@ var config = require('../config/config');
         requestMobileNoList():Promise<string>;
         
     }
-// export module Login {
     export class AccountController implements accountInterface{
         private ssoService:SSO.sso;
             constructor() {       
@@ -31,18 +30,15 @@ var config = require('../config/config');
                 
                 var jwt = res.locals.jwt;
 
-                console.log(jwt);
                 const ssoService:SSO.sso = new SSO.sso();
 
                 try {  
                     var result =  await ssoService.getAccount(jwt.body.accessToken, jwt.body.clientId, jwt.body.msaid);
                     console.log(result);
-                    // var resJson = JSON.parse(result);       
                     
                     res.json(JSON.parse(result));
                 }
                 catch (err) {
-                    console.log(err);
                 }
             }
             
